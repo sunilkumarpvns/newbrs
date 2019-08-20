@@ -1,0 +1,7 @@
+package com.brs.searchservice.service;
+
+import com.brs.searchservice.models.model.Response;
+
+public interface BusService {
+public Response searchBus(String source,String destination,String doj,String drj);
+}

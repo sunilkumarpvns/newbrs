@@ -1,0 +1,106 @@
+package com.brs.userservicemanagement.cfg;
+
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.event.ApplicationEventMulticaster;
+import org.springframework.context.event.SimpleApplicationEventMulticaster;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
+import org.springframework.web.client.RestTemplate;
+
+import com.brs.userservicemanagement.entity.LoginDetails;
+import com.brs.userservicemanagement.entity.PassengerProfile;
+import com.brs.userservicemanagement.entity.Roles;
+import com.brs.userservicemanagement.entity.UserAuthorization;
+import com.brs.userservicemanagement.entity.UserOtp;
+import com.brs.userservicemanagement.entity.UserPasswordLinks;
+
+
+@Configuration
+public class AppConfig {
+	@Autowired
+	private DataSource dataSource;
+	@Value("${spring.jpa.show-sql}")
+	private String show_sql;
+
+	
+	@Bean
+	public LocalSessionFactoryBean sessionFactoryBean() {
+		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
+		factoryBean.setDataSource(dataSource);
+		//factoryBean.setAnnotatedPackages("com.brs.userservicemanagement.entity");
+		factoryBean.setAnnotatedClasses(LoginDetails.class,UserAuthorization.class,Roles.class,UserPasswordLinks.class,PassengerProfile.class,UserOtp.class);
+		Properties props = new Properties();
+		props.setProperty("hibernate.show_sql", show_sql);
+		factoryBean.setHibernateProperties(props);
+		return factoryBean;
+	}
+	@Primary
+	@Bean
+    public FreeMarkerConfigurationFactoryBean getFreeMarkerConfiguration() {
+        FreeMarkerConfigurationFactoryBean bean = new FreeMarkerConfigurationFactoryBean();
+        bean.setTemplateLoaderPath("classpath:/");
+        bean.setPreferFileSystemAccess(false);
+        return bean;
+    }
+	@Bean
+	public RestTemplate restTemplate(){
+		RestTemplate restTemplate=new RestTemplate();
+		return restTemplate;
+	}
+	
+	/*@Bean(name = "applicationEventMulticaster")
+	public ApplicationEventMulticaster simpleApplicationEventMulticaster() {
+		SimpleApplicationEventMulticaster eventMulticaster = new SimpleApplicationEventMulticaster();
+
+		eventMulticaster.setTaskExecutor(threadPoolTaskExecutor());
+		return eventMulticaster;
+	}
+	
+    @Bean
+
+    public TaskExecutor threadPoolTaskExecutor() {
+
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+
+        executor.setCorePoolSize(4);
+
+        executor.setMaxPoolSize(4);
+
+        executor.setThreadNamePrefix("default_task_executor_thread");
+
+        executor.initialize();
+
+        return executor;
+
+    }*/
+	
+	
+	@Bean(name = "applicationEventMulticaster")
+	public ApplicationEventMulticaster simpleApplicationEventMulticaster() {
+		SimpleApplicationEventMulticaster eventMulticaster = new SimpleApplicationEventMulticaster();
+
+		eventMulticaster.setTaskExecutor(threadPoolTaskExecutor());
+		return eventMulticaster;
+	}
+	
+    @Bean
+
+    public TaskExecutor threadPoolTaskExecutor() {
+
+       SimpleAsyncTaskExecutor asyncTaskExecutor=new SimpleAsyncTaskExecutor();
+
+        return asyncTaskExecutor;
+
+    }
+}

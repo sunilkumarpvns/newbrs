@@ -1,0 +1,204 @@
+package com.brs.userservicemanagement.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.log4j.Logger;
+import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner.stdDSA;
+import org.hibernate.HibernateException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Base64Utils;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import com.brs.beans.common.LoginRQ;
+import com.brs.beans.common.LoginRS;
+import com.brs.beans.common.PassengerProfileRQ;
+import com.brs.beans.common.Response;
+import com.brs.beans.common.enums.ResponseEnum;
+import com.brs.userservicemanagement.dao.LoginDetailsDAO;
+import com.brs.userservicemanagement.dao.PassengerProfileDAO;
+import com.brs.userservicemanagement.dao.RolesDAO;
+import com.brs.userservicemanagement.dao.UserAuthorizationDAO;
+import com.brs.userservicemanagement.dao.UserOTPDAO;
+import com.brs.userservicemanagement.entity.LoginDetails;
+import com.brs.userservicemanagement.entity.PassengerProfile;
+import com.brs.userservicemanagement.entity.Roles;
+import com.brs.userservicemanagement.entity.UserAuthorization;
+import com.brs.userservicemanagement.entity.UserOtp;
+import com.brs.userservicemanagement.enums.RolesEnum;
+import com.brs.userservicemanagement.enums.StatusEnum;
+import com.brs.userservicemanagement.integration.BRSSmsService;
+import com.brs.userservicemanagement.util.OTPGeneratorUtil;
+import com.brs.userservicemanagement.util.TokenGeneratorUtil;
+import com.brs.userservicemanagement.validator.ValidationUtils;
+
+@Service
+public class UserServiceImpl implements UserService {
+private static final Logger logger=Logger.getLogger(UserServiceImpl.class);	
+	@Autowired
+	private LoginDetailsDAO loginDetailsDAO;
+	@Autowired
+	private UserAuthorizationDAO userAuthorizationDAO;
+	@Autowired
+	private PassengerProfileDAO passengerProfileDAO;
+	@Autowired
+	private UserOTPDAO userOTPDAO;
+	@Autowired
+	private BRSSmsService smsService;
+	@Autowired
+	private RolesDAO rolesDAO;
+	
+	@Override
+	public Response login(LoginRQ loginRQ) {
+	logger.info("Entered into login() : "+loginRQ.getUserName());
+		Response response = new Response();
+		response.setMsg("Login Failure!Please try again.");
+		response.setStatus(ResponseEnum.FAILURE.getValue());
+		LoginDetails loginDetails = new LoginDetails();
+		loginDetails.setMobile(loginRQ.getUserName());
+		loginDetails.setUserName(loginRQ.getUserName());
+		loginDetails.setEmail(loginRQ.getUserName());
+		loginDetails.setPassword(loginRQ.getPassword());
+		try{
+	loginDetails = loginDetailsDAO.login(loginDetails);
+		if (loginDetails != null && loginDetails.getUserId()!=null ) {
+			// check user account status
+			if (loginDetails.getStatus()==StatusEnum.STATUS_ACTIVE) {
+				// generate the token ,store token in db
+				String token = TokenGeneratorUtil.generateToken();
+				// save original token in db
+				UserAuthorization userAuth = new UserAuthorization();
+				userAuth.setToken(token);
+				userAuth.setIpAddress(loginRQ.getIpAddress());
+				userAuth.setSessionId(loginRQ.getSessionId());
+				userAuth.setStatusEnum(StatusEnum.STATUS_ACTIVE);
+				userAuth.setLoginDetails(loginDetails);
+				Integer userAuthId = userAuthorizationDAO.saveUserToken(userAuth);
+				// add loginRs into Response as a data
+				// check userRoles
+				List<Roles> roles = (List<Roles>) loginDetails.getUserRoles();
+				if (userAuthId != null && userAuthId > 0 && CollectionUtils.isNotEmpty(roles)) {
+					boolean isAuth = false;
+					String userRole = null;
+					Integer userRoleId = null;
+					for (Roles role : roles) {
+						if (loginRQ.getRole().equals(role.getRole())) {
+							isAuth = true;
+							userRole = role.getRole();
+							userRoleId = role.getRoleId();
+							break;
+						}
+					}
+					if (isAuth && userRole != null && userRoleId != null) {
+						LoginRS loginRS = new LoginRS();
+						loginRS.put("token", new String(Base64Utils.encode(token.getBytes())));
+						loginRS.put("userId", loginDetails.getUserId());
+						loginRS.put("userName", loginDetails.getUserName());
+						loginRS.put("email", loginDetails.getEmail());
+						loginRS.put("mobile", loginDetails.getMobile());
+						loginRS.put("status", loginDetails.getStatus().name());
+						loginRS.put("userRole", userRole);
+						loginRS.put("userRoleId", userRoleId);
+						response.setMsg("Login Success");
+						response.setStatus(ResponseEnum.SUCCESS.getValue());
+						response.setData(loginRS);
+					} else {
+						response.setMsg("Access Denied");
+						response.setStatus(ResponseEnum.FAILURE.getValue());
+					}
+				}
+			} else if (loginDetails.getStatus()==StatusEnum.STATUS_INACTIVE) {
+				// set message to response object
+				response.setMsg("Your account is not activated!please contact info@brs.com");
+				response.setStatus(ResponseEnum.FAILURE.getValue());
+			} else if (loginDetails.getStatus()==StatusEnum.STATUS_BLOCKED) {
+				// set message to response object
+				response.setMsg("Your account is blocked!please contact info@brs.com");
+				response.setStatus(ResponseEnum.FAILURE.getValue());
+			}
+		}
+		}catch(HibernateException he){
+		logger.error("Exception occured while login() : "+he);
+
+		response.setStatus(ResponseEnum.FAILURE.getValue());
+		response.setMsg("Unable to process your request!Please try again.");
+		}
+logger.info("Response from login() : "+response);		
+		return response;
+	}
+
+	@Override
+	public Response registerPassenger(PassengerProfileRQ passengerProfileRQ) {
+		Response response=new Response();
+		response.setMsg("Registration failure!please try again.");
+		response.setStatus(ResponseEnum.FAILURE.getValue());
+		try{
+		//create PassengerProfile 
+		LoginDetails loginDetails=new LoginDetails();
+		loginDetails.setUserName(passengerProfileRQ.getEmail());
+	    loginDetails.setMobile(passengerProfileRQ.getMobile());
+	    loginDetails.setEmail(passengerProfileRQ.getEmail());
+	    loginDetails.setPassword(passengerProfileRQ.getPassword());
+	    loginDetails.setStatus(StatusEnum.STATUS_INACTIVE);
+	      Integer roleId=rolesDAO.getRoleId(RolesEnum.PASSENGER.name()); 
+	    if(roleId!=null){
+	      Roles roles=new Roles();
+	     roles.setRoleId(roleId);//get from DB
+	     List<Roles> userRoles=new ArrayList<>();
+	       userRoles.add(roles);
+	       loginDetails.setUserRoles(userRoles);
+	       loginDetails.setCreatedBy(loginDetails.getUserId());
+	    PassengerProfile passengerProfile=new PassengerProfile();
+	    passengerProfile.setFirstName(passengerProfileRQ.getName());
+	    passengerProfile.setLastName(passengerProfileRQ.getName());
+	    passengerProfile.setDob(passengerProfileRQ.getDob());
+	    passengerProfile.setGender(passengerProfileRQ.getGender());
+	    passengerProfile.setCreatedBy(passengerProfile.getUserId());
+	    passengerProfile.setStatus(StatusEnum.STATUS_ACTIVE);
+	    passengerProfile.setLoginDetails(loginDetails);
+		//call DAO
+		Long userId=passengerProfileDAO.registerPassengerProfile(passengerProfile);
+		if(userId!=null && userId>0){
+			loginDetails.setUserId(userId);
+			String otp = OTPGeneratorUtil.generateOTP();
+			UserOtp userOtp = new UserOtp();
+			userOtp.setOtp(otp);
+			userOtp.setStatusEnum(StatusEnum.STATUS_ACTIVE);
+			userOtp.setLoginDetails(loginDetails);
+		Integer	userOtpId=userOTPDAO.saveOtp(userOtp);
+		//send otp as a sms to user
+		if(userOtpId!=null && userOtpId>0){
+			response.setMsg("Please enter the otp sent to your mobile xxxxx"+passengerProfileRQ.getMobile().substring(6));
+			response.setStatus(ResponseEnum.SUCCESS.getValue());
+			response.setData(userId);
+			// here we can mulithreading
+		String sms="OTP is "+otp+"  ";	
+		try{    
+		String status=smsService.sendSms(passengerProfileRQ.getMobile(), sms);
+		logger.info("SMS Status : "+status);
+		}catch(Exception e){
+			logger.info("Exception Occured while sending sms  : "+e);		
+		}
+		}
+		}
+	    }
+		}catch(HibernateException he){
+			response.setMsg("unable to process your request!please try again.");
+			response.setStatus(ResponseEnum.FAILURE.getValue());
+			
+		}catch(Exception e){
+			response.setMsg("unable to process your request!please try again.");
+			response.setStatus(ResponseEnum.FAILURE.getValue());
+			
+		}
+		return response;
+	}
+}
+
+
+
+
+
+
+

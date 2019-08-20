@@ -1,0 +1,47 @@
+package com.brs.searchservice;
+
+import  org.junit.Assert;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.brs.searchservice.beans.Fare;
+import com.brs.searchservice.service.BusService;
+import com.brs.searchservice.service.BusServiceImpl;
+@RunWith(MockitoJUnitRunner.class)
+public class BusServiceTest {
+	@InjectMocks
+private BusServiceImpl busService;
+	@Test
+	public void getServiceTaxTest1() {
+		Fare fare = new Fare();
+		fare.setTotalbasefare("1000");
+	Assert.assertEquals(50, busService.getServiceTax(fare),2);
+	}
+
+	@Test
+	public void getServiceTaxTest2() {
+		Fare fare = new Fare();
+		fare.setTotalbasefare("100");
+	Assert.assertEquals(5, busService.getServiceTax(fare),1);
+	}
+	
+	@Test
+	@Ignore
+	public void getServiceTaxTest3() {
+		Fare fare = new Fare();
+		fare.setTotalbasefare("100");
+	Assert.assertNotEquals(6.0, busService.getServiceTax(fare),1);
+	}
+	
+	@Test
+	
+	public void getServiceTaxTest4() {
+		Fare fare = new Fare();
+		fare.setTotalbasefare("a");
+	Assert.assertTrue(busService.getServiceTax(fare)>0);
+	}
+}

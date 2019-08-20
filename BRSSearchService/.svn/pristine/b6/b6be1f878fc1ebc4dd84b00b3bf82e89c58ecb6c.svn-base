@@ -1,0 +1,34 @@
+package com.brs.searchservice;
+
+public class Data {
+
+	 private String[] returnflights;
+
+	    private Onwardflights[] onwardflights;
+
+	    public String[] getReturnflights ()
+	    {
+	        return returnflights;
+	    }
+
+	    public void setReturnflights (String[] returnflights)
+	    {
+	        this.returnflights = returnflights;
+	    }
+
+	    public Onwardflights[] getOnwardflights ()
+	    {
+	        return onwardflights;
+	    }
+
+	    public void setOnwardflights (Onwardflights[] onwardflights)
+	    {
+	        this.onwardflights = onwardflights;
+	    }
+
+	    @Override
+	    public String toString()
+	    {
+	        return "ClassPojo [returnflights = "+returnflights+", onwardflights = "+onwardflights+"]";
+	    }
+}

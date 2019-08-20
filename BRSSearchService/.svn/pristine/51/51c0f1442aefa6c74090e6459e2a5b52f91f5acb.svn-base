@@ -1,0 +1,25 @@
+package com.brs.searchservice.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.brs.searchservice.models.model.Response;
+import com.brs.searchservice.webservice.clients.B2BSearchServiceClient;
+@Service
+public class BusServiceImpl
+implements BusService{
+	@Autowired
+private B2BSearchServiceClient searchServiceClient;
+	@Override
+	public Response searchBus(String source, String destination, String doj, String drj) {
+		Response response=searchServiceClient.searchBuses(source, destination, doj, drj);		
+	return response;
+	}
+
+}
+
+
+
+
+
+

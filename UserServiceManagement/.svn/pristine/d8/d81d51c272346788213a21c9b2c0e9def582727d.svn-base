@@ -1,0 +1,41 @@
+package com.brs.userservicemanagement.dao;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.brs.userservicemanagement.entity.UserAuthorization;
+@Repository
+public class UserAuthorizationDAOImpl implements UserAuthorizationDAO{
+	@Autowired
+private SessionFactory sessionFactory;
+	@Override
+	public Integer saveUserToken(UserAuthorization userAuth) {
+		Integer userAuthId=null;
+		Session session=null;
+		 Transaction tx=null;
+		try{
+		session=sessionFactory.openSession();
+        tx=session.beginTransaction(); 
+		userAuthId=(Integer)session.save(userAuth);
+		if(tx!=null){
+		tx.commit();
+		}
+		}catch(HibernateException he){
+			if(tx!=null){
+			tx.rollback();	
+			}
+		throw he;	
+		}finally{
+			if(session!=null){
+				session.close();
+			}
+		}
+		return userAuthId;
+	}
+}
+
+

@@ -1,0 +1,457 @@
+# this is an example of the Goibibo API
+# as a demonstration of an API spec in YAML
+swagger: "2.0"
+info:
+  title: Goibibo API
+  description: Move your app forward with the Goibibo API
+  version: "1.0.0"
+
+
+data:
+  onwardflights:
+  - origin: Hyderabad
+    rating: '2.2'
+    DepartureTime: '20:30'
+    cancellationPolicy: 0:6:100:0;6:12:70:0;12:24:30:0;24:72:10:0;72:-1:10:0
+    avlWindowSeats: 24
+    impulse_perc_seats: 0
+    BusServiceID: '25'
+    totalReviews: '27'
+    seat: ST
+    duration: 9h 30m
+    qtype: bus
+    AvailCatCard: false
+    skey: orZsJj4njMw533R7GdiyGjxXHRkGl5FJMJji16BV_mcU0vED4-AQ9XHUgKaU_iClb2vn0uI4LrT5a9Ap
+    busCondition: ac
+    src_voyager_id: '2162254155836171767'
+    levyFee: 0
+    destination: Bangalore
+    BPPrims:
+      list:
+      - BPId: '17914683'
+        BPContactNumber: 040 66748480
+        BPName: 17914683-Moosapet
+        BPTime: '2018-08-15T19:00:00Z'
+        BPLandmark: Near Metro Shoinping Mall Opp Neeta Travel Contact No 040 66748482
+        BPLocation: Moosapet
+        BPAddress: Near Metro Shoinping Mall opp Neeta Travel
+        BPCoordinates: 17.467796,78.425279
+      - BPId: '17914684'
+        BPContactNumber: 040 66748480
+        BPName: 17914684-Bharat Nagar
+        BPTime: '2018-08-15T19:00:00Z'
+        BPLandmark: Flyover Starting Bharat Nagar Contact No 040 66748482
+        BPLocation: 'Bharat Nagar '
+        BPAddress: FlyOver Starting Bharat Nagar
+        BPCoordinates: 17.463935,78.428297
+      - BPId: '17914521'
+        BPContactNumber: 040 66748480
+        BPName: 17914521-Kukatpalli
+        BPTime: '2018-08-15T19:05:00Z'
+        BPLandmark: Neeta Travels Opp Metro Shopping Mall Kukatpally
+        BPLocation: Kukatpally
+        BPAddress: Neeta Travels Opp Metro Shopping Mall Kukatpally Contact No 040
+          66748482
+        BPCoordinates: 17.4833333,78.4166667
+      - BPId: '17914691'
+        BPContactNumber: 040 66748480
+        BPName: 17914691-Vivekananda Nagar Colony
+        BPTime: '2018-08-15T19:10:00Z'
+        BPLandmark: Near Ramdev Hospital
+        BPLocation: Vivekananda Nagar Colony
+        BPAddress: Near Ramdev Hospital
+        BPCoordinates: 17.419204,78.591988
+      - BPId: '17914693'
+        BPContactNumber: 040 66748480
+        BPName: 17914693-Erragadda
+        BPTime: '2018-08-15T19:11:00Z'
+        BPLandmark: Kphb Beside Jc Brothers Showroom
+        BPLocation: Erragadda
+        BPAddress: Kphb Beside JC Brothers Showroom Contact No 040 66748482
+        BPCoordinates: 17.456264,78.430822
+      - BPId: '17914523'
+        BPContactNumber: 040 66748480
+        BPName: 17914523-KPHB COLONY
+        BPTime: '2018-08-15T19:15:00Z'
+        BPLandmark: Kphb Beside Jc Brothers Showroom
+        BPLocation: KPHB
+        BPAddress: Kphb Beside JC Brothers Showroom Contact No 040 66748482
+        BPCoordinates: 17.483353,78.387067
+      - BPId: '17977687'
+        BPContactNumber: 040 66748480
+        BPName: 17977687-ESI
+        BPTime: '2018-08-15T19:21:00Z'
+        BPLandmark: Near Bajaj Showroom Esi Contact No 040 66748482
+        BPLocation: Esi
+        BPAddress: Near Bajaj Showroom Esi Contact No 040 66748482
+        BPCoordinates: 17.449523,78.437396
+      - BPId: '17914525'
+        BPContactNumber: 040 66748480
+        BPName: 17914525-Nizampet
+        BPTime: '2018-08-15T19:25:00Z'
+        BPLandmark: Nizampet Beside Delight 9 Restaurant Indian Oil Petrol Pump
+        BPLocation: Nizampet
+        BPAddress: 'Nizampet Beside Delight 9 Restaurant Indian Oil Petrol Pump Contact
+          No 040 66748482 '
+        BPCoordinates: 17.516481,78.376628
+      - BPId: '17914700'
+        BPContactNumber: 040 66748480
+        BPName: 17914700-S.R.NAGAR
+        BPTime: '2018-08-15T19:30:00Z'
+        BPLandmark: S.R.Nagar Near  Icici Bank  Contact No 04066748480
+        BPLocation: S.r.nagar
+        BPAddress: S.r.nagar Near  icici bank  Contact No 04066748480
+        BPCoordinates: 17.44365,78.445826
+      - BPId: '17977707'
+        BPContactNumber: 040 66748480
+        BPName: 17977707-Hydernagar
+        BPTime: '2018-08-15T19:30:00Z'
+        BPLandmark: Near Green Bawarchi Hotel Contact No 040 66748482
+        BPLocation: HyderNagar
+        BPAddress: Near Green Bawarchi Hotel
+        BPCoordinates: 17.502909,78.382267
+      - BPId: '17978856'
+        BPContactNumber: 040 66748480
+        BPName: 17978856-Madinaguda
+        BPTime: '2018-08-15T19:40:00Z'
+        BPLandmark: Madinaguda Near Bajaj Electroni  Contact No 040 66748482
+        BPLocation: Madinaguda
+        BPAddress: 'Madinaguda Near Bajaj Electroni '
+        BPCoordinates: 17.493686,78.340129
+      - BPId: '17914702'
+        BPContactNumber: 040 66748480
+        BPName: 17914702-Ameerpet
+        BPTime: '2018-08-15T19:40:00Z'
+        BPLandmark: Ameerpet Near Anil Trading Contact No 040 66748482
+        BPLocation: Ameerpet
+        BPAddress: Ameerpet NEAR ANIL TRADING
+        BPCoordinates: 17.437461,78.448288
+      - BPId: '17943068'
+        BPContactNumber: 040 66748480
+        BPName: 17943068-Miyapur
+        BPTime: '2018-08-15T19:40:00Z'
+        BPLandmark: Miyapur Near More Super Market Icici Bank Contact No 040 66748482
+        BPLocation: Miyapur
+        BPAddress: Miyapur Near More Super Market Icici Bank Contact No 040 66748482
+        BPCoordinates: 17.512511,78.352228
+      - BPId: '17914527'
+        BPContactNumber: 040 66748480
+        BPName: 17914527-Chandanagar
+        BPTime: '2018-08-15T19:50:00Z'
+        BPLandmark: Chanda Nagar Near Ghandi Statue Sai Kurpa Travels
+        BPLocation: Chandanagar
+        BPAddress: Chanda nagar near ghandi statue sai kurpa travels
+        BPCoordinates: 17.493601,78.325254
+      - BPId: '17914686'
+        BPContactNumber: 040 66748480
+        BPName: 17914686-Paradise
+        BPTime: '2018-08-15T20:10:00Z'
+        BPLandmark: Paradise Secundrabad Beside Ahmed Neeta Travels  Vishvam Hotel
+          Building
+        BPLocation: Secundrabad paradise
+        BPAddress: 'Paradise secundrabad Beside Ahmed Neeta Travels  Vishvam hotel
+          building  Contact Nos: 04066748480,66748482  AreaName: Paradise'
+        BPCoordinates: 17.412158,78.465513
+      - BPId: '17914705'
+        BPContactNumber: 040 66748480
+        BPName: 17914705-Gachibowli
+        BPTime: '2018-08-15T20:15:00Z'
+        BPLandmark: Near Alsaba Restaurant Contact No 040 66748480
+        BPLocation: 'Gachibowli '
+        BPAddress: Near Alsaba Restaurant Contact No 040 66748480
+        BPCoordinates: 17.44008,78.348917
+      - BPId: '17914524'
+        BPContactNumber: 040 66748480
+        BPName: 17914524-Kondapur
+        BPTime: '2018-08-15T20:15:00Z'
+        BPLandmark: Kondapur Near Near Alsaba Restaurant Contact No 040 66748480
+        BPLocation: Kondapur
+        BPAddress: " Kondapur Near Near Alsaba Restaurant Contact No 040 66748480"
+        BPCoordinates: 17.46221,78.356849
+      - BPId: '17978948'
+        BPContactNumber: 040 66748480
+        BPName: 17978948-Secunderabad
+        BPTime: '2018-08-15T20:20:00Z'
+        BPLandmark: Secundrabad Near Asain Travels
+        BPLocation: Secundrabad
+        BPAddress: 'Secundrabad Near asain travels  Contact Nos: 040-66748480,66748482 '
+        BPCoordinates: 17.402742,78.452459
+      - BPId: '17978980'
+        BPContactNumber: 040 66748480
+        BPName: 17978980-Tolichowki
+        BPTime: '2018-08-15T20:30:00Z'
+        BPLandmark: Near Reliance Mart Tolichowki Contact No 040 66748480
+        BPLocation: Tolichowki
+        BPAddress: Near Reliance Mart Tolichowki
+        BPCoordinates: 17.399031,78.415322
+      - BPId: '17914699'
+        BPContactNumber: 040 66748480
+        BPName: 17914699-Mehdipatnam
+        BPTime: '2018-08-15T20:35:00Z'
+        BPLandmark: Mehipatnam Nanal Nagar Opp Shah Ghouse Hotel Contact No 04066748482
+        BPLocation: Mehipatnam
+        BPAddress: Mehipatnam nanal nagar Opp Shah Ghouse Hotel Contact No 04066748482
+        BPCoordinates: 17.391636,78.440065
+      - BPId: '17914517'
+        BPContactNumber: 040 66748480
+        BPName: 17914517-Lakdikapool
+        BPTime: '2018-08-15T20:55:00Z'
+        BPLandmark: Lakdi Ka Pool  Beside Telephone Bhawan 040 66748480
+        BPLocation: Lakdikapool
+        BPAddress: Lakdi ka pool  Beside Telephone Bhawan 040 66748480
+        BPCoordinates: 17.399272,78.46271
+      - BPId: '17914516'
+        BPContactNumber: 040 66748480
+        BPName: 17914516-Nampally
+        BPTime: '2018-08-15T21:00:00Z'
+        BPLandmark: 'Nampally Near State Bank Of India   Contact Nos: 04066748480,66748482'
+        BPLocation: Nampally
+        BPAddress: 'Nampally Near State Bank Of India   Contact Nos: 04066748480,66748482'
+        BPCoordinates: 17.386041,78.466594
+      - BPId: '17914515'
+        BPContactNumber: 040 66748480
+        BPName: 17914515-Afzalgunj
+        BPTime: '2018-08-15T21:15:00Z'
+        BPLandmark: 'Ahmed Tour And Travel Beside Ahmed Hotel  Contact Nos: 04066748480,66748482,'
+        BPLocation: Afzalgunj
+        BPAddress: 'ahmed tour and travel Beside Ahmed hotel  Contact Nos: 04066748480,66748482,'
+        BPCoordinates: 17.374649,78.475412
+      - BPId: '17914708'
+        BPContactNumber: 040 66748480
+        BPName: 17914708-Aramghar
+        BPTime: '2018-08-15T22:00:00Z'
+        BPLandmark: Aramghar Near Pariwar Dhaba
+        BPLocation: Aramghar
+        BPAddress: 'Aramghar Near pariwar Dhaba '
+        BPCoordinates: 17.320654,78.431364
+      - BPId: '17914711'
+        BPContactNumber: 040 66748480
+        BPName: 17914711-Shamshabad
+        BPTime: '2018-08-15T22:15:00Z'
+        BPLandmark: Shamshabad Near Hyderabad House  Contact No 040 66748482
+        BPLocation: Shamshabad
+        BPAddress: 'Shamshabad Near Hyderabad House '
+        BPCoordinates: 17.25116,78.437735
+      - BPId: '17914713'
+        BPContactNumber: 040 66748480
+        BPName: 17914713-Jadcherla
+        BPTime: '2018-08-15T23:15:00Z'
+        BPLandmark: Jadcherla Flyover Ending  Contact No 040 6674840
+        BPLocation: Jadcherla
+        BPAddress: 'Jadcherla Flyover Ending '
+        BPCoordinates: 16.7746460,78.1338830
+    amenities: NA
+    src_vendor_id: '6'
+    dest_voyager_id: '6771549831164675055'
+    ArrivalTime: '06:00'
+    zeroCancellationTime: 0
+    gps: 'false'
+    fare:
+      adultservicetax: '0'
+      adultcommission: '0'
+      adultbasefare: '0'
+      adultsurcharge: '0'
+      totalfare: '2250'
+      discount: '0'
+      totalsurcharge: '0'
+      totalcommission: '0'
+      transactionfee: '0'
+      totalbasefare: '2250.0'
+      adulttotalfare: '0'
+      servicetax: '0.0'
+    dst_vendor_id: '3'
+    OperatorID: '16575'
+    DPPrims:
+      list:
+      - DPTime: '2018-08-17T05:55:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914714-Bangalore Airport
+        DPAddress: airPort tool
+        DPLandmark: Airport Tool
+        BPAddress: airPort tool
+        DPContactNumber: '5555555555'
+        BPLandmark: Airport Tool
+        DPCoordinates: ","
+        DPId: '17914714'
+        DPLocation: Bangalore Airport
+      - DPTime: '2018-08-17T06:00:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914715-Yelahanka
+        DPAddress: Kogilu Circle Signal
+        DPLandmark: Kogilu Circle Signal
+        BPAddress: Kogilu Circle Signal
+        DPContactNumber: '5555555555'
+        BPLandmark: Kogilu Circle Signal
+        DPCoordinates: 13.1008405,77.59457320000001
+        DPId: '17914715'
+        DPLocation: Yelahanka
+      - DPTime: '2018-08-17T06:05:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914716-Hebbal
+        DPAddress: Hebbal Police Station
+        DPLandmark: Hebbal Police Station
+        BPAddress: Hebbal Police Station
+        DPContactNumber: '5555555555'
+        BPLandmark: Hebbal Police Station
+        DPCoordinates: 13.035,77.597
+        DPId: '17914716'
+        DPLocation: Hebbal
+      - DPTime: '2018-08-17T06:20:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914717-Nagavara
+        DPAddress: Nagavara
+        DPLandmark: Nagavara
+        BPAddress: Nagavara
+        DPContactNumber: '5555555555'
+        BPLandmark: Nagavara
+        DPCoordinates: 13.01,77.65
+        DPId: '17914717'
+        DPLocation: Nagavara
+      - DPTime: '2018-08-17T06:25:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914721-KALYANANAGAR
+        DPAddress: Kalyan Nagar
+        DPLandmark: Kalyan Nagar
+        BPAddress: Kalyan Nagar
+        DPContactNumber: '5555555555'
+        BPLandmark: Kalyan Nagar
+        DPCoordinates: 13.028,77.63
+        DPId: '17914721'
+        DPLocation: Kalyan Nagar
+      - DPTime: '2018-08-17T06:30:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17979561-Hennur Cross
+        DPAddress: hennur bridge
+        DPLandmark: Hennur Bridge
+        BPAddress: hennur bridge
+        DPContactNumber: '5555555555'
+        BPLandmark: Hennur Bridge
+        DPCoordinates: 13.0357,77.6491
+        DPId: '17979561'
+        DPLocation: 'hennur '
+      - DPTime: '2018-08-17T06:35:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914724-Ramamurthy Nagar
+        DPAddress: Ramamurthy Nagar
+        DPLandmark: Ramamurthy Nagar
+        BPAddress: Ramamurthy Nagar
+        DPContactNumber: '5555555555'
+        BPLandmark: Ramamurthy Nagar
+        DPCoordinates: 13.0184435,77.67812149999997
+        DPId: '17914724'
+        DPLocation: Ramamurthy Nagar
+      - DPTime: '2018-08-17T06:40:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914725-Tin Factory
+        DPAddress: Tin Factory
+        DPLandmark: Tin Factory
+        BPAddress: Tin Factory
+        DPContactNumber: '5555555555'
+        BPLandmark: Tin Factory
+        DPCoordinates: 12.9972686,77.66959010000005
+        DPId: '17914725'
+        DPLocation: Tin Factory
+      - DPTime: '2018-08-17T06:45:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914726-Mahadevapura
+        DPAddress: Mahadevapura
+        DPLandmark: Mahadevapura
+        BPAddress: Mahadevapura
+        DPContactNumber: '5555555555'
+        BPLandmark: Mahadevapura
+        DPCoordinates: 12.9912,77.687367
+        DPId: '17914726'
+        DPLocation: Mahadevapura
+      - DPTime: '2018-08-17T06:50:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914727-Marathahalli
+        DPAddress: Marthahalli  Kalimandir
+        DPLandmark: Marthahalli  Kalimandir
+        BPAddress: Marthahalli  Kalimandir
+        DPContactNumber: '5555555555'
+        BPLandmark: Marthahalli  Kalimandir
+        DPCoordinates: 12.9591722,77.697419
+        DPId: '17914727'
+        DPLocation: 'Marthahalli '
+      - DPTime: '2018-08-17T06:55:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914728-Bellandur
+        DPAddress: Bellandur Bangalore Central Mall
+        DPLandmark: Bellandur Bangalore Central Mall
+        BPAddress: Bellandur Bangalore Central Mall
+        DPContactNumber: '5555555555'
+        BPLandmark: Bellandur Bangalore Central Mall
+        DPCoordinates: 12.92,77.67
+        DPId: '17914728'
+        DPLocation: Bellandur
+      - DPTime: '2018-08-17T07:00:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914729-HSR Layout
+        DPAddress: HSR Layout Under Agra FLY OVER bridge
+        DPLandmark: Hsr Layout Under Agra Fly Over Bridge
+        BPAddress: HSR Layout Under Agra FLY OVER bridge
+        DPContactNumber: '5555555555'
+        BPLandmark: Hsr Layout Under Agra Fly Over Bridge
+        DPCoordinates: 12.902,77.63152
+        DPId: '17914729'
+        DPLocation: 'HSR Layout '
+      - DPTime: '2018-08-17T07:10:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914733-Silk Board
+        DPAddress: Silk Board Krishna bhavan hotel Bus stop
+        DPLandmark: Silk Board Krishna Bhavan Hotel Bus Stop
+        BPAddress: Silk Board Krishna bhavan hotel Bus stop
+        DPContactNumber: '5555555555'
+        BPLandmark: Silk Board Krishna Bhavan Hotel Bus Stop
+        DPCoordinates: 12.9171468,77.62279809999995
+        DPId: '17914733'
+        DPLocation: Silk Board
+      - DPTime: '2018-08-17T08:00:00Z'
+        BPContactNumber: '5555555555'
+        DPName: 17914740-Kalasipalyam
+        DPAddress: Kalasipalyam Main Road
+        DPLandmark: Kalasipalyam Main Road
+        BPAddress: Kalasipalyam Main Road
+        DPContactNumber: '5555555555'
+        BPLandmark: Kalasipalyam Main Road
+        DPCoordinates: 12.96,77.577
+        DPId: '17914740'
+        DPLocation: Kalasipalyam Main Road
+    mTicket: 'true'
+    row_type: onwardflights
+    BusType: Volvo B9R Multi Axle Semi Sleeper (2+2)
+    RouteSeatTypeDetail:
+      list:
+      - SellFare: '2250'
+        busCondition: ac
+        seatType: Semi Sleeper
+        seatTypeSpecific: Seat
+        SeatsAvailable: 49
+        availabilityStatus: Available
+    depdate: '2018-08-15T20:30:00Z'
+    idRequired: 'false'
+    ServiceID: 1968584
+    busCompany: volvo
+    bpDpSeatLayout: false
+    ugcreview:
+      ratings:
+        stopOverExperience: 5
+        seats: 5
+        onBoardExperience: 5
+        onTimeAD: 5
+      reviewCount: 1
+      posReviewCount: 1
+      criReviewCount: 0
+      imgReviewCount: 0
+      totalRating: 5
+      approvedImageCount: 0
+      id: Hyderabad-Bangalore-2030-AdityaTravels-VolvoB9RMultiAxleSemiSleeper2+2
+    TravelsName: Aditya Travels
+    tbrequired: '1'
+    farebasis: '0'
+    RouteID: '1000005727831968584'
+    ServiceName: Hyderabad to Bangalore
+    srtFee: 0
+    partialCancellationAllowed: 'false'
+    ugcid: Hyderabad-Bangalore-2030-AdityaTravels-VolvoB9RMultiAxleSemiSleeper2+2
+    arrdate: '2018-08-16T06:00:00Z'

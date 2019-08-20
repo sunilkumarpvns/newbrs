@@ -1,0 +1,12 @@
+<body ng-controller="otpController">
+<div align="center">OTP FORM</div>
+ <div align="center">
+  <span style="size: B5">{{otpStatus}}</span><br/>
+     <div>
+Enter OTP : <input type="text" ng-model="otp"/>
+  <button value="verifyOTP" ng-click="verifyOTP()">verifyOTP</button>
+  <button value="resend" ng-click="resendOTP()">resend</button>
+     </div>
+ </div>
+
+</body>

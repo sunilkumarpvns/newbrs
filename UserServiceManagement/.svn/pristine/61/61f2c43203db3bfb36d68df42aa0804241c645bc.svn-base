@@ -1,0 +1,445 @@
+package com.brs.userservicemanagement.service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.collections4.CollectionUtils;
+//import org.apache.commons.collections.CollectionUtils;
+import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
+import org.joda.time.DateTime;
+import org.joda.time.Minutes;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Base64Utils;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import com.brs.beans.common.ChangePasswordRQ;
+import com.brs.beans.common.LoginRQ;
+import com.brs.beans.common.LoginRS;
+import com.brs.beans.common.Mail;
+import com.brs.beans.common.PassengerProfileRQ;
+import com.brs.beans.common.Response;
+import com.brs.beans.common.ViewProfileRQ;
+import com.brs.beans.common.ViewProfileRS;
+import com.brs.beans.common.enums.ResponseEnum;
+import com.brs.userservicemanagement.dao.ForgotPasswordDAO;
+import com.brs.userservicemanagement.dao.LoginDetailsDAO;
+import com.brs.userservicemanagement.dao.PassengerProfileDAO;
+import com.brs.userservicemanagement.dao.RolesDAO;
+import com.brs.userservicemanagement.dao.UserAuthorizationDAO;
+import com.brs.userservicemanagement.dao.UserOTPDAO;
+import com.brs.userservicemanagement.entity.LoginDetails;
+import com.brs.userservicemanagement.entity.PassengerProfile;
+import com.brs.userservicemanagement.entity.Roles;
+import com.brs.userservicemanagement.entity.UserAuthorization;
+import com.brs.userservicemanagement.entity.UserOtp;
+import com.brs.userservicemanagement.entity.UserPasswordLinks;
+import com.brs.userservicemanagement.enums.RolesEnum;
+import com.brs.userservicemanagement.enums.StatusEnum;
+import com.brs.userservicemanagement.events.BRSSmsEventPublisher;
+import com.brs.userservicemanagement.integration.BRSEmailService;
+import com.brs.userservicemanagement.integration.BRSSmsService;
+import com.brs.userservicemanagement.util.OTPGeneratorUtil;
+import com.brs.userservicemanagement.util.TokenGeneratorUtil;
+
+@Service
+public class UserServiceImpl implements UserService {
+private static final Logger logger=Logger.getLogger(UserServiceImpl.class);	
+	@Autowired
+	private LoginDetailsDAO loginDetailsDAO;
+	@Autowired
+	private UserAuthorizationDAO userAuthorizationDAO;
+	@Autowired
+	private PassengerProfileDAO passengerProfileDAO;
+	@Autowired
+	private UserOTPDAO userOTPDAO;
+	@Autowired
+	private BRSSmsService smsService;
+	@Autowired
+	private RolesDAO rolesDAO;
+	@Autowired
+	private ForgotPasswordDAO forgotPasswordDAO;
+	@Autowired
+	private BRSEmailService emailService;
+	@Autowired
+	private BRSSmsEventPublisher smsEventPublisher;
+	
+	@Override
+	public Response login(LoginRQ loginRQ) {
+	logger.info("Entered into login() : "+loginRQ.getUserName());
+	logger.info("Entered into login() : "+loginRQ.getUserName());
+		Response response = new Response();
+		response.setMsg("Login Failure!Please try again.");
+		response.setStatus(ResponseEnum.FAILURE.getValue());
+		LoginDetails loginDetails = new LoginDetails();
+		loginDetails.setMobile(loginRQ.getUserName());
+		loginDetails.setUserName(loginRQ.getUserName());
+		loginDetails.setEmail(loginRQ.getUserName());
+		loginDetails.setPassword(loginRQ.getPassword());
+		try{
+	loginDetails = loginDetailsDAO.login(loginDetails);
+		if (loginDetails != null && loginDetails.getUserId()!=null ) {
+			// check user account status
+			if (loginDetails.getStatus()==StatusEnum.STATUS_ACTIVE) {
+				// generate the token ,store token in db
+				String token = TokenGeneratorUtil.generateToken();
+				// save original token in db
+				UserAuthorization userAuth = new UserAuthorization();
+				userAuth.setToken(token);
+				userAuth.setIpAddress(loginRQ.getIpAddress());
+				userAuth.setSessionId(loginRQ.getSessionId());
+				userAuth.setStatusEnum(StatusEnum.STATUS_ACTIVE);
+				userAuth.setLoginDetails(loginDetails);
+				Integer userAuthId = userAuthorizationDAO.saveUserToken(userAuth);
+				// add loginRs into Response as a data
+				// check userRoles
+				List<Roles> roles = (List<Roles>) loginDetails.getUserRoles();
+				if (userAuthId != null && userAuthId > 0 && roles!=null && roles.size()>0) {
+					boolean isAuth = false;
+					String userRole = null;
+					Integer userRoleId = null;
+					for (Roles role : roles) {
+						if (loginRQ.getRole().equals(role.getRole())) {
+							isAuth = true;
+							userRole = role.getRole();
+							userRoleId = role.getRoleId();
+							break;
+						}
+					}
+					if (isAuth && userRole != null && userRoleId != null) {
+						LoginRS loginRS = new LoginRS();
+						loginRS.put("token", new String(Base64Utils.encode(token.getBytes())));
+						loginRS.put("userId", loginDetails.getUserId());
+						loginRS.put("userName", loginDetails.getUserName());
+						loginRS.put("email", loginDetails.getEmail());
+						loginRS.put("mobile", loginDetails.getMobile());
+						loginRS.put("status", loginDetails.getStatus().name());
+						loginRS.put("userRole", userRole);
+						loginRS.put("userRoleId", userRoleId);
+						loginRS.put("userAuthId",userAuthId);
+						response.setMsg("Login Success");
+						response.setStatus(ResponseEnum.SUCCESS.getValue());
+						response.setData(loginRS);
+					} else {
+						response.setMsg("Access Denied");
+						response.setStatus(ResponseEnum.FAILURE.getValue());
+					}
+				}
+			} else if (loginDetails.getStatus()==StatusEnum.STATUS_INACTIVE) {
+				// set message to response object
+				response.setMsg("Your account is not activated!please contact info@brs.com");
+				response.setStatus(ResponseEnum.FAILURE.getValue());
+			} else if (loginDetails.getStatus()==StatusEnum.STATUS_BLOCKED) {
+				// set message to response object
+				response.setMsg("Your account is blocked!please contact info@brs.com");
+				response.setStatus(ResponseEnum.FAILURE.getValue());
+			}
+		}
+		}catch(HibernateException he){
+		logger.error("Exception occured while login() : "+he);
+
+		response.setStatus(ResponseEnum.FAILURE.getValue());
+		response.setMsg("Unable to process your request!Please try again.");
+		}
+logger.info("Response from login() : "+response);		
+		return response;
+	}
+
+	@Override
+	public Response registerPassenger(PassengerProfileRQ passengerProfileRQ) {
+		   long startTime=System.currentTimeMillis();
+		logger.info("Entered into registe  rPassenger ["+Thread.currentThread().getName()+"]");
+		
+		Response response=new Response();
+		response.setMsg("Registration failure!please try again.");
+		response.setStatus(ResponseEnum.FAILURE.getValue());
+		try{
+		//create PassengerProfile 
+		LoginDetails loginDetails=new LoginDetails();
+		loginDetails.setUserName(passengerProfileRQ.getName());
+	    loginDetails.setMobile(passengerProfileRQ.getMobile());
+	    loginDetails.setEmail(passengerProfileRQ.getEmail());
+	    loginDetails.setPassword(passengerProfileRQ.getPassword());
+	    loginDetails.setStatus(StatusEnum.STATUS_INACTIVE);
+	      Integer roleId=rolesDAO.getRoleId(RolesEnum.PASSENGER.name()); 
+	    if(roleId!=null){
+	      Roles roles=new Roles();
+	     roles.setRoleId(roleId);//get from DB
+	     List<Roles> userRoles=new ArrayList<>();
+	       userRoles.add(roles);
+	       loginDetails.setUserRoles(userRoles);
+	       loginDetails.setCreatedBy(loginDetails.getUserId());
+	    PassengerProfile passengerProfile=new PassengerProfile();
+	    passengerProfile.setFirstName(passengerProfileRQ.getName());
+	    passengerProfile.setLastName(passengerProfileRQ.getName());
+	    passengerProfile.setDob(passengerProfileRQ.getDob());
+	    passengerProfile.setGender(passengerProfileRQ.getGender());
+	    passengerProfile.setCreatedBy(loginDetails.getUserId());
+	    passengerProfile.setStatus(StatusEnum.STATUS_ACTIVE);
+	    passengerProfile.setLoginDetails(loginDetails);
+		//call DAO
+		Long userId=passengerProfileDAO.registerPassengerProfile(passengerProfile);
+		if(userId!=null && userId>0){
+			loginDetails.setUserId(userId);
+			String otp = OTPGeneratorUtil.generateOTP();
+			UserOtp userOtp = new UserOtp();
+			userOtp.setOtp(otp);
+			userOtp.setStatusEnum(StatusEnum.STATUS_ACTIVE);
+			userOtp.setLoginDetails(loginDetails);
+		Integer	userOtpId=userOTPDAO.saveOtp(userOtp);
+	
+		if(userOtpId!=null && userOtpId>0){
+			response.setMsg("Please enter the otp sent to your mobile xxxxx"+passengerProfileRQ.getMobile().substring(6));
+			response.setStatus(ResponseEnum.SUCCESS.getValue());
+			response.setData(userId);
+			// here we can use multithreading
+			//send otp as a sms to user
+			String sms="Your OTP for BRS Authentication is "+otp+" This OTP is valid only 15 mints";
+		try{    
+		//publisher
+			smsEventPublisher.sendSmsPublisher(passengerProfileRQ.getMobile(),sms);
+		}catch(Exception e){
+			System.out.println("springeventpublisher exception occured");
+			logger.info("Exception Occured while sending sms  : "+e);		
+		}
+		}
+		}
+	    }
+		}catch(HibernateException he){
+			System.out.println("Hibernate exception occured");
+			response.setMsg("unable to process your request!please try again.");
+			response.setStatus(ResponseEnum.FAILURE.getValue());
+			
+		}catch(Exception e){
+			System.out.println("Exception occured");
+			response.setMsg("unable to process your request!please try again.");
+			response.setStatus(ResponseEnum.FAILURE.getValue());
+			
+		}
+		  
+		logger.info("response of registerPassenger : "+response+" [ "+Thread.currentThread().getName()+" ] "+" Time : "+(System.currentTimeMillis()-startTime));
+		return response;
+	}
+	@Override
+	public Response forgotPassword(String email){
+		Response response=new Response();
+		response.setMsg("Try again with proper EmailID .");
+		response.setStatus(ResponseEnum.FAILURE.getValue());
+		
+		try{
+		LoginDetails ldetails=forgotPasswordDAO.findByEmail(email);
+		logger.info("got login details object: "+ldetails.getUserId());
+		if (ldetails != null && ldetails.getUserId()!= null ) {
+			// check user account status
+			if (ldetails.getStatus()==StatusEnum.STATUS_ACTIVE) {
+				// generate the token ,store token in db
+				String token = TokenGeneratorUtil.generateToken();
+				logger .info("generated token: "+token);
+				String url="http://localhost:8081/UserService/users/reset?token="+token;
+				//have to use multithreading for saving the url in db and sending email;
+				UserPasswordLinks userPasswordLinks=new UserPasswordLinks();
+				userPasswordLinks.setDynamicUrl(url);
+				userPasswordLinks.setLoginDetails(ldetails);
+				userPasswordLinks.setStatusEnum(StatusEnum.STATUS_ACTIVE);
+				logger.info("values setting to userpasswordlinks");
+				try{
+					Integer userPwdLinkId=forgotPasswordDAO.saveDynamicURL(userPasswordLinks);
+					logger.info("userpasswordlinks inserted: "+userPwdLinkId);
+					if(userPwdLinkId!=null && userPwdLinkId>0){
+						response.setMsg("Please click the ResetPassword button that was sent to your email:"+ldetails.getEmail());
+						response.setStatus(ResponseEnum.SUCCESS.getValue());
+						response.setData(ldetails.getUserId());
+						
+							Mail mail=new Mail();
+							mail.setTo(email);
+							mail.setFrom("koppulanaresh92@gmail.com");
+							mail.setSubject("Click The Button To Reset Your Password");
+							
+							Map<String, String> model= new HashMap<String, String>();
+							model.put("URL",url);
+							model.put("Name", ldetails.getUserName());
+							mail.setData(model);
+							
+							String status=emailService.sendEmail(mail);
+							logger.info("Email status:"+status);
+						
+					}
+				}catch(HibernateException he){
+					response.setMsg("unable to process your request!please try again.");
+					response.setStatus(ResponseEnum.FAILURE.getValue());
+				}
+			}
+		}	
+		}catch(Exception e){
+			response.setMsg("unable to process your request!please try again.");
+			response.setStatus(ResponseEnum.FAILURE.getValue());
+		}
+		return response;
+	}
+	
+	@Override
+	public Response verifyURL(String token){
+		Response response=new Response();
+		response.setMsg("get  out of here !! dude!");
+		response.setStatus(ResponseEnum.FAILURE.getValue());
+		
+		String verificationURL="http://localhost:8081/UserService/users/reset?token="+token;
+		try{
+			UserPasswordLinks uplinks=forgotPasswordDAO.verifyDynamicURL(verificationURL);
+			
+			long time = System.currentTimeMillis();
+			DateTime time1 = new DateTime(time);
+			DateTime time2 = new DateTime(uplinks.getGeneratedTime());
+			Minutes minutes = Minutes.minutesBetween(time1, time2);
+			logger.info("Password Link of "+uplinks.getLoginDetails().getEmail()+" was generated "+minutes.getMinutes()+"back");
+			if(Math.abs(minutes.getMinutes()) <= 60){
+				if(uplinks!=null && uplinks.getUserPwdLinkId()>0){
+					response.setMsg("Your reset password link verified!. Now change your password");
+					response.setStatus(ResponseEnum.SUCCESS.getValue());
+					response.setData(uplinks.getLoginDetails().getUserId());
+				}
+			}
+			
+		}catch(HibernateException he){
+			response.setMsg("Your reset password link expired!.Please try again .");
+			response.setStatus(ResponseEnum.FAILURE.getValue());
+		}
+		return response;
+	}
+	
+	@Override
+	public Response changePassword(ChangePasswordRQ changePasswordRQ){
+		Response response=new Response();
+		response.setMsg("Error occured while changing a password!.Please try again");
+		response.setStatus(ResponseEnum.FAILURE.getValue());
+		//get the password from change password RQ
+		String oldPassword=changePasswordRQ.getOldPassword();
+		String newPassword=changePasswordRQ.getNewPassword();
+		String confirmPassword=changePasswordRQ.getConfirmPassword();
+		Long userId=changePasswordRQ.getUserId();
+		//compare the new  password and confirm password
+		if(newPassword.equals(confirmPassword)) {
+		try{
+			Integer result=loginDetailsDAO.changePassword(oldPassword, newPassword, userId);
+			if(result!=null && result>0){
+				response.setMsg("Your password changed successfully!.Now login with your new password.");
+				response.setStatus(ResponseEnum.SUCCESS.getValue());
+				response.setData(userId);
+			}
+			else {
+				response.setMsg("please enter the old password correctly");
+			}
+		}catch(HibernateException he){
+			response.setMsg("Error occured while changing a password!.Please try again");
+			response.setStatus(ResponseEnum.FAILURE.getValue());
+		}
+		}
+		else {
+			response.setMsg("newpassword and confirmpassword doesn't match please enter the same password");
+		}
+		
+		
+		return response;
+	}
+
+	@Override
+	public Response validateOtp(Long userId, String otp) {
+		Response response=new Response();
+		response.setMsg("OTP is invalid (OR) expired");
+		response.setStatus(ResponseEnum.FAILURE.name());
+try{
+Integer diffInMinutes=userOTPDAO.getOTPTimeDifferenceInMinutes(userId,otp);
+logger.info("Time Diff in Minutes : "+diffInMinutes); 
+if(diffInMinutes!=null && diffInMinutes<=10){
+	 //update user status in Login_Details table
+int count=loginDetailsDAO.updateUserStatus(userId,StatusEnum.STATUS_ACTIVE);
+if(count>0){
+	response.setMsg("Your account is activated!please login into your account");
+	response.setStatus(ResponseEnum.SUCCESS.name());
+}
+}
+}catch(HibernateException he){
+	response.setMsg("Unable to process your request!please try again.");
+	response.setStatus(ResponseEnum.FAILURE.name());
+}
+logger.info("response from validateOTP : "+response); 
+
+		return response;
+	}
+	
+	@Override
+	public Response viewProfile(ViewProfileRQ viewProfileRQ) {
+		logger.info("entered in to method viewProfile");
+		Response response=null;
+		List<Object[]> authDetails=null;
+		PassengerProfile passengerProfile=null;
+		String token=null; 
+		Long userId=null;
+		StatusEnum status=null;
+		//set initial response
+		response=new Response();
+		response.setStatus(ResponseEnum.FAILURE.getValue());
+		response.setMsg("Authorization failed");
+		try {
+			token=new String(Base64Utils.decodeFromString(viewProfileRQ.getToken()));
+			//check user is authorized or not
+			authDetails=userAuthorizationDAO.getAuthorizedUser(viewProfileRQ.getUserAuthorizationId(),token);
+			if(CollectionUtils.isNotEmpty(authDetails)) {
+				userId=(Long)authDetails.get(0)[0];
+				status=(StatusEnum)authDetails.get(0)[1];
+				if(status.equals(StatusEnum.STATUS_ACTIVE)){
+					//check role of user
+					if(viewProfileRQ.getRole().equals(RolesEnum.PASSENGER.name())) {
+						//get passenger details
+						passengerProfile=passengerProfileDAO.getPassengerProfile(userId);
+						//get ViewProfile response
+						ViewProfileRS viewProfileRS = getViewProfileRS(passengerProfile);
+						//generate response
+						response.setStatus(ResponseEnum.SUCCESS.getValue());
+						response.setMsg("passenger details retrived succesfully");
+						response.setData(viewProfileRS);
+						return response;
+					}//if
+					else{
+						//get employee details
+						
+					}//else
+				}//if
+			}//if
+			response.setMsg("invalid token");
+		}//try
+		catch (Exception e) {
+			response.setMsg("Internal problem try again "+e.getMessage());
+			logger.error(e.getMessage());
+		}
+		return response;
+	}//method
+
+	private ViewProfileRS getViewProfileRS(PassengerProfile passengerProfile) {
+		ViewProfileRS viewProfileRS=new ViewProfileRS();
+		viewProfileRS.put("userId",passengerProfile.getUserId());
+		viewProfileRS.put("firstName",passengerProfile.getFirstName());
+		viewProfileRS.put("lastName",passengerProfile.getLastName());
+		viewProfileRS.put("gender",passengerProfile.getGender());
+		viewProfileRS.put("address",passengerProfile.getAddress());
+		viewProfileRS.put("city",passengerProfile.getCity());
+		viewProfileRS.put("state",passengerProfile.getState());
+		viewProfileRS.put("zipCode",passengerProfile.getZipcode());
+		viewProfileRS.put("idProofType",passengerProfile.getIdProofType());
+		viewProfileRS.put("IdProofNo",passengerProfile.getIdProofNumber());
+		viewProfileRS.put("createdBy",passengerProfile.getCreatedBy());
+		viewProfileRS.put("createdDate",(passengerProfile.getCreatedDate()).toString());
+		viewProfileRS.put("lastUpdatedBy",passengerProfile.getLastUpdatedBy());
+		viewProfileRS.put("status",passengerProfile.getStatus());
+		return viewProfileRS;
+	}
+}
+
+
+
+
+
+

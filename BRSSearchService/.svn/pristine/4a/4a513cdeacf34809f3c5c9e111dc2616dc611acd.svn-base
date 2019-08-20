@@ -1,0 +1,153 @@
+package com.brs.searchservice;
+
+public class Fare {
+	 private String totalfare;
+
+	    private String adulttotalfare;
+
+	    private String totalbasefare;
+
+	    private String transactionfee;
+
+	    private String adultsurcharge;
+
+	    private String totalcommission;
+
+	    private String totalsurcharge;
+
+	    private String adultcommission;
+
+	    private String adultservicetax;
+
+	    private String adultbasefare;
+
+	    private String servicetax;
+
+	    private String discount;
+
+	    public String getTotalfare ()
+	    {
+	        return totalfare;
+	    }
+
+	    public void setTotalfare (String totalfare)
+	    {
+	        this.totalfare = totalfare;
+	    }
+
+	    public String getAdulttotalfare ()
+	    {
+	        return adulttotalfare;
+	    }
+
+	    public void setAdulttotalfare (String adulttotalfare)
+	    {
+	        this.adulttotalfare = adulttotalfare;
+	    }
+
+	    public String getTotalbasefare ()
+	    {
+	        return totalbasefare;
+	    }
+
+	    public void setTotalbasefare (String totalbasefare)
+	    {
+	        this.totalbasefare = totalbasefare;
+	    }
+
+	    public String getTransactionfee ()
+	    {
+	        return transactionfee;
+	    }
+
+	    public void setTransactionfee (String transactionfee)
+	    {
+	        this.transactionfee = transactionfee;
+	    }
+
+	    public String getAdultsurcharge ()
+	    {
+	        return adultsurcharge;
+	    }
+
+	    public void setAdultsurcharge (String adultsurcharge)
+	    {
+	        this.adultsurcharge = adultsurcharge;
+	    }
+
+	    public String getTotalcommission ()
+	    {
+	        return totalcommission;
+	    }
+
+	    public void setTotalcommission (String totalcommission)
+	    {
+	        this.totalcommission = totalcommission;
+	    }
+
+	    public String getTotalsurcharge ()
+	    {
+	        return totalsurcharge;
+	    }
+
+	    public void setTotalsurcharge (String totalsurcharge)
+	    {
+	        this.totalsurcharge = totalsurcharge;
+	    }
+
+	    public String getAdultcommission ()
+	    {
+	        return adultcommission;
+	    }
+
+	    public void setAdultcommission (String adultcommission)
+	    {
+	        this.adultcommission = adultcommission;
+	    }
+
+	    public String getAdultservicetax ()
+	    {
+	        return adultservicetax;
+	    }
+
+	    public void setAdultservicetax (String adultservicetax)
+	    {
+	        this.adultservicetax = adultservicetax;
+	    }
+
+	    public String getAdultbasefare ()
+	    {
+	        return adultbasefare;
+	    }
+
+	    public void setAdultbasefare (String adultbasefare)
+	    {
+	        this.adultbasefare = adultbasefare;
+	    }
+
+	    public String getServicetax ()
+	    {
+	        return servicetax;
+	    }
+
+	    public void setServicetax (String servicetax)
+	    {
+	        this.servicetax = servicetax;
+	    }
+
+	    public String getDiscount ()
+	    {
+	        return discount;
+	    }
+
+	    public void setDiscount (String discount)
+	    {
+	        this.discount = discount;
+	    }
+
+	    @Override
+	    public String toString()
+	    {
+	        return "ClassPojo [totalfare = "+totalfare+", adulttotalfare = "+adulttotalfare+", totalbasefare = "+totalbasefare+", transactionfee = "+transactionfee+", adultsurcharge = "+adultsurcharge+", totalcommission = "+totalcommission+", totalsurcharge = "+totalsurcharge+", adultcommission = "+adultcommission+", adultservicetax = "+adultservicetax+", adultbasefare = "+adultbasefare+", servicetax = "+servicetax+", discount = "+discount+"]";
+	    }
+}

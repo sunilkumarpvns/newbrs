@@ -1,0 +1,36 @@
+package com.brs.userservicemanagement.cfg;
+
+import java.util.Properties;
+
+import javax.persistence.Basic;
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+
+import com.brs.userservicemanagement.entity.LoginDetails;
+import com.brs.userservicemanagement.entity.Roles;
+import com.brs.userservicemanagement.entity.UserAuthorization;
+
+@Configuration
+public class AppConfig {
+	@Autowired
+	private DataSource dataSource;
+	@Value("${spring.jpa.show-sql}")
+	private String show_sql;
+
+	@Bean
+	public LocalSessionFactoryBean sessionFactoryBean() {
+		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
+		factoryBean.setDataSource(dataSource);
+		//factoryBean.setAnnotatedPackages("com.brs.userservicemanagement.entity");
+		factoryBean.setAnnotatedClasses(LoginDetails.class,UserAuthorization.class,Roles.class);
+		Properties props = new Properties();
+		props.setProperty("hibernate.show_sql", show_sql);
+		factoryBean.setHibernateProperties(props);
+		return factoryBean;
+	}
+}

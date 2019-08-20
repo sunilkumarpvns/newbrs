@@ -1,0 +1,148 @@
+
+
+
+
+
+  create scrum  board along with   project
+
+  create version
+
+
+ create sprints
+
+ create issue ()
+
+project backlog meetings -------------------> decide ,  10-20    members(actually required to be create story)
+(product  owner (i will give priority for issues) ,
+
+change manager(budget ,integeration of all teams with all technologies),
+
+scrum master ,bussiness analasist ,subject matter experts(SME))
+
+
+
+scrum master will conduct 
+ sprint plaing  meeting( 1.30  to  2hrs  mettings,
+for every 15 days they will conduct metting)--->15 days for each sprint  (developers)
+(expect product owner , change manager)
+
+
+(involving -->Subject experts,all developers(they don't any issue ) )
+
+subject master experts will explian about the requirements  to  all developers
+
+
+after explanation scrum master will asking about estimation to all the developers.
+
+estimation is nothing but story points.
+
+
+
+ Note:- in Agile Every Developer has an independency of taking stories ,
+ scrum master will act as a co-oridinator .
+
+ he is not assing really story.
+
+
+
+ start sprint:-
+ ===============
+
+
+
+
+note:-  after completing the sprint ,sprint showcase metting,(developers will give demo
+   on about implentation  to product owner ,change owner.)
+
+if product owner is not  satisfying with  developer implemetation logic ,he is asking 
+to change the logic, that will include in next sprint as a stroy.
+
+
+  when ever if want to hold the stroy due some other reason then we can move to backlog.
+  if it is  required to complete then we can move to next sprint.
+
+
+    
+ 
+  note:-
+===========
+
+Daily --> scrum metting  --> max 15 min for metting
+
+
+three questions  -->  1) what you have done yestrday 
+                      2)what are you doing today
+                      3) what are impediment( i,e problems ) 
+  
+
+
+  note:-  worklog information is adding by developer as a comment.
+    that is showing to all.
+
+
+  attachements-->flow charts, unit test plan ,unit testing result etc....
+
+
+
+ components:- the stroy is releatd which  component like jsp,html components , then we can create 
+             components.
+
+Epic -> is nothing high level grouping of components,(high level story)
+
+  (logically related strories with respect to functionality )
+
+
+    
+
+story -->
+
+   --> in a stroy -->we can create story points
+
+   -->in a story --> we can create task and sub task.
+
+
+
+  
+
+reports:-- to calculate velocity.
+
+velocity -->how many no of story points can be develiered by team in a sprint is called 
+velocity.
+
+
+
+-->scrum  --->  like  daily 
+
+
+-->scrum master--> he is a person co-ordinating  backlog mettings,sprint planning mettings,
+daiy scrum meeting.
+
+
+
+waterfal model:-  during performance testing of the application  ,it is fails  due
+to arch /desg issue then will not have be having enough time to accomidate changes.
+
+
+agile:-  it is nothing but small waterfall model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

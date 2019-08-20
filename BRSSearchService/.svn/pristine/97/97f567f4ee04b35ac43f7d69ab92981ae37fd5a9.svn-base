@@ -1,0 +1,105 @@
+package com.brs.searchservice;
+
+public class List {
+	private String BPCoordinates;
+
+    private String BPTime;
+
+    private String BPContactNumber;
+
+    private String BPName;
+
+    private String BPAddress;
+
+    private String BPLandmark;
+
+    private String BPId;
+
+    private String BPLocation;
+
+    public String getBPCoordinates ()
+    {
+        return BPCoordinates;
+    }
+
+    public void setBPCoordinates (String BPCoordinates)
+    {
+        this.BPCoordinates = BPCoordinates;
+    }
+
+    public String getBPTime ()
+    {
+        return BPTime;
+    }
+
+    public void setBPTime (String BPTime)
+    {
+        this.BPTime = BPTime;
+    }
+
+    public String getBPContactNumber ()
+    {
+        return BPContactNumber;
+    }
+
+    public void setBPContactNumber (String BPContactNumber)
+    {
+        this.BPContactNumber = BPContactNumber;
+    }
+
+    public String getBPName ()
+    {
+        return BPName;
+    }
+
+    public void setBPName (String BPName)
+    {
+        this.BPName = BPName;
+    }
+
+    public String getBPAddress ()
+    {
+        return BPAddress;
+    }
+
+    public void setBPAddress (String BPAddress)
+    {
+        this.BPAddress = BPAddress;
+    }
+
+    public String getBPLandmark ()
+    {
+        return BPLandmark;
+    }
+
+    public void setBPLandmark (String BPLandmark)
+    {
+        this.BPLandmark = BPLandmark;
+    }
+
+    public String getBPId ()
+    {
+        return BPId;
+    }
+
+    public void setBPId (String BPId)
+    {
+        this.BPId = BPId;
+    }
+
+    public String getBPLocation ()
+    {
+        return BPLocation;
+    }
+
+    public void setBPLocation (String BPLocation)
+    {
+        this.BPLocation = BPLocation;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [BPCoordinates = "+BPCoordinates+", BPTime = "+BPTime+", BPContactNumber = "+BPContactNumber+", BPName = "+BPName+", BPAddress = "+BPAddress+", BPLandmark = "+BPLandmark+", BPId = "+BPId+", BPLocation = "+BPLocation+"]";
+    }
+}

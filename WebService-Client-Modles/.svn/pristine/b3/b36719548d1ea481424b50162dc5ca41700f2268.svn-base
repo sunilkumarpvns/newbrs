@@ -1,0 +1,13 @@
+definitions:
+    Parent:
+        type: "object"
+        discriminator: "type"
+        required:
+            - type
+        properties:
+            id:
+                type: "integer"
+                format: "int64"
+            code:
+                type: "string"
+   

@@ -1,0 +1,288 @@
+2018-07-18-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-18-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-18-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-18-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-18-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-18-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-18-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-18-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-07-18-INFO  UserServiceImpl - Entered into registerPassenger [http-nio-8081-exec-3]
+2018-07-18-INFO  QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-07-18-WARN  HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 95 in HQL: [select roles.roleId from com.brs.userservicemanagement.entity.Roles as roles where roles.role=?].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2018-07-18-INFO  BRSSMSEventListener - Entered into onApplicationEvent() 
+2018-07-18-INFO  UserServiceImpl - response of registerPassenger : Response [status=SUCCESS, msg=Please enter the otp sent to your mobile xxxxx8888, data=100] [ http-nio-8081-exec-3 ]  Time : 5778
+2018-07-18-INFO  BRSSMSEventListener - {"warnings":[{"message":"Number is in DND","numbers":"918888888888"}],"errors":[{"code":51,"message":"No valid numbers specified"}],"status":"failure"} [ SimpleAsyncTaskExecutor-39 ] 2594
+2018-07-18-INFO  UserServiceImpl - Entered into login() : sandeep
+2018-07-18-INFO  UserServiceImpl - Response from login() : Response [status=FAILURE, msg=Login Failure!Please try again., data=null]
+2018-07-18-INFO  UserServiceImpl - Entered into login() : sandeep
+2018-07-18-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-18-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-18-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-18-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-18-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-18-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-18-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-18-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-07-18-INFO  UserServiceImpl - Entered into login() : sandeep
+2018-07-18-INFO  QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-07-18-INFO  UserServiceImpl - Entered into login() : sandeep12@yahoo.com
+2018-07-18-INFO  UserServiceImpl - Entered into login() : sandeep12@yahoo.com
+2018-07-18-INFO  UserServiceImpl - Entered into login() : sandeep12@yahoo.com
+2018-07-18-INFO  UserServiceImpl - Response from login() : Response [status=FAILURE, msg=Login Failure!Please try again., data=null]
+2018-07-18-INFO  UserServiceImpl - Entered into login() : sandeep12@yahoo.com
+2018-07-18-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-18-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-18-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-18-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-18-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-18-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-18-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-18-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-07-18-INFO  UserServiceImpl - Entered into login() : sandeep12@yahoo.com
+2018-07-18-INFO  UserServiceImpl - Entered into login() : sandeep12@yahoo.com
+2018-07-18-INFO  UserServiceImpl - Response from login() : Response [status=FAILURE, msg=Your account is not activated!please contact info@brs.com, data=null]
+2018-07-23-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-23-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-23-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-23-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-23-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-23-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-07-23-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-23-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-23-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-23-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-23-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-23-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-07-23-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-23-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-23-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-23-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-23-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-23-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-07-23-INFO  UserServiceImpl - Entered into registerPassenger [http-nio-8081-exec-2]
+2018-07-23-INFO  QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-07-23-WARN  HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 95 in HQL: [select roles.roleId from com.brs.userservicemanagement.entity.Roles as roles where roles.role=?].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2018-07-23-INFO  UserServiceImpl - Entered into registerPassenger [http-nio-8081-exec-4]
+2018-07-23-INFO  UserServiceImpl - response of registerPassenger : Response [status=SUCCESS, msg=Please enter the otp sent to your mobile xxxxx8888, data=102] [ http-nio-8081-exec-4 ]  Time : 380
+2018-07-23-INFO  BRSSMSEventListener - Entered into onApplicationEvent() 
+2018-07-23-INFO  BRSSMSEventListener - {"warnings":[{"message":"Number is in DND","numbers":"918888888888"}],"errors":[{"code":51,"message":"No valid numbers specified"}],"status":"failure"} [ SimpleAsyncTaskExecutor-47 ] 4793
+2018-07-23-WARN  HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 207 in HQL: [SELECT minute(CURRENT_TIMESTAMP() - userOtp.generatedTime)  as minutes FROM com.brs.userservicemanagement.entity.UserOtp as userOtp Inner Join userOtp.loginDetails as loginDetails where loginDetails.userId=? and userOtp.otp=? ].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2018-07-23-WARN  HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 225 in HQL: [SELECT minute(CURRENT_TIMESTAMP() - userOtp.generatedTime)  as minutes FROM com.brs.userservicemanagement.entity.UserOtp as userOtp Inner Join userOtp.loginDetails as loginDetails where loginDetails.userId=? and userOtp.otp=? ].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2018-07-23-INFO  UserServiceImpl - Time Diff in Minutes : 5
+2018-07-23-WARN  HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 98 in HQL: [update com.brs.userservicemanagement.entity.LoginDetails as loginDetails set loginDetails.status=? where loginDetails.userId=?].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2018-07-23-WARN  HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 126 in HQL: [update com.brs.userservicemanagement.entity.LoginDetails as loginDetails set loginDetails.status=? where loginDetails.userId=?].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2018-07-23-INFO  UserServiceImpl - response from validateOTP : Response [status=SUCCESS, msg=Your account is activated!please login into your account, data=null]
+2018-07-23-INFO  UserServiceImpl - Entered into login() : sandeep12@yahoo.com
+2018-07-23-INFO  UserServiceImpl - Entered into login() : sandeep12@yahoo.com
+2018-07-23-INFO  UserServiceImpl - Entered into registerPassenger [http-nio-8081-exec-5]
+2018-07-23-INFO  UserServiceImpl - response of registerPassenger : Response [status=SUCCESS, msg=Please enter the otp sent to your mobile xxxxx8777, data=103] [ http-nio-8081-exec-5 ]  Time : 227
+2018-07-23-INFO  BRSSMSEventListener - Entered into onApplicationEvent() 
+2018-07-23-INFO  BRSSMSEventListener - {"errors":[{"code":7,"message":"Insufficient credits"}],"status":"failure"} [ SimpleAsyncTaskExecutor-87 ] 2654
+2018-07-23-INFO  UserServiceImpl - Time Diff in Minutes : 3
+2018-07-23-INFO  UserServiceImpl - response from validateOTP : Response [status=SUCCESS, msg=Your account is activated!please login into your account, data=null]
+2018-07-23-INFO  UserServiceImpl - Entered into login() : apoorva12@yahoo.com
+2018-07-23-WARN  SqlExceptionHelper - SQL Error: 1400, SQLState: 23000
+2018-07-23-ERROR SqlExceptionHelper - ORA-01400: cannot insert NULL into ("USERSERVICEDB"."USER_AUTHORIZATION"."IP_ADDRESS")
+
+2018-07-23-INFO  AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2018-07-23-ERROR SessionImpl - HHH000346: Error during managed flush [could not execute statement]
+2018-07-23-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-23-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-23-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-23-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-23-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-23-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-07-23-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-23-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-23-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-23-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-23-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-23-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-07-23-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-23-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-23-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-23-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-23-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-23-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-07-23-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-23-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-23-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-23-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-23-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-23-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-07-23-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-23-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-23-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-23-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-23-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-23-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-07-23-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-07-23-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-23-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-07-23-INFO  Environment - HHH000206: hibernate.properties not found
+2018-07-23-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-07-23-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-07-23-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-03-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-08-03-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-08-03-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-08-03-INFO  Environment - HHH000206: hibernate.properties not found
+2018-08-03-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-08-03-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-08-03-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-08-03-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-04-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-08-04-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-08-04-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-08-04-INFO  Environment - HHH000206: hibernate.properties not found
+2018-08-04-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-08-04-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-08-04-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-08-04-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-04-INFO  UserServiceImpl - Entered into registe  rPassenger [http-nio-8081-exec-1]
+2018-08-04-INFO  QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-04-WARN  HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 95 in HQL: [select roles.roleId from com.brs.userservicemanagement.entity.Roles as roles where roles.role=?].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2018-08-04-INFO  BRSSMSEventListener - Entered into onApplicationEvent() 
+2018-08-04-INFO  UserServiceImpl - response of registerPassenger : Response [status=SUCCESS, msg=Please enter the otp sent to your mobile xxxxx1212, data=104] [ http-nio-8081-exec-1 ]  Time : 6460
+2018-08-04-INFO  BRSSMSEventListener - {"warnings":[{"message":"Number is in DND","numbers":"911212121212"}],"errors":[{"code":51,"message":"No valid numbers specified"}],"status":"failure"} [ SimpleAsyncTaskExecutor-163 ] 2730
+2018-08-04-WARN  HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 207 in HQL: [SELECT minute(CURRENT_TIMESTAMP() - userOtp.generatedTime)  as minutes FROM com.brs.userservicemanagement.entity.UserOtp as userOtp Inner Join userOtp.loginDetails as loginDetails where loginDetails.userId=? and userOtp.otp=? ].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2018-08-04-WARN  HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 225 in HQL: [SELECT minute(CURRENT_TIMESTAMP() - userOtp.generatedTime)  as minutes FROM com.brs.userservicemanagement.entity.UserOtp as userOtp Inner Join userOtp.loginDetails as loginDetails where loginDetails.userId=? and userOtp.otp=? ].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2018-08-04-INFO  UserServiceImpl - Time Diff in Minutes : 8
+2018-08-04-WARN  HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 98 in HQL: [update com.brs.userservicemanagement.entity.LoginDetails as loginDetails set loginDetails.status=? where loginDetails.userId=?].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2018-08-04-WARN  HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 126 in HQL: [update com.brs.userservicemanagement.entity.LoginDetails as loginDetails set loginDetails.status=? where loginDetails.userId=?].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2018-08-04-INFO  UserServiceImpl - response from validateOTP : Response [status=SUCCESS, msg=Your account is activated!please login into your account, data=null]
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-WARN  SqlExceptionHelper - SQL Error: 1400, SQLState: 23000
+2018-08-04-ERROR SqlExceptionHelper - ORA-01400: cannot insert NULL into ("USERSERVICEDB"."USER_AUTHORIZATION"."IP_ADDRESS")
+
+2018-08-04-INFO  AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2018-08-04-ERROR SessionImpl - HHH000346: Error during managed flush [could not execute statement]
+2018-08-04-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-08-04-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-08-04-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-08-04-INFO  Environment - HHH000206: hibernate.properties not found
+2018-08-04-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-08-04-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-08-04-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-08-04-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-04-WARN  SqlExceptionHelper - SQL Error: 1400, SQLState: 23000
+2018-08-04-ERROR SqlExceptionHelper - ORA-01400: cannot insert NULL into ("USERSERVICEDB"."USER_AUTHORIZATION"."IP_ADDRESS")
+
+2018-08-04-INFO  AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2018-08-04-ERROR SessionImpl - HHH000346: Error during managed flush [could not execute statement]
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-WARN  SqlExceptionHelper - SQL Error: 1400, SQLState: 23000
+2018-08-04-ERROR SqlExceptionHelper - ORA-01400: cannot insert NULL into ("USERSERVICEDB"."USER_AUTHORIZATION"."IP_ADDRESS")
+
+2018-08-04-INFO  AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2018-08-04-ERROR SessionImpl - HHH000346: Error during managed flush [could not execute statement]
+2018-08-04-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-08-04-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-08-04-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-08-04-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-08-04-INFO  Environment - HHH000206: hibernate.properties not found
+2018-08-04-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-08-04-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-08-04-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-08-04-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-04-WARN  SqlExceptionHelper - SQL Error: 1400, SQLState: 23000
+2018-08-04-ERROR SqlExceptionHelper - ORA-01400: cannot insert NULL into ("USERSERVICEDB"."USER_AUTHORIZATION"."IP_ADDRESS")
+
+2018-08-04-INFO  AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2018-08-04-ERROR SessionImpl - HHH000346: Error during managed flush [could not execute statement]
+2018-08-04-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-08-04-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-08-04-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-08-04-INFO  Environment - HHH000206: hibernate.properties not found
+2018-08-04-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-08-04-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-08-04-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-08-04-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  UserServiceImpl - Entered into login() : sandeep
+2018-08-04-INFO  UserServiceImpl - Entered into login() : sandeep
+2018-08-04-INFO  UserServiceImpl - Response from login() : Response [status=FAILURE, msg=Login Failure!Please try again., data=null]
+2018-08-04-INFO  UserServiceImpl - Entered into login() : sandeep
+2018-08-04-INFO  UserServiceImpl - Entered into login() : sandeep
+2018-08-04-INFO  UserServiceImpl - Response from login() : Response [status=FAILURE, msg=Login Failure!Please try again., data=null]
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-08-04-INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-08-04-INFO  Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-08-04-INFO  Environment - HHH000206: hibernate.properties not found
+2018-08-04-INFO  Environment - HHH000021: Bytecode provider name : javassist
+2018-08-04-INFO  Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-08-04-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle9iDialect
+2018-08-04-INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  UserServiceImpl - Entered into login() : simmam@yahoo.com
+2018-08-04-INFO  QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-04-INFO  UserServiceImpl - Response from login() : Response [status=SUCCESS, msg=Login Success, data={mobile=1212121212, userRoleId=102, userName=simmam, userRole=PASSENGER, userId=104, email=simmam@yahoo.com, token=NDFOWks=, status=STATUS_ACTIVE}]

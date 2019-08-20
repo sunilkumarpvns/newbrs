@@ -1,0 +1,4 @@
+eureka:
+ instance:
+  appname: SearchService
+  

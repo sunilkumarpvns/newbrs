@@ -1,0 +1,44 @@
+package com.brs.userservicemanagement.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import com.brs.userservicemanagement.entity.LoginDetails;
+
+
+/**
+ * The Class LoginDetailsDAOImpl.
+ */
+@Repository
+public class LoginDetailsDAOImpl implements LoginDetailsDAO {
+	
+	/** The session factory. */
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	/* (non-Javadoc)
+	 * @see com.brs.userservicemanagement.dao.LoginDetailsDAO#login(com.brs.userservicemanagement.entity.LoginDetails)
+	 */
+	@Override
+	public LoginDetails login(LoginDetails loginDetails) {
+		Session session = sessionFactory.openSession();
+		String hql = "from "
++ " com.brs.userservicemanagement.entity.LoginDetails "
++ "as login  where (login.userName=? OR login.email=? OR login.mobile=?)  and "
++ "login.password=?";
+		Query query = session.createQuery(hql);
+		query.setParameter(0, loginDetails.getUserName());
+		query.setParameter(1, loginDetails.getEmail());
+		query.setParameter(2, loginDetails.getMobile());
+		query.setParameter(3, loginDetails.getPassword());
+		LoginDetails ld = (LoginDetails) query.uniqueResult();
+		
+		session.close();
+		return ld;
+	}
+	
+}

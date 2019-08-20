@@ -1,0 +1,9 @@
+package com.brs.userservicemanagement.dao;
+
+import java.util.List;
+
+import com.brs.userservicemanagement.entity.LoginDetails;
+
+public interface LoginDetailsDAO {
+public LoginDetails login(LoginDetails loginDetails);
+}

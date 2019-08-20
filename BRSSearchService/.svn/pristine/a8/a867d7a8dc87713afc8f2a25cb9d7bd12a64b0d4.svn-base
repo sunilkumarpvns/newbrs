@@ -1,0 +1,574 @@
+package com.brs.searchservice;
+
+public class Onwardflights {
+
+	private String OperatorID;
+
+    private String dst_vendor_id;
+
+    private String BusType;
+
+    private Fare fare;
+
+    private String ugcid;
+
+    private String avlWindowSeats;
+
+    private String row_type;
+
+    private String levyFee;
+
+    private String dest_voyager_id;
+
+    private String src_vendor_id;
+
+    private String ServiceName;
+
+    private String bpDpSeatLayout;
+
+    private String seat;
+
+    private String DepartureTime;
+
+    private RouteSeatTypeDetail RouteSeatTypeDetail;
+
+    private String TravelsName;
+
+    private String gps;
+
+    private String ArrivalTime;
+
+    private String partialCancellationAllowed;
+
+    private String arrdate;
+
+    private String srtFee;
+
+    private String AvailCatCard;
+
+    private String depdate;
+
+    private String amenities;
+
+    private String tbrequired;
+
+    private String origin;
+
+    private String RouteID;
+
+    private String qtype;
+
+    private String totalReviews;
+
+    private String busCondition;
+
+    private String farebasis;
+
+    private String cancellationPolicy;
+
+    private String destination;
+
+    private String src_voyager_id;
+
+    private Reddeal reddeal;
+
+    private String duration;
+
+    private String idRequired;
+
+    private String impulse_perc_seats;
+
+    private String ServiceID;
+
+    private String BusServiceID;
+
+    private String busCompany;
+
+    private String skey;
+
+    private String zeroCancellationTime;
+
+    private BPPrims BPPrims;
+
+    private DPPrims DPPrims;
+
+    private String rating;
+
+    private String mTicket;
+
+    public String getOperatorID ()
+    {
+        return OperatorID;
+    }
+
+    public void setOperatorID (String OperatorID)
+    {
+        this.OperatorID = OperatorID;
+    }
+
+    public String getDst_vendor_id ()
+    {
+        return dst_vendor_id;
+    }
+
+    public void setDst_vendor_id (String dst_vendor_id)
+    {
+        this.dst_vendor_id = dst_vendor_id;
+    }
+
+    public String getBusType ()
+    {
+        return BusType;
+    }
+
+    public void setBusType (String BusType)
+    {
+        this.BusType = BusType;
+    }
+
+    public Fare getFare ()
+    {
+        return fare;
+    }
+
+    public void setFare (Fare fare)
+    {
+        this.fare = fare;
+    }
+
+    public String getUgcid ()
+    {
+        return ugcid;
+    }
+
+    public void setUgcid (String ugcid)
+    {
+        this.ugcid = ugcid;
+    }
+
+    public String getAvlWindowSeats ()
+    {
+        return avlWindowSeats;
+    }
+
+    public void setAvlWindowSeats (String avlWindowSeats)
+    {
+        this.avlWindowSeats = avlWindowSeats;
+    }
+
+    public String getRow_type ()
+    {
+        return row_type;
+    }
+
+    public void setRow_type (String row_type)
+    {
+        this.row_type = row_type;
+    }
+
+    public String getLevyFee ()
+    {
+        return levyFee;
+    }
+
+    public void setLevyFee (String levyFee)
+    {
+        this.levyFee = levyFee;
+    }
+
+    public String getDest_voyager_id ()
+    {
+        return dest_voyager_id;
+    }
+
+    public void setDest_voyager_id (String dest_voyager_id)
+    {
+        this.dest_voyager_id = dest_voyager_id;
+    }
+
+    public String getSrc_vendor_id ()
+    {
+        return src_vendor_id;
+    }
+
+    public void setSrc_vendor_id (String src_vendor_id)
+    {
+        this.src_vendor_id = src_vendor_id;
+    }
+
+    public String getServiceName ()
+    {
+        return ServiceName;
+    }
+
+    public void setServiceName (String ServiceName)
+    {
+        this.ServiceName = ServiceName;
+    }
+
+    public String getBpDpSeatLayout ()
+    {
+        return bpDpSeatLayout;
+    }
+
+    public void setBpDpSeatLayout (String bpDpSeatLayout)
+    {
+        this.bpDpSeatLayout = bpDpSeatLayout;
+    }
+
+    public String getSeat ()
+    {
+        return seat;
+    }
+
+    public void setSeat (String seat)
+    {
+        this.seat = seat;
+    }
+
+    public String getDepartureTime ()
+    {
+        return DepartureTime;
+    }
+
+    public void setDepartureTime (String DepartureTime)
+    {
+        this.DepartureTime = DepartureTime;
+    }
+
+    public RouteSeatTypeDetail getRouteSeatTypeDetail ()
+    {
+        return RouteSeatTypeDetail;
+    }
+
+    public void setRouteSeatTypeDetail (RouteSeatTypeDetail RouteSeatTypeDetail)
+    {
+        this.RouteSeatTypeDetail = RouteSeatTypeDetail;
+    }
+
+    public String getTravelsName ()
+    {
+        return TravelsName;
+    }
+
+    public void setTravelsName (String TravelsName)
+    {
+        this.TravelsName = TravelsName;
+    }
+
+    public String getGps ()
+    {
+        return gps;
+    }
+
+    public void setGps (String gps)
+    {
+        this.gps = gps;
+    }
+
+    public String getArrivalTime ()
+    {
+        return ArrivalTime;
+    }
+
+    public void setArrivalTime (String ArrivalTime)
+    {
+        this.ArrivalTime = ArrivalTime;
+    }
+
+    public String getPartialCancellationAllowed ()
+    {
+        return partialCancellationAllowed;
+    }
+
+    public void setPartialCancellationAllowed (String partialCancellationAllowed)
+    {
+        this.partialCancellationAllowed = partialCancellationAllowed;
+    }
+
+    public String getArrdate ()
+    {
+        return arrdate;
+    }
+
+    public void setArrdate (String arrdate)
+    {
+        this.arrdate = arrdate;
+    }
+
+    public String getSrtFee ()
+    {
+        return srtFee;
+    }
+
+    public void setSrtFee (String srtFee)
+    {
+        this.srtFee = srtFee;
+    }
+
+    public String getAvailCatCard ()
+    {
+        return AvailCatCard;
+    }
+
+    public void setAvailCatCard (String AvailCatCard)
+    {
+        this.AvailCatCard = AvailCatCard;
+    }
+
+    public String getDepdate ()
+    {
+        return depdate;
+    }
+
+    public void setDepdate (String depdate)
+    {
+        this.depdate = depdate;
+    }
+
+    public String getAmenities ()
+    {
+        return amenities;
+    }
+
+    public void setAmenities (String amenities)
+    {
+        this.amenities = amenities;
+    }
+
+    public String getTbrequired ()
+    {
+        return tbrequired;
+    }
+
+    public void setTbrequired (String tbrequired)
+    {
+        this.tbrequired = tbrequired;
+    }
+
+    public String getOrigin ()
+    {
+        return origin;
+    }
+
+    public void setOrigin (String origin)
+    {
+        this.origin = origin;
+    }
+
+    public String getRouteID ()
+    {
+        return RouteID;
+    }
+
+    public void setRouteID (String RouteID)
+    {
+        this.RouteID = RouteID;
+    }
+
+    public String getQtype ()
+    {
+        return qtype;
+    }
+
+    public void setQtype (String qtype)
+    {
+        this.qtype = qtype;
+    }
+
+    public String getTotalReviews ()
+    {
+        return totalReviews;
+    }
+
+    public void setTotalReviews (String totalReviews)
+    {
+        this.totalReviews = totalReviews;
+    }
+
+    public String getBusCondition ()
+    {
+        return busCondition;
+    }
+
+    public void setBusCondition (String busCondition)
+    {
+        this.busCondition = busCondition;
+    }
+
+    public String getFarebasis ()
+    {
+        return farebasis;
+    }
+
+    public void setFarebasis (String farebasis)
+    {
+        this.farebasis = farebasis;
+    }
+
+    public String getCancellationPolicy ()
+    {
+        return cancellationPolicy;
+    }
+
+    public void setCancellationPolicy (String cancellationPolicy)
+    {
+        this.cancellationPolicy = cancellationPolicy;
+    }
+
+    public String getDestination ()
+    {
+        return destination;
+    }
+
+    public void setDestination (String destination)
+    {
+        this.destination = destination;
+    }
+
+    public String getSrc_voyager_id ()
+    {
+        return src_voyager_id;
+    }
+
+    public void setSrc_voyager_id (String src_voyager_id)
+    {
+        this.src_voyager_id = src_voyager_id;
+    }
+
+    public Reddeal getReddeal ()
+    {
+        return reddeal;
+    }
+
+    public void setReddeal (Reddeal reddeal)
+    {
+        this.reddeal = reddeal;
+    }
+
+    public String getDuration ()
+    {
+        return duration;
+    }
+
+    public void setDuration (String duration)
+    {
+        this.duration = duration;
+    }
+
+    public String getIdRequired ()
+    {
+        return idRequired;
+    }
+
+    public void setIdRequired (String idRequired)
+    {
+        this.idRequired = idRequired;
+    }
+
+    public String getImpulse_perc_seats ()
+    {
+        return impulse_perc_seats;
+    }
+
+    public void setImpulse_perc_seats (String impulse_perc_seats)
+    {
+        this.impulse_perc_seats = impulse_perc_seats;
+    }
+
+    public String getServiceID ()
+    {
+        return ServiceID;
+    }
+
+    public void setServiceID (String ServiceID)
+    {
+        this.ServiceID = ServiceID;
+    }
+
+    public String getBusServiceID ()
+    {
+        return BusServiceID;
+    }
+
+    public void setBusServiceID (String BusServiceID)
+    {
+        this.BusServiceID = BusServiceID;
+    }
+
+    public String getBusCompany ()
+    {
+        return busCompany;
+    }
+
+    public void setBusCompany (String busCompany)
+    {
+        this.busCompany = busCompany;
+    }
+
+    public String getSkey ()
+    {
+        return skey;
+    }
+
+    public void setSkey (String skey)
+    {
+        this.skey = skey;
+    }
+
+    public String getZeroCancellationTime ()
+    {
+        return zeroCancellationTime;
+    }
+
+    public void setZeroCancellationTime (String zeroCancellationTime)
+    {
+        this.zeroCancellationTime = zeroCancellationTime;
+    }
+
+    public BPPrims getBPPrims ()
+    {
+        return BPPrims;
+    }
+
+    public void setBPPrims (BPPrims BPPrims)
+    {
+        this.BPPrims = BPPrims;
+    }
+
+    public DPPrims getDPPrims ()
+    {
+        return DPPrims;
+    }
+
+    public void setDPPrims (DPPrims DPPrims)
+    {
+        this.DPPrims = DPPrims;
+    }
+
+    public String getRating ()
+    {
+        return rating;
+    }
+
+    public void setRating (String rating)
+    {
+        this.rating = rating;
+    }
+
+    public String getMTicket ()
+    {
+        return mTicket;
+    }
+
+    public void setMTicket (String mTicket)
+    {
+        this.mTicket = mTicket;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [OperatorID = "+OperatorID+", dst_vendor_id = "+dst_vendor_id+", BusType = "+BusType+", fare = "+fare+", ugcid = "+ugcid+", avlWindowSeats = "+avlWindowSeats+", row_type = "+row_type+", levyFee = "+levyFee+", dest_voyager_id = "+dest_voyager_id+", src_vendor_id = "+src_vendor_id+", ServiceName = "+ServiceName+", bpDpSeatLayout = "+bpDpSeatLayout+", seat = "+seat+", DepartureTime = "+DepartureTime+", RouteSeatTypeDetail = "+RouteSeatTypeDetail+", TravelsName = "+TravelsName+", gps = "+gps+", ArrivalTime = "+ArrivalTime+", partialCancellationAllowed = "+partialCancellationAllowed+", arrdate = "+arrdate+", srtFee = "+srtFee+", AvailCatCard = "+AvailCatCard+", depdate = "+depdate+", amenities = "+amenities+", tbrequired = "+tbrequired+", origin = "+origin+", RouteID = "+RouteID+", qtype = "+qtype+", totalReviews = "+totalReviews+", busCondition = "+busCondition+", farebasis = "+farebasis+", cancellationPolicy = "+cancellationPolicy+", destination = "+destination+", src_voyager_id = "+src_voyager_id+", reddeal = "+reddeal+", duration = "+duration+", idRequired = "+idRequired+", impulse_perc_seats = "+impulse_perc_seats+", ServiceID = "+ServiceID+", BusServiceID = "+BusServiceID+", busCompany = "+busCompany+", skey = "+skey+", zeroCancellationTime = "+zeroCancellationTime+", BPPrims = "+BPPrims+", DPPrims = "+DPPrims+", rating = "+rating+", mTicket = "+mTicket+"]";
+    }
+}

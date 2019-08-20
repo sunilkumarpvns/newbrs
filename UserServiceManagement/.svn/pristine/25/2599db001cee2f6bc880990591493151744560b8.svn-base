@@ -1,0 +1,22 @@
+package com.brs.userservicemanagement;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+@EnableEurekaClient
+
+/**
+ * The Class UserServiceApplication.
+ */
+@SpringBootApplication
+public class UserServiceApplication {
+
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
+	public static void main(String[] args) {
+		SpringApplication.run(UserServiceApplication.class, arg);
+	}
+}

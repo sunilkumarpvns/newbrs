@@ -1,0 +1,15 @@
+package com.brs.userservicemanagement.integration;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class BRSSmsServiceImpl 
+implements BRSSmsService{
+
+	@Override
+	public String sendSms(String mobile, String sms) {
+		
+		return null;
+	}
+
+}

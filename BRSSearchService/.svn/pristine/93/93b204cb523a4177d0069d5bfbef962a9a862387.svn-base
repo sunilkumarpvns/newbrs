@@ -1,0 +1,141 @@
+package com.brs.searchservice.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.log4j.Logger;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
+
+import com.brs.searchservice.beans.BoardingPoint;
+import com.brs.searchservice.beans.DroppingPoint;
+import com.brs.searchservice.beans.Response;
+import com.brs.searchservice.beans.ResponseStatus;
+import com.brs.searchservice.beans.Review;
+import com.brs.searchservice.beans.SearchOnwordBus;
+import com.brs.searchservice.beans.SeatTypeDetail;
+import com.brs.searchservice.models.model.BoardingPointList;
+import com.brs.searchservice.models.model.DataOnwardflights;
+import com.brs.searchservice.webservice.clients.B2BSearchServiceClient;
+
+@Service
+public class BusServiceImpl implements BusService {
+	@Autowired
+	private B2BSearchServiceClient searchServiceClient;
+	private static Logger logger=Logger.getLogger(BusServiceImpl.class);
+	@Override
+	public Response searchBus(String source, String destination, String doj, String drj) {
+		logger.info("Entered into searchBus : "+source+" "+destination+" "+doj+" "+drj);
+		//apply server side validation 
+		Response response = new Response();
+		response.setMessage("No Data Found");
+		response.setStatus(ResponseStatus.FAILURE);
+		try {
+			com.brs.searchservice.models.model.Response modelResponse = searchServiceClient.searchBuses(source,
+					destination, doj, drj);
+			if (modelResponse != null && modelResponse.getData() != null
+					&& CollectionUtils.isNotEmpty(modelResponse.getData().getOnwardflights())) {
+				List<DataOnwardflights> dataOnwordFlights = modelResponse.getData().getOnwardflights();
+				List<SearchOnwordBus> searchOnwordBusList = new ArrayList();
+				for (DataOnwardflights dataOnwardflight : dataOnwordFlights) {
+					SearchOnwordBus searchOnwordBus = new SearchOnwordBus();
+					searchOnwordBus.setOrigin(dataOnwardflight.getOrigin());
+					searchOnwordBus.setRating(dataOnwardflight.getRating());
+					searchOnwordBus.setDepartureTime(dataOnwardflight.getDepartureTime());
+					searchOnwordBus.setCancellationPolicy(dataOnwardflight.getCancellationPolicy());
+					searchOnwordBus.setAvlWindowSeats(dataOnwardflight.getAvlWindowSeats().intValue());
+					searchOnwordBus.setImpulsePercSeats(dataOnwardflight.getImpulsePercSeats());
+					searchOnwordBus.setBusServiceID(dataOnwardflight.getBusServiceID());
+					searchOnwordBus.setTotalReviews(dataOnwardflight.getTotalReviews());
+					searchOnwordBus.setSeat(dataOnwardflight.getSeat());
+					searchOnwordBus.setDuration(dataOnwardflight.getDuration());
+					searchOnwordBus.setSkey(dataOnwardflight.getSkey());
+					searchOnwordBus.setBusCondition(dataOnwardflight.getBusCondition());
+					searchOnwordBus.setSrcVoyagerId(dataOnwardflight.getSrcVoyagerId());
+					searchOnwordBus.setLevyFee(dataOnwardflight.getLevyFee());
+					searchOnwordBus.setDestination(dataOnwardflight.getDestination());
+					setBoardingPoints(dataOnwardflight, searchOnwordBus);
+
+					// continue...
+					searchOnwordBus.setAmenities(dataOnwardflight.getAmenities());
+					searchOnwordBus.setSrcVendorId(dataOnwardflight.getSrcVendorId());
+					searchOnwordBus.setDestVoyagerId(dataOnwardflight.getDestVoyagerId());
+					searchOnwordBus.setArrivalTime(dataOnwardflight.getArrivalTime());
+					searchOnwordBus.setZeroCancellationTime(dataOnwardflight.getZeroCancellationTime().toString());
+					searchOnwordBus.setGps(dataOnwardflight.getGps());
+					searchOnwordBus.setDstVendorId(dataOnwardflight.getDstVendorId());
+					searchOnwordBus.setOperatorID(dataOnwardflight.getOperatorID());
+					setDroppingPoints(dataOnwardflight, searchOnwordBus);
+					searchOnwordBus.setmTicket(dataOnwardflight.getMTicket());
+					searchOnwordBus.setRowType(dataOnwardflight.getRowType());
+					searchOnwordBus.setBusType(dataOnwardflight.getBusType());
+					setSeatType(dataOnwardflight, searchOnwordBus);
+					searchOnwordBus.setDepdate(dataOnwardflight.getDepdate());
+					searchOnwordBus.setIdRequired(dataOnwardflight.getIdRequired());
+					searchOnwordBus.setServiceID(dataOnwardflight.getServiceID());
+					searchOnwordBus.setBusCompany(dataOnwardflight.getBusCompany());
+					searchOnwordBus.setBpDpSeatLayout(dataOnwardflight.isBpDpSeatLayout());
+					Review review = new Review();
+					BeanUtils.copyProperties(dataOnwardflight.getUgcreview(), review);
+					searchOnwordBus.setReview(review);
+					searchOnwordBus.setTravelsName(dataOnwardflight.getTravelsName());
+					searchOnwordBus.setTbrequired(dataOnwardflight.getTbrequired());
+					searchOnwordBus.setFarebasis(dataOnwardflight.getFarebasis());
+					searchOnwordBus.setRouteID(dataOnwardflight.getRouteID());
+					searchOnwordBus.setServiceName(dataOnwardflight.getServiceName());
+					searchOnwordBus.setSrtFee(dataOnwardflight.getSrtFee().doubleValue());
+					searchOnwordBus.setPartialCancellationAllowed(dataOnwardflight.getPartialCancellationAllowed());
+					searchOnwordBus.setUgcid(dataOnwardflight.getUgcid());
+					searchOnwordBus.setArrdate(dataOnwardflight.getArrdate());
+					searchOnwordBusList.add(searchOnwordBus);
+				}
+				if (CollectionUtils.isNotEmpty(searchOnwordBusList)) {
+					response.setStatus(ResponseStatus.SUCCESS);
+					response.setData(searchOnwordBusList);
+				}
+			}
+		} catch (RestClientException e) {
+			logger.error("Exception in searchBus : "+e);
+			
+			response.setStatus(ResponseStatus.FAILURE);
+			response.setMessage("Unable to process your request!please try again");
+		}
+		logger.info("Response from searchBus : "+response);
+		
+		return response;
+	}
+
+	private void setSeatType(DataOnwardflights dataOnwardflight, SearchOnwordBus searchOnwordBus) {
+		SeatTypeDetail seatTypeDetail = new SeatTypeDetail();
+		BeanUtils.copyProperties(dataOnwardflight.getRouteSeatTypeDetail(), seatTypeDetail);
+		searchOnwordBus.setSeatTypeDetail(seatTypeDetail);
+	}
+
+	private void setDroppingPoints(DataOnwardflights dataOnwardflight, SearchOnwordBus searchOnwordBus) {
+		List<DroppingPoint> listOfdropingPoints = new ArrayList();
+		dataOnwardflight.getDpPrims().getList().forEach(dropingPoints -> {
+			DroppingPoint dp = new DroppingPoint();
+			BeanUtils.copyProperties(dropingPoints, dp);
+			listOfdropingPoints.add(dp);
+		});
+		searchOnwordBus.setDroppingPoints(listOfdropingPoints);
+	}
+
+	private void setBoardingPoints(DataOnwardflights dataOnwardflight, SearchOnwordBus searchOnwordBus) {
+		if (dataOnwardflight.getBpPrims() != null
+				&& CollectionUtils.isNotEmpty(dataOnwardflight.getBpPrims().getList())) {
+			List<BoardingPointList> modelBoardingPoints = dataOnwardflight.getBpPrims().getList();
+			List<BoardingPoint> boardingPoints = new ArrayList<>();
+			for (BoardingPointList modelBoardingPoint : modelBoardingPoints) {
+				BoardingPoint boardingPoint = new BoardingPoint();
+				BeanUtils.copyProperties(modelBoardingPoint, boardingPoint);
+				boardingPoints.add(boardingPoint);
+			}
+			searchOnwordBus.setBoardingPoints(boardingPoints);
+		}
+	}
+
+}

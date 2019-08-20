@@ -1,0 +1,70 @@
+package com.brs.searchservice;
+
+public class Reddeal {
+	 private String[] op;
+
+	    private String[] offerNoteApps;
+
+	    private String offerNote;
+
+	    private String offerDesc;
+
+	    private String[] dp;
+
+	    public String[] getOp ()
+	    {
+	        return op;
+	    }
+
+	    public void setOp (String[] op)
+	    {
+	        this.op = op;
+	    }
+
+	    public String[] getOfferNoteApps ()
+	    {
+	        return offerNoteApps;
+	    }
+
+	    public void setOfferNoteApps (String[] offerNoteApps)
+	    {
+	        this.offerNoteApps = offerNoteApps;
+	    }
+
+	    public String getOfferNote ()
+	    {
+	        return offerNote;
+	    }
+
+	    public void setOfferNote (String offerNote)
+	    {
+	        this.offerNote = offerNote;
+	    }
+
+	    public String getOfferDesc ()
+	    {
+	        return offerDesc;
+	    }
+
+	    public void setOfferDesc (String offerDesc)
+	    {
+	        this.offerDesc = offerDesc;
+	    }
+
+	    public String[] getDp ()
+	    {
+	        return dp;
+	    }
+
+	    public void setDp (String[] dp)
+	    {
+	        this.dp = dp;
+	    }
+
+	    @Override
+	    public String toString()
+	    {
+	        return "ClassPojo [op = "+op+", offerNoteApps = "+offerNoteApps+", offerNote = "+offerNote+", offerDesc = "+offerDesc+", dp = "+dp+"]";
+	    }
+
+}

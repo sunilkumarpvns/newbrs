@@ -1,0 +1,40 @@
+package com.brs.userservicemanagement.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.brs.beans.common.LoginRQ;
+import com.brs.beans.common.Response;
+import com.brs.userservicemanagement.service.UserService;
+
+
+/**
+ * created by sathish on 26/6/2018
+ */
+@RestController
+@RequestMapping(value = "users")
+public class UserController {
+	
+	/** The user service. */
+	@Autowired
+	private UserService userService;
+
+	/**
+	 * Login.
+	 *
+	 * @param loginRQ the login RQ
+	 * @return the response
+	 */
+	@RequestMapping(value = "login", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	@ResponseBody
+	public Response login(@RequestBody LoginRQ loginRQ) {
+		Response response = userService.login(loginRQ);
+		return response;
+	}
+
+}

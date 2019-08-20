@@ -1,0 +1,480 @@
+---
+swagger: '2.0'
+info:
+  description: Open API Spec of Goibibo APIs. You can find more about Open API Spec
+    here (https://openapis.org/)
+  version: 1.0.0
+  title: Open API Goibibo API Program
+  termsOfService: http://developer.goibibo.com/terms-of-service
+  contact:
+    name: Amlan
+    url: http://developer.goibibo.com/contact
+    email: apiteam@goibibo.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: developer.goibibo.com
+basePath: "/"
+schemes:
+- http
+paths:
+  "/api/bus/search/":
+    get:
+      summary: Search for Busses
+      operationId: searchBus
+      produces:
+      - application/json; charset=utf-8
+      responses:
+        '200':
+          description: OK
+          schema:
+            description: ''
+            type: object
+            title: 'response'
+            properties:
+              data:
+                type: object
+                title: 'data'
+                properties:
+                  returnflights:
+                    type: array
+                    title: 'returnBuses'
+                    items:
+                      properties: {}
+                  onwardflights:
+                    type: array
+                    title: 'onwardBuses'
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                      - origin
+                      - rating
+                      - DepartureTime
+                      - cancellationPolicy
+                      - avlWindowSeats
+                      - impulse_perc_seats
+                      - BusServiceID
+                      - totalReviews
+                      - seat
+                      - duration
+                      - qtype
+                      - AvailCatCard
+                      - skey
+                      - busCondition
+                      - src_voyager_id
+                      - levyFee
+                      - destination
+                      - amenities
+                      - src_vendor_id
+                      - dest_voyager_id
+                      - ArrivalTime
+                      - zeroCancellationTime
+                      - gps
+                      - dst_vendor_id
+                      - OperatorID
+                      - mTicket
+                      - row_type
+                      - BusType
+                      - depdate
+                      - idRequired
+                      - ServiceID
+                      - busCompany
+                      - bpDpSeatLayout
+                      - TravelsName
+                      - tbrequired
+                      - farebasis
+                      - RouteID
+                      - ServiceName
+                      - srtFee
+                      - partialCancellationAllowed
+                      - ugcid
+                      - arrdate
+                      properties:
+                        origin:
+                          type: string
+                          minLength: 1
+                        rating:
+                          type: string
+                          minLength: 1
+                        DepartureTime:
+                          type: string
+                          minLength: 1
+                        cancellationPolicy:
+                          type: string
+                          minLength: 1
+                        avlWindowSeats:
+                          type: number
+                        impulse_perc_seats:
+                          type: number
+                        BusServiceID:
+                          type: string
+                          minLength: 1
+                        totalReviews:
+                          type: string
+                          minLength: 1
+                        seat:
+                          type: string
+                          minLength: 1
+                        duration:
+                          type: string
+                          minLength: 1
+                        qtype:
+                          type: string
+                          minLength: 1
+                        AvailCatCard:
+                          type: boolean
+                        skey:
+                          type: string
+                          minLength: 1
+                        busCondition:
+                          type: string
+                          minLength: 1
+                        src_voyager_id:
+                          type: string
+                          minLength: 1
+                        levyFee:
+                          type: number
+                        destination:
+                          type: string
+                          minLength: 1
+                        BPPrims:
+                          type: object
+                          title: 'BoardingPoint'
+                          properties:
+                            list:
+                              type: array
+                              uniqueItems: true
+                              minItems: 1
+                              items:
+                                required:
+                                - BPId
+                                - BPContactNumber
+                                - BPName
+                                - BPTime
+                                - BPLandmark
+                                - BPLocation
+                                - BPAddress
+                                - BPCoordinates
+                                properties:
+                                  BPId:
+                                    type: string
+                                    minLength: 1
+                                  BPContactNumber:
+                                    type: string
+                                  BPName:
+                                    type: string
+                                    minLength: 1
+                                  BPTime:
+                                    type: string
+                                    minLength: 1
+                                  BPLandmark:
+                                    type: string
+                                    minLength: 1
+                                  BPLocation:
+                                    type: string
+                                    minLength: 1
+                                  BPAddress:
+                                    type: string
+                                    minLength: 1
+                                  BPCoordinates:
+                                    type: string
+                                    minLength: 1
+                          required:
+                          - list
+                        amenities:
+                          type: string
+                          minLength: 1
+                        src_vendor_id:
+                          type: string
+                          minLength: 1
+                        dest_voyager_id:
+                          type: string
+                          minLength: 1
+                        ArrivalTime:
+                          type: string
+                          minLength: 1
+                        zeroCancellationTime:
+                          type: number
+                        gps:
+                          type: string
+                          minLength: 1
+                        fare:
+                          type: object
+                          title: 'fare'
+                          properties:
+                            adultservicetax:
+                              type: string
+                              minLength: 1
+                            adultcommission:
+                              type: string
+                              minLength: 1
+                            adultbasefare:
+                              type: string
+                              minLength: 1
+                            adultsurcharge:
+                              type: string
+                              minLength: 1
+                            totalfare:
+                              type: string
+                              minLength: 1
+                            discount:
+                              type: string
+                              minLength: 1
+                            totalsurcharge:
+                              type: string
+                              minLength: 1
+                            totalcommission:
+                              type: string
+                              minLength: 1
+                            transactionfee:
+                              type: string
+                              minLength: 1
+                            totalbasefare:
+                              type: string
+                              minLength: 1
+                            adulttotalfare:
+                              type: string
+                              minLength: 1
+                            servicetax:
+                              type: string
+                              minLength: 1
+                          required:
+                          - adultservicetax
+                          - adultcommission
+                          - adultbasefare
+                          - adultsurcharge
+                          - totalfare
+                          - discount
+                          - totalsurcharge
+                          - totalcommission
+                          - transactionfee
+                          - totalbasefare
+                          - adulttotalfare
+                          - servicetax
+                        dst_vendor_id:
+                          type: string
+                          minLength: 1
+                        OperatorID:
+                          type: string
+                          minLength: 1
+                        DPPrims:
+                          type: object
+                          title: 'DroppingPoints'
+                          properties:
+                            list:
+                              type: array
+                              uniqueItems: true
+                              minItems: 1
+                              items:
+                                required:
+                                - DPTime
+                                - BPContactNumber
+                                - DPName
+                                - DPAddress
+                                - DPLandmark
+                                - DPId
+                                - DPContactNumber
+                                - BPLandmark
+                                - DPCoordinates
+                                - BPAddress
+                                - DPLocation
+                                properties:
+                                  DPTime:
+                                    type: string
+                                    minLength: 1
+                                  BPContactNumber:
+                                    type: string
+                                  DPName:
+                                    type: string
+                                    minLength: 1
+                                  DPAddress:
+                                    type: string
+                                    minLength: 1
+                                  DPLandmark:
+                                    type: string
+                                    minLength: 1
+                                  DPId:
+                                    type: string
+                                    minLength: 1
+                                  DPContactNumber:
+                                    type: string
+                                  BPLandmark:
+                                    type: string
+                                    minLength: 1
+                                  DPCoordinates:
+                                    type: string
+                                    minLength: 1
+                                  BPAddress:
+                                    type: string
+                                    minLength: 1
+                                  DPLocation:
+                                    type: string
+                                    minLength: 1
+                          required:
+                          - list
+                        mTicket:
+                          type: string
+                          minLength: 1
+                        row_type:
+                          type: string
+                          minLength: 1
+                        BusType:
+                          type: string
+                          minLength: 1
+                        RouteSeatTypeDetail:
+                          type: object
+                          title: 'RouteSeatTypeDetail'
+                          properties:
+                            list:
+                              type: array
+                              uniqueItems: true
+                              minItems: 1
+                              items:
+                                required:
+                                - SellFare
+                                - busCondition
+                                - seatType
+                                - seatTypeSpecific
+                                - SeatsAvailable
+                                - availabilityStatus
+                                properties:
+                                  SellFare:
+                                    type: string
+                                    minLength: 1
+                                  busCondition:
+                                    type: string
+                                    minLength: 1
+                                  seatType:
+                                    type: string
+                                    minLength: 1
+                                  seatTypeSpecific:
+                                    type: string
+                                    minLength: 1
+                                  SeatsAvailable:
+                                    type: number
+                                  availabilityStatus:
+                                    type: string
+                                    minLength: 1
+                          required:
+                          - list
+                        depdate:
+                          type: string
+                          minLength: 1
+                        idRequired:
+                          type: string
+                          minLength: 1
+                        ServiceID:
+                          type: number
+                        busCompany:
+                          type: string
+                          minLength: 1
+                        bpDpSeatLayout:
+                          type: boolean
+                        ugcreview:
+                          type: object
+                          title: 'ugcReview'
+                          properties:
+                            ratings:
+                              type: object
+                              title: 'ratings'
+                              properties:
+                                onBoardExperience:
+                                  type: number
+                                onTimeAD:
+                                  type: number
+                                stopOverExperience:
+                                  type: number
+                                seats:
+                                  type: number
+                              required:
+                              - onBoardExperience
+                              - onTimeAD
+                              - stopOverExperience
+                              - seats
+                            reviewCount:
+                              type: number
+                            posReviewCount:
+                              type: number
+                            criReviewCount:
+                              type: number
+                            imgReviewCount:
+                              type: number
+                            totalRating:
+                              type: number
+                            approvedImageCount:
+                              type: number
+                            id:
+                              type: string
+                              minLength: 1
+                          required:
+                          - ratings
+                          - reviewCount
+                          - posReviewCount
+                          - criReviewCount
+                          - imgReviewCount
+                          - totalRating
+                          - approvedImageCount
+                          - id
+                        TravelsName:
+                          type: string
+                          minLength: 1
+                        tbrequired:
+                          type: string
+                          minLength: 1
+                        farebasis:
+                          type: string
+                          minLength: 1
+                        RouteID:
+                          type: string
+                          minLength: 1
+                        ServiceName:
+                          type: string
+                          minLength: 1
+                        srtFee:
+                          type: number
+                        partialCancellationAllowed:
+                          type: string
+                          minLength: 1
+                        ugcid:
+                          type: string
+                          minLength: 1
+                        arrdate:
+                          type: string
+                          minLength: 1
+                required:
+                - returnflights
+                - onwardflights
+            required:
+            - data
+      parameters:
+      - name: app_id
+        in: query
+        type: string
+        description: ''
+        required: true
+      - name: app_key
+        in: query
+        type: string
+        description: ''
+        required: true
+      - name: format
+        in: query
+        type: string
+        description: ''
+        required: true
+      - name: source
+        in: query
+        type: string
+        description: ''
+        required: true
+      - name: destination
+        in: query
+        type: string
+        description: ''
+        required: true
+      - name: dateofdeparture
+        in: query
+        type: string
+        description: ''
+        required: true

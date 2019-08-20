@@ -1,0 +1,19 @@
+package com.brs.userservicemanagement.events;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationListener;
+
+import com.brs.userservicemanagement.integration.BRSSmsService;
+//@Service
+public class BRSSMSEventListener implements ApplicationListener<BRSSMSEvent> {
+  //  @Autowired
+	private BRSSmsService smsService;
+	@Override
+	public void onApplicationEvent(BRSSMSEvent smsEvent) {
+		String jsonString=smsService.sendSms(smsEvent.getMobile(), smsEvent.getSms());
+		
+		
+	}
+	
+
+}

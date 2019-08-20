@@ -1,0 +1,38 @@
+var app = angular.module('BRS_Registration', []);
+app.controller('Passenger_Registration_Controller', function($http, $scope,
+		$window) {
+
+	$scope.message="";
+	$scope.passengerRegistration = function() {
+		console.log($scope.name + " " + $scope.email + " " + $scope.mobile
+				+ " " + $scope.gender + " " + $scope.dob + " "
+				+ $scope.password);
+      $http({
+        url:"http://127.0.0.1:8081/UserService/users/registerPassenger",
+        data:{
+        "name":	$scope.name,
+        "email":$scope.email,
+        "mobile":$scope.mobile,
+        "password":$scope.password,
+         "dob":$scope.dob,
+         "gender":$scope.gender
+        },
+        method:"post"
+        }).then(function(result){
+        	console.log("success");
+          $scope.response=result.data;
+        if($scope.response.status=="FAILURE"){
+        	$scope.message=$scope.response.msg;
+        }else if($scope.response.status=="SUCCESS"){
+        	$scope.message=$scope.response.msg;
+        	$scope.userId=$scope.response.data;
+        	$window.location.href = 'E:/project7am/BRSUI/WebContent/public/html/otpForm.html';
+        }
+        },function(result){
+        $scope.message="Unable to process your request!Please try again";
+        });
+	}
+});
+
+
+

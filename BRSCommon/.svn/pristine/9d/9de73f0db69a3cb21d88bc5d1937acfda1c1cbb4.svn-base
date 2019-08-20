@@ -1,0 +1,17 @@
+in your system :
+
+1)install SQL Developer 
+
+2)open the connection with Remote System 
+   db (Server : Userservicedb)
+
+   -->Enter Connection Name : XXX
+      Enter UserName: userservicedb
+      Enter password : userservicedb
+      hostname : server
+      portnumber:1521
+      SID: server
+     
+    connect   save
+
+

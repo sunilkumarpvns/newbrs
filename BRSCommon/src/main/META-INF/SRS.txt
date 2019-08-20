@@ -1,0 +1,23 @@
+SRS:-
+===
+Java 8
+Servlet 3.1,jsp 2.x
+Spring 4.x
+Hibernate 4.x
+Spring Boot 1.5.x
+Oracle 10g 
+Tomcat server 8.x
+Restful webservices
+jackson API 2.x
+Maven,SVN/GIT,Junit,Mockito,Log4j,JIRA
+HTML5,CSS3,Angualr js1/(angular 5)
+Eclipse Mars(STS plugin)
+
+
+
+
+
+
+
+
+

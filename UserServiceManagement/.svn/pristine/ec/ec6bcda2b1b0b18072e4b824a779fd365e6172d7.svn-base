@@ -1,0 +1,281 @@
+package com.brs.userservicemanagement.entity;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.brs.userservicemanagement.enums.StatusEnum;
+
+/**
+ * The LoginDetails is a Hibernate Entity class
+ * 
+ * @author sathish.bandi
+ * @since 1.0 ,19-06-2018
+ *
+ */
+@Entity
+@Table(name = "Login_Details", schema = "UserServiceDB")
+public class LoginDetails {
+
+	/** The user id. */
+	@Column(name = "user_id")
+	@Id
+	@GenericGenerator(name="userIdGenerator",
+	strategy="increment")
+	@GeneratedValue(generator="userIdGenerator")
+	private Long userId;
+
+	/** The user name. */
+	@Column(name = "user_name")
+	private String userName;
+
+	/** The email. */
+	@Column(name="email")
+	private String email;
+
+	/** The password. */
+	@Column(name="password")
+	private String password;
+
+	/** The mobile. */
+	@Column(name="mobile")
+	private String mobile;
+	
+	@Column(name="status")
+	@Enumerated(EnumType.STRING)
+	private StatusEnum status;
+
+	/** The created by. */
+	@Column(name="created_by")
+	private Long createdBy;
+
+	/** The created date. */
+	@Column(name="created_date")
+	@CreationTimestamp
+	private Timestamp createdDate;
+
+	/** The last updated by. */
+	@Column(name="last_updated_by")
+	private Long lastUpdatedBy;
+
+	/** The last updated date. */
+	@Column(name="last_updated_date")
+	@UpdateTimestamp
+	private Timestamp lastUpdatedDate;
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name = "user_roles",
+	schema = "userServiceDB",
+	joinColumns = {
+	@JoinColumn(name = "user_id") }, 
+	inverseJoinColumns ={
+	@JoinColumn(name = "role_id") })
+	private List<Roles> userRoles;
+	
+	
+	/**
+	 * Gets the user id.
+	 *
+	 * @return the user id
+	 */
+	public Long getUserId() {
+		return userId;
+	}
+
+	/**
+	 * Sets the user id.
+	 *
+	 * @param userId
+	 *            the new user id
+	 */
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	/**
+	 * Gets the user name.
+	 *
+	 * @return the user name
+	 */
+	public String getUserName() {
+		return userName;
+	}
+
+	/**
+	 * Sets the user name.
+	 *
+	 * @param userName
+	 *            the new user name
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	/**
+	 * Gets the email.
+	 *
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * Sets the email.
+	 *
+	 * @param email
+	 *            the new email
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * Gets the password.
+	 *
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * Sets the password.
+	 *
+	 * @param password
+	 *            the new password
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	/**
+	 * Gets the mobile.
+	 *
+	 * @return the mobile
+	 */
+	public String getMobile() {
+		return mobile;
+	}
+
+	/**
+	 * Sets the mobile.
+	 *
+	 * @param mobile
+	 *            the new mobile
+	 */
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	
+	/**
+	 * Gets the created by.
+	 *
+	 * @return the created by
+	 */
+	public Long getCreatedBy() {
+		return createdBy;
+	}
+
+	/**
+	 * Sets the created by.
+	 *
+	 * @param createdBy
+	 *            the new created by
+	 */
+	public void setCreatedBy(Long createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	/**
+	 * Gets the created date.
+	 *
+	 * @return the created date
+	 */
+	public Timestamp getCreatedDate() {
+		return createdDate;
+	}
+
+	/**
+	 * Sets the created date.
+	 *
+	 * @param createdDate
+	 *            the new created date
+	 */
+	public void setCreatedDate(Timestamp createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	/**
+	 * Gets the last updated by.
+	 *
+	 * @return the last updated by
+	 */
+	public Long getLastUpdatedBy() {
+		return lastUpdatedBy;
+	}
+
+	/**
+	 * Sets the last updated by.
+	 *
+	 * @param lastUpdatedBy
+	 *            the new last updated by
+	 */
+	public void setLastUpdatedBy(Long lastUpdatedBy) {
+		this.lastUpdatedBy = lastUpdatedBy;
+	}
+
+	/**
+	 * Gets the last updated date.
+	 *
+	 * @return the last updated date
+	 */
+	public Timestamp getLastUpdatedDate() {
+		return lastUpdatedDate;
+	}
+
+	/**
+	 * Sets the last updated date.
+	 *
+	 * @param lastUpdatedDate
+	 *            the new last updated date
+	 */
+	public void setLastUpdatedDate(Timestamp lastUpdatedDate) {
+		this.lastUpdatedDate = lastUpdatedDate;
+	}
+
+	public StatusEnum getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusEnum status) {
+		this.status = status;
+	}
+
+	public List<Roles> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(List<Roles> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+	
+}

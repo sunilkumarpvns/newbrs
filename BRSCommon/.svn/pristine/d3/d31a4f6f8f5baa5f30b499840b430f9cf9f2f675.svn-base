@@ -1,0 +1,15 @@
+Layers:-
+=======
+Layered Arch we can use to seperate
+one kind of logic from another kind
+of logic.
+
+When we seperating code reusability
+and loose couping.
+
+1)Controller Layer
+2)View Layer/Presentation Layer
+3)Service Layer/Bussiness Layer/
+Processing Layer
+
+4)Persistence Layer/Data Access Layer

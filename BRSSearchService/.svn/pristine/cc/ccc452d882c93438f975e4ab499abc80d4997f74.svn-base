@@ -1,0 +1,310 @@
+package com.brs.searchservice.service;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.log4j.Logger;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
+
+import com.brs.searchservice.beans.BoardingPoint;
+import com.brs.searchservice.beans.DroppingPoint;
+import com.brs.searchservice.beans.Fare;
+import com.brs.searchservice.beans.Response;
+import com.brs.searchservice.beans.ResponseStatus;
+import com.brs.searchservice.beans.Review;
+import com.brs.searchservice.beans.SearchOnwordBus;
+import com.brs.searchservice.beans.SeatTypeDetail;
+import com.brs.searchservice.enums.DAY;
+import com.brs.searchservice.models.model.BoardingPointList;
+import com.brs.searchservice.models.model.DataOnwardflights;
+
+import com.brs.searchservice.webservice.clients.B2BSearchServiceClient;
+
+@Service
+public class BusServiceImpl implements BusService {
+	@Autowired
+	private B2BSearchServiceClient searchServiceClient;
+	private static Logger logger = Logger.getLogger(BusServiceImpl.class);
+
+	@Override
+	public Response searchBus(String source, String destination, String doj, String drj) {
+		logger.info("Entered into searchBus : " + source + " " + destination + " " + doj + " " + drj);
+		// apply server side validation
+		Response response = new Response();
+		response.setMessage("No Data Found");
+		response.setStatus(ResponseStatus.FAILURE);
+		try {
+			com.brs.searchservice.models.model.Response modelResponse = searchServiceClient.searchBuses(source,
+					destination, doj, drj);
+			if (modelResponse != null && modelResponse.getData() != null
+					&& CollectionUtils.isNotEmpty(modelResponse.getData().getOnwardflights())) {
+				List<DataOnwardflights> dataOnwordFlights = modelResponse.getData().getOnwardflights();
+				List<SearchOnwordBus> searchOnwordBusList = new ArrayList();
+				for (DataOnwardflights dataOnwardflight : dataOnwordFlights) {
+					SearchOnwordBus searchOnwordBus = new SearchOnwordBus();
+					searchOnwordBus.setOrigin(dataOnwardflight.getOrigin());
+					searchOnwordBus.setRating(dataOnwardflight.getRating());
+					searchOnwordBus.setDepartureTime(dataOnwardflight.getDepartureTime());
+					searchOnwordBus.setCancellationPolicy(dataOnwardflight.getCancellationPolicy());
+					searchOnwordBus.setAvlWindowSeats(dataOnwardflight.getAvlWindowSeats().intValue());
+					searchOnwordBus.setImpulsePercSeats(dataOnwardflight.getImpulsePercSeats());
+					searchOnwordBus.setBusServiceID(dataOnwardflight.getBusServiceID());
+					searchOnwordBus.setTotalReviews(dataOnwardflight.getTotalReviews());
+					searchOnwordBus.setSeat(dataOnwardflight.getSeat());
+					searchOnwordBus.setDuration(dataOnwardflight.getDuration());
+					searchOnwordBus.setSkey(dataOnwardflight.getSkey());
+					searchOnwordBus.setBusCondition(dataOnwardflight.getBusCondition());
+					searchOnwordBus.setSrcVoyagerId(dataOnwardflight.getSrcVoyagerId());
+					searchOnwordBus.setLevyFee(dataOnwardflight.getLevyFee());
+					searchOnwordBus.setDestination(dataOnwardflight.getDestination());
+					setBoardingPoints(dataOnwardflight, searchOnwordBus);
+
+					// continue...
+					searchOnwordBus.setAmenities(dataOnwardflight.getAmenities());
+					searchOnwordBus.setSrcVendorId(dataOnwardflight.getSrcVendorId());
+					searchOnwordBus.setDestVoyagerId(dataOnwardflight.getDestVoyagerId());
+					searchOnwordBus.setArrivalTime(dataOnwardflight.getArrivalTime());
+					searchOnwordBus.setZeroCancellationTime(dataOnwardflight.getZeroCancellationTime().toString());
+					searchOnwordBus.setGps(dataOnwardflight.getGps());
+					searchOnwordBus.setDstVendorId(dataOnwardflight.getDstVendorId());
+					searchOnwordBus.setOperatorID(dataOnwardflight.getOperatorID());
+					setDroppingPoints(dataOnwardflight, searchOnwordBus);
+					searchOnwordBus.setmTicket(dataOnwardflight.getMTicket());
+					searchOnwordBus.setRowType(dataOnwardflight.getRowType());
+					searchOnwordBus.setBusType(dataOnwardflight.getBusType());
+					setSeatType(dataOnwardflight, searchOnwordBus);
+					searchOnwordBus.setDepdate(dataOnwardflight.getDepdate());
+					searchOnwordBus.setIdRequired(dataOnwardflight.getIdRequired());
+					searchOnwordBus.setServiceID(dataOnwardflight.getServiceID());
+					searchOnwordBus.setBusCompany(dataOnwardflight.getBusCompany());
+					searchOnwordBus.setBpDpSeatLayout(dataOnwardflight.isBpDpSeatLayout());
+					if (dataOnwardflight.getUgcreview() != null) {
+						Review review = new Review();
+						BeanUtils.copyProperties(dataOnwardflight.getUgcreview(), review);
+						searchOnwordBus.setReview(review);
+					}
+					searchOnwordBus.setTravelsName(dataOnwardflight.getTravelsName());
+					searchOnwordBus.setTbrequired(dataOnwardflight.getTbrequired());
+					searchOnwordBus.setFarebasis(dataOnwardflight.getFarebasis());
+					searchOnwordBus.setRouteID(dataOnwardflight.getRouteID());
+					searchOnwordBus.setServiceName(dataOnwardflight.getServiceName());
+					searchOnwordBus.setSrtFee(dataOnwardflight.getSrtFee().doubleValue());
+					searchOnwordBus.setPartialCancellationAllowed(dataOnwardflight.getPartialCancellationAllowed());
+					searchOnwordBus.setUgcid(dataOnwardflight.getUgcid());
+					searchOnwordBus.setArrdate(dataOnwardflight.getArrdate());
+
+					if (dataOnwardflight.getFare() != null) {
+						Fare fare = new Fare();
+
+						fare.setTotalbasefare(Double.toString(getTotalBaseFare(dataOnwardflight.getFare(), doj)));
+						fare.setServicetax(Double.toString(getServiceTax(fare)));
+
+						fare.setDiscount(Double.toString(getDiscount(doj, fare)));
+						fare.setTransactionfee(getTransactionFee());
+
+						fare.setTotalfareBeforeDiscount(Double.toString(getTotalFareBeforeDiscount(fare)));
+						fare.setTotalfareAfterDiscount(Double.toString(getTotalFareAfterDiscount(fare)));
+						searchOnwordBus.setFare(fare);
+					}
+
+					searchOnwordBusList.add(searchOnwordBus);
+
+				}
+				if (CollectionUtils.isNotEmpty(searchOnwordBusList)) {
+					response.setStatus(ResponseStatus.SUCCESS);
+					response.setMessage("Data found");
+					response.setData(searchOnwordBusList);
+				}
+			}
+		} catch (RestClientException e) {
+			logger.error("Exception in searchBus : " + e);
+
+			response.setStatus(ResponseStatus.FAILURE);
+			response.setMessage("Unable to process your request!please try again");
+		}
+		catch (Exception e) {
+			logger.error("Exception in searchBus : " + e);
+
+			response.setStatus(ResponseStatus.FAILURE);
+			response.setMessage("Unable to process your request!please try again");
+		}
+		logger.info("Response from searchBus : " + response);
+
+		return response;
+	}
+
+	private String getTransactionFee() {
+		String transactionFee = "20";
+		return transactionFee;
+	}
+
+	private void setSeatType(DataOnwardflights dataOnwardflight, SearchOnwordBus searchOnwordBus) {
+
+		List<SeatTypeDetail> seatTypeDetails = new ArrayList();
+		dataOnwardflight.getRouteSeatTypeDetail().getList().forEach(routeSeatTypeDetail -> {
+			if (routeSeatTypeDetail != null) {
+				SeatTypeDetail seatTypeDetail = new SeatTypeDetail();
+				BeanUtils.copyProperties(routeSeatTypeDetail, seatTypeDetail);
+
+				seatTypeDetails.add(seatTypeDetail);
+			}
+		});
+		searchOnwordBus.setSeatTypeDetails(seatTypeDetails);
+
+	}
+
+	private void setDroppingPoints(DataOnwardflights dataOnwardflight, SearchOnwordBus searchOnwordBus) {
+		// create the list of dropping point objects
+		List<DroppingPoint> listOfdropingPoints = new ArrayList();
+
+		dataOnwardflight.getDpPrims().getList().forEach(dropingPoints -> {
+			if (dropingPoints != null) {
+				// create the droppingPoint Object
+				DroppingPoint dp = new DroppingPoint();
+				// get the dropping points from model data from B2B and set into our bean object
+				dp.setBpAddress(dropingPoints.getBpAddress());
+				dp.setBpContactNumber(dropingPoints.getBpContactNumber());
+				dp.setBpLandmark(dropingPoints.getBpLandmark());
+				dp.setDpAddress(dropingPoints.getDpAddress());
+				dp.setDpContactNumber(dropingPoints.getDpContactNumber());
+				dp.setDpCoordinates(dropingPoints.getDpCoordinates());
+				dp.setDpId(dropingPoints.getDpId());
+				dp.setDpLandmark(dropingPoints.getDpLandmark());
+				dp.setDpLocation(dropingPoints.getDpLocation());
+				dp.setDpName(dropingPoints.getDpName());
+				dp.setDpTime(dropingPoints.getDpTime());
+
+				// BeanUtils.copyProperties(dropingPoints, dp);
+				// add dropping point object to list
+				listOfdropingPoints.add(dp);
+			}
+		});
+		searchOnwordBus.setDroppingPoints(listOfdropingPoints);
+	}
+
+	private void setBoardingPoints(DataOnwardflights dataOnwardflight, SearchOnwordBus searchOnwordBus) {
+		if (dataOnwardflight.getBpPrims() != null
+				&& CollectionUtils.isNotEmpty(dataOnwardflight.getBpPrims().getList())) {
+			List<BoardingPointList> modelBoardingPoints = dataOnwardflight.getBpPrims().getList();
+			List<BoardingPoint> boardingPoints = new ArrayList<>();
+			for (BoardingPointList modelBoardingPoint : modelBoardingPoints) {
+				BoardingPoint boardingPoint = new BoardingPoint();
+				boardingPoint.setBpId(modelBoardingPoint.getBpId());
+				boardingPoint.setBpName(modelBoardingPoint.getBpName());
+				boardingPoint.setBpContactNumber(modelBoardingPoint.getBpContactNumber());
+				boardingPoint.setBpTime(modelBoardingPoint.getBpTime());
+				boardingPoint.setBpAddress(modelBoardingPoint.getBpAddress());
+				boardingPoint.setBpLandmark(modelBoardingPoint.getBpLandmark());
+				boardingPoint.setBpLocation(modelBoardingPoint.getBpLocation());
+				boardingPoint.setBpCoordinates(modelBoardingPoint.getBpCoordinates());
+				// BeanUtils.copyProperties(modelBoardingPoint, boardingPoint);
+				boardingPoints.add(boardingPoint);
+			}
+			searchOnwordBus.setBoardingPoints(boardingPoints);
+		}
+	}
+
+	private double getTotalBaseFare(com.brs.searchservice.models.model.Fare modelFare, String doj) throws Exception{
+
+		double totalBaseFare = 0;
+		String day = getDayOfWeek(doj);
+		double modelTotalBaseFare = Double.parseDouble(modelFare.getTotalbasefare());
+		if (DAY.SUN.getValue().equals(day) || DAY.SAT.getValue().equals(day)) {
+			if (modelTotalBaseFare <= 1000) {
+				totalBaseFare = modelTotalBaseFare + (modelTotalBaseFare * 0.3);
+			} else if (modelTotalBaseFare <= 1500) {
+				totalBaseFare = modelTotalBaseFare + (modelTotalBaseFare * 0.2);
+			} else if (modelTotalBaseFare <= 2500) {
+				totalBaseFare = modelTotalBaseFare + (modelTotalBaseFare * 0.1);
+			} else {
+				totalBaseFare = modelTotalBaseFare + 100;
+			}
+		} else {
+			if (modelTotalBaseFare <= 1000) {
+				totalBaseFare = modelTotalBaseFare + (modelTotalBaseFare * 0.2);
+			} else if (modelTotalBaseFare <= 1500) {
+				totalBaseFare = modelTotalBaseFare + (modelTotalBaseFare * 0.15);
+			} else if (modelTotalBaseFare <= 2500) {
+				totalBaseFare = modelTotalBaseFare + (modelTotalBaseFare * 0.1);
+			} else {
+				totalBaseFare = modelTotalBaseFare + 70;
+			}
+		}
+		return totalBaseFare;
+	}
+
+	public double getServiceTax(Fare fare) {
+		double serviceTax = 0;
+		try {
+		serviceTax = Double.parseDouble(fare.getTotalbasefare()) * 0.05;
+		}catch(NumberFormatException ne) {
+		logger.error("Exception in getServiceTax()");	
+		}
+		return serviceTax;
+	}
+
+	public double getTotalFareBeforeDiscount(Fare fare) {
+		double totalFare = 0;
+		totalFare = Double.parseDouble(fare.getTotalbasefare()) + Double.parseDouble(fare.getServicetax())
+				+ Double.parseDouble(fare.getTransactionfee());
+		return totalFare;
+	}
+
+	public double getTotalFareAfterDiscount(Fare fare) {
+		double totalFareAfterDiscount = 0;
+		totalFareAfterDiscount = Double.parseDouble(fare.getTotalfareBeforeDiscount())
+				- Double.parseDouble(fare.getDiscount());
+		return totalFareAfterDiscount;
+	}
+
+	public double getDiscount(String doj, Fare fare)throws Exception {
+		double discount = 0.0;
+		String day = getDayOfWeek(doj);
+		double totalBaseFare = Double.parseDouble(fare.getTotalbasefare());
+		if (!DAY.SUN.getValue().equals(day) || !DAY.SAT.getValue().equals(day)) {
+			if (totalBaseFare >= 750 && totalBaseFare <= 1500) {
+				discount = totalBaseFare * 0.05;
+			} else if (totalBaseFare <= 2500) {
+				discount = totalBaseFare * 0.02;
+			} else {
+				discount = 30;
+			}
+		}
+
+		return discount;
+	}
+
+	private String getDayOfWeek(String givendate)throws Exception {
+		String day = null;
+		Date date = null;
+		int dayOfWeek = 0;
+		SimpleDateFormat formate = new SimpleDateFormat("yyyyMMdd");
+		try {
+			date = formate.parse(givendate);
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(date);
+			dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+
+			DAY[] days = DAY.values();
+			for (DAY enumDay : days) {
+				if (enumDay.getKey() == dayOfWeek) {
+					day = enumDay.getValue();
+					break;
+				}
+			}
+			
+		} catch (Exception e) {
+			logger.error("Error occured while fromating the date " + e);
+			throw e;
+		} 
+		return day;
+	}
+}

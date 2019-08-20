@@ -1,0 +1,72 @@
+
+package com.brs.userservicemanagement.dao.test;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.brs.userservicemanagement.dao.PassengerProfileDAOImpl;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class PassengerDAOImplTest {
+	@Autowired
+private PassengerProfileDAOImpl passengerProfileDAOImpl;
+	@Mock
+private SessionFactory sessionFactory;
+	@Mock
+	private Session session;
+	@Mock
+	private Query query;
+	/*@Before
+	public void setUp() {
+		passengerProfileDAOImpl=new PassengerProfileDAOImpl();
+	}*/
+	
+	@Test
+	public void getPassengerProfile() {
+		Long userId=101L;
+	String hql="select p.userId,p.firstName,p.lastName,p.gender,p.dob from com.brs.userservicemanagement.entity.PassengerProfile as p where p.userId="+userId;
+	Object[] expected= {101L,"bhagwat","a","M","12-12-1990"};
+	when(sessionFactory.openSession()).thenReturn(session);
+	when(session.createQuery(hql)).thenReturn(query);
+	when(query.uniqueResult()).thenReturn(expected);
+	
+	  Object[] actual=passengerProfileDAOImpl.getPassengerProfile(userId);
+	Assert.assertArrayEquals(expected, actual);
+	}
+}
+
+
+/*@Test
+public void testTheMethodGetAllGreetingsShouldReturnAListOfGreetings() {
+	//GIVEN
+	String hql = "select g from Greeting g order by id desc";
+	List<Greeting> expectedGreetingList = new ArrayList<Greeting>();
+	expectedGreetingList.add(new Greeting("Welcome to the world!", new Date(), "johnnyd"));
+	expectedGreetingList.add(new Greeting("Hello there everyone...", new Date(), "mrsam"));
+	expectedGreetingList.add(new Greeting("Hey there", new Date(), "sonialawson"));
+	//WHEN
+	HibernateGreetingDao hibernateGreetingDao = new HibernateGreetingDao();
+	hibernateGreetingDao.setSessionFactory(sessionFactory);
+	when(sessionFactory.getCurrentSession()).thenReturn(session);
+	when(session.createQuery(hql)).thenReturn(query);
+	when(query.list()).thenReturn(expectedGreetingList);
+	List<Greeting> actualGreetingList = hibernateGreetingDao.getAllGreetings();
+	//THEN
+	assertNotNull(actualGreetingList);
+	assertSame(expectedGreetingList, actualGreetingList);		
+}*/

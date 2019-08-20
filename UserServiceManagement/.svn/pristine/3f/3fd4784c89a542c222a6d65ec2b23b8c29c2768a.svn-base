@@ -1,0 +1,80 @@
+package com.brs.userservicemanagement.dao;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import com.brs.userservicemanagement.entity.LoginDetails;
+
+
+/**
+ * The Class LoginDetailsDAOImpl.
+ */
+@Repository
+public class LoginDetailsDAOImpl implements LoginDetailsDAO {
+	
+	/** The session factory. */
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	/* (non-Javadoc)
+	 * @see com.brs.userservicemanagement.dao.LoginDetailsDAO#login(com.brs.userservicemanagement.entity.LoginDetails)
+	 */
+	@Override
+	public LoginDetails login(LoginDetails loginDetails) {
+		Session session = sessionFactory.openSession();
+		String hql = "from "
++ " com.brs.userservicemanagement.entity.LoginDetails "
++ "as login  where (login.userName=:p1 OR login.email=:p2 OR login.mobile=:p3)  and "
++ "login.password=:p4";
+		Query query = session.createQuery(hql);
+		query.setParameter("p1", loginDetails.getUserName());
+		query.setParameter("p2", loginDetails.getEmail());
+		query.setParameter("p3", loginDetails.getMobile());
+		query.setParameter("p4", loginDetails.getPassword());
+		LoginDetails ld = (LoginDetails) query.uniqueResult();
+		
+		session.close();
+		return ld;
+	}
+	
+	@Override
+	public Integer changePassword(String oldPassword, String newPassword, Long userId){
+		Integer result=null;
+		Session session=null;
+		Transaction transaction=null;
+		
+		try{
+			session=sessionFactory.openSession();
+			if(session!=null){
+				transaction=session.beginTransaction();
+				String hql="update"
+						+" com.brs.userservicemanagement.entity.LoginDetails as changepassword"
+						+" set changepassword.password=:newpassword"
+						+" where changepassword.password=:oldpassword and changepassword.userId=:userid";
+				Query query=session.createQuery(hql);
+				query.setParameter("newpassword", newPassword);
+				query.setParameter("oldpassword", oldPassword);
+				query.setParameter("userid", userId);
+				result=query.executeUpdate();
+				if(transaction!=null && result>0){
+					transaction.commit();
+				}
+			}
+		}catch(HibernateException he){
+			if(transaction!=null){
+				transaction.rollback();
+			}
+		}finally{
+			if(session!=null){
+				session.close();
+			}
+		}
+		
+		return result;
+	}
+	
+}
