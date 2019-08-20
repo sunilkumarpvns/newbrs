@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="9" applicationid="0" application-name="cisco" vendor-name="3GPP">
+
+	<attribute id="1000" name="Cisco-SCA-BB-Package-Install" mandatory="no" protected="no"  encryption="no" type="Unsigned32" />
+	<attribute id="1001" name="Cisco-SCA-BB-Real-Time-Monitor-Install" mandatory="no" protected="no"  encryption="no" type="Unsigned32" />
+	<attribute id="1002" name="Cisco-SCA-BB-Vlink-Upstream-Install" mandatory="no" protected="no"  encryption="no" type="Unsigned32" />
+	<attribute id="1003" name="Cisco-SCA-BB-Vlink-Downlink-Install" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	
+	<attribute id="131072" name="Cisco-Charging-Rule-Definition" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>		
+			<!--	<attributerule name="Charging-Rule-Name" maximum="1" minimum="1"/> -->		
+			</required>			
+			<optional>	
+				<attributerule vendor-id="9" id="131087" name="Service-Name" maximum="1" minimum="1"/>							
+				<attributerule vendor-id="9" id="131160" name="Cisco-Flow-Description" maximum="*" minimum="1"/>
+				<attributerule vendor-id="9" id="131169" name="Cisco-Flow-Status" maximum="1" minimum="1"/>
+			<!--	<attributerule name="QoS-Information" maximum="1" minimum="1"/>
+				<attributerule name="Online" maximum="1" minimum="1"/>
+				<attributerule name="Offline" maximum="1" minimum="1"/>
+				<attributerule name="Precedence" maximum="1" minimum="1"/>
+				<attributerule name="AF-Charging-Identifier" maximum="1" minimum="1"/>
+			-->
+				<attributerule vendor-id="9" id="131139" name="Charging-Rule-Event-Trigger" maximum="1" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131073" name="Content-Definition" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131151" name="Content-Name" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+				<attributerule vendor-id="9" id="131141" name="Content-Flow-Description" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131163" name="Content-Scope" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131082" name="Content-Idle-Timer" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131137" name="Nexthop" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131085" name="L7-Parse-Protocol-Type" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131128" name="L7-Parse-Length" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131088" name="Billing-Policy-Name" maximum="*" minimum="1"/>
+				<attributerule vendor-id="9" id="131132" name="Replicate-Session" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131130" name="Intermediate-CDR-Threshold" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131131" name="CDR-Generation-Delay" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131134" name="Content-Pending-Timer" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131135" name="Operation-Status" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131136" name="Subscriber-IP-Source" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131164" name="Flow-Status-Policy-Mismatch" maximum="1" minimum="1"/>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131074" name="Billing-Policy-Definition" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131088" name="Billing-Policy-Name" maximum="1" minimum="1"/>
+			</required>
+			<optional>				
+				<attributerule vendor-id="9" id="131089" name="Policy-Map-Name" maximum="3" minimum="1"/>
+				<attributerule vendor-id="9" id="131126" name="Accounting" maximum="1" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131075" name="Policy-Map-Definition" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131089" name="Policy-Map-Name" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131165" name="Policy-Map-Type" maximum="1" minimum="1"/>
+			</required>
+			<optional>				
+				<attributerule vendor-id="9" id="131168" name="Policy-Map-Replace" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131167" name="Policy-Map-Match-Remove" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131166" name="Policy-Map-Match-Install" maximum="1" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131076" name="Service-Definition" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>
+				<attributerule vendor-id="9" id="131087" name="Service-Name" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131093" name="Online-Billing-Basis" maximum="1" minimum="1"/>				
+			</required>
+			<optional>				
+				<attributerule vendor-id="9" id="131125" name="Service-Reporting-Level" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131129" name="Service-CDR-Threshold" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131094" name="Service-Activation" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131097" name="Advice-Of-Charge" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131100" name="Service-Class" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131101" name="Service-Idle-Time" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131102" name="Owner-Id" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131103" name="Owner-Name" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131104" name="Online-Passthrough-Quota" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131105" name="Online-Reauthorization-Threshold" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131106" name="Online-Reauthorization-Timeout" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131109" name="Refund-Policy" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131110" name="Meter-Exclude" maximum="*" minimum="1"/>
+				<attributerule vendor-id="9" id="131111" name="Meter-Include-Imap" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131112" name="Metering-Granularity" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131116" name="Verify" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131077" name="Content-Policy-Map" maximum="*" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131077" name="Content-Policy-Map" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131151" name="Content-Name" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131088" name="Billing-Policy-Name" maximum="1" minimum="1"/>
+			</required>
+			<optional>				
+				<attributerule vendor-id="9" id="131118" name="Weight" maximum="1" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131078" name="Service-Info" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>
+				<attributerule vendor-id="9" id="131087" name="Service-Name" maximum="1" minimum="1"/>				
+			</required>
+			<optional>
+			<!--				
+				<attributerule name="Online" maximum="1" minimum="1"/>
+				<attributerule name="Offline" maximum="1" minimum="1"/>
+			-->
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131079" name="Billing-Plan-Definition" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131140" name="Billing-Plan-Name" maximum="1" minimum="1"/>
+			</required>
+			<optional>				
+			<!--	
+				<attributerule name="Online" maximum="1" minimum="1"/>
+				<attributerule name="Offline" maximum="1" minimum="1"/>
+			-->
+				<attributerule vendor-id="9" id="131119" name="User-Idle-Timer" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131078" name="Service-Info" maximum="*" minimum="1"/>								
+			</optional>
+		</grouped>
+	</attribute>
+    <attribute id="131080" name="Volume-Threshold" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>	
+    <attribute id="131081" name="Time-Threshold" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/> 
+    <attribute id="131082" name="Content-Idle-Timer" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+    <attribute id="131083" name="Nexthop-Uplink" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+    <attribute id="131085" name="L7-Parse-Protocol-Type" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="HTTP" />
+         	<value id="1" name="IMAP" />
+         	<value id="2" name="OTHER" />
+         	<value id="3" name="POP3" />
+         	<value id="4" name="RTSP" />
+         	<value id="5" name="SMTP" />
+         	<value id="6" name="WAP-CONNECTION-ORIENTED" />
+         	<value id="7" name="WAP-CONNECTION-LESS" />
+         	<value id="8" name="SIP" />
+         	<value id="9" name="FTP" />
+         </supported-values>
+    </attribute>
+	<attribute id="131086" name="Service-Status" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131087" name="Service-Name" maximum="1" minimum="1"/>
+			</required>
+			<optional>				
+				<attributerule vendor-id="9" id="131169" name="Cisco-Flow-Status" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131162" name="Service-Rating-Group" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131170" name="Cisco-QoS" maximum="1" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+    <attribute id="131087"  name="Service-Name"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131088"  name="Billing-Policy-Name"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131089"  name="Policy-Map-Name"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131090" name="Policy-Map-Match" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131091" name="Match-String" maximum="1" minimum="1"/>
+			</required>
+			<optional>				
+				<attributerule vendor-id="9" id="131092" name="Attribute-String" maximum="1" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+    <attribute id="131091" name="Match-String" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>		        
+    <attribute id="131092" name="Attribute-String" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+    <attribute id="131093" name="Online-Billing-Basis" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="1" name="EVENT" />
+         	<value id="2" name="IP_BYTE" />
+         	<value id="3" name="TCP_BYTE" />
+         	<value id="4" name="DURATION" />
+         	<value id="5" name="DURATION-CONNECT" />
+         	<value id="6" name="DURATION-TRANSACTION" />
+         </supported-values>
+    </attribute>
+    <attribute id="131094" name="Service-Activation" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="USER_PROFILE" />
+         	<value id="1" name="AUTOMATIC" />
+         </supported-values>
+    </attribute>
+	<attribute id="131095" name="CDR-Volume-Threshold" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>    
+	<attribute id="131096" name="CDR-Time-Threshold" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131097" name="Advice-Of-Charge" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131098" name="Append-URL" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131099" name="Confirm-Token" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+    <attribute id="131098" name="Append-URL" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="DISABLE_APPEND_URL" />
+         	<value id="1" name="ENABLE_APPEND_URL" />
+         </supported-values>
+    </attribute>
+    <attribute id="131099"  name="Confirm-Token"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131100" name="Service-Class" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>		
+	<attribute id="131101" name="Service-Idle-Time" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131102"  name="Owner-Id"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131103"  name="Owner-Name"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131104" name="Online-Passthrough-Quota" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131105" name="Online-Reauthorization-Threshold" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131106" name="Online-Reauthorization-Timeout" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131107" name="Initial-Timeout" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131108" name="Maximum-Timeout" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131107" name="Initial-Timeout" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131108" name="Maximum-Timeout" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131109"  name="Refund-Policy"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+    <attribute id="131110" name="Meter-Exclude" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="MMS_WAP" />
+         	<value id="1" name="RTSP_PAUSE" />
+         	<value id="2" name="SERVICE_IDLE" />
+         	<value id="3" name="NETWORK_INIT_SIP" />
+         </supported-values>
+    </attribute>
+    <attribute id="131111" name="Meter-Include-Imap" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="BODY_AND_HEADER" />
+         	<value id="1" name="BODY_ONLY" />
+         	<value id="2" name="BODY_AND_OTHER" />
+         </supported-values>
+    </attribute>
+	<attribute id="131112" name="Metering-Granularity" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131113" name="Meter-Increment" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131114" name="Meter-Initial" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131115" name="Meter-Minimum" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131113" name="Meter-Increment" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131114" name="Meter-Initial" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131115" name="Meter-Minimum" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131116" name="Verify" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131099" name="Confirm-Token" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+<!--	<attribute id="131117"  name="Confirm-Token"  mandatory="no" protected="no"  encryption="no" type="OctetString"/> -->
+	<attribute id="131118" name="Weight" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131119" name="User-Idle-Timer" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+    <attribute id="131120" name="Policy-Preload-Req-Type" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="POLICY_PRELOAD_REQ" />
+         	<value id="1" name="POLICY_PRELOAD_RESP" />
+         	<value id="2" name="POLICY_PRELOAD_PUSH" />
+         	<value id="3" name="POLICY_PRELOAD_PUSH_ACK" />
+         </supported-values>
+    </attribute>
+    <attribute id="131121" name="Policy-Preload-Object-Type" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="POLICY_MAP" />
+         	<value id="1" name="BILLING_POLICY" />
+         	<value id="2" name="CONTENT" />
+         	<value id="3" name="SERVICE" />
+         	<value id="4" name="BILLING_PLAN" />
+         </supported-values>
+    </attribute>
+    <attribute id="131122" name="Policy-Preload-Status" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="INITIATE" />
+         	<value id="1" name="COMPLETE" />
+         </supported-values>
+    </attribute>
+    <attribute id="131123" name="Charging-Rule-Trigger-Type" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="1" name="NO_CHARGING_RULE_EVENT_TRIGGERS" />
+         	<value id="1" name="VOLUME_THRESHOLD" />
+         	<value id="1" name="TIME_THRESHOLD" />
+         	<value id="1" name="SVC_FLOW_DETECTION" />
+         	<value id="1" name="CHARGING_RULE_REMOVE" />
+         </supported-values>
+    </attribute>
+	<attribute id="131124" name="Charging-Rule-Event" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>
+			<!--	<attributerule name="Charging-Rule-Name" maximum="1" minimum="1"/> -->				
+				<attributerule vendor-id="9" id="131123" name="Charging-Rule-Trigger-Type" maximum="1" minimum="1"/>
+			</required>
+			<optional>				
+				<attributerule vendor-id="9" id="131155" name="Volume-Usage" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131156" name="Time-Usage" maximum="1" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+    <attribute id="131125" name="Service-Reporting-Level" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="NO_CISCO_TRIGGERS" />
+         	<value id="1" name="TCP_SYN_DETECTION" />
+         </supported-values>
+    </attribute>
+	<attribute id="131126" name="Accounting" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>
+				<attributerule vendor-id="9" id="131127" name="Accounting-Customer-String" maximum="*" minimum="1"/>				
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131127"  name="Accounting-Customer-String"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131128"  name="L7-Parse-Length"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131129" name="Service-CDR-Threshold" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>	
+				<attributerule vendor-id="9" id="131095" name="CDR-Volume-Threshold" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131096" name="CDR-Time-Threshold" maximum="1" minimum="1"/>			
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131130" name="Intermediate-CDR-Threshold" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131095" name="CDR-Volume-Threshold" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131096" name="CDR-Time-Threshold" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131131"  name="CDR-Generation-Delay"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131132" name="Replicate-Session" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131133" name="Replicate-Session-Delay" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131133"  name="Replicate-Session-Delay"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131134"  name="Content-Pending-Timer"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+    <attribute id="131135" name="Operation-Status" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="OUT_OF_SERVICE" />
+         	<value id="1" name="IN_SERVICE" />
+         </supported-values>
+    </attribute>
+    <attribute id="131136" name="Subscriber-IP-Source" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="DEFAULT" />
+         	<value id="1" name="HTTP_X_FORWARDED_FOR" />         
+         </supported-values>
+    </attribute>
+    <attribute id="131137" name="Nexthop" mandatory="no" protected="no"  encryption="no" type="IPAddress"/> 
+	<attribute id="131139" name="Charging-Rule-Event-Trigger" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131123" name="Charging-Rule-Trigger-Type" maximum="*" minimum="1"/>
+			</required>
+			<optional>				
+				<attributerule vendor-id="9" id="131080" name="Volume-Threshold" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131081" name="Time-Threshold" maximum="1" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131140"  name="Billing-Plan-Name"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131141" name="Content-Flow-Description" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131142" name="Content-Flow-Filter" maximum="1" minimum="1"/>
+			</required>
+			<optional>				
+				<attributerule vendor-id="9" id="131153" name="VRF-Name" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131154" name="VLAN-Id" maximum="1" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131142" name="Content-Flow-Filter" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>
+				<attributerule vendor-id="9" id="131143" name="Client-Group-Id" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131146" name="Destination-IP-Address" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131147" name="Destination-Mask" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131148" name="Protocol-ID" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131149" name="Start-of-Port-Range" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131150" name="End-of-Port-Range" maximum="1" minimum="1"/>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131143" name="Client-Group-Id" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131144" name="ACL-Number" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131145" name="ACL-Name" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131144"  name="ACL-Number"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131145"  name="ACL-Name"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131146" name="Destination-IP-Address" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>   
+	<attribute id="131147" name="Destination-Mask" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="131148"  name="Protocol-ID"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131149"  name="Start-of-Port-Range"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131150"  name="End-of-Port-Range"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131151"  name="Content-Name"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131152" name="Failed-Preload-Object" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131121" name="Policy-Preload-Object-Type" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131191" name="Failed-Preload-Obj-Name" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131153"  name="VRF-Name"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131154"  name="VLAN-Id"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131155"  name="Volume-Usage"  mandatory="no" protected="no"  encryption="no" type="Unsigned64"/>
+	<attribute id="131156" name="Time-Usage" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131157" name="Duration" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131158" name="First-Packet-Timestamp" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131159" name="Last-Packet-Timestamp" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131157"  name="Duration"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131158"  name="First-Packet-Timestamp"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131159"  name="Last-Packet-Timestamp"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131160" name="Cisco-Flow-Description" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131151" name="Content-Name" maximum="1" minimum="1"/>
+		<!--		<attributerule name="Precedence" maximum="1" minimum="1"/> -->
+			</required>
+			<optional>				
+		<!--		<attributerule name="Flow-Description" maximum="1" minimum="1"/> -->
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131161" name="Terminate-Bearer" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+		<!--		<attributerule name="Bearer-Identifier" maximum="1" minimum="1"/> -->	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131162"  name="Service-Rating-Group"  mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+    <attribute id="131163" name="Content-Scope" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="GLOBAL" />
+         	<value id="1" name="USER" />                 	
+         </supported-values>
+    </attribute>
+    <attribute id="131164" name="Flow-Status-Policy-Mismatch" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="FORWARD" />
+         	<value id="1" name="BLOCK" />                 	
+         </supported-values>
+    </attribute>
+    <attribute id="131165" name="Policy-Map-Type" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="URL_MAP" />
+         	<value id="1" name="HEADER_MAP" />                 	
+         	<value id="2" name="METHOD_MAP" />
+         </supported-values>
+    </attribute>
+	<attribute id="131166" name="Policy-Map-Match-Install" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131090" name="Policy-Map-Match" maximum="*" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131167" name="Policy-Map-Match-Remove" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131090" name="Policy-Map-Match" maximum="*" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+    <attribute id="131168" name="Policy-Map-Replace" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="DISABLED" />
+         	<value id="1" name="ENABLED" />                 	
+         </supported-values>
+    </attribute>
+    <attribute id="131169" name="Cisco-Flow-Status" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="FORWARD" />
+         	<value id="1" name="BLOCK" />                	         
+         </supported-values>
+    </attribute>
+	<attribute id="131170" name="Cisco-QoS" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131171" name="QoS-Rate-Limit-UL" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131172" name="QoS-Rate-Limit-DL" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131171" name="QoS-Rate-Limit-UL" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131173" name="QoS-Rate-Limit" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131172" name="QoS-Rate-Limit-DL" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>
+				<attributerule vendor-id="9" id="131173" name="QoS-Rate-Limit" maximum="1" minimum="1"/>				
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131173" name="QoS-Rate-Limit" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131174" name="Max-Bandwidth" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131190" name="Max-Burst-Size" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131175" name="Rate-Limit-Conform-Action" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131176" name="Rate-Limit-Exceed-Action" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131174" name="Max-Bandwidth" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131175" name="Rate-Limit-Conform-Action" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+			</required>
+			<optional>			
+				<attributerule vendor-id="9" id="131177" name="Rate-Limit-Action" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131178" name="DSCP" maximum="1" minimum="1"/>	
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131176" name="Rate-Limit-Exceed-Action" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>								
+			</required>
+			<optional>
+				<attributerule vendor-id="9" id="131177" name="Rate-Limit-Action" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131178" name="DSCP" maximum="1" minimum="1"/>				
+			</optional>
+		</grouped>
+	</attribute>
+    <attribute id="131177" name="Rate-Limit-Action" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         	<value id="0" name="FORWARD" />
+         	<value id="1" name="DROP" />                	         
+         	<value id="2" name="MARK_DSCP" />
+         </supported-values>
+    </attribute>
+    <attribute id="131178" name="DSCP" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131179" name="Policy-Map-Install" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>
+				<attributerule vendor-id="9" id="131075" name="Policy-Map-Definition" maximum="*" minimum="1"/>		
+			</required>
+			<optional>								
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131180" name="Policy-Map-Remove" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>		
+				<attributerule vendor-id="9" id="131089" name="Policy-Map-Name" maximum="*" minimum="1"/>					
+			</required>
+			<optional>							
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131181" name="Billing-Policy-Install" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>							
+				<attributerule vendor-id="9" id="131074" name="Billing-Policy-Definition" maximum="*" minimum="1"/>
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131182" name="Billing-Policy-Remove" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131088" name="Billing-Policy-Name" maximum="*" minimum="1"/>
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131183" name="Content-Install" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131073" name="Content-Definition" maximum="*" minimum="1"/>
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131184" name="Content-Remove" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131151" name="Content-Name" maximum="*" minimum="1"/>
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131185" name="Service-Install" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131076" name="Service-Definition" maximum="*" minimum="1"/>
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131186" name="Service-Remove" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131087" name="Service-Name" maximum="*" minimum="1"/>
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131187" name="Billing-Plan-Install" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131079" name="Billing-Plan-Definition" maximum="*" minimum="1"/>
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131188" name="Billing-Plan-Remove" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+				<attributerule vendor-id="9" id="131140" name="Billing-Plan-Name" maximum="*" minimum="1"/>
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+    <attribute id="131189" name="Policy-Preload-Error-Code" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+          	<value id="0" name="INCONSISTENT_PRELOAD_DATA" />
+         	<value id="1" name="MANDATORY_AVP_MISSING" />                	         
+         	<value id="2" name="FAILURE_TO_ENFORCE" />
+         	<value id="3" name="WRONG_ORDER" />
+         	<value id="4" name="CONFLICT_WITH_STATIC_CONFIG" />
+         </supported-values>
+    </attribute>
+	<attribute id="131190" name="Max-Burst-Size" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="131191" name="Failed-Preload-Obj-Name" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+			</required>
+			<optional>		
+				<attributerule vendor-id="9" id="131189" name="Policy-Preload-Error-Code" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131089" name="Policy-Map-Name" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131088" name="Billing-Policy-Name" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131151" name="Content-Name" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131087" name="Service-Name" maximum="1" minimum="1"/>
+				<attributerule vendor-id="9" id="131140" name="Billing-Plan-Name" maximum="1" minimum="1"/>		
+			</optional>
+		</grouped>
+	</attribute>
+    <attribute id="131192" name="Cisco-Event-Trigger-Type" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+         <supported-values>
+         </supported-values>
+    </attribute>
+	<attribute id="131193" name="Cisco-Event-Trigger" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="131194"  name="TCP-SYN"  mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="131195" name="Cisco-Event" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+			</required>
+			<optional>				
+			</optional>
+		</grouped>
+	</attribute>
+</attribute-list>
+

@@ -1,0 +1,101 @@
+package com.elitecore.netvertexsm.web.servermgr.spinterface;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
+
+import com.elitecore.netvertexsm.blmanager.servermgr.spinterface.SPInterfaceBLManager;
+import com.elitecore.netvertexsm.datamanager.servermgr.drivers.data.DriverInstanceData;
+import com.elitecore.netvertexsm.util.constants.ConfigConstant;
+import com.elitecore.netvertexsm.util.constants.DriverTypeConstants;
+import com.elitecore.netvertexsm.util.exception.EliteExceptionUtils;
+import com.elitecore.netvertexsm.util.logger.Logger;
+import com.elitecore.netvertexsm.web.core.base.BaseWebAction;
+import com.elitecore.netvertexsm.web.servermgr.spinterface.form.ViewSPInterfaceForm;
+
+public class ViewSPInterfaceAction extends BaseWebAction {
+	private static final String VIEW_DBSPINTERFACE_FORWARD = "viewDBSPInterface";
+	private static final String VIEW_LDAPSPINTERFACE_FORWARD = "viewLDAPSPInterface";
+	
+	private static final String ACTION_ALIAS = ConfigConstant.VIEW_SP_INTERFACE;
+    private static final String MODULE = "VIEW_DRIVER_INSTANCE_ACTION";
+	
+	public ActionForward execute(ActionMapping mapping,ActionForm form,HttpServletRequest request,HttpServletResponse response) throws Exception{
+            Logger.logInfo(MODULE,"Enter execute method of"+getClass().getName());
+	  	if(checkAccess(request, ACTION_ALIAS)){
+			try{
+				ViewSPInterfaceForm viewSPInterfaceForm = (ViewSPInterfaceForm)form;
+				SPInterfaceBLManager blManager = new SPInterfaceBLManager();
+				DriverInstanceData driverInstanceData  = new DriverInstanceData();
+				String strDriverInstanceId = request.getParameter("driverInstanceId");
+			    Long driverInstanceId = Long.parseLong(strDriverInstanceId);
+				if(driverInstanceId == null){
+					driverInstanceId = viewSPInterfaceForm.getDriverInstanceId();
+				}
+				if(driverInstanceId!=null ){
+					
+					driverInstanceData.setDriverInstanceId(driverInstanceId);
+					driverInstanceData = blManager.getDriverInstanceData(driverInstanceData);
+					request.setAttribute("driverInstanceData",driverInstanceData);
+					if(driverInstanceData.getDriverTypeId().longValue()==DriverTypeConstants.DB_DRIVER.longValue()){
+						return mapping.findForward(VIEW_DBSPINTERFACE_FORWARD);
+					}else if(driverInstanceData.getDriverTypeId().longValue()==DriverTypeConstants.LDAP_DRIVER.longValue()){
+						return mapping.findForward(VIEW_LDAPSPINTERFACE_FORWARD);
+					}else{
+			            ActionMessages messages = new ActionMessages();
+			            messages.add("information", new ActionMessage("spinterface.unknown"));
+			            saveErrors(request, messages);
+			            
+				        ActionMessages errorHeadingMessage = new ActionMessages();
+				        ActionMessage message = new ActionMessage("spinterface.error.heading","viewing");
+				        errorHeadingMessage.add("errorHeading",message);
+				        saveMessages(request,errorHeadingMessage);
+			            return mapping.findForward(FAILURE);
+					}
+					
+				}else{
+		            ActionMessages messages = new ActionMessages();
+		            messages.add("information", new ActionMessage("spinterface.notfound.failure"));
+		            saveErrors(request, messages);
+		            
+			        ActionMessages errorHeadingMessage = new ActionMessages();
+			        ActionMessage message = new ActionMessage("spinterface.error.heading","viewing");
+			        errorHeadingMessage.add("errorHeading",message);
+			        saveMessages(request,errorHeadingMessage);		            
+		            return mapping.findForward(FAILURE);
+				}
+			}catch(Exception e){
+				Logger.logError(MODULE,"Returning error forward from "+getClass().getName());
+				Logger.logTrace(MODULE,e);
+				Object errorElements[] = EliteExceptionUtils.getFullStackTraceAsArray(e);
+				request.setAttribute("errorDetails", errorElements);
+	            ActionMessages messages = new ActionMessages();
+	            messages.add("information", new ActionMessage("spinterface.view.failure"));
+	            saveErrors(request, messages);
+	            
+		        ActionMessages errorHeadingMessage = new ActionMessages();
+		        ActionMessage message = new ActionMessage("spinterface.error.heading","viewing");
+		        errorHeadingMessage.add("errorHeading",message);
+		        saveMessages(request,errorHeadingMessage);
+	            return mapping.findForward(FAILURE);
+			} 
+		}else{
+            Logger.logWarn(MODULE, "No Access on this Operation ");
+	        ActionMessage message = new ActionMessage("general.user.restricted");
+	        ActionMessages messages = new ActionMessages();
+	        messages.add("information", message);
+	        saveErrors(request, messages);
+	        
+	        ActionMessages errorHeadingMessage = new ActionMessages();
+	        message = new ActionMessage("spinterface.error.heading","viewing");
+	        errorHeadingMessage.add("errorHeading",message);
+	        saveMessages(request,errorHeadingMessage);
+		return mapping.findForward(INVALID_ACCESS_FORWARD);
+		}
+	}
+}

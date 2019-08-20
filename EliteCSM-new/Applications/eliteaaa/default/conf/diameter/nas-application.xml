@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================= -->
+<!-- NAS Application configuration.                          -->
+<!-- ======================================================= -->
+
+<nas-application>
+	<!-- Values Entered as vendorId : ApplicationId  -->
+	<!-- If Only One Value is Specified It is 'Application Id' and 'Vendor Id' would be Default Value. -->
+	<application-id>0:1</application-id>
+	
+	<logging>
+		<application-logger-enabled>false</application-logger-enabled>
+		<!-- ALL/INFO/DEBUG/WARN/ERROR/OFF -->
+		<log-level>ALL</log-level>
+
+		<!-- 0:Time-Based Rolling -->
+		<!-- 1:Size-Based Rolling -->
+		<rolling-type>1</rolling-type>
+
+		<!-- 1:Every-Minute-Rolling, 2:Every-Hour-Rolling and 3:Daily-Rolling [Time-Based 
+			Rolling] -->
+		<!-- Number of MBs [Volume-Based Rolling] -->
+		<rolling-unit>5</rolling-unit>
+
+		<!-- Maximum Number of rolled files -->
+		<max-rolled-unit>10</max-rolled-unit>
+
+		<!-- Want to compress the rolled files or not -->
+		<compress-rolled-unit>false</compress-rolled-unit>
+		<location></location>
+		<syslog>
+			<address></address>
+			<facility></facility>
+		</syslog>
+	</logging>
+	
+	<service-policies>
+           <service-policy></service-policy>
+    </service-policies>
+    
+	<plugin-list>
+		<in-plugins>
+			<in-plugin></in-plugin>
+		</in-plugins>
+		<out-plugins>
+			<out-plugin></out-plugin>
+		</out-plugins>
+	</plugin-list>
+	
+</nas-application>

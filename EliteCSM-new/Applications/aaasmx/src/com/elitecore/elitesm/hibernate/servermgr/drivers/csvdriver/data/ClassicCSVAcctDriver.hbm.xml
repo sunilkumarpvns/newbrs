@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.elitecore.elitesm.datamanager.servermgr.drivers.csvdriver.data.ClassicCSVAcctDriverData" table="TBLMCLASSICCSVACCTDRIVER">
+    
+        <id name="classicCsvId" type="StringType" column="CLASSICCSVID">            
+           <generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+        </id>
+
+		<property name="driverInstanceId" type="StringType">
+            <column name="DRIVERINSTANCEID" sql-type="VARCHAR(36)" not-null="true"/>
+        </property>
+		        
+        <property name="allocatingprotocol" type="StringType">
+            <column name="ALLOCATINGPROTOCOL" sql-type="VARCHAR(16)" not-null="false" />
+        </property>
+        <property name="ipaddress" type="StringType">
+            <column name="IPADDRESS" sql-type="VARCHAR(255)" not-null="false"/>
+        </property>
+        <property name="remotelocation" type="StringType">
+            <column name="REMOTELOCATION" sql-type="VARCHAR(255)" not-null="false"/>
+        </property>
+        <property name="username" type="StringType">
+            <column name="USERNAME" length="64" sql-type="VARCHAR(64)" not-null="false"/>
+        </property>
+        <property name="password" type="StringType">
+            <column name="PASSWORD" sql-type="VARCHAR(64)" not-null="false" />
+        </property>
+        <property name="postoperation" type="StringType">
+            <column name="POSTOPERATION" sql-type="VARCHAR(32)" not-null="false" />
+        </property>
+        <property name="archivelocation" type="StringType">
+            <column name="ARCHIVELOCATION" sql-type="VARCHAR(255)" not-null="false"/>
+        </property>
+        <property name="failovertime" type="java.lang.Long">
+            <column name="FAILOVERTIME" sql-type="NUMBER(10)" not-null="false" />
+        </property>
+        <property name="filename" type="StringType">
+            <column name="FILENAME" sql-type="VARCHAR(64)" not-null="false" />
+        </property>
+        <property name="location" type="StringType">
+            <column name="LOCATION" sql-type="VARCHAR(255)" not-null="false"/>
+        </property>
+        <property name="defaultdirname" type="StringType">
+            <column name="DEFAULTDIRNAME" sql-type="VARCHAR(64)" not-null="false"/>
+        </property>
+         <property name="createBlankFile" type="StringType">
+            <column name="CREATEBLANKFILE" sql-type="VARCHAR(8)" not-null="false"/>
+        </property>
+        <property name="timeBoundry" type="java.lang.Long">
+            <column name="TIMEBOUNDRY" sql-type="NUMBER(6)" not-null="false" />
+        </property>
+         <property name="sizeBasedRollingUnit" type="java.lang.Long">
+            <column name="SIZEBASEDROLLINGUNIT" sql-type="NUMBER(12)" not-null="false" />
+        </property>
+          <property name="timeBasedRollingUnit" type="java.lang.Long">
+            <column name="TIMEBASEDROLLINGUNIT" sql-type="NUMBER(12)" not-null="false" />
+        </property>
+          <property name="recordBasedRollingUnit" type="java.lang.Long">
+            <column name="RECORDBASEDROLLINGUNIT" sql-type="NUMBER(12)" not-null="false" />
+        </property>
+        <property name="eventdateformat" type="StringType">
+            <column name="EVENTDATEFORMAT" sql-type="VARCHAR(64)" not-null="false" />
+        </property>
+        <property name="prefixfilename" type="StringType">
+            <column name="PREFIXFILENAME" sql-type="VARCHAR(64)" not-null="false" />
+        </property>
+        <property name="foldername" type="StringType">
+            <column name="FOLDERNAME" sql-type="VARCHAR(64)" not-null="false" />
+        </property>
+        <!-- <property name="writeattributes" type="java.lang.String">
+            <column name="WRITEATTRIBUTES" sql-type="VARCHAR(16)" not-null="false" />
+        </property> -->
+        <property name="usedictionaryvalue" type="StringType">
+            <column name="USEDICTIONARYVALUE" sql-type="VARCHAR(8)" not-null="false" />
+        </property>
+        <property name="avpairseparator" type="StringType">
+            <column name="AVPAIRSEPARATOR" sql-type="VARCHAR(4)" not-null="false" />
+        </property>       
+        <property name="header" type="StringType">
+            <column name="HEADER" sql-type="VARCHAR(8)" not-null="false" />
+        </property>
+        <property name="delimeter" type="StringType">
+            <column name="DELIMETER" sql-type="VARCHAR(5)" not-null="false"/>
+        </property>
+        <property name="multivaluedelimeter" type="StringType">
+            <column name="MULTIVALUEDELIMETER" sql-type="VARCHAR(5)" not-null="false" />
+        </property>
+        <property name="range" type="StringType">
+            <column name="RANGE" sql-type="VARCHAR(16)" not-null="false" />
+        </property>
+        <property name="pattern" type="StringType">
+            <column name="PATTERN" sql-type="VARCHAR(16)" not-null="false"/>
+        </property>
+        <property name="globalization" type="StringType">
+            <column name="GLOBALIZATION" sql-type="VARCHAR(8)" not-null="false" />
+        </property>         
+       	<property name="cdrtimestampFormat" type="StringType">
+            <column name="CDRTIMESTAMPFORMAT" sql-type="VARCHAR(8)" not-null="false" />
+        </property>         
+        <property name="enclosingCharacter" type="StringType">
+        	 <column name="ENCLOSINGCHARACTER" sql-type="VARCHAR(8)" not-null="false" />
+        </property>
+        
+         <property name="cdrTimestampHeader" type="StringType">
+        	 <column name="CDRTIMESTAMPHEADER" sql-type="VARCHAR(64)" not-null="false" />
+         </property>
+         
+         <property name="cdrTimestampPosition" type="StringType">
+        	 <column name="CDRTIMESTAMPPOSITION" sql-type="VARCHAR(64)" not-null="false" />
+         </property>
+       
+        <bag name="csvAttrRelList" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+        	<key column="CLASSICCSVID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.csvdriver.data.ClassicCSVAttrRelationData"/>
+	  	</bag>	
+	  	
+	  	<bag name="csvPattRelList" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+			<key column="CLASSICCSVID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.csvdriver.data.ClassicCSVStripPattRelData"/>
+	  	</bag>	
+	  	
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<result-code-mapping>
+    <result-code-list>
+        <result-code>
+            <pcrf-key>key1</pcrf-key>
+            <diameter-result-code>2002</diameter-result-code>
+        </result-code>
+    </result-code-list>
+</result-code-mapping>

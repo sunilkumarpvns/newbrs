@@ -1,0 +1,548 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth?name=RadiusHSSAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth.xml?name=RadiusHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth?operation=search&name=RadiusHSSAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth.xml?operation=search&name=RadiusHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+
+<driver-instance>
+    <name>RadiusHSSAuthDriver</name>
+    <description>Created by admin on 01/24/2017 12:02:24 PM</description>
+    <hss-auth-driver>
+        <tgpp-application-id>16777265</tgpp-application-id>
+        <command-code>303</command-code>
+        <request-timeout>3000</request-timeout>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <no-of-triplets>1</no-of-triplets>
+        <additional-attributes>0:1</additional-attributes>
+        <hss-peer-configuration>
+            <diameter-peer>
+                <peer-name>diameterPeer</peer-name>
+                <weightage>4</weightage>
+            </diameter-peer>
+        </hss-peer-configuration>
+        <hss-driver-field-mappings>
+            <hss-driver-field-mapping>
+                <logical-name>User Name</logical-name>
+                <attribute-ids>0:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>IMSI</logical-name>
+                <attribute-ids>10415:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>MSISDN</logical-name>
+                <attribute-ids>10415:701</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <attribute-ids>21067:113</attribute-ids>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </hss-driver-field-mapping>
+        </hss-driver-field-mappings>
+    </hss-auth-driver>
+</driver-instance>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth?name=RadiusHSSAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth.json?name=RadiusHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth?operation=search&name=RadiusHSSAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth.json?operation=search&name=RadiusHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+  "name": "RadiusHSSAuthDriver",
+  "description": "Created by admin on 01/24/2017 12:02:24 PM",
+  "hss-auth-driver": [
+    {
+      "tgpp-application-id": "16777265",
+      "command-code": 303,
+      "request-timeout": 3000,
+      "user-identity-attributes": "0:1",
+      "no-of-triplets": 1,
+      "additional-attributes": "0:1",
+      "hss-peer-configuration": [
+        {
+          "peer-name": "diameterPeer",
+          "weightage": 4
+        }
+      ],
+      "hss-driver-field-mappings": [
+        {
+          "logical-name": "User Name",
+          "attribute-ids": "0:1"
+        },
+        {
+          "logical-name": "IMSI",
+          "attribute-ids": "10415:1"
+        },
+        {
+          "logical-name": "MSISDN",
+          "attribute-ids": "10415:701"
+        },
+        {
+          "logical-name": "Credit Limit",
+          "attribute-ids": "21067:113",
+          "default-value": "Active",
+          "value-mapping": "1=Active,0=inActive"
+        }
+      ]
+    }
+  ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Note :- For Inserting Default Value  and Value Mapping in Radius HSS Driver Field Mapping using below format.
+				
+				<default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+Body :
+<driver-instance>
+    <name>RadiusHSSAuthDriver</name>
+    <description>Created by admin on 01/24/2017 12:02:24 PM</description>
+    <hss-auth-driver>
+        <tgpp-application-id>16777265</tgpp-application-id>
+        <command-code>303</command-code>
+        <request-timeout>3000</request-timeout>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <no-of-triplets>1</no-of-triplets>
+        <additional-attributes>0:1</additional-attributes>
+        <hss-peer-configuration>
+            <diameter-peer>
+                <peer-name>diameterPeer</peer-name>
+                <weightage>4</weightage>
+            </diameter-peer>
+        </hss-peer-configuration>
+        <hss-driver-field-mappings>
+            <hss-driver-field-mapping>
+                <logical-name>User Name</logical-name>
+                <attribute-ids>0:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>IMSI</logical-name>
+                <attribute-ids>10415:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>MSISDN</logical-name>
+                <attribute-ids>10415:701</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <attribute-ids>21067:113</attribute-ids>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </hss-driver-field-mapping>
+        </hss-driver-field-mappings>
+    </hss-auth-driver>
+</driver-instance>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius HSS Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note :- For Inserting Default Value  and Value Mapping in Radius HSS Driver Field Mapping using below format.
+				
+			"default-value": "Active",
+	        "value-mapping": "1=Active,0=inActive"
+
+Body :
+{
+  "name": "RadiusHSSAuthDriver",
+  "description": "Created by admin on 01/24/2017 12:02:24 PM",
+  "hss-auth-driver": [
+    {
+      "tgpp-application-id": "16777265",
+      "command-code": 303,
+      "request-timeout": 3000,
+      "user-identity-attributes": "0:1",
+      "no-of-triplets": 1,
+      "additional-attributes": "0:1",
+      "hss-peer-configuration": [
+        {
+          "peer-name": "diameterPeer",
+          "weightage": 4
+        }
+      ],
+      "hss-driver-field-mappings": [
+        {
+          "logical-name": "User Name",
+          "attribute-ids": "0:1"
+        },
+        {
+          "logical-name": "IMSI",
+          "attribute-ids": "10415:1"
+        },
+        {
+          "logical-name": "MSISDN",
+          "attribute-ids": "10415:701"
+        },
+        {
+          "logical-name": "Credit Limit",
+          "attribute-ids": "21067:113",
+          "default-value": "Active",
+          "value-mapping": "1=Active,0=inActive"
+        }
+      ]
+    }
+  ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius HSS Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Note :- For Inserting Default Value  and Value Mapping in Radius HSS Driver Field Mapping using below format.
+				
+				<default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+Body :
+<list>
+   <driver-instance>
+      <name>RadiusHSSAuthDriver</name>
+      <description>Created by admin on 01/24/2017 12:02:24 PM</description>
+      <hss-auth-driver>
+         <tgpp-application-id>16777265</tgpp-application-id>
+         <command-code>303</command-code>
+         <request-timeout>3000</request-timeout>
+         <user-identity-attributes>0:1</user-identity-attributes>
+         <no-of-triplets>1</no-of-triplets>
+         <additional-attributes>0:1</additional-attributes>
+         <hss-peer-configuration>
+            <diameter-peer>
+               <peer-name>diameterPeer</peer-name>
+               <weightage>4</weightage>
+            </diameter-peer>
+         </hss-peer-configuration>
+         <hss-driver-field-mappings>
+            <hss-driver-field-mapping>
+               <logical-name>User Name</logical-name>
+               <attribute-ids>0:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+               <logical-name>IMSI</logical-name>
+               <attribute-ids>10415:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+               <logical-name>MSISDN</logical-name>
+               <attribute-ids>10415:701</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+               <logical-name>Credit Limit</logical-name>
+               <attribute-ids>21067:113</attribute-ids>
+               <default-value>Active</default-value>
+               <value-mapping>1=Active,0=inActive</value-mapping>
+            </hss-driver-field-mapping>
+         </hss-driver-field-mappings>
+      </hss-auth-driver>
+   </driver-instance>
+</list>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius HSS Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note :- For Inserting Default Value  and Value Mapping in Radius HSS Driver Field Mapping using below format.
+				
+			"default-value": "Active",
+	        "value-mapping": "1=Active,0=inActive"
+
+Body :
+{
+   "list":[
+      {
+         "name":"RadiusHSSAuthDriver",
+         "description":"Created by admin on 01/24/2017 12:02:24 PM",
+         "hss-auth-driver":[
+            {
+               "tgpp-application-id":"16777265",
+               "command-code":303,
+               "request-timeout":3000,
+               "user-identity-attributes":"0:1",
+               "no-of-triplets":1,
+               "additional-attributes":"0:1",
+               "hss-peer-configuration":[
+                  {
+                     "peer-name":"diameterPeer",
+                     "weightage":4
+                  }
+               ],
+               "hss-driver-field-mappings":[
+                  {
+                     "logical-name":"User Name",
+                     "attribute-ids":"0:1"
+                  },
+                  {
+                     "logical-name":"IMSI",
+                     "attribute-ids":"10415:1"
+                  },
+                  {
+                     "logical-name":"MSISDN",
+                     "attribute-ids":"10415:701"
+                  },
+                  {
+                     "logical-name":"Credit Limit",
+                     "attribute-ids":"21067:113",
+                     "default-value":"Active",
+                     "value-mapping":"1=Active,0=inActive"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius HSS Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth?name=RadiusHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth?operation=update&name=RadiusHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Note :- For Updating Default Value  and Value Mapping in Radius HSS Driver Field Mapping using below format.
+				
+				<default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+
+Body     :
+<driver-instance>
+    <name>RadiusHSSAuthDriver</name>
+    <description>Created by admin on 01/24/2017 12:02:24 PM</description>
+    <hss-auth-driver>
+        <tgpp-application-id>16777265</tgpp-application-id>
+        <command-code>303</command-code>
+        <request-timeout>3000</request-timeout>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <no-of-triplets>1</no-of-triplets>
+        <additional-attributes>0:1</additional-attributes>
+        <hss-peer-configuration>
+            <diameter-peer>
+                <peer-name>diameterPeer</peer-name>
+                <weightage>4</weightage>
+            </diameter-peer>
+        </hss-peer-configuration>
+        <hss-driver-field-mappings>
+            <hss-driver-field-mapping>
+                <logical-name>User Name</logical-name>
+                <attribute-ids>0:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>IMSI</logical-name>
+                <attribute-ids>10415:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>MSISDN</logical-name>
+                <attribute-ids>10415:701</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <attribute-ids>21067:113</attribute-ids>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </hss-driver-field-mapping>
+        </hss-driver-field-mappings>
+    </hss-auth-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius HSS Auth Driver(s) updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note :- For Updating Default Value  and Value Mapping in Radius HSS Driver Field Mapping using below format.
+				
+			"default-value": "Active",
+	        "value-mapping": "1=Active,0=inActive"
+
+Body     :
+{
+  "name": "RadiusHSSAuthDriver",
+  "description": "Created by admin on 01/24/2017 12:02:24 PM",
+  "hss-auth-driver": [
+    {
+      "tgpp-application-id": "16777265",
+      "command-code": 303,
+      "request-timeout": 3000,
+      "user-identity-attributes": "0:1",
+      "no-of-triplets": 1,
+      "additional-attributes": "0:1",
+      "hss-peer-configuration": [
+        {
+          "peer-name": "diameterPeer",
+          "weightage": 4
+        }
+      ],
+      "hss-driver-field-mappings": [
+        {
+          "logical-name": "User Name",
+          "attribute-ids": "0:1"
+        },
+        {
+          "logical-name": "IMSI",
+          "attribute-ids": "10415:1"
+        },
+        {
+          "logical-name": "MSISDN",
+          "attribute-ids": "10415:701"
+        },
+        {
+          "logical-name": "Credit Limit",
+          "attribute-ids": "21067:113",
+          "default-value": "Active",
+          "value-mapping": "1=Active,0=inActive"
+        }
+      ]
+    }
+  ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius HSS Auth Driver(s) updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth?name=RadiusHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth?operation=delete&name=RadiusHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/hssauth/RadiusHSSAuthDriver?operation=delete
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius HSS Auth Driver(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

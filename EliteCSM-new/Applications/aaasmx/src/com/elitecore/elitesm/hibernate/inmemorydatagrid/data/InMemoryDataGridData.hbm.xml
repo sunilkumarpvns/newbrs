@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.inmemorydatagrid.data.InMemoryDataGridData" table="TBLMINMEMORYDATAGRID">
+		<id name="imdgID" column="IMDGID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		<property name="imdgXml" type="byte[]" column="IMDGXML" not-null="false" />
+		<property name="auditUId" type="StringType" column="AUDIT_UID" not-null="false" />
+	</class>
+
+</hibernate-mapping>

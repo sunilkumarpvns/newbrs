@@ -1,0 +1,9 @@
+{
+    "id": "rest_lrn_1111111",
+    "status": "ACTIVE",
+    "groups": "GROUP_1",
+    "lrn": "31145",
+    "operatorId": "102",
+    "networkId": "130",
+    "groupNames": "DefaultGroup"
+}

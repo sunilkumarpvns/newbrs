@@ -1,0 +1,8 @@
+description = 'CSM elitecommons library'
+dependencies {
+
+    compile group: 'com.sun.jdmk', name: 'jdmkrt', version: '1.0'
+    compile group: 'net.sf.json-lib', name: 'json-lib', version: '2.2.3', classifier: 'jdk15'
+    compileOnly group: 'junit', name: 'junit', version:'4.12'
+
+}

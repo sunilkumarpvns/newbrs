@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<miscellaneous-data>
+	<param name="dummy-rating" value="false"/> 
+	<param name="request-timeout-for-sim" value="1000"/>
+	<param name="request-timeout-for-aka" value="1000"/>
+	<param name="mapgw-connection-pool-size-for-sim" value="10"/>
+	<param name="mapgw-connection-pool-size-for-aka" value="10"/>
+	<param name="local-host-for-imsi-requestor" value=" LOCAL_HOST aaa-ulticom:0"/>
+	<param name="remote-host-for-imsi-requestor" value="REMOTE_HOST aaa-ulticom:2907 [10.193.250.142]"/>
+	<param name="request-timeout-for-imsi-requestor" value="1000"/>
+	<param name="diameter.rfc.validation" value="true"/>
+	<param name="sql.transaction.batch" value="true"/>
+	<param name="sql.transaction.nowait" value="true"/>
+	<param name="websnmp.port" value="8082"/>
+	<param name="policy.oldreplyitem" value="false"/>
+	<param name="alert.repeatedmessagereduction.interval.sec" value="10"/>
+	<param name="http.connections" value="50"/>
+	<param name="max-sim-reauth-count" value="10"/>
+	<param name="wimax-ip-technology" value="2"/>
+	<param name="policy_name.ADDITIONAL_CONCURRENT_LOGIN_POLICY" value="concurrent_login_policy_name" />
+	<param name="policy_name.translation-mapping" value="diameter_to_radius_translator_name" />
+	<param name="radius-session-id" value="0:31;0:1;0:4;0:32;0:5;0:87;0:61;0:30;0:94"/>
+	
+	<!-- Possible values: Default, DiscardOld -->
+	<param name="peer_profile_name.duplicateConnectionPolicy" value="Default" />
+
+	<!-- Enable REST Service for EliteAAA -->
+	<param name="rest.service.enable" value="false" />
+	<param name="rest.service.port" value="42277" />
+
+</miscellaneous-data>
+

@@ -1,0 +1,36 @@
+<user-accounts>
+<user-account id="1">
+<authentication-attributes>
+<radius-attribute id="1" value="eliteaaa"/> 
+</authentication-attributes>
+<user-password>
+<password-check-enabled>yes</password-check-enabled>
+<password>eliteaaa</password>
+<encryption-type>0</encryption-type>
+</user-password>
+<account-status>Active</account-status>
+<credit-limit>100</credit-limit>
+<expiry-date>12/31/2015</expiry-date>
+<customer-service></customer-service>
+<customer-type>postpaid</customer-type>
+<service-type></service-type>
+<calling-station-id></calling-station-id>
+<called-station-id></called-station-id>
+<email-id>aaa@elitecore.com</email-id>
+<user-group>Elitecore</user-group>
+<CUI></CUI>
+<user-check-item></user-check-item>
+<user-reject-item></user-reject-item>
+<user-reply-item></user-reply-item>
+<user-add-item></user-add-item>
+<access-policy></access-policy>
+<authorization-policy></authorization-policy> 
+<hotline-policy></hotline-policy>
+<grace-period></grace-period>
+<param1></param1>
+<param2></param2>
+<param3></param3>
+<callback-id></callback-id>
+<user-name></user-name>
+</user-account>
+</user-accounts>

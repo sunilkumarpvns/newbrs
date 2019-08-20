@@ -1,0 +1,1094 @@
+DIAMETER-STACK-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+       MODULE-IDENTITY, OBJECT-TYPE, OBJECT-IDENTITY,
+       Counter32, Integer32,
+       IpAddress, TimeTicks, mib-2      FROM SNMPv2-SMI
+       SnmpAdminString                  FROM SNMP-FRAMEWORK-MIB
+       MODULE-COMPLIANCE, OBJECT-GROUP  FROM SNMPv2-CONF;
+       
+
+        internet      OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 }
+
+        directory     OBJECT IDENTIFIER ::= { internet 1 }
+
+        mgmt          OBJECT IDENTIFIER ::= { internet 2 }
+ 
+        experimental  OBJECT IDENTIFIER ::= { internet 3 }
+
+        private       OBJECT IDENTIFIER ::= { internet 4 }
+
+        enterprises   OBJECT IDENTIFIER ::= { private 1 }
+
+        elitecore     OBJECT IDENTIFIER ::= { enterprises 21067 }
+        
+        diameterStack OBJECT IDENTIFIER ::= { elitecore 5 }
+
+        
+--- APPLICATION STATS TABLE
+
+stackIdentity OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Identity of the Diameter Stack "
+    ::= { diameterStack 1 }
+    
+stackURI OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " URI of the Diameter Stack "
+    ::= { diameterStack 2 }
+    
+stackRealm OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Realm of the Diameter Stack "
+    ::= { diameterStack 3 }
+    
+stackUpTime OBJECT-TYPE
+    SYNTAX          TimeTicks
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Diameter Stack UpTime "
+    ::= { diameterStack 4 }
+    
+stackResetTime OBJECT-TYPE
+    SYNTAX          TimeTicks
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Diameter Stack ResetTime "
+    ::= { diameterStack 5 }
+    
+stackConfigReset OBJECT-TYPE
+       SYNTAX INTEGER { other(0),
+			initializing(1),
+			initialized(2),
+			running(3),
+			stopping(4),
+			stopped(5),
+			reset(6)
+		      }
+       MAX-ACCESS  read-write
+       STATUS      current
+       DESCRIPTION
+              " Represents the state of the Diameter Stack
+              
+              other(0) - Unknown state
+              initializing(1) - initialization is going oin
+              initialized(2) - initialization process is done
+              running(3) - successfully up and running
+              stopping(4) - shutdown process is going on
+              stopped(5) - shutdown successfully
+              reset(6) - reset the diameter stack
+              
+              "
+       ::= { diameterStack 6 }
+    
+stackIPAddress OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " IP Address of the Diameter Stack "
+    ::= { diameterStack 7 }
+    
+stackListeningPort OBJECT-TYPE
+    SYNTAX          Integer32 (0..65535)
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Port of the Diameter Stack "
+    ::= { diameterStack 8 }
+
+
+stackStatistics OBJECT IDENTIFIER ::= { diameterStack 100 }
+
+totalRequestRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request received "
+    ::= { stackStatistics 1 }
+    
+totalRequestTx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request transmitted "
+    ::= { stackStatistics 2 }
+    
+totalAnswerRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer received "
+    ::= { stackStatistics 3 }
+    
+totalAnswerTx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer transmitted "
+    ::= { stackStatistics 4 }
+    
+totalAnswerDr OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer dropped "
+    ::= { stackStatistics 5 }
+    
+totalRequestDr OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request dropped "
+    ::= { stackStatistics 6 }
+    
+totalRequestRetransmitted OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request retransmitted "
+    ::= { stackStatistics 7 }
+    
+totalUnknownHbHAnswerDropped OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer dropped , which is received with an 
+	      unknown Hop-by-Hop Identifer "
+    ::= { stackStatistics 8 }
+    
+totalDuplicateRequest OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of duplicate request received "
+    ::= { stackStatistics 9 }
+    
+totalDuplicateEtEAnswer OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of duplicate EtE answer received "
+    ::= { stackStatistics 10 }
+    
+totalMalformedPacketRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of malform request received "
+    ::= { stackStatistics 11 }
+    
+totalRequestTimeOut OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of timed out request "
+    ::= { stackStatistics 12 }
+   
+totalRequestPn OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of pending (Unprocessed) request; not responded "
+    ::= { stackStatistics 13 }
+    
+--- End Stack Statistics
+
+
+
+
+--- Application Wise Statistics
+
+appStatistics OBJECT IDENTIFIER ::= { diameterStack 101 }
+
+appStatisticsTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF ApplicationStatisticsEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            " The table contains the application specific statistics "
+    ::= { appStatistics 1 }
+
+applicationStatisticsEntry OBJECT-TYPE
+    SYNTAX          ApplicationStatisticsEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            " Entry represents the statistics w.r.t application"
+    INDEX           {
+                        applicationID
+                    }
+    ::= { appStatisticsTable 1 }
+
+ApplicationStatisticsEntry ::= SEQUENCE {
+	applicationID  		Unsigned32,
+        appStatsRequestRx		Counter32,
+	appStatsAnswerTx		Counter32,
+	appStatsRequestTx             	Counter32,
+	appStatsAnswerRx		Counter32,
+	appStatsRequestRetransmitted	Counter32,
+	appStatsRequestTimeOut		Counter32,
+	appStatsRequestDr		Counter32,
+	appStatsAnswerDr              	Counter32,
+	appStatsUnknownHbHAnswerDropped	Counter32,
+	appStatsDuplicateRequest     	Counter32,
+	appStatsDuplicateEtEAnswer	Counter32,
+	appStatsMalformedPacketRx	Counter32,
+	appStatsRequestPn		Counter32,
+	applicationIDIndexValue		SnmpAdminString,
+	applicationName 		SnmpAdminString
+}
+
+applicationID OBJECT-TYPE
+    SYNTAX          Unsigned32 (1..4294967295 )
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            " Number uniquely identifies the application "
+    ::= { applicationStatisticsEntry 1 }
+   
+appStatsRequestRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request received for particular application "
+    ::= { applicationStatisticsEntry 2 }
+   
+appStatsAnswerTx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer transmitted for particular application "
+    ::= { applicationStatisticsEntry 3 }
+
+appStatsRequestTx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request transmitted for particular application "
+            ::= { applicationStatisticsEntry 4 }
+    
+appStatsAnswerRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer received for particular application "
+    ::= { applicationStatisticsEntry 5 }
+    
+appStatsRequestRetransmitted OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+	    " Total number of request retransmitted for particular application "
+    ::= { applicationStatisticsEntry 6 }    
+    
+appStatsRequestTimeOut OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request timed out for particular application "
+    ::= { applicationStatisticsEntry 7 }    
+    
+appStatsRequestDr OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request dropped for particular application "
+    ::= { applicationStatisticsEntry 8 }    
+    
+appStatsAnswerDr OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer dropped for particular application "
+    ::= { applicationStatisticsEntry 9 }    
+    
+appStatsUnknownHbHAnswerDropped OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer dropped , which is received with an unknown 
+	      Hop-by-Hop Identifer particular application due to unknown HbH "
+    ::= { applicationStatisticsEntry 10 }    
+    
+appStatsDuplicateRequest OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of duplicate request received for particular application "
+    ::= { applicationStatisticsEntry 11 }    
+    
+appStatsDuplicateEtEAnswer OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of duplicate EtE answer for particular application "
+    ::= { applicationStatisticsEntry 12 }    
+    
+appStatsMalformedPacketRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of malform packet received for particular application "
+    ::= { applicationStatisticsEntry 13 }    
+    
+appStatsRequestPn OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of pending (Unprocessed) request for particular application "
+    ::= { applicationStatisticsEntry 14 }
+
+applicationIDIndexValue OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Represents the value of applicationID, which is index for this table  "
+    ::= { applicationStatisticsEntry 15 }
+    
+applicationName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " name of the application  "
+    ::= { applicationStatisticsEntry 16 }
+    
+--- End of Application Wise Statistics
+
+
+
+--- PEER related statistics include
+
+--- 1) peer information 
+--- 2) peer connection information
+--- 3) application to peer wise statistics
+--- 4) application to peer wise commandcode statistics
+
+peerStatistics OBJECT IDENTIFIER ::= { diameterStack 102 }
+
+connectionStatistics OBJECT IDENTIFIER ::= { peerStatistics 2 }
+
+applicationWiseStatistics OBJECT IDENTIFIER ::= { peerStatistics 3 }
+
+commandCodeWiseStatistics OBJECT IDENTIFIER ::= { applicationWiseStatistics 2 }
+
+resultCodeWiseStatistics OBJECT IDENTIFIER ::= { applicationWiseStatistics 3 }
+        
+--- Peer Info Table        
+
+peerInfoTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF PeerInfoEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             " Table listing information of the discovered and
+             configured Diameter peers "
+       ::= { peerStatistics 1 }
+
+peerInfoEntry OBJECT-TYPE
+       SYNTAX     PeerInfoEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             " Entry represents a discovered and 
+	       configured Diameter peer "
+       INDEX      { peerIndex }
+       ::= { peerInfoTable 1 }
+
+PeerInfoEntry ::= SEQUENCE {
+       peerIndex                        Unsigned32,
+       peerIdentity                     SnmpAdminString,
+       peerTransportProtocol 		SnmpAdminString,
+       peerSecurity 			SnmpAdminString,
+       connectionInitByPeer		SnmpAdminString,
+       peerIndexValue			SnmpAdminString
+}
+
+peerIndex OBJECT-TYPE
+       SYNTAX     Unsigned32 (1..4294967295)
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             " Number uniquely identifies the Diameter Peer "
+       ::= { peerInfoEntry  1 }
+
+peerIdentity OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             " Peer Identity "
+       ::= { peerInfoEntry  2 }
+
+peerTransportProtocol OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             " The transport protocol (tcp/sctp) the
+	      Diameter peer is using "
+       ::= { peerInfoEntry  3 }
+       
+peerSecurity OBJECT-TYPE
+       SYNTAX INTEGER { none(1),
+			tls(2),
+			ipsec(3)}
+			
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             " The security the Diameter peer is using.
+	      none(1) - Unknown Security Protocol
+	      tls(2)   - Transport Layer Security Protocol
+	      ipsec(3) - Internet Protocol Security "
+	      
+       ::= { peerInfoEntry 4 }
+
+connectionInitByPeer OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             " Represents that Is connection init by peer ? "
+	      
+       ::= { peerInfoEntry 5 }
+       
+peerIndexValue OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             " Represents the value of peerIndex, which is index for this table "
+	      
+       ::= { peerInfoEntry 6 }
+       
+--- End of Peer Info Table
+
+
+--- PEER IPAddress Table
+
+peerIpAddrTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF PeerIpAddrEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "The table listing the Diameter
+              peer IP addresses."
+       ::= { connectionStatistics 1 }
+
+peerIpAddrEntry OBJECT-TYPE
+       SYNTAX     PeerIpAddrEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "A row entry representing a
+              the IP address of a Diameter peer."
+       INDEX      {
+                    peerIndex,
+                    peerIpAddressIndex }
+       ::= { peerIpAddrTable 1 }
+
+PeerIpAddrEntry ::= SEQUENCE {
+       peerIpAddressIndex 	Counter64,
+       peerRemoteIpAddress	SnmpAdminString,
+       peerLocalIpAddress 	SnmpAdminString,
+       peerStatus	  	SnmpAdminString,
+       reconnectionCount        Integer32,
+       peerIpAddrPeerIdentity		SnmpAdminString,
+       peerIpAddrCompsIndexValue  SnmpAdminString
+}
+
+peerIpAddressIndex OBJECT-TYPE
+       SYNTAX     Counter64
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             " Number uniquely identifying an IP Address
+              supported by this Diameter peer "
+       ::= { peerIpAddrEntry  1 }
+
+peerRemoteIpAddress OBJECT-TYPE
+       SYNTAX      SnmpAdminString
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             " The type of address stored in dbpPeerIpAddress "
+       ::= {peerIpAddrEntry 2}
+
+peerLocalIpAddress OBJECT-TYPE
+       SYNTAX      SnmpAdminString
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             " IP Address(es) used for connections "
+       ::= { peerIpAddrEntry 3 }
+
+peerStatus OBJECT-TYPE
+       SYNTAX INTEGER { closed(0),
+                        waitConnAck(1),
+                        waitICea(2),
+                        elect(3),
+                        waitReturns(4),
+                        r-open(5),
+                        i-open(6),
+                        closing(7),
+                        waitConnAckElect(8) }
+                        
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+              " Connection state of the Diameter Peer
+              closed (0)     - Connection closed with this peer.
+              waitConnAck(1) - Waiting for an acknowledgment
+                            	from this peer.
+              waitICea(2)    - Waiting for a Capabilities-Exchange-Answer
+                            	from this peer.
+              elect (3)      - When the remote and local peers are both
+                            	trying to bring up a connection with
+                            	each other at the same time.  An
+                            	election process begins which
+                            	determines which socket remains open.
+              waitReturns (4) - Waiting for election returns.
+              r-open (5)      - Responder transport connection is
+                            	used for communication.
+              i-open (6)      - Initiator transport connection is
+                            	used for communication.
+              closing (7)     - Actively closing and doing cleanup.
+              WaitConnAckElect (8)"
+             
+       ::= { peerIpAddrEntry  4 }
+       
+reconnectionCount OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             " Number of times the Diameter Peer tries to connect "
+	      
+       ::= { peerIpAddrEntry 5 }
+
+peerIpAddrPeerIdentity OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             " Identity of the peer "
+	      
+       ::= { peerIpAddrEntry 6 }
+       
+peerIpAddrCompsIndexValue OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             " Represents the value of composite index. Using format peerIndex.peerIpAddressIndex "
+	      
+       ::= { peerIpAddrEntry 7 }
+       
+--- End of PEER IPAddress Table
+
+
+
+--- Application wise Peer Stats Table
+
+
+appWiseStatisticsTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF AppWiseStatisticsEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            " Table represents the application to peer wise 
+              statistics "
+    ::= { applicationWiseStatistics 1 }
+
+appWiseStatisticsEntry OBJECT-TYPE
+    SYNTAX          AppWiseStatisticsEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            " Entry represents the row contains the application-to-peer
+              statistics, a record is uniquely identified by composite
+              index of peerIndex with applicationID "
+    INDEX           {
+                        peerIndex,
+                        applicationID
+                    }
+    ::= { appWiseStatisticsTable 1 }
+
+AppWiseStatisticsEntry ::= SEQUENCE {
+  
+	appwRequestRx		Counter32,
+	appwAnswerTx		Counter32,
+	appwRequestTx             	Counter32,
+	appwAnswerRx		Counter32,
+	appwRequestRetransmitted	Counter32,
+	appwRequestTimeOut		Counter32,
+	appwRequestDr		Counter32,
+	appwAnswerDr              	Counter32,
+	appwUnknownHbHAnswerDropped	Counter32,
+	appwDuplicateRequest     	Counter32,
+	appwDuplicateEtEAnswer	Counter32,
+	appwMalformedPacketRx	Counter32,
+	appwRequestPn		Counter32,
+	appwPeerIdentity	SnmpAdminString,
+	appwApplicationName		SnmpAdminString,
+	appwCompstIndexValue		SnmpAdminString
+}
+
+
+appwRequestRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request received by peer for particular application "
+    ::= { appWiseStatisticsEntry 1 }
+    
+appwAnswerTx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer transmitted by peer for particular application "
+    ::= { appWiseStatisticsEntry 2 }
+
+appwRequestTx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request transmitted by peer for particular application "
+    ::= { appWiseStatisticsEntry 3 }
+    
+appwAnswerRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer received by peer for particular application "
+    ::= { appWiseStatisticsEntry 4 }
+    
+appwRequestRetransmitted OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request retransmitted by peer for particular application "
+    ::= { appWiseStatisticsEntry 5 }    
+    
+appwRequestTimeOut OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request timed out by peer for particular application "
+    ::= { appWiseStatisticsEntry 6 }    
+    
+appwRequestDr OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request dropped by peer for particular application "
+    ::= { appWiseStatisticsEntry 7 }    
+    
+appwAnswerDr OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer dropped by peer for particular application "
+    ::= { appWiseStatisticsEntry 8 }    
+    
+appwUnknownHbHAnswerDropped OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer dropped , which is received with an 
+	      unknown Hop-by-Hop Identifier by peer for particular application 
+	      due to unknown HbH "
+    ::= { appWiseStatisticsEntry 9 }    
+    
+appwDuplicateRequest OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of duplicate request received by peer for particular application "
+    ::= { appWiseStatisticsEntry 10 }    
+    
+appwDuplicateEtEAnswer OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of duplicate EtE answer by peer for particular application "
+    ::= { appWiseStatisticsEntry 11 }    
+    
+appwMalformedPacketRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of malform request received by peer for particular application "
+    ::= { appWiseStatisticsEntry 12 }    
+    
+appwRequestPn OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of pending (Unprocessed) request by peer for particular application "
+    ::= { appWiseStatisticsEntry 13 }
+
+appwPeerIdentity OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Identity of the peer "
+    ::= { appWiseStatisticsEntry 14 }
+    
+appwApplicationName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " name of the application "
+    ::= { appWiseStatisticsEntry 15 }
+
+appwCompstIndexValue OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Represents the value of composite index. Using format peerIndex.AppId "
+    ::= { appWiseStatisticsEntry 16 }
+    
+--- End of Application wise Peer Stats Table                
+        
+
+--- Application to peer command code wise statistics table
+
+commandCodeStatisticsTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CommandCodeStatisticsEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            " Table represents the commandCode to peer wise 
+              statistics"
+    ::= { commandCodeWiseStatistics 1 }
+
+commandCodeStatisticsEntry OBJECT-TYPE
+    SYNTAX          CommandCodeStatisticsEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            "  Entry represents the row contains the commandCode-to-peer
+              statistics, a record is uniquely identified by composite
+              index of peerIndex,applicationID and commandCode itself "
+    INDEX           {
+                        peerIndex,
+                        applicationID,
+                        commandCode
+                    }
+    ::= { commandCodeStatisticsTable 1 }
+
+CommandCodeStatisticsEntry ::= SEQUENCE {
+        commandCode    		Unsigned32,
+        commandCodeName			SnmpAdminString,
+        ccwRequestRx		Counter32,
+	ccwAnswerTx		Counter32,
+	ccwRequestTx             	Counter32,
+	ccwAnswerRx		Counter32,
+	ccwRequestRetransmitted	Counter32,
+	ccwRequestTimeOut		Counter32,
+	ccwRequestDr		Counter32,
+	ccwAnswerDr              	Counter32,
+	ccwUnknownHbHAnswerDropped	Counter32,
+	ccwDuplicateRequest     	Counter32,
+	ccwDuplicateEtEAnswer	Counter32,
+	ccwMalformedPacketRx	Counter32,
+	ccwRequestPn		Counter32,
+	ccwPeerIdentity 	SnmpAdminString,
+	ccwApplicationName	SnmpAdminString,
+	ccwCompstIndexValue		SnmpAdminString
+}
+
+commandCode OBJECT-TYPE
+    SYNTAX          Unsigned32 (1..4294967295 )
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            " Local unique index composite with peerIndex and applicationID
+              for unique identification "
+    ::= { commandCodeStatisticsEntry 1 }
+    
+commandCodeName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Name of command code "
+    ::= { commandCodeStatisticsEntry 2 }
+    
+ccwRequestRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request received by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 3 }
+    
+ccwAnswerTx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer transmitted by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 4 }
+
+ccwRequestTx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request transmitted by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 5 }
+    
+ccwAnswerRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer received by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 6 }
+    
+ccwRequestRetransmitted OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request retransmitted by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 7 }    
+    
+ccwRequestTimeOut OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request timed out by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 8 }    
+    
+ccwRequestDr OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of request dropped by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 9 }    
+    
+ccwAnswerDr OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer dropped by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 10 }    
+    
+ccwUnknownHbHAnswerDropped OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answer dropped , which is received with an 
+	      unknown Hop-by-Hop Identifer  by peer for particular 
+	      command code due to unknown HbH "
+    ::= { commandCodeStatisticsEntry 11 }    
+    
+ccwDuplicateRequest OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of duplicate request received by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 12 }    
+    
+ccwDuplicateEtEAnswer OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of duplicate EtE answer by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 13 }    
+    
+ccwMalformedPacketRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of malform request received by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 14 }    
+    
+ccwRequestPn OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of pending (Unprocessed) request by peer for particular command code "
+    ::= { commandCodeStatisticsEntry 15 }
+        
+ccwPeerIdentity OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Identity of the peer "
+    ::= { commandCodeStatisticsEntry 16 }
+    
+ccwApplicationName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Name of the application "
+    ::= { commandCodeStatisticsEntry 17 }
+    
+ccwCompstIndexValue OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Represents the value of composite index. using format peerIndex.AppId.CommandCode "
+    ::= { commandCodeStatisticsEntry 18 }
+    
+--- End of Application to peer command code wise statistics table
+
+
+--- Application to peer result code wise statistics table
+
+
+resultCodeStatisticsTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF ResultCodeStatisticsEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            " Table represents the application to peer result code wise statistics"
+    ::= { resultCodeWiseStatistics 1 }
+
+resultCodeStatisticsEntry OBJECT-TYPE
+    SYNTAX          ResultCodeStatisticsEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            "  Entry represents the row contains the application-to-peer result code 
+               wise statistics, a record is uniquely identified by composite
+              index of peerIndex,applicationID and resultCode "
+    INDEX           {
+                        peerIndex,
+                        applicationID,
+                        resultCode
+                    }
+    ::= { resultCodeStatisticsTable 1 }
+
+ResultCodeStatisticsEntry ::= SEQUENCE {
+    resultCode    		Unsigned32,
+    rcwRx				Counter32,
+	rcwTx				Counter32,
+	rcwPeerIdentity 		SnmpAdminString,
+	rcwApplicationName		SnmpAdminString,
+	rcwCompstIndexValue		SnmpAdminString
+}
+
+resultCode OBJECT-TYPE
+    SYNTAX          Unsigned32 (1..4294967295 )
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            " Local unique index composite with peerIndex and applicationID
+              for unique identification "
+    ::= { resultCodeStatisticsEntry 1 }
+    
+rcwRx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answers with result code received from peer for particular application "
+    ::= { resultCodeStatisticsEntry 2 }
+    
+rcwTx OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Total number of answers with result code transmitted to peer for particular application "
+    ::= { resultCodeStatisticsEntry 3 }
+
+rcwPeerIdentity OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Identity of the peer "
+    ::= { resultCodeStatisticsEntry 4 }
+    
+rcwApplicationName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Name of the application "
+    ::= { resultCodeStatisticsEntry 5 }
+    
+rcwCompstIndexValue OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " Represents the value of composite index. using format peerIndex.AppId.ResultCode "
+    ::= { resultCodeStatisticsEntry 6 }
+    
+--- End of Application to peer result code wise statistics table
+
+END

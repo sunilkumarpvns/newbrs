@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.SubBISModuleData" table="TBLMSUBBISMODULE">
+		<id name="subBusinessModuleId" type="string">
+			<column name="SUBBUSINESSMODULEID" sql-type="CHAR(8)"></column>
+		</id>
+		
+		<property name="alias" type="string">
+			<column name="ALIAS" sql-type="VARCHAR(50)"></column>
+		</property>
+		
+		<property name="name" type="string">
+			<column name="NAME" sql-type="VARCHAR(50)"></column>
+		</property>
+		
+		<property name="systemGenerated" type="string">
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)"></column>
+		</property>
+		
+		<property name="status" type="string">
+			<column name="STATUS" sql-type="CHAR(1)"></column>
+		</property>
+		
+		<property name="subBisModuleTypeId" type="string">
+			<column name="SUBBISMODULETYPEID" sql-type="CHAR(8)"></column>
+		</property>
+		
+		<property name="description" type="string">
+			<column name="DESCRIPTION" sql-type="VARCHAR(100)"></column>
+		</property>
+		
+		<property name="freezeProfile" type="string">
+			<column name="FREEZEPROFILE" sql-type="CHAR(1)"></column>
+		</property>
+		
+		<many-to-one name="subBISModuleType" class="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.SubBISModuleTypeData" column="SUBBISMODULETYPEID" insert="false" update="false" not-null="true" lazy="false"/>  
+	</class>
+</hibernate-mapping>

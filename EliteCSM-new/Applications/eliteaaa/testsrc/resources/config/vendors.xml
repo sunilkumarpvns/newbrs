@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vendors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:////opt/work3/Trunk/Applications/eliteaaa/system/schema/vendors.xsd">
+    <vendor>
+        <id>0</id>
+        <name>standard</name>
+    </vendor>
+    <vendor>
+        <id>21067</id>
+        <name>elitecore</name>
+    </vendor>
+    <vendor>
+        <id>24757</id>
+        <name>wimax</name>
+    </vendor>
+    <vendor>
+        <id>5535</id>
+        <name>3gpp2</name>
+    </vendor>
+    <vendor>
+        <id>311</id>
+        <name>microsoft</name>
+    </vendor>
+    <vendor>
+        <id>10415</id>
+        <name>3gpp</name>
+    </vendor>
+</vendors>

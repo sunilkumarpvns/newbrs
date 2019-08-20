@@ -1,0 +1,15 @@
+{
+    	   "id" : "rest_rate_card_group_11111111",
+        "status": "ACTIVE",
+        "groups": "GROUP_1",
+        "name": "updated_rest_rate_card_group",
+        "description": "Created by admin on 04/24/2018 11:09:17",
+        "orderNo": 1,
+        "fixedCharge1": null,
+        "fixedCharge2": null,
+        "peakRateRateCardId": "rest_monetary_rate_card_11111111",
+        "rncPkgId": "rest_rnc_addon_11111111",
+        "timeSlotRelationData": [],
+        "advanceCondition": null,
+        "groupNames": null
+}

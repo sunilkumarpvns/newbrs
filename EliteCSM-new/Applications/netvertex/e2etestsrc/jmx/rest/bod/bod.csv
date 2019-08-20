@@ -1,0 +1,6 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_bod_package,POST : Create BOD Package BOD1 : 201,pd/bodpackage/bod-package.json,POST,create_bod.json,,97880,201,bod package
+2,get_bod_package,GET : Get BOD Package BOD1 : 200,pd/bodpackage/bod-package/BOD1.json,GET,,,97881,200,bod package
+3,attach_qos_multiplier,POST : Attach QOS Multiplier to BOD1 : 200,pd/bodpackage/bod-package/BOD1/addBoDQosMultipliers.json,POST,attach_qos_multiplier.json,,97882,200,bod package
+4,Update_bod_package,PUT : Update BOD Package BOD1 to BOD1_Updated : 200,pd/bodpackage/bod-package/BOD1.json,PUT,update_bod.json,,100415,200,bod package
+5,Delete_bod_package,DELETE : Delete BOD Package BOD1_Updated : 200,pd/bodpackage/bod-package/BOD1.json,DELETE,,,100416,200,bod package

@@ -1,0 +1,3514 @@
+NETVERTEX-PCC-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+       MODULE-IDENTITY, OBJECT-TYPE, OBJECT-IDENTITY,
+       NOTIFICATION-TYPE,Counter32, Integer32, 
+       Gauge32,TimeTicks				FROM SNMPv2-SMI
+	   SnmpAdminString
+            FROM SNMP-FRAMEWORK-MIB; -- [RFC3411]
+
+
+       internet      OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 }
+
+       directory     OBJECT IDENTIFIER ::= { internet 1 }
+
+       mgmt          OBJECT IDENTIFIER ::= { internet 2 }
+
+       experimental  OBJECT IDENTIFIER ::= { internet 3 }
+
+       private       OBJECT IDENTIFIER ::= { internet 4 }
+
+       enterprises   OBJECT IDENTIFIER ::= { private 1 }
+
+	   elitecore   OBJECT IDENTIFIER ::= { enterprises 21067 }
+            
+
+            
+netvertex MODULE-IDENTITY
+       LAST-UPDATED "9906110000Z"
+       ORGANIZATION "EliteCore PCC Working Group."
+       CONTACT-INFO
+              " Devang Adeshara
+                Elitecore
+
+		904, Silicon Tower, 
+                Behind Pariseema Building, 
+	        Off C.G.Road, Nr. Lal Bungalow, 
+                Ahmedabad 380 006, INDIA.
+
+                EMail: netvertex@elitecore.com"
+       DESCRIPTION
+             "The MIB module for entities implementing the netvertex-pcc 
+              server side."
+       REVISION "1801270000Z"    --  27 Jan 2018
+       DESCRIPTION "Initial version"
+       ::= { elitecore 4 }
+
+
+alerts OBJECT IDENTIFIER ::= { netvertex 1 }
+
+nvGenericTrap NOTIFICATION-TYPE 
+    STATUS  current
+    DESCRIPTION
+		"NetVertex Generic Notification"
+	::= { alerts 1 }
+		 
+alertSeverity OBJECT-TYPE
+	SYNTAX     SnmpAdminString
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex Alert Severity."
+	::= { alerts 2 }
+		
+alertOtherInfo OBJECT-TYPE
+	SYNTAX     SnmpAdminString
+	MAX-ACCESS read-only
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex Alert additional information."
+	::= { alerts 3 }
+
+license OBJECT IDENTIFIER ::= { alerts 4 }
+
+nvLicenseGeneric NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"NetVertex License Generic Trap"
+	::= { license 1 }
+
+nvLicenseRenew NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex license renewal alerted"
+	::= { license 2 }
+
+nvLicenseExpired NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex license is expired"
+	::= { license 3 }
+
+nvLicenseExceed NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex license exceeded for some parameter"
+	::= { license 4 }
+
+nvLicenseRequestFailed NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+        "Notification signifies NetVertex license requests are failing"
+    ::= { license 5 }
+
+server OBJECT IDENTIFIER ::= { alerts 5 }
+-- server type of Traps
+
+nvServerGeneric NOTIFICATION-TYPE 
+	STATUS  current
+	DESCRIPTION
+		"NetVertex Server Generic Trap"
+	::= { server 1 }
+
+nvServerUp NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex Server is Up."
+	::= { server 2 }
+         
+nvServerDown NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex Server is Down."
+	::= { server 3 }
+
+serverInstanceId NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies the Identity of server."
+	::= { server 4 }
+		 
+services OBJECT IDENTIFIER ::= { alerts 6 }
+
+nvServiceGeneric NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"NetVertex Service Generic Trap"
+	::= { services 1 }
+
+pcc OBJECT IDENTIFIER ::= { services 2 }
+-- PCC Service Related Traps
+nvPCCServiceGeneric NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"NetVertex PCC Service Generic Trap"
+	::= { pcc 1 }
+	
+nvPCCServiceStartUpFailed NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex PCC Service Start Up Failed"
+	::= { pcc 2 }
+
+nvSPRGeneric NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex Subscriber Profile Repository Generic Trap."
+	::= { pcc 3 }
+
+nvSPRDown NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex Subscriber Profile Repository is down."
+	::= { pcc 4 }
+
+nvSPRUp NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex Subscriber Profile Repository is up."
+	::= { pcc 5 }
+
+nvQueryTimeout NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex Query Timeout."
+	::= { pcc 6 }
+
+nvUnknownUser NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies PCC service received request from Unknown User."
+	::= { pcc 7 }
+
+-- PCC Service Related Traps finish
+
+-- Notification Service Related Traps
+notification OBJECT IDENTIFIER ::= { services 3 }
+
+nvNotificationGeneric NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"NetVertex Notification Generic Trap"
+	::= { notification 1 }
+	
+nvNotificationServiceStartUpFailed NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex Notification Service Start Up Failed"
+	::= { notification 2 }
+
+nvNotificationBatchOver NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION 
+		"Notification signifies NetVertex Notification Batch completed."
+	::= { notification 3 }
+
+nvEmailNotificationFailure NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION 
+		"Notification signifies distinct NetVertex E-mail Notification Failure."
+	::= { notification 4 }
+
+nvSMSNotificationFailure NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION 
+		"Notification signifies NetVertex SMS Notification Failure."
+	::= { notification 5 }
+
+-- Notification Service Related Traps finish
+
+offlineRnc OBJECT IDENTIFIER ::= { services 4 }
+-- Offline RnC Service Related Traps
+nvOfflineRncServiceGeneric NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"NetVertex Offline RnC Service Generic Trap"
+	::= { offlineRnc 1 }
+	
+nvOfflineRncServiceStartUpFailed NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex Offline RnC Service Start Up Failed"
+	::= { offlineRnc 2 }
+
+nvOlderEDRReceived NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex Offline RnC Service has received EDR older than configured time"
+	::= { offlineRnc 3 }
+
+gateways OBJECT IDENTIFIER ::= { alerts 7 }
+-- Gateways
+nvGatewayGeneric NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"NetVertex Gateway Generic Trap"
+	::= { gateways 1 }
+
+radius OBJECT IDENTIFIER ::= { gateways 2 }
+nvRadiusGwGeneric NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+        "NetVertex RADIUS Gateway Generic Trap"
+	::= { radius 1 }
+
+nvRadiusGwAlive NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+		"Notification signifies NetVertex RADIUS Gateway is Alive."
+	::= { radius 2 }
+
+nvRadiusGwDead NOTIFICATION-TYPE
+	STATUS  current
+    DESCRIPTION
+		"Notification signifies NetVertex RADIUS Gateway is Dead."
+	::= { radius 3 }
+
+diameter OBJECT IDENTIFIER ::= { gateways 3 }
+
+nvDiameterGwGeneric NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex DIAMETER Gateway Generic Trap"
+	::= { diameter 1 }
+
+nvDiameterStackGeneric NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+        "Notification signifies Diameter Stack Generic Trap."
+	::= { diameter 2 }
+	
+nvDiameterStackUp NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+        "Notification signifies NetVertex Diameter Stack is Up."
+	::= { diameter 3 }
+
+nvDiameterStackDown NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+		"Notification signifies NetVertex Diameter Stack is Down."
+	::= { diameter 4 }
+	
+nvDiameterPeerGeneric NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+        "Notification signifies Diameter Peer Generic Trap."
+	::= { diameter 5 }
+
+nvDiameterPeerUp NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+        "Notification signifies NetVertex Diameter Peer is Up."
+	::= { diameter 6 }
+
+nvDiameterPeerDown NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+        "Notification signifies NetVertex Diameter Peer is Down."
+	::= { diameter 7 }
+	
+nvDiameterHighResponseTime NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+        "Notification signifies total processing time for received request from peer."
+	::= { diameter 8 }
+
+nvDiameterPeerConnectionRejected NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+        "Notification signifies Diameter Peer connection rejected."
+	::= { diameter 9 }	
+
+nvDiameterPeerHighResponseTime NOTIFICATION-TYPE
+    STATUS  current
+    DESCRIPTION
+        "Notification signifies response time for request sent from diameter stack to peer."
+	::= { diameter 10 }	
+	
+	
+fileLocation OBJECT IDENTIFIER ::= { gateways 4 }
+
+nvFileLocationGwGeneric NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex File Loation Gateway Generic Trap"
+	::= { fileLocation 1 }
+
+nvFileLocationGwPermissionError NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex File Location Gateway failed to read from file system"
+	::= { fileLocation 2 }	
+	
+nvFileLocationGwNoFile NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex File Location Gateway has not received any file since configured time"
+	::= { fileLocation 3 }	
+
+nvFileLocationGwDuplicateFile NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex File Location Gateway has not received duplicate file"
+	::= { fileLocation 4 }	
+
+nvFileLocationGwHeaderNotFound NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex File Location Gateway has not received file without header"
+	::= { fileLocation 5 }	
+
+nvFileLocationGwBlankFile NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies NetVertex File Location Gateway has not received blank file without any records"
+	::= { fileLocation 6 }	
+	
+policies OBJECT IDENTIFIER ::= { alerts 8 }
+-- server type of Traps
+
+nvPolicyGeneric NOTIFICATION-TYPE 
+	STATUS  current
+	DESCRIPTION
+		"NetVertex Server Policy Generic Trap"
+	::= { policies 1 }
+
+nvSessionAuthRuleInitFails NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies Session AuthRule Initialization Failed"
+	::= { policies 2 }
+         
+nvServiceAuthRuleInitFails NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies Service AuthRule Initialization Failed"
+	::= { policies 3 }
+	
+nvPccRuleInitFails NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies PCC Rule Initialization Failed"
+	::= { policies 4 }
+
+nvServicePolicyInitFails NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies Service Policy Initialization Failed"
+	::= { policies 5 }
+	
+database OBJECT IDENTIFIER ::= { alerts 9 }
+
+nvDatabaseGeneric NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Database Generic Trap"
+	::= { database 1 }
+
+nvNoConnection NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies no free Database connection available"
+	::= { database 2 }	
+	
+nvHighQueryResponseTime NOTIFICATION-TYPE
+	STATUS  current
+	DESCRIPTION
+		"Notification signifies database query execution time is high"
+	::= { database 3 }
+	
+nvDataSourceUp NOTIFICATION-TYPE 
+	STATUS current 
+	DESCRIPTION 
+	"Notification signifies database datasource is Up" 
+	::= { database 4 } 
+	
+nvDataSourceDown NOTIFICATION-TYPE 
+	STATUS current 
+	DESCRIPTION 
+	"Notification signifies database datasource is Down" 
+	::= { database 5 }
+
+	
+statistics OBJECT IDENTIFIER ::= { netvertex 2 }
+
+pccStatistics OBJECT IDENTIFIER ::= { statistics 1 }
+
+pccServiceUpTime OBJECT-TYPE
+	SYNTAX      TimeTicks
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be the time elapsed (in hundredths of a second)
+		 since the PCC service started."
+       ::= { pccStatistics 1 }
+
+pccStatisticsResetTime OBJECT-TYPE
+	SYNTAX      TimeTicks
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be the time elapsed (in hundredths of a second) 
+		 since the PCC service  statistics was `reset.'"
+       ::= { pccStatistics 2 }
+
+pccStatisticsReset OBJECT-TYPE
+	SYNTAX INTEGER { other(1),
+                     reset(2),
+                     initializing(3),
+                     running(4)}
+	MAX-ACCESS  read-write
+	STATUS      current
+	DESCRIPTION
+		 "When set to reset(2), PCC service statistics is reinitialized.
+          When read, one of the following values will be returned:
+                   other(1) - service in some unknown state;
+                   initializing(3) - service (einitializing;
+                   running(4) - service currently running."
+   ::= { pccStatistics 3 }
+
+totalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of PCC requests received by PCC service."
+    ::= { pccStatistics 4 }
+
+totalResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of PCC responses given by PCC service."
+    ::= { pccStatistics 5 }
+
+totalRequestDropped OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of PCC requests dropped by PCC service."
+    ::= { pccStatistics 6 }
+	
+totalSuccessResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of PCC success responses given by PCC service."
+    ::= { pccStatistics 7 }
+
+totalRejectResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of PCC rejhect responses given by PCC service."
+    ::= { pccStatistics 8 }
+	
+avgRequestProcessingTime OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The average PCC request prcessing time for last one minute."
+    ::= { pccStatistics 9 }
+
+avgTPS OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The average TPS in PCC service for last one minute."
+    ::= { pccStatistics 10 }
+	
+notificationStatistics OBJECT IDENTIFIER ::= { statistics 2 }
+
+notificationServiceUpTime OBJECT-TYPE
+	SYNTAX      TimeTicks
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be the time elapsed (in hundredths of a second)
+		 since the Notification service started."
+       ::= { notificationStatistics 1 }
+
+notificationStatisticsResetTime OBJECT-TYPE
+	SYNTAX      TimeTicks
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be the time elapsed (in hundredths of a second) 
+		 since the Notification service  statistics was `reset.'"
+       ::= { notificationStatistics 2 }
+
+notificationStatisticsReset OBJECT-TYPE
+	SYNTAX INTEGER { other(1),
+                     reset(2),
+                     initializing(3),
+                     running(4)}
+	MAX-ACCESS  read-write
+	STATUS      current
+	DESCRIPTION
+		 "When read, one of the following values will be returned:
+              other(1) - service in some unknown state;
+              initializing(3) - service (einitializing;
+              running(4) - service currently running.
+		  When set to reset(2),  Notification service statistics is reinitialized."
+   ::= { notificationStatistics 3 }
+
+   
+totalNotificationProcessed OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of notification processed by notification service."
+    ::= { notificationStatistics 4 }
+	
+totalEmailProcessed OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of Email notification processed by notification service."
+    ::= { notificationStatistics 5 }
+	
+totalEmailSuccess OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of Email notification successfully sent by notification service."
+    ::= { notificationStatistics 6 }
+
+totalEmailFailures OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of Email notification sending failed by notification service."
+    ::= { notificationStatistics 7 }
+
+totalSMSProcessed OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of SMS notification processed by notification service."
+    ::= { notificationStatistics 8 }
+
+totalSMSSuccess OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of SMS notification successfully sent by notification service."
+    ::= { notificationStatistics 9 }
+
+totalSMSFailures OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of SMS notification sending failed by notification service."
+    ::= { notificationStatistics 10 }
+	
+	
+-- Current Day Stats
+
+totalNotificationProcessedToday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of notification processed today by notification service."
+    ::= { notificationStatistics 21 }
+	
+totalEmailProcessedToday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of Email notification processed today by notification service."
+    ::= { notificationStatistics 22 }
+	
+totalEmailSuccessToday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of Email notification successfully sent today by notification service."
+    ::= { notificationStatistics 23 }
+
+totalEmailFailuresToday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of Email notification sending failed today by notification service."
+    ::= { notificationStatistics 24 }
+
+totalSMSProcessedToday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of SMS notification processed today by notification service."
+    ::= { notificationStatistics 25 }
+
+totalSMSSuccessToday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of SMS notification successfully sent today by notification service."
+    ::= { notificationStatistics 26 }
+
+totalSMSFailuresToday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of SMS notification sending failed today by notification service."
+    ::= { notificationStatistics 27 }
+
+	
+-- Yesterday Day Stats
+
+totalNotificationProcessedYesterday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of notification processed yesterday by notification service."
+    ::= { notificationStatistics 41 }
+	
+totalEmailProcessedYesterday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of Email notification processed yesterday by notification service."
+    ::= { notificationStatistics 42 }
+	
+totalEmailSuccessYesterday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of Email notification successfully sent yesterday by notification service."
+    ::= { notificationStatistics 43 }
+
+totalEmailFailuresYesterday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of Email notification sending failed yesterday by notification service."
+    ::= { notificationStatistics 44 }
+
+totalSMSProcessedYesterday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of SMS notification processed yesterday by notification service."
+    ::= { notificationStatistics 45 }
+
+totalSMSSuccessYesterday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of SMS notification successfully sent yesterday by notification service."
+    ::= { notificationStatistics 46 }
+
+totalSMSFailuresYesterday OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of SMS notification sending failed yesterday by notification service."
+    ::= { notificationStatistics 47 }
+
+usageStatistics OBJECT IDENTIFIER ::= { statistics 3 }
+
+totalUsageReportedInLastHour OBJECT-TYPE
+    SYNTAX Counter64
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total usage reported in last hour of the day."
+    ::= { usageStatistics 1 }
+	
+totalUsageReportedInCurrentDay OBJECT-TYPE
+    SYNTAX Counter64
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total usage reported in current day."
+    ::= { usageStatistics 2 }
+
+totalUsageReportedInYesterday OBJECT-TYPE
+    SYNTAX Counter64
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total usage reported in yesterday."
+    ::= { usageStatistics 3 }
+	
+totalUsageReportedInLast24Hours OBJECT-TYPE
+    SYNTAX Counter64
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total usage reported in last 24 hours."
+    ::= { usageStatistics 4 }
+    
+usageStatisticsResetTime OBJECT-TYPE
+    SYNTAX      TimeTicks
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This value will be the time elapsed (in hundredths of a second) 
+         since the Usage statistics was `reset.'"
+       ::= { usageStatistics 5 }
+
+usageStatisticsReset OBJECT-TYPE
+    SYNTAX INTEGER { yes(1),
+                     no(2)}
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "When set to no(2),  Usage statistics will not reinitialize.
+         yes(1),  Usage statistics will reinitialize."
+   ::= { usageStatistics 6 }
+    
+
+sessionCacheStatistics OBJECT IDENTIFIER ::= { statistics 4 }
+
+totalCacheCount OBJECT-TYPE
+	SYNTAX      Counter32
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be the total cached sessions."
+       ::= { sessionCacheStatistics 1 }
+
+totalHitCount OBJECT-TYPE
+	SYNTAX      Counter32
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be total success fetch from cache."
+       ::= { sessionCacheStatistics 2 }
+
+totalMissedCount OBJECT-TYPE
+	SYNTAX      Counter32
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be missed fetch from cache."
+       ::= { sessionCacheStatistics 3 }
+
+totalRequestCount OBJECT-TYPE
+	SYNTAX      Counter32
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be total request for cache."
+       ::= { sessionCacheStatistics 4 }
+
+totalLoadCount OBJECT-TYPE
+	SYNTAX      Counter32
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be total count for loading cache."
+       ::= { sessionCacheStatistics 5 }
+
+totalAverageLoadPanelty OBJECT-TYPE
+	SYNTAX      Counter32
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be average load time of cache in milliseconds."
+       ::= { sessionCacheStatistics 6 }
+
+totalEvictionCount OBJECT-TYPE
+	SYNTAX      Counter32
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be count of eviction of cache."
+       ::= { sessionCacheStatistics 7 }
+
+-- GLOBAL WEBSERVICE BEGIN 
+
+webServiceStatistics OBJECT IDENTIFIER ::= { statistics 5 }
+
+webServiceTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of Web-Service requests received by Policy Designer."
+    ::= { webServiceStatistics 1 }
+
+webServiceTotalResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of Web-Service responses given by Policy Designer."
+    ::= { webServiceStatistics 2 }
+
+webServiceLastMinuteTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of Web-Service requests received in Last Minute by Policy Designer."
+    ::= { webServiceStatistics 3 }
+
+webServiceAvgTPS OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The average TPS in Web-Service for last one minute."
+    ::= { webServiceStatistics 4 }
+	
+webServiceUpTime OBJECT-TYPE
+	SYNTAX      TimeTicks
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be the time elapsed (in hundredths of a second)
+		 since the Web-Service started."
+       ::= { webServiceStatistics 5 }
+
+webServiceLastResetTime OBJECT-TYPE
+	SYNTAX      TimeTicks
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be the time, when the web-service statistics were reset last time"
+       ::= { webServiceStatistics 6 }
+
+webServiceStatisticsReset OBJECT-TYPE
+	SYNTAX INTEGER { other(1),
+                     reset(2),
+                     initializing(3),
+                     running(4)}
+	MAX-ACCESS  read-write
+	STATUS      current
+	DESCRIPTION
+		 "When set to reset(2), Web-Service statistics is reinitialized.
+          When read, one of the following values will be returned:
+                   other(1) - Web-Service in some unknown state;
+                   initializing(3) - Web-Service Reinitializing;
+                   running(4) - Web-Service currently running."
+   ::= { webServiceStatistics 7 }
+   
+		
+webServiceResultCodeWiseStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF WebServiceResultCodeWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "The (conceptual) table listing the Web-Service ResultCodes statistics."
+       ::= { webServiceStatistics 8 }
+       
+WebServiceResultCodeWiseSeq ::= SEQUENCE {             
+       webServiceResultCode	Counter32,
+       webServiceResultCodeName	SnmpAdminString,
+       webServiceResultCodeCounters	Counter32       
+ }       
+	
+webServiceResultCodeWiseEntry OBJECT-TYPE
+       SYNTAX     WebServiceResultCodeWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "An entry (conceptual row) representing a Web-Service ResultCode specific statistics."
+
+       INDEX      { webServiceResultCode }
+       ::= { webServiceResultCodeWiseStatisticsTable 1 }   
+       
+webServiceResultCode OBJECT-TYPE
+       SYNTAX     Integer32 (1..2147483647)
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Web-Service ResultCode."
+       ::= { webServiceResultCodeWiseEntry 1 }       
+   
+webServiceResultCodeName OBJECT-TYPE
+    SYNTAX SnmpAdminString
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Web-Service ResultCode Name."
+    ::= { webServiceResultCodeWiseEntry 2 }
+
+webServiceResultCodeCounters OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Web-Service ResultCode Counter."
+    ::= { webServiceResultCodeWiseEntry 3 }
+
+-- END OF GLOBAL-WS
+
+
+-- SubscriptionWS BEGIN
+	
+subscriptionWSStatistics OBJECT IDENTIFIER ::= { webServiceStatistics 9 }
+
+subscriptionWSTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriptionWS requests received by Policy Designer."
+    ::= { subscriptionWSStatistics 1 }
+
+subscriptionWSTotalResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriptionWS responses given by Policy Designer."
+    ::= { subscriptionWSStatistics 2 }
+
+subscriptionWSLastMinuteTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriptionWS requests received in Last Minute by Policy Designer."
+    ::= { subscriptionWSStatistics 3 }
+
+subscriptionWSAvgTPS OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The average TPS in SubscriptionWS for last one minute."
+    ::= { subscriptionWSStatistics 4 }
+		
+subscriptionWSMethodWiseStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF SubscriptionWSMethodWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "The (conceptual) table listing the SubscriptionWS method wise statistics."
+       ::= { subscriptionWSStatistics 5 }
+       
+SubscriptionWSMethodWiseSeq ::= SEQUENCE {
+       subscriptionWSMethodIndex   				Integer32,
+       subscriptionWSMethodName     			SnmpAdminString,
+       subscriptionWSMethodTotalRequests          	Counter32,
+       subscriptionWSMethodTotalResponses         	Counter32,
+       subscriptionWSMethodLastMinuteTotalRequests	Counter32,
+       subscriptionWSMethodAvgTPS                 	Counter32
+ }       
+	
+subscriptionWSMethodWiseEntry OBJECT-TYPE
+       SYNTAX     SubscriptionWSMethodWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "An entry (conceptual row) representing a SubscriptionWS
+              method specific statistics."
+
+       INDEX      { subscriptionWSMethodIndex }
+       ::= { subscriptionWSMethodWiseStatisticsTable 1 }
+       
+subscriptionWSMethodIndex OBJECT-TYPE
+       SYNTAX     Integer32 (1..2147483647)
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "SubscriptionWS method's Index"
+       ::= { subscriptionWSMethodWiseEntry 1 }
+   
+subscriptionWSMethodName OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "SubscriptionWS method's Name"
+       ::= { subscriptionWSMethodWiseEntry 2 }
+       
+subscriptionWSMethodTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriptionWS method wise Requests received by particular method in Policy Designer."
+    ::= { subscriptionWSMethodWiseEntry 3 }
+
+subscriptionWSMethodTotalResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriptionWS method wise Responses given by particular method  in Policy Designer."
+    ::= { subscriptionWSMethodWiseEntry 4 }
+
+subscriptionWSMethodLastMinuteTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriptionWS method wise Requests received in Last Minute by Policy Designer."
+    ::= { subscriptionWSMethodWiseEntry 5 }
+
+subscriptionWSMethodAvgTPS OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Method wise average TPS in SubscriptionWS for last one Minute"
+    ::= { subscriptionWSMethodWiseEntry 6 }
+       
+-- SUBSCRIPTION-WS RESULT CODE STATISTICS BEGIN --
+       
+subscriptionWSResultCodeWiseStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF SubscriptionWSResultCodeWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "The (conceptual) table listing the SubscriptionWS ResultCodes statistics."
+       ::= { subscriptionWSStatistics 6 }
+       
+SubscriptionWSResultCodeWiseSeq ::= SEQUENCE {             
+       subscriptionWSResultCode  			Counter32,
+       subscriptionWSResultCodeName  		SnmpAdminString,
+       subscriptionWSResultCodeCounters  	Counter32       
+}       
+	
+subscriptionWSResultCodeWiseEntry OBJECT-TYPE
+       SYNTAX     SubscriptionWSResultCodeWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "An entry (conceptual row) representing a subscriptionWS ResultCode specific statistics."
+
+       INDEX      { subscriptionWSResultCode }
+       ::= { subscriptionWSResultCodeWiseStatisticsTable 1 }   
+       
+subscriptionWSResultCode OBJECT-TYPE
+       SYNTAX     Integer32 (1..2147483647)
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Web-Service ResultCode"
+       ::= { subscriptionWSResultCodeWiseEntry 1 }       
+   
+subscriptionWSResultCodeName OBJECT-TYPE
+    SYNTAX SnmpAdminString
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "subscriptionWS ResultCode Name."
+    ::= { subscriptionWSResultCodeWiseEntry 2 }
+
+subscriptionWSResultCodeCounters OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "SubscriptionWS ResultCode statistics."
+    ::= { subscriptionWSResultCodeWiseEntry 3 }
+    
+-- SUBSCRIPTION-WS RESULT CODE COUNTERS END --
+   
+-- SUBSCRIPTION-WS METHOD WISE RESULT CODE BEGIN --
+
+	-- SUBSCRIPTION-WS METHOD1 wsListAddOnPackages BEGIN --
+	
+	subscriptionWSListAddOnPackagesTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF ListAddOnPackagesSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriptionWS Method wise ResultCode statistics."
+	       ::= { subscriptionWSStatistics 7 }
+	       
+	ListAddOnPackagesSeq ::= SEQUENCE {		                  
+	       listAddOnPackagesResultCode  			Counter32,
+	       listAddOnPackagesResultCodeName  		SnmpAdminString,
+	       listAddOnPackagesResultCodeCounters  	Counter32       
+	}       
+		
+	subscriptionWSListAddOnPackagesEntry OBJECT-TYPE
+	       SYNTAX     ListAddOnPackagesSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a subscriptionWS method wsListAddOnPackages ResultCode specific counters."
+	
+	       INDEX      { listAddOnPackagesResultCode }
+	       ::= { subscriptionWSListAddOnPackagesTable 1 }   
+	       
+	listAddOnPackagesResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriptionWS method wslistAddOnPackages ResultCode"
+	       ::= { subscriptionWSListAddOnPackagesEntry 1 }       
+	   
+	listAddOnPackagesResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "subscriptionWS listAddOnPackages ResultCode Name."
+	    ::= { subscriptionWSListAddOnPackagesEntry 2 }
+	
+	listAddOnPackagesResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriptionWS method wsListAddOnPackages ResultCode Specific counters."
+	    ::= { subscriptionWSListAddOnPackagesEntry 3 }
+	    
+	-- SUBSCRIPTION-WS METHOD1 wsListAddOnPackages END --        
+	
+	-- SUBSCRIPTION-WS METHOD2 wsListPackages BEGIN --
+	
+	subscriptionWSListPackagesTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF ListPackagesSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriptionWS Method wsListPackages ResultCode statistics."
+	       ::= { subscriptionWSStatistics 8 }
+	       
+	ListPackagesSeq ::= SEQUENCE {		                  
+	       listPackagesResultCode  			Counter32,
+	       listPackagesResultCodeName  		SnmpAdminString,
+	       listPackagesResultCodeCounters  	Counter32       
+	}       
+		
+	subscriptionWSListPackagesEntry OBJECT-TYPE
+	       SYNTAX     ListPackagesSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a subscriptionWS method wsListPackages ResultCode specific counters."
+	
+	       INDEX      { listPackagesResultCode }
+	       ::= { subscriptionWSListPackagesTable 1 }   
+	       
+	listPackagesResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriptionWS method wsListPackages ResultCode"
+	       ::= { subscriptionWSListPackagesEntry 1 }       
+	   
+	listPackagesResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "subscriptionWS wsListPackages ResultCode Name."
+	    ::= { subscriptionWSListPackagesEntry 2 }
+	
+	listPackagesResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriptionWS method wsListPackages ResultCode Specific counters."
+	    ::= { subscriptionWSListPackagesEntry 3 }
+	    
+	-- SUBSCRIPTION-WS METHOD2 wsListPackages END --      
+ 
+	-- SUBSCRIPTION-WS METHOD3 wsListAddOnSubscriptions BEGIN --
+	
+	subscriptionWSListAddOnSubscriptionsTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF ListAddOnSubscriptionsSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriptionWS Method wsListAddOnSubscriptions ResultCode statistics."
+	       ::= { subscriptionWSStatistics 9 }
+	       
+	ListAddOnSubscriptionsSeq ::= SEQUENCE {		                  
+	       listAddOnSubscriptionsResultCode  			Counter32,
+	       listAddOnSubscriptionsResultCodeName  		SnmpAdminString,
+	       listAddOnSubscriptionsResultCodeCounters  	Counter32       
+	}       
+		
+	subscriptionWSListAddOnSubscriptionsEntry OBJECT-TYPE
+	       SYNTAX     ListAddOnSubscriptionsSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a subscriptionWS method wsListAddOnSubscriptions ResultCode specific counters."
+	
+	       INDEX      { listAddOnSubscriptionsResultCode }
+	       ::= { subscriptionWSListAddOnSubscriptionsTable 1 }   
+	       
+	listAddOnSubscriptionsResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriptionWS method wsListAddOnSubscriptions ResultCode"
+	       ::= { subscriptionWSListAddOnSubscriptionsEntry 1 }       
+	   
+	listAddOnSubscriptionsResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "subscriptionWS wsListAddOnSubscriptions ResultCode Name."
+	    ::= { subscriptionWSListAddOnSubscriptionsEntry 2 }
+	
+	listAddOnSubscriptionsResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriptionWS method wsListAddOnSubscriptions ResultCode Specific counters."
+	    ::= { subscriptionWSListAddOnSubscriptionsEntry 3 }
+	    
+	-- SUBSCRIPTION-WS METHOD3 wsListAddOnSubscriptions END --      
+ 
+	-- SUBSCRIPTION-WS METHOD4 wsListTopUpSubscriptions BEGIN --
+	
+	subscriptionWSListTopUpSubscriptionsTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF ListTopUpSubscriptionsSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriptionWS Method wsListTopUpSubscriptions ResultCode statistics."
+	       ::= { subscriptionWSStatistics 10 }
+	       
+	ListTopUpSubscriptionsSeq ::= SEQUENCE {		                  
+	       listTopUpSubscriptionsResultCode  			Counter32,
+	       listTopUpSubscriptionsResultCodeName  		SnmpAdminString,
+	       listTopUpSubscriptionsResultCodeCounters  	Counter32       
+	}       
+		
+	subscriptionWSListTopUpSubscriptionsEntry OBJECT-TYPE
+	       SYNTAX     ListTopUpSubscriptionsSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a subscriptionWS method wsListTopUpSubscriptions ResultCode specific counters."
+	
+	       INDEX      { listTopUpSubscriptionsResultCode }
+	       ::= { subscriptionWSListTopUpSubscriptionsTable 1 }   
+	       
+	listTopUpSubscriptionsResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriptionWS method wsListTopUpSubscriptions ResultCode"
+	       ::= { subscriptionWSListTopUpSubscriptionsEntry 1 }       
+	   
+	listTopUpSubscriptionsResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "subscriptionWS wsListTopUpSubscriptions ResultCode Name."
+	    ::= { subscriptionWSListTopUpSubscriptionsEntry 2 }
+	
+	listTopUpSubscriptionsResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriptionWS method wsListTopUpSubscriptions ResultCode Specific counters."
+	    ::= { subscriptionWSListTopUpSubscriptionsEntry 3 }
+	    
+	-- SUBSCRIPTION-WS METHOD4 wsListTopUpSubscriptions END --      
+     
+	-- SUBSCRIPTION-WS METHOD5 wsChangeAddOnSubscription BEGIN --
+	
+	subscriptionWSChangeAddOnSubscriptionTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF ChangeAddOnSubscriptionSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriptionWS Method wsChangeAddOnSubscription ResultCode statistics."
+	       ::= { subscriptionWSStatistics 11 }
+	       
+	ChangeAddOnSubscriptionSeq ::= SEQUENCE {		                  
+	       changeAddOnSubscriptionResultCode  			Counter32,
+	       changeAddOnSubscriptionResultCodeName  		SnmpAdminString,
+	       changeAddOnSubscriptionResultCodeCounters  	Counter32       
+	}       
+		
+	subscriptionWSChangeAddOnSubscriptionEntry OBJECT-TYPE
+	       SYNTAX     ChangeAddOnSubscriptionSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a subscriptionWS method wsChangeAddOnSubscription ResultCode specific counters."
+	
+	       INDEX      { changeAddOnSubscriptionResultCode }
+	       ::= { subscriptionWSChangeAddOnSubscriptionTable 1 }   
+	       
+	changeAddOnSubscriptionResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriptionWS method wsChangeAddOnSubscription ResultCode"
+	       ::= { subscriptionWSChangeAddOnSubscriptionEntry 1 }       
+	   
+	changeAddOnSubscriptionResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "subscriptionWS wsChangeAddOnSubscription ResultCode Name."
+	    ::= { subscriptionWSChangeAddOnSubscriptionEntry 2 }
+	
+	changeAddOnSubscriptionResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriptionWS method wsChangeAddOnSubscription ResultCode Specific counters."
+	    ::= { subscriptionWSChangeAddOnSubscriptionEntry 3 }
+	    
+	-- SUBSCRIPTION-WS METHOD5 wsChangeAddOnSubscription END --      
+    
+	-- SUBSCRIPTION-WS METHOD6 wsSubscribeAddOn BEGIN --
+	
+	subscriptionWSSubscribeAddOnTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscribeAddOnSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriptionWS Method wsSubscribeAddOn ResultCode statistics."
+	       ::= { subscriptionWSStatistics 12 }
+	       
+	SubscribeAddOnSeq ::= SEQUENCE {		                  
+	       subscribeAddOnResultCode  			Counter32,
+	       subscribeAddOnResultCodeName  		SnmpAdminString,
+	       subscribeAddOnResultCodeCounters  	Counter32       
+	}       
+		
+	subscriptionWSSubscribeAddOnEntry OBJECT-TYPE
+	       SYNTAX     SubscribeAddOnSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a subscriptionWS method wsSubscribeAddOn ResultCode specific counters."
+	
+	       INDEX      { subscribeAddOnResultCode }
+	       ::= { subscriptionWSSubscribeAddOnTable 1 }   
+	       
+	subscribeAddOnResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriptionWS method wsSubscribeAddOn ResultCode"
+	       ::= { subscriptionWSSubscribeAddOnEntry 1 }       
+	   
+	subscribeAddOnResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "subscriptionWS wsSubscribeAddOn ResultCode Name."
+	    ::= { subscriptionWSSubscribeAddOnEntry 2 }
+	
+	subscribeAddOnResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriptionWS method wsSubscribeAddOn ResultCode Specific counters."
+	    ::= { subscriptionWSSubscribeAddOnEntry 3 }
+	    
+	-- SUBSCRIPTION-WS METHOD6 wsSubscribeAddOn END --
+
+	-- SUBSCRIPTION-WS METHOD7 wsListUsageMonitoringInformation BEGIN --
+	
+	subscriptionWSListUsageMonitoringInformationTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF ListUsageMonitoringInformationSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriptionWS Method wsListUsageMonitoringInformation ResultCode statistics."
+	       ::= { subscriptionWSStatistics 13 }
+	       
+	ListUsageMonitoringInformationSeq ::= SEQUENCE {		                  
+	       listUsageMonitoringInformationResultCode  			Counter32,
+	       listUsageMonitoringInformationResultCodeName  		SnmpAdminString,
+	       listUsageMonitoringInformationResultCodeCounters  	Counter32       
+	}       
+		
+	subscriptionWSListUsageMonitoringInformationEntry OBJECT-TYPE
+	       SYNTAX     ListUsageMonitoringInformationSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a subscriptionWS method wsListUsageMonitoringInformation ResultCode specific counters."
+	
+	       INDEX      { listUsageMonitoringInformationResultCode }
+	       ::= { subscriptionWSListUsageMonitoringInformationTable 1 }   
+	       
+	listUsageMonitoringInformationResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriptionWS method wsListUsageMonitoringInformation ResultCode"
+	       ::= { subscriptionWSListUsageMonitoringInformationEntry 1 }       
+	   
+	listUsageMonitoringInformationResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "subscriptionWS wsListUsageMonitoringInformation ResultCode Name."
+	    ::= { subscriptionWSListUsageMonitoringInformationEntry 2 }
+	
+	listUsageMonitoringInformationResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriptionWS method wsListUsageMonitoringInformation ResultCode Specific counters."
+	    ::= { subscriptionWSListUsageMonitoringInformationEntry 3 }
+	    
+	-- SUBSCRIPTION-WS METHOD7 wsListUsageMonitoringInformation END --
+	   
+	-- SUBSCRIPTION-WS METHOD8 wsGetBalance BEGIN --
+	
+	subscriptionWSGetBalanceTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF GetBalanceSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriptionWS Method wsGetBalance ResultCode statistics."
+	       ::= { subscriptionWSStatistics 14 }
+	       
+	GetBalanceSeq ::= SEQUENCE {		                  
+	       getBalanceResultCode  			Counter32,
+	       getBalanceResultCodeName  		SnmpAdminString,
+	       getBalanceResultCodeCounters  	Counter32       
+	}       
+		
+	subscriptionWSGetBalanceEntry OBJECT-TYPE
+	       SYNTAX     GetBalanceSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a subscriptionWS method wsGetBalance ResultCode specific counters."
+	
+	       INDEX      { getBalanceResultCode }
+	       ::= { subscriptionWSGetBalanceTable 1 }   
+	       
+	getBalanceResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriptionWS method wsGetBalance ResultCode"
+	       ::= { subscriptionWSGetBalanceEntry 1 }       
+	   
+	getBalanceResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "subscriptionWS wsGetBalance ResultCode Name."
+	    ::= { subscriptionWSGetBalanceEntry 2 }
+	
+	getBalanceResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriptionWS method wsGetBalance resultCode specific Counters."
+	    ::= { subscriptionWSGetBalanceEntry 3 }
+	    
+	-- SUBSCRIPTION-WS METHOD8 wsGetBalance END --
+	    
+	-- SUBSCRIPTION-WS METHOD9 wsListTopUpPackages BEGIN --
+	
+	subscriptionWSListTopUpPackagesTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF ListTopUpPackagesSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriptionWS Method wsListTopUpPackages ResultCode statistics."
+	       ::= { subscriptionWSStatistics 15 }
+	       
+	ListTopUpPackagesSeq ::= SEQUENCE {		                  
+	       listTopUpPackagesResultCode  			Counter32,
+	       listTopUpPackagesResultCodeName  		SnmpAdminString,
+	       listTopUpPackagesResultCodeCounters  	Counter32       
+	}       
+		
+	subscriptionWSListTopUpPackagesEntry OBJECT-TYPE
+	       SYNTAX     ListTopUpPackagesSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a subscriptionWS method wsListTopUpPackages ResultCode specific counters."
+	
+	       INDEX      { listTopUpPackagesResultCode }
+	       ::= { subscriptionWSListTopUpPackagesTable 1 }   
+	       
+	listTopUpPackagesResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriptionWS method wsListTopUpPackages ResultCode"
+	       ::= { subscriptionWSListTopUpPackagesEntry 1 }       
+	   
+	listTopUpPackagesResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "subscriptionWS wsListTopUpPackages ResultCode Name."
+	    ::= { subscriptionWSListTopUpPackagesEntry 2 }
+	
+	listTopUpPackagesResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriptionWS method wsListTopUpPackages resultCode specific Counters."
+	    ::= { subscriptionWSListTopUpPackagesEntry 3 }
+	    
+	-- SUBSCRIPTION-WS METHOD9 wsListTopUpPackages END -- 
+
+	-- SUBSCRIPTION-WS METHOD10 wsSubscribeTopUp BEGIN --
+	
+	subscriptionWSSubscribeTopUpTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscribeTopUpSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriptionWS Method wsSubscribeTopUp ResultCode statistics."
+	       ::= { subscriptionWSStatistics 16 }
+	       
+	SubscribeTopUpSeq ::= SEQUENCE {		                  
+	       subscribeTopUpResultCode  			Counter32,
+	       subscribeTopUpResultCodeName  		SnmpAdminString,
+	       subscribeTopUpResultCodeCounters  	Counter32       
+	}       
+		
+	subscriptionWSSubscribeTopUpEntry OBJECT-TYPE
+	       SYNTAX     SubscribeTopUpSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a subscriptionWS method wsSubscribeTopUp ResultCode specific counters."
+	
+	       INDEX      { subscribeTopUpResultCode }
+	       ::= { subscriptionWSSubscribeTopUpTable 1 }   
+	       
+	subscribeTopUpResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriptionWS method wsSubscribeTopUp ResultCode"
+	       ::= { subscriptionWSSubscribeTopUpEntry 1 }       
+	   
+	subscribeTopUpResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "subscriptionWS wsSubscribeTopUp ResultCode Name."
+	    ::= { subscriptionWSSubscribeTopUpEntry 2 }
+	
+	subscribeTopUpResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriptionWS method wsSubscribeTopUp resultCode specific Counters."
+	    ::= { subscriptionWSSubscribeTopUpEntry 3 }
+	    
+	-- SUBSCRIPTION-WS METHOD10 wsSubscribeTopUp END -- 
+
+	-- SUBSCRIPTION-WS METHOD11 wsChangeTopUpSubscription BEGIN --
+	
+	subscriptionWSChangeTopUpSubscriptionTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF ChangeTopUpSubscriptionSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriptionWS Method wsChangeTopUpSubscription ResultCode statistics."
+	       ::= { subscriptionWSStatistics 17 }
+	       
+	ChangeTopUpSubscriptionSeq ::= SEQUENCE {		                  
+	       changeTopUpSubscriptionResultCode  			Counter32,
+	       changeTopUpSubscriptionResultCodeName  		SnmpAdminString,
+	       changeTopUpSubscriptionResultCodeCounters  	Counter32       
+	}       
+		
+	subscriptionWSChangeTopUpSubscriptionEntry OBJECT-TYPE
+	       SYNTAX     ChangeTopUpSubscriptionSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a subscriptionWS method wsChangeTopUpSubscription ResultCode specific counters."
+	
+	       INDEX      { changeTopUpSubscriptionResultCode }
+	       ::= { subscriptionWSChangeTopUpSubscriptionTable 1 }   
+	       
+	changeTopUpSubscriptionResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriptionWS method wsChangeTopUpSubscription ResultCode"
+	       ::= { subscriptionWSChangeTopUpSubscriptionEntry 1 }       
+	   
+	changeTopUpSubscriptionResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "subscriptionWS wsChangeTopUpSubscription ResultCode Name."
+	    ::= { subscriptionWSChangeTopUpSubscriptionEntry 2 }
+	
+	changeTopUpSubscriptionResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriptionWS method wsChangeTopUpSubscription resultCode specific Counters."
+	    ::= { subscriptionWSChangeTopUpSubscriptionEntry 3 }
+	    
+	-- SUBSCRIPTION-WS METHOD11 wsChangeTopUpSubscription END -- 
+		    
+-- SUBSCRIPTION-WS ALL METHOD WISE RESULT CODE END --   
+    
+-- END of SubscriptionWS
+	
+-- SubscriberProvisioningWS BEGIN
+	
+subscriberProvisioningWSStatistics OBJECT IDENTIFIER ::= { webServiceStatistics 10 }
+
+subscriberWSTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriberProvisioningWS requests received by Policy Designer."
+    ::= { subscriberProvisioningWSStatistics 1 }
+
+subscriberWSTotalResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriberProvisioningWS responses given by Policy Designer."
+    ::= { subscriberProvisioningWSStatistics 2 }
+
+subscriberWSLastMinuteTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriberProvisioningWS requests received in Last Minute by Policy Designer."
+    ::= { subscriberProvisioningWSStatistics 3 }
+
+subscriberWSAvgTPS OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The average TPS in SubscriberProvisioningWS for last one minute."
+    ::= { subscriberProvisioningWSStatistics 4 }
+		
+subscriberProvisioningWSMethodWiseStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF SubscriberProvisioningWSMethodWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "The (conceptual) table listing the SubscriberProvisioningWS method wise counters."
+       ::= { subscriberProvisioningWSStatistics 5 }
+       
+SubscriberProvisioningWSMethodWiseSeq ::= SEQUENCE {
+       subscriberWSMethodIndex   			Integer32,
+       subscriberWSMethodName     			SnmpAdminString,
+       subscriberWSMethodTotalRequests      Counter32,
+       subscriberWSMethodTotalResponses     Counter32,
+       subscriberWSMethodLastMinuteTotalRequests	Counter32,
+       subscriberWSMethodAvgTPS             Counter32
+ }       
+	
+subscriberProvisioningWSMethodWiseEntry OBJECT-TYPE
+       SYNTAX     SubscriberProvisioningWSMethodWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "An entry (conceptual row) representing a SubscriberProvisioningWS
+              method wise counters."
+
+       INDEX      { subscriberWSMethodIndex }
+       ::= { subscriberProvisioningWSMethodWiseStatisticsTable 1 }
+       
+subscriberWSMethodIndex OBJECT-TYPE
+       SYNTAX     Integer32 (1..2147483647)
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "SubscriberProvisioningWS method's Index."
+       ::= { subscriberProvisioningWSMethodWiseEntry 1 }
+   
+subscriberWSMethodName OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "SubscriberProvisioningWS method's Name"
+       ::= { subscriberProvisioningWSMethodWiseEntry 2 }
+       
+subscriberWSMethodTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriberProvisioningWS method wise Requests received by Policy Designer."
+    ::= { subscriberProvisioningWSMethodWiseEntry 3 }
+
+subscriberWSMethodTotalResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriberProvisioningWS method wise Responses given by Policy Designer."
+    ::= { subscriberProvisioningWSMethodWiseEntry 4 }
+
+subscriberWSMethodLastMinuteTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SubscriberProvisioningWS method wise Requests received in Last Minute by Policy Designer."
+    ::= { subscriberProvisioningWSMethodWiseEntry 5 }
+
+subscriberWSMethodAvgTPS OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Method's average TPS in SubscriberProvisioningWS for last one minute."
+    ::= { subscriberProvisioningWSMethodWiseEntry 6 }
+       
+       
+-- SUBSCRIBER-PROVISIONING-WS RESULT CODE COUNTERS BEGIN --
+       
+subscriberProvisioningWSResultCodeWiseStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF SubscriberWSResultCodeWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "The (conceptual) table listing the SubscriberProvisioningWS ResultCodes statistics."
+       ::= { subscriberProvisioningWSStatistics 6 }
+       
+SubscriberWSResultCodeWiseSeq ::= SEQUENCE {             
+       subscriberWSResultCode  			Counter32,
+       subscriberWSResultCodeName  		SnmpAdminString,
+       subscriberWSResultCodeCounters  	Counter32       
+}       
+	
+subscriberWSResultCodeWiseEntry OBJECT-TYPE
+       SYNTAX     SubscriberWSResultCodeWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "An entry (conceptual row) representing a SubscriberProvisioningWS ResultCode specific statistics."
+
+       INDEX      { subscriberWSResultCode }
+       ::= { subscriberProvisioningWSResultCodeWiseStatisticsTable 1 }   
+       
+subscriberWSResultCode OBJECT-TYPE
+       SYNTAX     Integer32 (1..2147483647)
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "SubscriberProvisioningWS ResultCode."
+       ::= { subscriberWSResultCodeWiseEntry 1 }       
+   
+subscriberWSResultCodeName OBJECT-TYPE
+    SYNTAX SnmpAdminString
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "SubscriberProvisioningWS ResultCode Name."
+    ::= { subscriberWSResultCodeWiseEntry 2 }
+
+subscriberWSResultCodeCounters OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "SubscriberProvisioningWS ResultCode statistics."
+    ::= { subscriberWSResultCodeWiseEntry 3 }
+    
+-- SUBSCRIBER-PROVISIONING-WS RESULT CODE STATISTICS END --
+   
+-- SUBSCRIBER-PROVISIONING-WS METHOD WISE RESULT CODE BEGIN --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD1 wSAddSubscriberProfile BEGIN --
+	
+	subscriberProvisioningWSAddSubscriberProfileTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSAddSubscriberProfileSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wSAddSubscriberProfile ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 7 }
+	       
+	SubscriberWSAddSubscriberProfileSeq ::= SEQUENCE {		                  
+	       addSubscriberProfileResultCode  			Counter32,
+	       addSubscriberProfileResultCodeName  		SnmpAdminString,
+	       addSubscriberProfileResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSAddSubscriberProfileEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSAddSubscriberProfileSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wSAddSubscriberProfile ResultCode specific statistics."
+	
+	       INDEX      { addSubscriberProfileResultCode }
+	       ::= { subscriberProvisioningWSAddSubscriberProfileTable 1 }   
+	       
+	addSubscriberProfileResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wSAddSubscriberProfile ResultCode."
+	       ::= { subscriberWSAddSubscriberProfileEntry 1 }       
+	   
+	addSubscriberProfileResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wSAddSubscriberProfile ResultCode Name."
+	    ::= { subscriberWSAddSubscriberProfileEntry 2 }
+	
+	addSubscriberProfileResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wSAddSubscriberProfile ResultCode Specific statistics."
+	    ::= { subscriberWSAddSubscriberProfileEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD1 wSAddSubscriberProfile END --
+    
+	-- SUBSCRIBER-PROVISIONING-WS METHOD2 wsUpdateSubscriberProfile BEGIN --
+	
+	subscriberProvisioningWSUpdateSubscriberProfileTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSUpdateSubscriberProfileSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsUpdateSubscriberProfile ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 8 }
+	       
+	SubscriberWSUpdateSubscriberProfileSeq ::= SEQUENCE {		                  
+	       updateSubscriberProfileResultCode  			Counter32,
+	       updateSubscriberProfileResultCodeName  		SnmpAdminString,
+	       updateSubscriberProfileResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSUpdateSubscriberProfileEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSUpdateSubscriberProfileSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsUpdateSubscriberProfile ResultCode specific statistics."
+	
+	       INDEX      { updateSubscriberProfileResultCode }
+	       ::= { subscriberProvisioningWSUpdateSubscriberProfileTable 1 }   
+	       
+	updateSubscriberProfileResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsUpdateSubscriberProfile ResultCode."
+	       ::= { subscriberWSUpdateSubscriberProfileEntry 1 }       
+	   
+	updateSubscriberProfileResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsUpdateSubscriberProfile ResultCode Name."
+	    ::= { subscriberWSUpdateSubscriberProfileEntry 2 }
+	
+	updateSubscriberProfileResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsUpdateSubscriberProfile ResultCode Specific statistics."
+	    ::= { subscriberWSUpdateSubscriberProfileEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD2 wsUpdateSubscriberProfile END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD3 wsDeleteSubscriberProfile BEGIN --
+	
+	subscriberProvisioningWSDeleteSubscriberProfileTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSDeleteSubscriberProfileSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsDeleteSubscriberProfile ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 9 }
+	       
+	SubscriberWSDeleteSubscriberProfileSeq ::= SEQUENCE {		                  
+	       deleteSubscriberProfileResultCode  			Counter32,
+	       deleteSubscriberProfileResultCodeName  		SnmpAdminString,
+	       deleteSubscriberProfileResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSDeleteSubscriberProfileEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSDeleteSubscriberProfileSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsDeleteSubscriberProfile ResultCode specific statistics."
+	
+	       INDEX      { deleteSubscriberProfileResultCode }
+	       ::= { subscriberProvisioningWSDeleteSubscriberProfileTable 1 }   
+	       
+	deleteSubscriberProfileResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsDeleteSubscriberProfile ResultCode."
+	       ::= { subscriberWSDeleteSubscriberProfileEntry 1 }       
+	   
+	deleteSubscriberProfileResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsDeleteSubscriberProfile ResultCode Name."
+	    ::= { subscriberWSDeleteSubscriberProfileEntry 2 }
+	
+	deleteSubscriberProfileResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsDeleteSubscriberProfile ResultCode Specific statistics."
+	    ::= { subscriberWSDeleteSubscriberProfileEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD3 wsDeleteSubscriberProfile END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD4 wsDeleteSubscriberProfiles BEGIN --
+	
+	subscriberProvisioningWSDeleteSubscriberProfilesTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSDeleteSubscriberProfilesSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsDeleteSubscriberProfiles ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 10 }
+	       
+	SubscriberWSDeleteSubscriberProfilesSeq ::= SEQUENCE {		                  
+	       deleteSubscriberProfilesResultCode  			Counter32,
+	       deleteSubscriberProfilesResultCodeName  		SnmpAdminString,
+	       deleteSubscriberProfilesResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSDeleteSubscriberProfilesEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSDeleteSubscriberProfilesSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsDeleteSubscriberProfiles ResultCode specific statistics."
+	
+	       INDEX      { deleteSubscriberProfilesResultCode }
+	       ::= { subscriberProvisioningWSDeleteSubscriberProfilesTable 1 }   
+	       
+	deleteSubscriberProfilesResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsDeleteSubscriberProfiles ResultCode."
+	       ::= { subscriberWSDeleteSubscriberProfilesEntry 1 }       
+	   
+	deleteSubscriberProfilesResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsDeleteSubscriberProfiles ResultCode Name."
+	    ::= { subscriberWSDeleteSubscriberProfilesEntry 2 }
+	
+	deleteSubscriberProfilesResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsDeleteSubscriberProfiles ResultCode Specific statistics."
+	    ::= { subscriberWSDeleteSubscriberProfilesEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD4 wsDeleteSubscriberProfiles END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD5 wsAddSubscriberBulk BEGIN --
+	
+	subscriberProvisioningWSAddSubscriberBulkTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSAddSubscriberBulkSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsAddSubscriberBulk ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 11 }
+	       
+	SubscriberWSAddSubscriberBulkSeq ::= SEQUENCE {		                  
+	       addSubscriberBulkResultCode  			Counter32,
+	       addSubscriberBulkResultCodeName  		SnmpAdminString,
+	       addSubscriberBulkResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSAddSubscriberBulkEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSAddSubscriberBulkSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsAddSubscriberBulk ResultCode specific statistics."
+	
+	       INDEX      { addSubscriberBulkResultCode }
+	       ::= { subscriberProvisioningWSAddSubscriberBulkTable 1 }   
+	       
+	addSubscriberBulkResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsAddSubscriberBulk ResultCode."
+	       ::= { subscriberWSAddSubscriberBulkEntry 1 }       
+	   
+	addSubscriberBulkResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsAddSubscriberBulk ResultCode Name."
+	    ::= { subscriberWSAddSubscriberBulkEntry 2 }
+	
+	addSubscriberBulkResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsAddSubscriberBulk ResultCode Specific statistics."
+	    ::= { subscriberWSAddSubscriberBulkEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD5 wsAddSubscriberBulk END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD6 wsGetSubscriberProfileByID BEGIN --
+	
+	subscriberProvisioningWSGetSubscriberProfileByIDTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSGetSubscriberProfileByIDSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsGetSubscriberProfileByID ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 12 }
+	       
+	SubscriberWSGetSubscriberProfileByIDSeq ::= SEQUENCE {		                  
+	       getSubscriberProfileByIDResultCode  			Counter32,
+	       getSubscriberProfileByIDResultCodeName  		SnmpAdminString,
+	       getSubscriberProfileByIDResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSGetSubscriberProfileByIDEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSGetSubscriberProfileByIDSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsGetSubscriberProfileByID ResultCode specific statistics."
+	
+	       INDEX      { getSubscriberProfileByIDResultCode }
+	       ::= { subscriberProvisioningWSGetSubscriberProfileByIDTable 1 }   
+	       
+	getSubscriberProfileByIDResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsGetSubscriberProfileByID ResultCode."
+	       ::= { subscriberWSGetSubscriberProfileByIDEntry 1 }       
+	   
+	getSubscriberProfileByIDResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsGetSubscriberProfileByID ResultCode Name."
+	    ::= { subscriberWSGetSubscriberProfileByIDEntry 2 }
+	
+	getSubscriberProfileByIDResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsGetSubscriberProfileByID ResultCode Specific statistics."
+	    ::= { subscriberWSGetSubscriberProfileByIDEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD6 wsGetSubscriberProfileByID END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD7 wsListSubscriberProfiles BEGIN --
+	
+	subscriberProvisioningWSListSubscriberProfilesTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSListSubscriberProfilesSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsListSubscriberProfiles ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 13 }
+	       
+	SubscriberWSListSubscriberProfilesSeq ::= SEQUENCE {		                  
+	       listSubscriberProfilesResultCode  			Counter32,
+	       listSubscriberProfilesResultCodeName  		SnmpAdminString,
+	       listSubscriberProfilesResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSListSubscriberProfilesEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSListSubscriberProfilesSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsListSubscriberProfiles ResultCode specific statistics."
+	
+	       INDEX      { listSubscriberProfilesResultCode }
+	       ::= { subscriberProvisioningWSListSubscriberProfilesTable 1 }   
+	       
+	listSubscriberProfilesResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsListSubscriberProfiles ResultCode."
+	       ::= { subscriberWSListSubscriberProfilesEntry 1 }       
+	   
+	listSubscriberProfilesResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsListSubscriberProfiles ResultCode Name."
+	    ::= { subscriberWSListSubscriberProfilesEntry 2 }
+	
+	listSubscriberProfilesResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsListSubscriberProfiles ResultCode Specific statistics."
+	    ::= { subscriberWSListSubscriberProfilesEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD7 wsListSubscriberProfiles END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD8 wsPurgeSubscriber BEGIN --
+	
+	subscriberProvisioningWSPurgeSubscriberTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSPurgeSubscriberSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsPurgeSubscriber ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 14 }
+	       
+	SubscriberWSPurgeSubscriberSeq ::= SEQUENCE {		                  
+	       purgeSubscriberResultCode  			Counter32,
+	       purgeSubscriberResultCodeName  		SnmpAdminString,
+	       purgeSubscriberResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSPurgeSubscriberEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSPurgeSubscriberSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsPurgeSubscriber ResultCode specific statistics."
+	
+	       INDEX      { purgeSubscriberResultCode }
+	       ::= { subscriberProvisioningWSPurgeSubscriberTable 1 }   
+	       
+	purgeSubscriberResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsPurgeSubscriber ResultCode."
+	       ::= { subscriberWSPurgeSubscriberEntry 1 }       
+	   
+	purgeSubscriberResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsPurgeSubscriber ResultCode Name."
+	    ::= { subscriberWSPurgeSubscriberEntry 2 }
+	
+	purgeSubscriberResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsPurgeSubscriber ResultCode Specific statistics."
+	    ::= { subscriberWSPurgeSubscriberEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD8 wsPurgeSubscriber END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD9 wsPurgeSubscribers BEGIN --
+	
+	subscriberProvisioningWSPurgeSubscribersTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSPurgeSubscribersSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsPurgeSubscribers ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 15 }
+	       
+	SubscriberWSPurgeSubscribersSeq ::= SEQUENCE {		                  
+	       purgeSubscribersResultCode  			Counter32,
+	       purgeSubscribersResultCodeName  		SnmpAdminString,
+	       purgeSubscribersResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSPurgeSubscribersEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSPurgeSubscribersSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsPurgeSubscribers ResultCode specific statistics."
+	
+	       INDEX      { purgeSubscribersResultCode }
+	       ::= { subscriberProvisioningWSPurgeSubscribersTable 1 }   
+	       
+	purgeSubscribersResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsPurgeSubscribers ResultCode."
+	       ::= { subscriberWSPurgeSubscribersEntry 1 }       
+	   
+	purgeSubscribersResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsPurgeSubscribers ResultCode Name."
+	    ::= { subscriberWSPurgeSubscribersEntry 2 }
+	
+	purgeSubscribersResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsPurgeSubscribers ResultCode Specific statistics."
+	    ::= { subscriberWSPurgeSubscribersEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD9 wsPurgeSubscribers END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD10 wsPurgeAllSubscriber BEGIN --
+	
+	subscriberProvisioningWSPurgeAllSubscriberTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSPurgeAllSubscriberSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsPurgeAllSubscriber ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 16 }
+	       
+	SubscriberWSPurgeAllSubscriberSeq ::= SEQUENCE {		                  
+	       purgeAllSubscriberResultCode  			Counter32,
+	       purgeAllSubscriberResultCodeName  		SnmpAdminString,
+	       purgeAllSubscriberResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSPurgeAllSubscriberEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSPurgeAllSubscriberSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsPurgeAllSubscriber ResultCode specific statistics."
+	
+	       INDEX      { purgeAllSubscriberResultCode }
+	       ::= { subscriberProvisioningWSPurgeAllSubscriberTable 1 }   
+	       
+	purgeAllSubscriberResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsPurgeAllSubscriber ResultCode."
+	       ::= { subscriberWSPurgeAllSubscriberEntry 1 }       
+	   
+	purgeAllSubscriberResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsPurgeAllSubscriber ResultCode Name."
+	    ::= { subscriberWSPurgeAllSubscriberEntry 2 }
+	
+	purgeAllSubscriberResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsPurgeAllSubscriber ResultCode Specific statistics."
+	    ::= { subscriberWSPurgeAllSubscriberEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD10 wsPurgeAllSubscriber END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD11 wsRestoreSubscriber BEGIN --
+	
+	subscriberProvisioningWSRestoreSubscriberTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSRestoreSubscriberSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsRestoreSubscriber ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 17 }
+	       
+	SubscriberWSRestoreSubscriberSeq ::= SEQUENCE {		                  
+	       restoreSubscriberResultCode  			Counter32,
+	       restoreSubscriberResultCodeName  		SnmpAdminString,
+	       restoreSubscriberResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSRestoreSubscriberEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSRestoreSubscriberSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsRestoreSubscriber ResultCode specific statistics."
+	
+	       INDEX      { restoreSubscriberResultCode }
+	       ::= { subscriberProvisioningWSRestoreSubscriberTable 1 }   
+	       
+	restoreSubscriberResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsRestoreSubscriber ResultCode."
+	       ::= { subscriberWSRestoreSubscriberEntry 1 }       
+	   
+	restoreSubscriberResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsRestoreSubscriber ResultCode Name."
+	    ::= { subscriberWSRestoreSubscriberEntry 2 }
+	
+	restoreSubscriberResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsRestoreSubscriber ResultCode Specific statistics."
+	    ::= { subscriberWSRestoreSubscriberEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD11 wsRestoreSubscriber END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD12 wsRestoreSubscribers BEGIN --
+	
+	subscriberProvisioningWSRestoreSubscribersTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSRestoreSubscribersSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsRestoreSubscribers ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 18 }
+	       
+	SubscriberWSRestoreSubscribersSeq ::= SEQUENCE {		                  
+	       restoreSubscribersResultCode  			Counter32,
+	       restoreSubscribersResultCodeName  		SnmpAdminString,
+	       restoreSubscribersResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSRestoreSubscribersEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSRestoreSubscribersSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsRestoreSubscribers ResultCode specific statistics."
+	
+	       INDEX      { restoreSubscribersResultCode }
+	       ::= { subscriberProvisioningWSRestoreSubscribersTable 1 }   
+	       
+	restoreSubscribersResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsRestoreSubscribers ResultCode."
+	       ::= { subscriberWSRestoreSubscribersEntry 1 }       
+	   
+	restoreSubscribersResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsRestoreSubscribers ResultCode Name."
+	    ::= { subscriberWSRestoreSubscribersEntry 2 }
+	
+	restoreSubscribersResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsRestoreSubscribers ResultCode Specific statistics."
+	    ::= { subscriberWSRestoreSubscribersEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD12 wsRestoreSubscribers END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD13 wsMigrateSubscriber BEGIN --
+	
+	subscriberProvisioningWSMigrateSubscriberTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSMigrateSubscriberSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsMigrateSubscriber ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 19 }
+	       
+	SubscriberWSMigrateSubscriberSeq ::= SEQUENCE {		                  
+	       migrateSubscriberResultCode  			Counter32,
+	       migrateSubscriberResultCodeName  		SnmpAdminString,
+	       migrateSubscriberResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSMigrateSubscriberEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSMigrateSubscriberSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsMigrateSubscriber ResultCode specific statistics."
+	
+	       INDEX      { migrateSubscriberResultCode }
+	       ::= { subscriberProvisioningWSMigrateSubscriberTable 1 }   
+	       
+	migrateSubscriberResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsMigrateSubscriber ResultCode."
+	       ::= { subscriberWSMigrateSubscriberEntry 1 }       
+	   
+	migrateSubscriberResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsMigrateSubscriber ResultCode Name."
+	    ::= { subscriberWSMigrateSubscriberEntry 2 }
+	
+	migrateSubscriberResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsMigrateSubscriber ResultCode Specific statistics."
+	    ::= { subscriberWSMigrateSubscriberEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD13 wsRestoreSubscribers END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD14 wsAddSubscriber BEGIN --
+	
+	subscriberProvisioningWSAddSubscriberTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSAddSubscriberSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsAddSubscriber ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 20 }
+	       
+	SubscriberWSAddSubscriberSeq ::= SEQUENCE {		                  
+	       addSubscriberResultCode  			Counter32,
+	       addSubscriberResultCodeName  		SnmpAdminString,
+	       addSubscriberResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSAddSubscriberEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSAddSubscriberSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsAddSubscriber ResultCode specific statistics."
+	
+	       INDEX      { addSubscriberResultCode }
+	       ::= { subscriberProvisioningWSAddSubscriberTable 1 }   
+	       
+	addSubscriberResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsAddSubscriber ResultCode."
+	       ::= { subscriberWSAddSubscriberEntry 1 }       
+	   
+	addSubscriberResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsAddSubscriber ResultCode Name."
+	    ::= { subscriberWSAddSubscriberEntry 2 }
+	
+	addSubscriberResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsAddSubscriber ResultCode Specific statistics."
+	    ::= { subscriberWSAddSubscriberEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD14 wsAddSubscriber END --
+
+	-- SUBSCRIBER-PROVISIONING-WS METHOD15 wsAddSubscribers BEGIN --
+	
+	subscriberProvisioningWSAddSubscribersTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SubscriberWSAddSubscribersSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SubscriberProvisioningWS Method wsAddSubscribers ResultCodes statistics."
+	       ::= { subscriberProvisioningWSStatistics 21 }
+	       
+	SubscriberWSAddSubscribersSeq ::= SEQUENCE {		                  
+	       addSubscribersResultCode  			Counter32,
+	       addSubscribersResultCodeName  		SnmpAdminString,
+	       addSubscribersResultCodeCounters  	Counter32       
+	}       
+		
+	subscriberWSAddSubscribersEntry OBJECT-TYPE
+	       SYNTAX     SubscriberWSAddSubscribersSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SubscriberProvisioningWS Method wsAddSubscribers ResultCode specific statistics."
+	
+	       INDEX      { addSubscribersResultCode }
+	       ::= { subscriberProvisioningWSAddSubscribersTable 1 }   
+	       
+	addSubscribersResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SubscriberProvisioningWS method wsAddSubscribers ResultCode."
+	       ::= { subscriberWSAddSubscribersEntry 1 }       
+	   
+	addSubscribersResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsAddSubscribers ResultCode Name."
+	    ::= { subscriberWSAddSubscribersEntry 2 }
+	
+	addSubscribersResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SubscriberProvisioningWS method wsAddSubscribers ResultCode Specific statistics."
+	    ::= { subscriberWSAddSubscribersEntry 3 }
+	    
+    -- SUBSCRIBER-PROVISIONING-WS METHOD15 wsAddSubscribers END --
+
+-- SUBSCRIBER-PROVISIONING-WS METHOD WISE RESULT CODE END --
+
+-- END OF SubscriberProvisioningWS 
+
+-- SessionManagementWS BEGIN
+	
+sessionManagementWSStatistics OBJECT IDENTIFIER ::= { webServiceStatistics 11 }
+
+sessionWSTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SessionManagementWS requests received by Policy Designer."
+    ::= { sessionManagementWSStatistics 1 }
+
+sessionWSTotalResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SessionManagementWS responses given by Policy Designer."
+    ::= { sessionManagementWSStatistics 2 }
+
+sessionWSLastMinuteTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SessionManagementWS requests received in Last Minute by Policy Designer."
+    ::= { sessionManagementWSStatistics 3 }
+
+sessionWSAvgTPS OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The average TPS in SessionManagementWS for last one minute."
+    ::= { sessionManagementWSStatistics 4 }
+		
+sessionManagementWSMethodWiseStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF SessionManagementWSMethodWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "The (conceptual) table listing the SessionManagementWS method wise statistics."
+       ::= { sessionManagementWSStatistics 5 }
+       
+SessionManagementWSMethodWiseSeq ::= SEQUENCE {
+       sessionWSMethodIndex   		Integer32,
+       sessionWSMethodName     		SnmpAdminString,
+       sessionWSMethodTotalRequests      		Counter32,
+       sessionWSMethodTotalResponses         	Counter32,
+       sessionWSMethodLastMinuteTotalRequests	Counter32,
+       sessionWSMethodAvgTPS                 	Counter32
+ }       
+	
+sessionManagementWSMethodWiseEntry OBJECT-TYPE
+       SYNTAX     SessionManagementWSMethodWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "An entry (conceptual row) representing a SessionManagementWS
+              method wise statistics."
+
+       INDEX      { sessionWSMethodIndex }
+       ::= { sessionManagementWSMethodWiseStatisticsTable 1 }
+       
+sessionWSMethodIndex OBJECT-TYPE
+       SYNTAX     Integer32 (1..2147483647)
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             " SessionManagementWS method's Index"
+       ::= { sessionManagementWSMethodWiseEntry 1 }
+   
+sessionWSMethodName OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "SessionManagementWS method's Name"
+       ::= { sessionManagementWSMethodWiseEntry 2 }
+       
+sessionWSMethodTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SessionManagementWS method wise Requests received by Policy Designer."
+    ::= { sessionManagementWSMethodWiseEntry 3 }
+
+sessionWSMethodTotalResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SessionManagementWS method wise Responses given by Policy Designer."
+    ::= { sessionManagementWSMethodWiseEntry 4 }
+
+sessionWSMethodLastMinuteTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of SessionManagementWS method wise Requests received in Last Minute by Policy Designer."
+    ::= { sessionManagementWSMethodWiseEntry 5 }
+
+sessionWSMethodAvgTPS OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Method's average TPS in SessionManagementWS for last one minute."
+    ::= { sessionManagementWSMethodWiseEntry 6 }
+       
+	
+-- SESSION-MANAGEMENT-WS RESULT CODE STATISTICS BEGIN --
+       
+sessionManagementWSResultCodeWiseStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF SessionWSResultCodeWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "The (conceptual) table listing the SessionManagementWS ResultCodes statistics."
+       ::= { sessionManagementWSStatistics 6 }
+       
+SessionWSResultCodeWiseSeq ::= SEQUENCE {             
+       sessionWSResultCode  			Counter32,
+       sessionWSResultCodeName  		SnmpAdminString,
+       sessionWSResultCodeCounters  	Counter32       
+}       
+	
+sessionWSResultCodeWiseEntry OBJECT-TYPE
+       SYNTAX     SessionWSResultCodeWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "An entry (conceptual row) representing a SessionManagementWS ResultCode specific statistics."
+
+       INDEX      { sessionWSResultCode }
+       ::= { sessionManagementWSResultCodeWiseStatisticsTable 1 }   
+       
+sessionWSResultCode OBJECT-TYPE
+       SYNTAX     Integer32 (1..2147483647)
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "SessionManagementWS ResultCode."
+       ::= { sessionWSResultCodeWiseEntry 1 }       
+   
+sessionWSResultCodeName OBJECT-TYPE
+    SYNTAX SnmpAdminString
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "SessionManagementWS ResultCode Name."
+    ::= { sessionWSResultCodeWiseEntry 2 }
+
+sessionWSResultCodeCounters OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "SessionManagementWS ResultCode statistics."
+    ::= { sessionWSResultCodeWiseEntry 3 }
+    
+-- SESSION-MANAGEMENT-WS RESULT CODE STATISTICS END --
+   
+-- SESSION-MANAGEMENT-WS METHOD WISE RESULT CODE BEGIN --
+
+	-- SESSION-MANAGEMENT-WS METHOD1 wsGetSessionsBySubscriberIdentity BEGIN --
+	
+	sessionManagementWSGetSessionsBySubscriberIDTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SessionWSGetSessionsBySubscriberIDSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SessionManagementWS Method wsGetSessionsBySubscriberIdentity ResultCodes statistics."
+	       ::= { sessionManagementWSStatistics 7 }
+	       
+	SessionWSGetSessionsBySubscriberIDSeq ::= SEQUENCE {		                  
+	       getSessionsBySubscriberIDResultCode  			Counter32,
+	       getSessionsBySubscriberIDResultCodeName  		SnmpAdminString,
+	       getSessionsBySubscriberIDResultCodeCounters  	Counter32       
+	}       
+		
+	sessionWSGetSessionsBySubscriberIDEntry OBJECT-TYPE
+	       SYNTAX     SessionWSGetSessionsBySubscriberIDSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SessionManagementWS Method wsGetSessionsBySubscriberIdentity ResultCode specific statistics."
+	
+	       INDEX      { getSessionsBySubscriberIDResultCode }
+	       ::= { sessionManagementWSGetSessionsBySubscriberIDTable 1 }   
+	       
+	getSessionsBySubscriberIDResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SessionManagementWS method wsGetSessionsBySubscriberID ResultCode."
+	       ::= { sessionWSGetSessionsBySubscriberIDEntry 1 }       
+	   
+	getSessionsBySubscriberIDResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SessionManagementWS method wsGetSessionsBySubscriberIdentity ResultCode Name."
+	    ::= { sessionWSGetSessionsBySubscriberIDEntry 2 }
+	
+	getSessionsBySubscriberIDResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SessionManagementWS method wsGetSessionsBySubscriberIdentity ResultCode Specific statistics."
+	    ::= { sessionWSGetSessionsBySubscriberIDEntry 3 }
+	    
+	-- SESSION-MANAGEMENT-WS METHOD1 wsGetSessionsBySubscriberIdentity END --
+    
+	-- SESSION-MANAGEMENT-WS METHOD2 wsGetSessionsByIP BEGIN --
+	
+	sessionManagementWSGetSessionsByIPTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SessionWSGetSessionsByIPSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SessionManagementWS Method wsGetSessionsByIP ResultCodes statistics."
+	       ::= { sessionManagementWSStatistics 8 }
+	       
+	SessionWSGetSessionsByIPSeq ::= SEQUENCE {		                  
+	       getSessionsByIPResultCode  			Counter32,
+	       getSessionsByIPResultCodeName  		SnmpAdminString,
+	       getSessionsByIPResultCodeCounters  	Counter32       
+	}       
+		
+	sessionWSGetSessionsByIPEntry OBJECT-TYPE
+	       SYNTAX     SessionWSGetSessionsByIPSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SessionManagementWS Method wsGetSessionsByIP ResultCode specific statistics."
+	
+	       INDEX      { getSessionsByIPResultCode }
+	       ::= { sessionManagementWSGetSessionsByIPTable 1 }   
+	       
+	getSessionsByIPResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SessionManagementWS method wsGetSessionsByIP ResultCode."
+	       ::= { sessionWSGetSessionsByIPEntry 1 }       
+	   
+	getSessionsByIPResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SessionManagementWS method wsGetSessionsByIP ResultCode Name."
+	    ::= { sessionWSGetSessionsByIPEntry 2 }
+	
+	getSessionsByIPResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SessionManagementWS method wsGetSessionsByIP ResultCode Specific statistics."
+	    ::= { sessionWSGetSessionsByIPEntry 3 }
+	    
+	-- SESSION-MANAGEMENT-WS METHOD2 wsGetSessionsByIP END --
+    
+	-- SESSION-MANAGEMENT-WS METHOD3 wsReauthSessionsBySubscriberIdentity BEGIN --
+	
+	sessionManagementWSReauthSessionBySubscriberIDTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SessionWSReauthSessionBySubscriberIDSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SessionManagementWS Method wsReauthSessionsBySubscriberIdentity ResultCodes statistics."
+	       ::= { sessionManagementWSStatistics 9 }
+	       
+	SessionWSReauthSessionBySubscriberIDSeq ::= SEQUENCE {		                  
+	       reauthSessionBySubscriberIDResultCode  			Counter32,
+	       reauthSessionBySubscriberIDResultCodeName  		SnmpAdminString,
+	       reauthSessionBySubscriberIDResultCodeCounters  	Counter32       
+	}       
+		
+	sessionWSReauthSessionBySubscriberIDEntry OBJECT-TYPE
+	       SYNTAX     SessionWSReauthSessionBySubscriberIDSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SessionManagementWS Method wsReauthSessionsBySubscriberIdentity ResultCode specific statistics."
+	
+	       INDEX      { reauthSessionBySubscriberIDResultCode }
+	       ::= { sessionManagementWSReauthSessionBySubscriberIDTable 1 }   
+	       
+	reauthSessionBySubscriberIDResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SessionManagementWS method wsReauthSessionsBySubscriberIdentity ResultCode."
+	       ::= { sessionWSReauthSessionBySubscriberIDEntry 1 }       
+	   
+	reauthSessionBySubscriberIDResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SessionManagementWS method wsReauthSessionsBySubscriberIdentity ResultCode Name."
+	    ::= { sessionWSReauthSessionBySubscriberIDEntry 2 }
+	
+	reauthSessionBySubscriberIDResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SessionManagementWS method wsReauthSessionsBySubscriberIdentity ResultCode Specific statistics."
+	    ::= { sessionWSReauthSessionBySubscriberIDEntry 3 }
+	    
+	-- SESSION-MANAGEMENT-WS METHOD3 wsReauthSessionsBySubscriberIdentity END --
+    
+	-- SESSION-MANAGEMENT-WS METHOD4 wsReauthSessionsByCoreSessionId BEGIN --
+	
+	sessionManagementWSReauthSessionsByCoreSessionIDTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF SessionWSReauthSessionsByCoreSessionIDSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the SessionManagementWS Method wsReauthSessionsByCoreSessionId ResultCodes statistics."
+	       ::= { sessionManagementWSStatistics 10 }
+	       
+	SessionWSReauthSessionsByCoreSessionIDSeq ::= SEQUENCE {		                  
+	       reauthSessionsByCoreSessionIDResultCode  			Counter32,
+	       reauthSessionsByCoreSessionIDResultCodeName  		SnmpAdminString,
+	       reauthSessionsByCoreSessionIDResultCodeCounters  	Counter32       
+	}       
+		
+	sessionWSReauthSessionsByCoreSessionIDEntry OBJECT-TYPE
+	       SYNTAX     SessionWSReauthSessionsByCoreSessionIDSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a SessionManagementWS Method wsReauthSessionsByCoreSessionId ResultCode specific statistics."
+	
+	       INDEX      { reauthSessionsByCoreSessionIDResultCode }
+	       ::= { sessionManagementWSReauthSessionsByCoreSessionIDTable 1 }   
+	       
+	reauthSessionsByCoreSessionIDResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "SessionManagementWS method wsReauthSessionsByCoreSessionId ResultCode."
+	       ::= { sessionWSReauthSessionsByCoreSessionIDEntry 1 }       
+	   
+	reauthSessionsByCoreSessionIDResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SessionManagementWS method wsReauthSessionsByCoreSessionId ResultCode Name."
+	    ::= { sessionWSReauthSessionsByCoreSessionIDEntry 2 }
+	
+	reauthSessionsByCoreSessionIDResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "SessionManagementWS method wsReauthSessionsByCoreSessionId ResultCode Specific statistics."
+	    ::= { sessionWSReauthSessionsByCoreSessionIDEntry 3 }
+	    
+	-- SESSION-MANAGEMENT-WS METHOD4 wsReauthSessionsByCoreSessionId END --
+    
+-- SESSION-MANAGEMENT-WS METHOD WISE RESULT CODE END --
+  	
+-- END OF SessionManagementWS --
+
+	
+-- ResetUsageWS BEGIN
+	
+resetUsageWSStatistics OBJECT IDENTIFIER ::= { webServiceStatistics 12 }
+
+resetUsageWSTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of ResetUsageWS requests received by Policy Designer."
+    ::= { resetUsageWSStatistics 1 }
+
+resetUsageWSTotalResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of ResetUsageWS responses given by Policy Designer."
+    ::= { resetUsageWSStatistics 2 }
+
+resetUsageWSLastMinuteTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of ResetUsageWS requests received in Last Minute by Policy Designer."
+    ::= { resetUsageWSStatistics 3 }
+
+resetUsageWSAvgTPS OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The average TPS in ResetUsageWS for last one minute."
+    ::= { resetUsageWSStatistics 4 }
+		
+resetUsageWSMethodWiseStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF ResetUsageWSMethodWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "The (conceptual) table listing the ResetUsageWS methods specific statistics."
+       ::= { resetUsageWSStatistics 5 }
+       
+ResetUsageWSMethodWiseSeq ::= SEQUENCE {
+       resetUsageWSMethodIndex   		Integer32,
+       resetUsageWSMethodName     		SnmpAdminString,
+       resetUsageWSMethodTotalRequests      		Counter32,
+       resetUsageWSMethodTotalResponses         	Counter32,
+       resetUsageWSMethodLastMinuteTotalRequests	Counter32,
+       resetUsageWSMethodAvgTPS                 	Counter32
+ }       
+	
+resetUsageWSMethodWiseEntry OBJECT-TYPE
+       SYNTAX     ResetUsageWSMethodWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "An entry (conceptual row) representing a ResetUsageWS
+              method specific statistics."
+
+       INDEX      { resetUsageWSMethodIndex }
+       ::= { resetUsageWSMethodWiseStatisticsTable 1 }
+       
+resetUsageWSMethodIndex OBJECT-TYPE
+       SYNTAX     Integer32 (1..2147483647)
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "ResetUsageWS mMethod's Index."
+       ::= { resetUsageWSMethodWiseEntry 1 }
+   
+resetUsageWSMethodName OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "ResetUsageWS method's Name."
+       ::= { resetUsageWSMethodWiseEntry 2 }
+       
+resetUsageWSMethodTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of ResetUsageWS method wise Requests received by Policy Designer."
+    ::= { resetUsageWSMethodWiseEntry 3 }
+
+resetUsageWSMethodTotalResponses OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of ResetUsageWS method wise Responses given by Policy Designer."
+    ::= { resetUsageWSMethodWiseEntry 4 }
+
+resetUsageWSMethodLastMinuteTotalRequests OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Total number of ResetUsageWS method wise Requests received in Last Minute by Policy Designer."
+    ::= { resetUsageWSMethodWiseEntry 5 }
+
+resetUsageWSMethodAvgTPS OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "Method's average TPS in ResetUsageWS for last one minute."
+    ::= { resetUsageWSMethodWiseEntry 6 }
+       	
+       	
+-- RESET-USAGE-WS RESULT CODE STATISTICS BEGIN --
+       
+resetUsageWSResultCodeWiseStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF ResetUsageWSResultCodeWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "The (conceptual) table listing the ResetUsageWS ResultCodes statistics."
+       ::= { resetUsageWSStatistics 6 }
+       
+ResetUsageWSResultCodeWiseSeq ::= SEQUENCE {             
+       resetUsageWSResultCode  			Counter32,
+       resetUsageWSResultCodeName  		SnmpAdminString,
+       resetUsageWSResultCodeCounters  	Counter32       
+}       
+	
+resetUsageWSResultCodeWiseEntry OBJECT-TYPE
+       SYNTAX     ResetUsageWSResultCodeWiseSeq
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "An entry (conceptual row) representing a ResetUsageWS ResultCode specific statistics."
+
+       INDEX      { resetUsageWSResultCode }
+       ::= { resetUsageWSResultCodeWiseStatisticsTable 1 }   
+       
+resetUsageWSResultCode OBJECT-TYPE
+       SYNTAX     Integer32 (1..2147483647)
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "ResetUsageWS ResultCode."
+       ::= { resetUsageWSResultCodeWiseEntry 1 }       
+   
+resetUsageWSResultCodeName OBJECT-TYPE
+    SYNTAX SnmpAdminString
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "ResetUsageWS ResultCode Name."
+    ::= { resetUsageWSResultCodeWiseEntry 2 }
+
+resetUsageWSResultCodeCounters OBJECT-TYPE
+    SYNTAX Counter32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "ResetUsageWS ResultCode statistics."
+    ::= { resetUsageWSResultCodeWiseEntry 3 }
+    
+-- RESET-USAGE-WS RESULT CODE STATISTICS END --
+   
+-- RESET-USAGE-WS METHOD WISE RESULT CODE BEGIN --
+
+	-- RESET-USAGE-WS METHOD1 wsResetBillingCycle BEGIN --
+	
+	resetUsageWSResetBillingCycleTable OBJECT-TYPE
+	       SYNTAX     SEQUENCE OF ResetUsageWSResetBillingCycleSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "The (conceptual) table listing the ResetUsageWS wsResetBillingCycle ResultCodes statistics."
+	       ::= { resetUsageWSStatistics 7 }
+	       
+	ResetUsageWSResetBillingCycleSeq ::= SEQUENCE {		                  
+	       resetUsageWSResetBillingCycleResultCode  			Counter32,
+	       resetUsageWSResetBillingCycleResultCodeName  		SnmpAdminString,
+	       resetUsageWSResetBillingCycleResultCodeCounters  	Counter32       
+	}       
+		
+	resetUsageWSResetBillingCycleResultCodeEntry OBJECT-TYPE
+	       SYNTAX     ResetUsageWSResetBillingCycleSeq
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "An entry (conceptual row) representing a ResetUsageWS wsResetBillingCycle ResultCode specific statistics."
+	
+	       INDEX      { resetUsageWSResetBillingCycleResultCode }
+	       ::= { resetUsageWSResetBillingCycleTable 1 }   
+	       
+	resetUsageWSResetBillingCycleResultCode OBJECT-TYPE
+	       SYNTAX     Integer32 (1..2147483647)
+	       MAX-ACCESS not-accessible
+	       STATUS     current
+	       DESCRIPTION
+	             "ResetUsageWS method wsResetBillingCycle ResultCode."
+	       ::= { resetUsageWSResetBillingCycleResultCodeEntry 1 }       
+	   
+	resetUsageWSResetBillingCycleResultCodeName OBJECT-TYPE
+	    SYNTAX SnmpAdminString
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "ResetUsageWS method wsResetBillingCycle ResultCode Name."
+	    ::= { resetUsageWSResetBillingCycleResultCodeEntry 2 }
+	
+	resetUsageWSResetBillingCycleResultCodeCounters OBJECT-TYPE
+	    SYNTAX Counter32
+	    MAX-ACCESS read-only
+	    STATUS current
+	    DESCRIPTION
+	         "ResetUsageWS method wsResetBillingCycle ResultCode Specific statistics."
+	    ::= { resetUsageWSResetBillingCycleResultCodeEntry 3 }
+    
+    -- RESET-USAGE-WS METHOD1 wsResetBillingCycle END --
+    
+-- RESET-USAGE-WS METHOD WISE RESULT CODE END --         	
+-- END OF ResetUsageWS --
+
+offlineRncStatistics OBJECT IDENTIFIER ::= { statistics 6 }
+
+offlineRncServiceUpTime OBJECT-TYPE
+	SYNTAX      TimeTicks
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be the time elapsed (in hundredths of a second)
+		 since the Offline RnC service started."
+       ::= { offlineRncStatistics 1 }
+
+offlineRncStatisticsResetTime OBJECT-TYPE
+	SYNTAX      TimeTicks
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		 "This value will be the time elapsed (in hundredths of a second) 
+		 since the Offline RnC service  statistics was `reset.'"
+       ::= { offlineRncStatistics 2 }
+
+offlineRncStatisticsReset OBJECT-TYPE
+	SYNTAX INTEGER { other(1),
+                     reset(2),
+                     initializing(3),
+                     running(4)}
+	MAX-ACCESS  read-write
+	STATUS      current
+	DESCRIPTION
+		 "When set to reset(2), Offline RnC service statistics is reinitialized.
+          When read, one of the following values will be returned:
+                   other(1) - service in some unknown state;
+                   initializing(3) - service (einitializing;
+                   running(4) - service currently running."
+   ::= { offlineRncStatistics 3 }
+
+totalRecords OBJECT-TYPE
+    SYNTAX Counter64
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of CDR(records) received by Offline RnC service."
+    ::= { offlineRncStatistics 4 }
+
+totalSuccessfulRecords OBJECT-TYPE
+    SYNTAX Counter64
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of successful processed records by Offline RnC Service."
+    ::= { offlineRncStatistics 5 }
+
+totalFailedRecords OBJECT-TYPE
+    SYNTAX Counter64
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The total number of failed records during processing by Offline RnC service."
+    ::= { offlineRncStatistics 6 }
+	
+avgRecordProcessingTime OBJECT-TYPE
+    SYNTAX Counter64
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The average Offline RnC record prcessing time for last one minute."
+    ::= { offlineRncStatistics 7 }
+
+avgTPS OBJECT-TYPE
+    SYNTAX Counter64
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION
+         "The average TPS in Offline RnC service for last one minute."
+    ::= { offlineRncStatistics 8 }
+
+
+gatewayStatistics  OBJECT IDENTIFIER ::=  { statistics 7 }
+
+fileLocationStatistics  OBJECT IDENTIFIER ::=  { gatewayStatistics 1 }
+
+fileLocationTotalRecords OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total recored parsed by File Location instance"
+	::= { fileLocationStatistics 1 }
+
+fileLocationTotalSuccessfulParsedRecords OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total successful parsed record by File Location instance"
+	::= { fileLocationStatistics 2 }
+
+fileLocationTotalFailedParsedRecords OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total failure while parsing records at File Location instance"
+	::= { fileLocationStatistics 3 }
+
+fileLocationTotalNoOfFiles OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total no of file parsed by File Location instance"
+	::= { fileLocationStatistics 4 }
+
+fileLocationTotalSuccessfulParsedFile OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total Successful Parsed File of File Location instance"
+	::= { fileLocationStatistics 5 }
+
+fileLocationTotalFailedParsedFile OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total failure while parsing at File Location instance"
+	::= { fileLocationStatistics 6 }
+	
+fileLocationInProcessFiles OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total In process files at File Location instance"
+	::= { fileLocationStatistics 7 }
+
+fileLocationAvgTPS OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Average TPS of File Location instance"
+	::= { fileLocationStatistics 8 }
+   
+fileLocationTable OBJECT-TYPE
+	SYNTAX		SEQUENCE OF FileLocationEntry
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+             "The table listing the File Location instance"
+
+	::= { fileLocationStatistics 9 }
+
+fileLocationEntry OBJECT-TYPE
+	SYNTAX     FileLocationEntry
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+             "An row representing a File Location entry"
+       INDEX      { fileLocationIndex }
+	::= { fileLocationTable 1 }
+
+FileLocationEntry ::= SEQUENCE {
+		fileLocationIndex                    		Integer32,
+		fileLocationID                     		SnmpAdminString,
+		fileLocationPath                    		SnmpAdminString,
+		fileLocationResetCounter 					Counter64,
+		fileLocationAvgTPS						Counter64,
+		fileLocationTotalSuccessfulParsedFile 	Counter64,
+		fileLocationTotalFailedParsedFile			Counter64,
+		fileLocationTotalRecords					Counter64,
+		fileLocationTotalSuccessfulParsedRecords 	Counter64,
+		fileLocationTotalFailedParsedRecords 		Counter64,
+		fileLocationTotalNoOfFiles 				Counter64,
+		fileLocationAvgTPS 						Counter64,
+}
+
+fileLocationIndex OBJECT-TYPE
+	SYNTAX		Integer32 (1..2147483647)
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+             "A number uniquely identifying each File Location instance"
+	::= { fileLocationEntry 1 }
+
+fileLocationID OBJECT-TYPE
+	SYNTAX		SnmpAdminString
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "File Location Id"
+	::= { fileLocationEntry 2 }
+
+fileLocationPath OBJECT-TYPE
+	SYNTAX		SnmpAdminString
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "File Location Path"
+	::= { fileLocationEntry 3 }
+
+	
+fileLocationTotalRecords OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total recored parsed by File Location instance"
+	::= { fileLocationEntry 4 }
+
+fileLocationTotalSuccessfulParsedRecords OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total successful parsed record by File Location instance"
+	::= { fileLocationEntry 5 }
+
+fileLocationTotalFailedParsedRecords OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total failure while parsing records at File Location instance"
+	::= { fileLocationEntry 6 }
+
+fileLocationTotalNoOfFiles OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total no of file parsed by File Location instance"
+	::= { fileLocationEntry 7 }
+
+fileLocationTotalSuccessfulParsedFile OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total Successful Parsed File of File Location instance"
+	::= { fileLocationEntry 8 }
+
+fileLocationTotalFailedParsedFile OBJECT-TYPE
+	SYNTAX		Counter64
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+             "Total failure while parsing at File Location instance"
+	::= { fileLocationEntry 9 }
+ 	
+END

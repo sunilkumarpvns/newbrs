@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="4" vendor-name="Unix">
+<attribute id="10" name="Unix-FTP-Uid" type="integer"/>
+<attribute id="11" name="Unix-FTP-Gid" type="integer"/>
+<attribute id="12" name="Unix-FTP-Home" type="string"/>
+<attribute id="13" name="Unix-FTP-Shell" type="string"/>
+<attribute id="14" name="Unix-FTP-Group-Names" type="string"/>
+<attribute id="15" name="Unix-FTP-Group-ids" type="string"/>
+</attribute-list>

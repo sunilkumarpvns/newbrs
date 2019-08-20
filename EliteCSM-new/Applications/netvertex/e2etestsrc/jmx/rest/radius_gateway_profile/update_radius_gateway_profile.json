@@ -1,0 +1,43 @@
+{
+  "id": "rest_r_gateway_profile_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Updated_Rest_Radius_Gateway_Profile",
+  "description": "Updated by Rest Automation",
+  "gatewayType": "APPLICATION_FUNCTION",
+  "vendorId": "2011",
+  "firmware": "firmwares",
+  "usageReportingType": "CUMULATIVE",
+  "revalidationMode": "ServerInitiated",
+  "timeout": 1001,
+  "maxRequestTimeout": 101,
+  "statusCheckDuration": 121,
+  "retryCount": 11,
+  "icmpPingEnabled": true,
+  "supportedVendorList": "Shiva - 166",
+  "sendAccountingResponse": false,
+  "interimInterval": 30,
+  "groovyScriptDatas": [],
+  "radiusGwProfilePCCRuleMappings": [
+    {
+      "orderNumber": 1,
+      "pccRuleMappingId": "rest_pccrule_map_radius_11111111",
+      "condition": "0:1=*"
+    }
+  ],
+  "pccToGWPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_gtop_r_packet_map_11111111",
+      "condition": "0:1=*"
+    }
+  ],
+  "gwToPCCPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_ptog_r_packet_map_11111111",
+      "condition": "0:1=*"
+    }
+  ],
+  "groupNames": "DefaultGroup"
+}

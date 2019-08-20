@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<classic-csv-drivers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:////data/binaryInstallations/610/t/system/schema/classic-csv-drivers.xsd">
+    <classic-csv-driver>
+        <DEFAULT_TIMEBOUNDRY>1440</DEFAULT_TIMEBOUNDRY>
+        <classic-csv-field-mapping>
+           <!-- no mappings --> 
+        </classic-csv-field-mapping>
+        <cdr-details>
+            <cdr-time-format>EEE dd MMM yyyy hh:mm:ss aaa</cdr-time-format>
+            <cdr-time-header>CDRTimeStamp</cdr-time-header>
+            <cdr-time-position>SUFFIX</cdr-time-position>
+            <delimeter>,</delimeter>
+            <header>false</header>
+            <multi-value-delimeter>;</multi-value-delimeter>
+        </cdr-details>
+        <id>100</id>
+        <driver-name>nasClassicCsvAcctDriver</driver-name>
+        <file-details>
+            <default-driver-name>no_nas_ip_address</default-driver-name>
+            <location>data/csvfiles</location>
+            <file-name>CDRs.csv</file-name>
+            <folder-name></folder-name>
+            <create-blank-file>false</create-blank-file>
+            <prefix-filename></prefix-filename>
+        </file-details>
+        <file-rolling-parameters>
+            <globalization>false</globalization>
+            <sequence-position>suffix</sequence-position>
+            <recordbase-rolling-unit>0</recordbase-rolling-unit>
+            <sizebase-rolling-unit>0</sizebase-rolling-unit>
+            <timebase-rolling-unit>0</timebase-rolling-unit>
+            <timeboundry-rolling-unit>1440</timeboundry-rolling-unit>
+        </file-rolling-parameters>
+        <file-transfer-details>
+            <allocation-protocol>NONE</allocation-protocol>
+            <archive-locations>data/csvfiles/archive</archive-locations>
+            <failover-time>3</failover-time>
+            <password>][Vxe[8A</password>
+            <port>0</port>
+            <post-operation>archive</post-operation>
+            <user-name>admin</user-name>
+        </file-transfer-details>
+        <classic-csv-strip-pattern-relation-mapping/>
+    </classic-csv-driver>
+</classic-csv-drivers>

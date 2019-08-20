@@ -1,0 +1,445 @@
+{
+	"schema": {
+    "type": "object",
+    "title": "DB Acct Driver",
+    "properties": {
+        "name": {
+            "title": "Instance Name",
+            "type": "string"
+            },
+        "description": {
+            "title": "Description",
+            "type": "string"
+            },
+            
+            "db-acct-driver":{
+                "type":"array",
+                "items":{
+                        "type":"object",
+                        "properties":{
+                            "database-datasource":{
+                                "title":"Database Datasource",
+                                "type":"string"
+                            },
+                            "datasource-type":{
+                                "title":"Datasource Type",
+                                "type":"string",
+                                "default":"oracle"
+                            },
+                            "db-query-time-out":{
+                                "title":"DB Query Timeout (Sec.)",
+                                "type":"integer",
+                                "default":2
+                            },
+                            "max-query-timeout-count":{
+                                "title":"Maximum Query Timeout Count",
+                                "type":"integer",
+                                "default":200
+                            },
+                            "multiple-value-delimiter":{
+                                "title":"Multiple Value Delimiter",
+                                "type":"string",
+                                "default":";"
+                            },
+                            "cdr-table-name":{
+                                "title":"Table Name",
+                                "type":"string",
+                                "default":"tblradiuscdr"
+                            },
+                            "cdr-identify-field":{
+                                "title":"Identity Field",
+                                "type":"string",
+                                "default":"cdrid"
+                            },
+                            "cdr-sequence-name":{
+                                "title":"Sequence Name",
+                                "type":"string",
+                                "default":"seq_tblradiuscdr"
+                            },
+                            "store-start-record":{
+                                "title":"Store Start Record",
+                                "type":"string"
+                            },
+                            "store-stop-record":{
+                                "title":"Store Stop Record",
+                                "type":"string"
+                            },
+                            "interim-table-name":{
+                                "title":"Table Name",
+                                "type":"string",
+                                "default":"tblradiusinterimcdr"
+                            },
+                            "interim-identify-field":{
+                                "title":"interimcdrid",
+                                "type":"string",
+                                "default":"interimcdrid"
+                            },
+                            "interim-sequence-name":{
+                                "title":"Sequence Name",
+                                "type":"string",
+                                "default":"seq_tblradiusinterimcdr"
+                            },
+                            "store-all-interim-record":{
+                                "title":"Store All Interim Record",
+                                "type":"string"
+                            },
+                            "remove-interim-on-stop":{
+                                "title":"Remove Interim On Stop",
+                                "type":"string"
+                            },
+                            "call-start-field-name":{
+                                "title":"Call Start Field Name",
+                                "type":"string",
+                                "default":"call_start"
+                            },
+                            "call-end-field-name":{
+                                "title":"Call End Field Name",
+                                "type":"string",
+                                "default":"call_end"
+                            },
+                            "create-date-field-name":{
+                                "title":"Create Date Field Name",
+                                "type":"string",
+                                "default":"create_date"
+                            },
+                            "last-modified-date-field-name":{
+                                "title":"Last Modified Date Field Name",
+                                "type":"string",
+                                "default":"last_modified_date"
+                            },
+                            "timestamp-field":{
+                                "title":"Timestamp Field",
+                                "type":"string",
+                                "default":"PARAM_DATE1"
+                            },
+                            "timestamp-enabled":{
+                                "title":"Timestamp Enabled",
+                                "type":"string"
+                            },
+                            
+                            
+                            "db-acct-driver-mapping-details":{
+                                "type":"array",
+                                "items":{
+                                    "type":"object",
+                                    "properties":{
+                                        "attribute-id":{
+                                            "title":"Attribute Ids",
+                                            "type":"string"
+                                        },
+                                        "db-field":{
+                                            "title":"DB Field",
+                                            "type":"string"
+                                        },
+                                        "data-type":{
+                                            "title":"Data Type",
+                                            "type":"string"
+                                           
+                                        },
+                                        "default-value":{
+                                            "title":"Default Value",
+                                            "type":"string"
+                                        },
+                                        "use-dictionary-value":{
+                                            "title":"Use Dictionary Value",
+                                            "type":"string"
+                                        }
+                                        
+                                    }
+                                }
+                            }
+                            
+                        
+                    }
+                }
+            }
+    }
+},
+	"form": [
+  { 
+        "key": "name", 
+        "type": "textbox"
+    },
+    {
+        "key": "description",
+        "type": "textbox"
+    },
+    {
+        "key":"db-acct-driver",
+        "items":[
+            {
+                "key":"db-acct-driver[].database-datasource"
+                
+            }, 
+            {
+                "key":"db-acct-driver[].datasource-type"
+                
+            },
+            {
+                "key":"db-acct-driver[].db-query-time-out"
+                
+            },
+            {
+                "key":"db-acct-driver[].max-query-timeout-count"
+            },
+            {
+                "key":"db-acct-driver[].multiple-value-delimiter"
+            },
+            {
+                "key":"db-acct-driver[].cdr-table-name"
+            },
+            {
+                "key":"db-acct-driver[].cdr-identify-field"
+            },
+             {
+                "key":"db-acct-driver[].cdr-sequence-name"
+            },
+             {
+                "key":"db-acct-driver[].store-start-record",
+                "type":"select",
+                "titleMap":{
+                    "True":"True",
+                    "False":"False"
+                }
+            },
+            {
+                "key":"db-acct-driver[].store-stop-record",
+                "type":"select",
+                "titleMap":{
+                    "True":"True",
+                    "False":"False"
+                }
+            },
+            {
+                "key":"db-acct-driver[].interim-table-name"
+            },
+            {
+                "key":"db-acct-driver[].interim-identify-field"
+            },
+            {
+                "key":"db-acct-driver[].interim-sequence-name"
+            },
+            {
+                "key":"db-acct-driver[].store-all-interim-record",
+                "type":"select",
+                "titleMap":{
+                    "True":"True",
+                    "False":"False"
+                    }
+            },
+            {
+                "key":"db-acct-driver[].remove-interim-on-stop",
+                "type":"select",
+                "titleMap":{
+                    "True":"True",
+                    "False":"False"
+                    }
+            },
+            {
+                "key":"db-acct-driver[].call-start-field-name"
+            },
+            {
+                "key":"db-acct-driver[].call-end-field-name"
+            },
+            {
+                "key":"db-acct-driver[].create-date-field-name"
+            },
+            {
+                "key":"db-acct-driver[].last-modified-date-field-name"
+            },
+            {
+                "key":"db-acct-driver[].timestamp-field"
+            },
+            {
+                "key":"db-acct-driver[].timestamp-enabled",
+                "type":"select",
+                "titleMap":{
+                    "True":"True",      
+                    "False":"False"
+                    }
+            },  
+            {   
+                "key":"db-acct-driver[].db-acct-driver-mapping-details", 
+                "add" : "Add Mapping",
+                "items":[
+                    {
+                        "key":"db-acct-driver[].db-acct-driver-mapping-details[].attribute-id",
+                        "title":"Attribute Ids" 
+                    },
+                    
+                    {
+                        "key":"db-acct-driver[].db-acct-driver-mapping-details[].db-field",
+                        "title":"DB Field"
+                        
+                    }, 
+                    {
+                        "key":"db-acct-driver[].db-acct-driver-mapping-details[].data-type",
+                        "title":"Data Type",
+                        "type":"select",
+                        "titleMap":{
+                             "String":"String",      
+                            "Date":"Date"
+                        }
+                    }, 
+                    
+                    {
+                        "key":"db-acct-driver[].db-acct-driver-mapping-details[].default-value",
+                        "title" : "Default Value"
+                    },
+                    {
+                        "key":"db-acct-driver[].db-acct-driver-mapping-details[].use-dictionary-value",
+                        "title" : "Use-Dictionary-Value",
+                        "titleMap":{
+                        "True":"True",
+                        "False":"False"
+                    }
+                    }
+            
+                    ]
+                    }
+        
+             
+            ]
+    }
+],
+	"model": {
+   "name":"radiusDBAccount",
+   "description":"Created by admin on 01/24/2017 10:30:21 AM",
+   "db-acct-driver":[
+      {
+         "database-datasource":"DefaultDatabaseDatasource",
+         "datasource-type":"Oracle",
+         "db-query-time-out":2,
+         "max-query-timeout-count":200,
+         "multiple-value-delimiter":";",
+         "cdr-table-name":"tblradiuscdr",
+         "cdr-identify-field":"cdrid",
+         "cdr-sequence-name":"seq_tblradiuscdr",
+         "store-stop-record":"true",
+         "interim-table-name":"tblradiusinterimcdr",
+         "store-all-interim-record":"true",
+         "remove-interim-on-stop":"false",
+         "timestamp-field":"PARAM_DATE1",
+         "timestamp-enabled":"true",
+         "interim-identify-field":"interimcdrid",
+         "interim-sequence-name":"seq_tblradiusinterimcdr",
+         "call-start-field-name":"call_start",
+         "call-end-field-name":"call_end",
+         "create-date-field-name":"create_date",
+         "last-modified-date-field-name":"last_modified_date",
+         "store-start-record":"true",
+         "db-acct-driver-mapping-details":[
+            {
+               "attribute-id":"0:1",
+               "db-field":"USER_NAME",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:31",
+               "db-field":"CALLING_STATION_ID",
+               "data-type":"String",
+               "default-value":"AB:1C:DE:3F:32:6F",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:4",
+               "db-field":"NAS_IP_ADDRESS",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:32",
+               "db-field":"NAS_IDENTIFIER",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:5",
+               "db-field":"NAS_PORT",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:87",
+               "db-field":"NAS_PORT_ID",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:44",
+               "db-field":"ACCT_SESSION_ID",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:50",
+               "db-field":"ACCT_MULTI_SESSION_ID",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:40",
+               "db-field":"ACCT_STATUS_TYPE",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:46",
+               "db-field":"ACCT_SESSION_TIME",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:42",
+               "db-field":"ACCT_INPUT_OCTETS",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:43",
+               "db-field":"ACCT_OUTPUT_OCTETS",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:52",
+               "db-field":"ACCT_INPUT_GIGAWORDS",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:53",
+               "db-field":"ACCT_OUTPUT_GIGAWORDS",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:47",
+               "db-field":"ACCT_INPUT_PACKETS",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:48",
+               "db-field":"ACCT_OUTPUT_PACKETS",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:41",
+               "db-field":"ACCT_DELAY_TIME",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            },
+            {
+               "attribute-id":"0:55",
+               "db-field":"EVENT_TIMESTAMP",
+               "data-type":"String",
+               "use-dictionary-value":"false"
+            }
+         ]
+      }
+   ]
+}
+}

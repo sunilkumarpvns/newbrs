@@ -1,0 +1,12 @@
+{
+ 	"id": "rest_event_rnc_package_11111111",
+        "status": "ACTIVE",
+        "groups": "GROUP_1",
+        "name": "rest_event_rnc_package",
+        "description": "Created event based RnC by rest automation",
+        "type": "BASE",
+        "mode": "DESIGN",
+        "groupNames": "DefaultGroup",
+        "chargingType":"EVENT",
+		"currency": "INR"
+}

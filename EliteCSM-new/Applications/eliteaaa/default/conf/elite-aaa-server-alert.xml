@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alerts>	
+	<db-down-alert enabled="true">
+		<alert-listeners>
+			<alert-listener>test4</alert-listener>
+		</alert-listeners>
+	</db-down-alert>
+	<db-up-alert enabled="true" >
+		<alert-listeners>
+			<alert-listener>test1</alert-listener>
+		</alert-listeners>
+	</db-up-alert>
+	
+	<server-down-alert enabled="true" >
+		<alert-listeners>
+			<alert-listener>test2</alert-listener>
+		</alert-listeners>
+	</server-down-alert>
+	
+	<server-up-alert enabled="true">
+		<alert-listeners>
+			<alert-listener>test3</alert-listener>
+		</alert-listeners>
+	</server-up-alert>
+	<query-time-out-alert enabled="true" >
+		<alert-listeners>
+			<alert-listener>test</alert-listener>
+		</alert-listeners>
+	</query-time-out-alert>
+	<radius-dead-alert enabled="true">
+		<alert-listeners>
+			<alert-listener></alert-listener>
+		</alert-listeners>
+	</radius-dead-alert>
+	<radius-alive-alert enabled="true">
+		<alert-listeners>
+			<alert-listener></alert-listener>
+		</alert-listeners>
+	</radius-alive-alert>
+</alerts>

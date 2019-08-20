@@ -1,0 +1,39 @@
+{
+  "id": "rest_db_cdr_driver_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "rest_db_cdr_driver",
+  "description": "Created by REST Automation",
+  "driverType": "DB_CDR_DRIVER",
+  "csvDriverData": null,
+  "dbCdrDriverData": {
+    "maxQueryTimeoutCount": 100,
+    "batchUpdate": "true",
+    "batchSize": 500,
+    "batchUpdateQueryTimeout": 10,
+    "tableName": "TBLM_CDR",
+    "identityField": "CDRID",
+    "sequenceName": "SEQ_CDR",
+    "storeAllCdr": "true",
+    "timeStampFieldName": "TIMESTAMP",
+    "reportingType": null,
+    "sessionIdFieldName": "SESSIONID",
+    "createDateFieldName": "CREATEDATE",
+    "lastModifiedDateFieldName": "LASTMODIFIEDDATE",
+    "inputOctetsFieldName": "INPUTOCTETS",
+    "outputOctetsFieldName": "OUTPUTOCTETS",
+    "totalOctetsFieldName": "TOTALOCTETS",
+    "usageTimeFieldName": "USAGETIME",
+    "usageKeyFieldName": "MONITORINGKEY",
+    "dbCdrDriverFieldMappingDataList": [
+      {
+        "pcrfKey": "CS.UserName",
+        "dbField": "USERNAME",
+        "dataType": "0",
+        "defaultValue": "netvertex_user"
+      }
+    ],
+    "databaseId": "rest_db_datasource_11111111"
+  },
+  "groupNames": "DefaultGroup"
+}

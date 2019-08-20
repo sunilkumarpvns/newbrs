@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="193" applicationid="0" application-name="ericsson" vendor-name="ericsson"> 
+
+
+    <attribute id="1143" name="Credit-Instance-Id" mandatory="yes" protected="yes"  encryption="no" type="Enumerated">
+         <supported-values>
+            <value id="0" name="None"/>
+        </supported-values>
+     </attribute>
+
+
+    <attribute id="1060" name="Gx-Capability-List" mandatory="yes" protected="yes"  encryption="no" type="Unsigned32"/>
+	<attribute id="290" name="Rule-Space-Suggestion" mandatory="yes" protected="yes"  encryption="no" type="UTF8String"/>
+	<attribute id="291" name="Rule-Space-Decision" mandatory="yes" protected="yes"  encryption="no" type="UTF8String"/>
+</attribute-list>

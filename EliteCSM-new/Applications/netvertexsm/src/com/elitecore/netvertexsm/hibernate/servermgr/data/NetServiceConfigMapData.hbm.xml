@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.data.NetServiceConfigMapData" table="TBLMNETSERVICECONFIGMAP">
+		<composite-id>
+			<key-property name="netServiceTypeId" column="NETSERVICETYPEID" type="string"/>
+			<key-property name="netConfigId" column="NETCONFIGID" type="string"/>
+		</composite-id>
+		<property name="netConfigMapTypeId" type="string">
+			<column name="NETCONFIGMAPTYPEID" sql-type="CHAR(1)" not-null="true"></column>
+		</property>
+	</class>
+</hibernate-mapping>        

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clients>
+       <client>
+              <client-ip>Fe80::eA40:f2Ff:Fe47:986c,Fe80:0:0:0:eA40:f2Ff:Fe47:986e</client-ip>
+              <shared-secret>secret</shared-secret>
+              <request-expiry-time>8000</request-expiry-time>
+              <profile-name>test_profile</profile-name>
+              <framed-pool-name/>
+       </client>
+       <client>
+              <client-ip>::0, ::1</client-ip>
+              <shared-secret>secret</shared-secret>
+              <request-expiry-time>8000</request-expiry-time>
+              <profile-name>test_profile</profile-name>
+              <framed-pool-name/>
+       </client>
+</clients>

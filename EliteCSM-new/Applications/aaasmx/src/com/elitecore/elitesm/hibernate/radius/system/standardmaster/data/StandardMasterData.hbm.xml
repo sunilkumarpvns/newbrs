@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.radius.system.standardmaster.data.StandardMasterData" table="TBLMSTANDARDMASTER" >          
+	 
+	 <id name="masterId" type="CharType"  >
+          <column name="MASTERID" sql-type="CHAR(7)" not-null="true"/>
+     </id>
+     
+     <property name="masterTypeId" type="CharType">
+          <column name="MASTERTYPEID" sql-type="CHAR(7)" not-null="true"/>
+     </property>
+     
+     <property name="name" type="StringType">
+          <column name="NAME" sql-type="VARCHAR(255)" not-null="true"/>
+      </property>
+     
+     <property name="alias" type="StringType">
+          <column name="ALIAS" sql-type="VARCHAR(255)" not-null="true"/>
+     </property>
+          
+     <property name="description" type="StringType">
+          <column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"/>
+     </property>
+     
+     <property name="categoryName" type="StringType">
+          <column name="CATEGORYNAME" sql-type="VARCHAR(255)" not-null="true"/>
+     </property>
+ 
+ 	<property name="createDate" type="java.sql.Timestamp" column="CREATEDATE" not-null="true" >
+    </property>
+ 
+ 
+ 	 <property name="editable" type="CharType">
+		 <column name="EDITABLE" sql-type="CHAR(1)" not-null="true"/>
+     </property>
+
+ 	 <property name="createdByStaffId" type="StringType">
+		 <column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"/>
+     </property>
+     
+          	
+     <property name="lastModifiedDate" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" not-null="false" >
+     </property>
+	
+	 <property name="lastModifiedDateByStaffId" type="StringType">
+          <column name="LASTMODIFIEDDATEBYSTAFFID" sql-type="VARCHAR(36)" not-null="false"/>
+      </property>
+ 
+     <property name="systemGenerated" type="CharType">
+		 <column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+     </property>  
+ 
+     <property name="enableDisable" type="StringType">
+		 <column name="ENABLEDISABLE" sql-type="VARCHAR(10)" not-null="true"/>
+     </property>   
+ 
+     <property name="showHide" type="StringType">
+		 <column name="SHOWHIDE" sql-type="VARCHAR(10)" not-null="true"/>
+     </property>   
+ 
+     <property name="enableDisableChangeDate" type="java.sql.Timestamp" column="ENABLEDISABLECHANGEDATE" not-null="false" >
+     </property>
+ 
+     <property name="showHideChangeDate" type="java.sql.Timestamp" column="SHOWHIDECHANGEDATE" not-null="false">
+     </property>
+     
+     <property name="enableDisableByStaffId" type="CharType">
+		 <column name="ENABLEDISABLEBYSTAFFID" sql-type="CHAR(7)" not-null="false"/>
+     </property>
+     
+     <property name="showHideByStaffId" type="CharType">
+		 <column name="SHOWHIDEBYSTAFFID" sql-type="CHAR(7)" not-null="false"/>
+     </property>
+     
+     <property name="strParam1" type="StringType">
+          <column name="STRPARAM1" sql-type="VARCHAR(255)" not-null="false"/>
+     </property>
+     
+     <property name="strParam2" type="StringType">
+          <column name="STRPARAM2" sql-type="VARCHAR(255)" not-null="false"/>
+     </property>
+  
+     <property name="strParam3" type="StringType">
+          <column name="STRPARAM3" sql-type="VARCHAR(255)" not-null="false"/>
+     </property>
+   
+     <property name="dateParam1" type="java.sql.Timestamp" column="DATEPARAM1" not-null="false" >
+     </property>
+ 	 
+ 	 <property name="dateParam2" type="java.sql.Timestamp" column="DATEPARAM2" not-null="false">
+     </property>
+     
+     <property name="dateParam3" type="java.sql.Timestamp" column="DATEPARAM3" not-null="false">
+         
+     </property>
+     
+     <property name="numParam1" type="long">
+          <column name="NUMPARAM1" sql-type="NUMBER(13)" not-null="false"/>
+     </property>
+ 
+     <property name="numParam2" type="long">
+          <column name="NUMPARAM2" sql-type="NUMBER(13)" not-null="false"/>
+     </property> 
+ 
+ 
+      <property name="numParam3" type="long">
+          <column name="NUMPARAM3" sql-type="NUMBER(13)" not-null="false"/>
+     </property>
+ 
+ 
+      <property name="charParam1" type="CharType">
+		 <column name="CHARPARAM1" sql-type="CHAR(1)" not-null="true"/>
+     </property>      
+     
+      <property name="charParam2" type="CharType">
+		 <column name="CHARPARAM2" sql-type="CHAR(1)" not-null="true"/>
+     </property>      
+     
+      <property name="charParam3" type="CharType">
+		 <column name="CHARPARAM3" sql-type="CHAR(1)" not-null="true"/>
+     </property>               
+     
+     <property name="floatNum1" type="float">
+		 <column name="FLOATNUM1" sql-type="NUMBER(20,6)" not-null="true"/>
+     </property>               
+     
+     <property name="floatNum2" type="float">
+		 <column name="FLOATNUM2" sql-type="NUMBER(20,6)" not-null="true"/>
+     </property>  
+     
+     <property name="floatNum3" type="float">
+		 <column name="FLOATNUM3" sql-type="NUMBER(20,6)" not-null="true"/>
+     </property>  
+     
+     <property name="displayName" type="StringType">
+          <column name="DISPLAYNAME" sql-type="VARCHAR(255)" not-null="false"/>
+     </property>     
+
+	 <property name="displayNameLock" type="CharType">
+          <column name="DISPLAYNAMELOCK" sql-type="CHAR(1)" not-null="false"/>
+     </property>  
+     
+	</class>
+	
+</hibernate-mapping>

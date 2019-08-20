@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "tiles-config_1_1.dtd" >
+<component-definitions>
+
+    <definition name="MAIN.LAYOUT" path="/jsp/core/Layout.jsp">
+		<put name="header" value="/jsp/core/Header.jsp"/>
+		<put name="leftPanel" value="/jsp/core/LeftPanel.jsp"/>
+		<put name="body" value="/jsp/core/Home.jsp"/>
+		<put name="rightPanel" value="/jsp/core/RightPanel.jsp"/>
+		<put name="footer" value="/jsp/core/Footer.jsp" />
+	</definition>
+
+	<definition name="SUCCESS.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/core/response/success.jsp"/>
+	</definition>
+	
+	<definition name="FAILURE.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/core/response/failure.jsp"/>
+	</definition>
+
+	<definition name="BOD.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/bod/Bod.jsp"/>
+	</definition>
+	
+	<definition name="HISTORY.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/history/History.jsp"/>
+	</definition>
+	
+	<definition name="PROMOTIONAL.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/promotional/Promotional.jsp"/>
+	</definition>
+	
+	<definition name="UPGRADEQUOTA.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/quota/UpgradeQuota.jsp"/>
+	</definition>
+	
+	<definition name="PARENTALCONTROL.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/parentalcontrol/ParentalControl.jsp"/>
+	</definition>	
+	
+	<definition name="CHILDACCOUNT_MANAGE.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/parentalcontrol/ChildAccountManage.jsp"/>
+	</definition>		
+	
+	<definition name="CHILDACCOUNT_SMART_MANAGE.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/parentalcontrol/ChildAccountSmartManage.jsp"/>
+	</definition>
+
+	<definition name="VIEWCHILDACCOUNT.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/parentalcontrol/ViewChildAccount.jsp"/>
+	</definition>
+
+	<definition name="CHILDACCOUNT_USAGE_INFO.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/parentalcontrol/ChildAccountUsageInfo.jsp"/>
+	</definition>
+
+	<definition name="CHILDACCOUNT_INFO.LAYOUT" extends="MAIN.LAYOUT">
+		<put name="body" value="/jsp/parentalcontrol/ChildAccountInfo.jsp"/>
+	</definition>  
+	
+</component-definitions>

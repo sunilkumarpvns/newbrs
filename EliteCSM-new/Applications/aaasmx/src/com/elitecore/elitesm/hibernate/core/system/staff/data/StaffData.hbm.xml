@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.core.system.staff.data.StaffData" table="TBLMSTAFF" >          
+	 
+	 <id name="staffId" column="STAFFID" type="StringType" >
+          	<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+     </id>
+     
+     <property name="name" type="StringType">
+          <column name="NAME" sql-type="VARCHAR(60)" not-null="true"/>
+     </property>
+     
+     <property name="username" type="StringType">
+          <column name="USERNAME" sql-type="VARCHAR(18)" not-null="true"/>
+     </property>
+     
+     <property name="createDate" type="java.sql.Timestamp" column="CREATEDATE" not-null="true">
+     </property>
+     
+     <property name="password" type="StringType">
+          <column name="PASSWORD" sql-type="VARCHAR(50)" not-null="true"/>
+     </property>
+     
+     <property name="birthDate" type="java.sql.Timestamp" column="BIRTHDATE" not-null="true">
+     </property> 
+
+     <property name="lastModifiedDate" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" not-null="false"> 
+     </property>
+     
+      <property name="lastChangePasswordDate" type="java.sql.Timestamp" column="LASTCHANGEPWDDATE" not-null="false"> 
+     </property>
+     
+     <property name="emailAddress" type="StringType">
+          <column name="EMAILADDRESS" sql-type="VARCHAR(50)" not-null="true"/>
+     </property>
+     
+     <property name="address1" type="StringType">
+          <column name="ADDRESS1" sql-type="VARCHAR(60)" not-null="true"/>
+      </property>
+      
+      <property name="address2" type="StringType">
+          <column name="ADDRESS2" sql-type="VARCHAR(60)" not-null="false"/>
+      </property>
+      
+      <property name="zip" type="CharType">
+          <column name="ZIP" sql-type="CHAR(6)" not-null="true"/>
+      </property>
+      
+      <property name="city" type="StringType">
+          <column name="CITY" sql-type="VARCHAR(25)" not-null="true"/>
+      </property>
+      
+      <property name="state" type="StringType">
+          <column name="STATE" sql-type="VARCHAR(25)" not-null="true"/>
+      </property>
+      
+      <property name="country" type="StringType">
+          <column name="COUNTRY" sql-type="VARCHAR(25)" not-null="true"/>
+      </property>
+      
+      <property name="phone" type="StringType">
+          <column name="PHONE" sql-type="VARCHAR(20)" not-null="false"/>
+      </property>
+      
+     <property name="lastLoginTime" type="java.sql.Timestamp" column="LASTLOGINTIME" not-null="false">
+		</property>
+      
+      <property name="mobile" type="StringType">
+          <column name="MOBILE" sql-type="VARCHAR(20)" not-null="false"/>
+      </property> 
+      
+      <property name="statusChangeDate" type="java.sql.Timestamp" column="STATUSCHANGEDATE" not-null="false" >
+      </property> 
+      
+      <property name="commonStatusId" type="CharType">
+          <column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="true"/>
+      </property>
+      
+      <property name="createdByStaffId" type="StringType">
+          <column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"/>
+      </property>
+      
+      <property name="lastModifiedByStaffId" type="StringType">
+          <column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"/>
+      </property>
+      
+      <property name="systemGenerated" type="CharType">
+          <column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+      </property>
+      
+      <property name="auditUId" type="StringType" >
+	       <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	  </property> 
+     
+      <many-to-one name="commonStatus" class="com.elitecore.elitesm.datamanager.core.base.data.CommonStatusData" column="COMMONSTATUSID" insert="false" update="false" not-null="true" lazy="false"/>			
+      
+      <set name="staffGroupRel" cascade="all,delete-orphan" lazy="false" inverse="true">
+			<key column="staffId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.core.system.staff.data.StaffGroupRelData"/>
+	  </set>  
+      
+      <property name="historicalPassword" type="StringType">
+          <column name="HISTORICALPASSWORD" sql-type="VARCHAR(1550)" not-null="false"/>
+     </property>
+	</class>
+	
+</hibernate-mapping>
+
+          

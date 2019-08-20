@@ -1,0 +1,93 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("partner.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("partner.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("partner.name")})}</message>
+        </field-validator>	
+      </field>
+      
+	<field name="status">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("partner.status")})}</message>
+		</field-validator>
+	</field>
+	
+	 <field name="registraionDate">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("partner.registraionDate")})}</message>
+		</field-validator>
+	</field>
+	
+   <field name="countryId">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("partner.country")})}</message>
+		</field-validator>
+	</field>
+	
+	<field name="regionId">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("partner.state")})}</message>
+		</field-validator>
+	</field>
+	
+	<field name="cityId">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("partner.city")})}</message>
+		</field-validator>
+	</field> 
+	 
+	 <field name="postCode">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.numeric", {getText("partner.postCode")})}</message>
+		</field-validator>	
+	</field> 
+	
+	<field name="primaryContactName">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("partner.primaryContactName")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("partner.primaryContactName")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("partner.primaryContactName")})}</message>
+        </field-validator>	
+      </field>
+      	 
+      <field name="primaryContactNumber">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.numeric", {getText("partner.primaryContactNumber")})}</message>
+		</field-validator>
+	 </field>
+	
+	<field name="primaryEmailAddress">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("partner.primaryEmailAddress")})}</message>
+		</field-validator>
+		<field-validator type="email" short-circuit="true">
+			<message>${getText("error.email")}</message>
+		</field-validator>
+	</field>
+	
+</validators>
+ 

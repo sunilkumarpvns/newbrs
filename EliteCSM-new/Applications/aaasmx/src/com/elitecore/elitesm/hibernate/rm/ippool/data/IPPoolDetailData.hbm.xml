@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.rm.ippool.data.IPPoolDetailData" table="TBLMIPPOOLDETAIL" >          
+	 
+		<composite-id>
+			<key-property name="ipPoolId" column="IPPOOLID" type="StringType"/>
+			<key-property name="serialNumber" column="SERIALNUMBER" type="long"/>
+		</composite-id>
+	 
+		<property name="ipAddress" type="StringType">
+		        <column name="IPADDRESS" sql-type="VARCHAR2(50)" not-null="true" />
+		</property>
+     
+		<property name="assigned" type="string">
+		        <column name="ASSIGNED" sql-type="CHAR(1)" not-null="false" />
+		</property>
+
+		<property name="reserved" type="string">
+		        <column name="RESERVED" sql-type="CHAR(1)" not-null="false" />
+		</property>
+
+		<property name="lastUpdatedTime" type="java.sql.Timestamp">
+		        <column name="LAST_UPDATED_TIME" sql-type="TIMESTAMP(6)" not-null="false" />
+		</property>
+
+		<property name="nasIPAddress" type="string">
+		        <column name="NAS_IP_ADDRESS" sql-type="VARCHAR(50)" not-null="false" />
+		</property>
+		
+		<property name="callingStationId" type="string">
+		        <column name="CALLING_STATION_ID" sql-type="VARCHAR(100)" not-null="false" />
+		</property>
+
+		<property name="userIdentity" type="string">
+		        <column name="USER_IDENTITY" sql-type="VARCHAR(100)" not-null="false" />
+		</property>
+		
+		<property name="ipAddressRange" type="StringType">
+		        <column name="IPADDRESSRANGE" sql-type="VARCHAR(64)" not-null="false" />
+		</property>
+		
+		<property name="ipAddressRangeId" type="StringType">
+		        <column name="IPADDRESSRANGEID" sql-type="VARCHAR(64)" not-null="false" />
+		</property>
+     
+	</class>
+	
+</hibernate-mapping>
+
+          
+

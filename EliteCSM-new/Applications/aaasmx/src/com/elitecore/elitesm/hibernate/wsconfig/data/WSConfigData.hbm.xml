@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class  name="com.elitecore.elitesm.datamanager.wsconfig.data.WSConfigData" table="TBLWSCONFIG">
+
+		<id name="wsconfigId" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="databasedsId" type="StringType"> 
+			<column name="DATABASEDSID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="tableName" type="StringType"> 
+			<column name="TABLENAME" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<property name="userIdentityFieldName" type="StringType"> 
+			<column name="UIDFIELDNAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+
+		<property name="recordFetchLimit" type="java.lang.Integer"> 
+			<column name="RECORDFETCHLIMIT" sql-type="NUMERIC(5)" not-null="false" /> 
+		</property>
+		
+		<property name="configType" type="CharType"> 
+			<column name="CONFIGTYPE" sql-type="CHAR(2)" not-null="false" /> 
+		</property>
+		
+		<property name="primaryKeyColumn" type="StringType"> 
+			<column name="PRIMARYKEYCOLUMN" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="sequenceName" type="StringType"> 
+			<column name="SEQUENCENAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+
+		<set name="wsDBFieldMapSet"  lazy="false" inverse="true" order-by="orderNumber">
+	      	<key column="WSCONFIGID" ></key>
+	      	<one-to-many class="com.elitecore.elitesm.datamanager.wsconfig.data.WSDBFieldMapData" />
+        </set>
+        
+        <set name="wsAttrFieldMapSet" lazy="false" inverse="true" order-by="orderNumber">
+	      	<key column="WSCONFIGID" ></key>
+	      	<one-to-many class="com.elitecore.elitesm.datamanager.wsconfig.data.WSAttrFieldMapData" />
+        </set>
+        
+        <set name="wsKeyMappingSet" lazy="false" inverse="true" order-by="orderNumber">
+	      	<key column="WSCONFIGID" ></key>
+	      	<one-to-many class="com.elitecore.elitesm.datamanager.wsconfig.data.WSKeyMappingData" />
+        </set>
+        <many-to-one name="datasourceConfigInstance" insert="false" update="false" fetch="join" class="com.elitecore.elitesm.datamanager.datasource.database.data.DatabaseDSData" column="DATABASEDSID"></many-to-one>
+</class>            
+	            
+</hibernate-mapping>

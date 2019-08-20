@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="12356" vendor-name="Fortinet">
+<attribute id="1" name="Fortinet-Group-Name" type="string"/>
+<attribute id="2" name="Fortinet-Client-IP-Address" type="ipaddr"/>
+<attribute id="3" name="Fortinet-Vdom-Name" type="string"/>
+<attribute id="4" name="Fortinet-Client-IPv6-Address" type="octets"/>
+<attribute id="5" name="Fortinet-Interface-Name" type="string"/>
+<attribute id="6" name="Fortinet-Access-Profile" type="string"/>
+</attribute-list>

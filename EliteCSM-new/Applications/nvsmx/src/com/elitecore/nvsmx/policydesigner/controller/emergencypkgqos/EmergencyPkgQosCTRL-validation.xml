@@ -1,0 +1,29 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="qosProfile.name">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("qosprofile.name")})}</message>
+		</field-validator>
+		<field-validator type="stringlength" short-circuit="true">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("qosprofile.name")})}</message>
+		</field-validator>
+		<field-validator type="regex" short-circuit="true">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("qosprofile.name")})}</message>
+        </field-validator>		
+	</field>
+    <field name="qosProfile.duration" >
+		<field-validator type="regex" short-circuit="true">
+        	<param name="regex"><![CDATA[^\d*$]]></param>
+    		<message>${getText("error.required.numeric", {getText("qosprofile.duration")})}</message>
+        </field-validator>
+        <field-validator type="long" short-circuit="true">			
+        	<param name="min">1</param>
+   			<param name="max">1440</param>
+			<message>${getText("error.numeric.range", {getText("qosprofile.duration")})}</message>			
+		</field-validator>
+   </field> 
+</validators>

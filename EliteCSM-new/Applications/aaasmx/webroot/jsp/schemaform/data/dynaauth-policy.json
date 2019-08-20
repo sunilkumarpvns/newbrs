@@ -1,0 +1,282 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Create DynAuth Policy",
+  "properties":{
+      "name":{
+          "title":"Name",
+          "type":"string"
+      },
+      "description":{
+          "title":"Description",
+          "type":"string"
+      },
+      "status":{
+          "title":"Status",
+          "type":"string"
+      },
+      "ruleset":{
+          "title":"Policy Selection Ruleset",
+          "type":"string"
+      },
+      "response-attributes":{
+          "title":"Response attributes",
+          "type":"string"
+      },
+      "validate-packet":{
+          "title":"Validate Packet",
+          "type":"string"
+      },
+      "event-timestamp":{
+          "title":"Event Timestamp",
+          "type":"integer",
+          "default":60
+      },
+      "database-datasource":{
+          "title":"Database Datasource",
+          "type":"string"
+      },
+      "table-name":{
+          "title":"Table Name",
+          "type":"string",
+          "default":"TBLMCONCURRENTUSERS"
+      },
+      "db-failure-action":{
+          "title":"DB Failure Action",
+          "type":"string"
+      },
+      "eligible-session":{
+          "title":"Eligible Session",
+          "type":"integer"
+      },
+      "missing-attribute-field-mapping":{
+          "type":"array",
+          "items":{
+              "type":"object",
+               "properties":{
+              "attribute-ids":{
+                  "title":"Attribute Ids",
+                  "type":"string"
+              },
+              "db-field":{
+                  "title":"DB Field",
+                  "type":"string"
+              },
+              "default-value":{
+                  "title":"Default Value",
+                  "type":"string"
+              },
+              "mandatory":{
+                  "title":"Mandatory",
+                  "type":"string"
+              }
+            }
+              
+          }
+         
+      },
+        "nas-clients":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "ruleset":{
+                      "title":"Ruleset",
+                      "type":"string"
+                  },
+                  "script":{
+                      "title":"Script",
+                      "type":"string"
+                  },
+                  "translation-mapping":{
+                      "title":"Translation Mapping",
+                      "type":"string"
+                  },
+                  "nas-client-details":{
+                      "type":"array",
+                      "items":{
+                          "type":"object",
+                          "properties":{
+                              "server-name":{
+                                  "title":"Server Name",
+                                  "type":"string"
+                              },
+                              "load-factor":{
+                                  "title":"Load Factor",
+                                  "type":"string"
+                              }
+                          }
+                      }
+                  }
+                  
+              }
+          }
+      }
+      
+  }
+  
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"status",
+      "type":"radios",
+      "titleMap":[
+          {
+              "value":"Active",
+              "name":"Active"
+          },
+          {
+              "value":"InActive",
+              "name":"InActive"
+          }
+          ]
+  },
+  {
+      "key":"ruleset",
+      "type":"textarea"
+  },
+  {
+      "key":"response-attributes",
+      "type":"textarea"
+  },
+  {
+      "key":"validate-packet",
+      "type":"select",
+      "titleMap":{
+          "True":"True",
+          "False":"False"
+          
+      }
+  },
+  {
+      "key":"event-timestamp"
+  },
+  {
+      "key":"database-datasource"
+  },
+  {
+      "key":"table-name"
+  },
+  {
+      "key":"db-failure-action",
+      "type":"select",
+      "titleMap":{
+          "NAK":"NAK",
+          "DROP":"DROP"
+      }
+  },
+  {
+      "key":"eligible-session",
+      "type":"select",
+      "titleMap":{
+          "All":"All",
+          "Recent":"Recent",
+          "Oldest":"Oldest",
+          "None":"None"
+      }
+  },
+  {
+      "key":"missing-attribute-field-mapping",
+      "add":"Add",
+      "items":[
+          {
+              "key":"missing-attribute-field-mapping[].attribute-ids"
+          },
+          {
+              "key":"missing-attribute-field-mapping[].db-field"
+          },
+          {
+              "key":"missing-attribute-field-mapping[].default-value"
+          },
+          {
+              "key":"missing-attribute-field-mapping[].mandatory",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                  "False":"False"
+              }
+          }
+          ]
+  },
+  {
+      "key":"nas-clients",
+      "items":[
+          {
+              "key":"nas-clients[].ruleset"
+          },
+          {
+              "key":"nas-clients[].script"
+          },
+          {
+              "key":"nas-clients[].translation-mapping"
+          },
+          {
+              "key":"nas-clients[].nas-client-details",
+              "items":[
+                  {
+                      "key":"nas-clients[].nas-client-details[].server-name"
+                  },
+                  {
+                      "key":"nas-clients[].nas-client-details[].load-factor",
+                      "type":"select",
+                      "titleMap":{
+                          "0":"0",
+                          "1":"1",
+                          "2":"2",
+                          "3":"3",
+                          "4":"4",
+                          "5":"5",
+                          "6":"6",
+                          "7":"7",
+                          "8":"8",
+                          "9":"9",
+                          "10":"10"
+                      }
+                  }
+                  ]
+          }
+          ]
+  }
+  
+],
+"model":{
+   "name":"DYNAUTH-SP",
+   "description":"Created by admin on 05/26/2016 01:35:35 PM",
+   "status":"ACTIVE",
+   "ruleset":"0:1=\"*\"",
+   "response-attributes":"0:1=0:1",
+   "validate-packet":"false",
+   "eligible-session":"None",
+   "event-timestamp":60,
+   "table-name":"TBLMCONCURRENTUSERS",
+   "database-datasource":"DefaultDatabaseDatasource",
+   "missing-attribute-field-mapping":[
+      {
+         "mandatory":"False",
+         "attribute-ids":"0:4",
+         "db-field":"NAS_IP_ADDRESS",
+         "default-value":"0.0.0.0"
+      }
+   ],
+   "nas-clients":[
+      {
+         "ruleset":"0:1=\"eliteaaa\"",
+         "script":"script",
+         "translation-mapping":"rad_to_rad",
+         "nas-client-details":[
+            {
+               "server-name":"NAS-ESI",
+               "load-factor":1
+            }
+         ]
+      }
+   ],
+   "db-failure-action":"NAK"
+}
+}

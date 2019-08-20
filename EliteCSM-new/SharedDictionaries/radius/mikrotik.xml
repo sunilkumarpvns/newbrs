@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="14988" vendor-name="Mikrotik">
+<attribute id="1" name="Mikrotik-Recv-Limit" type="integer"/>
+<attribute id="2" name="Mikrotik-Xmit-Limit" type="integer"/>
+<attribute id="3" name="Mikrotik-Group" type="string"/>
+<attribute id="4" name="Mikrotik-Wireless-Forward" type="integer"/>
+<attribute id="5" name="Mikrotik-Wireless-Skip-Dot1x" type="integer"/>
+<attribute id="6" name="Mikrotik-Wireless-Enc-Algo" type="integer">
+	<supported-values>
+		<value id="0" name="No-encryption"/>
+		<value id="1" name="40-bit-WEP"/>
+		<value id="2" name="104-bit-WEP"/>
+	</supported-values>
+</attribute>
+<attribute id="7" name="Mikrotik-Wireless-Enc-Key" type="string"/>
+<attribute id="8" name="Mikrotik-Rate-Limit" type="string"/>
+<attribute id="9" name="Mikrotik-Realm" type="string"/>
+<attribute id="10" name="Mikrotik-Host-IP" type="ipaddr"/>
+<attribute id="11" name="Mikrotik-Mark-id" type="string"/>
+<attribute id="12" name="Mikrotik-Advertise-URL" type="string"/>
+<attribute id="13" name="Mikrotik-Advertise-Interval" type="integer"/>
+<attribute id="14" name="Mikrotik-Recv-Limit-Gigawords" type="integer"/>
+<attribute id="15" name="Mikrotik-Xmit-Limit-Gigawords" type="integer"/>
+</attribute-list>

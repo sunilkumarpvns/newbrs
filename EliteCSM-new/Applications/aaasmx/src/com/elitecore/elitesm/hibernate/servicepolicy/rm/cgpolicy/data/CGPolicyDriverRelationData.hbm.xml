@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.rm.cgpolicy.data.CGPolicyDriverRelationData" table="TBLMCGPOLICYDRIVERREL">
+
+		<composite-id>
+			<key-property name="policyId" column="POLICYID" type="StringType"></key-property>
+			<key-property name="driverInstanceId" column="DRIVERINSTANCEID" type="StringType"></key-property>
+		</composite-id>
+		<property name="weightage" type="java.lang.Integer" column="WEIGHTAGE" not-null="false"/>
+		
+		<many-to-one name="driverData" lazy="false" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.drivers.data.DriverInstanceData" column="driverInstanceId">
+		</many-to-one>
+
+</class>            
+	            
+</hibernate-mapping>
+

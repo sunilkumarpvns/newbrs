@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<license>
+	<supported-vendor-list>
+		<vendor id="43"    name="3Com" />
+		<vendor id="10415" name="3gpp" />
+		<vendor id="5535"  name="3gpp2" />
+		<vendor id="5"     name="Acc" />
+		<vendor id="3041"  name="Alcatel" />
+		<vendor id="1872"  name="Alteon" />
+		<vendor id="3076"  name="Altiga" />
+		<vendor id="13209" name="Aptilo" />
+		<vendor id="2637"  name="Aptis" />
+		<vendor id="1584"  name="BayNetworks" />
+		<vendor id="5263"  name="Cisco.BBSM" />
+		<vendor id="9"     name="Cisco" />
+		<vendor id="3076"  name="Cisco.VPN3000" />
+		<vendor id="255"   name="Cisco.VPN5000" />
+		<vendor id="8744"  name="Colubris" />
+		<vendor id="11862" name="ColumbiaUniversity" />
+		<vendor id="3561"  name="dsl" />
+		<vendor id="21067" name="Elitecore" />
+		<vendor id="11344" name="FreeRadius" />
+		<vendor id="2011"  name="Huawei" />
+		<vendor id="2636"  name="Juniper" />
+		<vendor id="5395"  name="Laurel" />
+		<vendor id="311"   name="Microsoft" />
+		<vendor id="24757" name="Wimax" />
+		<vendor id="16273" name="Nexge" />
+		<vendor id="6618"  name="Quintum" />
+		<vendor id="2352"  name="RedBack" />
+		<vendor id="0"     name="Standard" />
+		<vendor id="8164"  name="Starent" />
+		<vendor id="4874"  name="Unisphere" />
+		<vendor id="-1"    name="Any" />
+	</supported-vendor-list>
+
+	<nas-type-list>
+ 		<nas-type>ANY</nas-type>
+ 		<nas-type>NAS</nas-type>
+ 		<nas-type>BRAS</nas-type>
+		<nas-type>3GPP2-HA</nas-type>
+ 		<nas-type>3GPP2</nas-type>
+ 		<nas-type>ASN</nas-type>
+ 		<nas-type>CISCO</nas-type>
+		<nas-type>A12-ANAAA</nas-type>
+		<nas-type>CISCO-ISG</nas-type>
+		<nas-type>CISCO-LAC</nas-type>
+		<nas-type>CISCO-LNS</nas-type>
+		<nas-type>CISCO-SSG</nas-type>
+		<nas-type>CUSTOM1</nas-type>
+		<nas-type>CUSTOM2</nas-type>
+		<nas-type>CUSTOM3</nas-type>
+		<nas-type>CUSTOM4</nas-type>
+		<nas-type>CUSTOM5</nas-type>
+		<nas-type>GGSN</nas-type>
+		<nas-type>PDSN</nas-type>
+		<nas-type>PORTAL</nas-type>
+		<nas-type>PROXY</nas-type>
+		<nas-type>WIMAX-PORTAL</nas-type>
+		<nas-type>WIMAX-DHCP</nas-type>
+		<nas-type>WIMAX-HA</nas-type>
+		<nas-type>RADIUS1</nas-type>
+		<nas-type>RADIUS2</nas-type>
+		<nas-type>RADIUS3</nas-type>
+		<nas-type>SOFTSWITCH</nas-type>
+		<nas-type>VOIP</nas-type>
+		<nas-type>VOICE</nas-type>
+		<nas-type>ATM-VC</nas-type>
+		<nas-type>PPPoA</nas-type>
+		<nas-type>PPPoE</nas-type>
+		<nas-type>PPPoX</nas-type>
+		<nas-type>DOCSIS</nas-type>
+		<nas-type>CAPTIVE-PORTAL</nas-type>
+	</nas-type-list>
+
+	<system-license>
+		<system>
+			<name>SYSTEM_MAX_INSTANCES</name>
+			<display-name>System Max Instances</display-name>
+			<description>system max instances</description>
+			<module>SYSTEM</module>
+			<license-type>MAX_INSTANCE</license-type>
+			<default-value>1</default-value>
+			<value-type>NUMBER</value-type>
+			<operator>3</operator>
+		</system>
+		
+		<system>
+			<name>SYSTEM_NODE</name>
+			<display-name>System Node</display-name>
+			<description>system_node</description>
+			<module>SYSTEM</module>
+			<license-type>NODE</license-type>
+			<default-value></default-value>
+			<value-type>TEXT</value-type>
+			<operator>5</operator>
+		</system>
+		<system>
+			<name>SYSTEM_EXPIRY</name>
+			<display-name>System Expiry</display-name>
+			<description>system_expiry</description>
+			<module>SYSTEM</module>
+			<license-type>EXPIRY_DATE</license-type>
+			<default-value></default-value>
+			<value-type>DATE</value-type>
+			<operator>3</operator>
+		</system>
+		<system>
+			<name>SYSTEM_CLIENTS</name>
+			<display-name>System Clients</display-name>
+			<description>system_clients</description>
+			<module>SYSTEM</module>
+			<license-type>CLIENTS</license-type>
+			<default-value>10</default-value>
+			<value-type>NUMBER</value-type>
+			<operator>3</operator>
+		</system>
+		<system>
+			<name>SYSTEM_CPU</name>
+			<display-name>System CPU(processor/core)</display-name>
+			<description>system_cpu</description>
+			<module>SYSTEM</module>
+			<license-type>CPU</license-type>
+			<default-value>4</default-value>
+			<value-type>NUMBER</value-type>
+			<operator>5</operator>
+		</system>
+		<system>
+			<name>SYSTEM_TPS</name>
+			<display-name>System TPS</display-name>
+			<description>system_tps</description>
+			<module>SYSTEM</module>
+			<license-type>TPS</license-type>
+			<default-value>100</default-value>
+			<value-type>NUMBER</value-type>
+			<operator>3</operator>
+		</system>
+		<system>
+			<name>SYSTEM_SUPPORTED_VENDOR</name>
+			<display-name>System Supported Vendors</display-name>
+			<description>system_supported_vendors</description>
+			<module>SYSTEM</module>
+			<license-type>SUPPORTED_VENDORS</license-type>
+			<default-value>0-STANDARD,21067-ELITECORE</default-value>
+			<value-type>TEXT</value-type>
+			<operator>7</operator>
+		</system>
+		<system>
+			<name>SYSTEM_VENDOR_TYPE</name>
+			<display-name>System Vendor Type</display-name>
+			<description>system_supported_vendor_type</description>
+			<module>SYSTEM</module>
+			<license-type>VENDOR_TYPE</license-type>
+			<default-value>NAS</default-value>
+			<value-type>TEXT</value-type>
+			<operator>7</operator>
+		</system>
+
+		<system>
+			<name>SYSTEM_SUBSCRIBERS</name>
+			<display-name>System Subscribers</display-name>
+			<description>system_subscribers</description>
+			<module>SYSTEM</module>
+			<license-type>SUBSCRIBERS</license-type>
+			<default-value>2000000</default-value>
+			<value-type>NUMBER</value-type>
+			<operator>3</operator>
+		</system>
+		<system>
+			<name>SYSTEM_CONCURRENT_SESSION</name>
+			<display-name>System Concurrent Session</display-name>
+			<description>system_concurrent_session</description>
+			<module>SYSTEM</module>
+			<license-type>CONCURRENT_SESSION</license-type>
+			<default-value>200000</default-value>
+			<value-type>NUMBER</value-type>
+			<operator>3</operator>
+		</system>
+		<system>
+			<name>SYSTEM_DIAMETER_PEER</name>
+			<display-name>System Diameter Peer</display-name>
+			<description>system_diameter_peer</description>
+			<module>SYSTEM</module>
+			<license-type>DIAMETER_PEER</license-type>
+			<default-value>10</default-value>
+			<value-type>NUMBER</value-type>
+			<operator>3</operator>
+		</system>
+	</system-license>
+
+	<module-list>
+		<aaa-server>
+			<service-list>
+				<service>
+					<name>AUTHENTICATION_MODULE</name>
+					<display-name>Authentication Service</display-name>
+					<description>authentication_module</description>
+					<module>SYSTEM_RADIUS_AUTHENTICATION</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+
+				<service>
+					<name>ACCOUNTING_MODULE</name>
+					<display-name>Accounting Service</display-name>
+					<description>accounting_module</description>
+					<module>SYSTEM_RADIUS_ACCOUNTING</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+
+				<service>
+					<name>DYNA_AUTH_MODULE</name>
+					<display-name>Dyna-Auth Service</display-name>
+					<description>dynaauth_module</description>
+					<module>SYSTEM_RADIUS_DYNA_AUTH</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>DIAMETER_MODULE</name>
+					<display-name>Diameter Stack</display-name>
+					<description>Diameter Stack</description>
+					<module>SYSTEM_DIAMETER</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>ELITEDSC_MODULE</name>
+					<display-name>EliteDSC</display-name>
+					<description>EliteDSC</description>
+					<module>SYSTEM_ELITEDSC</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>DTA_MODULE</name>
+					<display-name>DTA</display-name>
+					<description>DTA</description>
+					<module>SYSTEM_DTA</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>DPA_MODULE</name>
+					<display-name>DPA</display-name>
+					<description>DPA</description>
+					<module>SYSTEM_DPA</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>DIAMETER_EAP_MODULE</name>
+					<display-name>Diameter EAP Service</display-name>
+					<description>Diameter EAP Service</description>
+					<module>SYSTEM_DIAMETER_EAP</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>DIAMETER_NAS_MODULE</name>
+					<display-name>Diameter NAS Service</display-name>
+					<description>Diameter NAS Service</description>
+					<module>SYSTEM_DIAMETER_NAS</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>DIAMETER_CC_MODULE</name>
+					<display-name>Diameter CC Service</display-name>
+					<description>Diameter CC Service</description>
+					<module>SYSTEM_DIAMETER_CC</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				
+				<service>
+					<name>3GPP_AAA_SERVER</name>
+					<display-name>3GPP AAA Server</display-name>
+					<description>3GPP AAA Server</description>
+					<module>SYSTEM_3GPP_AAA_SERVER</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				
+				<service>
+					<name>CONCURRENT_LOGIN_SERVICE</name>
+					<display-name>Concurrent Login Service</display-name>
+					<description>Concurrent Login Service</description>
+					<module>SYSTEM_CONCURRENT_LOGIN_MODULE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>IP_POOL_SERVICE</name>
+					<display-name>IP-Pool Service</display-name>
+					<description>IP-PoolService</description>
+					<module>SYSTEM_IPPOOL_MODULE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>PREPAID_SERVICE</name>
+					<display-name>Prepaid Charging Service</display-name>
+					<description>Prepaid Charging Service</description>
+					<module>SYSTEM_PREPAID_MODULE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>ELITECG</name>
+					<display-name>EliteCG</display-name>
+					<description>EliteCG</description>
+					<module>SYSTEM_ELITECG</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>SNMP_AGENT</name>
+					<display-name>SNMP Agent</display-name>
+					<description>SNMP Agent</description>
+					<module>SYSTEM_SNMP_AGENT</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>KPI_SERVICE</name>
+					<display-name>KPI Service</display-name>
+					<description>KPI Service</description>
+					<module>SYSTEM_KPI_SERVICE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>WEB_SERVICE</name>
+					<display-name>Web Service</display-name>
+					<description>Web Service</description>
+					<module>SYSTEM_WEB_SERVICE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+				<service>
+					<name>SESSION_MANAGER</name>
+					<display-name>Session Manager</display-name>
+					<description>Session Manager</description>
+					<module>SYSTEM_SESSION_MANAGER</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected></selected>
+				</service>
+			</service-list>
+		</aaa-server>
+		
+		<netvertex-server>
+			<service-list>
+				<service>
+					<name>GX_INTERFACE</name>
+					<display-name>Gx Interface</display-name>
+					<description>gx_interface</description>
+					<module>GX_INTERFACE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+				<service>
+					<name>GY_INTERFACE</name>
+					<display-name>Gy Interface</display-name>
+					<description>gy_interface</description>
+					<module>GY_INTERFACE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+				<service>
+					<name>RX_INTERFACE</name>
+					<display-name>Rx Interface</display-name>
+					<description>rx_interface</description>
+					<module>RX_INTERFACE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+				<service>
+					<name>S9_INTERFACE</name>
+					<display-name>S9 Interface</display-name>
+					<description>s9_interface</description>
+					<module>S9_INTERFACE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+				<service>
+					<name>RADIUS_INTERFACE</name>
+					<display-name>Radius Interface</display-name>
+					<description>radius_interface</description>
+					<module>RADIUS_INTERFACE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+				<service>
+					<name>CISCOSCE_INTERFACE</name>
+					<display-name>CiscoSCE Interface</display-name>
+					<description>ciscosce_interface</description>
+					<module>CISCOSCE_INTERFACE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+				
+				<service>
+					<name>NOTIFICATION_SERVICE</name>
+					<display-name>Notification Service</display-name>
+					<description>notification_service</description>
+					<module>NOTIFICATION_SERVICE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+				<service>
+					<name>BOD_SERVICE</name>
+					<display-name>BoD Service</display-name>
+					<description>bod_service</description>
+					<module>BOD_SERVICE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+				<service>
+					<name>PROMOTIONAL_SERVICE</name>
+					<display-name>Promotional Service</display-name>
+					<description>promotional_service</description>
+					<module>PROMOTIONAL_SERVICE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+				<service>
+					<name>PROVISIONING_SERVICE</name>
+					<display-name>Provisioning Service</display-name>
+					<description>provisioning_service</description>
+					<module>PROVISIONING_SERVICE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+
+				<service>
+					<name>PARENTAL_CONTROL</name>
+					<display-name>Parental Control</display-name>
+					<description>parental_control</description>
+					<module>PARENTAL_CONTROL</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+					<service>
+					<name>LOCATIONBASED_SERVICE</name>
+					<display-name>Location Based Service</display-name>
+					<description>locationbased_service</description>
+					<module>LOCATIONBASED_SERVICE</module>
+					<license-type>MODULE</license-type>
+					<value-type>DATE</value-type>
+					<operator>3</operator>
+					<selected>false</selected>
+				</service>
+				
+			</service-list>
+		</netvertex-server>
+	</module-list>
+</license>
+
+
+<!-- THE POSSBILE VALUES FOR THE VALUETYPE CAN BE FOLLOWING
+
+   (1) TEXT
+   (2) NUMBER
+   (3) DATE
+
+ -->
+
+<!-- THE POSSBILE VALUES FOR THE OPERATOR CAN BE FOLLOWING
+
+ For,   <   specify value 1			
+    	>   specify value 2
+    	<=  specify value 3
+    	>=  specify value 4
+    	==  specify value 5
+    	!=  specify value 6
+  contains  specify value 7
+        
+ -->

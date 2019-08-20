@@ -1,0 +1,571 @@
+ELITEAAA-TRAP-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+       MODULE-IDENTITY, OBJECT-TYPE, OBJECT-IDENTITY,
+       NOTIFICATION-TYPE,Counter32, Integer32, 
+       Gauge32,IpAddress, TimeTicks, mib-2 				FROM SNMPv2-SMI
+       SnmpAdminString                  FROM SNMP-FRAMEWORK-MIB;
+            -- the path to the root
+
+       internet      OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 }
+
+       directory     OBJECT IDENTIFIER ::= { internet 1 }
+
+       mgmt          OBJECT IDENTIFIER ::= { internet 2 }
+
+       experimental  OBJECT IDENTIFIER ::= { internet 3 }
+
+       private       OBJECT IDENTIFIER ::= { internet 4 }
+
+       enterprises   OBJECT IDENTIFIER ::= { private 1 }
+
+	elitecore   OBJECT IDENTIFIER ::= { enterprises 21067 }
+            
+	eliteAAA   OBJECT IDENTIFIER ::= { elitecore 1 }
+
+            
+eliteAAATrap MODULE-IDENTITY
+       LAST-UPDATED "9906110000Z"
+       ORGANIZATION "EliteCore AAA Working Group."
+       CONTACT-INFO
+              " pulin dani
+                Elitecore
+
+		904, Silicon Tower, 
+                Behind Pariseema Building, 
+	        Off C.G.Road, Nr. Lal Bungalow, 
+                Ahmedabad 380 006, INDIA.
+
+                Phone: +91 9974748337
+                EMail: pulin.dani@elitecore.com"
+       DESCRIPTION
+             "The MIB module for trap entities implementing the eliteaaa 
+              server side of the Remote Access Dialin User Service (RADIUS)."
+       REVISION "9906110000Z"    --  11 Jun 1999
+       DESCRIPTION "Initial version"
+       ::= { eliteAAA 3 }
+
+
+eliteRADIUS  OBJECT IDENTIFIER ::= { eliteAAA 1 } 
+
+eliteDiameter OBJECT IDENTIFIER ::= { eliteAAA 2 }
+
+eliteRM OBJECT IDENTIFIER ::= { eliteAAA 5 }
+
+eliteRADIUSTrap OBJECT IDENTIFIER ::= { eliteAAATrap 1 }
+
+eliteDiameterTrap OBJECT IDENTIFIER ::= { eliteAAATrap 2 }
+
+eliteRMTrap OBJECT IDENTIFIER ::= { eliteAAATrap 9 }
+
+database OBJECT IDENTIFIER ::= { eliteAAATrap 3 }
+
+radiusAuthTrap  OBJECT IDENTIFIER ::= { eliteRADIUSTrap 3 }
+
+radiusAcctTrap OBJECT IDENTIFIER ::= { eliteRADIUSTrap 4 }
+
+radiusServicePolicyNotSatisfied NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Radius Service Policy Not Satisfied."
+	::= { eliteRADIUSTrap 5 }
+
+aaaServerUP NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteAAA."
+	::= { eliteAAATrap 4 }
+
+aaaServerDown NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteAAA."
+	::= { eliteAAATrap 12 }
+
+highAAAResponseTime NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteAAA."
+	::= { eliteAAATrap 13 }
+	
+threadNotAvailable NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteAAA."
+	::= { eliteAAATrap 14 }
+	
+idleCommunication NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteAAA."
+	::= { eliteAAATrap 15 }
+
+	
+databaseUP NOTIFICATION-TYPE
+           STATUS  current
+           DESCRIPTION
+                    "Notifiaction signifies Database UP status."              
+	   ::= { database 1 }
+
+databaseDOWN NOTIFICATION-TYPE
+             STATUS  current
+             DESCRIPTION
+                      "Notifiaction signifies Database Down status."              
+	     ::= { database 2 }
+
+queryTimeout NOTIFICATION-TYPE
+             STATUS  current
+             DESCRIPTION
+                      "Notifiaction signifies Database Query Timeout."              
+	     ::= { database 3 }
+
+noConnection NOTIFICATION-TYPE
+             STATUS  current
+             DESCRIPTION
+                      "Notifiaction signifies No Free Database Connection Available."              
+	     ::= { database 4 }
+
+invalidCursor NOTIFICATION-TYPE
+             STATUS  current
+             DESCRIPTION
+                      "Notifiaction signifies Invalid DB Cursor."              
+	     ::= { database 5 }
+
+highQueryResponseTime NOTIFICATION-TYPE
+             STATUS  current
+             DESCRIPTION
+                      "Notifiaction signifies high query response time, if query time is more than 10ms than this event gets generated."              
+	     ::= { database 6 }
+
+uniqueConstraint NOTIFICATION-TYPE
+             STATUS  current
+             DESCRIPTION
+                      "Notifiaction signifies Unique Key Constrain of DB."              
+	     ::= { database 7 }
+	     
+databaseGeneric NOTIFICATION-TYPE
+             STATUS  current
+             DESCRIPTION
+                      "Notifiaction signifies Unique Key Constrain of DB."              
+	     ::= { database 8 }
+
+ldap OBJECT IDENTIFIER ::= { eliteAAATrap 5 }
+
+ldapUP NOTIFICATION-TYPE
+       STATUS  current
+       DESCRIPTION
+                   "Notification signifies LDAP Up Event."
+	::= { ldap 1 }
+
+ldapDown NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies LDAP Down Event."
+	::= { ldap 2 }
+
+ldapConnectionTimeout NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies LDAP Connection Timeout."
+	::= { ldap 3 }
+
+ldapSizeLimitExceeded NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies LDAP Size limit exceeded event."
+	::= { ldap 4 }
+
+ldapHighQueryTime NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies LDAP high query time, if query time is more than 10ms than it gets generated."
+	::= { ldap 5 }
+
+ldapGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies LDAP high query time, if query time is more than 10ms than it gets generated."
+	::= { ldap 6 }
+
+
+
+radiusESI OBJECT IDENTIFIER ::= { eliteRADIUSTrap 1 }
+
+radiusESIDown NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies radius ESI Up Event."
+	::= { radiusESI 1 }
+
+radiusESIUP NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies radius ESI Down Event."
+	::= { radiusESI 2 }
+
+radiusESIRequestTimeout NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies radius ESI Request Timeout event."
+	::= { radiusESI 3 }
+
+radiusESIRequestRetry NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies radius ESI request retry event."
+	::= { radiusESI 4 }
+
+radiusESIHighResponseTime NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies radius ESI high response time event."
+	::= { radiusESI 5 }
+
+radiusESIGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies radius ESI high response time event."
+	::= { radiusESI 6 }
+
+radiusHighResponseTime NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies radius high response time."
+	::= { eliteRADIUSTrap 2 }
+
+unknownUser NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { radiusAuthTrap 1 }
+
+authGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { radiusAuthTrap 2 }
+	
+invalidAAAClient NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { eliteAAATrap 6 }
+
+cdrCreationProblem NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { radiusAcctTrap 1 }
+
+cdrStorageProblem  NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { radiusAcctTrap 2 }
+
+acctGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { radiusAcctTrap 3 }
+
+eliteAAALicenseTrap OBJECT IDENTIFIER ::= { eliteAAATrap 7 }
+
+notLicensedVendor NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { eliteAAALicenseTrap 1 }
+
+licenseExpired NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { eliteAAALicenseTrap 2 }
+
+notLicensedSupportedVendor NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { eliteAAALicenseTrap 3 }
+
+licensedTPSExceeded NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { eliteAAALicenseTrap 4 }
+
+licensedCPUExceeded NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { eliteAAALicenseTrap 5 }
+
+licensedClientsExceeded NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { eliteAAALicenseTrap 6 }
+
+licensedConcurrentUserExceeded NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { eliteAAALicenseTrap 7 }
+
+receivedMalformedPacket NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { eliteAAATrap 8 }
+
+
+-- Dynauth Service MIB
+radiusDynaAuthTrap OBJECT IDENTIFIER ::= { eliteRADIUSTrap 6 }
+
+dynaAuthGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { radiusDynaAuthTrap 1 }
+	
+-- WebService
+radiusWebServiceTrap OBJECT IDENTIFIER ::= { eliteRADIUSTrap 7 }
+
+radiusWebServiceGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { radiusWebServiceTrap 1 }
+
+--Diameter NAS
+
+diameterNASTrap OBJECT IDENTIFIER ::= { eliteDiameterTrap 1 }
+
+diameterNASGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { diameterNASTrap 1 }
+	
+diameterEAPTrap OBJECT IDENTIFIER ::= { eliteDiameterTrap 2 }
+
+diameterEAPGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { diameterEAPTrap 1 }
+
+diameterMIPTrap OBJECT IDENTIFIER ::= { eliteDiameterTrap 3 }
+
+diameterMIPGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { diameterMIPTrap 1 }
+
+diameterCCTrap OBJECT IDENTIFIER ::= { eliteDiameterTrap 4 }
+
+diameterCCGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { diameterCCTrap 1 }
+	
+diameterWebServiceTrap OBJECT IDENTIFIER ::= { eliteDiameterTrap 5 }
+
+diameterWebServiceGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { diameterWebServiceTrap 1 }
+
+diameterStackUp NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Diameter Stack is Up."
+	::= { eliteDiameterTrap 6 }
+
+diameterStackDown NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Diameter Stack is Down."
+	::= { eliteDiameterTrap 7 }
+
+diameterPeerUp NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Diameter Peer is Up."
+	::= { eliteDiameterTrap 8 }
+
+diameterPeerDown NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Diameter Peer is Down."
+	::= { eliteDiameterTrap 9 }
+
+--Resource Manager MIB
+
+rmIPPoolTrap OBJECT IDENTIFIER ::= { eliteRMTrap 1 }
+
+rmIPPoolGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { rmIPPoolTrap 1 }
+	
+rmConcurrencyTrap OBJECT IDENTIFIER ::= { eliteRMTrap 2 }
+
+rmConcurrencyGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { rmConcurrencyTrap 1 }
+	
+rmPrepaidTrap OBJECT IDENTIFIER ::= { eliteRMTrap 3 }
+
+rmPrepaidGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { rmPrepaidTrap 1 }
+
+otherGeneric NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { eliteAAATrap 10 }
+
+alertSeverity NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies Start-Up Event for EliteRadius."
+	::= { eliteAAATrap 11 }
+
+serverInstanceId NOTIFICATION-TYPE
+         STATUS  current
+         DESCRIPTION
+                   "Notification signifies the Identity of server."
+	::= { eliteAAA 4 }
+	
+-- GTP Prime Service Counter
+
+gtpPrimeServ  OBJECT IDENTIFIER ::= {eliteRM 1}
+
+gtpTotalEchoPacketReceived OBJECT-TYPE
+      SYNTAX Counter32
+      MAX-ACCESS read-only
+      STATUS current
+      DESCRIPTION
+            "The number of RADIUS Accounting-Response packets
+             received from unknown addresses."
+      ::= { gtpPrimeServ 1 }
+
+gtpTotalNodeAlicePacketReceived OBJECT-TYPE
+      SYNTAX Counter32
+      MAX-ACCESS read-only
+      STATUS current
+      DESCRIPTION
+            "The number of RADIUS Accounting-Response packets
+             received from unknown addresses."
+      ::= { gtpPrimeServ 2 }
+
+gtpTotalRedirectPacketReceived OBJECT-TYPE
+      SYNTAX Counter32
+      MAX-ACCESS read-only
+      STATUS current
+      DESCRIPTION
+            "The number of RADIUS Accounting-Response packets
+             received from unknown addresses."
+      ::= { gtpPrimeServ 3 }
+
+
+gtpPrimeClientTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF GTPPrimeClientEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "The (conceptual) table listing the RADIUS authentication
+              clients with which the server shares a secret."
+       ::= { gtpPrimeServ 4 }
+
+gtpPrimeClientEntry OBJECT-TYPE
+       SYNTAX     GTPPrimeClientEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "An entry (conceptual row) representing a RADIUS
+              authentication client with which the server shares a
+              secret."
+
+       INDEX      { gtpPrimeClientIndex }
+       ::= { gtpPrimeClientTable 1 }
+
+GTPPrimeClientEntry ::= SEQUENCE {
+       gtpPrimeClientIndex                           Integer32,
+       gtpPrimeClientAddress                         IpAddress,
+       gtpPrimeClientID                              SnmpAdminString,
+       gtpPrimeServEchoRequest                       Counter32,
+       gtpPrimeServNodeAliveRequest                  Counter32,
+       gtpPrimeServDataTransferRequest               Counter32
+}
+
+
+gtpPrimeClientIndex OBJECT-TYPE
+       SYNTAX     Integer32 (1..2147483647)
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "A number uniquely identifying each RADIUS
+              authentication client with which this server
+              communicates."
+       ::= { gtpPrimeClientEntry 1 }
+
+gtpPrimeClientAddress OBJECT-TYPE
+       SYNTAX     IpAddress
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "The NAS-IP-Address of the RADIUS authentication client
+              referred to in this table entry."
+       ::= { gtpPrimeClientEntry 2 }
+
+gtpPrimeClientID OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "The NAS-Identifier of the RADIUS authentication client
+              referred to in this table entry. This is not necessarily
+              the same as sysName in MIB II."
+       ::= { gtpPrimeClientEntry 3 }
+
+gtpPrimeServEchoRequest  OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "The number of packets received on the authentication
+              port from this client."
+       ::= { gtpPrimeClientEntry  4 }
+
+gtpPrimeServNodeAliveRequest  OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "The number of packets received on the authentication
+              port from this client."
+       ::= { gtpPrimeClientEntry  5 }
+
+
+gtpPrimeServDataTransferRequest  OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "The number of packets received on the authentication
+              port from this client."
+       ::= { gtpPrimeClientEntry  6 }
+
+END

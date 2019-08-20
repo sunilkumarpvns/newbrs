@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.servermgr.drivers.ldapdriver.data.LDAPAuthDriverData" table="TBLMLDAPAUTHDRIVER">
+
+		<id name="ldapDriverId" column="ldapdriverid" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+      <!-- 
+		<property name="dsStatusCheckInterval" type="long"> 
+			<column name="ds_status_check_interval" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+	  -->
+		<property name="expiryDatePattern" type="StringType"> 
+			<column name="expirydate_pattern" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="passwordDecryptType" type="long"> 
+			<column name="password_decrypt_type" sql-type="NUMBER(3)" not-null="false" /> 
+		</property>
+
+		<property name="queryMaxExecTime" type="long"> 
+			<column name="query_max_exec_time" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>		
+		
+		<property name="driverInstanceId" type="StringType"> 
+			<column name="driverinstanceid" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="ldapDsId" type="StringType"> 
+			<column name="LDAPDSID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="maxQueryTimeoutCount" type="long"> 
+			<column name="MAXQUERYTIMEOUTCOUNT " sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+		
+		<property name="userIdentityAttributes" type="StringType"> 
+			<column name="USERIDENTITYATTRIBUTES" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property>
+		
+		<property name="searchScope" type="StringType"> 
+			<column name="SEARCHSCOPE" sql-type="VARCHAR(32)" not-null="false"  /> 
+		</property>
+		
+		<property name="searchFilter" type="StringType"> 
+			<column name="SEARCHFILTER" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<bag name="ldapAuthDriverFieldMapList" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+			<key column="ldapDriverId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.ldapdriver.data.LDAPAuthFieldMapData" />
+	  	</bag>
+    
+	</class>
+
+</hibernate-mapping> 
+
+

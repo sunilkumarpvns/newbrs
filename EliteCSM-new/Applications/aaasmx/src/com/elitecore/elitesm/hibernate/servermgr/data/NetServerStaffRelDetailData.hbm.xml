@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servermgr.data.NetServerStaffRelDetailData" table="TBLMNETSERVERSTAFFRELDETAIL">
+		<id name="id" column="ID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		<property name="name" type="StringType">
+			<column name="INSTANCENAME" sql-type="VARCHAR(100)" not-null="true"></column>
+		</property>
+		<property name="staffUser" type="StringType">
+			<column name="STAFFUSER" sql-type="VARCHAR(255)" not-null="true"></column>
+		</property>
+	</class>
+</hibernate-mapping>          

@@ -1,0 +1,28 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "Grace Policy",
+		"properties": {
+			"name": {
+				"title": "Name",
+				"type": "string"
+			},
+			"value": {
+				"title": "Value",
+				"type": "string"
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "value"
+		}
+	],
+	"model": {
+		"name": "grace_policy",
+		"value": "2"
+	}
+}

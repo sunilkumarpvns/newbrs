@@ -1,0 +1,846 @@
+<attribute-list vendorid="8164" vendor-name="Starent">
+
+	<attribute id="1" name="SN1-VPN-ID" type="integer" />
+	<attribute id="2" name="SN1-VPN-Name" type="string" />
+
+	<attribute id="3" name="SN1-Disconnect-Reason" type="integer" />
+
+	<attribute id="4" name="SN1-PPP-Progress-Code" type="integer" />
+
+	<attribute id="5" name="SN1-Primary-DNS-Server" type="ipaddr " />
+	<attribute id="6" name="SN1-Secondary-DNS-Server" type="ipaddr" />
+
+	<attribute id="7" name=" SN1-Re-CHAP-Interval" type="integer" />
+
+	<attribute id="8" name="SN1-IP-Pool-Name" type="string" />
+
+	<attribute id="9" name="SN1-PPP-Data-Compression" type="integer" />
+
+	<attribute id="13" name="SN1-Local-IP-Address" type="ipaddr" />
+
+
+	<attribute id="14" name="SN1-IP-Source-Validation" type="integer" />
+	<attribute id="15" name="SN1-PPP-Outbound-Password" type="string" />
+
+	<attribute id="16" name="SN1-PPP-Keepalive" type="integer" />
+
+	<attribute id="17" name="SN1-IP-In-ACL" type="string" />
+
+	<attribute id="18" name="SN1-IP-Out-ACL" type="string" />
+	<attribute id="19" name="SN1-PPP-Data-Compression-Mode"
+		type="integer" />
+
+	<attribute id="20" name="SN1-Subscriber-Permission" type="integer" />
+
+	<attribute id="21" name="SN1-Admin-Permission" type="integer" />
+
+	<attribute id="22" name="SN1-Simultaneous-SIP-MIP" type="integer" />
+
+	<attribute id="23" name="SN1-Min-Compress-Size" type="integer" />
+
+
+	<attribute id="24" name="SN1-Service-Type" type="integer" />
+	<attribute id="25" name="SN1-DNS-Proxy-Use-Subscr-Addr"
+		type="integer" />
+
+	<attribute id="26" name="SN1-Tunnel-Password" type="string" />
+
+	<attribute id="27" name="SN1-Tunnel-Load-Balancing" type="integer" />
+
+	<attribute id="30" name="SN1-MN-HA-Timestamp-Tolerance"
+		type="integer" />
+	<attribute id="31" name="SN1-Prepaid-Compressed-Count"
+		type="integer" />
+
+	<attribute id="32" name="SN1-Prepaid-Inbound-Octets" type="integer" />
+
+	<attribute id="33" name="SN1-Prepaid-Outbound-Octets"
+		type="integer" />
+
+	<attribute id="34" name="SN1-Prepaid-Total-Octets" type="integer" />
+
+	<attribute id="35" name="SN1-Prepaid-Timeout" type="integer" />
+
+
+	<attribute id="36" name="SN1-Prepaid-Watermark" type="integer" />
+	<attribute id="37" name="SN1-NAI-Construction-Domain" type="string" />
+
+	<attribute id="38" name="SN1-Tunnel-ISAKMP-Crypto-Map"
+		type="string" />
+
+	<attribute id="39" name="SN1-Tunnel-ISAKMP-Secret" type="string" />
+
+	<attribute id="41" name="SN1-Ext-Inline-Srvr-Context" type="string" />
+	<attribute id="43" name="SN1-L3-to-L2-Tun-Addr-Policy"
+		type="integer" />
+
+	<attribute id="44" name="SN1-Long-Duration-Timeout" type="integer" />
+
+	<attribute id="45" name="SN1-Long-Duration-Action" type="integer" />
+
+	<attribute id="46" name="SN1-PDSN-Handoff-Req-IP-Addr"
+		type="integer" />
+
+	<attribute id="47" name="SN1-HA-Send-DNS-Address" type="integer" />
+
+
+	<attribute id="48" name="SN1-MIP-Send-Term-Verification"
+		type="integer" />
+
+	<attribute id="49" name="SN1-Data-Tunnel-Ignore-DF-Bit"
+		type="integer" />
+	<attribute id="50" name="SN1-MIP-AAA-Assign-Addr" type="integer" />
+
+	<attribute id="51" name="SN1-MIP-Match-AAA-Assign-Addr"
+		type="integer" />
+	<attribute id="52" name="SN1-Proxy-MIP" type="integer " />
+	<attribute id="53" name="SN1-IP-Alloc-Method" type="integer" />
+
+	<attribute id="54" name="SN1-Gratuitous-ARP-Aggressive"
+		type="integer" />
+
+	<attribute id="55" name="SN1-Ext-Inline-Srvr-Up-Addr" type="ipaddr" />
+
+
+	<attribute id="56" name="SN1-Ext-Inline-Srvr-Down-Addr"
+		type="ipaddr" />
+	<attribute id="57" name="SN1-Ext-Inline-Srvr-Preference"
+		type="integer" />
+
+	<attribute id="58" name="SN1-Ext-Inline-Srvr-Up-VLAN"
+		type="integer" />
+
+	<attribute id="59" name="SN1-Ext-Inline-Srvr-Down-VLAN"
+		type="integer" />
+
+	<attribute id="60" name="SN1-IP-Hide-Service-Address"
+		type="integer" />
+	<attribute id="61" name="SN1-PPP-Outbound-Username" type="string" />
+
+	<attribute id="62" name="SN1-GTP-Version" type="integer" />
+
+	<attribute id="63" name="SN1-Access-link-IP-Frag" type="integer" />
+
+	<attribute id="64" name="SN1-Subscriber-Accounting" type="integer" />
+
+
+	<attribute id="65" name="SN1-Nw-Reachability-Server-Nam"
+		type="string" />
+	<attribute id="66" name="SN1-Subscriber-Dormant-Activity"
+		type="integer" />
+
+	<attribute id="67" name="SN1-Subscriber-IP-Hdr-Neg-Mode"
+		type="integer" />
+
+
+	<attribute id="68" name="SN1-GGSN-MIP-Required" type="integer" />
+	<attribute id="68" name="SN1-GGSN-MIP-Required" type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="69" name="SN1-Subscriber-Acct-Start"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Normal" />
+			<value id="1" name="Suppress" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="70" name="SN1-Subscriber-Acct-Interim"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Normal" />
+			<value id="1" name="Suppress" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="71" name="SN1-Subscriber-Acct-Stop" type="integer">
+		<supported-values>
+			<value id="0" name="Normal" />
+			<value id="1" name="Suppress" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="72" name="SN1-Admin-Expiry" type="integer" />
+	<attribute id="73" name="SN1-QoS-Tp-Dnlk" type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Policing" />
+			<value id="2" name="Shaping" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="74" name="SN1-Tp-Dnlk-Committed-Data-Rate"
+		type="integer " />
+
+	<attribute id="75" name="SN1-Tp-Dnlk-Peak-Data-Rate"
+		type="integer " />
+	<attribute id="76" name="SN1-Tp-Dnlk-Burst-Size" type="integer " />
+
+	<attribute id="77" name="SN1-Tp-Dnlk-Exceed-Action"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Transmit" />
+			<value id="1" name="Drop" />
+			<value id="2" name="Lower-IP-Precedence" />
+			<value id="3" name="Buffer" />
+			<value id="4" name="ransmit-On-Buffer-Full" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="78" name="SN1-Tp-Dnlk-Violate-Action"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Transmit" />
+			<value id="1" name="Drop" />
+			<value id="2" name="Lower-IP-Precedence" />
+			<value id="3" name="Buffer" />
+			<value id="4" name="ransmit-On-Buffer-Full" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="79" name="SN1-QoS-Tp-Uplk" type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Policing" />
+			<value id="2" name="Shaping" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="80" name="SN1-Tp-Uplk-Committed-Data-Rate"
+		type="integer" />
+
+	<attribute id="81" name="SN1-Tp-Uplk-Peak-Data-Rate" type="integer" />
+
+	<attribute id="82" name="SN1-Tp-Uplk-Burst-Size" type="integer" />
+
+	<attribute id="83" name="SN1-Tp-Uplk-Exceed-Action"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Transmit" />
+			<value id="1" name="Drop" />
+			<value id="2" name="Lower-IP-Precedence" />
+			<value id="3" name="Buffer" />
+			<value id="4" name="ransmit-On-Buffer-Full" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="84" name="SN1-Tp-Uplk-Violate-Action"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Transmit" />
+			<value id="1" name="Drop" />
+			<value id="2" name="Lower-IP-Precedence" />
+			<value id="3" name="Buffer" />
+			<value id="4" name="ransmit-On-Buffer-Full" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="85" name="SN1-Subscriber-IP-TOS-Copy"
+		type="integer">
+		<supported-values>
+			<value id="0" name="None" />
+			<value id="1" name="Access-
+     Tunnel" />
+			<value id="2" name="Data-Tunnel" />
+			<value id="3" name="Both" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="86" name=" SN1-QoS-Conversation-Class" type="string" />
+
+	<attribute id="87" name="SN1-QoS-Streaming-Class" type="string" />
+
+	<attribute id="88" name="SN1-QoS-Interactive1-Class" type="string" />
+
+	<attribute id="89" name="SN1-QoS-Interactive2-Class" type="string" />
+
+	<attribute id="90" name="SN1-QoS-Interactive3-Class" type="string" />
+
+	<attribute id="91" name="SN1-QoS-Background-Class" type="string" />
+
+	<attribute id="92" name="SN1-PPP-NW-Layer-IPv4" type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+			<value id="2" name="Passive" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="93" name="SN1-PPP-NW-Layer-IPv6" type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+			<value id="2" name="Passive" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="94" name="SN1-Virtual-APN-Name" type="string" />
+
+	<attribute id="95" name="SN1-PPP-Accept-Peer-v6Ifid"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="96" name="SN1-IPv6-rtr-advt-interval" type="integer" />
+
+	<attribute id="97" name="SN1-IPv6-num-rtr-advt" type="integer" />
+
+	<attribute id="98" name="SN1-NPU-Qos-Priority" type="integer">
+		<supported-values>
+			<value id="0" name="Best_Effort" />
+			<value id="1" name="Bronze" />
+			<value id="2" name="Silver" />
+			<value id="3" name="Gold" />
+			<value id="4" name="From_DSCP" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="99" name="SN1-MN-HA-Hash-Algorithm" type="integer">
+		<supported-values>
+			<value id="1" name="MD5" />
+			<value id="2" name="MD5-
+     RFC2002" />
+			<value id="3" name="HMAC-MD5" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="100" name="SN1-Subscriber-Acct-Rsp-Action"
+		type="integer">
+		<supported-values>
+			<value id="0" name="None" />
+			<value id="1" name="No_Early_PDUs" />
+			<value id="2" name="Delay_GTP_Response" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="101" name="SN1-IPv6-Primary-DNS" type="string" />
+
+	<attribute id="102" name="SN1-IPv6-Secondary-DNS" type="string" />
+
+	<attribute id="103" name=" SN1-IPv6-Egress-Filtering"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="104" name="SN1-Mediation-VPN-Name " type="string" />
+
+	<attribute id="105" name="SN1-Mediation-Acct-Rsp-Action"
+		type="integer">
+		<supported-values>
+			<value id="0" name="None" />
+			<value id="1" name="No_Early_PDUs" />
+			<value id="2" name="Delay_GTP_Response" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="106" name="SN1-Home-Sub-Use-GGSN" type="integer">
+		<supported-values>
+			<value id="0" name="Deny" />
+			<value id="1" name="Accept" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="107" name="SN1-Visiting-Sub-Use-GGSN"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Deny" />
+			<value id="1" name="Accept" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="108" name="SN1-Roaming-Sub-Use-GGSN"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Deny" />
+			<value id="1" name="Accept" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="109" name="SN1-Home-Profile" type="integer" />
+	<attribute id="110" name="SN1-IP-Src-Valid-Drop-Limit"
+		type="integer" />
+	<attribute id="117" name="SN1-Visiting-Profile" type="integer" />
+	<attribute id="118" name="SN1-Roaming-Profile" type="integer" />
+	<attribute id="119" name="SN1-
+     Home-Behavior" type="integer" />
+	<attribute id="120" name="SN1-Visiting-
+     Behavior"
+		type="integer" />
+	<attribute id="121" name="SN1-Roaming-Behavior" type="integer" />
+	<attribute id="122" name="SN1-Internal-SM-Index" type="integer" />
+	<attribute id="123" name="SN1-Mediation-Enabled" type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="124" name="SN1-IPv6-Sec-Pool" type="string" />
+
+	<attribute id="125" name="SN1-IPv6-Sec-Prefix" type="string" />
+
+	<attribute id="126" name="SN1-IPv6-DNS-Proxy" type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="127" name="SN1-Subscriber-Nexthop-Address"
+		type="ipaddr" />
+
+	<attribute id="128" name="SN1-Prepaid" type="integer">
+		<supported-values>
+			<value id="0" name="no_prepaid" />
+			<value id="1" name="custom_prepaid" />
+			<value id="2" name="standard_prepaid" />
+			<value id="4" name="wimax_prepaid" />
+		</supported-values>
+	</attribute>
+
+
+
+
+	<attribute id="129" name="SN1-Prepaid-Preference" type="integer">
+		<supported-values>
+			<value id="0" name="prepaid_duration" />
+			<value id="1" name="prepaid_volume" />
+		</supported-values>
+	</attribute>
+
+
+
+	<attribute id="130" name="SN1-PPP-Always-On-Vse" type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+		</supported-values>
+	</attribute>
+
+
+
+	<attribute id="131" name="SN1-Voice-Push-List-Name" type="string" />
+
+
+	<attribute id="132" name="SN1-Unclassify-List-Name" type="string" />
+
+	<attribute id="133" name="SN1-Subscriber-No-Interims"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+		</supported-values>
+	</attribute>
+
+
+	<attribute id="134" name="SN1-Permit-User-Mcast-PDUs"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+		</supported-values>
+	</attribute>
+
+
+
+	<attribute id="135" name="SN1-Prepaid-Final-Duration-Alg"
+		type="integer">
+		<supported-values>
+			<value id="0" name="current_time" />
+			<value id="1" name="last-user-layer3-activity-time" />
+			<value id="2" name="last-airlink-
+     activity-time" />
+			<value id="3" name="las-air-act-tim-la-rep" />
+			</supported-values>
+	</attribute>
+
+
+
+
+	<attribute id="136" name="SN1-IPv6-Min-Link-MTU" type="integer" />
+
+	<attribute id="137" name="SN1-Charging-VPN-Name" type="string" />
+
+	<attribute id="138" name="SN1-Chrg-Char-Selection-Mode"
+		type="integer" />
+
+	<attribute id="139" name="SN1-Cause-For-Rec-Closing" type="integer" />
+
+
+	<attribute id="140" name="SN1-Change-Condition" type="integer">
+		<supported-values>
+			<value id="0" name="QOSCHANGE" />
+			<value id="1" name="TARIFFTIMECHANGE" />
+			<value id="500" name="SGSNCHANGE" />
+		</supported-values>
+	</attribute>
+
+
+
+	<attribute id="141" name="SN1-Dynamic-Addr-Alloc-Ind-Flag"
+		type="string" />
+
+	<attribute id="142" name="SN1-Ntk-Initiated-Ctx-Ind-Flag"
+		type="string" />
+
+
+
+	<attribute id="143" name="SN1-Ntk-Session-Disconnect-Flag"
+		type="integer">
+		<supported-values>
+			<value id="1" name="Session-Disconnect" />
+			</supported-values>
+	</attribute>
+
+
+	<attribute id="144" name="SN1-Enable-QoS-Renegotiation"
+		type="integer">
+		<supported-values>
+			<value id="0" name="No" />
+			<value id="1" name="Yes" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="145" name="SN1-QoS-Renegotiation-Timeout"
+		type="integer" />
+
+	<attribute id="146" name="SN1-Mediation-No-Interims"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+		</supported-values>
+	</attribute>
+
+
+	<attribute id="147" name="SN1-QoS-Negotiated" type="string" />
+
+	<attribute id="148" name="SN1-Primary-NBNS-Server" type="ipaddr" />
+
+	<attribute id="149" name="SN1-Secondary-NBNS-Server" type="ipaddr" />
+
+	<attribute id="150" name="SN1-IP-Header-Compression"
+		type="integer">
+		<supported-values>
+			<value id="0" name="None" />
+			<value id="1" name="VJ" />
+			<value id="2" name="ROHC" />
+			<value id="3" name="VJ_ROHC" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="151" name="SN1-ROHC-Mode" type="integer">
+		<supported-values>
+			<value id="0" name="Reliable" />
+			<value id="1" name="Optimistic" />
+			<value id="2" name="Unidirectional" />
+		</supported-values>
+	</attribute>
+
+
+	<attribute id="152" name="SN1-Assigned-VLAN-ID" type="integer" />
+
+	<attribute id="153" name="SN1-ROHC-Direction" type="integer">
+		<supported-values>
+			<value id="0" name="Any" />
+			<value id="1" name="Uplink" />
+			<value id="2" name="Downlink" />
+			</supported-values>
+	</attribute>
+
+
+
+	<attribute id="154" name="SN1-MIP-HA-Assignment-Table"
+		type="string" />
+
+	<attribute id="155" name="SN1-Prepaid-Profile" type="integer">
+		<supported-values>
+			<value id="0" name="Use-Rulebase-Config" />
+			<value id="1" name="Prohibit" />
+			</supported-values>
+	</attribute>
+
+
+	<attribute id="156" name="SN1-Tun-Addr-Policy" type="integer">
+		<supported-values>
+			<value id="0" name="no-local-alloc-validate" />
+			<value id="1" name="local-alloc" />
+			<value id="2" name="local-alloc-validate" />
+			</supported-values>
+	</attribute>
+
+
+	<attribute id="157" name="SN1-DHCP-Lease-Expiry-Policy"
+		type="integer">
+		<supported-values>
+			<value id="0" name="auto-renew" />
+			<value id="1" name="disconnect" />
+		</supported-values>
+	</attribute>
+
+
+	<attribute id="158" name="SN1-Subscriber-Template-Name"
+		type="string" />
+
+	<attribute id="159" name="SN1-Subs-IMSA-Service-Name" type="string" />
+
+	<attribute id="160" name=" SN1-Ignore-Unknown-HA-Addr-Err"
+		type="integer" />
+
+	<attribute id="161" name="SN1-Traffic-Group" type="integer" />
+
+	<attribute id="162" name="SN1-Rad-APN-Name" type="string" />
+
+	<attribute id="163" name="SN1-MIP-Send-Ancid" type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="164" name="SN1-MIP-Send-Imsi" type="integer">
+		<supported-values>
+			<value id="0" name="None" />
+			<value id="1" name="Starent_NVSE" />
+			<value id="2" name="Custom1_NVSE" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="165" name="SN1-MIP-Dual-Anchor" type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+			</supported-values>
+	</attribute>
+
+
+	<attribute id="166" name="SN1-MIP-ANCID" type="string" />
+
+	<attribute id="167" name="SN1-IMS-AM-Address" type="ipaddr" />
+
+	<attribute id="168" name="SN1-IMS-AM-Domain-Name" type="string" />
+
+	<attribute id="169" name="SN1-Service-Address" type="ipaddr" />
+
+	<attribute id="170" name="SN1-PDIF-MIP-Required" type="integer">
+		<supported-values>
+			<value id="0" name="No" />
+			<value id="1" name="Yes" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="171" name="SN1-FMC-Location" type="string" />
+
+	<attribute id="172" name="SN1-PDIF-MIP-Release-TIA"
+		type="integer">
+		<supported-values>
+			<value id="0" name="No" />
+			<value id="1" name="Yes" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="173" name="SN1-PDIF-MIP-Simple-IP-Fallback"
+		type="integer">
+		<supported-values>
+			<value id="0" name="No" />
+			<value id="1" name="Yes" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="174" name="SN1-Tunnel-Gn" type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="175" name="SN1-MIP-Reg-Lifetime-Realm"
+		type="integer" />
+
+	<attribute id="176" name="SN1-Ecs-Data-Volume" type="string" />
+
+	<attribute id="177" name="SN1-QoS-Traffic-Policy" type="string" />
+
+	<attribute id="187" name="SN1-PPP-Reneg-Disc" type="integer">
+		<supported-values>
+			<value id="0" name="Never" />
+			<value id="1" name="Always" />
+			<value id="2" name="NAI_Prefix_MSID_Mismatch" />
+			</supported-values>
+	</attribute>
+
+
+	<attribute id="188" name="SN1-MIP-Send-Correlation-Info"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="189" name="SN1-PDSN-Correlation-Id" type="string" />
+
+	<attribute id="190" name="SN1-PDSN-NAS-Id" type="string" />
+
+	<attribute id="191" name="SN1-PDSN-NAS-IP-Address" type="ipaddr" />
+
+	<attribute id="192" name="SN1-Subscriber-Acct-Mode"
+		type="integer">
+		<supported-values>
+			<value id="0" name="flow-based-auxilliary " />
+			<value id="1" name="flow-based-all" />
+			<value id="2" name="flow-based-none" />
+			<value id="3" name="session-based" />
+			<value id="4" name="main-a10-only" />
+		</supported-values>
+	</attribute>
+
+
+	<attribute id="193" name="SN1-IP-In-Plcy-Grp" type="string" />
+
+	<attribute id="194" name="SN1-IP-Out-Plcy-Grp" type="string" />
+
+	<attribute id="195" name="SN1-ROHC-Flow-Marking-Mode"
+		type="integer">
+		<supported-values>
+			<value id="0" name="False" />
+			<value id="1" name="True" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="196" name="SN1-IP-Source-Violate-No-Acct"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="198" name="SN1-Firewall-Enabled" type="integer">
+		<supported-values>
+			<value id="0" name="False" />
+			<value id="1" name="True" />
+			</supported-values>
+	</attribute>
+
+	<attribute id="200" name="SNA1-PPP-Unfr-data-In-Oct" type="integer" />
+
+	<attribute id="201" name="SNA1-PPP-Unfr-data-Out-Oct"
+		type="integer" />
+
+	<attribute id="202" name="SNA1-PPP-Unfr-data-In-Gig" type="integer" />
+	<attribute id="203" name=" SNA1-PPP-Unfr-data-Out-Gig"
+		type="integer" />
+
+
+	<attribute id="214" name="SN1-DNS-Proxy-Intercept-List"
+		type="string" />
+
+	<attribute id="219" name="SN1-Subscriber-Class" type="integer">
+		<supported-values>
+			<value id="0" name="Normal_Subscriber" />
+			<value id="1" name="Ting_100" />
+			<value id="2" name="Ting_500" />
+			<value id="3" name="Ting_Buddy" />
+			<value id="4" name="Ting_Star" />
+			<value id="5" name="Ting_Nolimit_SMS" />
+			<value id="6" name="Kids_Locator" />
+			<value id="7" name="Ting_2000" />
+			<value id="8" name="Handicapped_Welfare" />
+			<value id="9" name="Reserved" />
+			</supported-values>
+	</attribute>
+
+
+	<attribute id="220" name="SN1-CFPolicy-ID" type="integer" />
+
+	<attribute id="221" name="SN1-Subs-VJ-Slotid-Cmp-Neg-Mode"
+		type="integer">
+		<supported-values>
+			<value id="0" name="None" />
+			<value id="1" name="Receive" />
+			<value id="2" name="Transmit" />
+			<value id="3" name="Both" />
+		</supported-values>
+	</attribute>
+
+
+	<attribute id="223" name="SN1-Primary-DCCA-Peer" type="string" />
+
+	<attribute id="224" name="SN1-Secondary-DCCA-Peer" type="string" />
+
+	<attribute id="225" name="SN1-Subs-Acc-Flow-Traffic-Valid"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Disabled" />
+			<value id="1" name="Enabled" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="226" name="SN1-Acct-Input-Packets-Dropped"
+		type="integer" />
+
+	<attribute id="227" name="SN1-Acct-Output-Packets-Dropped"
+		type="integer" />
+
+	<attribute id="228" name="SN1-Acct-Input-Octets-Dropped"
+		type="integer" />
+
+	<attribute id="229" name="SN1-Acct-Output-Octets-Dropped"
+		type="integer" />
+
+	<attribute id="230" name="SN1-Acct-Input-Giga-Dropped"
+		type="integer" />
+
+	<attribute id="231" name="SN1-Acct-Output-Giga-Dropped"
+		type="integer" />
+
+	<attribute id="232" name="SN1-Inactivity-Time" type="integer" />
+
+	<attribute id="233" name="SN1-Overload-Disc-Connect-Time"
+		type="integer" />
+
+	<attribute id="234" name="SN1-Overload-Disc-Inact-Time"
+		type="integer" />
+
+	<attribute id="235" name="SN1-Overload-Disconnect" type="integer" />
+
+	<attribute id="236" name="SN1-Radius-Returned-Username"
+		type="integer">
+		<supported-values>
+			<value id="0" name="No" />
+			<value id="1" name="Yes" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="237" name="Prohibit-Payload-Compression1"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Allowed" />
+			<value id="1" name="Prohibited" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="238" name="SN1-ROHC-Profile-Name" type="string" />
+
+	<attribute id="250" name="SN1-Rulebase" type="string" />
+
+	<attribute id="253" name="SN1-Long-Duration-Notification"
+		type="integer">
+		<supported-values>
+			<value id="0" name="Suppress" />
+			<value id="1" name="Send" />
+		</supported-values>
+	</attribute>
+
+</attribute-list>

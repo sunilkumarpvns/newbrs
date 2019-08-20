@@ -1,0 +1,19 @@
+{  
+   "id":"rest_addon_product_offer_11111112",
+   "status":"ACTIVE",
+   "groups":"GROUP_1",
+   "name":"rest_addon_product_offer2",
+   "type":"ADDON",
+   "packageMode":"DESIGN",
+   "dataServicePkgId":null,
+   "validityPeriod":30,
+   "validityPeriodUnit":"DAY",
+   "subscriptionPrice":null,
+   "balance":null,
+   "currency": "INR",
+   "availabilityStartDate":null,
+   "availabilityEndDate":null,
+   "param1":null,
+   "param2":null,
+   "emailTemplateId":"email-template-id-11111111"
+}

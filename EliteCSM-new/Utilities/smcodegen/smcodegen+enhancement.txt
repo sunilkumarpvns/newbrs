@@ -1,0 +1,91 @@
+in sturst config . .action name`s first latter should be small  (fixed)
+
+Inform class import statment of webbase class.. (fixed)
+
+also package name should be small.  (fixed)
+
+in datamanagerclass try block starting is missing...  (fixed)
+
+and also modual variable define for log.. (fixed)
+
+In action class forward name should be there . instand of path (fixed)
+
+
+in struts config formname first latter should be small (fixed)
+
+in jsp property name should be small (fixed)
+
+in jsp page in width %% is comming.. (fixed)
+
+import statment in DataManager class (fixed)
+
+in ILdapdatasourcedate is interface not a class.. (fixed
+
+in form calls import class name is worong.. (fixed)
+it should be
+
+in form
+import com.elitecore.elitesm.web.core.base.forms.BaseWebForm;
+
+
+in action (fixed)
+import com.elitecore.elitesm.web.core.base.BaseWebAction;
+
+in action new import needed.. (fixed)
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
+
+instat of Action error and errormsg are old now (fixed)
+
+package of Hdatamangercalss is wrong (fixed)
+
+each time on genenrate action button new temp working dir should set
+right for a session we are using one temp dir it should be on acion based (fixed)
+
+
+
+
+Here in this mail I mentioned the few tiny issues, when access the elitecodegen tool for Access Group module.
+
+
+(1)     In DataManager folder data class name is not properly generated (currently it will take the modulename) also interface is not generated at this place. (fixed)
+
+(2)     In Hibernate folder xml file is generated  withouth .hbm.xml extension,in this xml file we get wrong class name in <class> tag,(currently it will take  (fixed)
+
+The modulename in place of the dataclass name)
+
+(3)     In Hibernate folder we have HDataManager class which implements the datamanager; here we are getting the wrong name. (fixed)
+
+(4)     Location of the datamanger must inside the module, currently it is in the submodule. (fixed)
+
+(5)     In web folder every time the the viewstaffaction class and in forms folder viewstaffform file is generated. (fixed)
+
+(6)     In action class don’t necessary to mention the whole the jsp path, take one forward variable and initialize it with the struts-config forward name value.(fixed)
+
+(Currently mentioned the full jsp page path)
+
+(7)     It is not necessary to generate the two forms for the same jsp e.g. for create Staff we are mentioned the two action class initCreateAction and Create Action (it`s flxible.. we can add and remove action)
+
+But only the one CreateStaffForm file.(in elitecodegen module for every action different form name mentioned)  (Right now not supported)
+
+(8)     In struts-config file action name must be initSmall.(currently initcap). (fixed)
+
+(9)     In config folder change the hibern.xml file with the name of hibernate.cfg.xml file,also in this file  <mapping resource /> tag  currently getting the hbm file with the (fixed)
+
+Modulename, also in this file using \ in place of the /. (fixed)
+
+sub module name should rename to parent moudule name. (fixed)
+ 
+genrate populate method code like beantoForm and fromtoBean (fixed)
+ 
+ .hbm file name should be based on table name  (fixed)
+ 
+ action class name form name action prefix all are table name based (fixed)
+ 
+ Location of hibernate.cfg.xml file should be src/config/*.cfg (not src/com/config) (fixed)
+ 
+ In jsp file there should be a space between new keyword & name of the form. (Himanshu) 
+ 
+ In action class catching block exception should be pre-commented (Himanshu)
+ 
+ 

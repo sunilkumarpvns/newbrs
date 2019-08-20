@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+    <package name="authresource" namespace="/jsp/authresource" extends="default">
+    	<interceptors>
+        	<interceptor name="login_inter" class="com.elite.interceptor.LoginInterceptor"/>
+        	<interceptor-stack name="login_stack">
+        		<interceptor-ref name="login_inter"/>
+        		<interceptor-ref name="defaultStack"/>
+        	</interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="login_stack"/>
+    	
+      <action name="Logout" method="logout" class="com.elite.action.LoginAction" >
+			<result type="redirect">/jsp/login/Login.jsp</result>
+      </action>
+      <action name="Main">
+   	  		<result>Main.jsp</result>
+   	  </action>
+   	  <action name="Home">
+   	  		<result>Home.jsp</result>
+   	  </action>
+   	  <action name="ChangePass">
+   	  		<result>ChangePass.jsp</result>
+   	  </action>
+   	  <action name="GoChangePass"  class="com.elite.action.ChangePassAction">
+   	  		<result name="input">ChangePass.jsp</result>
+   	  </action>
+   	  <action name="Myplan">
+   	  		<result>Myplan.jsp</result>
+   	  </action>
+   	  <action name="Profile" class="com.elite.action.ProfileUpdateAction">
+   	  		<result>Profile.jsp</result>
+   	  </action>
+   	  <action name="UpdateProfile" method="update" class="com.elite.action.ProfileUpdateAction">
+   	  		<result>Profile.jsp</result>
+   	  </action>
+   	  <action name="Usege_details" class="com.elite.action.UsegeAction">
+   	  		<result>Usege_details.jsp</result>
+   	  </action>
+   	  <action name="GoUsege_details" method="search" class="com.elite.action.UsegeAction">
+   	  		<result>Usege_Search.jsp</result>
+   	  </action>
+   	  <action name="GoUsege_details_page" method="searchPage" class="com.elite.action.UsegeAction">
+   	  		<result>Usege_details.jsp</result>
+   	  </action>
+   	  <action name="GoUsege_details_page1" method="searchPage" class="com.elite.action.UsegeAction">
+   	  		<result>Usegeinterim.jsp</result>
+   	  </action>
+   	</package>
+	<include file="login.xml"></include>
+</struts>

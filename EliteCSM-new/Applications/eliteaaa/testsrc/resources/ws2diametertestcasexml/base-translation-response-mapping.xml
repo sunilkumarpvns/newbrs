@@ -1,0 +1,148 @@
+<list>
+	<case
+		behaviour = "Base Translation will be applied in response if base translation mapping id is configured in mainPolicy
+	">
+
+		<base-translation-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>basePolicy</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>2</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>Test</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:31=0:1</mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</base-translation-mapping>
+		
+		
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>2</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>Test</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>Mapping1</mapping-name>
+						<out-request-type />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:25=0:1</mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+		
+		<diameter-packet cc="265" app-id="1">
+			<attribute id="0:1" value="test" />
+		</diameter-packet>
+		
+		<web-service-request-map>
+			<item>
+				<key>0:25</key>
+				<value>test</value>
+			</item>
+			<item>
+				<key>0:31</key>
+				<value>test</value>
+			</item>
+    	</web-service-request-map>
+    </case>
+    
+    <case
+		behaviour = "Base Translation will not applied in response if base translation mapping in-request-type expression is not satisfied
+	">
+
+		<base-translation-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>basePolicy</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>2</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type> 0:1 = toUpperCase(test)</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>Test</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:31=0:1</mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</base-translation-mapping>
+		
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>2</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>Test</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>Mapping1</mapping-name>
+						<out-request-type />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:25=0:1</mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+		
+		<diameter-packet cc="265" app-id="1">
+			<attribute id="0:1" value="test" />
+		</diameter-packet>
+		
+		<web-service-request-map>
+			<item>
+				<key>0:25</key>
+				<value>test</value>
+			</item>
+    	</web-service-request-map>
+    </case>	
+</list>

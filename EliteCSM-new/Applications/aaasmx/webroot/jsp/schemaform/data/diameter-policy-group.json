@@ -1,0 +1,29 @@
+{
+   "schema":{
+    "type":"object",
+    "title":"DIAMETER POLICY GROUP",
+    "properties":{
+        "name":{
+            "title":"Policy Name",
+            "type":"string"
+        },
+        "expression":{
+            "title":"Expression",
+            "type":"string"
+        }
+    }
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"expression"
+  }
+  
+],
+"model":{
+	"name":"diameter_policy_group",
+	"expression":"policy1 || policy2"
+}
+}

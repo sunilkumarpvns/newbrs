@@ -1,0 +1,455 @@
+IP-POOL-SERVICE-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+       MODULE-IDENTITY, OBJECT-TYPE, OBJECT-IDENTITY,
+       Counter32, Integer32,
+       IpAddress, TimeTicks, mib-2      FROM SNMPv2-SMI
+       SnmpAdminString                  FROM SNMP-FRAMEWORK-MIB
+       MODULE-COMPLIANCE, OBJECT-GROUP  FROM SNMPv2-CONF;
+       
+
+        internet      OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 }
+
+        directory     OBJECT IDENTIFIER ::= { internet 1 }
+
+        mgmt          OBJECT IDENTIFIER ::= { internet 2 }
+ 
+        experimental  OBJECT IDENTIFIER ::= { internet 3 }
+
+        private       OBJECT IDENTIFIER ::= { internet 4 }
+
+        enterprises   OBJECT IDENTIFIER ::= { private 1 }
+
+        elitecore     OBJECT IDENTIFIER ::= { enterprises 21067 }
+                    
+        eliteAAA      OBJECT IDENTIFIER ::= { elitecore 1 }
+        
+		ipPoolMIB OBJECT IDENTIFIER ::= { eliteAAA 7 }
+
+ipPoolServMIBObjects OBJECT IDENTIFIER ::= { ipPoolMIB 1 }
+
+ipPoolServiceUpTime OBJECT-TYPE
+       SYNTAX      TimeTicks
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Service Up time for IP-Pool Service"
+       ::= { ipPoolServMIBObjects 1 }	
+
+ipPoolServiceReset OBJECT-TYPE
+       SYNTAX      INTEGER { other(1),
+                        reset(2),
+                        initializing(3),
+                        running(4)}
+       MAX-ACCESS  read-write
+       STATUS      current
+       DESCRIPTION
+		"When set to reset(2), IP-Pool service statistics is reinitialized.
+         	 When read, one of the following values will be returned:
+                 other(1) - service in some unknown state;
+                 initializing(3) - service initializing;
+                 running(4) - service currently running"
+
+       ::= { ipPoolServMIBObjects 2 }	
+
+ipPoolServiceResetTime OBJECT-TYPE
+       SYNTAX      TimeTicks
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Last Reset Time for IP-Pool Service"
+       ::= { ipPoolServMIBObjects 3 }	
+
+ipPoolServTotalRequest OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. of packets received by IP-Pool service"
+       ::= { ipPoolServMIBObjects 4 }
+
+ipPoolServTotalResponses	OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. of response packet sent by IP-Pool service"
+       ::= { ipPoolServMIBObjects 5 }
+
+ipPoolServTotalRequestDropped OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. of packets dropped by IP-Pool service"
+       ::= { ipPoolServMIBObjects 6 }	
+
+ipPoolServTotalDuplicateRequest	OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. of duplicate packets received by IP-Pool service"
+       ::= { ipPoolServMIBObjects 7 }
+
+ipPoolServTotalUnknownPacket OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. of Unknown Radius Packet received by IP-Pool service"
+       ::= { ipPoolServMIBObjects 8 }	
+
+ipPoolServTotalInvalidRequest OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. of Radius request received from Unknown Client by IP-Pool service"
+       ::= { ipPoolServMIBObjects 9 }	
+
+ipPoolServTotalDiscoverRequest OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. of Access Request received by IP-Pool service"
+       ::= { ipPoolServMIBObjects 10 }
+	
+ipPoolServTotalOfferResponse OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. of Access Accept sent by IP-Pool service"
+       ::= { ipPoolServMIBObjects 11 }
+	
+ipPoolServTotalDeclineResponse OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. of Access Reject Response sent by IP-Pool service"
+       ::= { ipPoolServMIBObjects 12 }
+	
+ipPoolServTotalAllocationRequest OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. of Accounting Start Request received by IP-Pool service"
+       ::= { ipPoolServMIBObjects 13 }
+
+ipPoolServTotalReleaseRequest OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. Accounting Stop reponse sent by IP-Pool service"
+       ::= { ipPoolServMIBObjects 14 }	
+
+ipPoolServTotalUpdateRequest OBJECT-TYPE
+       SYNTAX Counter32
+       MAX-ACCESS read-only
+       STATUS current
+       DESCRIPTION
+             "Total No. of Accounting Update received by IP-Pool service"
+       ::= { ipPoolServMIBObjects 15 }	
+
+-- End of ServiceStatistics 
+
+ipPoolAAAClientStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF IPPoolAAAClientEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Table defines number of configured AAA Client for the RM server"
+       ::= { ipPoolServMIBObjects 101 }
+
+ipPoolAAAClientEntry OBJECT-TYPE
+       SYNTAX     IPPoolAAAClientEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Entry represents the configured AAA Client for RM Server"
+       INDEX      { ipPoolAAAClientIndex }
+       ::= { ipPoolAAAClientStatisticsTable 1 }
+
+IPPoolAAAClientEntry ::= SEQUENCE {
+	ipPoolAAAClientIndex			Integer32,    
+	aaaID					SnmpAdminString,
+	aaaIPAddress				IpAddress, 
+	aaaIPAddressRequest			Counter32,
+	aaaIPAddressResponses			Counter32,	
+	aaaIPAddressRequestDropped		Counter32,
+	aaaIPAddressDuplicateRequest		Counter32,
+	aaaIPAddressUnknownPacket		Counter32,
+	aaaIPAddressInvalidRequest		Counter32,
+	aaaIPAddressDiscoverRequest		Counter32,
+	aaaIPAddressOfferResponse		Counter32,
+	aaaIPAddressDeclineResponse		Counter32,	
+	aaaIPAddressAllocationRequest		Counter32,
+	aaaIPAddressReleaseRequest		Counter32,
+	aaaIPAddressUpdateRequest		Counter32
+}
+
+ipPoolAAAClientIndex OBJECT-TYPE
+       SYNTAX     Integer32
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "A number uniquely identifying each AAA Client with which IP-Pool server communicates"
+       ::= { ipPoolAAAClientEntry 1 }
+
+aaaID OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Represent identifier of AAA Client"
+       ::= { ipPoolAAAClientEntry 2 }
+
+aaaIPAddress	OBJECT-TYPE
+       SYNTAX     IpAddress
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "IP Address of configured AAA Client"
+       ::= { ipPoolAAAClientEntry 3 }			 
+
+aaaIPAddressRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Request received by IP-Pool service from AAA Client"
+       ::= { ipPoolAAAClientEntry 4 }
+
+aaaIPAddressResponses OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Accept response sent by IP-Pool service to AAA Client"
+       ::= { ipPoolAAAClientEntry 5 }
+
+aaaIPAddressRequestDropped OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of packets dropped by IP-Pool service received from AAA Client"
+       ::= { ipPoolAAAClientEntry 6 }
+
+aaaIPAddressDuplicateRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of duplicate packets received by IP-Pool service from AAA Client"
+       ::= { ipPoolAAAClientEntry 7 }
+
+aaaIPAddressUnknownPacket OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Unknown Radius Packet received by IP-Pool service from AAA Client"
+       ::= { ipPoolAAAClientEntry 8 }
+
+aaaIPAddressInvalidRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Invalid Radius request received by IP-Pool service from AAA Client"
+       ::= { ipPoolAAAClientEntry 9 }
+
+aaaIPAddressDiscoverRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Request received by IP-Pool service from AAA Client"
+       ::= { ipPoolAAAClientEntry 10 }
+
+aaaIPAddressOfferResponse OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Accept sent by IP-Pool service to AAA Client"
+       ::= { ipPoolAAAClientEntry 11 }
+
+aaaIPAddressDeclineResponse OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Reject Response sent by IP-Pool service to AAA Client"
+       ::= { ipPoolAAAClientEntry 12 }
+
+aaaIPAddressAllocationRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Accounting Start Request received by IP-Pool service from AAA Client"
+       ::= { ipPoolAAAClientEntry 13 }
+
+aaaIPAddressReleaseRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Accounting Stop reponse sent by IP-Pool service to AAA Client"
+       ::= { ipPoolAAAClientEntry 14 }
+
+aaaIPAddressUpdateRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Accounting Update received by IP-Pool service from AAA Client"
+       ::= { ipPoolAAAClientEntry 15 }
+
+-- End of Client Statistics Table
+
+ipPoolNASClientStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF IPPoolNASClientEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Table defines number of NAS Client Communicate with RM server"
+       ::= { ipPoolServMIBObjects 102 }
+
+ipPoolNASClientEntry OBJECT-TYPE
+       SYNTAX     IPPoolNASClientEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Entry represents the NAS Clients Communicate with RM Server"
+       INDEX      { ipPoolNASClientIndex }
+       ::= { ipPoolNASClientStatisticsTable 1 }
+
+IPPoolNASClientEntry ::= SEQUENCE {
+	ipPoolNASClientIndex			Integer32,    
+	nasID					SnmpAdminString,
+	nasIPAddressRequest			Counter32,
+	nasIPAddressResponses			Counter32,	
+	nasIPAddressRequestDropped		Counter32,
+	nasIPAddressUnknownPacket		Counter32,
+	nasIPAddressInvalidRequest		Counter32,
+	nasIPAddressDiscoverRequest		Counter32,
+	nasIPAddressOfferResponse		Counter32,
+	nasIPAddressDeclineResponse		Counter32,	
+	nasIPAddressAllocationRequest		Counter32,
+	nasIPAddressReleaseRequest		Counter32,
+	nasIPAddressUpdateRequest		Counter32
+}
+
+ipPoolNASClientIndex OBJECT-TYPE
+       SYNTAX     Integer32
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "A number uniquely identifying each NAS Client with which IP-Pool server communicates"
+       ::= { ipPoolNASClientEntry 1 }
+
+nasID OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Represent the NAS identifier of NAS Client"
+       ::= { ipPoolNASClientEntry 2 }
+
+nasIPAddressRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Request received by IP-Pool service from NAS Client"
+       ::= { ipPoolNASClientEntry 3 }
+
+nasIPAddressResponses OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Accept response sent by IP-Pool service to NAS Client"
+       ::= { ipPoolNASClientEntry 4 }
+
+nasIPAddressRequestDropped OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of packets dropped by IP-Pool service received from NAS Client"
+       ::= { ipPoolNASClientEntry 5 }
+
+nasIPAddressUnknownPacket OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Unknown Radius Packet received by IP-Pool service from NAS Client"
+       ::= { ipPoolNASClientEntry 6 }
+
+nasIPAddressInvalidRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of invalid Radius request received by IP-Pool service from NAS Client "
+       ::= { ipPoolNASClientEntry 7 }
+
+nasIPAddressDiscoverRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Request received by IP-Pool service from NAS Client"
+       ::= { ipPoolNASClientEntry 8 }
+
+nasIPAddressOfferResponse OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Accept sent by IP-Pool service to NAS Client"
+       ::= { ipPoolNASClientEntry 9 }
+
+nasIPAddressDeclineResponse OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Reject Response sent by IP-Pool service to NAS Client"
+       ::= { ipPoolNASClientEntry 10 }
+
+nasIPAddressAllocationRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Accounting Start Request received by IP-Pool service from NAS Client"
+       ::= { ipPoolNASClientEntry 11 }
+
+nasIPAddressReleaseRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Accounting Stop reponse sent by IP-Pool service to NAS Client"
+       ::= { ipPoolNASClientEntry 12 }
+
+nasIPAddressUpdateRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Accounting Update received by IP-Pool service from NAS Client"
+       ::= { ipPoolNASClientEntry 13 }
+
+END

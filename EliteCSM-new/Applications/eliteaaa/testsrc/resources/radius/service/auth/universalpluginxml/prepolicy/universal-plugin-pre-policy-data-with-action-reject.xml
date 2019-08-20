@@ -1,0 +1,56 @@
+<list>
+
+ <test-case behaviour="Configured Action: REJECT
+ 					- if configured attributes is not matched with request packet it will send access-reject in response">
+		<universal-plugin-detail>
+			<description>Created by admin on 04/17/2017 03:17:43 PM</description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies>
+				<pre-policy-detail name="prePolicy">
+					<action>2</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:11</attr-id>
+							<attribute-value>"user1@elitecore.com"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>J</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"eliteaaa"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</pre-policy-detail>
+			</universal-pre-policies>
+			<universal-post-policies/>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="ELITEAAA"/>
+			<attribute id="0:2" value="ELITEAAA"/>
+			<attribute id="0:11" value="user1@elitecore.co" />
+		</request-packet>
+
+		<response-packet type="3">
+		</response-packet>
+		
+		<assert>
+			<request>
+				<packet-type value = "1" />
+				<contains-attribute id="0:30" value="eliteaaa"/>	
+			</request>
+			<response>
+				<packet-type value = "3" />
+			</response>
+		</assert>
+
+	</test-case>
+	
+</list> 

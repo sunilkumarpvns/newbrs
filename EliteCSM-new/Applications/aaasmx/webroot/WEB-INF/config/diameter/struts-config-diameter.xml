@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <data-sources />
+    <form-beans>
+            
+      <!-- form-beans for digest config -->
+      
+      <form-bean name="createDiameterdicForm" type="com.elitecore.elitesm.web.diameter.dictionary.forms.CreateDiameterdicForm"/>
+      <form-bean name="listDiameterdicForm" type="com.elitecore.elitesm.web.diameter.dictionary.forms.ListDiameterdicForm"/>
+            
+      <form-bean name="initCreateDiameterPolicyForm" type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.forms.InitCreateDiameterPolicyForm"/>
+      <form-bean name="createDiameterPolicyForm" type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.forms.CreateDiameterPolicyForm"/>
+      <form-bean name="searchDiameterPolicyForm" type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.forms.SearchDiameterPolicyForm"/>
+      <form-bean name="miscDiameterPolicyForm" type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.forms.MiscDiameterPolicyForm"/>
+  	  <form-bean name="viewDiameterPolicyForm" type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.forms.ViewDiameterPolicyForm"/>
+  	  <form-bean name="updateDiameterPolicyForm" type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.forms.UpdateDiameterPolicyForm"/>
+  	  <form-bean name="diameterRoutingConfForm" type="com.elitecore.elitesm.web.diameter.routingconfig.forms.DiameterRoutingConfForm"/>
+  	  <form-bean name="searchDiameterPeerProfileForm" type="com.elitecore.elitesm.web.diameter.peerprofiles.forms.SearchDiameterPeerProfileForm"/>
+  	  <form-bean name="diameterPeerProfileForm" type="com.elitecore.elitesm.web.diameter.peerprofiles.forms.DiameterPeerProfileForm"/>
+  	  <form-bean name="searchDiameterPeerForm" type="com.elitecore.elitesm.web.diameter.peer.forms.SearchDiameterPeerForm"/>
+  	  <form-bean name="diameterPeerForm" type="com.elitecore.elitesm.web.diameter.peer.forms.DiameterPeerForm"/>
+  	  <form-bean name="searchDiameterRoutingConfForm" type="com.elitecore.elitesm.web.diameter.routingconfig.forms.SearchDiameterRoutingConfForm"/>  
+  	  <form-bean name="diameterRoutingTableForm" type="com.elitecore.elitesm.web.diameter.routingconfig.forms.DiameterRoutingTableForm"/>	  
+  	  <form-bean name="priorityTableConfigForm" type="com.elitecore.elitesm.web.diameter.prioritytable.form.PriorityTableForm"/>
+  	  <form-bean name="searchDiameterSessionManagerForm" type="com.elitecore.elitesm.web.diameter.sessionmanager.form.SearchDiameterSessionManagerForm" />
+   	  <form-bean name="createDiameterSessionManagerForm" type="com.elitecore.elitesm.web.diameter.sessionmanager.form.CreateDiameterSessionManagerForm"/>
+   	  <form-bean name="viewDiameterSessionManagerForm" type="com.elitecore.elitesm.web.diameter.sessionmanager.form.ViewDiameterSessionManagerForm"/>
+   	  <form-bean name="updateDiameterSessionManagerForm" type="com.elitecore.elitesm.web.diameter.sessionmanager.form.UpdateDiameterSessionManagerForm"/>
+   	  <form-bean name="searchDiameterASMForm" type="com.elitecore.elitesm.web.diameter.sessionmanager.form.SearchDiameterASMForm"/>
+   	  <form-bean name="imsiBasedRoutingTableForm" type="com.elitecore.elitesm.web.diameter.imsibasedroutingtable.form.IMSIBasedRoutingTableForm"/>  
+      <form-bean name="msisdnBasedRoutingTableForm" type="com.elitecore.elitesm.web.diameter.msisdnbasedroutingtable.form.MSISDNBasedRoutingTableForm"/>  
+      <form-bean name="diameterPolicyGroupForm" type="com.elitecore.elitesm.web.diameter.diameterpolicygroup.forms.DiameterPolicyGroupForm"></form-bean>
+      <form-bean name="diameterConcurrencyForm" type="com.elitecore.elitesm.web.diameter.diameterconcurrency.form.DiameterConcurrencyForm"></form-bean>
+   	  <form-bean name="subscriberRoutingTableForm" type="com.elitecore.elitesm.web.diameter.subscriberroutingtable.form.SubscriberRoutingTableForm" />
+   	  <form-bean name="diameterPeerGroupForm" type="com.elitecore.elitesm.web.diameter.diameterepeergroup.form.DiameterPeerGroupForm" />
+   	
+    </form-beans>  
+  
+    <global-exceptions />
+  
+    <action-mappings>
+
+    <!-- Action mapping for Digest Config  -->
+    
+     <!-- Create Digest Config -->
+    <action path="/initCreateDiameterdic"
+      type="com.elitecore.elitesm.web.diameter.dictionary.InitCreateDiameterdicAction"
+      name="createDiameterdicForm"
+      scope="request"
+      validate="false">
+      <forward name="createDiameterdic" path="/jsp/diameter/dictionary/CreateDiameterdic.jsp"></forward>
+    </action>
+    
+	<action path="/createDiameterdic"
+      	 type="com.elitecore.elitesm.web.diameter.dictionary.CreateDiameterdicAction"
+      	 name="createDiameterdicForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="addDictionary" path="/jsp/diameter/dictionary/CreateDiameterdic.jsp"/>
+     </action>
+	 <action path="/listDiameterdic"
+      	 type="com.elitecore.elitesm.web.diameter.dictionary.ListDiameterdicAction"
+      	 name="listDiameterdicForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="listDiameterdic" path="/jsp/diameter/dictionary/ListDiameterdic.jsp"/>
+            <forward name="createDictionary" path="/initCreateDiameterdic.do"/>
+     </action>
+    
+	<action path="/miscDiameterdic"
+          scope="request"
+          type="com.elitecore.elitesm.web.diameter.dictionary.MiscDiameterdicAction"
+          name="listDiameterdicForm"
+          validate="false">
+
+            <forward name="listDiameterdic" path="/listDiameterdic.do"/>
+        </action>
+	
+	<action path="/initCreateDiameterPolicy"
+          type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.InitCreateDiameterPolicyAction"
+          name="initCreateDiameterPolicyForm"
+          scope="request"
+          validate="false">
+
+          <forward name="initCreateDiameterPolicy" path="/jsp/diameter/policies/diameterpolicy/CreateDiameterPolicy.jsp"/> 
+     </action>
+     
+     <action path="/createDiameterPolicy"
+          type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.CreateDiameterPolicyAction"
+          name="createDiameterPolicyForm"
+          scope="request"
+          validate="false">
+
+          <forward name="createDiameterPolicy" path="/jsp/diameter/policies/diameterpolicy/CreateDiameterPolicy.jsp"/> 
+     </action>
+     
+     <action path="/initSearchDiameterPolicy"
+      	 type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.InitSearchDiameterPolicyAction"
+      	 name="searchDiameterPolicyForm"
+      	 scope="request"
+      	 validate="true"
+      	 input="/jsp/diameter/policies/diameterpolicy/InitSearchDiameterPolicy.jsp">
+            <forward name="searchDiameterPolicy" path="/jsp/diameter/policies/diameterpolicy/SearchDiameterPolicy.jsp"/>
+     </action>
+       	          			     			
+	<action path="/searchDiameterPolicy"
+	        type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.SearchDiameterPolicyAction"
+	        scope="request"
+	        name="searchDiameterPolicyForm"
+	        validate="true"
+	        input="/jsp/diameter/policies/diameterpolicy/SearchDiameterPolicy.jsp">
+            <forward name="diameterPolicySearchList" path="/jsp/diameter/policies/diameterpolicy/SearchDiameterPolicy.jsp"/>
+    </action>
+    
+     <action path="/miscDiameterPolicy"
+	         scope="request"
+	         type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.MiscDiameterPolicyAction"
+	         name="miscDiameterPolicyForm"
+	         validate="false">
+            <forward name="diameterPolicySearchList" path="/searchDiameterPolicy.do"/>
+     </action>
+      
+     <action path="/initUpdateDiameterPolicy"  
+		 type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.InitUpdateDiameterPolicyAction"   
+		 name="updateDiameterPolicyForm"   
+		 scope="request"  
+		 validate="false">  
+		    <forward name="initUpdateDiameterPolicy" path="/jsp/diameter/policies/diameterpolicy/UpdateDiameterPolicyContainer.jsp" />
+	</action>
+	
+	<action path="/initViewDiameterPolicy"  
+		 type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.ViewDiameterPolicyAction"   
+		 name="viewDiameterPolicyForm"   
+		 scope="request"  
+		 validate="false">
+		    <forward name="viewDiameterPolicyDetail" path="/jsp/diameter/policies/diameterpolicy/ViewDiameterPolicyContainer.jsp" />
+	</action>
+	
+	<action path="/updateDiameterPolicy"  
+		 type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.UpdateDiameterPolicyAction"   
+		 name="updateDiameterPolicyForm"     
+		 scope="request"
+		 validate="false">  
+		     <forward name="updateDiameterPolicy" path="/jsp/diameter/policies/diameterpolicy/UpdateDiameterPolicyContainer.jsp" />
+	</action>    
+	<action path="/viewDiameterDetails" 
+         type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.ViewDiameterPolicyAction"   
+         name="viewDiameterPolicyForm"
+         scope="request"
+         validate="false">
+         	<forward name="viewDiameterPolicyDetail" path="/jsp/diameter/policies/diameterpolicy/ViewDiameterPolicyDetailsContainer.jsp"/>
+    </action>   
+    
+    <action path="/initSearchDiameterPeerProfiles"
+      	 type="com.elitecore.elitesm.web.diameter.peerprofiles.InitSearchDiameterPeerProfilesAction"
+      	 name="searchDiameterPeerProfileForm"
+      	 scope="request"
+      	 validate="true">
+            <forward name="searchDiameterPeerProfile" path="/jsp/diameter/peerprofiles/SearchDiameterPeerProfile.jsp"/>
+     </action>
+     
+     <action path="/searchDiameterPeerProfiles"
+	        type="com.elitecore.elitesm.web.diameter.peerprofiles.SearchDiameterPeerProfilesAction"
+	        scope="request"
+	        name="searchDiameterPeerProfileForm"
+	        validate="true">
+            <forward name="searchDiameterPeerProfileList" path="/jsp/diameter/peerprofiles/SearchDiameterPeerProfile.jsp"/> 
+     </action>
+     
+     <action path="/initCreateDiameterPeerProfile"
+          type="com.elitecore.elitesm.web.diameter.peerprofiles.InitCreateDiameterPeerProfileAction"
+          name="diameterPeerProfileForm"
+          scope="request"
+          validate="false">
+          <forward name="initCreateDiameterPeerProfile" path="/jsp/diameter/peerprofiles/CreateDiameterPeerProfile.jsp"/> 
+     </action>
+     
+     <action path="/createDiameterPeerProfile"
+          type="com.elitecore.elitesm.web.diameter.peerprofiles.CreateDiameterPeerProfileAction"
+          name="diameterPeerProfileForm"
+          scope="request"
+          validate="true"
+          input="/jsp/diameter/peerprofiles/CreateDiameterPeerProfile.jsp">
+          <forward name="createDiameterPeerProfile" path="/jsp/diameter/peerprofiles/CreateDiameterPeerProfile.jsp"/>
+     </action>
+     
+     <action path="/initUpdateDiameterPeerProfile"  
+		 type="com.elitecore.elitesm.web.diameter.peerprofiles.InitUpdateDiameterPeerProfileAction"   
+		 name="diameterPeerProfileForm"   
+		 scope="request"  
+		 validate="false">  
+		    <forward name="initUpdateDiameterPeerProfile" path="/jsp/diameter/peerprofiles/UpdateDiameterPeerProfileContainer.jsp" />
+	 </action>
+	 
+	 <action path="/updateDiameterPeerProfile"  
+		 type="com.elitecore.elitesm.web.diameter.peerprofiles.UpdateDiameterPeerProfileAction"   
+		 name="diameterPeerProfileForm"     
+		 scope="request"
+		 validate="false">  
+		     <forward name="updateDiameterPeerForm" path="/jsp/diameter/peerprofiles/UpdateDiameterPeerProfileContainer.jsp" />
+	 </action>
+	 
+	 <action path="/viewDiameterPeerProfile"  
+		 type="com.elitecore.elitesm.web.diameter.peerprofiles.ViewDiameterPeerProfileAction"   
+		 name="diameterPeerProfileForm"   
+		 scope="request"
+		 validate="false">
+		     <forward name="viewDiameterPeerProfile" path="/jsp/diameter/peerprofiles/ViewDiameterPeerProfileContainer.jsp" />
+	</action>
+	
+	<action path="/miscDiameterPeerProfile"
+	         scope="request"
+	         type="com.elitecore.elitesm.web.diameter.peerprofiles.MiscDiameterPeerProfileAction"
+	         name="searchDiameterPeerProfileForm"
+	         validate="false">
+            <forward name="searchDiameterPeerProfileList" path="/searchDiameterPeerProfiles.do"/>
+            <forward name="searchAllDiameterPeerProfile" path="/jsp/diameter/peerprofiles/ListAllDiameterPeerProfile.jsp"/>
+     </action>
+     
+     <action path="/initSearchDiameterPeer"
+      	 type="com.elitecore.elitesm.web.diameter.peer.InitSearchDiameterPeerAction"
+      	 name="searchDiameterPeerForm"
+      	 scope="request"
+      	 validate="false">
+            <forward name="searchDiameterPeer" path="/jsp/diameter/peer/SearchDiameterPeer.jsp"/>
+     </action>
+     
+     <action path="/searchDiameterPeer"
+	        type="com.elitecore.elitesm.web.diameter.peer.SearchDiameterPeerAction"
+	        scope="request"
+	        name="searchDiameterPeerForm"
+	        validate="false">
+            <forward name="searchDiameterPeerList" path="/jsp/diameter/peer/SearchDiameterPeer.jsp"/> 
+     </action>
+     
+     <action path="/initCreateDiameterPeer"
+          type="com.elitecore.elitesm.web.diameter.peer.InitCreateDiameterPeerAction"
+          name="diameterPeerForm"
+          scope="request"
+          validate="false">
+          <forward name="initCreateDiameterPeer" path="/jsp/diameter/peer/CreateDiameterPeer.jsp"/> 
+     </action>
+     
+     <action path="/createDiameterPeer"	
+          type="com.elitecore.elitesm.web.diameter.peer.CreateDiameterPeerAction"
+          name="diameterPeerForm"
+          scope="request"
+          validate="false"
+          input="/jsp/diameter/peer/CreateDiameterPeer.jsp">
+          <forward name="createDiameterPeer" path="/jsp/diameter/peer/CreateDiameterPeer.jsp"/>
+     </action>
+     
+     <action path="/initUpdateDiameterPeer"  
+		 type="com.elitecore.elitesm.web.diameter.peer.InitUpdateDiameterPeerAction"   
+		 name="diameterPeerForm"   
+		 scope="request"  
+		 validate="false"> 
+		    <forward name="initUpdateDiameterPeer" path="/jsp/diameter/peer/UpdateDiameterPeerContainer.jsp" />
+	 </action>
+	 
+	 <action path="/updateDiameterPeer"  
+		 type="com.elitecore.elitesm.web.diameter.peer.UpdateDiameterPeerAction"   
+		 name="diameterPeerForm"     
+		 scope="request"
+		 validate="false">
+		     <forward name="updateDiameterPeer" path="/jsp/diameter/peer/UpdateDiameterPeerContainer.jsp" />
+	 </action>
+	
+	<action path="/viewDiameterPeer"  
+		 type="com.elitecore.elitesm.web.diameter.peer.ViewDiameterPeerAction"   
+		 name="diameterPeerForm"     
+		 scope="request"
+		 validate="false">
+		     <forward name="viewDiameterPeer" path="/jsp/diameter/peer/ViewDiameterPeerContainer.jsp" />
+	</action>
+	
+	<action path="/miscDiameterPeer"
+	         scope="request"
+	         type="com.elitecore.elitesm.web.diameter.peer.MiscDiameterPeerAction"
+	         name="searchDiameterPeerForm"
+	         validate="false">
+            <forward name="searchDiameterPeerList" path="/searchDiameterPeer.do"/>
+            <forward name="searchAllDiameterPeer" path="/jsp/diameter/peer/ListAllDiameterPeer.jsp"/>
+     </action>
+
+    <action path="/initCreateDiameterRoutingConfig"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.InitCreateRoutingConfAction"
+          name="diameterRoutingConfForm"
+          scope="request"
+          validate="false">
+          <forward name="initCreateDiameterRoutingConf" path="/jsp/diameter/routingconfig/CreateRoutingConfig.jsp"/> 
+     </action>
+     
+     <action path="/createDiameterRoutingConfig"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.CreateRoutingConfAction"
+          name="diameterRoutingConfForm"
+          scope="request"
+          validate="false">
+          <forward name="createDiameterRoutingConf" path="/jsp/diameter/routingconfig/CreateRoutingConfig.jsp"/> 
+     </action>   	
+	 
+	 <action path="/initSearchDiameterRoutingConfig"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.InitSearchDiameterRoutingConfAction"
+          name="searchDiameterRoutingConfForm"
+          scope="request"
+          validate="false">
+          <forward name="searchDiameterRoutingConfig" path="/jsp/diameter/routingconfig/SearchDiameterRoutingConf.jsp"/>
+     </action>
+     
+     <action path="/searchDiameterRoutingConf"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.SearchDiameterRoutingConfAction"
+          name="searchDiameterRoutingConfForm"
+          scope="request"
+          validate="false">
+          <forward name="searchDiameterRoutingConfList" path="/jsp/diameter/routingconfig/SearchDiameterRoutingConf.jsp"/>
+     </action>
+     
+     <action path="/initUpdateDiameterRoutingConfig"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.InitUpdateDiameterRoutingConfAction"
+          name="diameterRoutingConfForm"
+          scope="request"
+          validate="false">
+          <forward name="initUpdateDiameterRoutingConf" path="/jsp/diameter/routingconfig/UpdateDiameterRoutingConfigContainer.jsp"/> 
+     </action>
+     
+     <action path="/updateDiameterRoutingConfig"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.UpdateDiameterRoutingConfAction"
+          name="diameterRoutingConfForm"
+          scope="request"
+          validate="false">
+          <forward name="updateDiameterRoutingConf" path="/jsp/diameter/routingconfig/UpdateDiameterRoutingConfigContainer.jsp"/> 
+     </action>
+     
+     <action path="/initUpdateDiameterRoutingConfPeer"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.InitUpdateDiameterPeerAction"
+          name="diameterRoutingConfForm"
+          scope="request"
+          validate="false">
+          <forward name="initUpdateDiameterRoutingConfPeer" path="/jsp/diameter/routingconfig/UpdateDiameterPeerContainer.jsp"/> 
+     </action>
+     
+     <action path="/updateDiameterRoutingConfPeer"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.UpdateDiameterPeerAction"
+          name="diameterRoutingConfForm"
+          scope="request"
+          validate="false">
+          <forward name="initUpdateDiameterPeer" path="/jsp/diameter/routingconfig/UpdateDiameterPeerContainer.jsp"/> 
+     </action>
+     
+     <action path="/viewDiameterRoutingTable"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.ViewDiameterRoutingTableAction"
+          name="diameterRoutingConfForm"
+          scope="request"
+          validate="false">
+          <forward name="viewDiameterRoutingTable" path="/jsp/diameter/routingconfig/ViewDiameterRoutingTableContainer.jsp"/> 
+     </action>
+     
+     <action path="/viewDiameterRoutingConfBasicDetail"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.ViewDiameterRoutingConfBasicDetailAction"
+          name="diameterRoutingConfForm"
+          scope="request"
+          validate="false">
+          <forward name="viewDiameterRoutingConfBasicDetail" path="/jsp/diameter/routingconfig/ViewDiameterRoutingBasicDetailContainer.jsp"/> 
+     </action>   
+	
+	<action path="/miscDiameterRoutingConf"
+	         scope="request"
+	         type="com.elitecore.elitesm.web.diameter.routingconfig.MiscDiameterRoutingConfAction"
+	         name="searchDiameterRoutingConfForm"
+	         validate="false">
+            <forward name="searchDiameterRoutingConfList" path="/jsp/diameter/routingconfig/SearchDiameterRoutingConf.jsp"/>
+            <forward name="searchAllDiameterRoutingConfig" path="/jsp/diameter/routingconfig/ListAllDiamterRoutingConfig.jsp"/>
+     </action>
+     
+     <action path="/diameterRoutingTable"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.DiameterRoutingTableAction"
+          name="diameterRoutingTableForm"
+          scope="request"
+          validate="false">
+          <forward name="searchDiameterRoutingConfig" path="/jsp/diameter/routingconfig/SearchDiameterRoutingConf.jsp"/>
+          <forward name="searchDiameterRoutingConfList" path="/jsp/diameter/routingconfig/ListDiameterRoutingConf.jsp"/>
+     </action>
+     
+      <action path="/updateOverloadConfig"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.UpdateOverloadConfigurationAction"
+          name="searchDiameterRoutingConfForm"
+          scope="request"
+          validate="false">
+         <forward name="searchDiameterRoutingConfList" path="/jsp/diameter/routingconfig/ListDiameterRoutingConf.jsp"/>
+     </action> 
+     
+     <action path="/viewDiameterPolicyHistory"  
+		 type="com.elitecore.elitesm.web.diameter.policies.diameterpolicy.ViewDiameterPolicyHistoryAction"   
+		 name="viewDiameterPolicyForm"   
+		 scope="request"  
+		 validate="false">
+		    <forward name="viewDiameterPolicyHistory" path="/jsp/diameter/policies/diameterpolicy/ViewDiameterPolicyHistoryContainer.jsp" />
+	</action>
+	
+	 <action path="/viewDiameterPeerProfileHistory"  
+		 type="com.elitecore.elitesm.web.diameter.peerprofiles.ViewDiameterPeerProfileHistoryAction"   
+		 name="diameterPeerProfileForm"   
+		 scope="request"
+		 validate="false">
+		     <forward name="viewDiameterPeerProfileHistory" path="/jsp/diameter/peerprofiles/ViewDiameterPeerProfileHistoryContainer.jsp" />
+	</action>
+     
+     <action path="/viewDiameterPeerHistory"  
+		 type="com.elitecore.elitesm.web.diameter.peer.ViewDiameterPeerHistoryAction"   
+		 name="diameterPeerForm"     
+		 scope="request"
+		 validate="false">
+		     <forward name="viewDiameterPeerHistory" path="/jsp/diameter/peer/ViewDiameterPeerHistoryContainer.jsp" />
+	</action>
+	
+	 <action path="/viewDiameterRoutingConfBasicDetailHistory"
+          type="com.elitecore.elitesm.web.diameter.routingconfig.ViewDiameterRoutingConfBasicDetailHistoryAction"
+          name="diameterRoutingConfForm"
+          scope="request"
+          validate="false">
+          <forward name="viewDiameterRoutingConfBasicDetailHistory" path="/jsp/diameter/routingconfig/ViewDiameterRoutingBasicDetailHistoryContainer.jsp"/> 
+     </action>   
+     
+      <action path="/updatePriorityTableConfig"
+          type="com.elitecore.elitesm.web.diameter.prioritytable.ListPriorityTableConfigAction"
+          name="priorityTableConfigForm"
+          scope="request"
+          validate="false">
+          <forward name="viewPriorityTable" path="/jsp/diameter/prioritytable/UpdatePriorityContainer.jsp"/> 
+     </action>
+     
+     <action path="/viewPriorityTableHistory"
+          type="com.elitecore.elitesm.web.diameter.prioritytable.ViewPriorityTableHistoryAction"
+          name="priorityTableConfigForm"
+          scope="request"
+          validate="false">
+          <forward name="viewPriorityHistory" path="/jsp/diameter/prioritytable/ViewPriorityHistoryContainer.jsp"/> 
+     </action> 
+     
+     <!-- Diameter Session Manager -->
+     
+      <action path="/searchDiameterSessionManager" type="com.elitecore.elitesm.web.diameter.sessionmanager.SearchDiameterSessionManagerAction"
+     	 name="searchDiameterSessionManagerForm"
+      	 scope="request"
+      	 validate="false">
+      	<forward name="searchSessionManagerList" path="/jsp/diameter/sessionmanager/SearchDiameterSessionManager.jsp"></forward>
+      </action>
+      
+       <action path="/initCreateDiameterSessionManager" type="com.elitecore.elitesm.web.diameter.sessionmanager.InitCreateDiameterSessionManagerAction"
+     	 name="createDiameterSessionManagerForm"
+      	 scope="session"
+      	 validate="false">
+      	<forward name="createDiameterSessionManager" path="/jsp/diameter/sessionmanager/CreateDiameterSessionManager.jsp"></forward>
+      </action>
+    
+    <action path="/createDiameterSessionManagerDetails" type="com.elitecore.elitesm.web.diameter.sessionmanager.CreateDiameterSessionManagerScenarioAction" 
+    	name="createDiameterSessionManagerForm" 
+    	scope="session" 
+    	validate="false">
+    	<forward name="createDiameterSessionManagerScenarioMapping" path="/jsp/diameter/sessionmanager/CreateDiameterSessionManagerScenario.jsp"></forward>
+    </action>
+    
+    <action path="/createDiameterSessionManager" type="com.elitecore.elitesm.web.diameter.sessionmanager.CreateDiameterSessionManagerAction" 
+    	name="createDiameterSessionManagerForm" 
+    	scope="session" 
+    	validate="false">
+    </action>
+    
+    <action path="/getDiameterSessionManager" type="com.elitecore.elitesm.web.diameter.sessionmanager.GetDiameterSessionManager" 
+    	name="createDiameterSessionManagerForm" 
+    	scope="session" 
+    	validate="false">
+    	<forward name="createDiameterSessionManager" path="/jsp/diameter/sessionmanager/CreateDiameterSessionManager.jsp"></forward>
+    </action>
+    
+    
+    
+     <action path="/viewDiameterSessionManager"
+          type="com.elitecore.elitesm.web.diameter.sessionmanager.ViewDiameterSessionManagerAction"
+          name="viewDiameterSessionManagerForm"
+          scope="request"
+          validate="false">
+          <forward name="viewDiameterSessionManger" path="/jsp/diameter/sessionmanager/ViewDiameterSessionManagerContainer.jsp"/> 
+     </action>   
+     
+     <action path="/viewDiameterSessionManagerScenario"
+          type="com.elitecore.elitesm.web.diameter.sessionmanager.ViewDiameterSessionManagerScenarioAction"
+          name="viewDiameterSessionManagerForm"
+          scope="request"
+          validate="false">
+          <forward name="viewDiameterSessionMangerScenario" path="/jsp/diameter/sessionmanager/ViewDiameterSessionManagerScenarioContainer.jsp"/> 
+     </action>   
+     
+     
+      <action path="/initUpdateDiameterSessionManager"
+          type="com.elitecore.elitesm.web.diameter.sessionmanager.InitUpdateDiameterSessionManagerAction"
+          name="updateDiameterSessionManagerForm"
+          scope="request"
+          validate="false">
+          <forward name="initUpdateDiameterSessionManager" path="/jsp/diameter/sessionmanager/UpdateDiameterSessionManagerContainer.jsp"/> 
+     </action>   
+     
+      <action path="/updateDiameterSessionManagerBasicDetails"
+          type="com.elitecore.elitesm.web.diameter.sessionmanager.UpdateDiameterSessionManagerAction"
+          name="updateDiameterSessionManagerForm"
+          scope="request"
+          validate="false">
+             <forward name="initUpdateDiameterSessionManager" path="/initUpdateDiameterSessionManager.do"/> 
+     </action>   
+     
+     
+     <action path="/initUpdateDiameterSessionManagerScenario"
+          type="com.elitecore.elitesm.web.diameter.sessionmanager.InitUpdateDiameterSessionManagerScenarioAction"
+          name="updateDiameterSessionManagerForm"
+          scope="request"
+          validate="false">
+          <forward name="initUpdateDiameterSessionManagerScenario" path="/jsp/diameter/sessionmanager/UpdateDiameterSessionManagerScenarioContainer.jsp"/> 
+     </action> 
+     
+      <action path="/updateDiameterSessionManagerScenario"
+          type="com.elitecore.elitesm.web.diameter.sessionmanager.UpdateDiameterSessionManagerScenarioAction"
+          name="updateDiameterSessionManagerForm"
+          scope="request"
+          validate="false">
+             <forward name="initUpdateDiameterSessionManagerScenario" path="/initUpdateDiameterSessionManagerScenario.do"/> 
+     </action> 
+     
+     
+      <action path="/viewDiameterSessionManagerHistory"
+          type="com.elitecore.elitesm.web.diameter.sessionmanager.ViewDiameterSessionManagerHistory"
+          name="updateDiameterSessionManagerForm"
+          scope="request"
+          validate="false">
+          <forward name="viewDiameterSessionManagerHistory" path="/jsp/diameter/sessionmanager/ViewDiameterSessionManagerHistoryContainer.jsp"/> 
+     </action>   
+     
+     <!-- Diameter Search Active Session  -->
+     
+      <action path="/initSearchDiameterASM"
+		type="com.elitecore.elitesm.web.diameter.sessionmanager.InitSearchDiameterASMAction"
+    	name="searchDiameterASMForm"
+   		scope="request"
+    	validate="false">
+    	<forward name="searchDiameterASM" path="/jsp/diameter/sessionmanager/SearchDiameterASMContainer.jsp"></forward>
+    	<forward name="initSearchDiameterASM" path="/initSearchDiameterASM.do"/>
+     </action>
+     
+      <action path="/searchDiameterASM"
+		type="com.elitecore.elitesm.web.diameter.sessionmanager.SearchDiameterASMAction"
+    	name="searchDiameterASMForm"
+   		scope="request"
+    	validate="false">
+    	<forward name="searchDiameterASM" path="/jsp/diameter/sessionmanager/SearchDiameterASMContainer.jsp"></forward>
+      </action>
+      
+      <action path="/viewdiameterASMDetails"
+		type="com.elitecore.elitesm.web.diameter.sessionmanager.ViewDiameterASMAction"
+    	name="searchDiameterASMForm"
+   		scope="request"
+    	validate="false">
+      </action>
+     
+     <!-- IMSI BASED Routing Table -->
+     
+      <action path="/initSearchIMSIBasedRoutingTable"
+          type="com.elitecore.elitesm.web.diameter.imsibasedroutingtable.InitSearchIMSIBasedRoutingTableAction"
+          name="imsiBasedRoutingTableForm"
+          scope="request"
+          validate="false">
+          <forward name="searchIMSIRoutingTable" path="/jsp/diameter/imsibasedroutingtable/SearchIMSIBasedRoutingTable.jsp"/>
+     </action>
+     
+     <action path="/initUpdateIMSIBasedRouting"
+          type="com.elitecore.elitesm.web.diameter.imsibasedroutingtable.UpdateIMSIBasedRoutingTableAction"
+          name="imsiBasedRoutingTableForm"
+          scope="request"
+          validate="false">
+          <forward name="initUpdateIMSIRoutingTable" path="/jsp/diameter/imsibasedroutingtable/UpdateIMSIBasedRoutingTableContainer.jsp"/>
+     </action>
+     
+     <action path="/initViewIMSIBasedRouting"
+          type="com.elitecore.elitesm.web.diameter.imsibasedroutingtable.ViewIMSIBasedRoutingTableAction"
+          name="imsiBasedRoutingTableForm"
+          scope="request"
+          validate="false">
+          <forward name="viewIMSIRoutingTable" path="/jsp/diameter/imsibasedroutingtable/ViewIMSIBasedRoutingTableContainer.jsp"/>
+     </action>
+     
+     <action path="/exportIMSIConfig"
+     	type="com.elitecore.elitesm.web.diameter.imsibasedroutingtable.ExportIMSIConfigAction"
+     	name="imsiBasedRoutingTableForm"
+     	scope="request"
+     	validate="false">
+     </action>
+     
+      <action path="/viewIMSIBasedRoutingHistory"  
+		 type="com.elitecore.elitesm.web.diameter.imsibasedroutingtable.ViewIMSIBasedRoutingTableHistoryAction"   
+		 name="imsiBasedRoutingTableForm"   
+		 scope="request"
+		 validate="false">
+		      <forward name="viewIMSIBasedRoutingTableHistory" path="/jsp/diameter/imsibasedroutingtable/ViewIMSIBasedRoutingTableHistoryContainer.jsp"/>
+	 </action>
+     
+     
+      <!-- MSISDN BASED Routing Table -->
+     
+      <action path="/searchMSISDNBasedRoutingTable"
+          type="com.elitecore.elitesm.web.diameter.msisdnbasedroutingtable.SearchMSISDNBasedRoutingTableAction"
+          name="msisdnBasedRoutingTableForm"
+          scope="request"
+          validate="false">
+          <forward name="searchMSISDNRoutingTable" path="/jsp/diameter/msisdnbasedroutingtable/SearchMSISDNBasedRoutingTable.jsp"/>
+     </action>
+     
+      <action path="/updateMSISDNBasedRouting"
+          type="com.elitecore.elitesm.web.diameter.msisdnbasedroutingtable.UpdateMSISDNBasedRoutingTableAction"
+          name="msisdnBasedRoutingTableForm"
+          scope="request"
+          validate="false">
+          <forward name="initUpdateMSISDNRoutingTable" path="/jsp/diameter/msisdnbasedroutingtable/UpdateMSISDNBasedRoutingTableContainer.jsp"/>
+     </action>
+     
+      <action path="/exportMSISDNConfig"
+     	type="com.elitecore.elitesm.web.diameter.msisdnbasedroutingtable.ExportMSISDNConfigAction"
+     	name="msisdnBasedRoutingTableForm"
+     	scope="request"
+     	validate="false">
+     </action>
+     
+      <action path="/viewMSISDNBasedRouting"
+          type="com.elitecore.elitesm.web.diameter.msisdnbasedroutingtable.ViewMSISDNBasedRoutingTableAction"
+          name="msisdnBasedRoutingTableForm"
+          scope="request"
+          validate="false">
+          <forward name="viewMSISDNRoutingTable" path="/jsp/diameter/msisdnbasedroutingtable/ViewMSISDNBasedRoutingTableContainer.jsp"/>
+     </action>
+     
+      <action path="/viewMSISDNBasedRoutingHistory"  
+		 type="com.elitecore.elitesm.web.diameter.msisdnbasedroutingtable.ViewMSISDNBasedRoutingTableHistoryAction"   
+		 name="msisdnBasedRoutingTableForm"   
+		 scope="request"
+		 validate="false">
+		      <forward name="viewMSISDNBasedRoutingTableHistory" path="/jsp/diameter/msisdnbasedroutingtable/ViewMSISDNBasedRoutingTableHistoryContainer.jsp"/>
+	 </action>
+	 
+	  <!-- Diameter Policy Group -->
+         
+       <action path="/searchDiameterPolicyGroup"
+	        type="com.elitecore.elitesm.web.diameter.diameterpolicygroup.SearchDiameterPolicyGroupAction"
+	        scope="request"
+	        name="diameterPolicyGroupForm"
+	        validate="true">
+            <forward name="diameterPolicySearchList" path="/jsp/diameter/diameterpolicygroup/SearchDiameterPolicyGroup.jsp"/>
+        </action>
+        
+         <action path="/createDiameterPolicyGroup"
+          	type="com.elitecore.elitesm.web.diameter.diameterpolicygroup.CreateDiameterPolicyGroupAction"
+          	name="diameterPolicyGroupForm"
+          	scope="request"
+          	validate="false">
+            <forward name="initCreateDiameterPolicyGroup" path="/jsp/diameter/diameterpolicygroup/CreateDiameterPolicyGroup.jsp"/>
+        </action>
+        
+         <action path="/viewDiameterPolicyGroup"
+          	type="com.elitecore.elitesm.web.diameter.diameterpolicygroup.ViewDiameterPolicyGroupAction"
+          	name="diameterPolicyGroupForm"
+          	scope="request"
+          	validate="false">
+            <forward name="viewDiameterPolicyGroupDetail" path="/jsp/diameter/diameterpolicygroup/ViewDiameterPolicyGroupContainer.jsp"/>      
+         </action>
+         
+         <action path="/updateDiameterPolicyGroup"
+       		type="com.elitecore.elitesm.web.diameter.diameterpolicygroup.UpdateDiameterPolicyGroupAction"
+          	name="diameterPolicyGroupForm"
+          	scope="request"
+          	validate="false">
+            <forward name="initUpdateDiameterPolicyGroup" path="/jsp/diameter/diameterpolicygroup/UpdateDiameterPolicyGroupContainer.jsp"/>
+        </action>
+        
+        <action path="/viewDiameterPolicyGroupHistory"
+	       scope="request"
+	   	   type="com.elitecore.elitesm.web.diameter.diameterpolicygroup.ViewDiameterPolicyGroupHistoryAction"
+	       name="diameterPolicyGroupForm"
+	       validate="true">
+	  	  <forward name="viewDiameterGroupHistory" path="/jsp/diameter/diameterpolicygroup/ViewDiameterPolicyGroupHistoryContainer.jsp"/>
+	  </action>
+	  
+	  <!-- Diameter Concurrency Module -->
+	  <action path="/searchDiameterConcurrency"
+	        type="com.elitecore.elitesm.web.diameter.diameterconcurrency.SearchDiameterConcurrencyAction"
+	        scope="request"
+	        name="diameterConcurrencyForm"
+	        validate="true">
+            <forward name="listDiameterConcurrency" path="/jsp/diameter/diameterconcurrency/SearchDiameterConcurrency.jsp"/>
+      </action>
+      
+       <action path="/createDiameterConcurrency"
+          	type="com.elitecore.elitesm.web.diameter.diameterconcurrency.CreateDiameterConcurrencyAction"
+          	name="diameterConcurrencyForm"
+          	scope="request"
+          	validate="false">
+            <forward name="createDiameterConcurrency" path="/jsp/diameter/diameterconcurrency/CreateDiameterConcurrency.jsp"/>
+       </action>
+       
+        <action path="/viewDiameterConcurrency"
+          	type="com.elitecore.elitesm.web.diameter.diameterconcurrency.ViewDiameterConcurrencyAction"
+          	name="diameterConcurrencyForm"
+          	scope="request"
+          	validate="false">
+            <forward name="viewDiameterConcurrency" path="/jsp/diameter/diameterconcurrency/ViewDiameterConcurrencyContainer.jsp"/>
+       </action>
+       
+       <action path="/updateDiameterConcurrency"
+       		type="com.elitecore.elitesm.web.diameter.diameterconcurrency.UpdateDiameterConcurrencyAction"
+          	name="diameterConcurrencyForm"
+          	scope="request"
+          	validate="false">
+            <forward name="updateDiameterConcurrency" path="/jsp/diameter/diameterconcurrency/UpdateDiameterConcurrencyContainer.jsp"/>
+        </action>
+        
+        <action path="/viewDiameterConcurrencyHistory"  
+		 	type="com.elitecore.elitesm.web.diameter.diameterconcurrency.ViewDiameterPolicyGroupHistoryAction"   
+		    name="diameterConcurrencyForm"   
+		    scope="request"
+		    validate="false">
+		    <forward name="viewDiameterConcurrencyHistory" path="/jsp/diameter/diameterconcurrency/ViewDiameterConcurrencyHistoryContainer.jsp"/>
+	    </action>
+	 
+	 <!-- Subscriber Routing Table -->
+      <action path="/searchSubscriberRoutingTable" parameter="method" type="com.elitecore.elitesm.web.diameter.subscriberroutingtable.SubscriberRoutingTableAction"  name="subscriberRoutingTableForm" scope="request"  validate="false">
+          <forward name="searchSubscriberRoutingTable" path="/jsp/diameter/subscriberroutingtable/SearchSubscriberRoutingTable.jsp"/>
+          <forward name="initCreateIMSIRoutingTable" path="/jsp/diameter/subscriberroutingtable/CreateIMSIBasedRoutingTable.jsp"/>
+    	  <forward name="initCreateMSISDNRoutingTable" path="/jsp/diameter/subscriberroutingtable/CreateMSISDNBasedRoutingTable.jsp"/>
+         
+      </action>
+     
+     <action path="/searchSubscriber"  
+		 type="com.elitecore.elitesm.web.diameter.subscriberroutingtable.SearchSubscriberAction"   
+		 name="subscriberRoutingTableForm"   
+		 scope="request"
+		 validate="false">
+		      <forward name="searchSubscriberRoutingTable" path="/jsp/diameter/subscriberroutingtable/SearchSubscriberRoutingTable.jsp"/>
+	 </action>
+	 
+	  <action path="/createIMSIBasedRoutingTable"
+          type="com.elitecore.elitesm.web.diameter.imsibasedroutingtable.CreateIMSIBasedRoutingTableAction"
+          name="imsiBasedRoutingTableForm"
+          scope="request"
+          validate="false">
+          <forward name="searchIMSIRoutingTable" path="/jsp/diameter/imsibasedroutingtable/SearchIMSIBasedRoutingTable.jsp"/>
+     </action>
+     
+      <action path="/createMSISDNBasedRoutingTable"
+          type="com.elitecore.elitesm.web.diameter.msisdnbasedroutingtable.CreateMSISDNBasedRoutingTableAction"
+          name="msisdnBasedRoutingTableForm"
+          scope="request"
+          validate="false">
+          <forward name="searchIMSIRoutingTable" path="/jsp/diameter/msisdnbasedroutingtable/SearchMSISDNBasedRoutingTable.jsp"/>
+     </action> 
+     
+     
+     <!-- Diameter Peer Group -->      
+     <action path="/searchDiameterPeerGroup"
+	        type="com.elitecore.elitesm.web.diameter.diameterepeergroup.SearchDiameterPeerGroupAction"
+	        scope="request"
+	        name="diameterPeerGroupForm"
+	        validate="false">
+            <forward name="searchDiameterPeerGroup" path="/jsp/diameter/diameterpeergroup/SearchDiameterPeerGroup.jsp"/>
+     </action>
+     
+     <action path="/createDiameterPeerGroup"
+          	type="com.elitecore.elitesm.web.diameter.diameterepeergroup.CreateDiameterPeerGroupAction"
+          	name="diameterPeerGroupForm"
+          	scope="request"
+          	validate="false">
+            <forward name="createDiameterPeerGroup" path="/jsp/diameter/diameterpeergroup/CreateDiameterPeerGroup.jsp"/>
+     </action>
+     
+     <action path="/viewDiameterPeerGroup"
+          	type="com.elitecore.elitesm.web.diameter.diameterepeergroup.ViewDiameterPeerGroupAction"
+          	name="diameterPeerGroupForm"
+          	scope="request"
+          	validate="false">
+            <forward name="viewDiameterPeerGroup" path="/jsp/diameter/diameterpeergroup/ViewDiameterPeerGroupContainer.jsp"/>
+     </action> 
+     
+     <action path="/updateDiameterPeerGroup"
+     		type="com.elitecore.elitesm.web.diameter.diameterepeergroup.UpdateDiameterPeerGroupAction"
+          	name="diameterPeerGroupForm"
+          	scope="request"
+          	validate="false">
+            <forward name="updateDiameterPeerGroup" path="/jsp/diameter/diameterpeergroup/UpdateDiameterPeerGroupContainer.jsp"/>
+     </action> 
+     
+      <action path="/viewDiameterPeerGroupHistory"  
+		 	type="com.elitecore.elitesm.web.diameter.diameterepeergroup.ViewDiameterPeerGroupHistoryAction"   
+		    name="diameterPeerGroupForm"   
+		    scope="request"
+		    validate="false">
+		    <forward name="viewDiameterPeerGroupHistory" path="/jsp/diameter/diameterpeergroup/ViewDiameterPeerGroupHistoryContainer.jsp"/>
+	  </action>
+     
+   </action-mappings>        
+    
+	<message-resources key="resultMessageResources" parameter="com.elitecore.elitesm.web.ResultMessageResources" /> 
+	<message-resources key="diameterResources" parameter="com.elitecore.elitesm.web.diameter.DiameterResources" />
+  
+</struts-config>

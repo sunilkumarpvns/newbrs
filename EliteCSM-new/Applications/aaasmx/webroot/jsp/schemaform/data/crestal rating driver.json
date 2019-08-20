@@ -1,0 +1,106 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Rating Translation Driver",
+  "properties":{
+      "name":{
+          "title":"Instance Name",
+          "type":"string"
+      },
+      "description":{
+          "title":"Description",
+          "type":"string"
+      },
+      "crestel-rating-driver":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "translation-mapping-configuration":{
+                      "title":"Translation Mapping Configuration",
+                      "type":"string"
+                  },
+                  "number-of-instance":{
+                      "title":"Number Of Instance",
+                      "type":"integer",
+                      "default":5
+                  },
+                  "jndi-properties":{
+                      "type":"array",
+                      "items":{
+                          "type":"object",
+                          "properties":{
+                              "property":{
+                                  "title":"Property",
+                                  "type":"string"
+                              },
+                              "value":{
+                                  "title":"Value",
+                                  "type":"string"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+  
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"crestel-rating-driver",
+      "items":[
+          {
+              "key":"crestel-rating-driver[].translation-mapping-configuration"
+          },
+          {
+              "key":"crestel-rating-driver[].number-of-instance"
+          },
+          {
+              "key":"crestel-rating-driver[].jndi-properties",
+              "add":"Add JNDI Property",
+              "items":[
+                  {
+                      "key":"crestel-rating-driver[].jndi-properties[].property"
+                  },
+                  {
+                      "key":"crestel-rating-driver[].jndi-properties[].value"
+                  }
+                  ]
+          }
+          ]
+  }
+  
+],
+"model":{
+    "name": "diameterCrestelRating",
+    "description": "Created by admin on 02/10/2017 12:11:50 PM",
+    "crestel-rating-driver": [
+        {
+            "translation-mapping-configuration": "diameterCrestelRatingTranslationMapping",
+            "number-of-instance": 5,
+            "jndi-properties": [
+                {
+                    "property": "java.naming.factory.initial",
+                    "value": "org.jnp.interfaces.NamingContextFactory"
+                },
+                {
+                    "property": "java.naming.factory.url.pkgs",
+                    "value": "org.jboss.naming:org.jnp.interfaces"
+                },
+                {
+                    "property": "java.naming.provider.url",
+                    "value": "127.0.0.1:4099"
+                }
+            ]
+        }
+    ]
+}
+}

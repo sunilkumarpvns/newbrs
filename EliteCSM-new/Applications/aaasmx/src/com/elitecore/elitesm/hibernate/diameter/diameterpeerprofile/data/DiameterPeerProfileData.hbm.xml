@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class  name="com.elitecore.elitesm.datamanager.diameter.diameterpeerprofile.data.DiameterPeerProfileData" table="TBLMPEERPROFILE">
+
+		<id name="peerProfileId" column="PEERPROFILEID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+
+		<property name="profileName" type="StringType"> 
+			<column name="PROFILENAME" sql-type="VARCHAR2(64)" not-null="false" /> 
+		</property>
+
+		<property name="description" type="StringType"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="false" /> 
+		</property>
+
+        <property name="transportProtocol" type="StringType"> 
+			<column name="TRANSPORTPROTOCOL" sql-type="VARCHAR2(8)" not-null="false" /> 
+		</property>
+		
+		<property name="socketReceiveBufferSize" type="java.lang.Integer">
+			<column name="SOCKETRECEIVEBUFFERSIZE"></column>
+		</property>
+		
+		<property name="socketSendBufferSize" type="java.lang.Integer">
+			<column name="SOCKETSENDBUFFERSIZE"></column>
+		</property>
+		
+		<property name="sendDPRCloseEvent" type="StringType">
+			<column name="SENDDPRCLOSEEVENT"></column>
+		</property>
+		
+		<property name="tcpNagleAlgorithm" type="StringType">
+			<column name="TCPNAGLEALGORITHM"></column>
+		</property>
+
+		<property name="dwrDuration" type="java.lang.Long"> 
+			<column name="DWRDURATION" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+
+		<property name="redirectHostAvpFormat" type="StringType">
+			<column name="REDIRECTHOSTAVPFORMAT" ></column>
+		</property>
+
+		<property name="followRedirection" type="StringType">
+			<column name="FOLLOWREDIRECTION" sql-type="VARCHAR2(8)" not-null="false"/>
+		</property>
+		<property name="hotlinePolicy" type="StringType">
+			<column name="HOTLINEPOLICY" sql-type="VARCHAR2(255)" not-null="false"/>
+		</property>
+		<property name="localIp" type="StringType"> 
+			<column name="LOCALIP" sql-type="VARCHAR2(32)" not-null="false" /> 
+		</property>
+		
+		<property name="initConnectionDuration" type="java.lang.Long"> 
+			<column name="INITCONNECTIONDURATION" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+		
+		<property name="retryCount" type="java.lang.Long"> 
+			<column name="RETRYCOUNT" sql-type="NUMBER(2)" not-null="false" /> 
+		</property>
+		
+		<property name="sessionCleanUpCER" type="StringType">
+			<column name="SESSIONCLEANUPONCER" ></column>
+		</property>
+		
+		<property name="sessionCleanUpDPR" type="StringType">
+			<column name="SESSIONCLEANUPONDPR"></column>
+		</property>
+		
+		<property name="cerAvps" type="StringType"> 
+			<column name="CERAVPS" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<property name="dprAvps" type="StringType"> 
+			<column name="DPRAVPS" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<property name="dwrAvps" type="StringType"> 
+			<column name="DWRAVPS" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+
+        <property name="createdByStaffId" type="StringType"> 
+			<column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="createDate" type="java.sql.Timestamp"> 
+			<column name="CREATEDATE" sql-type="TIMESTAMP" not-null="false" /> 
+		</property>
+
+        <property name="lastModifiedByStaffId" type="StringType"> 
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp"> 
+			<column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP" not-null="false" /> 
+		</property>
+		
+		<property name="ciphersuiteList" type="StringType"> 
+			<column name="CIPHERSUITELIST" sql-type="VARCHAR(4000)" not-null="false" /> 
+		</property>
+		
+		<property name="minTlsVersion" type="StringType"> 
+			<column name="MINTLSVERSION" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="maxTlsVersion" type="StringType"> 
+			<column name="MAXTLSVERSION" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="serverCertificateId" type="StringType"> 
+			<column name="SERVERCERTIFICATEID" sql-type="VARCHAR(36)"/> 
+		</property>
+		
+		<property name="clientCertificateRequest" type="StringType"> 
+			<column name="CLIENTCERTIFICATEREQUEST" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="validateCertificateExpiry" type="StringType"> 
+			<column name="VALIDATECERTIFICATEEXPIRY" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="allowCertificateCA" type="StringType"> 
+			<column name="ALLOWCERTIFICATECA" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="validateCertificateRevocation" type="StringType"> 
+			<column name="VALIDATECERTIFICATEREVOCATION" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="validateHost" type="StringType"> 
+			<column name="VALIDATEHOST" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="securityStandard" type="StringType"> 
+			<column name="SECURITYSTANDARD" sql-type="VARCHAR(20)" not-null="false" /> 
+		</property>
+		
+		 <property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false" />
+	     </property>
+	     
+	     <property name="exclusiveAuthAppIds" type="StringType"> 
+			<column name="EXCLUSIVEAUTHAPPIDS" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+		
+		<property name="exclusiveAcctAppIds" type="StringType"> 
+			<column name="EXCLUSIVEACCTAPPIDS" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+		
+		<property name="haIPAddress" type="StringType"> 
+			<column name="HAIPADDRESS" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+		
+		<property name="dhcpIPAddress" type="StringType"> 
+			<column name="DHCPIPADDRESS" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+</class>            
+	            
+</hibernate-mapping>

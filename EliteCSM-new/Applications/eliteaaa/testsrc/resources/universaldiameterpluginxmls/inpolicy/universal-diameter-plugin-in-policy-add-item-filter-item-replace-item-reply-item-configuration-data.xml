@@ -1,0 +1,607 @@
+<list>
+	<test-case
+		behaviour="Dynamic Assign Item: Adds configured attribute in request packet from dictionary with configured attribute value
+			if not present in request or replaces value with configured attribute value if present,
+						1) Attribute-value can be literal value
+						2) Attribute-value can be expression
+						3) Attribute-value can be Attribute-id
+	">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>0:30</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:89</attr-id>
+							<attribute-value>strip(0:1, "T", "@")</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"replaced"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:31" value="12345" />
+				<contains-attribute id="0:30" value="replaced" />
+				<contains-attribute id="0:89" value="eliteaaa" />
+			</request>
+		</assert>
+		
+	</test-case>
+	
+	<test-case
+		behaviour="Add Item: attribute is not added if not found in dictionary
+	">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:233</attr-id>
+							<attribute-value>"any-value"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<not>
+					<contains-attribute id="0:233" value="any-value" />
+				</not>
+			</request>
+		</assert>
+		
+	</test-case>
+	
+	<test-case
+		behaviour="Value Replace Item: 
+			if configured attribute is found in request packet, its value is replaced with value configured.
+			Value configured can be:
+			1) Literal value
+			2) Attribute Id
+			3) Expression">
+			
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"replace"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>V</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>toUpperCase("replace")</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>V</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>0:31</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>V</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="ELITEAAA" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:31" value="11:22:33:AA:BB:CC" />
+			<attribute id="0:30" value="11:22:33:AA:BB:CC" />
+			<attribute id="0:25" value="somevalue" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:31" value="replace" />
+				<contains-attribute id="0:30" value="REPLACE" />
+				<contains-attribute id="0:25" value="replace" />
+			</request>
+		</assert>
+
+	</test-case>
+	
+	
+	<test-case
+		behaviour="Replace Item: attribute is not replaced if not found in dictionary
+	">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:233</attr-id>
+							<attribute-value>"any-value"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>V</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<not>
+					<contains-attribute id="0:233" value="any-value" />
+				</not>
+			</request>
+		</assert>
+		
+	</test-case>
+
+	<test-case behaviour="Filter Item: 
+		if configured attribute is found in request then it will be removed from request with the value same as configured value">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:11</attr-id>
+							<attribute-value>"user1@elitecore.com"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>F</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"*"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>F</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="ELITEAAA" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:11" value="user1@elitecore.com" />
+			<attribute id="0:31" value="eliteaaa" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+			<attribute id="0:11" value="user1@elitecore.com" />
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<packet-type value = "1" />
+				<not>
+					<contains-attribute id="0:11" value="user1@elitecore.com" />
+				</not>
+			</request>
+		</assert>
+
+	</test-case>
+	
+	<test-case
+		behaviour="Filter Item: attribute is not removed if not found in dictionary
+	">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:233</attr-id>
+							<attribute-value>"any-value"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>F</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<not>
+					<contains-attribute id="0:233" value="any-value" />
+				</not>
+			</request>
+		</assert>
+		
+	</test-case>
+
+	<test-case behaviour="Reply Item: 
+		configured policy attribute will be added in request packet as a reply item">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"valueAdded"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>R</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="ELITEAAA" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:11" value="user1@elitecore.co" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:25" value="valueAdded" />
+			</request>
+		</assert>
+
+	</test-case>
+	
+	
+	<test-case
+		behaviour="Reply Item: attribute is not added as reply item if not found in dictionary
+	">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:233</attr-id>
+							<attribute-value>"any-value"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>R</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<not>
+					<contains-attribute id="0:233" value="any-value" />
+				</not>
+			</request>
+		</assert>
+		
+	</test-case>
+	
+	
+	<test-case behaviour="it will add-update-replace-remove attributes and add reply item in response packet 
+	">
+	
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"12345"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"VWXYZ"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>V</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:11</attr-id>
+							<attribute-value>"elitecore"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>F</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"valueAdded"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>R</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="ELITEAAA" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:31" value="AAA" />
+			<attribute id="0:11" value="elitecore" />
+			<attribute id="0:25" value="valueAdded" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+			<attribute id="0:1" value="ELITEAAA" />
+			<attribute id="0:31" value="AAA" />
+			<attribute id="0:11" value="elitecore" />
+			<attribute id="0:25" value="valueAdded" />
+		</diameter-answer>
+
+		<assert>
+			<response>
+				<contains-attribute id="0:25" value="valueAdded" />
+				<contains-attribute id="0:31" value="VWXYZ" />
+				<not>
+					<contains-attribute id="0:11" value="elitecore" />
+				</not>
+			</response>
+		</assert>
+
+	</test-case> 
+	
+	
+	<!-- Common test case not related to in/out policy -->
+	  <test-case
+		behaviour="If invalid packet type is given policy will be not executed">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						 <parameter>
+							<active>YES</active>
+							<attr-id>0:11</attr-id>
+							<attribute-value>"any-value"</attribute-value>
+							<packet-type>3</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter> 
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<not>
+					<contains-attribute id="0:11" value="any-value" />
+				</not>
+			</request>
+		</assert>
+		
+	</test-case>
+	
+	<test-case
+		behaviour="if given packet is 0 then by default policy will be by default executed on request packet">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:11</attr-id>
+							<attribute-value>"any-value"</attribute-value>
+							<packet-type>0</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+					<contains-attribute id="0:11" value="any-value" />
+			</request>
+		</assert>
+		
+	</test-case>
+	
+	<test-case
+		behaviour="If policy is empty then it will skip further execution">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+		
+		<assert>
+			<response></response>
+		</assert>
+
+	</test-case> 
+	
+ 	<test-case
+		behaviour="If policy parameter is empty then policy will skip further policy execution">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+		
+		<assert>
+			<response>
+			</response>
+		</assert>
+	</test-case>
+	
+</list>

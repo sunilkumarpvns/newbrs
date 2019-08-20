@@ -1,0 +1,9 @@
+<subscriber-profile>
+    <password>test</password>
+    <user-name>test</user-name>
+    <credit-limit>100</credit-limit>
+    <encryption-type>0</encryption-type>
+    <customer-status>A</customer-status>
+    <expiry-date>02/06/2020 12:00:00 AM</expiry-date>
+    <user-identity>test</user-identity>
+</subscriber-profile>

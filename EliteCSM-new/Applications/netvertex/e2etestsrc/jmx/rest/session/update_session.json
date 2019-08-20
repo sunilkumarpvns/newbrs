@@ -1,0 +1,22 @@
+{
+  "id": "SESSION_CONFIG_1",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "batchMode": 1,
+  "batchSize": null,
+  "queryTimeout": null,
+  "sessionConfigurationFieldMappingDatas": [
+    {
+      "referringAttribute": "Sub.UserName",
+      "fieldName": "PARAM1",
+      "dataType": 0
+    },
+    {
+      "referringAttribute": "Sub.CreatedDate",
+      "fieldName": "PARAM2",
+      "dataType": 0
+    }
+  ],
+  "databaseId": "DATABASE_DS_1",
+  "groupNames": null
+}

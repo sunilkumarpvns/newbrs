@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.datasource.database.data.DatabaseDSData" table="TBLMDATABASEDS" >          
+		
+		<id name="databaseId" column="DATABASEDSID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"> 
+			</generator>
+		</id>
+		
+		 <property name="name" type="string">
+           <column name="NAME" sql-type="VARCHAR2(200)" not-null="true"/>
+    	 </property>
+	     <property name="connectionUrl" type="string">
+	          <column name="CONNECTIONURL" sql-type="VARCHAR2(2000)" not-null="true"/>
+	     </property>
+	     <property name="userName" type="string">
+	          <column name="USERNAME" sql-type="VARCHAR2(200)" />
+	     </property>
+	     <property name="password" type="string">
+	          <column name="PASSWORD" sql-type="VARCHAR2(200)" />
+	     </property>
+	     
+	     <property name="minimumPool" type="long">
+	          <column name="MINIMUMPOOL" sql-type="NUMBER(10)" not-null="true"/>
+	     </property>
+	     <property name="maximumPool" type="long">
+	          <column name="MAXIMUMPOOL" sql-type="NUMBER(10)" not-null="true"/>
+	     </property>
+	     
+	     <property name="modifiedByStaffId" type="java.lang.Long">
+	          <column name="LASTMODIFIEDBYSTAFFID" sql-type="NUMBER(20)" not-null="false" />
+	     </property>
+	     <property name="statusCheckDuration" type="java.lang.Long"> 
+			<column name="STATUSCHECKDURATION" sql-type="NUMERIC(20)" not-null="true" /> 
+		</property>
+		<property name="timeout" type="java.lang.Long"> 
+			<column name="TIMEOUT" sql-type="NUMBER(10)" not-null="true" /> 
+		</property>
+	     <property name="createdByStaffId" type="java.lang.Long">
+	          <column name="CREATEDBYSTAFFID" sql-type="NUMBER(20)" />
+	     </property>
+	     <property name="modifiedDate" type="java.sql.Timestamp">
+	          <column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP(6)" />
+	     </property>
+	     <property name="createdDate" type="java.sql.Timestamp">
+	          <column name="CREATEDATE" sql-type="TIMESTAMP(6)" />
+	     </property>
+	     <property name="clientIp" type="string">
+    		<column name="CLIENTIP" sql-type="VARCHAR2(64)" not-null="false"/>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,825 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
+For Routing Table-
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable?name=diameter_routing_table&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable.xml?name=diameter_routing_table
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable?operation=search&name=diameter_routing_table&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable.xml?operation=search&name=diameter_routing_table
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table.xml?operation=search
+
+Response :
+
+<diameter-routing-table>
+	<routing-table-name>diameter_routing_table</routing-table-name>
+	<overload-action>DROP</overload-action>
+	<result-code>0</result-code>
+	<routing-script>Diameter_Router_Script</routing-script>
+	<diameter-routing-entries>
+		<routing-configuration>
+			<name>diameter_routing_entry</name>
+			<description>Created by admin on 01/27/2017 11:46:22 AM</description>
+			<routing-table-name>diameter_routing_table</routing-table-name>
+			<destination-realm>elitecore.com</destination-realm>
+			<application-ids>1</application-ids>
+			<origin-host>10.125.21.62</origin-host>
+			<origin-realm>elitecore.com</origin-realm>
+			<ruleset> 0:1="*"</ruleset>
+			<translation-mapping>translation_mapping</translation-mapping>
+			<routing-action>Relay</routing-action>
+			<stateful-routing>Enabled</stateful-routing>
+			<attached-redirection>Disabled</attached-redirection>
+			<transaction-timeout>3000</transaction-timeout>
+			<subscriber-routing-1>imsi</subscriber-routing-1>
+			<subscriber-routing-2>msisdn</subscriber-routing-2>
+			<failure-actions>
+				<failure-action-data>
+					<error-code>5002</error-code>
+					<failure-action>Record</failure-action>
+					<failure-argument>0.0.0.0</failure-argument>
+				</failure-action-data>
+			</failure-actions>
+			<peer-group>
+				<peer-group-data>
+					<ruleset>0:263="*"</ruleset>
+					<peer>
+						<peer-data>
+							<peer>peer1</peer>
+							<load-factor>1</load-factor>
+						</peer-data>
+					</peer>
+				</peer-group-data>
+			</peer-group>
+		</routing-configuration>
+	</diameter-routing-entries>
+</diameter-routing-table>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable?name=diameter_routing_table&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable.json?name=diameter_routing_table
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable?operation=search&name=diameter_routing_table&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable.json?operation=search&name=diameter_routing_table
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table.json?operation=search
+
+Response :
+
+{
+	"routing-table-name": "diameter_routing_table",
+	"overload-action": "DROP",
+	"result-code": 0,
+	"routing-script": "Diameter_Router_Script",
+	"diameter-routing-entries": [
+		{
+			"name": "diameter_routing_entry",
+			"description": "Created by admin on 01/27/2017 11:46:22 AM",
+			"routing-table-name": "diameter_routing_table",
+			"destination-realm": "elitecore.com",
+			"application-ids": "1",
+			"origin-host": "10.125.21.62",
+			"origin-realm": "elitecore.com",
+			"ruleset": " 0:1=\"*\"",
+			"translation-mapping": "translation_mapping",
+			"routing-action": "Relay",
+			"stateful-routing": "Enabled",
+			"attached-redirection": "Disabled",
+			"transaction-timeout": 3000,
+			"subscriber-routing-1": "imsi",
+			"subscriber-routing-2": "msisdn",
+			"failure-actions": [
+				{
+					"error-code": "5002",
+					"failure-action": "Record",
+					"failure-argument": "0.0.0.0"
+				}
+			],
+			"peer-group": [
+				{
+					"ruleset": "0:263=\"*\"",
+					"peer": [
+						{
+							"peer": "peer1",
+							"load-factor": 1
+						}
+					]
+				}
+			]
+		}
+	]
+}
+
+For Routing Entry-
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/?name=diameter_routing_table&entry=diameter_routing_entry&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable.xml?name=diameter_routing_table&entry=diameter_routing_entry
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table/diameter_routing_entry?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table/diameter_routing_entry.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable?operation=search&name=diameter_routing_table&entry=diameter_routing_entry&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable.xml?operation=search&name=diameter_routing_table&entry=diameter_routing_entry
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table/diameter_routing_entry?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table/diameter_routing_entry.xml?operation=search
+
+Response :
+
+<routing-configuration>
+	<name>diameter_routing_entry</name>
+	<description>Created by admin on 01/27/2017 11:46:22 AM</description>
+	<routing-table-name>diameter_routing_table</routing-table-name>
+	<destination-realm>elitecore.com</destination-realm>
+	<application-ids>1</application-ids>
+	<origin-host>10.125.21.62</origin-host>
+	<origin-realm>elitecore.com</origin-realm>
+	<ruleset> 0:1="*"</ruleset>
+	<translation-mapping>translation_mapping</translation-mapping>
+	<routing-action>Relay</routing-action>
+	<stateful-routing>Enabled</stateful-routing>
+	<attached-redirection>Disabled</attached-redirection>
+	<transaction-timeout>3000</transaction-timeout>
+	<subscriber-routing-1>imsi</subscriber-routing-1>
+	<subscriber-routing-2>msisdn</subscriber-routing-2>
+	<failure-actions>
+		<failure-action-data>
+			<error-code>5002</error-code>
+			<failure-action>Record</failure-action>
+			<failure-argument>0.0.0.0</failure-argument>
+		</failure-action-data>
+	</failure-actions>
+	<peer-group>
+		<peer-group-data>
+			<ruleset>0:263="*"</ruleset>
+			<peer>
+				<peer-data>
+					<peer>peer1</peer>
+					<load-factor>1</load-factor>
+				</peer-data>
+			</peer>
+		</peer-group-data>
+	</peer-group>
+</routing-configuration>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable?name=diameter_routing_table&entry=diameter_routing_entry&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable.json?name=diameter_routing_table&entry=diameter_routing_entry
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table/diameter_routing_entry?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table/diameter_routing_entry.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable?operation=search&name=diameter_routing_table&entry=diameter_routing_entry&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable.json?operation=search&name=diameter_routing_table&entry=diameter_routing_entry
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table/diameter_routing_entry?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/diameter_routing_table/diameter_routing_entry.json?operation=search
+
+Response :
+
+{
+	"name": "diameter_routing_entry",
+	"description": "Created by admin on 01/27/2017 11:46:22 AM",
+	"routing-table-name": "diameter_routing_table",
+	"destination-realm": "elitecore.com",
+	"application-ids": "1",
+	"origin-host": "10.125.21.62",
+	"origin-realm": "elitecore.com",
+	"ruleset": " 0:1=\"*\"",
+	"translation-mapping": "translation_mapping",
+	"routing-action": "Relay",
+	"stateful-routing": "Enabled",
+	"attached-redirection": "Disabled",
+	"transaction-timeout": 3000,
+	"subscriber-routing-1": "imsi",
+	"subscriber-routing-2": "msisdn",
+	"failure-actions": [
+		{
+			"error-code": "5002",
+			"failure-action": "Record",
+			"failure-argument": "0.0.0.0"
+		}
+	],
+	"peer-group": [
+		{
+			"ruleset": "0:263=\"*\"",
+			"peer": [
+				{
+					"peer": "peer1",
+					"load-factor": 1
+				}
+			]
+		}
+	]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+For Routing Table-
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-routing-table>
+	<routing-table-name>diameter_routing_table</routing-table-name>
+	<overload-action>DROP</overload-action>
+	<routing-script>Diameter_Router_Script</routing-script>
+</diameter-routing-table>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"routing-table-name": "diameter_routing_table",
+	"overload-action": "DROP",
+	"routing-script": "Diameter_Router_Script"
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table created successfully</response-message>
+	</response>
+</response-detail>
+
+For Routing Entry-
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<routing-configuration>
+	<name>diameter_routing_entry</name>
+	<description>Created by admin on 01/27/2017 11:46:22 AM</description>
+	<routing-table-name>diameter_routing_table</routing-table-name>
+	<destination-realm>elitecore.com</destination-realm>
+	<application-ids>1</application-ids>
+	<origin-host>10.125.21.62</origin-host>
+	<origin-realm>elitecore.com</origin-realm>
+	<ruleset> 0:1="*"</ruleset>
+	<translation-mapping>translation_mapping</translation-mapping>
+	<routing-action>Relay</routing-action>
+	<stateful-routing>Enabled</stateful-routing>
+	<attached-redirection>Disabled</attached-redirection>
+	<transaction-timeout>3000</transaction-timeout>
+	<subscriber-routing-1>imsi</subscriber-routing-1>
+	<subscriber-routing-2>msisdn</subscriber-routing-2>
+	<failure-actions>
+		<failure-action-data>
+			<error-code>5002</error-code>
+			<failure-action>Record</failure-action>
+			<failure-argument>0.0.0.0</failure-argument>
+		</failure-action-data>
+	</failure-actions>
+	<peer-group>
+		<peer-group-data>
+			<ruleset>0:263="*"</ruleset>
+			<peer>
+				<peer-data>
+					<peer>peer1</peer>
+					<load-factor>1</load-factor>
+				</peer-data>
+			</peer>
+		</peer-group-data>
+	</peer-group>
+</routing-configuration>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table Entry created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "diameter_routing_entry",
+	"description": "Created by admin on 01/27/2017 11:46:22 AM",
+	"routing-table-name": "diameter_routing_table",
+	"destination-realm": "elitecore.com",
+	"application-ids": "1",
+	"origin-host": "10.125.21.62",
+	"origin-realm": "elitecore.com",
+	"ruleset": " 0:1=\"*\"",
+	"translation-mapping": "translation_mapping",
+	"routing-action": "Relay",
+	"stateful-routing": "Enabled",
+	"attached-redirection": "Disabled",
+	"transaction-timeout": 3000,
+	"subscriber-routing-1": "imsi",
+	"subscriber-routing-2": "msisdn",
+	"failure-actions": [
+		{
+			"error-code": "5002",
+			"failure-action": "Record",
+			"failure-argument": "0.0.0.0"
+		}
+	],
+	"peer-group": [
+		{
+			"ruleset": "0:263=\"*\"",
+			"peer": [
+				{
+					"peer": "peer1",
+					"load-factor": 1
+				}
+			]
+		}
+	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table Entry created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+For Routing Table-
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable/bulk?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<diameter-routing-table>
+		<routing-table-name>diameter_routing_table</routing-table-name>
+		<overload-action>DROP</overload-action>
+		<routing-script>Diameter_Router_Script</routing-script>
+	</diameter-routing-table>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"list":[
+		{
+			"routing-table-name": "diameter_routing_table",
+			"overload-action": "DROP",
+			"routing-script": "Diameter_Router_Script"
+		}
+  	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+For Routing Entry-
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry/bulk?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<routing-configuration>
+		<name>diameter_routing_entry</name>
+		<description>Created by admin on 01/27/2017 11:46:22 AM</description>
+		<routing-table-name>diameter_routing_table</routing-table-name>
+		<destination-realm>elitecore.com</destination-realm>
+		<application-ids>1</application-ids>
+		<origin-host>10.125.21.62</origin-host>
+		<origin-realm>elitecore.com</origin-realm>
+		<ruleset> 0:1="*"</ruleset>
+		<translation-mapping>translation_mapping</translation-mapping>
+		<routing-action>Relay</routing-action>
+		<stateful-routing>Enabled</stateful-routing>
+		<attached-redirection>Disabled</attached-redirection>
+		<transaction-timeout>3000</transaction-timeout>
+		<subscriber-routing-1>imsi</subscriber-routing-1>
+		<subscriber-routing-2>msisdn</subscriber-routing-2>
+		<failure-actions>
+			<failure-action-data>
+				<error-code>5002</error-code>
+				<failure-action>Record</failure-action>
+				<failure-argument>0.0.0.0</failure-argument>
+			</failure-action-data>
+		</failure-actions>
+		<peer-group>
+			<peer-group-data>
+				<ruleset>0:263="*"</ruleset>
+				<peer>
+					<peer-data>
+						<peer>peer1</peer>
+						<load-factor>1</load-factor>
+					</peer-data>
+				</peer>
+			</peer-group-data>
+		</peer-group>
+	</routing-configuration>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table Entry/Entries created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"list":[
+		{
+			"name": "diameter_routing_entry",
+			"description": "Created by admin on 01/27/2017 11:46:22 AM",
+			"routing-table-name": "diameter_routing_table",
+			"destination-realm": "elitecore.com",
+			"application-ids": "1",
+			"origin-host": "10.125.21.62",
+			"origin-realm": "elitecore.com",
+			"ruleset": " 0:1=\"*\"",
+			"translation-mapping": "translation_mapping",
+			"routing-action": "Relay",
+			"stateful-routing": "Enabled",
+			"attached-redirection": "Disabled",
+			"transaction-timeout": 3000,
+			"subscriber-routing-1": "imsi",
+			"subscriber-routing-2": "msisdn",
+			"failure-actions": [
+				{
+					"error-code": "5002",
+					"failure-action": "Record",
+					"failure-argument": "0.0.0.0"
+				}
+			],
+			"peer-group": [
+				{
+					"ruleset": "0:263=\"*\"",
+					"peer": [
+						{
+							"peer": "peer1",
+							"load-factor": 1
+						}
+					]
+				}
+			]
+		}
+  	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table Entry/Entries created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+For Routing Table-
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable?name=diameter_routing_table
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable/diameter_routing_table
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable?operation=update&name=diameter_routing_table
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable/diameter_routing_table?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-routing-table>
+	<routing-table-name>diameter_routing_table</routing-table-name>
+	<overload-action>REJECT</overload-action>
+	<result-code>3004</result-code>
+	<routing-script>Diameter_Router_Script</routing-script>
+</diameter-routing-table>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"routing-table-name": "diameter_routing_table",
+	"overload-action": "REJECT",
+	"result-code": 3004,
+	"routing-script" : "Diameter_Router_Script"
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table updated successfully</response-message>
+	</response>
+</response-detail>
+
+For Routing Entry-
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry?name=diameter_routing_entry
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry/diameter_routing_entry
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry?operation=update&name=diameter_routing_entry
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry/diameter_routing_entry?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<routing-configuration>
+	<name>diameter_routing_entry</name>
+	<description>Created by admin on 01/27/2017 11:46:22 AM</description>
+	<routing-table-name>diameter_routing_table</routing-table-name>
+	<destination-realm>elitecore.com</destination-realm>
+	<application-ids>4</application-ids>
+	<origin-host>10.125.21.62</origin-host>
+	<origin-realm>elitecore.com</origin-realm>
+	<ruleset> 0:1="*"</ruleset>
+	<translation-mapping>copy_packet_mapping</translation-mapping>
+	<routing-action>Relay</routing-action>
+	<stateful-routing>Enabled</stateful-routing>
+	<attached-redirection>Disabled</attached-redirection>
+	<transaction-timeout>3000</transaction-timeout>
+	<subscriber-routing-1>msisdn</subscriber-routing-1>
+	<subscriber-routing-2>imsi</subscriber-routing-2>
+	<failure-actions>
+		<failure-action-data>
+			<error-code>5002</error-code>
+			<failure-action>Drop</failure-action>
+			<failure-argument>0.0.0.0</failure-argument>
+		</failure-action-data>
+	</failure-actions>
+	<peer-group>
+		<peer-group-data>
+			<ruleset>0:263="*"</ruleset>
+			<peer>
+				<peer-data>
+					<peer>peer1</peer>
+					<load-factor>2</load-factor>
+				</peer-data>
+			</peer>
+		</peer-group-data>
+	</peer-group>
+</routing-configuration>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table Entry updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "diameter_routing_entry",
+	"description": "Created by admin on 01/27/2017 11:46:22 AM",
+	"routing-table-name": "diameter_routing_table",
+	"destination-realm": "elitecore.com",
+	"application-ids": "4",
+	"origin-host": "10.125.21.62",
+	"origin-realm": "elitecore.com",
+	"ruleset": " 0:1=\"*\"",
+	"translation-mapping": "copy_packet_mapping",
+	"routing-action": "Relay",
+	"stateful-routing": "Enabled",
+	"attached-redirection": "Disabled",
+	"transaction-timeout": 3000,
+	"subscriber-routing-1": "msisdn",
+	"subscriber-routing-2": "imsi",
+	"failure-actions": [
+		{
+			"error-code": "5002",
+			"failure-action": "Drop",
+			"failure-argument": "0.0.0.0"
+		}
+	],
+	"peer-group": [
+		{
+			"ruleset": "0:263=\"*\"",
+			"peer": [
+				{
+					"peer": "peer1",
+					"load-factor": 2
+				}
+			]
+		}
+	]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table Entry updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+For Routing Table-
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable/?name=diameter_routing_table
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable/diameter_routing_table
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable?operation=delete&name=diameter_routing_table
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingtable/diameter_routing_table?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+For Routing Entry-
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry?name=diameter_routing_entry
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry/diameter_routing_entry
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry?operation=delete&name=diameter_routing_entry
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterroutingtable/routingentry/diameter_routing_entry?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Routing Table Entry/Entries deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

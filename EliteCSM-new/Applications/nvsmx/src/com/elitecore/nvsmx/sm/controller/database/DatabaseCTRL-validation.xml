@@ -1,0 +1,97 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("database.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("database.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("database.name")})}</message>
+        </field-validator>		
+	</field>
+	<field name="connectionUrl">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("database.connectionurl")})}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">1</param>
+			<param name="maxLength">2000</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("database.connectionurl")})}</message>
+		</field-validator>
+	</field>
+	<field name="userName">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("database.username")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">200</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("database.username")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="password">
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">150</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("database.password")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="statusCheckDuration">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("database.statuscheckduration")})}</message>
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">65535</param>
+			<message>${getText("error.numeric.range", {getText("database.statuscheckduration")})}</message>
+		</field-validator>
+
+	</field>
+	<field name="minimumPool">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("database.minimumpool")})}</message>
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">1</param>
+			<param name="max">500</param>
+			<message>${getText("error.numeric.range", {getText("database.minimumpool")})}</message>
+		</field-validator>
+	</field>
+	<field name="maximumPool">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("database.maximumpool")})}</message>
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">1</param>
+			<param name="max">500</param>
+			<message>${getText("error.numeric.range", {getText("database.maximumpool")})}</message>
+		</field-validator>
+	</field>
+	<field name="queryTimeout">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("database.querytimeout")})}</message>
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">65535</param>
+			<message>${getText("error.numeric.range", {getText("database.querytimeout")})}</message>
+		</field-validator>
+	</field>
+
+</validators>

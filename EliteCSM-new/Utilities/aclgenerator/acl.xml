@@ -1,0 +1,180 @@
+<acl>
+	<model name="AAA_SERVICE_POLICY">
+		<module name="RADIUS">
+			<submodule name="CREATE_AUTH_POLICY">
+				<action>CREATE_AUTH_POLICY</action>
+			</submodule>
+			<submodule name="SEARCH_AUTH_POLICY">
+				<action>SEARCH_AUTH_POLICY</action>
+				<action>UPDATE_AUTH_POLICY_BASIC_DETAIL</action>
+				<action>UPDATE_AUTH_POLICY_AUTHORIZATION_PARAMS</action>
+				<action>UPDATE_AUTH_POLICY_AUTHENTICATION_PARAMS</action>
+				<action>UPDATE_AUTH_POLICY_DRIVER_GROUP</action>
+				<action>UPDATE_AUTH_POLICY_RMCOMMUNICATION</action>
+				<action>UPDATE_AUTH_POLICY_ADDITIONAL_PROC</action>
+				<action>UPDATE_AUTH_POLICY_STATUS</action>
+				<action>DELETE_AUTH_POLICY</action>
+				<action>VIEW_AUTH_POLICY</action>
+			</submodule>
+			<submodule name="MANAGE_ORDER_AUTH_POLICY">
+				<action>MANAGE_ORDER_AUTH_POLICY</action>
+			</submodule>
+			<submodule name="CREATE_ACCT_POLICY">
+				<action>CREATE_ACCT_POLICY</action>
+			</submodule>
+			<submodule name="SEARCH_ACCT_POLICY">
+				<action>SEARCH_ACCT_POLICY</action>
+				<action>UPDATE_ACCT_POLICY_BASIC_DETAIL</action>
+				<action>UPDATE_ACCT_POLICY_DRIVER_GROUP</action>
+				<action>UPDATE_ACCT_POLICY_RMCOMMUNICATION</action>
+				<action>UPDATE_ACCT_POLICY_ADDITIONAL_PROC</action>
+				<action>UPDATE_ACCT_POLICY_STATUS</action>
+				<action>DELETE_ACCT_POLICY</action>
+				<action>VIEW_ACCT_POLICY</action>
+			</submodule>
+			<submodule name="MANAGE_ORDER_ACCT_POLICY">
+				<action>MANAGE_ORDER_ACCT_POLICY</action>
+			</submodule>
+		</module>
+	</model>
+	<model name="SERVER/CONFIGURATIONS">
+		<module name="SESSION_MANAGER">
+			<submodule name="CREATE_SESSION_MANAGER">
+				<action>CREATE_SESSION_MANAGER</action>
+			</submodule>
+			<submodule name="SEARCH_SESSION_MANAGER">
+				<action>UPDATE_SESSION_MANAGER</action>
+				<action>VIEW_SESSION_MANAGER</action>
+				<action>DELETE_SESSION_MANAGER</action>
+				<action>SEARCH_SESSION_MANAGER</action>
+			</submodule>
+		</module>
+		<module name="SERIVICE_DRIVERS">
+			<submodule name="CREATE_DRIVER">
+				<action>CREATE_DBAUTH_DRIVER</action>
+				<action>CREATE_LDAPAUTH_DRIVER</action>
+				<action>CREATE_USERFILE_DRIVER</action>
+				<action>CREATE_DBACCT_DRIVER</action>
+				<action>CREATE_CLASSICCSV_DRIVER</action>
+				<action>CREATE_DETAILLOCAL_DRIVER</action>
+			</submodule>
+			<submodule name="SEARCH_DRIVER">
+				<action>SEARCH_DRIVER</action>
+				<action>UPDATE_DBAUTH_DRIVER</action>
+				<action>UPDATE_LDAPAUTH_DRIVER</action>
+				<action>UPDATE_USERFILE_DRIVER</action>
+				<action>UPDATE_DBACCT_DRIVER</action>
+				<action>UPDATE_CLASSICCSV_DRIVER</action>
+				<action>UPDATE_DETAILLOCAL_DRIVER</action>
+				<action>VIEW_DBAUTH_DRIVER</action>
+				<action>VIEW_LDAPAUTH_DRIVER</action>
+				<action>VIEW_USERFILE_DRIVER</action>
+				<action>VIEW_DBACCT_DRIVER</action>
+				<action>VIEW_CLASSICCSV_DRIVER</action>
+				<action>VIEW_DETAILLOCAL_DRIVER</action>
+				<action>DELETE_DBAUTH_DRIVER</action>
+				<action>DELETE_LDAPAUTH_DRIVER</action>
+				<action>DELETE_USERFILE_DRIVER</action>
+				<action>DELETE_DBACCT_DRIVER</action>
+				<action>DELETE_CLASSICCSV_DRIVER</action>
+				<action>DELETE_DETAILLOCAL_DRIVER</action>
+			</submodule>
+		</module>
+		<module name="DIGEST_CONFIGURATION">
+			<submodule name="CREATE_DIGEST_CONFIGURATION">
+				<action>CREATE_DIGEST_CONFIGURATION</action>
+			</submodule>
+			<submodule name="SEARCH_DIGEST_CONFIGURATION">
+				<action>SEARCH_DIGEST_CONFIGURATION</action>
+				<action>UPDATE_DIGEST_CONFIGURATION</action>
+				<action>VIEW_DIGEST_CONFIGURATION</action>
+				<action>DELETE_DIGEST_CONFIGURATION</action>
+			</submodule>
+		</module>
+		<module name="EAP_CONFIGURATION">
+			<submodule name="CREATE_EAP_CONFIGURATION">
+				<action>CREATE_EAP_CONFIGURATION</action>
+			</submodule>
+			<submodule name="SEARCH_EAP_CONFIGURATION">
+				<action>SEARCH_EAP_CONFIGURATION</action>
+				<action>UPDATE_EAP_CONFIGURATION</action>
+				<action>VIEW_EAP_CONFIGURATION</action>
+				<action>DELETE_EAP_CONFIGURATION</action>
+			</submodule>
+		</module>
+		<module name="GRACE_POLICY">
+			<submodule name="CREATE_GRACE_POLICY">
+				<action>CREATE_GRACE_POLICY</action>
+			</submodule>
+			<submodule name="LIST_GRACE_POLICY">
+				<action>LIST_GRACE_POLICY</action>
+				<action>UPDATE_GRACE_POLICY</action>
+				<action>DELETE_GRACE_POLICY</action>
+			</submodule>
+		</module>
+
+		<module name="ALERT_CONFIGURATION">
+			<submodule name="CREATE_ALERT_LISTENER">
+				<action>CREATE_FILE_LISTENER</action>
+				<action>CREATE_TRAP_LISTENER</action>
+			</submodule>
+			<submodule name="SEARCH_ALERT_LISTENER">
+				<action>SEARCH_ALERT_LISTENER</action>
+				<action>UPDATE_FILE_LISTENER</action>
+				<action>UPDATE_TRAP_LISTENER</action>
+				<action>DELETE_FILE_LISTENER</action>
+				<action>DELETE_TRAP_LISTENER</action>
+				<action>VIEW_FILE_LISTENER</action>
+				<action>VIEW_TRAP_LISTENER</action>
+			</submodule>
+		</module>
+	</model>
+	<model name="RADIUS">
+	<module name="TRUSTED_CLIENT_PROFILE">
+		<submodule name="CREATE_CLIENT_PROFILE">
+			<action>CREATE_CLIENT_PROFILE</action>
+		</submodule>
+		<submodule name="SEARCH_CLIENT_PROFILE">
+			<action>SEARCH_CLIENT_PROFILE</action>
+			<action>UPDATE_CLIENT_PROFILE</action>
+			<action>DELETE_CLIENT_PROFILE</action>
+			<action>VIEW_CLIENT_PROFILE</action>
+		</submodule>
+	</module>
+	</model>
+	<model name="EXTERNAL_SYSTEM">
+	<module name="EXTENDED_RADIUS">
+		<submodule name="CREATE_EXTERNAL_SYSTEM">
+			<action>CREATE_EXTERNAL_SYSTEM</action>
+		</submodule>
+		<submodule name="SEARCH_EXTERNAL_SYSTEM">
+			<action>SEARCH_EXTERNAL_SYSTEM</action>
+			<action>UPDATE_EXTERNAL_SYSTEM</action>
+			<action>DELETE_EXTERNAL_SYSTEM</action>
+			<action>VIEW_EXTERNAL_SYSTEM</action>
+		</submodule>
+	</module>
+	<module name="LDAP_DATASOURCE">
+		<submodule name="CREATE_LDAP_DATASOURCE">
+			<action>CREATE_LDAP_DATASOURCE</action>
+		</submodule>
+		<submodule name="SEARCH_LDAP_DATASOURCE">
+			<action>SEARCH_LDAP_DATASOURCE</action>
+			<action>UPDATE_LDAP_DATASOURCE</action>
+			<action>DELETE_LDAP_DATASOURCE</action>
+			<action>VIEW_LDAP_DATASOURCE</action>
+		</submodule>
+	</module>
+	<module name="DATABASE_DATASOURCE">
+		<submodule name="CREATE_DATABASE_DATASOURCE">
+			<action>CREATE_DATABASE_DATASOURCE</action>
+		</submodule>
+		<submodule name="SEARCH_DATABASE_DATASOURCE">
+			<action>SEARCH_DATABASE_DATASOURCE</action>
+			<action>UPDATE_DATABASE_DATASOURCE</action>
+			<action>DELETE_DATABASE_DATASOURCE</action>
+			<action>VIEW_DATABASE_DATASOURCE</action>
+		</submodule>
+	</module>
+	</model>
+</acl>

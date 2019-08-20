@@ -1,0 +1,13 @@
+{
+  "id": "rest_radius_gateway_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "updated_rest_radius_gateway",
+  "description": "Updated by Rest Automation",
+  "policyEnforcementMethod": "COA",
+  "connectionURL": "192.168.2.138",
+  "sharedSecret": "secrets",
+  "minLocalPort": 4999,
+  "radiusGatewayProfileId": "rest_r_gateway_profile_11111111",
+  "groupNames": "DefaultGroup"
+}

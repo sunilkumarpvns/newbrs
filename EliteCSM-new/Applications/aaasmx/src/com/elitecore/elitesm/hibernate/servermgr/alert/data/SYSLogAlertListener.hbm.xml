@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.alert.data.SYSLogAlertListenerData" table="TBLMSYSLOGLISTENER" >          
+
+		<id name="sysLogInstanceId" type="StringType" column="SYSLOGINSTANCEID">
+		    <generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>		
+		</id>
+		<property name="listenerId" type="StringType" column="INSTANCEID" not-null="false"/>
+		<property name="address" type="StringType" column="ADDRESS" not-null="true"/>
+		<property name="facility" type="StringType" column="FACILITY" not-null="false"/>
+		<property name="repeatedMessageReduction" type="StringType" column="REPEATEDMESSAGEREDUCTION" not-null="false"/>
+	</class>
+	
+</hibernate-mapping>
+
+          

@@ -1,0 +1,218 @@
+buildscript {
+  repositories {
+    maven {
+      url "http://192.168.2.138:10000/artifactory/jcenter"
+    }
+  }
+  dependencies {
+    classpath "de.richsource.gradle.plugins:gwt-gradle-plugin:0.6"
+  }
+}
+
+plugins {
+    id 'war'
+}
+
+apply plugin: 'war'
+apply plugin: 'gwt'
+apply plugin: 'eclipse-wtp'
+
+ext {
+    injectVersionInfo {
+        packageName = "com.elitecore.elitesm"
+        moduleName = "EliteSM"
+        filepath = "src/com/elitecore/elitesm/Version.java"
+    }
+}
+
+description = 'aaasmx'
+webAppDirName = "webroot"
+
+
+def releaseVersion = project.properties['release.version']
+def releaseMinorVersion = project.properties['release.minor.version']
+def releaseName = "aaasmx-" + releaseVersion + "." + releaseMinorVersion
+def svnRevision = project.properties['svn.rev']
+def warFileName = "aaasmx"
+
+def removeClassesFolder(rootSpec) {
+    file(project.buildDir.path + '/resources/main').listFiles().each {
+        println it.name
+        rootSpec.exclude(it.name)
+    }
+}
+
+
+
+gwt {
+    gwtVersion='2.1.0'
+    modules 'com.elitecore.elitesm.web.livemonitoring.gwtgraph','com.elitecore.elitesm.web.radius.dictionarymgmt.dictionarymgmt','com.elitecore.elitesm.web.diameter.diameterdicmgmt.diameterdicmgmt','com.elitecore.elitesm.web.expressionbuilder.expressionbuilder'
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['src']
+            exclude '**/*.java'
+        }
+    }
+
+    test {
+        java.srcDir 'testsrc'
+
+        resources {
+            srcDirs = ['testsrc/resources']
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.elitecore.elitesm.Version'
+        )
+    }
+}
+
+jar.enabled = true
+
+task fullReleaseWar (type: War) {
+
+    dependsOn 'compileGwt'
+
+    webInf {
+        from 'wsclient/**'
+    } // adds a file-set to the WEB-INF dir.
+
+// Creating nvsmx.jar file
+    classpath  configurations.runtime.allArtifacts.files
+
+    from(this.project.projectDir) {
+        include 'conf/**','setup/**'
+    }
+
+    from project.buildDir.path + "/gwt/out"
+
+    archiveName = warFileName + '.war'
+
+ //Before Executing fullReleaseWar task, remove classes folder
+    doFirst {
+        removeClassesFolder(rootSpec)
+    }
+}
+
+task upgradeWar (type: War) {
+    webInf {
+        from 'wsclient/**'
+
+    } // adds a file-set to the WEB-INF dir.
+
+
+    classpath configurations.runtime.allArtifacts.files
+
+    archiveName = warFileName + '-' + releaseVersion +'.war'
+
+// Before Executing upgradeWar task, remove classes folder
+    doFirst {
+        removeClassesFolder(rootSpec)
+    }
+}
+
+
+// Creats tar.gz file which contains nvsmx.war
+task distTarForInstallWar (type: Tar){
+
+    baseName = releaseName
+    extension = 'tar.gz'
+    compression = Compression.GZIP
+    dependsOn 'fullReleaseWar'
+
+    from (this.buildDir.path + '/libs'){
+        include  warFileName + '.war'
+    }
+
+    from (this.projectDir) {
+        include 'setup/**'
+    }
+
+    from (this.project.parent.projectDir.path + File.separator + '/Tools') {
+
+        include 'apache-tomcat-9.0.6.tar.gz'
+
+    }
+}
+
+task distTarForUpgradeWar (type: Tar){
+
+    baseName = "${releaseName}-upgrade-${svnRevision}"
+    extension = 'tar.gz'
+    compression = Compression.GZIP
+    dependsOn 'upgradeWar'
+
+    from (this.buildDir.path + '/libs'){
+        include warFileName+'-'+releaseVersion +'.war'
+    }
+
+    from (this.projectDir) {
+        include 'setup/**'
+    }
+}
+
+task distTarForInstallation (type: Tar) {
+
+    from(this.parent.projectDir.path + "/Build/install-aaasmx.sh") {
+        expand(distName:releaseName, warfile:warFileName , projectName:'EliteAAASMX')
+    }
+
+    from (this.buildDir.path + "/distributions/"){
+         include "${releaseName}.tar.gz"
+    }
+
+    baseName =  "EliteAAASMX-V${releaseVersion}.${releaseMinorVersion}"
+    destinationDir = file(this.buildDir.path)
+    extension = 'tar.gz'
+    compression = Compression.GZIP
+
+    dependsOn 'distTarForInstallWar'
+}
+
+task distTarForUpgrade (type: Tar) {
+
+    from(this.parent.projectDir.path + "/Build/upgrade-web-app.sh") {
+        expand(distName:releaseName, warfile: warFileName +'-'+releaseVersion, svnRevision: svnRevision, projectName:'EliteAAASMX')
+    }
+
+    from (this.buildDir.path + "/distributions/"){
+        include "${releaseName}-upgrade-${svnRevision}.tar.gz"
+    }
+
+    baseName =  "EliteAAASMX-V${releaseVersion}.${releaseMinorVersion}-upgrade-${svnRevision}"
+    destinationDir = file(this.buildDir.path)
+    extension = 'tar.gz'
+    compression = Compression.GZIP
+
+    dependsOn 'distTarForUpgradeWar'
+}
+
+
+
+dependencies {
+
+    def depPojects = ["core", "elitecommons", "diameterapi", "coreradius", "passwordutil", "exprlib", "license", "eliteaaa"]
+
+    depPojects.each {
+        compile project(":" + it)
+        compile fileTree(dir: 'webroot/WEB-INF/lib', include: ['*.jar'])
+        compileOnly group: 'org.apache.tomcat', name: 'tomcat-catalina', version: '9.0.6'
+        compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
+        compileOnly group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version:'2.3.1'
+
+        testCompile files(project(":" + it).sourceSets.test.output)
+    }
+
+
+}

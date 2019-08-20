@@ -1,0 +1,17 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("mccmncgroup.groupname")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="brandData.id">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("mccmncgroup.brand")})}</message>
+		</field-validator>
+	</field>
+
+</validators>

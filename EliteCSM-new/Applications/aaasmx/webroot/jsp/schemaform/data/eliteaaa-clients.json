@@ -1,0 +1,73 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Clients",
+  "properties":{
+      "client":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "client-ip":{
+                      "title":"Client IP",
+                      "type":"string",
+                      "default":"127.0.0.1"
+                  },
+                  "shared-secret":{
+                          "title":"Shared Secret",
+                          "type":"string",
+                          "default":"secret"
+                  },
+                  "request-expiry-time":{
+                      "title":"Request Expiry Time",
+                      "type":"string",
+                      "default":"8000"
+                  },
+                  "profile-name":{
+                      "title":"Profile Name",
+                      "type":"string",
+                      "default":"test-profile"
+                  },
+                  "framed-pool-name":{
+                      "title":"Framed Pool Name",
+                      "type":"string"
+                  }
+              }
+          }
+      }
+  }
+},
+   "form":[
+  {
+      "key":"client",
+      "items":[
+          {
+              "key":"client[].client-ip"
+          },
+          {
+              "key":"client[].shared-secret"
+          },
+          {
+              "key":"client[].request-expiry-time"
+          },
+          {
+              "key":"client[].profile-name"
+          },
+          {
+              "key":"client[].framed-pool-name"
+          }
+          ]
+  }
+],
+"model":{
+  "client": [
+    {
+      "client-ip": "10.121.21.96",
+      "shared-secret": "secret",
+      "request-expiry-time": "100",
+      "profile-name": "client_profile",
+      "framed-pool-name": "poo1"
+    }
+  ]
+}
+}

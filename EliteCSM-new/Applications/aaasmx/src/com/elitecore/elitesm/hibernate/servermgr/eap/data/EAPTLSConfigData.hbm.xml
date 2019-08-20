@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.servermgr.eap.data.EAPTLSConfigData" table="TBLMEAPTLSCONFIG">
+
+		<id name="eaptlsId" column="EAP_TLS_ID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="eapId" type="StringType"> 
+			<column name="EAP_ID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="minTlsVersion" type="StringType"> 
+			<column name="MINTLSVERSION" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="maxTlsVersion" type="StringType"> 
+			<column name="MAXTLSVERSION" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="serverCertificateId" type="StringType"> 
+			<column name="SERVERCERTIFICATEID" sql-type="VARCHAR(36)"/> 
+		</property>
+		
+		<property name="certificateRequest" type="StringType"> 
+			<column name="CERTIFICATE_REQUEST" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+
+		<property name="sessionResumptionLimit" type="long"> 
+			<column name="SESSION_RESUMPTION_LIMIT" sql-type="NUMBER(2)" not-null="false" /> 
+		</property>
+		
+		<property name="sessionResumptionDuration" type="long"> 
+			<column name="SESSION_RESUMPTION_DURATION" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+		
+		<property name="defaultCompressionMethod" type="StringType"> 
+			<column name="DEFAULT_COMPRESSION_METHOD" sql-type="VARCHAR(10)" not-null="false" /> 
+		</property>
+		
+		<property name="certificateTypesList" type="StringType"> 
+			<column name="CERTIFICATE_TYPES_LIST" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="ciphersuiteList" type="StringType"> 
+			<column name="CIPHERSUITE_LIST" sql-type="VARCHAR(4000)" not-null="false" /> 
+		</property>
+		
+		<property name="expiryDate" type="StringType"> 
+			<column name="VALIDATECERTIFICATEEXPIRY" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+		
+		<property name="revokedCertificate" type="StringType"> 
+			<column name="VALIDATECERTIFICATEREVOCATION" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+		
+		<property name="missingClientCertificate" type="StringType"> 
+			<column name="VALIDATECLIENTCERTIFICATE" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+		
+		<property name="macValidation" type="StringType"> 
+			<column name="VALIDATEMAC" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+		
+		<bag name="vendorSpecificList" lazy="false"  inverse="true" order-by="orderNumber">
+			<key column="EAP_TLS_ID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.eap.data.VendorSpecificCertificateData" />
+	  	</bag>	
+		    
+	</class>
+
+</hibernate-mapping> 
+
+	
+
+
+	

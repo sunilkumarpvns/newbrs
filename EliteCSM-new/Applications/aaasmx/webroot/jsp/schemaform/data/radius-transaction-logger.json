@@ -1,0 +1,167 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Radius Transaction Logger",
+  "properties":{
+      "name":{
+          "title":"Plugin Name",
+          "type":"string"
+      },
+      "description":{
+          "title":"Plugin Description",
+          "type":"string"
+      },
+      "status":{
+          "title":"Status",
+          "type":"string"
+      },
+      "time-boundry":{
+          "title":"Time Boundry",
+          "type":"integer"
+      },
+      "log-file":{
+          "title":"Log File",
+          "type":"string"
+      },
+      "sequence-range":{
+          "title":"Sequence Range",
+          "type":"string"
+      },
+      "sequence-position":{
+          "title":"Sequence Position",
+          "type":"string"
+      },
+      "sequence-globalization":{
+          "title":"Sequence Globalization",
+          "type":"string"
+      },
+      "mappings":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "key":{
+                      "title":"Key",
+                      "type":"string"
+                  },
+                  "format":{
+                      "title":"Format",
+                      "type":"string"
+                  }
+              }
+          }
+      }
+      
+  }
+  
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"status",
+      "type":"radios",
+      "titleMap":{
+          "ACTIVE":"ACTIVE",
+          "INACTIVE":"INACTIVE"
+      }
+  },
+  {
+      "key":"time-boundry",
+      "type":"select",
+      "titleMap":[
+          {
+              "value":1,
+              "name":"1 Min"
+          },
+          {
+              "value":2,
+              "name":"2 Min"
+          },
+          {
+              "value":3,
+              "name":"3 Min"
+          },
+          {
+              "value":5,
+              "name":"5 Min"
+          },
+          {
+              "value":10,
+              "name":"10 Min"
+          },
+          {
+              "value":15,
+              "name":"15 Min"
+          },
+          {
+              "value":30,
+              "name":"30 Min"
+          },
+          {
+              "value":60,
+              "name":"Hourly"
+          },
+          {
+              "value":1440,
+              "name":"Daily"
+          }
+          ]
+          
+      
+  },
+  {
+      "key":"log-file"
+  },
+  {
+      "key":"sequence-range"
+  },
+  {
+      "key":"sequence-position",
+      "type":"select",
+      "titleMap":{
+          "suffix":"suffix",
+          "prefix":"prefix"
+      }
+  },
+  {
+      "key":"sequence-globalization",
+      "type":"select",
+      "titleMap":{
+          "True":"True",
+          "False":"False"
+      }
+  },
+  {
+      "key":"mappings",
+      "add":"Add Format",
+      "items":[
+          {
+              "key":"mappings[].key"
+          },
+          {
+              "key":"mappings[].format"
+          }
+          ]
+  }
+  
+],
+"model":{
+   "name":"TransactionLoggerPlugin",
+   "description":"Created by admin on 01/16/2017 03:37:07 PM",
+   "status":"ACTIVE",
+   "time-boundry":30,
+   "sequence-position":"suffix",
+   "sequence-globalization":"false",
+   "mappings":[
+      {
+         "key":"SUCCESS",
+         "format":"0:1={elitecore}"
+      }
+   ]
+}
+}

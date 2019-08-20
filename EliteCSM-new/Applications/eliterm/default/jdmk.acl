@@ -1,0 +1,7 @@
+acl = {
+ {
+ communities = public
+ access = read-write
+ managers = 255!255!255!255
+ }
+}

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.radius.system.standardmaster.data.StandardMasterTypeData" table="TBLSSTANDARDMASTERTYPE" >          
+	 
+	 <id name="masterTypeId" type="CharType"  >
+          <column name="MASTERTYPEID" sql-type="CHAR(7)" not-null="true"/>
+    </id>
+     
+     <property name="typeName" type="StringType">
+          <column name="TYPENAME" sql-type="VARCHAR(255)" not-null="true"/>
+      </property>
+     
+     <property name="alias" type="StringType">
+          <column name="ALIAS" sql-type="VARCHAR(255)" not-null="true"/>
+     </property>
+          
+     <property name="description" type="StringType">
+          <column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"/>
+     </property>
+     
+     <property name="systemGenerated" type="CharType">
+		 <column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+     </property>  
+ 
+     <property name="enableDisable" type="CharType">
+		 <column name="ENABLEDISABLE" sql-type="CHAR(1)" not-null="true"/>
+     </property>   
+ 
+     <property name="showHide" type="CharType">
+		 <column name="SHOWHIDE" sql-type="CHAR(1)" not-null="true"/>
+     </property>   
+ 
+     <property name="editable" type="CharType">
+         <column name="EDITABLE" sql-type="CHAR(1)" not-null="true"/>
+     </property>
+
+	</class>
+	
+</hibernate-mapping>

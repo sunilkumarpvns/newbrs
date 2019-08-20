@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.acct.data.AcctPolicyBroadcastESIRelData" table="TBLMACCTPOLICYBESIREL">
+		<composite-id>
+			<key-property name="acctPolicyId" column="ACCTPOLICYID" type="StringType"></key-property>
+			<key-property name="esiInstanceId" column="ESIINSTANCEID" type="StringType"></key-property>
+		</composite-id>
+		<property name="ruleSet" type="StringType" column="RULESET" not-null="false"/>
+			<property name="trueOnAttributeNotFound" type="StringType" column="TRUEONATTRIBUTENOTFOUND" not-null="false"/>
+			<property name="isResponseMandatory" type="StringType" column="ISRESPONSEMANDATORY" not-null="false"/>
+			<property name="translationMapConfigId" type="StringType" column ="TRANSLATIONMAPCONFIGID" />
+			<property name="script" type="StringType" column="SCRIPT" />
+		<many-to-one name="externalSystemData" fetch="join"  insert="false" update="false" class="com.elitecore.elitesm.datamanager.externalsystem.data.ExternalSystemInterfaceInstanceData" column="ESIINSTANCEID" ></many-to-one>
+		<many-to-one name="translationMappingConfData" lazy="no-proxy" insert="false" update="false" column="translationMapConfigId" class="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.TranslationMappingConfData" ></many-to-one>
+	</class>		
+</hibernate-mapping>

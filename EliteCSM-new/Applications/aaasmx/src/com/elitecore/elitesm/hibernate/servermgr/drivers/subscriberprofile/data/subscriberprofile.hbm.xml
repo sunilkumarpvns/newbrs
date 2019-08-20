@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.drivers.subscriberprofile.data.SubscriberProfileData" table="TBLRADIUSCUSTOMER">
+		<id name="subscriberProfileId" column="ID" type="StringType">
+			 <generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"> 
+			 </generator>
+		</id>    
+		<property name="userName" type="StringType">
+			<column name="USERNAME" sql-type="VARCHAR(255)" not-null="true" />
+		</property> 
+		<property name="password" type="StringType">
+			<column name="PASSWORD" sql-type="VARCHAR(255)" not-null="true" />
+		</property> 
+		<property name="userIdentity" type="SubscriberCaseSensitivityType">
+		    <column name="USER_IDENTITY" sql-type="VARCHAR(255)" not-null="true" />
+		</property>
+		<property name="concurrentLoginPolicy" type="StringType">
+			 <column name="CONCURRENTLOGINPOLICY" sql-type="VARCHAR(50)" not-null="true" />
+		</property>
+		<property name="creditLimit" type="java.lang.Long">
+			 <column name="CREDITLIMIT" sql-type="NUMBER(10)" not-null="true" />
+		</property>
+		<property name="encryptionType" type="java.lang.Long">
+			 <column name="ENCRYPTIONTYPE" sql-type="NUMBER(3)" not-null="true" />
+		</property>
+		<property name="customerStatus" type="StringType" >
+			 <column name="CUSTOMERSTATUS" sql-type="VARCHAR(10)" not-null="true" />
+		</property>
+		<property name="callingStationId" type="StringType" >
+			 <column name="CALLINGSTATIONID" sql-type="VARCHAR(10)" not-null="true" />
+		</property>
+		<property name="framedIPv4Address" type="StringType" >
+			 <column name="FRAMEDIPV4ADDRESS" sql-type="VARCHAR(10)" not-null="true" />
+		</property>
+		<property name="expiryDate" type="java.util.Date" >
+			 <column name="EXPIRYDATE" sql-type="java.sql.Timestamp" not-null="true" />
+		</property>
+	</class>            
+	            
+</hibernate-mapping>

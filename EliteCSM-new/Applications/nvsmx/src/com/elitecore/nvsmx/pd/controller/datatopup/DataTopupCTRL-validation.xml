@@ -1,0 +1,139 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    <field name="name">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">100</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length")}</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+            <message>${getText("invalid.name")}</message>
+        </field-validator>
+    </field>
+    <field name="description">
+        <field-validator type="stringlength">
+            <param name="minLength">0</param>
+            <param name="maxLength">255</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("data.topup.description")})}</message>
+        </field-validator>
+    </field>
+    <field name="topupType">
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^TOP_UP|SPARE_TOP_UP]]></param>
+            <message>${getText("invalid.required.field", {getText("data.topup.type")})}</message>
+        </field-validator>
+    </field>
+    <field name="multipleSubscription">
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^true|false]]></param>
+            <message>${getText("invalid.required.field", {getText("data.topup.multiple.subscription")})}</message>
+        </field-validator>
+    </field>
+    <field name="validityPeriod">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">2147483647</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+        <field-validator type="regex" short-circuit="true">
+            <param name="regex"><![CDATA[^\d*$]]></param>
+            <message>${getText("error.required.numeric", {getText("data.topup.validity.period")})}</message>
+        </field-validator>
+        <field-validator type="greaterThanZero" short-circuit="true">
+            <message>${getText("error.greaterthanzero", {getText("data.topup.validity.period")})}</message>
+        </field-validator>
+    </field>
+    <field name="price" >
+        <field-validator type="double">
+            <param name="minInclusive">0.0</param>
+            <param name="maxInclusive">999999.00</param>
+            <param name="trim">true</param>
+            <message>${getText("error.double.range", {getText("data.topup.price")})}</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^\d*(\.*\d)*?$]]></param>
+            <message>${getText("error.required.numeric", {getText("data.topup.price")})}</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^\d*(\.*\d{1,2})?$]]></param>
+            <message>${getText("error.price.only.two.decimal.places", {getText("data.topup.price")})}</message>
+        </field-validator>
+    </field>
+    <field name="quotaType">
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^VOLUME|TIME]]></param>
+            <message>${getText("invalid.required.field", {getText("data.topup.quotatype")})}</message>
+        </field-validator>
+    </field>
+    <field name="unitType">
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^TOTAL|UPLOAD|DOWNLOAD]]></param>
+            <message>${getText("invalid.required.field", {getText("data.topup.unittype")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="volumeBalance">
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^\d*(\.*\d)*?$]]></param>
+            <message>${getText("error.required.numeric", {getText("data.topup.volume.balance")})}</message>
+        </field-validator>
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(quotaType=='VOLUME' && volumeBalance !=null) || (quotaType=='TIME' )]]></param>
+            <message>${getText("data.top.up.invalid.volume.quota")}</message>
+        </field-validator>
+        <field-validator type="greaterThanZero" short-circuit="true">
+            <message>${getText("error.greaterthanzero", {getText("data.topup.volume.balance")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="volumeBalanceUnit">
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(quotaType=='VOLUME' && volumeBalanceUnit !=null && volumeBalanceUnit != '' ) || (quotaType=='TIME' )]]></param>
+            <message>${getText("data.top.up,invalid.quota.unit",{getText("data.topup.volume.balance.unit"),quotaType})}</message>
+        </field-validator>
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(quotaType=='VOLUME' && volumeBalanceUnit == 'BYTE' || volumeBalanceUnit == 'KB' || volumeBalanceUnit == 'MB' || volumeBalanceUnit == 'GB'  )  || (quotaType=='TIME' )]]></param>
+            <message>${getText("invalid.required.field", {getText("data.topup.volume.balance.unit")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="timeBalance">
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^\d*(\.*\d)*?$]]></param>
+            <message>${getText("error.required.numeric", {getText("data.topup.time.balance")})}</message>
+        </field-validator>
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(quotaType=='TIME' && timeBalance !=null) || (quotaType=='VOLUME')]]></param>
+            <message>${getText("data.top.up.invalid.time.quota")}</message>
+        </field-validator>
+        <field-validator type="greaterThanZero" short-circuit="true">
+            <message>${getText("error.greaterthanzero", {getText("data.topup.time.balance")})}</message>
+        </field-validator>
+    </field>
+    <field name="timeBalanceUnit">
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(quotaType=='TIME' && timeBalanceUnit !=null && timeBalanceUnit != '' ) || (quotaType=='VOLUME' )]]></param>
+            <message>${getText("data.top.up,invalid.quota.unit",{getText("data.topup.time.balance.unit"),quotaType})}</message>
+        </field-validator>
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(quotaType=='TIME' && timeBalanceUnit == 'SECOND' || timeBalanceUnit == 'MINUTE' || timeBalanceUnit == 'DAY' || timeBalanceUnit == 'WEEK' || timeBalanceUnit == 'MONTH' || timeBalanceUnit == 'YEAR'  )  || (quotaType=='VOLUME' )]]></param>
+            <message>${getText("invalid.required.field", {getText("data.topup.time.balance.unit")})}</message>
+        </field-validator>
+    </field>
+
+
+
+</validators>

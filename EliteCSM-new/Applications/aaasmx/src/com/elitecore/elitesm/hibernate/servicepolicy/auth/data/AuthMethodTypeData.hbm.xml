@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthMethodTypeData" table="TBLSAUTHMETHODTYPE">
+		<id name="authMethodTypeId" column="AUTHMETHODTYPEID" type="java.lang.Long"></id>    
+		<property name="name" type="StringType" column="NAME" not-null="true"/> 
+		<property name="description" type="StringType" column="DESCRIPTION" not-null="false"/> 
+		<property name="status" type="StringType" column="STATUS" not-null="true"/>
+		<property name="serialNumber" type="java.lang.Integer" column="SERIALNO" not-null="false"/>
+		<property name="alias" type="CharType" column="ALIAS" not-null="true"/>
+	</class>            
+ 
+</hibernate-mapping>

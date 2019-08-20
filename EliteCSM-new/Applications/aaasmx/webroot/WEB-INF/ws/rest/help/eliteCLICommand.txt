@@ -1,0 +1,68 @@
+
+***********************************************************************
+					CREATE OPERATION
+***********************************************************************
+# URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/cli?name=eliteAAA
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/cli/eliteAAA
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml or application/json 
+
+Body :
+	
+	help
+	
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>
+			------------------------------------------------ 
+			             Elite AAA Server
+			------------------------------------------------
+			
+			q or quit   Exit from CLI.
+			Commands:
+			
+			home                           Displays home folder of server instance.
+			set                            Set given Parameter.
+			sessionmgr                     Lists configuration of all the session managers initialized successfully and flushes sessions.
+			show                           Display details for given parameter.
+			dynauthserv                    Displays Dynauth service detail as per option.
+			radclient                      Sends the Request to Server.
+			version                        Displays name and version of Server.
+			clear                          Clears details for given parameter.
+			help                           Provides list of supported commands and its descriptions.
+			cert                           Display list of server/trusted X.509 V3 certificates of type '.pem'.
+			rcache                         Reload Cache for server instance
+			esistats                       Shows the statistics of External Systems
+			authserv                       Displays Auth service detail as per option.
+			config                         Display config information
+			license                        display license information
+			acctserv                       Displays Acct service detail as per option.
+			datasource                     returns the status of all the datasources configured
+			shutdown                       Tries to shutdown the server gracefully
+			restart                        Restarts server after trying to shut it down using 'shutdown immediate' command
+			services                       Displays current status of configured services
+			alert                          Display alert information
+			esisummary                     Displays Request Summary Of Particular ESI
+			logmonitor                     Add,Remove and View condition to get satisfied request logs in seperate .log file
+			history                        Displays the previously executed commands
+			esiscan                        Displays the details of the External Systems.
+			snmpserv                       Displays SNMP service detail as per option.
+			rconf                          Reload Configurations
+			cdrflush                       Flushing the CDR into Detail Local or Classic CSV Format
+			?                              Provides list of supported commands and its descriptions.
+			sysinfo                        Gives the system detail
+			clients                        Displays Clients Details.
+
+		</response-message>
+        <response-time>
+			Executed On: 25 May 2017 17:22:43 -- Time Taken: 2ms
+		</response-time>
+	</response>
+</response-detail>

@@ -1,0 +1,134 @@
+<list>
+	<test-case behaviour="multiple pre policies can be configured and execute in order of configuration, 
+				where both policy is selected based on the check-item evaluation when configured action item is : NONE">
+				
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies>
+				<pre-policy-detail name="prePolicyOne">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"elitecore"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"ADDEDFROM1"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</pre-policy-detail>
+				<pre-policy-detail name="prePolicyTwo">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"ADDEDFROM2"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</pre-policy-detail>
+			</universal-pre-policies>
+			<universal-post-policies />
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="elitecore" />
+		</request-packet>
+
+		<response-packet type="2">
+		</response-packet>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:31" value="ADDEDFROM1" />
+				<contains-attribute id="0:30" value="ADDEDFROM2" />
+			</request>
+		</assert>
+		
+	</test-case> 
+	
+	<test-case behaviour="Multiple pre policy execution is not done when action item are any of this : 'ACCEPT,REJECT,DROP'
+					so when first policy is selected and applied successfully, it will not go for another policy execution">
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies>
+				<pre-policy-detail name="prePolicyOne">
+					<action>2</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"elitecore"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>J</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"ADDEDFROM1"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</pre-policy-detail>
+				<pre-policy-detail name="prePolicyTwo">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"ADDEDFROM2"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</pre-policy-detail>
+			</universal-pre-policies>
+			<universal-post-policies />
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="elite" />
+		</request-packet>
+
+		<response-packet type="2">
+		</response-packet>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:31" value="ADDEDFROM1" />
+				<not>
+					<contains-attribute id="0:30" value="ADDEDFROM2" />
+				</not>
+			</request>
+		</assert>
+		
+	</test-case> 
+</list>

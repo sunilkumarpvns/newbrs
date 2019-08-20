@@ -1,0 +1,9 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_datasource_spr,POST : Create DB Datasource for SPR : 201,sm/database/database.json,POST,create_datasource_spr.json,,,201,database
+2,create_spr,POST : Create SPR rest_spr : 201,sm/spr/spr.json,POST,create_spr.json,,28875,201,spr
+3,get_created_spr,GET : rest_spr should be displayed : 200,sm/spr/spr/rest_spr_11111111.json,GET,,,28876,200,spr
+4,update_spr,PUT : Update rest_spr and change to update_rest_spr :200,sm/spr/spr/rest_spr_11111111.json,PUT,update_spr.json,,28877,200,spr
+5,get_updated_spr,GET : update_rest_spr should be displayed : 200,sm/spr/spr/rest_spr_11111111.json,GET,,,28878,200,spr
+6,delete_spr,DELETE : Delete update_rest_spr : 200,sm/spr/spr/rest_spr_11111111.json,DELETE,,,28879,200,spr
+7,get_deleted_spr,GET : update_rest_spr should not be displayed : 404,sm/spr/spr/rest_spr_11111111.json,GET,,"{""actionErrors"":[""SPR Not Found with id: rest_spr_11111111""]}",28880,404,spr
+8,delete_datasource_spr,DELETE : Delete DB Datasource for SPR : 200,sm/database/database/rest_datasource_spr_11111111.json,DELETE,,,,200,database

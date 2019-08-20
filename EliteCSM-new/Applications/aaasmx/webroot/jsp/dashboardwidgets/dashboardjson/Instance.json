@@ -1,0 +1,39 @@
+{
+"result" :
+  {
+  "layout": "layout2",
+  "data" : [
+    {
+      "title" : "AAA-Banglore-Server Deployment Architecture",
+      "id" : "widget16",
+      "column" : "first",
+      "editurl" : "jsp/dashboardwidgets/dscdashboard/EditAAADeploymentArchitecture.jsp",
+      "open" : true,
+      "url" : "jsp/dashboardwidgets/instancedashboard/AAADeploymentArchitecture.jsp"
+    },{
+     "title" : "Live Memory usage",
+      "id" : "widget17",
+      "column" : "second",
+      "editurl" : "jsp/dashboardwidgets/dscdashboard/EditLiveMemoryUsage.jsp",
+      "open" : true,
+      "url" : "jsp/dashboardwidgets/instancedashboard/LiveMemoryUsage.jsp"
+    },{
+     "title" : "Live CPU & Memory Usage",
+      "id" : "widget18",
+      "column" : "first",
+      "editurl" : "jsp/dashboardwidgets/dscdashboard/EditLiveCPUMemoryUsage.jsp",
+      "open" : true,
+      "url" : "jsp/dashboardwidgets/instancedashboard/LiveCPUMemoryUsage.jsp"
+    },{
+     "title" : "Live CPU & Memory Usage",
+      "id" : "widget19",
+      "column" : "second",
+      "editurl" : "jsp/dashboardwidgets/dscdashboard/EditHeapMemoryUsage.jsp",
+      "open" : true,
+      "url" : "jsp/dashboardwidgets/instancedashboard/HeapMemoryUsage.jsp"
+    }
+   
+    
+  ]
+  }
+}

@@ -1,0 +1,391 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+ 
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver/EliteRM?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver?name=EliteRM&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver/EliteRM.xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver?name=EliteRM
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver/EliteRM?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver?operation=search&name=EliteRM&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver/EliteRM.xml?operation=search
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver?operation=search&name=EliteRM	
+
+Response     :
+
+<elite-rm-server>
+    <server-name>eliteRM</server-name>
+    <domain-name>elitecore.com</domain-name>
+    <service-list>
+        <service>
+            <service-id>RM_CONCURRENT_LOGIN</service-id>
+            <enabled>false</enabled>
+        </service>
+        <service>
+            <service-id>RM_IPPOOL</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>RM_PREPAID_CHARGING</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>GTP_PRIME_SER</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>RM_CHARGING</service-id>
+            <enabled>true</enabled>
+        </service>
+    </service-list>
+    <aaa-db-datasource>
+        <connection-url>jdbc:oracle:thin:@//127.0.0.1:1521/eliteaaa</connection-url>
+        <user-name>ELITEAAA</user-name>
+    </aaa-db-datasource>
+    <logging>
+        <log-level>INFO</log-level>
+        <rolling-type>Time-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <syslog>
+            <address>10.121.21.96:1556</address>
+            <facility>CRON</facility>
+        </syslog>
+    </logging>
+    <snmp-address>0.0.0.0:1161</snmp-address>
+    <snmp-community>public</snmp-community>
+    <internal-schedular-thread-size>10</internal-schedular-thread-size>
+    <filter-response-attributes>0:25="EliteRMFilterAttrbutes"</filter-response-attributes>
+    <alert-listeners>
+        <alert-listener>trap_alert_listener</alert-listener>
+        <alert-listener>-NONE-</alert-listener>
+    </alert-listeners>
+    <web-service-config>
+        <web-service-enabled>false</web-service-enabled>
+        <service-address></service-address>
+        <max-session>250</max-session>
+        <thread-pool-size>10</thread-pool-size>
+    </web-service-config>
+    <kpi-service-config>
+        <datasource-name>DefaultDatabaseDatasource</datasource-name>
+        <batch-size>200</batch-size>
+        <batch-interval>60</batch-interval>
+        <kpi-query-interval>10</kpi-query-interval>
+    </kpi-service-config>
+</elite-rm-server>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver/EliteRM?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver?name=EliteRM&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver?name=EliteRM
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver/EliteRM.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver/EliteRM?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver?operation=search&name=EliteRM&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver?operation=search&name=EliteRM
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver/EliteRM.json?operation=search	
+
+Response     :
+
+{
+  "server-name": "eliteRM",
+  "domain-name": "elitecore.com",
+  "service-list": {
+    "service": [
+      {
+        "service-id": "RM_CONCURRENT_LOGIN",
+        "enabled": "false"
+      },
+      {
+        "service-id": "RM_IPPOOL",
+        "enabled": "true"
+      },
+      {
+        "service-id": "RM_PREPAID_CHARGING",
+        "enabled": "true"
+      },
+      {
+        "service-id": "GTP_PRIME_SER",
+        "enabled": "true"
+      },
+      {
+        "service-id": "RM_CHARGING",
+        "enabled": "true"
+      }
+    ]
+  },
+  "aaa-db-datasource": {
+    "connection-url": "jdbc:oracle:thin:@//127.0.0.1:1521/eliteaaa",
+    "user-name": "ELITEAAA"
+  },
+  "logging": {
+    "log-level": "INFO",
+    "rolling-type": "Time-Based",
+    "rolling-unit": "5",
+    "max-rolled-unit": "10",
+    "compress-rolled-unit": "false",
+    "syslog": {
+      "address": "10.121.21.96:1556",
+      "facility": "CRON"
+    }
+  },
+  "snmp-address": "0.0.0.0:1161",
+  "snmp-community": "public",
+  "internal-schedular-thread-size": "10",
+  "filter-response-attributes": "0:25=\"EliteRMFilterAttrbutes\"",
+  "alert-listeners": {
+    "alert-listener": [
+      "trap_alert_listener",
+      "-NONE-"
+    ]
+  },
+  "web-service-config": {
+    "web-service-enabled": "false",
+    "service-address": "",
+    "max-session": "250",
+    "thread-pool-size": "10"
+  },
+  "kpi-service-config": {
+    "datasource-name": "DefaultDatabaseDatasource",
+    "batch-size": "200",
+    "batch-interval": "60",
+    "kpi-query-interval": "10"
+  }
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#EliteCSM Server
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver?name=EliteRM
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver/EliteRM
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver/EliteRM?operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/elitermserver?name=EliteRM&operation=update
+
+Content Type : application/xml
+
+Body     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elite-rm-server>
+    <server-name>eliteRM</server-name>
+    <domain-name>elitecore.com</domain-name>
+    <service-list>
+        <service>
+            <service-id>RM_CONCURRENT_LOGIN</service-id>
+            <enabled>false</enabled>
+        </service>
+        <service>
+            <service-id>RM_IPPOOL</service-id>
+            <enabled>false</enabled>
+        </service>
+        <service>
+            <service-id>RM_PREPAID_CHARGING</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>GTP_PRIME_SER</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>RM_CHARGING</service-id>
+            <enabled>true</enabled>
+        </service>
+    </service-list>
+    <aaa-db-datasource>
+        <connection-url>jdbc:oracle:thin:@//127.0.0.1:1521/eliteaaa</connection-url>
+        <user-name>ELITEAAA</user-name>
+        <password>eliteaaa</password>
+    </aaa-db-datasource>
+    <logging>
+        <log-level>INFO</log-level>
+        <rolling-type>Size-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <syslog>
+            <address>10.121.21.96:1556</address>
+            <facility>CRON</facility>
+        </syslog>
+    </logging>
+    <snmp-address>0.0.0.0:1161</snmp-address>
+    <snmp-community>public</snmp-community>
+    <internal-schedular-thread-size>10</internal-schedular-thread-size>
+    <filter-response-attributes>0:25="EliteRMFilterAttrbutes"</filter-response-attributes>
+    <alert-listeners>
+        <alert-listener>trap_alert_listener</alert-listener>
+        <alert-listener>-NONE-</alert-listener>
+    </alert-listeners>
+    <web-service-config>
+        <web-service-enabled>false</web-service-enabled>
+        <service-address></service-address>
+        <max-session>250</max-session>
+        <thread-pool-size>10</thread-pool-size>
+    </web-service-config>
+    <kpi-service-config>
+        <datasource-name>DefaultDatabaseDatasource</datasource-name>
+        <batch-size>200</batch-size>
+        <batch-interval>60</batch-interval>
+        <kpi-query-interval>10</kpi-query-interval>
+    </kpi-service-config>
+</elite-rm-server>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EliteRM Server Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "server-name": "eliteRM",
+  "domain-name": "elitecore.com",
+  "service-list": {
+    "service": [
+      {
+        "service-id": "RM_CONCURRENT_LOGIN",
+        "enabled": "false"
+      },
+      {
+        "service-id": "RM_IPPOOL",
+        "enabled": "false"
+      },
+      {
+        "service-id": "RM_PREPAID_CHARGING",
+        "enabled": "true"
+      },
+      {
+        "service-id": "GTP_PRIME_SER",
+        "enabled": "true"
+      },
+      {
+        "service-id": "RM_CHARGING",
+        "enabled": "false"
+      }
+    ]
+  },
+  "aaa-db-datasource": {
+    "connection-url": "jdbc:oracle:thin:@//127.0.0.1:1521/eliteaaa",
+    "user-name": "ELITEAAA",
+    "password":"eliteaaa"
+  },
+  "logging": {
+    "log-level": "ALL",
+    "rolling-type": "Size-Based",
+    "rolling-unit": "5",
+    "max-rolled-unit": "10",
+    "compress-rolled-unit": "false",
+    "syslog": {
+      "address": "10.121.21.96:1556",
+      "facility": "CRON"
+    }
+  },
+  "snmp-address": "0.0.0.0:1161",
+  "snmp-community": "public",
+  "internal-schedular-thread-size": "10",
+  "filter-response-attributes": "0:25=\"EliteRMFilterAttrbutes\"",
+  "alert-listeners": {
+    "alert-listener": [
+      "trap_alert_listener",
+      "-NONE-"
+    ]
+  },
+  "web-service-config": {
+    "web-service-enabled": "false",
+    "service-address": "",
+    "max-session": "250",
+    "thread-pool-size": "10"
+  },
+  "kpi-service-config": {
+    "datasource-name": "DefaultDatabaseDatasource",
+    "batch-size": "200",
+    "batch-interval": "60",
+    "kpi-query-interval": "10"
+  }
+}
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EliteRM Server Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++++++++++++++++++++++ Additional Details++++++++++++++++++++++++++++++++
+
+ # Log Level
+ 	1) OFF
+ 	2) WARN
+ 	3) ERROR
+ 	4) INFO
+ 	5) FATAL
+ 	6) DEBUG
+ 	7) TRACE
+ 	8) ALL
+ 
+ # Rolling Type:
+	1) Size-Based
+	2) Time-Based
+ 
+ # Facility (Sys log Configuration)
+	1) -None- 
+	2) AUTH
+	3) KERN
+	4) USER
+	5) MAIL
+	6) DAEMON
+	7) SYSLOG
+	8) LPR
+	9) NEWS
+	10) UUCP
+	11) CRON
+	12) AUTHPRIV
+	13) FTP
+	14) LOCAL0
+	15) LOCAL1
+	16) LOCAL2
+	17) LOCAL3
+	18) LOCAL4
+	19) LOCAL5 
+	20) LOCAL6
+    21) LOCAL7
+
+ # Note : From List of Services You can only allow to do enable/disable particular configured service, You will not allow
+ 		  to remove or add services from this configuration 

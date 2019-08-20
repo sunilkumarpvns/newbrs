@@ -1,0 +1,735 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency?name=DiameterConcurrency&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency.xml?name=DiameterConcurrency
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency?operation=search&name=DiameterConcurrency&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency.xml?operation=search&name=DiameterConcurrency
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency.xml?operation=search
+
+Response     :
+
+<diameter-concurrency>
+    <name>DiameterConcurrency</name>
+    <description>Created by admin on 03/03/2017 01:10:22 PM</description>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>TBLMDIAMETERSESSIONDATA</table-name>
+    <start-time-field>START_TIME</start-time-field>
+    <last-update-time-field>LAST_UPDATED_TIME</last-update-time-field>
+    <concurrency-identity-field>CONCURRENCY_ID</concurrency-identity-field>
+    <db-failure-action>IGNORE</db-failure-action>
+    <session-override-action>None</session-override-action>
+    <mandatory-db-field-mappings>
+        <db-field-mapping>
+            <logical-field>Application ID</logical-field>
+            <db-field-name>APPLICATION_ID</db-field-name>
+            <referring-attribute>21067:65539</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Session Identity</logical-field>
+            <db-field-name>SESSION_ID</db-field-name>
+            <referring-attribute>0:263</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>PDP Type</logical-field>
+            <db-field-name>PDP_TYPE</db-field-name>
+            <referring-attribute>0:6</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Individual Identity</logical-field>
+            <db-field-name>SUBSCRIBER_ID</db-field-name>
+            <referring-attribute>0:1</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Peer Identity</logical-field>
+            <db-field-name>PEER_ID</db-field-name>
+            <referring-attribute>21067:65621</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Group Identity</logical-field>
+            <db-field-name>GROUPNAME</db-field-name>
+            <referring-attribute>21067:65557</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+    </mandatory-db-field-mappings>
+    <additional-db-field-mappings>
+        <db-field-mapping>
+            <db-field-name>CLIENT_IP_ADDRESS</db-field-name>
+            <referring-attribute>192.168.2.122</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+    </additional-db-field-mappings>
+</diameter-concurrency>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency?name=DiameterConcurrency&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency.json?name=DiameterConcurrency
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency?operation=search&name=DiameterConcurrency&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency.json?operation=search&name=DiameterConcurrency
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency.json?operation=search
+
+Response     :
+
+{
+  "name": "DiameterConcurrency",
+  "description": "Created by admin on 03/03/2017 01:10:22 PM",
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "TBLMDIAMETERSESSIONDATA",
+  "start-time-field": "START_TIME",
+  "last-update-time-field": "LAST_UPDATED_TIME",
+  "concurrency-identity-field": "CONCURRENCY_ID",
+  "db-failure-action": "IGNORE",
+  "session-override-action": "None",
+  "mandatory-db-field-mappings": [
+    {
+      "logical-field": "Application ID",
+      "db-field-name": "APPLICATION_ID",
+      "referring-attribute": "21067:65539",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "Session Identity",
+      "db-field-name": "SESSION_ID",
+      "referring-attribute": "0:263",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "PDP Type",
+      "db-field-name": "PDP_TYPE",
+      "referring-attribute": "0:6",
+      "data-type": "String",
+      "include-in-asr": "false"
+    },
+    {
+      "logical-field": "Individual Identity",
+      "db-field-name": "SUBSCRIBER_ID",
+      "referring-attribute": "0:1",
+      "data-type": "String",
+      "include-in-asr": "false"
+    },
+    {
+      "logical-field": "Peer Identity",
+      "db-field-name": "PEER_ID",
+      "referring-attribute": "21067:65621",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "Group Identity",
+      "db-field-name": "GROUPNAME",
+      "referring-attribute": "21067:65557",
+      "data-type": "String",
+      "include-in-asr": "false"
+    }
+  ],
+  "additional-db-field-mappings": [
+    {
+      "db-field-name": "CLIENT_IP_ADDRESS",
+      "referring-attribute": "192.168.2.122",
+      "data-type": "String",
+      "include-in-asr": "false"
+    }
+  ]
+}
+
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-concurrency>
+    <name>DiameterConcurrency</name>
+    <description>Created by admin on 03/03/2017 01:10:22 PM</description>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>TBLMDIAMETERSESSIONDATA</table-name>
+    <start-time-field>START_TIME</start-time-field>
+    <last-update-time-field>LAST_UPDATED_TIME</last-update-time-field>
+    <concurrency-identity-field>CONCURRENCY_ID</concurrency-identity-field>
+    <db-failure-action>IGNORE</db-failure-action>
+    <session-override-action>None</session-override-action>
+    <mandatory-db-field-mappings>
+        <db-field-mapping>
+            <logical-field>Application ID</logical-field>
+            <db-field-name>APPLICATION_ID</db-field-name>
+            <referring-attribute>21067:65539</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Session Identity</logical-field>
+            <db-field-name>SESSION_ID</db-field-name>
+            <referring-attribute>0:263</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>PDP Type</logical-field>
+            <db-field-name>PDP_TYPE</db-field-name>
+            <referring-attribute>0:6</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Individual Identity</logical-field>
+            <db-field-name>SUBSCRIBER_ID</db-field-name>
+            <referring-attribute>0:1</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Peer Identity</logical-field>
+            <db-field-name>PEER_ID</db-field-name>
+            <referring-attribute>21067:65621</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Group Identity</logical-field>
+            <db-field-name>GROUPNAME</db-field-name>
+            <referring-attribute>21067:65557</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+    </mandatory-db-field-mappings>
+    <additional-db-field-mappings>
+        <db-field-mapping>
+            <db-field-name>CLIENT_IP_ADDRESS</db-field-name>
+            <referring-attribute>192.168.2.122</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+    </additional-db-field-mappings>
+</diameter-concurrency>
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Concurrency created successfully"
+    }
+  ]
+}
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "DiameterConcurrency",
+  "description": "Created by admin on 03/03/2017 01:10:22 PM",
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "TBLMDIAMETERSESSIONDATA",
+  "start-time-field": "START_TIME",
+  "last-update-time-field": "LAST_UPDATED_TIME",
+  "concurrency-identity-field": "CONCURRENCY_ID",
+  "db-failure-action": "IGNORE",
+  "session-override-action": "None",
+  "mandatory-db-field-mappings": [
+    {
+      "logical-field": "Application ID",
+      "db-field-name": "APPLICATION_ID",
+      "referring-attribute": "21067:65539",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "Session Identity",
+      "db-field-name": "SESSION_ID",
+      "referring-attribute": "0:263",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "PDP Type",
+      "db-field-name": "PDP_TYPE",
+      "referring-attribute": "0:6",
+      "data-type": "String",
+      "include-in-asr": "false"
+    },
+    {
+      "logical-field": "Individual Identity",
+      "db-field-name": "SUBSCRIBER_ID",
+      "referring-attribute": "0:1",
+      "data-type": "String",
+      "include-in-asr": "false"
+    },
+    {
+      "logical-field": "Peer Identity",
+      "db-field-name": "PEER_ID",
+      "referring-attribute": "21067:65621",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "Group Identity",
+      "db-field-name": "GROUPNAME",
+      "referring-attribute": "21067:65557",
+      "data-type": "String",
+      "include-in-asr": "false"
+    }
+  ],
+  "additional-db-field-mappings": [
+    {
+      "db-field-name": "CLIENT_IP_ADDRESS",
+      "referring-attribute": "192.168.2.122",
+      "data-type": "String",
+      "include-in-asr": "false"
+    }
+  ]
+}
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Concurrency created successfully"
+    }
+  ]
+}
+
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+   <diameter-concurrency>
+      <name>DiameterConcurrency</name>
+      <description>Created by admin on 03/03/2017 01:10:22 PM</description>
+      <database-datasource>DefaultDatabaseDatasource</database-datasource>
+      <table-name>TBLMDIAMETERSESSIONDATA</table-name>
+      <start-time-field>START_TIME</start-time-field>
+      <last-update-time-field>LAST_UPDATED_TIME</last-update-time-field>
+      <concurrency-identity-field>CONCURRENCY_ID</concurrency-identity-field>
+      <db-failure-action>IGNORE</db-failure-action>
+      <session-override-action>None</session-override-action>
+      <mandatory-db-field-mappings>
+         <db-field-mapping>
+            <logical-field>Application ID</logical-field>
+            <db-field-name>APPLICATION_ID</db-field-name>
+            <referring-attribute>21067:65539</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+         </db-field-mapping>
+         <db-field-mapping>
+            <logical-field>Session Identity</logical-field>
+            <db-field-name>SESSION_ID</db-field-name>
+            <referring-attribute>0:263</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+         </db-field-mapping>
+         <db-field-mapping>
+            <logical-field>PDP Type</logical-field>
+            <db-field-name>PDP_TYPE</db-field-name>
+            <referring-attribute>0:6</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+         </db-field-mapping>
+         <db-field-mapping>
+            <logical-field>Individual Identity</logical-field>
+            <db-field-name>SUBSCRIBER_ID</db-field-name>
+            <referring-attribute>0:1</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+         </db-field-mapping>
+         <db-field-mapping>
+            <logical-field>Peer Identity</logical-field>
+            <db-field-name>PEER_ID</db-field-name>
+            <referring-attribute>21067:65621</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+         </db-field-mapping>
+         <db-field-mapping>
+            <logical-field>Group Identity</logical-field>
+            <db-field-name>GROUPNAME</db-field-name>
+            <referring-attribute>21067:65557</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+         </db-field-mapping>
+      </mandatory-db-field-mappings>
+      <additional-db-field-mappings>
+         <db-field-mapping>
+            <db-field-name>CLIENT_IP_ADDRESS</db-field-name>
+            <referring-attribute>192.168.2.122</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+         </db-field-mapping>
+      </additional-db-field-mappings>
+   </diameter-concurrency>
+</list>
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Concurrencies created successfully"
+    }
+  ]
+}
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"DiameterConcurrency",
+         "description":"Created by admin on 03/03/2017 01:10:22 PM",
+         "database-datasource":"DefaultDatabaseDatasource",
+         "table-name":"TBLMDIAMETERSESSIONDATA",
+         "start-time-field":"START_TIME",
+         "last-update-time-field":"LAST_UPDATED_TIME",
+         "concurrency-identity-field":"CONCURRENCY_ID",
+         "db-failure-action":"IGNORE",
+         "session-override-action":"None",
+         "mandatory-db-field-mappings":[
+            {
+               "logical-field":"Application ID",
+               "db-field-name":"APPLICATION_ID",
+               "referring-attribute":"21067:65539",
+               "data-type":"String",
+               "include-in-asr":"true"
+            },
+            {
+               "logical-field":"Session Identity",
+               "db-field-name":"SESSION_ID",
+               "referring-attribute":"0:263",
+               "data-type":"String",
+               "include-in-asr":"true"
+            },
+            {
+               "logical-field":"PDP Type",
+               "db-field-name":"PDP_TYPE",
+               "referring-attribute":"0:6",
+               "data-type":"String",
+               "include-in-asr":"false"
+            },
+            {
+               "logical-field":"Individual Identity",
+               "db-field-name":"SUBSCRIBER_ID",
+               "referring-attribute":"0:1",
+               "data-type":"String",
+               "include-in-asr":"false"
+            },
+            {
+               "logical-field":"Peer Identity",
+               "db-field-name":"PEER_ID",
+               "referring-attribute":"21067:65621",
+               "data-type":"String",
+               "include-in-asr":"true"
+            },
+            {
+               "logical-field":"Group Identity",
+               "db-field-name":"GROUPNAME",
+               "referring-attribute":"21067:65557",
+               "data-type":"String",
+               "include-in-asr":"false"
+            }
+         ],
+         "additional-db-field-mappings":[
+            {
+               "db-field-name":"CLIENT_IP_ADDRESS",
+               "referring-attribute":"192.168.2.122",
+               "data-type":"String",
+               "include-in-asr":"false"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Concurrencies created successfully"
+    }
+  ]
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency?name=DiameterConcurrency
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency?operation=update&name=DiameterConcurrency
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<diameter-concurrency>
+    <name>DiameterConcurrency</name>
+    <description>Created by admin on 03/03/2017 01:10:22 PM</description>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>TBLMDIAMETERSESSIONDATA</table-name>
+    <start-time-field>START_TIME</start-time-field>
+    <last-update-time-field>LAST_UPDATED_TIME</last-update-time-field>
+    <concurrency-identity-field>CONCURRENCY_ID</concurrency-identity-field>
+    <db-failure-action>IGNORE</db-failure-action>
+    <session-override-action>None</session-override-action>
+    <mandatory-db-field-mappings>
+        <db-field-mapping>
+            <logical-field>Application ID</logical-field>
+            <db-field-name>APPLICATION_ID</db-field-name>
+            <referring-attribute>21067:65539</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Session Identity</logical-field>
+            <db-field-name>SESSION_ID</db-field-name>
+            <referring-attribute>0:263</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>PDP Type</logical-field>
+            <db-field-name>PDP_TYPE</db-field-name>
+            <referring-attribute>0:6</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Individual Identity</logical-field>
+            <db-field-name>SUBSCRIBER_ID</db-field-name>
+            <referring-attribute>0:1</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Peer Identity</logical-field>
+            <db-field-name>PEER_ID</db-field-name>
+            <referring-attribute>21067:65621</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>true</include-in-asr>
+        </db-field-mapping>
+        <db-field-mapping>
+            <logical-field>Group Identity</logical-field>
+            <db-field-name>GROUPNAME</db-field-name>
+            <referring-attribute>21067:65557</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+    </mandatory-db-field-mappings>
+    <additional-db-field-mappings>
+        <db-field-mapping>
+            <db-field-name>CLIENT_IP_ADDRESS</db-field-name>
+            <referring-attribute>192.168.2.122</referring-attribute>
+            <data-type>String</data-type>
+            <include-in-asr>false</include-in-asr>
+        </db-field-mapping>
+    </additional-db-field-mappings>
+</diameter-concurrency>
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Concurrency updated successfully"
+    }
+  ]
+}
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "name": "DiameterConcurrency",
+  "description": "Created by admin on 03/03/2017 01:10:22 PM",
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "TBLMDIAMETERSESSIONDATA",
+  "start-time-field": "START_TIME",
+  "last-update-time-field": "LAST_UPDATED_TIME",
+  "concurrency-identity-field": "CONCURRENCY_ID",
+  "db-failure-action": "IGNORE",
+  "session-override-action": "None",
+  "mandatory-db-field-mappings": [
+    {
+      "logical-field": "Application ID",
+      "db-field-name": "APPLICATION_ID",
+      "referring-attribute": "21067:65539",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "Session Identity",
+      "db-field-name": "SESSION_ID",
+      "referring-attribute": "0:263",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "PDP Type",
+      "db-field-name": "PDP_TYPE",
+      "referring-attribute": "0:6",
+      "data-type": "String",
+      "include-in-asr": "false"
+    },
+    {
+      "logical-field": "Individual Identity",
+      "db-field-name": "SUBSCRIBER_ID",
+      "referring-attribute": "0:1",
+      "data-type": "String",
+      "include-in-asr": "false"
+    },
+    {
+      "logical-field": "Peer Identity",
+      "db-field-name": "PEER_ID",
+      "referring-attribute": "21067:65621",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "Group Identity",
+      "db-field-name": "GROUPNAME",
+      "referring-attribute": "21067:65557",
+      "data-type": "String",
+      "include-in-asr": "false"
+    }
+  ],
+  "additional-db-field-mappings": [
+    {
+      "db-field-name": "CLIENT_IP_ADDRESS",
+      "referring-attribute": "192.168.2.122",
+      "data-type": "String",
+      "include-in-asr": "false"
+    }
+  ]
+}
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Concurrency updated successfully"
+    }
+  ]
+}
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency?name=DiameterConcurrency
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency?operation=delete&name=DiameterConcurrency
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterconcurrency/DiameterConcurrency?operation=delete
+
+Response :
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Concurrencies deleted successfully"
+    }
+  ]
+}
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

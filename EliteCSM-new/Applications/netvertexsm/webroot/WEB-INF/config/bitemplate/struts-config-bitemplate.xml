@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+    <form-beans>
+       	
+       <form-bean name="biTemplateForm" type="com.elitecore.netvertexsm.web.bitemplate.form.BITemplateForm"/>
+       
+    </form-beans>
+    
+    <global-forwards >
+      <forward name="success" path="/jsp/core/response/SuccessResponsePage.jsp" />
+      <forward name="failure" path="/jsp/core/response/FailureResponsePage.jsp" />
+      <forward name="popupfailure" path="/jsp/core/response/PopupFailureResponsePage.jsp" /> 
+      <forward name="popupsuccess" path="/jsp/core/response/PopupSuccessResponsePage.jsp" />
+    </global-forwards>
+          
+    <action-mappings>
+    
+    	<action path="/searchBITemplate"
+      		type="com.elitecore.netvertexsm.web.bitemplate.SearchBITemplateAction"
+      	 	name="biTemplateForm"
+      	 	scope="request"
+      	 	validate="false">
+      	 	<forward name="searchBITemplate" path="/jsp/bitemplate/SearchBITemplate.jsp"/>
+     	</action>
+		
+		<action path="/initCreateBITemplate"
+			type="com.elitecore.netvertexsm.web.bitemplate.InitCreateBITemplateAction"
+			scope="request" 
+			validate="false"
+			name="biTemplateForm">
+			<forward name="createBITemplate" path="/jsp/bitemplate/CreateBITemplate.jsp" />
+		</action> 
+		
+		<action path="/createBITemplate"
+			type="com.elitecore.netvertexsm.web.bitemplate.CreateBITemplateAction"
+			scope="request" 
+			validate="false"
+			name="biTemplateForm">
+			<forward name="create" path="/jsp/bitemplate/CreateBITemplate.jsp" />
+		</action>
+		
+		 <action path="/initEditBITemplate"
+		  	scope="request"
+		  	type="com.elitecore.netvertexsm.web.bitemplate.InitEditBITemplateAction"
+		  	name="biTemplateForm"
+		  	validate="false">
+		  	<forward name="initEditBITemp" path="/jsp/bitemplate/EditBITemplateContainer.jsp" />
+	  	 </action>
+	  	 
+	  	 <action path="/editBITemplate"
+		  	scope="request"
+		  	type="com.elitecore.netvertexsm.web.bitemplate.EditBITemplateAction"
+		  	name="biTemplateForm"
+		  	validate="false">
+	  	 </action>
+	  	 
+	  	 <action path="/viewBITemplate"
+		  	scope="request"
+		  	type="com.elitecore.netvertexsm.web.bitemplate.ViewBITemplateAction"
+		  	name="biTemplateForm"
+		  	validate="false">
+		  	<forward name="viewBITemplate" path="/jsp/bitemplate/ViewBITemplateContainer.jsp"/>
+	  	 </action>
+	  	 
+	  	 <action path="/miscBITemplate"
+		  	scope="request"
+		  	type="com.elitecore.netvertexsm.web.bitemplate.MiscBITemplateAction"
+		  	name="biTemplateForm"
+		  	validate="false">
+		  	<forward name="viewBITemplate" path="/jsp/bitemplate/ViewBITemplateContainer.jsp"/>
+	  	 </action>
+	  	 
+	  	 <action path="/uploadFile"
+		  	scope="request"
+		  	type="com.elitecore.netvertexsm.web.bitemplate.UploadFileAction"
+		  	name="biTemplateForm"
+		  	validate="false">
+		  	<forward name="uploadFilePage" path="/jsp/bitemplate/UploadBICSVContainer.jsp"/>
+	  	 </action>
+	  	 
+    </action-mappings>
+           
+	<message-resources key="notificationResources" parameter="com.elitecore.netvertexsm.web.notification.notificationResources" /> 
+	<message-resources key="biTemplateResources" parameter="com.elitecore.netvertexsm.web.bitemplate.bitemplateResources" />
+</struts-config>
+
+

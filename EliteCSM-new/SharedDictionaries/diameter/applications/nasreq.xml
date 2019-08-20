@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- ************* DIAMETER NASREQ APPLICATION ************* -->
+  <!--<application id="1" name="NASREQ" 
+    uri="ftp://ftp.ietf.org/internet-drafts/draft-ietf-aaa-diameter-nasreq-12.txt";>-->
+   <attribute-list vendorid="0" applicationid="1" application-name="nasreq" vendor-name="base"> 
+       <!-- ***************** DIAMETER NASREQ APPLICATION AVPS ************** -->
+    <attribute id="5"   name="NAS-Port"  mandatory="yes" protected="no" encryption="yes" type="Unsigned32"/>
+    <attribute id="87"  name="NAS-Port-Id"  mandatory="yes"  protected="no" encryption="yes" type="UTF8String"/>
+    <attribute id="61"  name="NAS-Port-Type"  mandatory="yes" protected="no" encryption="yes" type="Enumerated">
+   	 <supported-values>                                  
+            <value id="0" name="Async"/>                
+            <value id="1" name="Sync"/>             
+            <value id="2" name="ISDN"/>             
+            <value id="3" name="ISDN-V120"/>           
+            <value id="4" name="ISDN-V110"/>           
+            <value id="5" name="Virtual"/>              
+            <value id="6" name="PIAFS"/>                
+            <value id="7" name="HDLC-Clear-Channel"/>  
+            <value id="8" name="X.25"/>             
+            <value id="9" name="X.75"/>             
+            <value id="10" name="G.3-Fax"/>             
+            <value id="11" name="SDSL"/>                
+            <value id="12" name="ADSL-CAP"/>            
+            <value id="13" name="ADSL-DMT"/>            
+            <value id="14" name="IDSL"/>                
+            <value id="15" name="Ethernet"/>            
+            <value id="16" name="xDSL"/>                
+            <value id="17" name="Cable"/>               
+            <value id="18" name="Wireless-Other"/>      
+            <value id="19" name="Wireless-802.11"/>     
+            <value id="20" name="Token-Ring"/>          
+            <value id="21" name="FDDI"/>                
+            <value id="22" name="Wireless-CDMA2000"/>   
+            <value id="23" name="Wireless-UMTS"/>       
+            <value id="24" name="Wireless-1X-EV"/>      
+            <value id="25" name="IAPP"/>                
+            <value id="26" name="FTTP"/>                
+        </supported-values>                           
+    </attribute>
+    <attribute id="77"  name="Connect-Info"  mandatory="yes"  protected="no" encryption="yes" type="UTF8String"/>
+    <attribute id="94"  name="Originating-Line-Info"  mandatory="no"  protected="no" encryption="yes" type="OctetString"/>
+    <attribute id="18"  name="Reply-Message"  mandatory="yes" protected="no" encryption="yes" type="UTF8String"/>	    
+    <attribute id="2"   name="NAS-User-Password"  mandatory="yes" protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="75"  name="Password-Retry"  mandatory="yes"  protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="76"  name="Prompt"  mandatory="yes"  protected="no"  encryption="yes" type="Enumerated">
+    	<supported-values>
+            <value id="0" name="No-Echo"/>  
+            <value id="1" name="Echo"/>     
+        </supported-values>        
+    </attribute> 
+    
+    <attribute id="403" name="CHAP-Algorithm"  mandatory="yes"  protected="no"  encryption="yes" type="Enumerated"/>
+    <attribute id="404" name="CHAP-Ident"  mandatory="yes"  protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="405" name="CHAP-Response" mandatory="yes"  protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="60"  name="CHAP-Challenge"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="70"  name="ARAP-Password"  mandatory="yes"  protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="84"  name="ARAP-Challenge-Response"  mandatory="yes"  protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="73"  name="ARAP-Security"  mandatory="yes"  protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="74"  name="ARAP-Security-Data"  mandatory="yes"  protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="6"   name="Service-Type"  mandatory="yes" protected="no"  encryption="yes" type="Enumerated">
+        <supported-values>
+            <value id="1" name="Login-User"/>
+            <value id="2" name="Framed-User"/>
+            <value id="3" name="Callback-Login-User"/>
+            <value id="4" name="Callback-Framed-User"/>
+            <value id="5" name="Outbound-User"/>
+            <value id="6" name="Administrative-User"/>
+            <value id="7" name="NAS-Prompt-User"/>
+            <value id="8" name="Authenticate-Only"/>        
+            <value id="9" name="Callback-NAS-Prompt"/>      
+            <value id="10" name="Call-Check"/>              
+            <value id="11" name="Callback-Administrative"/> 
+            <value id="12" name="Voice"/>                   
+            <value id="13" name="Fax"/>                     
+            <value id="14" name="Modem-Relay"/>             
+            <value id="15" name="IAPP-Register"/>           
+            <value id="16" name="IAPP-AP-Check"/>           
+            <value id="17" name="Authorize-Only"/>          
+        </supported-values>
+    </attribute>    
+    <attribute id="19"  name="Callback-Number"  mandatory="yes" protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="20"  name="Callback-Id"  mandatory="yes" protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="28"  name="Idle-Timeout"  mandatory="yes" protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="62"  name="Port-Limit"  mandatory="yes" protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="400" name="NAS-Filter-Rule"  mandatory="yes"  protected="no"  encryption="yes" type="IPFilterRule"/>
+    <attribute id="11"  name="Filter-Id"  mandatory="yes" protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="78"  name="Configuration-Token"  mandatory="yes" protected="no"  encryption="no" type="OctetString"/> <!-- Need To verify encryption field -->
+    <attribute id="407" name="QoS-Filter-Rule" mandatory="yes"  protected="no"  encryption="yes" type="QoSFltrRule"/> <!-- Need to discuss about its fields-->
+    <attribute id="7"   name="Framed-Protocol" mandatory="yes" protected="no"  encryption="yes" type="Enumerated">
+    	<supported-values>
+            <value id="1" name="PPP"/>                                                                                                                                                  
+            <value id="2" name="SLIP"/>                                                                                                                                             
+            <value id="3" name="ARAP"/>                                                                                                                                                
+            <value id="4" name="Gandalf-SLML"/>                                                                                                                                      
+            <value id="5" name="Xylogics-IPX-SLIP"/> 
+            <value id="6" name="X.75-Synchronous"/> 
+            <value id="7" name="GPRS-PDP-Context"/>                                     
+        </supported-values>
+    </attribute>    
+    <attribute id="10"  name="Framed-Routing"  mandatory="yes" protected="no"  encryption="yes" type="Enumerated">
+    	<supported-values>
+            <value id="0" name="None"/>                                                                                                                                                  
+            <value id="1" name="Broadcast"/>                                                                                                                                             
+            <value id="2" name="Listen"/>                                                                                                                                                
+            <value id="3" name="Broadcast-Listen"/>                                                                                                                                      
+        </supported-values>
+    </attribute> 
+    <attribute id="12"  name="NAS-Framed-MTU"  mandatory="yes" protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="13"  name="Framed-Compression"  mandatory="yes" protected="no"  encryption="yes" type="Enumerated">
+     	<supported-values>
+            <value id="0" name="None"/>         
+            <value id="1" name="Van-Jacobson-TCP-IP"/>  
+            <value id="2" name="IPX-Header-Compression"/>   
+            <value id="3" name="Stac-LZS"/>                 
+        </supported-values>
+    </attribute> 
+    <attribute id="8"   name="Framed-IP-Address"  mandatory="yes" protected="no"  encryption="yes" type="IPAddress"/>
+    <attribute id="9"   name="Framed-IP-Netmask"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="22"  name="Framed-Route"  mandatory="yes" protected="no" encryption="yes" type="UTF8String"/>
+    <attribute id="88"  name="Framed-Pool"  mandatory="yes"  protected="no" encryption="yes" type="OctetString"/>
+    <attribute id="96"  name="Framed-Interface-Id"  mandatory="yes"  protected="no"  encryption="yes" type="Unsigned64"/>
+    <attribute id="97"  name="Framed-IPv6-Prefix"  mandatory="yes"  protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="99"  name="Framed-IPv6-Route"  mandatory="yes"  protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="100" name="Framed-IPv6-Pool"  mandatory="yes"  protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="23"  name="Framed-IPX-Network"  mandatory="yes" protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="37"  name="Framed-Appletalk-Link"  mandatory="yes" protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="38"  name="Framed-Appletalk-Network"  mandatory="yes" protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="39"  name="Framed-Appletalk-Zone"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="71"  name="ARAP-Features"  mandatory="yes"  protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="72"  name="ARAP-Zone-Access"  mandatory="yes"  protected="no"  encryption="yes" type="Enumerated"/>
+    <attribute id="14"  name="Login-IP-Host"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="15"  name="Login-Service"  mandatory="yes" protected="no"  encryption="yes" type="Enumerated">
+     	<supported-values>
+            <value id="0" name="Telnet"/>        
+            <value id="1" name="Rlogin"/>           
+            <value id="2" name="TCP-Clear"/>    
+            <value id="3" name="PortMaster"/>       
+            <value id="4" name="LAT"/>              
+            <value id="5" name="X25-PAD"/>          
+            <value id="6" name="X25-T3POS"/>    
+            <value id="7" name="TCP-Clear-Quiet"/>  
+        </supported-values>
+    </attribute>        
+    <attribute id="16"  name="Login-TCP-Port"  mandatory="yes" protected="no"  encryption="yes" type="Unsigned32">
+     	<supported-values>
+            <value id="23" name="Telnet"/>  
+            <value id="513" name="Rlogin"/> 
+            <value id="514" name="Rsh"/>    
+        </supported-values>         
+    </attribute> 
+    <attribute id="98"  name="Login-IPv6-Host"  mandatory="yes"  protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="34"  name="Login-LAT-Service"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="35"  name="Login-LAT-Node"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="36"  name="Login-LAT-Group"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="63"  name="Login-LAT-Port"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="401" name="Tunneling"  mandatory="yes" protected="no"  encryption="no" type="Grouped">
+      <grouped>
+	<required>
+	  <attributerule vendor-id="0" id="64" name="Tunnel-Type" maximum="1" minimum="1"/>
+	  <attributerule vendor-id="0" id="65" name="Tunnel-Medium-Type" maximum="1" minimum="1"/>
+	  <attributerule vendor-id="0" id="66" name="Tunnel-Client-Endpoint" maximum="1" minimum="1"/>
+	  <attributerule vendor-id="0" id="67" name="Tunnel-Server-Endpoint" maximum="1" minimum="1"/>
+	  <attributerule vendor-id="0" id="15" name="Login-Service"  maximum="1" minimum="1"/>
+	</required>
+	<optional>
+	  <attributerule vendor-id="0" id="83" name="Tunnel-Preference" maximum="1" minimum="0" />
+	  <attributerule vendor-id="0" id="90" name="Tunnel-Client-Auth-Id" maximum="1" minimum="0"/>
+	  <attributerule vendor-id="0" id="91" name="Tunnel-Server-Auth-Id" maximum="1" minimum="0"/>
+	  <attributerule vendor-id="0" id="82" name="Tunnel-Assignment-Id" maximum="1" minimum="0"/>
+	  <attributerule vendor-id="0" id="69" name="Tunnel-Password" maximum="1" minimum="0"/>
+	  <attributerule vendor-id="0" id="81" name="Tunnel-Private-Group-Id" maximum="1" minimum="0"/>
+	</optional>
+      </grouped>
+    </attribute>
+    <attribute id="402" name="CHAP-Auth"  mandatory="yes" protected="no"  encryption="yes" type="Grouped">
+      <grouped>
+	 <required>
+	     <attributerule vendor-id="0" id="403" name="CHAP-Algorithm" maximum="1" minimum="1"/>
+	     <attributerule vendor-id="0" id="404" name="CHAP-Ident" maximum="1" minimum="1"/>
+	     <attributerule vendor-id="0" id="401" name="Tunneling"  maximum="1" minimum="1"/>
+         </required>
+	 <optional>
+	     <attributerule vendor-id="0" id="405" name="CHAP-Response" maximum="1" minimum="0" />
+         </optional>
+      </grouped>
+    </attribute>
+    <attribute id="64"  name="Tunnel-Type"  mandatory="yes" protected="no"  encryption="yes" type="Enumerated">
+    	<supported-values>
+            <value id="1" name="PPTP"/>         
+            <value id="2" name="L2F"/>                  
+            <value id="3" name="L2TP"/>                 
+            <value id="4" name="ATMP"/>                     
+            <value id="5" name="VTP"/>
+            <value id="6" name="AH" />
+            <value id="7" name="IP-IP" />
+            <value id="8" name="MIN-IP-IP" />
+            <value id="9" name="ESP" />
+            <value id="10" name="GRE" />
+            <value id="11" name="DVS" />
+            <value id="12" name="IP-in-IP-Tunneling" />
+            <value id="13" name="VLAN" />
+        </supported-values> 
+    </attribute>         
+    <attribute id="65"  name="Tunnel-Medium-Type"  mandatory="yes" protected="no"  encryption="yes" type="Enumerated">
+    	<supported-values>
+            <value id="1" name="IP"/>  
+        </supported-values> 
+    </attribute> 
+    <attribute id="66"  name="Tunnel-Client-Endpoint"  mandatory="yes" protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="67"  name="Tunnel-Server-Endpoint"  mandatory="yes" protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="69"  name="Tunnel-Password"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="81"  name="Tunnel-Private-Group-Id"  mandatory="yes"  protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="82"  name="Tunnel-Assignment-Id"  mandatory="yes"  protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="83"  name="Tunnel-Preference"  mandatory="yes"  protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="90"  name="Tunnel-Client-Auth-Id"  mandatory="yes"  protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="91"  name="Tunnel-Server-Auth-Id"  mandatory="yes"  protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="363" name="Accounting-Input-Octets"  mandatory="yes"  protected="no"  encryption="yes" type="Unsigned64"/>
+    <attribute id="364" name="Accounting-Output-Octets"  mandatory="yes"  protected="no"  encryption="yes" type="Unsigned64"/>
+    <attribute id="365" name="Accounting-Input-Packets"  mandatory="yes"  protected="no"  encryption="yes" type="Unsigned64"/>
+    <attribute id="366" name="Accounting-Output-Packets"  mandatory="yes"  protected="no"  encryption="yes" type="Unsigned64"/>
+    <attribute id="46"  name="Acct-Session-Time"  mandatory="yes" protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="45"  name="Acct-Authentic"  mandatory="yes" protected="no"  encryption="yes" type="Enumerated">
+    	<supported-values>
+            <value id="1" name="RADIUS"/>   
+            <value id="2" name="Local"/>    
+            <value id="3" name="Remote"/>   
+            <value id="4" name="Diameter"/> 
+        </supported-values>
+    </attribute>
+    <attribute id="406" name="Accounting-Auth-Method" mandatory="yes"  protected="no"  encryption="yes" type="OctetString">
+       <supported-values>	
+	    <value id="1" name="PAP" />
+	    <value id="2" name="CHAP" />
+	    <value id="3" name="MS-CHAP-1" />
+	    <value id="4" name="MS-CHAP-2" />
+	    <value id="5" name="EAP" />
+       </supported-values> 
+    </attribute>
+    <attribute id="41"  name="Acct-Delay-Time"  mandatory="yes" protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="51"  name="Acct-Link-Count"  mandatory="yes" protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="68"  name="Acct-Tunnel-Connection"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="86"  name="Acct-Tunnel-Packets-Lost"  mandatory="yes"  protected="no"  encryption="yes" type="Unsigned32"/>
+    <attribute id="32"  name="NAS-Identifier"  mandatory="yes" protected="no"  encryption="yes" type="UTF8String"/>
+    <attribute id="4"   name="NAS-IP-Address"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="95"  name="NAS-IPv6-Address" mandatory="yes"  protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="24"  name="State"  mandatory="yes" protected="no"  encryption="yes" type="OctetString"/>
+    <attribute id="295" name="NAS-Termination-Cause"  mandatory="yes" protected="no"  encryption="yes" type="Enumerated"/>
+    <attribute id="408" name="Origin-AAA-Protocol" mandatory="yes"  protected="no"  encryption="yes" type="Enumerated">
+       <supported-values>	
+	    <value id="1" name="RADIUS" />
+       </supported-values> 
+    </attribute> 
+    
+    <attribute id="89"  name="CUI" mandatory="no" protected="yes"  encryption="no" type="UTF8String"/>
+  	<!-- ***************** END ************** -->      
+  </attribute-list>
+
+  

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasource>
+    <datasourcename>AUTH_SERVICE_DS</datasourcename>
+    <connectionurl>jdbc:oracle:thin:@192.168.14.101:1521:eliteaaa</connectionurl>
+<!--    <username>crestelaaapoc501</username>-->
+<!--    <password>crestelaaapoc501</password>-->
+    <username>eliteaaa</username>
+    <password>eliteaaa</password>
+    <minpoolsize>10</minpoolsize>
+    <maxpoolsize>15</maxpoolsize>
+</datasource>
+

@@ -1,0 +1,75 @@
+
+***********************************************************************
+					CREATE OPERATION
+***********************************************************************
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/defaultconfiguration?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<default-configuration>
+	<username>test</username>
+	<password>test</password>
+	<mac-address>00-14-22-01-23-45</mac-address>
+	<ip-address>192.168.2.23</ip-address>
+	<concurrent-login-limit>1</concurrent-login-limit>
+</default-configuration>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EliteCSM Default Configuration created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"username": "test",
+	"password": "test",
+	"mac-address": "00-14-22-01-23-45",
+	"ip-address": "192.168.2.23",
+   "concurrent-login-limit": "1"
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EliteCSM Default Configuration created successfully</response-message>
+    </response>
+</response-detail>
+
+
+***********************************************************************
+  Basic information and Prerequisite for Default Configuration 
+***********************************************************************	
+
+1. Using Default Configuration following modules will be created:
+	1. Database Datasource
+	2. Radius DB Auth Driver
+	3. Radius Classic CSV Driver
+	4. Radius Session Manager
+	5. Radius Service Policy
+	6. Radius Transaction Logger
+	7. Concurrent Login Policy
+	8. Subscriber Profile
+	9. Transaction Logger Plugin
+	
+2. Default Configuration will not create any module if
+	1. Any of AAA Server instance had already created in database.
+	2. Any of the above module is already created.
+

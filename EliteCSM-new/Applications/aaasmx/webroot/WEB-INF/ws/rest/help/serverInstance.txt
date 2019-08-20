@@ -1,0 +1,633 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#EliteCSM Server
+ 
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=AAA_Server&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server.xml?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server/?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=AAA_Server&operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server.xml?name=AAA_Server&operation=search
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server.xml?operation=search
+
+Response     :
+
+
+<server>
+    <server-type>EliteCSM Server</server-type>
+    <server-instance-name>AAA_Server</server-instance-name>
+    <description>Created by admin on 01/04/2017 12:34:38 PM</description>
+    <admin-interface-ip>10.121.21.96</admin-interface-ip>
+    <admin-interface-port>4477</admin-interface-port>
+    <java-home>/home/elitecore/jdk1.7.0_75</java-home>
+    <server-home>/opt/source/TrunkAAA/Trunk/Applications/eliteaaa</server-home>
+    <version>6.8.0</version>
+    <server-identification>240</server-identification>
+    <configured-services>
+        <service-name>3GPP-AAA-SERVER</service-name>
+        <service-name>DIAMETER-CC</service-name>
+        <service-name>DIAMETER-EAP</service-name>
+        <service-name>DIAMETER-NAS</service-name>
+        <service-name>RAD-ACCT</service-name>
+        <service-name>RAD-AUTH</service-name>
+        <service-name>RAD-DYNAUTH</service-name>
+    </configured-services>
+    <staff>admin</staff>
+</server>
+
+*******************************************************
+#Resource Manager
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=RM_Server&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server.xml?name=RM_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/RM_Server/?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/RM_Server.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=RM_Server&operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server.xml?name=RM_Server&operation=search
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/RM_Server?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/RM_Server.xml?operation=search
+
+<server>
+    <server-type>Resource Manager</server-type>
+    <server-instance-name>RM_Server</server-instance-name>
+    <description>Created by admin on 01/05/2017 06:36:44 PM</description>
+    <admin-interface-ip>10.121.21.96</admin-interface-ip>
+    <admin-interface-port>4477</admin-interface-port>
+    <java-home>/home/elitecore/jdk1.7.0_75</java-home>
+    <server-home>/opt/source/TrunkAAA/Trunk/Applications/eliteaaa</server-home>
+    <version>6.8.0</version>
+    <server-identification>247</server-identification>
+    <configured-services>
+        <service-name>GTP-PRIME-SERVICE</service-name>
+        <service-name>IPPOOL-SERVICE</service-name>
+        <service-name>RM-CHARGING-SERVICE</service-name>
+        <service-name>RM-PREPAID-CHARGING</service-name>
+        <service-name>RM_CONCURRENT_LOGIN</service-name>
+    </configured-services>
+    <staff>admin</staff>
+</server>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#EliteCSM Server
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=AAA_Server&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server.json?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server/?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=AAA_Server&operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server.json?name=AAA_Server&operation=search
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server.json?operation=search
+
+Response     :
+
+{
+  "server-type": "EliteCSM Server",
+  "server-instance-name": "AAA_Server",
+  "description": "Created by admin on 01/04/2017 12:34:38 PM",
+  "admin-interface-ip": "10.121.21.96",
+  "admin-interface-port": 4477,
+  "java-home": "/home/elitecore/jdk1.7.0_75",
+  "server-home": "/opt/source/TrunkAAA/Trunk/Applications/eliteaaa",
+  "version": "6.8.0",
+  "server-identification": 240,
+  "configured-services": {
+    "service-name": [
+      "3GPP-AAA-SERVER",
+      "DIAMETER-CC",
+      "DIAMETER-EAP",
+      "DIAMETER-NAS",
+      "RAD-ACCT",
+      "RAD-AUTH",
+      "RAD-DYNAUTH"
+    ]
+  },
+  "staff": "admin"
+}
+
+****************************************************************************
+#Resource Manager
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=RM_Server&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server.json?name=RM_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/RM_Server/?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/RM_Server.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=RM_Server&operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server.json?name=RM_Server&operation=search
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/RM_Server?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/RM_Server.json?operation=search
+
+Response :
+
+{
+  "server-type": "Resource Manager",
+  "server-instance-name": "RM_Server",
+  "description": "Created by admin on 01/05/2017 06:36:44 PM",
+  "admin-interface-ip": "10.121.21.96",
+  "admin-interface-port": 4477,
+  "java-home": "/home/elitecore/jdk1.7.0_75",
+  "server-home": "/opt/source/TrunkAAA/Trunk/Applications/eliteaaa",
+  "version": "6.8.0",
+  "server-identification": 247,
+  "configured-services": {
+    "service-name": [
+      "GTP-PRIME-SERVICE",
+      "IPPOOL-SERVICE",
+      "RM-CHARGING-SERVICE",
+      "RM-PREPAID-CHARGING",
+      "RM_CONCURRENT_LOGIN"
+    ]
+  },
+  "staff": "admin"
+}
+
+***********************************************************************
+					CREATE OPERATION
+***********************************************************************
+
+#EliteCSM Server
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/?operation=create
+
+Content Type : application/xml
+
+Body :
+
+<server>
+    <server-type>EliteCSM Server</server-type>
+    <server-instance-name>AAA_Server</server-instance-name>
+    <description>Created by admin on 01/04/2017 12:34:38 PM</description>
+    <admin-interface-ip>10.121.21.96</admin-interface-ip>
+    <admin-interface-port>4477</admin-interface-port>
+    <add-services>
+        <service-name>3GPP-AAA-SERVER</service-name>
+        <service-name>DIAMETER-CC</service-name>
+        <service-name>DIAMETER-EAP</service-name>
+        <service-name>DIAMETER-NAS</service-name>
+        <service-name>RAD-ACCT</service-name>
+        <service-name>RAD-AUTH</service-name>
+        <service-name>RAD-DYNAUTH</service-name>
+    </add-services>
+    <staff>admin</staff>
+</server>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>AAA_Server server created successfully</response-message>
+    </response>
+</response-detail>
+
+
+# Create without services
+
+<server>
+    <server-type>EliteCSM Server</server-type>
+    <server-instance-name>AAA_Server</server-instance-name>
+    <description>Created by admin on 01/04/2017 12:34:38 PM</description>
+    <admin-interface-ip>10.121.21.96</admin-interface-ip>
+    <admin-interface-port>4477</admin-interface-port>
+</server>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>AAA_Server server created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "server-type": "EliteCSM Server",
+  "server-instance-name": "AAA_Server",
+  "description": "Created by admin on 01/04/2017 12:34:38 PM",
+  "admin-interface-ip": "10.121.21.96",
+  "admin-interface-port": 4477,
+  "add-services": {
+    "service-name": [
+      "3GPP-AAA-SERVER",
+      "DIAMETER-CC",
+      "DIAMETER-EAP",
+      "DIAMETER-NAS",
+      "RAD-ACCT",
+      "RAD-AUTH",
+      "RAD-DYNAUTH"
+    ]
+  },
+  "staff": "admin"
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>AAA_Server server created successfully</response-message>
+    </response>
+</response-detail>
+
+#Create without services
+
+{
+  "server-type": "EliteCSM Server",
+  "server-instance-name": "AAA_Server",
+  "description": "Created by admin on 01/04/2017 12:34:38 PM",
+  "admin-interface-ip": "10.121.21.96",
+  "admin-interface-port": 4477
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>AAA_Server server created successfully</response-message>
+    </response>
+</response-detail>
+
+
+****************************************************************************
+
+#Resource Manager
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/?operation=create
+
+Content Type : application/xml
+
+<server>
+    <server-type>Resource Manager</server-type>
+    <server-instance-name>RM_Server</server-instance-name>
+    <description>Created by admin on 01/05/2017 06:36:44 PM</description>
+    <admin-interface-ip>10.121.21.96</admin-interface-ip>
+    <admin-interface-port>4477</admin-interface-port>
+    <add-services>
+        <service-name>GTP-PRIME-SERVICE</service-name>
+        <service-name>IPPOOL-SERVICE</service-name>
+        <service-name>RM-CHARGING-SERVICE</service-name>
+        <service-name>RM-PREPAID-CHARGING</service-name>
+        <service-name>RM_CONCURRENT_LOGIN</service-name>
+    </add-services>
+    <staff>admin</staff>
+</server>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>RM_Server server created successfully</response-message>
+    </response>
+</response-detail>
+
+*****************************************************
+# Create without services
+<server>
+    <server-type>Resource Manager</server-type>
+    <server-instance-name>RM_Server</server-instance-name>
+    <description>Created by admin on 01/05/2017 06:36:44 PM</description>
+    <admin-interface-ip>10.121.21.96</admin-interface-ip>
+    <admin-interface-port>4477</admin-interface-port>
+</server>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>RM_Server server created successfully</response-message>
+    </response>
+</response-detail>
+
+*****************************************************
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+Content Type : application/json
+
+{
+  "server-type": "Resource Manager",
+  "server-instance-name": "RM_Server",
+  "description": "Created by admin on 01/05/2017 06:36:44 PM",
+  "admin-interface-ip": "10.121.21.96",
+  "admin-interface-port": 4477,
+  "add-services": {
+    "service-name": [
+      "GTP-PRIME-SERVICE",
+      "IPPOOL-SERVICE",
+      "RM-CHARGING-SERVICE",
+      "RM-PREPAID-CHARGING",
+      "RM_CONCURRENT_LOGIN"
+    ]
+  },
+  "staff": "admin"
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>RM_Server server created successfully</response-message>
+    </response>
+</response-detail>
+
+********************************************************
+# Create without services
+
+{
+  "server-type": "Resource Manager",
+  "server-instance-name": "AAA_Server2",
+  "description": "Created by admin on 01/04/2017 12:34:38 PM",
+  "admin-interface-ip": "10.121.21.96",
+  "admin-interface-port": 4477
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>AAA_Server2 server created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#EliteCSM Server
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=AAA_Server&operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server?operation=update
+
+
+Content Type : application/xml
+
+Body     :
+
+<server>
+    <server-type>EliteCSM Server</server-type>
+    <server-instance-name>AAA_Server2</server-instance-name>
+    <description>Created by admin on 01/04/2017 12:34:38 PM</description>
+    <admin-interface-ip>10.121.21.96</admin-interface-ip>
+    <admin-interface-port>4477</admin-interface-port>
+    <add-services>
+        <service-name>RAD-AUTH</service-name>
+        <service-name>RAD-ACCT</service-name>
+    </add-services>
+    <remove-services>
+        <service-name>DIAMETER-CC</service-name>
+        <service-name>DIAMETER-EAP</service-name>
+        <service-name>DIAMETER-NAS</service-name>
+    </remove-services>
+    <staff>admin</staff>
+</server>
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Server Instance updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "server-instance-name": "AAA_Server",
+  "description": "Created by admin on 01/04/2017 12:34:38 PM",
+  "server-type": "EliteCSM Server",
+  "admin-interface-ip": "10.121.21.96",
+  "admin-interface-port": 4477,
+  "add-services": {
+    "service-name": [
+      "DIAMETER-NAS"
+    ]
+  },
+  "remove-services":{
+  	"service-name":[
+      "RAD-ACCT",
+      "RAD-AUTH",
+      "RAD-DYNAUTH"
+      ]
+  },
+  "staff": "admin"
+}
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Server Instance updated successfully</response-message>
+    </response>
+</response-detail>
+
+*************************************************
+#Resource Manager
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=RM_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/RM_Server
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=RM_Server&operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/RM_Server?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+Content Type : application/xml
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<server>
+    <server-type>Resource Manager</server-type>
+    <server-instance-name>RM_Server</server-instance-name>
+    <description>Created by admin on 01/05/2017 06:36:44 PM</description>
+    <admin-interface-ip>10.121.21.96</admin-interface-ip>
+    <admin-interface-port>4477</admin-interface-port>
+    <add-services>
+        <service-name>RM-PREPAID-CHARGING</service-name>
+        <service-name>RM_CONCURRENT_LOGIN</service-name>
+    </add-services>
+    <remove-services>
+		<service-name>GTP-PRIME-SERVICE</service-name>
+        <service-name>IPPOOL-SERVICE</service-name>
+        <service-name>RM-CHARGING-SERVICE</service-name>    	
+    </remove-services>
+    <staff>admin</staff>
+</server>
+
+Response :
+ 
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Server Instance updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+{
+  "description": "Created by admin on 01/05/2017 06:36:44 PM",
+  "server-instance-name": "RM_Server",
+  "server-type": "Resource Manager",
+  "admin-interface-ip": "10.121.21.96",
+  "admin-interface-port": 4477,
+  "add-services": {
+    "service-name": [
+      "RM-CHARGING-SERVICE",
+      "RM-PREPAID-CHARGING",
+      "RM_CONCURRENT_LOGIN"
+    ]
+  },
+  "remove-services":{
+  	"service-name":[
+  	  "GTP-PRIME-SERVICE",
+      "IPPOOL-SERVICE"
+  	]
+  },
+  "staff": "admin"
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Server Instance updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=AAA_Server,RM_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server,RM_Server
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server?name=AAA_Server,RM_Server&operation=delete
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/AAA_Server,RM_Server?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Server Instance(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+#Note : 
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************
+						Additional Details(propeties as per SM)
+***********************************************************************
+# Server Type
+ 	1). EliteCSM Server
+ 	2). Resource Manager
+ 
+# List of Services for EliteCSM Server:
+	1). 3GPP-AAA-SERVER
+	2). DIAMETER-CC
+	3). DIAMETER-EAP
+	4). DIAMETER-NAS
+	5). RAD-ACCT
+	6). RAD-AUTH
+	7.) RAD-DYNAUTH
+
+# List of Services for Resource Manager:	
+	1). IPPOOL-SERVICE
+	2). RM-CHARGING-SERVICE
+	3). RM-PREPAID-CHARGING
+	4). GTP-PRIME-SERVICE
+	5.) RM_CONCURRENT_LOGIN
+	
+	
+Note : 1). Server Type and Service Name is case sensitive
+	   2). Individual All service must be unique per server instance
+	   3). Ip & Port must be valid
+	   4). for creating Server instance EliteAAA must be running on unique ip & port
+	   5.) Java Home and Server Home is dynamic based on machine on which EliteAAA is running
+			

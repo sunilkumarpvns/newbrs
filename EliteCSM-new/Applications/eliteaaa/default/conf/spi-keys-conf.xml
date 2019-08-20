@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spi-group-list>
+<spi-group>
+	<ha-ip-address-list>0.0.0.0</ha-ip-address-list>
+	<spi-key-pair-list>		
+		<spi-key-pair>
+	        <spi>273</spi> <!--273 (Decimal) = 111 (Hex) -->
+	        <key>elitecore</key>        
+		</spi-key-pair>
+	</spi-key-pair-list>
+</spi-group>
+<spi-group>
+	<ha-ip-address-list>192.168.0.69,192.168.3.227</ha-ip-address-list>
+	<spi-key-pair-list>		
+		<spi-key-pair>
+	        <spi>273</spi> <!--273 (Decimal) = 111 (Hex) -->
+	        <key>cisco123cisco123</key>        
+		</spi-key-pair>
+		<spi-key-pair> 
+	        <spi>274</spi> <!--274 (Decimal) = 112 (Hex) -->
+	        <key>cisco124cisco124</key>        
+		</spi-key-pair>
+		<spi-key-pair> 
+	        <spi>275</spi> <!--275 (Decimal) = 113 (Hex) -->
+	        <key>cisco125cisco125</key>        
+		</spi-key-pair>
+		<spi-key-pair> 
+	        <spi>276</spi> <!--276 (Decimal) = 114 (Hex) --> 
+	        <key>cisco126cisco126</key>        
+		</spi-key-pair>
+	</spi-key-pair-list>
+</spi-group>
+<spi-group>
+	<ha-ip-address-list>192.168.14.59,192.168.14.182</ha-ip-address-list>
+	<spi-key-pair-list>
+		<spi-key-pair>
+	        <spi>273</spi> <!--273 (Decimal) = 111 (Hex) -->
+	        <key>cisco546cisco546</key>        
+		</spi-key-pair>			
+		<spi-key-pair>
+	        <spi>546</spi> <!--546 (Decimal) = 222 (Hex) -->
+	        <key>cisco546cisco546</key>        
+		</spi-key-pair>
+		<spi-key-pair> 
+	        <spi>547</spi> <!--547 (Decimal) = 223 (Hex) -->
+	        <key>cisco547cisco547</key>        
+		</spi-key-pair>
+		<spi-key-pair> 
+	        <spi>548</spi> <!--548 (Decimal) = 224 (Hex) -->
+	        <key>cisco548cisco548</key>        
+		</spi-key-pair>
+		<spi-key-pair> 
+	        <spi>549</spi> <!--549 (Decimal) = 225 (Hex) --> 
+	        <key>cisco549cisco549</key>        
+		</spi-key-pair>
+	</spi-key-pair-list>
+</spi-group>
+</spi-group-list>

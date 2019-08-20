@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+		<class  name="com.elitecore.elitesm.datamanager.servermgr.drivers.dcdriver.data.DiameterChargingDriverRealmsData" table="TBLMDCDRIVERREALMS">
+
+		<id name="realmRelId" column="realmrelid" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">				
+			</generator>
+		</id> 
+		
+		<property name="realmName" type="StringType"> 
+			<column name="realmname" sql-type="VARCHAR(100)" not-null="true" /> 
+		</property>
+		
+		<property name="routingAction" type="java.lang.Long"> 
+			<column name="routingaction" sql-type="NUMERIC(1)" not-null="true" /> 
+		</property>
+		
+		<property name="authApplicationId" type="StringType"> 
+			<column name="authapplicationid" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+		
+		<property name="acctApplicationId" type="StringType"> 
+			<column name="acctapplicationid" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+			
+		<property name="dcDriverId" type="StringType"> 
+			<column name="dcdriverid" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<set name="realmVendorRelSet" lazy="false" inverse="false" cascade="delete">
+			<key column="realmrelid"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.dcdriver.data.DiameterChargingDriverVendorData" />
+	  	</set>
+	  	
+	  	<set name="realmPeerRelSet" lazy="false" inverse="false" cascade="delete">
+			<key column="realmrelid"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.dcdriver.data.DiameterChargingDriverPeerData" />
+	  	</set>	
+	</class>
+
+</hibernate-mapping> 

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servermgr.data.NetConfigurationParameterData" table="TBLMNETCONFIGURATIONPARAMETER">
+	
+		<composite-id name="parameterKey" class="com.elitecore.elitesm.datamanager.servermgr.data.NetConfigurationParameterDataKey">
+			<key-property column="PARAMETERID" name="parameterId" type="CharType"/>
+			<key-property column="CONFIGID"    name="configId" type="CharType"/>
+		</composite-id>
+		
+		<property name="parameterId" insert="false" update="false" not-null="true" >
+			<column name="PARAMETERID" ></column>
+		</property>
+		<property name="configId" insert="false" update="false" not-null="true">
+			<column name="CONFIGID" ></column>
+		</property> 
+		
+		<property name="serialNo" type="int">
+			<column name="SERIALNO" sql-type="NUMBER(5)" not-null="true"></column>
+		</property>
+		
+		<property name="name" type="StringType">
+			<column name="NAME" sql-type="VARCHAR(100)" not-null="true"></column>
+		</property>
+		
+		<property name="displayName" type="StringType">
+			<column name="DISPLAYNAME" sql-type="VARCHAR(100)" not-null="true"></column>
+		</property>
+		
+		<property name="alias" type="StringType">
+			<column name="ALIAS" sql-type="VARCHAR(100)" not-null="true"></column>
+		</property>
+		<property name="description" type="StringType">
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="true"></column>
+		</property>
+		<property name="type" type="StringType">
+			<column name="TYPE" sql-type="VARCHAR(50)" not-null="true"></column>
+		</property>
+		<property name="regExp" type="StringType">
+			<column name="REGEXP" sql-type="VARCHAR(255)" not-null="false"></column>
+		</property>
+		<property name="maxInstances" type="int">
+			<column name="MAXINSTANCES" sql-type="NUMBER(5)" not-null="false"></column>
+		</property>
+		<property name="multipleInstances" type="CharType">
+			<column name="MULTIPLEINSTANCES" sql-type="CHAR(1)" not-null="false"></column>
+		</property>
+		<property name="parentParameterId" type="CharType">
+			<column name="PARENTPARAMETERID" sql-type="CHAR(9)" not-null="false"></column>
+		</property>
+		<property name="defaultValue" type="StringType">
+			<column name="DEFAULTVALUE" sql-type="VARCHAR(255)" not-null="false"></column>
+		</property>
+		<property name="maxLength" type="int">
+			<column name="MAXLENGTH" sql-type="NUMBER(5)" not-null="false"></column>
+		</property>
+        <property name="editable" type="CharType">
+            <column name="EDITABLE" sql-type="CHAR(1)" not-null="true"></column>
+        </property>     
+        <property name="startUpMode" type="CharType">
+            <column name="STARTUPMODE" sql-type="CHAR(7)" not-null="true"></column>
+        </property>     
+        <property name="status" type="CharType">
+        	<column name="STATUS" sql-type="CHAR(1)" not-null="true"></column>
+        </property>
+        <property name="isNotNull" type="CharType">
+			<column name="ISNOTNULL" sql-type="CHAR(1)" not-null="false"></column>
+		</property>
+        
+	 	<set name="netConfigChildParameters" cascade="all,delete-orphan" lazy="false" inverse="true" order-by="serialNo">
+	 		<key>
+	 			<column name="parentParameterId"/>
+	 			<column name="configId"/>
+	 		</key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.data.NetConfigurationParameterData" />
+		</set>
+		
+		<set name="netConfigParamValuePool" lazy="false" inverse="false">
+   			<key>
+	 			<column name="parameterId" not-null="true"/>
+	 			<column name="netConfigId" not-null="true"/>
+	 		</key>
+		    <one-to-many class="com.elitecore.elitesm.datamanager.servermgr.data.NetConfigParamValuePoolData"/>
+		</set>
+		
+		<set name="netConfigParamValues" lazy="false" inverse="false" order-by="instanceId">
+			<key>
+	 			<column name="parameterId" not-null="true" />
+	 			<column name="netConfigId" not-null="true" />
+	 		</key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.data.NetConfigurationValuesData" />
+		</set>	
+		
+	</class>
+</hibernate-mapping> 

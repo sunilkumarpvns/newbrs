@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.acct.data.AcctPolicyAdditionalDriverRelData" table="TBLMACCTADDITIONALDRIVERREL">
+		<composite-id>
+			<key-property name="acctPolicyId" column="ACCTPOLICYID" type="StringType"></key-property>
+			<key-property name="driverInstanceId" column="DRIVERINSTANCEID" type="StringType"></key-property>
+		</composite-id>
+		<many-to-one name="driverData" lazy="false" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.drivers.data.DriverInstanceData" column="DRIVERINSTANCEID"/>
+	</class>		
+</hibernate-mapping>

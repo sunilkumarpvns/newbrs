@@ -1,0 +1,37 @@
+{
+"categories" :
+  {
+  "category": [
+    {
+      "id":1,
+      "title" : "EliteAAA",
+      "amount" : 7,
+      "url" : "jsp/dashboardwidgets/categories/category1_widgets.json"
+    },
+    {
+      "id":2,
+      "title" : "EliteDSC",
+      "amount": 4,
+      "url" : "jsp/dashboardwidgets/categories/category2_widgets.json"
+    },
+    {
+      "id":3,
+      "title" : "OS",
+      "amount": 0,
+      "url" : "jsp/dashboardwidgets/categories/category3_widgets.json"
+    },
+    {
+      "id":4,
+      "title" : "Server Instance",
+      "amount": 4,
+      "url" : "jsp/dashboardwidgets/categories/category4_widgets.json"
+    },
+    {
+      "id":5,
+      "title" : "Custom",
+      "amount": 0,
+      "url" : "jsp/dashboardwidgets/categories/category5_widgets.json"
+    }
+  ]
+  }
+}

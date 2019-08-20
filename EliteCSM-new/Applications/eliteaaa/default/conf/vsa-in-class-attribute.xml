@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vsa-in-class-attribute>
+	<enabled>false</enabled>
+	<class-attribute-id>0:25</class-attribute-id>
+	<separator>,</separator>
+	<attributes-from-request-packet></attributes-from-request-packet>
+	<attributes-from-response-packet></attributes-from-response-packet>
+</vsa-in-class-attribute>

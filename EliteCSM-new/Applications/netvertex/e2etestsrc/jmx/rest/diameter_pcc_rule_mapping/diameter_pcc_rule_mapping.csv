@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_dia_pcc_mapping,POST : create Diameter PCC Rule Mapping  rest_diameter_pcc_mapping : 201,sm/pccrulemapping/diameter-pcc-rule-mapping.json,POST,create_diameter_pcc_mapping.json,,28916,201,diameter-pcc-rule-mapping
+2,get_created_dia_pcc_mapping,GET : rest_diameter_pcc_mapping should be displayed : 200,sm/pccrulemapping/diameter-pcc-rule-mapping/rest_dia_pcc_mapping_11111111.json,GET,,,28917,200,diameter-pcc-rule-mapping
+3,update_dia_pcc_mapping,PUT : Update rest_diameter_pcc_mapping and change to update_rest_diameter_pcc_mapping : 200,sm/pccrulemapping/diameter-pcc-rule-mapping/rest_dia_pcc_mapping_11111111.json,PUT,update_diameter_pcc_mapping.json,,28918,200,diameter-pcc-rule-mapping
+4,get_updated_dia_pcc_mapping,GET : update_rest_diameter_pcc_mapping should be displayed : 200,sm/pccrulemapping/diameter-pcc-rule-mapping/rest_dia_pcc_mapping_11111111.json,GET,,,28919,200,diameter-pcc-rule-mapping
+5,delete_dia_pcc_mapping,DELETE : Delete update_rest_diameter_pcc_mapping : 200,sm/pccrulemapping/diameter-pcc-rule-mapping/rest_dia_pcc_mapping_11111111.json,DELETE,,,28920,200,diameter-pcc-rule-mapping
+6,get_deleted_dia_pcc_mapping,GET : update_rest_diameter_pcc_mapping should not be displayed : 404,sm/pccrulemapping/diameter-pcc-rule-mapping/rest_dia_pcc_mapping_11111111.json,GET,,"{""actionErrors"":[""PCCRule Mapping Not Found with id: rest_dia_pcc_mapping_11111111""]}",28921,404,diameter-pcc-rule-mapping

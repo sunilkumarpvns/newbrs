@@ -1,0 +1,46 @@
+<list>
+
+<test-case behaviour="policy will be applied with configured action NONE if configured attribute is present in accounting request">
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAcctPlugin</name>
+			<universal-pre-policies>
+				<pre-policy-detail name="prePolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>toUpperCase("elitecore")</attribute-value>
+							<packet-type>4</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+				</pre-policy-detail>
+			</universal-pre-policies>
+			<universal-post-policies>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="4">
+			<attribute id="0:1" value="ELITEAAA"/>
+			<attribute id="0:2" value="ELITEAAA"/>
+			<attribute id="0:31" value="ELITECORE" />
+		</request-packet>
+
+		<response-packet type="5">
+		</response-packet>
+		
+		<assert>
+			<request>
+				<packet-type value = "4" />
+			</request>
+			<response>
+				<packet-type value = "5" />
+			</response>
+		</assert>
+
+	</test-case>
+</list> 

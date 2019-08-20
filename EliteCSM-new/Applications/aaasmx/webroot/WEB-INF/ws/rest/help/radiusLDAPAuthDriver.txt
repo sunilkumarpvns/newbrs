@@ -1,0 +1,779 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth?name=RadiusLdapAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth.xml?name=RadiusLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth?operation=search&name=RadiusLdapAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth.xml?operation=search&name=RadiusLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+<driver-instance>
+    <name>RadiusLdapAuthDriver</name>
+    <description>Created by admin on 01/24/2017 11:30:57 AM</description>
+    <ldap-auth-driver>
+        <ldap-datasource>LDAP_DS</ldap-datasource>
+        <expiry-date-pattern>MM/dd/yyyy</expiry-date-pattern>
+        <password-decrypt-type>0</password-decrypt-type>
+        <search-scope>SCOPE_SUB</search-scope>
+        <query-maximum-execution-time>1</query-maximum-execution-time>
+        <maximum-query-timeout-count>100</maximum-query-timeout-count>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <search-filter>0:2</search-filter>
+        <ldap-field-mappings>
+            <ldap-field-mapping>
+                <logical-name>User Name</logical-name>
+                <ldap-attribute>USERNAME</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>CUI</logical-name>
+                <ldap-attribute>CUI</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>User Password</logical-name>
+                <ldap-attribute>PASSWORD</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Password Check</logical-name>
+                <ldap-attribute>PASSWORDCHECK</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Encryption Type</logical-name>
+                <ldap-attribute>ENCRYPTIONTYPE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Status</logical-name>
+                <ldap-attribute>CUSTOMERSTATUS</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <ldap-attribute>CALLINGSTATIONID</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <ldap-attribute>RADIUSPOLICY</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <ldap-attribute>CUSTOMERCHECKITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <ldap-attribute>CUSTOMERREPLYITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <ldap-attribute>EXPIRYDATE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <ldap-attribute>CREDITLIMIT</ldap-attribute>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </ldap-field-mapping>
+        </ldap-field-mappings>
+    </ldap-auth-driver>
+</driver-instance>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth?name=RadiusLdapAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth.json?name=RadiusLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth?operation=search&name=RadiusLdapAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth.json?operation=search&name=RadiusLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+  "name": "RadiusLdapAuthDriver",
+  "description": "Created by admin on 01/24/2017 11:30:57 AM",
+  "ldap-auth-driver": [
+    {
+      "ldap-datasource": "LDAP_DS",
+      "expiry-date-pattern": "MM/dd/yyyy",
+      "password-decrypt-type": "0",
+      "search-scope": "SCOPE_SUB",
+      "query-maximum-execution-time": 1,
+      "maximum-query-timeout-count": 100,
+      "user-identity-attributes": "0:1",
+      "search-filter": "0:2",
+      "ldap-field-mappings": [
+        {
+          "logical-name": "User Name",
+          "ldap-attribute": "USERNAME"
+        },
+        {
+          "logical-name": "CUI",
+          "ldap-attribute": "CUI"
+        },
+        {
+          "logical-name": "User Password",
+          "ldap-attribute": "PASSWORD"
+        },
+        {
+          "logical-name": "Password Check",
+          "ldap-attribute": "PASSWORDCHECK"
+        },
+        {
+          "logical-name": "Encryption Type",
+          "ldap-attribute": "ENCRYPTIONTYPE"
+        },
+        {
+          "logical-name": "Customer Status",
+          "ldap-attribute": "CUSTOMERSTATUS"
+        },
+        {
+          "logical-name": "Calling Station ID",
+          "ldap-attribute": "CALLINGSTATIONID"
+        },
+        {
+          "logical-name": "Authorization Policy",
+          "ldap-attribute": "RADIUSPOLICY"
+        },
+        {
+          "logical-name": "Customer Check Items",
+          "ldap-attribute": "CUSTOMERCHECKITEM"
+        },
+        {
+          "logical-name": "Customer Reply Items",
+          "ldap-attribute": "CUSTOMERREPLYITEM"
+        },
+        {
+          "logical-name": "Expiry Date",
+          "ldap-attribute": "EXPIRYDATE"
+        },
+        {
+          "logical-name": "Credit Limit",
+          "ldap-attribute": "CREDITLIMIT",
+          "default-value": "Active",
+          "value-mapping": "1=Active,0=inActive"
+        }
+      ]
+    }
+  ]
+}
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Note : - for inserting Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+
+Body :
+<driver-instance>
+    <name>RadiusLdapAuthDriver</name>
+    <description>Created by admin on 01/24/2017 11:30:57 AM</description>
+    <ldap-auth-driver>
+        <ldap-datasource>LDAP_DS</ldap-datasource>
+        <expiry-date-pattern>MM/dd/yyyy</expiry-date-pattern>
+        <password-decrypt-type>0</password-decrypt-type>
+        <search-scope>SCOPE_SUB</search-scope>
+        <query-maximum-execution-time>1</query-maximum-execution-time>
+        <maximum-query-timeout-count>100</maximum-query-timeout-count>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <search-filter>0:2</search-filter>
+        <ldap-field-mappings>
+            <ldap-field-mapping>
+                <logical-name>User Name</logical-name>
+                <ldap-attribute>USERNAME</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>CUI</logical-name>
+                <ldap-attribute>CUI</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>User Password</logical-name>
+                <ldap-attribute>PASSWORD</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Password Check</logical-name>
+                <ldap-attribute>PASSWORDCHECK</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Encryption Type</logical-name>
+                <ldap-attribute>ENCRYPTIONTYPE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Status</logical-name>
+                <ldap-attribute>CUSTOMERSTATUS</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <ldap-attribute>CALLINGSTATIONID</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <ldap-attribute>RADIUSPOLICY</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <ldap-attribute>CUSTOMERCHECKITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <ldap-attribute>CUSTOMERREPLYITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <ldap-attribute>EXPIRYDATE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <ldap-attribute>CREDITLIMIT</ldap-attribute>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </ldap-field-mapping>
+        </ldap-field-mappings>
+    </ldap-auth-driver>
+</driver-instance>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius LDAP Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note : - for inserting Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		 "default-value":"Active",
+         "value-mapping":"1=Active,0=inActive"
+
+Body :
+
+{
+  "name": "RadiusLdapAuthDriver",
+  "description": "Created by admin on 01/24/2017 11:30:57 AM",
+  "ldap-auth-driver": [
+    {
+      "ldap-datasource": "LDAP_DS",
+      "expiry-date-pattern": "MM/dd/yyyy",
+      "password-decrypt-type": "0",
+      "search-scope": "SCOPE_SUB",
+      "query-maximum-execution-time": 1,
+      "maximum-query-timeout-count": 100,
+      "user-identity-attributes": "0:1",
+      "search-filter": "0:2",
+      "ldap-field-mappings": [
+        {
+          "logical-name": "User Name",
+          "ldap-attribute": "USERNAME"
+        },
+        {
+          "logical-name": "CUI",
+          "ldap-attribute": "CUI"
+        },
+        {
+          "logical-name": "User Password",
+          "ldap-attribute": "PASSWORD"
+        },
+        {
+          "logical-name": "Password Check",
+          "ldap-attribute": "PASSWORDCHECK"
+        },
+        {
+          "logical-name": "Encryption Type",
+          "ldap-attribute": "ENCRYPTIONTYPE"
+        },
+        {
+          "logical-name": "Customer Status",
+          "ldap-attribute": "CUSTOMERSTATUS"
+        },
+        {
+          "logical-name": "Calling Station ID",
+          "ldap-attribute": "CALLINGSTATIONID"
+        },
+        {
+          "logical-name": "Authorization Policy",
+          "ldap-attribute": "RADIUSPOLICY"
+        },
+        {
+          "logical-name": "Customer Check Items",
+          "ldap-attribute": "CUSTOMERCHECKITEM"
+        },
+        {
+          "logical-name": "Customer Reply Items",
+          "ldap-attribute": "CUSTOMERREPLYITEM"
+        },
+        {
+          "logical-name": "Expiry Date",
+          "ldap-attribute": "EXPIRYDATE"
+        },
+        {
+          "logical-name": "Credit Limit",
+          "ldap-attribute": "CREDITLIMIT",
+          "default-value": "Active",
+          "value-mapping": "1=Active,0=inActive"
+        }
+      ]
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius LDAP Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATON)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Note : - for inserting Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+
+Body :
+<list>
+   <driver-instance>
+      <name>RadiusLdapAuthDriver</name>
+      <description>Created by admin on 01/24/2017 11:30:57 AM</description>
+      <ldap-auth-driver>
+         <ldap-datasource>LDAP_DS</ldap-datasource>
+         <expiry-date-pattern>MM/dd/yyyy</expiry-date-pattern>
+         <password-decrypt-type>0</password-decrypt-type>
+         <search-scope>SCOPE_SUB</search-scope>
+         <query-maximum-execution-time>1</query-maximum-execution-time>
+         <maximum-query-timeout-count>100</maximum-query-timeout-count>
+         <user-identity-attributes>0:1</user-identity-attributes>
+         <search-filter>0:2</search-filter>
+         <ldap-field-mappings>
+            <ldap-field-mapping>
+               <logical-name>User Name</logical-name>
+               <ldap-attribute>USERNAME</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>CUI</logical-name>
+               <ldap-attribute>CUI</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>User Password</logical-name>
+               <ldap-attribute>PASSWORD</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Password Check</logical-name>
+               <ldap-attribute>PASSWORDCHECK</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Encryption Type</logical-name>
+               <ldap-attribute>ENCRYPTIONTYPE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Customer Status</logical-name>
+               <ldap-attribute>CUSTOMERSTATUS</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Calling Station ID</logical-name>
+               <ldap-attribute>CALLINGSTATIONID</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Authorization Policy</logical-name>
+               <ldap-attribute>RADIUSPOLICY</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Customer Check Items</logical-name>
+               <ldap-attribute>CUSTOMERCHECKITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Customer Reply Items</logical-name>
+               <ldap-attribute>CUSTOMERREPLYITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Expiry Date</logical-name>
+               <ldap-attribute>EXPIRYDATE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Credit Limit</logical-name>
+               <ldap-attribute>CREDITLIMIT</ldap-attribute>
+               <default-value>Active</default-value>
+               <value-mapping>1=Active,0=inActive</value-mapping>
+            </ldap-field-mapping>
+         </ldap-field-mappings>
+      </ldap-auth-driver>
+   </driver-instance>
+</list>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius LDAP Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note : - for inserting Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		 "default-value":"Active",
+         "value-mapping":"1=Active,0=inActive"
+
+Body :
+{
+   "list":[
+      {
+         "name":"RadiusLdapAuthDriver",
+         "description":"Created by admin on 01/24/2017 11:30:57 AM",
+         "ldap-auth-driver":[
+            {
+               "ldap-datasource":"LDAP_DS",
+               "expiry-date-pattern":"MM/dd/yyyy",
+               "password-decrypt-type":"0",
+               "search-scope":"SCOPE_SUB",
+               "query-maximum-execution-time":1,
+               "maximum-query-timeout-count":100,
+               "user-identity-attributes":"0:1",
+               "search-filter":"0:2",
+               "ldap-field-mappings":[
+                  {
+                     "logical-name":"User Name",
+                     "ldap-attribute":"USERNAME"
+                  },
+                  {
+                     "logical-name":"CUI",
+                     "ldap-attribute":"CUI"
+                  },
+                  {
+                     "logical-name":"User Password",
+                     "ldap-attribute":"PASSWORD"
+                  },
+                  {
+                     "logical-name":"Password Check",
+                     "ldap-attribute":"PASSWORDCHECK"
+                  },
+                  {
+                     "logical-name":"Encryption Type",
+                     "ldap-attribute":"ENCRYPTIONTYPE"
+                  },
+                  {
+                     "logical-name":"Customer Status",
+                     "ldap-attribute":"CUSTOMERSTATUS"
+                  },
+                  {
+                     "logical-name":"Calling Station ID",
+                     "ldap-attribute":"CALLINGSTATIONID"
+                  },
+                  {
+                     "logical-name":"Authorization Policy",
+                     "ldap-attribute":"RADIUSPOLICY"
+                  },
+                  {
+                     "logical-name":"Customer Check Items",
+                     "ldap-attribute":"CUSTOMERCHECKITEM"
+                  },
+                  {
+                     "logical-name":"Customer Reply Items",
+                     "ldap-attribute":"CUSTOMERREPLYITEM"
+                  },
+                  {
+                     "logical-name":"Expiry Date",
+                     "ldap-attribute":"EXPIRYDATE"
+                  },
+                  {
+                     "logical-name":"Credit Limit",
+                     "ldap-attribute":"CREDITLIMIT",
+                     "default-value":"Active",
+                     "value-mapping":"1=Active,0=inActive"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius LDAP Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth?name=RadiusLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth?operation=update&name=RadiusLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Note : - for updating  Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+
+
+Body     :
+<driver-instance>
+    <name>RadiusLdapAuthDriver</name>
+    <description>Created by admin on 01/24/2017 11:30:57 AM</description>
+    <ldap-auth-driver>
+        <ldap-datasource>LDAP_DS</ldap-datasource>
+        <expiry-date-pattern>MM/dd/yyyy</expiry-date-pattern>
+        <password-decrypt-type>0</password-decrypt-type>
+        <search-scope>SCOPE_SUB</search-scope>
+        <query-maximum-execution-time>1</query-maximum-execution-time>
+        <maximum-query-timeout-count>100</maximum-query-timeout-count>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <search-filter>0:2</search-filter>
+        <ldap-field-mappings>
+            <ldap-field-mapping>
+                <logical-name>User Name</logical-name>
+                <ldap-attribute>USERNAME</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>CUI</logical-name>
+                <ldap-attribute>CUI</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>User Password</logical-name>
+                <ldap-attribute>PASSWORD</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Password Check</logical-name>
+                <ldap-attribute>PASSWORDCHECK</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Encryption Type</logical-name>
+                <ldap-attribute>ENCRYPTIONTYPE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Status</logical-name>
+                <ldap-attribute>CUSTOMERSTATUS</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <ldap-attribute>CALLINGSTATIONID</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <ldap-attribute>RADIUSPOLICY</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <ldap-attribute>CUSTOMERCHECKITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <ldap-attribute>CUSTOMERREPLYITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <ldap-attribute>EXPIRYDATE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <ldap-attribute>CREDITLIMIT</ldap-attribute>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </ldap-field-mapping>
+        </ldap-field-mappings>
+    </ldap-auth-driver>
+</driver-instance> 
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius LDAP Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note : - for updating Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		 "default-value":"Active",
+         "value-mapping":"1=Active,0=inActive"
+
+Body     :
+{
+  "name": "RadiusLdapAuthDriver",
+  "description": "Created by admin on 01/24/2017 11:30:57 AM",
+  "ldap-auth-driver": [
+    {
+      "ldap-datasource": "LDAP_DS",
+      "expiry-date-pattern": "MM/dd/yyyy",
+      "password-decrypt-type": "0",
+      "search-scope": "SCOPE_SUB",
+      "query-maximum-execution-time": 1,
+      "maximum-query-timeout-count": 100,
+      "user-identity-attributes": "0:1",
+      "search-filter": "0:2",
+      "ldap-field-mappings": [
+        {
+          "logical-name": "User Name",
+          "ldap-attribute": "USERNAME"
+        },
+        {
+          "logical-name": "CUI",
+          "ldap-attribute": "CUI"
+        },
+        {
+          "logical-name": "User Password",
+          "ldap-attribute": "PASSWORD"
+        },
+        {
+          "logical-name": "Password Check",
+          "ldap-attribute": "PASSWORDCHECK"
+        },
+        {
+          "logical-name": "Encryption Type",
+          "ldap-attribute": "ENCRYPTIONTYPE"
+        },
+        {
+          "logical-name": "Customer Status",
+          "ldap-attribute": "CUSTOMERSTATUS"
+        },
+        {
+          "logical-name": "Calling Station ID",
+          "ldap-attribute": "CALLINGSTATIONID"
+        },
+        {
+          "logical-name": "Authorization Policy",
+          "ldap-attribute": "RADIUSPOLICY"
+        },
+        {
+          "logical-name": "Customer Check Items",
+          "ldap-attribute": "CUSTOMERCHECKITEM"
+        },
+        {
+          "logical-name": "Customer Reply Items",
+          "ldap-attribute": "CUSTOMERREPLYITEM"
+        },
+        {
+          "logical-name": "Expiry Date",
+          "ldap-attribute": "EXPIRYDATE"
+        },
+        {
+          "logical-name": "Credit Limit",
+          "ldap-attribute": "CREDITLIMIT",
+          "default-value": "Active",
+          "value-mapping": "1=Active,0=inActive"
+        }
+      ]
+    }
+  ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius LDAP Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth?name=RadiusLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth?operation=delete&name=RadiusLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/ldapauth/RadiusLdapAuthDriver?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius LDAP Auth Driver(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="3551" vendor-name="SpringTide">
+<attribute id="1" name="ST-Acct-VC-Connection-id" type="string"/>
+<attribute id="2" name="ST-Service-Name" type="string"/>
+<attribute id="3" name="ST-Service-Domain" type="integer"/>
+<attribute id="4" name="ST-Policy-Name" type="string"/>
+<attribute id="5" name="ST-Primary-DNS-Server" type="ipaddr"/>
+<attribute id="6" name="ST-Secondary-DNS-Server" type="ipaddr"/>
+<attribute id="7" name="ST-Primary-NBNS-Server" type="ipaddr"/>
+<attribute id="8" name="ST-Secondary-NBNS-Server" type="ipaddr"/>
+<attribute id="9" name="ST-Physical-Port" type="integer"/>
+<attribute id="10" name="ST-Physical-Slot" type="integer"/>
+<attribute id="11" name="ST-Virtual-Path-id" type="integer"/>
+<attribute id="12" name="ST-Virtual-Circuit-id" type="integer"/>
+<attribute id="13" name="ST-Realm-Name" type="string"/>
+<attribute id="14" name="ST-IPSec-Pfs-Group" type="integer"/>
+<attribute id="15" name="ST-IPSec-Client-Firewall" type="integer"/>
+<attribute id="16" name="ST-IPSec-Client-Subnet" type="string"/>
+</attribute-list>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="24757" vendor-name="wimax">
+	<attribute id="1" name="Wimax-Capability" type="grouped">
+		<attribute id="1" name="WiMAX Release" type="octets"/>
+		<attribute id="2" name="Accounting Capabilities" type="byte"/>
+		<attribute id="3" name="Hotlining Capabilities" type="byte"/>
+		<attribute id="4" name="Idle Mode Notification Capabilities" type="byte"/>
+	</attribute>
+
+	<!-- 2 : VOID -->
+	
+    <attribute id="3" name="GMT-Timezone-offset" type="integer"/>
+    <attribute id="4" name="AAA-Session-ID" type="octets"/>
+    <attribute id="5" name="MSK" type="octets" encrypt-standard="1"/>
+    <attribute id="6" name="HA-IP-MIP4" type="ipaddr"/>
+    <attribute id="7" name="HA-IP-MIP6" type="ipaddr"/>
+    <attribute id="8" name="DHCPv4-Server" type="ipaddr"/>
+    <attribute id="9" name="DHCPv6-Server" type="ipaddr"/>
+    <attribute id="10" name="MN-HA-MIP4-KEY" type="octets" encrypt-standard="1"/>
+    <attribute id="11" name="MN-HA-MIP4-SPI" type="integer"/>
+    <attribute id="12" name="MN-HA-MIP6-KEY" type="octets" encrypt-standard="1"/>
+    <attribute id="13" name="MN-HA-MIP6-SPI" type="integer"/>
+    <attribute id="14" name="FA-RK-KEY" type="octets" encrypt-standard="1"/>
+    <attribute id="15" name="HA-RK-KEY" type="octets" encrypt-standard="1"/>
+    <attribute id="16" name="HA-RK-SPI" type="integer"/>
+    <attribute id="17" name="HA-RK-Lifetime" type="integer"/>
+    <attribute id="18" name="RRQ-HA-IP" type="ipaddr"/>
+    <attribute id="19" name="RRQ-MN-HA-KEY" type="octets" encrypt-standard="1"/>
+
+    <attribute id="20" name="Time-Of-Day-Time" type="grouped" grouped="true">
+   		<attribute id="1" name="Hour" type="byte"/>
+		<attribute id="2" name="Minute" type="byte"/>
+		<attribute id="3" name="UTC Offset" type="integer"/>
+    </attribute>
+
+    <attribute id="21" name="Session-Continue" type="integer"/>
+    <attribute id="22" name="Beginning of Session" type="integer"/>
+    <attribute id="23" name="IP-Technology" type="integer">
+         <supported-values>
+             <value id="2" name="PMIP4"/>
+             <value id="3" name="CMIP4"/>
+             <value id="4" name="CMIP6"/>
+             <value id="5" name="Ethernet-CS"/>
+         </supported-values>
+    </attribute>
+
+    <attribute id="24" name="Hotline Indicator" type="string"/>
+    <attribute id="25" name="Prepaid Indicator" type="byte"/>
+    <attribute id="26" name="PDFID" type="short"/>
+    <attribute id="27" name="SDFID" type="short"/>
+
+    <attribute id="28" name="Packet-Flow-Descriptor" type="grouped" grouped="true">
+	    <attribute id="1" name="PacketDataFlow-ID" type="short"/>
+		<attribute id="2" name="ServiceDataFlow-ID" type="short"/>
+		<attribute id="3" name="ServiceProfileID" type="integer"/>
+		<attribute id="4" name="Direction" type="byte">
+			<supported-values>
+                 <value id="1" name="Uplink"/>
+                 <value id="2" name="Downlink"/>
+                 <value id="3" name="Bi-directional"/>
+             </supported-values>
+		</attribute>
+		<attribute id="5" name="ActivationTrigger" type="byte"/>
+		<attribute id="6" name="TransportType" type="byte">
+			<supported-values>
+                 <value id="1" name="IPv4-CS"/>
+                 <value id="2" name="IPv6-CS"/>
+                 <value id="3" name="Ethernet"/>
+             </supported-values>
+		</attribute>
+		<attribute id="7" name="UplinkQosID" type="byte"/>
+		<attribute id="8" name="DownlinkQoSID" type="byte"/>
+		<attribute id="9" name="UplinkClassifier" type="string"/>
+		<attribute id="10" name="DownlinkClassifier" type="string"/>
+		<attribute id="11" name="Classifier" type="grouped">
+			<attribute id="1" name="Classifier ID" type="byte"/>
+			<attribute id="2" name="Priority" type="byte"/>
+			<attribute id="3" name="Protocol" type="byte"/>
+			<attribute id="4" name="Direction" type="byte"/>
+			<attribute id="5" name="Source Specification" type="grouped">
+				<attribute id="1" name="IP Address" type="ipaddr"/>
+				<attribute id="2" name="IP Address Range" type="octets"/>
+				<attribute id="3" name="IP Address Mask" type="octets"/>
+				<attribute id="4" name="Port" type="short"/>
+				<attribute id="5" name="Port Range" type="integer"/>
+				<attribute id="6" name="Inverted" type="byte"/>
+				<attribute id="7" name="Assigned" type="byte"/>
+			</attribute>
+			<attribute id="6" name="Destination Specification" type="grouped">
+				<attribute id="1" name="IP Address" type="ipaddr"/>
+				<attribute id="2" name="IP Address Range" type="octets"/>
+				<attribute id="3" name="IP Address Mask" type="octets"/>
+				<attribute id="4" name="Port" type="short"/>
+				<attribute id="5" name="Port Range" type="integer"/>
+				<attribute id="6" name="Inverted" type="byte"/>
+				<attribute id="7" name="Assigned" type="byte"/>
+			</attribute>
+			<attribute id="7" name="IP Range and Mask" type="octets"/>
+			<attribute id="8" name="VLAN ID" type="short"/>
+			<attribute id="9" name="802.1p" type="byte"/>
+		</attribute>
+    </attribute>
+
+    <attribute id="29" name="QoS-Descriptor" type="grouped" grouped="true">
+		<attribute id="1" name="QoS ID" type="byte"/>
+		<attribute id="2" name="Global Service Class Name" type="string"/>
+		<attribute id="3" name="Service Class Name" type="string"/>
+		<attribute id="4" name="Schedule Type" type="byte">
+			<supported-values>
+                 <value id="2" name="Best Effort"/>
+                 <value id="3" name="nrtPS"/>
+                 <value id="4" name="rtPS"/>
+                 <value id="5" name="Extended rtPS"/>
+                 <value id="6" name="UGS"/>
+             </supported-values>
+		</attribute>
+		<attribute id="5" name="Traffic Priority" type="byte"/>
+		<attribute id="6" name="Maximum Sustained Traffic Rate" type="integer"/>
+		<attribute id="7" name="Minimum Reserved Traffic Rate" type="integer"/>
+		<attribute id="8" name="Maximum Traffic Burst" type="integer"/>
+		<attribute id="9" name="Tolerated Jitter" type="integer"/>
+		<attribute id="10" name="Maximum Latency" type="integer"/>
+		<attribute id="11" name="Reduced Resource Code" type="byte"/>
+		<attribute id="12" name="Media Flow Type" type="byte">
+			<supported-values>
+                 <value id="1" name="Voice over IP"/>
+                 <value id="2" name="Robust Browser"/>
+                 <value id="3" name="Secure Browser/ VPN"/>
+                 <value id="4" name="Streaming video on demand"/>
+                 <value id="5" name="Streaming live TV"/>
+                 <value id="6" name="Music and Photo Download"/>
+                 <value id="7" name="Multi-player gaming"/>
+                 <value id="8" name="Location-based services"/>
+                 <value id="9" name="Text and Audio Books with Graphics"/>
+                 <value id="10" name="Video Conversation"/>
+                 <value id="11" name="Message"/>
+                 <value id="12" name="Control"/>
+                 <value id="13" name="Data"/>
+                 <valude id="128" name="Leaseline"/>
+             </supported-values>
+		</attribute>
+		<attribute id="13" name="Unsolicited Grant Interval" type="short"/>
+		<attribute id="14" name="SDU Size" type="short"/>
+		<attribute id="15" name="Unsolicited Polling Intervale" type="short"/>
+		<attribute id="16" name="Media Flow Description in SDP format" type="string"/>
+    </attribute>
+
+    <attribute id="30" name="Uplink Granted QoS" type="octets"/>
+    <attribute id="31" name="Control-Packets-In" type="integer"/>
+    <attribute id="32" name="Control-Octets-In" type="integer"/>
+    <attribute id="33" name="Control-Packets-Out" type="integer"/>
+    <attribute id="34" name="Control Octets Out" type="integer"/>
+
+    <attribute id="35" name="PPAC" type="grouped" grouped="true">
+		<attribute id="1" name="AvailableInClient (AiC)" type="integer"/>
+    </attribute>
+
+    <attribute id="36" name="Session Termination Capability" type="integer"/>
+
+	<attribute id="37" name="PPAQ" type="grouped" grouped="true">
+	<!-- Quota identifier is an 'octet string' as per standard, but it is used/required as integer. The type 
+		 can be changed to 'string' or 'octets' if required. -->
+		<attribute id="1" name="Quota Identifier" type="integer"/>
+		
+		<!-- The type of VolumeQuota and VolumeThreshold can be changed to prepaidTLV if required. -->
+		<attribute id="2" name="VolumeQuota" type="prepaidTLV"/>
+		<attribute id="3" name="VolumeThreshold" type="prepaidTLV"/>
+		<attribute id="4" name="DurationQuota" type="integer"/>
+		<attribute id="5" name="DurationThershold" type="integer"/>
+		
+		<!-- The type of ResourceQuota and ResourceThreshold can be changed to prepaidTLV if required. -->
+		<attribute id="6" name="ResourceQuota" type="integer"/>
+		<attribute id="7" name="ResourceThreshold" type="integer"/>
+		<attribute id="8" name="Update-Reason" type="byte">
+			<supported-values>
+                     <value id="1" name="Pre-initialization"/>
+                     <value id="2" name="Initial-Request"/>
+                     <value id="3" name="Threshold Reached"/>
+                     <value id="4" name="Quota Reached"/>
+                     <value id="5" name="TITSU Approaching"/>
+                     <value id="6" name="Remote Forced Disconnect"/>
+                     <value id="7" name="Client Service Termination"/>
+                     <value id="8" name="Access Service Terminated"/>
+                     <value id="9" name="Service not established"/>
+                     <value id="10" name="One-time Charging"/>
+        	</supported-values>
+		</attribute>
+		<attribute id="9" name="PrepaidServer" type="ipaddr"/>
+		<attribute id="10" name="Service-ID" type="string"/>
+		<attribute id="11" name="Rating-Group-ID" type="integer"/>
+		<attribute id="12" name="Termination-Action" type="byte">
+			<supported-values>
+                    <value id="1" name="Terminate"/>
+                    <value id="2" name="Request more quota"/>
+                    <value id="3" name="Redirect/Filter"/>
+        	</supported-values>
+		</attribute>
+		<attribute id="13" name="Pool-ID" type="integer"/>
+		<attribute id="14" name="Pool-Multiplier" type="integer"/>
+		<attribute id="15" name="Requested-Action" type="byte">
+			<supported-values>
+                    <value id="1" name="Balance Check"/>
+                    <value id="2" name="Price Enquiry"/>
+         	</supported-values>
+		</attribute>
+		<attribute id="16" name="Check-Balance-Result" type="byte"/>
+		<attribute id="17" name="Cost-Information AVP" type="octets"/>
+	</attribute>
+
+	<attribute id="38" name="Prepaid Tariff Switching (PTS)" type="grouped" grouped="true">
+		<attribute id="1" name="Quota Identifier" type="integer"/>
+		<attribute id="2" name="VolumeUsedAfterTariffSwitch" type="integer"/>
+		<attribute id="3" name="TarrifSwitchInterval" type="integer"/>
+		<attribute id="4" name="TimeIntervalAfterTarriffSwitchUpdate" type="integer"/>
+	</attribute>
+
+	<attribute id="39" name="Active-Time" type="integer"/>
+    <attribute id="40" name="DHCP-RK" type="octets" encrypt-standard="1"/>
+    <attribute id="41" name="DHCP-RK-Key-ID" type="integer"/>
+    <attribute id="42" name="DHCP-RK-Lifetime" type="integer"/>
+    <attribute id="43" name="DHCPMSG-Server-IP" type="ipaddr"/>
+    <attribute id="44" name="Idle-Mode-Transition" type="byte"/>
+    <attribute id="45" name="NAP-ID" type="octets"/>
+    <attribute id="46" name="BS-ID" type="octets"/>
+    <attribute id="47" name="Location" type="octets"/>
+    <attribute id="48" name="Acct-Input-Packets-Gigaword" type="integer"/>
+    <attribute id="49" name="Acct-Output-Packets Gigaword" type="integer"/>
+    <attribute id="50" name="Uplink Flow Description" type="string"/>
+    <attribute id="51" name="BU-CoA-Ipv6" type="ipaddr"/>
+    <attribute id="52" name="DNS" type="ipaddr"/>
+    <attribute id="53" name="Hotline-Profile-ID" type="string"/>
+    <attribute id="54" name="HTTP-Redirection-Rule" type="string"/>
+    <attribute id="55" name="IP-Redireciton-Rule" type="string"/>
+    <attribute id="56" name="Hotline-Session-Timer" type="integer"/>
+    <attribute id="57" name="NSP-ID" type="octets"/>
+    <attribute id="58" name="HA-RK-Key-Requested" type="integer"/>
+    <attribute id="59" name="Count-Type" type="byte"/>
+    <attribute id="60" name="WiMAX-DM-Action-Code" type="integer"/>
+    <attribute id="61" name="FA-RK-SPI" type="integer"/>
+    <attribute id="62" name="Downlink Flow Description" type="string"/>
+    <attribute id="63" name="Downlink Granted-QoS" type="octets"/>
+    <attribute id="64" name="vHA-IP-MIP4" type="ipaddr"/>
+    <attribute id="65" name="vHA-IP-MIP6" type="ipaddr"/>
+    <attribute id="66" name="MN-vHA-MIP4-KEY" type="octets" encrypt-standard="1"/>
+    <attribute id="67" name="vHA-RK-KEY" type="octets" encrypt-standard="1"/>
+    <attribute id="68" name="vHA-RK-SPI" type="integer"/>
+    <attribute id="69" name="vHA-RK-Lifetime" type="integer"/>
+</attribute-list>

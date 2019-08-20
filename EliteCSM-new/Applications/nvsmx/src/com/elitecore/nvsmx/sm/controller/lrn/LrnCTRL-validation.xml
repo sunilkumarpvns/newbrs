@@ -1,0 +1,29 @@
+ <!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="lrn">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("lrn.lrn")})}</message>
+		</field-validator>
+
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^[0-9]+$]]></param>
+			<message>${getText("invalid.number", {getText("lrn.lrn")})}</message>
+		</field-validator>
+		
+	</field>
+
+	<field name="networkData.id">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("lrn.network")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="operatorData.id">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("lrn.operator")})}</message>
+		</field-validator>
+	</field>
+	
+</validators>  

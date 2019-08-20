@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.accessgroup.data.RoleActionRelData" table="TBLMROLEACTIONREL">
+		<composite-id>
+			<key-property name="actionId" column="ACTIONID" type="string"></key-property>
+			<key-property name="roleId" column="ROLEID" type="long"></key-property>
+		</composite-id>
+		
+		<many-to-one name="actionData" class="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.ActionData" column="ACTIONID" insert="false" update="false" not-null="true" lazy="false"/>  
+	</class>		
+</hibernate-mapping>          

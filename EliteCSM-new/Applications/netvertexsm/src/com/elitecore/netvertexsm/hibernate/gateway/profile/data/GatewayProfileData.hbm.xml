@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.profile.data">
+
+  <class name="GatewayProfileData" table="TBLMGATEWAYPROFILE">
+  		
+  	 <id name="profileId"  type="java.lang.Long" column="PROFILEID" >
+  	     <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+	 	  </generator>
+     </id>
+     <property name="profileName" type="string">
+          <column name="PROFILENAME" sql-type="VARCHAR2(25)" not-null="true"/>
+     </property>
+     <property name="gatewayType" type="string">
+     	  <column name="GATEWAYTYPE" sql-type="VARCHAR2(40)" not-null="false"/>
+     </property>
+     <property name="commProtocolId" type="string">
+          <column name="COMMPROTOCOLID" sql-type="CHAR(6)" not-null="true"/>
+     </property>
+     <property name="vedorId" type="java.lang.Long">
+          <column name="VENDORID" sql-type="NUMBER(12)" not-null="true"/>
+     </property>
+     <property name="firmware" type="string">
+          <column name="FIRMWARE" sql-type="VARCHAR2(40)" not-null="false"/>
+     </property>     
+     <property name="maxThroughput" type="java.lang.Integer">
+          <column name="MAXTHROUGHPUT" sql-type="NUMBER(12)" not-null="false"/>
+     </property>
+     <property name="bufferBW" type="java.lang.Integer">
+          <column name="BUFFERBW" sql-type="NUMBER(12)" not-null="false"/>
+     </property>  
+     <property name="maxIPCANSession" type="java.lang.Integer">
+          <column name="MAXIPCANSESSION" sql-type="NUMBER(10)" not-null="false"/>
+     </property>   
+     <property name="description" type="string">
+          <column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="false"/>
+     </property>
+     <property name="usageReportingTime" type="string">
+          <column name="USAGEREPORTINGTYPE" sql-type="VARCHAR2(32)" not-null="false"/>
+     </property>
+     <property name="modifiedByStaffId" type="java.lang.Long">
+	          <column name="LASTMODIFIEDBYSTAFFID" sql-type="NUMBER(20)" not-null="false" />
+	 </property>
+	 <property name="createdByStaffId" type="java.lang.Long">
+	          <column name="CREATEDBYSTAFFID" sql-type="NUMBER(20)" />
+	 </property>
+     <property name="modifiedDate" type="java.sql.Timestamp">
+          <column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP(6)" />
+     </property>
+     <property name="createdDate" type="java.sql.Timestamp">
+          <column name="CREATEDATE" sql-type="TIMESTAMP(6)" />
+     </property>
+     <property name="clientIp" type="string">
+    	<column name="CLIENTIP" sql-type="VARCHAR2(64)" not-null="false"/>
+	</property>
+	<property name="revalidationMode" type="string">
+		<column name="REVALIDATIONMODE" sql-type="VARCHAR2(64)" not-null="false"/>
+	</property>
+     
+     <many-to-one name="vendorData" column="VENDORID" lazy="false" insert="false" update="false"
+     	  class="com.elitecore.netvertexsm.datamanager.gateway.profile.data.VendorData" not-null="true" cascade="save-update">
+     </many-to-one>
+     
+     <set name="gatewaySet" lazy="true" inverse="true" cascade="save-update">
+     	<key column="PROFILEID"></key>
+     	<one-to-many class="com.elitecore.netvertexsm.datamanager.gateway.gateway.data.GatewayData" />
+     </set>
+     
+	 <set inverse="true" name="radiusProfileSet" lazy="false" cascade="delete-orphan" >
+			<key column="PROFILEID" />
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.gateway.profile.data.RadiusProfileData" not-found="ignore" />
+	 </set>
+	 
+	 <one-to-one name="radiusProfileData" cascade="all-delete-orphan" lazy="false" fetch="select" 
+	 				class="com.elitecore.netvertexsm.datamanager.gateway.profile.data.RadiusProfileData">
+	 </one-to-one>
+	 
+	 <set inverse="true" name="diameterProfileSet" lazy="false" cascade="delete-orphan" >
+			<key column="PROFILEID" />
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.gateway.profile.data.DiameterProfileData" not-found="ignore" />
+	 </set>
+	 
+  </class>
+</hibernate-mapping>

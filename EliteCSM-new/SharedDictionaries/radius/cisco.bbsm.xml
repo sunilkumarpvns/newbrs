@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="5263" vendor-name="Cisco-BBSM">                   
+	<attribute id="1" name="CBBSM-Bandwidth"  type="integer"/>   
+</attribute-list>

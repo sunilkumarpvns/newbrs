@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# set this to your active development branch
+#develop_branch="develop"
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# only check commit messages on main development branch
+#[ "$current_branch" != "$develop_branch" ] && exit 0
+
+# regex to validate in commit msg
+REGEX1="NETVERTEX\-[0-9]*"
+REGEX2="ELITEAAA\-[0-9]*"
+
+ERROR_MSG="[POLICY] The commit doesn't reference a JIRA issue NETVERTEX-[0-9] OR ELITEAAA-[0-9]"
+
+if ! grep -qE $REGEX1\|$REGEX2 "$1"; then
+    echo "$ERROR_MSG" >&2
+    exit 1
+fi
+

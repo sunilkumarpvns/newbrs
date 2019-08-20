@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.core.base.data">
+
+	<class name="CommonStatusData" table="TBLSCOMMONSTATUS">
+		<id name="commonStatusId" type="string">
+			<column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="true"/>			
+		</id>
+						
+		<property name="alias" type="string" insert="false" update="false">
+			<column name="ALIAS" sql-type="VARCHAR(25)" not-null="true" />
+		</property>
+		<property name="showHide" type="string">
+			<column name="SHOWHIDE" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="name" type="string">
+			<column name="NAME" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="description" type="string">
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="true"/>
+		</property>
+		<property name="activeInactive" type="string">
+			<column name="ACTIVEINACTIVE" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="onOff" type="string">
+			<column name="ONOFF" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="trueFalse" type="string">
+			<column name="TRUEFALSE" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="openClose" type="string">
+			<column name="OPENCLOSE" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="upDown" type="string">
+			<column name="UPDOWN" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="pullPush" type="string">
+			<column name="PULLPUSH" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="inOut" type="string">
+			<column name="INOUT" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="plusMinus" type="string">
+			<column name="PLUSMINUS" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="startStop" type="string">
+			<column name="STARTSTOP" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="yesNo" type="string">
+			<column name="YESNO" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>		
+		<property name="systemGenerated" type="string">
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+		</property>
+		<property name="enableDisable" type="string">
+			<column name="ENABLEDISABLE" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		<property name="lockUnlock" type="string">
+			<column name="LOCKUNLOCK" sql-type="VARCHAR(50)" not-null="false"/>
+		</property>
+		<property name="scrapUnscrap" type="string">
+			<column name="SCRAPUNSCRAP" sql-type="VARCHAR(100)" not-null="false"/>
+		</property>
+		<property name="shareReserve" type="string">
+			<column name="SHARERESERVE" sql-type="VARCHAR(50)" not-null="false"/>
+		</property>
+		<property name="limitedUnlimited" type="string">
+			<column name="LIMITEDUNLIMITED" sql-type="VARCHAR(50)" not-null="false"/>
+		</property>
+		<property name="editable" type="string">
+			<column name="EDITABLE" sql-type="CHAR(1)" not-null="false"/>
+		</property>
+		<property name="onlineOffline" type="string">
+			<column name="ONLINEOFFLINE" sql-type="VARCHAR(50)" not-null="false"/>
+		</property>
+		
+	</class>
+</hibernate-mapping>          

@@ -1,0 +1,852 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "ACCESS POLICY",
+		"properties": {
+			"name": {
+				"title": "Name",
+				"type": "string"
+			},
+			"default-access": {
+				"title": "Default Access",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"status": {
+				"title": "Show",
+				"type": "string"
+			},
+			"timeslaps": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"start-day": {
+							"title": "Start Day",
+							"type": "string"
+						},
+						"start-hour": {
+							"title": "Start Hour",
+							"type": "string"
+						},
+						"start-minute": {
+							"title": "Start Minute",
+							"type": "string"
+						},
+						"end-day": {
+							"title": "End Day",
+							"type": "string"
+						},
+						"stop-hour": {
+							"title": "Stop Hour",
+							"type": "string"
+						},
+						"stop-minute": {
+							"title": "Stop Minute",
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "default-access",
+			"type": "radios",
+			"titleMap": [
+				{
+					"value": "Allowed",
+					"name": "Allowed"
+				},
+				{
+					"value": "Denied",
+					"name": "Denied"
+				}
+			]
+		},
+		{
+			"key": "description"
+		},
+		{
+			"key": "status",
+			"type": "radios",
+			"titleMap": [
+				{
+					"value": "ACTIVE",
+					"name": "ACTIVE"
+				},
+				{
+					"value": "INACTIVE",
+					"name": "INACTIVE"
+				}
+			]
+		},
+		{
+			"key": "timeslaps",
+			"add": "Add",
+			"items": [
+				{
+					"key": "timeslaps[].start-day",
+					"type": "select",
+					"titleMap": {
+						"Sunday": "Sunday",
+						"Monday": "Monday",
+						"Tuesday": "Tuesday",
+						"Wednesday": "Wednesday",
+						"Thursday": "Thursday",
+						"Friday": "Friday",
+						"Saturday": "Saturday"
+					}
+				},
+				{
+					"key": "timeslaps[].start-hour",
+					"type": "select",
+					"titleMap": [
+						{
+							"value": "00",
+							"name": "00"
+						},
+						{
+							"value": "01",
+							"name": "01"
+						},
+						{
+							"value": "02",
+							"name": "02"
+						},
+						{
+							"value": "03",
+							"name": "03"
+						},
+						{
+							"value": "04",
+							"name": "04"
+						},
+						{
+							"value": "05",
+							"name": "05"
+						},
+						{
+							"value": "06",
+							"name": "06"
+						},
+						{
+							"value": "07",
+							"name": "07"
+						},
+						{
+							"value": "08",
+							"name": "08"
+						},
+						{
+							"value": "09",
+							"name": "09"
+						},
+						{
+							"value": "10",
+							"name": "10"
+						},
+						{
+							"value": "11",
+							"name": "11"
+						},
+						{
+							"value": "12",
+							"name": "12"
+						},
+						{
+							"value": "13",
+							"name": "13"
+						},
+						{
+							"value": "14",
+							"name": "14"
+						},
+						{
+							"value": "15",
+							"name": "15"
+						},
+						{
+							"value": "16",
+							"name": "16"
+						},
+						{
+							"value": "17",
+							"name": "17"
+						},
+						{
+							"value": "18",
+							"name": "18"
+						},
+						{
+							"value": "19",
+							"name": "19"
+						},
+						{
+							"value": "20",
+							"name": "20"
+						},
+						{
+							"value": "21",
+							"name": "21"
+						},
+						{
+							"value": "22",
+							"name": "22"
+						},
+						{
+							"value": "23",
+							"name": "23"
+						}
+					]
+				},
+				{
+					"key": "timeslaps[].start-minute",
+					"type": "select",
+					"titleMap": [
+						{
+							"value": "00",
+							"name": "00"
+						},
+						{
+							"value": "01",
+							"name": "01"
+						},
+						{
+							"value": "02",
+							"name": "02"
+						},
+						{
+							"value": "03",
+							"name": "03"
+						},
+						{
+							"value": "04",
+							"name": "04"
+						},
+						{
+							"value": "05",
+							"name": "05"
+						},
+						{
+							"value": "06",
+							"name": "06"
+						},
+						{
+							"value": "07",
+							"name": "07"
+						},
+						{
+							"value": "08",
+							"name": "08"
+						},
+						{
+							"value": "09",
+							"name": "09"
+						},
+						{
+							"value": "10",
+							"name": "10"
+						},
+						{
+							"value": "11",
+							"name": "11"
+						},
+						{
+							"value": "12",
+							"name": "12"
+						},
+						{
+							"value": "13",
+							"name": "13"
+						},
+						{
+							"value": "14",
+							"name": "14"
+						},
+						{
+							"value": "15",
+							"name": "15"
+						},
+						{
+							"value": "16",
+							"name": "16"
+						},
+						{
+							"value": "17",
+							"name": "17"
+						},
+						{
+							"value": "18",
+							"name": "18"
+						},
+						{
+							"value": "19",
+							"name": "19"
+						},
+						{
+							"value": "20",
+							"name": "20"
+						},
+						{
+							"value": "21",
+							"name": "21"
+						},
+						{
+							"value": "22",
+							"name": "22"
+						},
+						{
+							"value": "23",
+							"name": "23"
+						},
+						{
+							"value": "24",
+							"name": "24"
+						},
+						{
+							"value": "25",
+							"name": "25"
+						},
+						{
+							"value": "26",
+							"name": "26"
+						},
+						{
+							"value": "27",
+							"name": "27"
+						},
+						{
+							"value": "28",
+							"name": "28"
+						},
+						{
+							"value": "29",
+							"name": "29"
+						},
+						{
+							"value": "30",
+							"name": "30"
+						},
+						{
+							"value": "31",
+							"name": "31"
+						},
+						{
+							"value": "32",
+							"name": "32"
+						},
+						{
+							"value": "33",
+							"name": "33"
+						},
+						{
+							"value": "34",
+							"name": "34"
+						},
+						{
+							"value": "35",
+							"name": "35"
+						},
+						{
+							"value": "36",
+							"name": "36"
+						},
+						{
+							"value": "37",
+							"name": "37"
+						},
+						{
+							"value": "38",
+							"name": "38"
+						},
+						{
+							"value": "39",
+							"name": "39"
+						},
+						{
+							"value": "40",
+							"name": "40"
+						},
+						{
+							"value": "41",
+							"name": "41"
+						},
+						{
+							"value": "42",
+							"name": "42"
+						},
+						{
+							"value": "43",
+							"name": "43"
+						},
+						{
+							"value": "44",
+							"name": "44"
+						},
+						{
+							"value": "45",
+							"name": "45"
+						},
+						{
+							"value": "46",
+							"name": "46"
+						},
+						{
+							"value": "47",
+							"name": "47"
+						},
+						{
+							"value": "48",
+							"name": "48"
+						},
+						{
+							"value": "49",
+							"name": "49"
+						},
+						{
+							"value": "50",
+							"name": "50"
+						},
+						{
+							"value": "51",
+							"name": "51"
+						},
+						{
+							"value": "52",
+							"name": "52"
+						},
+						{
+							"value": "53",
+							"name": "53"
+						},
+						{
+							"value": "53",
+							"name": "53"
+						},
+						{
+							"value": "54",
+							"name": "54"
+						},
+						{
+							"value": "55",
+							"name": "55"
+						},
+						{
+							"value": "56",
+							"name": "56"
+						},
+						{
+							"value": "57",
+							"name": "57"
+						},
+						{
+							"value": "58",
+							"name": "58"
+						},
+						{
+							"value": "59",
+							"name": "59"
+						}
+					]
+				},
+				{
+					"key": "timeslaps[].end-day",
+					"type": "select",
+					"titleMap": {
+						"Sunday": "Sunday",
+						"Monday": "Monday",
+						"Tuesday": "Tuesday",
+						"Wednesday": "Wednesday",
+						"Thursday": "Thursday",
+						"Friday": "Friday",
+						"Saturday": "Saturday"
+					}
+				},
+				{
+					"key": "timeslaps[].stop-hour",
+					"type": "select",
+					"titleMap": [
+						{
+							"value": "00",
+							"name": "00"
+						},
+						{
+							"value": "01",
+							"name": "01"
+						},
+						{
+							"value": "02",
+							"name": "02"
+						},
+						{
+							"value": "03",
+							"name": "03"
+						},
+						{
+							"value": "04",
+							"name": "04"
+						},
+						{
+							"value": "05",
+							"name": "05"
+						},
+						{
+							"value": "06",
+							"name": "06"
+						},
+						{
+							"value": "07",
+							"name": "07"
+						},
+						{
+							"value": "08",
+							"name": "08"
+						},
+						{
+							"value": "09",
+							"name": "09"
+						},
+						{
+							"value": "10",
+							"name": "10"
+						},
+						{
+							"value": "11",
+							"name": "11"
+						},
+						{
+							"value": "12",
+							"name": "12"
+						},
+						{
+							"value": "13",
+							"name": "13"
+						},
+						{
+							"value": "14",
+							"name": "14"
+						},
+						{
+							"value": "15",
+							"name": "15"
+						},
+						{
+							"value": "16",
+							"name": "16"
+						},
+						{
+							"value": "17",
+							"name": "17"
+						},
+						{
+							"value": "18",
+							"name": "18"
+						},
+						{
+							"value": "19",
+							"name": "19"
+						},
+						{
+							"value": "20",
+							"name": "20"
+						},
+						{
+							"value": "21",
+							"name": "21"
+						},
+						{
+							"value": "22",
+							"name": "22"
+						},
+						{
+							"value": "23",
+							"name": "23"
+						}
+					]
+				},
+				{
+					"key": "timeslaps[].stop-minute",
+					"type": "select",
+					"titleMap": [
+						{
+							"value": "00",
+							"name": "00"
+						},
+						{
+							"value": "01",
+							"name": "01"
+						},
+						{
+							"value": "02",
+							"name": "02"
+						},
+						{
+							"value": "03",
+							"name": "03"
+						},
+						{
+							"value": "04",
+							"name": "04"
+						},
+						{
+							"value": "05",
+							"name": "05"
+						},
+						{
+							"value": "06",
+							"name": "06"
+						},
+						{
+							"value": "07",
+							"name": "07"
+						},
+						{
+							"value": "08",
+							"name": "08"
+						},
+						{
+							"value": "09",
+							"name": "09"
+						},
+						{
+							"value": "10",
+							"name": "10"
+						},
+						{
+							"value": "11",
+							"name": "11"
+						},
+						{
+							"value": "12",
+							"name": "12"
+						},
+						{
+							"value": "13",
+							"name": "13"
+						},
+						{
+							"value": "14",
+							"name": "14"
+						},
+						{
+							"value": "15",
+							"name": "15"
+						},
+						{
+							"value": "16",
+							"name": "16"
+						},
+						{
+							"value": "17",
+							"name": "17"
+						},
+						{
+							"value": "18",
+							"name": "18"
+						},
+						{
+							"value": "19",
+							"name": "19"
+						},
+						{
+							"value": "20",
+							"name": "20"
+						},
+						{
+							"value": "21",
+							"name": "21"
+						},
+						{
+							"value": "22",
+							"name": "22"
+						},
+						{
+							"value": "23",
+							"name": "23"
+						},
+						{
+							"value": "24",
+							"name": "24"
+						},
+						{
+							"value": "25",
+							"name": "25"
+						},
+						{
+							"value": "26",
+							"name": "26"
+						},
+						{
+							"value": "27",
+							"name": "27"
+						},
+						{
+							"value": "28",
+							"name": "28"
+						},
+						{
+							"value": "29",
+							"name": "29"
+						},
+						{
+							"value": "30",
+							"name": "30"
+						},
+						{
+							"value": "31",
+							"name": "31"
+						},
+						{
+							"value": "32",
+							"name": "32"
+						},
+						{
+							"value": "33",
+							"name": "33"
+						},
+						{
+							"value": "34",
+							"name": "34"
+						},
+						{
+							"value": "35",
+							"name": "35"
+						},
+						{
+							"value": "36",
+							"name": "36"
+						},
+						{
+							"value": "37",
+							"name": "37"
+						},
+						{
+							"value": "38",
+							"name": "38"
+						},
+						{
+							"value": "39",
+							"name": "39"
+						},
+						{
+							"value": "40",
+							"name": "40"
+						},
+						{
+							"value": "41",
+							"name": "41"
+						},
+						{
+							"value": "42",
+							"name": "42"
+						},
+						{
+							"value": "43",
+							"name": "43"
+						},
+						{
+							"value": "44",
+							"name": "44"
+						},
+						{
+							"value": "45",
+							"name": "45"
+						},
+						{
+							"value": "46",
+							"name": "46"
+						},
+						{
+							"value": "47",
+							"name": "47"
+						},
+						{
+							"value": "48",
+							"name": "48"
+						},
+						{
+							"value": "49",
+							"name": "49"
+						},
+						{
+							"value": "50",
+							"name": "50"
+						},
+						{
+							"value": "51",
+							"name": "51"
+						},
+						{
+							"value": "52",
+							"name": "52"
+						},
+						{
+							"value": "53",
+							"name": "53"
+						},
+						{
+							"value": "53",
+							"name": "53"
+						},
+						{
+							"value": "54",
+							"name": "54"
+						},
+						{
+							"value": "55",
+							"name": "55"
+						},
+						{
+							"value": "56",
+							"name": "56"
+						},
+						{
+							"value": "57",
+							"name": "57"
+						},
+						{
+							"value": "58",
+							"name": "58"
+						},
+						{
+							"value": "59",
+							"name": "59"
+						}
+					]
+				}
+			]
+		}
+	],
+	"model": {
+		"name": "access_policy",
+		"description": "Created by admin on 12/12/2016 04:21:13 PM",
+		"status": "ACTIVE",
+		"default-access": "Allowed",
+		"timeslaps": [
+			{
+				"start-day": "Monday",
+				"start-hour": "14",
+				"start-minute": "25",
+				"end-day": "Tuesday",
+				"stop-hour": "15",
+				"stop-minute": "27"
+			},
+			{
+				"start-day": "Tuesday",
+				"start-hour": "19",
+				"start-minute": "11",
+				"end-day": "Wednesday",
+				"stop-hour": "20",
+				"stop-minute": "22"
+			}
+		]
+	}
+}

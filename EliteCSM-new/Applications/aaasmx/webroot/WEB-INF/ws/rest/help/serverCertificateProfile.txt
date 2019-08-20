@@ -1,0 +1,326 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile?name=server_certificate&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile.xml?name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/server_certificate?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/server_certificate.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile?operation=search&name=server_certificate&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile.xml?operation=search&name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/server_certificate?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/server_certificate.xml?operation=search
+
+Response :
+
+<server-certificate-profile>
+	<name>server_certificate</name>
+	<server-certificate-subject>Elitecore Server</server-certificate-subject>
+	<server-certificate-issuer>Elitecore CA</server-certificate-issuer>
+	<valid-from>07 Jan 2009 18:21:06 </valid-from>
+	<expiry-date>05 Jan 2018 18:21:06 </expiry-date>
+	<version>3</version>
+	<serial-number>4</serial-number>
+	<signature-algorithm>SHA1withRSA</signature-algorithm>
+	<public-certificate-subject>EMAILADDRESS=server@elitecore.com, CN=Elitecore Server, OU=EliteAAA, O=Elitecore Technologies Ltd., L=Ahmedabad, ST=Gujarat, C=IN</public-certificate-subject>
+	<public-certificate-issuer>EMAILADDRESS=ca@elitecore.com, CN=Elitecore CA, OU=EliteAAA, O=Elitecore Techmnologies Ltd., L=Ahmedabad, ST=Gujarat, C=IN</public-certificate-issuer>
+	<basic-constraint>-1</basic-constraint>
+	<key-usage> Digital Signature, Non Repudiation, Key Encipherment</key-usage>
+</server-certificate-profile>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile?name=server_certificate&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile.json?name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/server_certificate?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/server_certificate.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile?operation=search&name=server_certificate&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile.json?operation=search&name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/server_certificate?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/server_certificate.json?operation=search
+
+Response :
+
+{
+	"name": "Elitecore_server_cert",
+	"server-certificate-subject": "Elitecore Server",
+	"server-certificate-issuer": "Elitecore CA",
+	"valid-from": "07 Jan 2009 18:21:06 ",
+	"expiry-date": "05 Jan 2018 18:21:06 ",
+	"version": "3",
+	"serial-number": "4",
+	"signature-algorithm": "SHA1withRSA",
+	"public-certificate-subject": "EMAILADDRESS=server@elitecore.com, CN=Elitecore Server, OU=EliteAAA, O=Elitecore Technologies Ltd., L=Ahmedabad, ST=Gujarat, C=IN",
+	"public-certificate-issuer": "EMAILADDRESS=ca@elitecore.com, CN=Elitecore CA, OU=EliteAAA, O=Elitecore Techmnologies Ltd., L=Ahmedabad, ST=Gujarat, C=IN",
+	"basic-constraint": "-1",
+	"key-usage": " Digital Signature, Non Repudiation, Key Encipherment"
+}
+
+For Download Server Certificate-
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/download?name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/download/server_certificate
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/download?operation=search&name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/download/server_certificate?operation=search
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<server-certificate-profile>
+	<name>server_certificate</name>
+	<private-key-password>elitecore</private-key-password>
+	<private-key-algorithm>RSA</private-key-algorithm>
+</server-certificate-profile>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Server Certificate created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "server_certificate",
+	"private-key-password": "elitecore",
+	"private-key-algorithm": "RSA"
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Server Certificate created successfully</response-message>
+	</response>
+</response-detail>
+
+For Duplicate Server Certificate-
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/duplicate?name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/duplicate/server_certificate
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/duplicate?operation=create&name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/duplicate/server_certificate?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<server-certificate-profile>
+	<name>server_certificate_duplicate</name>
+</server-certificate-profile>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Server Certificate duplicated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "server_certificate_duplicate"
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Server Certificate duplicated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/bulk?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<server-certificate-profile>
+		<name>server_certificate</name>
+		<private-key-password>elitecore</private-key-password>
+		<private-key-algorithm>RSA</private-key-algorithm>
+	</server-certificate-profile>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Server Certificate(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"list":[
+		{
+			"name": "server_certificate",
+			"private-key-password": "elitecore",
+			"private-key-algorithm": "RSA"
+		}
+  	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Server Certificate(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+For Upload Public Certificate-
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/upload/publiccertificate?name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/upload/publiccertificate/server_certificate
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/upload/publiccertificate?operation=update&name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/upload/publiccertificate/server_certificate?operation=update
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Public Certificate uploaded successfully</response-message>
+	</response>
+</response-detail>
+
+For Upload Private Key-
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/upload/privatekey?name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/upload/privatekey/server_certificate
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/upload/privatekey?operation=update&name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/upload/privatekey/server_certificate?operation=update
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Private Key uploaded successfully</response-message>
+	</response>
+</response-detail>
+ 
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile?name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/server_certificate
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile?operation=delete&name=server_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/servercertificateprofile/server_certificate?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Server Certificate(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

@@ -1,0 +1,14 @@
+bin/**
+build/**
+!build/install/**
+data/**
+default/**
+docs/**
+e2etestsrc/**
+logs/**
+out/**
+multiple_node_setup_data/**
+scrips/**
+src/**
+system/**
+testsrc/**

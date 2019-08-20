@@ -1,0 +1,11 @@
+description = ''
+
+tasks.withType(Test) {
+    if (project.hasProperty('test.executable')) {
+        executable project.properties['test.executable']
+    }
+}
+
+dependencies {
+    compile project(':elitecommons')
+}

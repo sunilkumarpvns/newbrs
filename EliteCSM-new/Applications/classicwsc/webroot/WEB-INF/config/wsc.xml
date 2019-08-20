@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<wsc>
+	<ssss_path>http://localhost:8080/ssss1</ssss_path>
+	<!-- valide value for auth type AAA , LDAP & ORACLEDB -->
+	<auth_type>ORACLEDB</auth_type>
+</wsc>

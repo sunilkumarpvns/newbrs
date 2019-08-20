@@ -1,0 +1,610 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL using GET Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth?name=DiameterLdapAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth.xml?name=DiameterLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth?operation=search&name=DiameterLdapAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth.xml?operation=search&name=DiameterLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+<driver-instance>
+    <name>DiameterLdapAuthDriver</name>
+    <description>Created by admin on 01/16/2017 06:07:07 PM</description>
+    <ldap-auth-driver>
+        <ldap-datasource>LDAP_DS</ldap-datasource>
+        <expiry-date-pattern>MM/dd/yyyy</expiry-date-pattern>
+        <password-decrypt-type>0</password-decrypt-type>
+        <search-scope>SCOPE_SUB</search-scope>
+        <query-maximum-execution-time>1</query-maximum-execution-time>
+        <maximum-query-timeout-count>100</maximum-query-timeout-count>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <search-filter>0:2</search-filter>
+        <ldap-field-mappings>
+            <ldap-field-mapping>
+                <logical-name>Password Check</logical-name>
+                <ldap-attribute>PASSWORDCHECK</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <ldap-attribute>CALLINGSTATIONID</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <ldap-attribute>RADIUSPOLICY</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <ldap-attribute>CUSTOMERCHECKITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <ldap-attribute>CUSTOMERREPLYITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <ldap-attribute>EXPIRYDATE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <ldap-attribute>CREDITLIMIT</ldap-attribute>
+            </ldap-field-mapping>
+        </ldap-field-mappings>
+    </ldap-auth-driver>
+</driver-instance>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL using GET method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth?name=DiameterLdapAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth.json?name=DiameterLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth?operation=search&name=DiameterLdapAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth.json?operation=search&name=DiameterLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+  "name": "DiameterLdapAuthDriver",
+  "description": "Created by admin on 01/16/2017 06:07:07 PM",
+  "ldap-auth-driver": [
+    {
+      "ldap-datasource": "LDAP_DS",
+      "expiry-date-pattern": "MM/dd/yyyy",
+      "password-decrypt-type": "0",
+      "search-scope": "SCOPE_SUB",
+      "query-maximum-execution-time": 1,
+      "maximum-query-timeout-count": 100,
+      "user-identity-attributes": "0:1",
+      "search-filter": "0:2",
+      "ldap-field-mappings": [
+        {
+          "logical-name": "Password Check",
+          "ldap-attribute": "PASSWORDCHECK"
+        },
+        {
+          "logical-name": "Calling Station ID",
+          "ldap-attribute": "CALLINGSTATIONID"
+        },
+        {
+          "logical-name": "Authorization Policy",
+          "ldap-attribute": "RADIUSPOLICY"
+        },
+        {
+          "logical-name": "Customer Check Items",
+          "ldap-attribute": "CUSTOMERCHECKITEM"
+        },
+        {
+          "logical-name": "Customer Reply Items",
+          "ldap-attribute": "CUSTOMERREPLYITEM"
+        },
+        {
+          "logical-name": "Expiry Date",
+          "ldap-attribute": "EXPIRYDATE"
+        },
+        {
+          "logical-name": "Credit Limit",
+          "ldap-attribute": "CREDITLIMIT"
+        }
+      ]
+    }
+  ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL  using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Note : - for inserting Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+        
+Body     :
+<driver-instance>
+    <name>DiameterLdapAuthDriver</name>
+    <description>Created by admin on 01/16/2017 06:07:07 PM</description>
+    <ldap-auth-driver>
+        <ldap-datasource>LDAP_DS</ldap-datasource>
+        <expiry-date-pattern>MM/dd/yyyy</expiry-date-pattern>
+        <password-decrypt-type>0</password-decrypt-type>
+        <search-scope>SCOPE_SUB</search-scope>
+        <query-maximum-execution-time>1</query-maximum-execution-time>
+        <maximum-query-timeout-count>100</maximum-query-timeout-count>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <search-filter>0:2</search-filter>
+        <ldap-field-mappings>
+            <ldap-field-mapping>
+                <logical-name>Password Check</logical-name>
+                <ldap-attribute>PASSWORDCHECK</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <ldap-attribute>CALLINGSTATIONID</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <ldap-attribute>RADIUSPOLICY</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <ldap-attribute>CUSTOMERCHECKITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <ldap-attribute>CUSTOMERREPLYITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <ldap-attribute>EXPIRYDATE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <ldap-attribute>CREDITLIMIT</ldap-attribute>
+            </ldap-field-mapping>
+        </ldap-field-mappings>
+    </ldap-auth-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter LDAP Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note : - for inserting Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		 "default-value":"Active",
+         "value-mapping":"1=Active,0=inActive"
+
+
+Body :
+{
+  "name": "DiameterLdapAuthDriver",
+  "description": "Created by admin on 01/16/2017 06:07:07 PM",
+  "ldap-auth-driver": [
+    {
+      "ldap-datasource": "LDAP_DS",
+      "expiry-date-pattern": "MM/dd/yyyy",
+      "password-decrypt-type": "0",
+      "search-scope": "SCOPE_SUB",
+      "query-maximum-execution-time": 1,
+      "maximum-query-timeout-count": 100,
+      "user-identity-attributes": "0:1",
+      "search-filter": "0:2",
+      "ldap-field-mappings": [
+        {
+          "logical-name": "Password Check",
+          "ldap-attribute": "PASSWORDCHECK"
+        },
+        {
+          "logical-name": "Calling Station ID",
+          "ldap-attribute": "CALLINGSTATIONID"
+        },
+        {
+          "logical-name": "Authorization Policy",
+          "ldap-attribute": "RADIUSPOLICY"
+        },
+        {
+          "logical-name": "Customer Check Items",
+          "ldap-attribute": "CUSTOMERCHECKITEM"
+        },
+        {
+          "logical-name": "Customer Reply Items",
+          "ldap-attribute": "CUSTOMERREPLYITEM"
+        },
+        {
+          "logical-name": "Expiry Date",
+          "ldap-attribute": "EXPIRYDATE"
+        },
+        {
+          "logical-name": "Credit Limit",
+          "ldap-attribute": "CREDITLIMIT"
+        }
+      ]
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter LDAP Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL  using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+
+Note : - for inserting Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+
+Content Type : application/xml
+
+Body :
+<list>
+   <driver-instance>
+      <name>DiameterLdapAuthDriver</name>
+      <description>Created by admin on 01/16/2017 06:07:07 PM</description>
+      <ldap-auth-driver>
+         <ldap-datasource>LDAP_DS</ldap-datasource>
+         <expiry-date-pattern>MM/dd/yyyy</expiry-date-pattern>
+         <password-decrypt-type>0</password-decrypt-type>
+         <search-scope>SCOPE_SUB</search-scope>
+         <query-maximum-execution-time>1</query-maximum-execution-time>
+         <maximum-query-timeout-count>100</maximum-query-timeout-count>
+         <user-identity-attributes>0:1</user-identity-attributes>
+         <search-filter>0:2</search-filter>
+         <ldap-field-mappings>
+            <ldap-field-mapping>
+               <logical-name>Password Check</logical-name>
+               <ldap-attribute>PASSWORDCHECK</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Calling Station ID</logical-name>
+               <ldap-attribute>CALLINGSTATIONID</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Authorization Policy</logical-name>
+               <ldap-attribute>RADIUSPOLICY</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Customer Check Items</logical-name>
+               <ldap-attribute>CUSTOMERCHECKITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Customer Reply Items</logical-name>
+               <ldap-attribute>CUSTOMERREPLYITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Expiry Date</logical-name>
+               <ldap-attribute>EXPIRYDATE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+               <logical-name>Credit Limit</logical-name>
+               <ldap-attribute>CREDITLIMIT</ldap-attribute>
+            </ldap-field-mapping>
+         </ldap-field-mappings>
+      </ldap-auth-driver>
+   </driver-instance>
+</list>
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter LDAP Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+ 
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note : - for inserting Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		 "default-value":"Active",
+         "value-mapping":"1=Active,0=inActive"
+
+
+Body :
+{
+   "list":[
+      {
+         "name":"DiameterLdapAuthDriver",
+         "description":"Created by admin on 01/16/2017 06:07:07 PM",
+         "ldap-auth-driver":[
+            {
+               "ldap-datasource":"LDAP_DS",
+               "expiry-date-pattern":"MM/dd/yyyy",
+               "password-decrypt-type":"0",
+               "search-scope":"SCOPE_SUB",
+               "query-maximum-execution-time":1,
+               "maximum-query-timeout-count":100,
+               "user-identity-attributes":"0:1",
+               "search-filter":"0:2",
+               "ldap-field-mappings":[
+                  {
+                     "logical-name":"Password Check",
+                     "ldap-attribute":"PASSWORDCHECK"
+                  },
+                  {
+                     "logical-name":"Calling Station ID",
+                     "ldap-attribute":"CALLINGSTATIONID"
+                  },
+                  {
+                     "logical-name":"Authorization Policy",
+                     "ldap-attribute":"RADIUSPOLICY"
+                  },
+                  {
+                     "logical-name":"Customer Check Items",
+                     "ldap-attribute":"CUSTOMERCHECKITEM"
+                  },
+                  {
+                     "logical-name":"Customer Reply Items",
+                     "ldap-attribute":"CUSTOMERREPLYITEM"
+                  },
+                  {
+                     "logical-name":"Expiry Date",
+                     "ldap-attribute":"EXPIRYDATE"
+                  },
+                  {
+                     "logical-name":"Credit Limit",
+                     "ldap-attribute":"CREDITLIMIT"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter LDAP Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL  using PUT Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth?name=DiameterLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth?operation=update&name=DiameterLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+
+Note : - for updating Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+
+Body     :
+<driver-instance>
+    <name>DiameterLdapAuthDriver</name>
+    <description>Created by admin on 01/16/2017 06:07:07 PM</description>
+    <ldap-auth-driver>
+        <ldap-datasource>LDAP_DS</ldap-datasource>
+        <expiry-date-pattern>MM/dd/yyyy</expiry-date-pattern>
+        <password-decrypt-type>0</password-decrypt-type>
+        <search-scope>SCOPE_SUB</search-scope>
+        <query-maximum-execution-time>1</query-maximum-execution-time>
+        <maximum-query-timeout-count>100</maximum-query-timeout-count>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <search-filter>0:2</search-filter>
+        <ldap-field-mappings>
+            <ldap-field-mapping>
+                <logical-name>Password Check</logical-name>
+                <ldap-attribute>PASSWORDCHECK</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <ldap-attribute>CALLINGSTATIONID</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <ldap-attribute>RADIUSPOLICY</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <ldap-attribute>CUSTOMERCHECKITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <ldap-attribute>CUSTOMERREPLYITEM</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <ldap-attribute>EXPIRYDATE</ldap-attribute>
+            </ldap-field-mapping>
+            <ldap-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <ldap-attribute>CREDITLIMIT</ldap-attribute>
+            </ldap-field-mapping>
+        </ldap-field-mappings>
+    </ldap-auth-driver>
+</driver-instance>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter LDAP Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note : - for updating Default Value and Value Mapping in Ldap Field Mapping use below format.
+
+		 "default-value":"Active",
+         "value-mapping":"1=Active,0=inActive"
+
+Body     :
+{
+  "name": "DiameterLdapAuthDriver",
+  "description": "Created by admin on 01/16/2017 06:07:07 PM",
+  "ldap-auth-driver": [
+    {
+      "ldap-datasource": "LDAP_DS",
+      "expiry-date-pattern": "MM/dd/yyyy",
+      "password-decrypt-type": "0",
+      "search-scope": "SCOPE_SUB",
+      "query-maximum-execution-time": 1,
+      "maximum-query-timeout-count": 100,
+      "user-identity-attributes": "0:1",
+      "search-filter": "0:2",
+      "ldap-field-mappings": [
+        {
+          "logical-name": "Password Check",
+          "ldap-attribute": "PASSWORDCHECK"
+        },
+        {
+          "logical-name": "Calling Station ID",
+          "ldap-attribute": "CALLINGSTATIONID"
+        },
+        {
+          "logical-name": "Authorization Policy",
+          "ldap-attribute": "RADIUSPOLICY"
+        },
+        {
+          "logical-name": "Customer Check Items",
+          "ldap-attribute": "CUSTOMERCHECKITEM"
+        },
+        {
+          "logical-name": "Customer Reply Items",
+          "ldap-attribute": "CUSTOMERREPLYITEM"
+        },
+        {
+          "logical-name": "Expiry Date",
+          "ldap-attribute": "EXPIRYDATE"
+        },
+        {
+          "logical-name": "Credit Limit",
+          "ldap-attribute": "CREDITLIMIT"
+        }
+      ]
+    }
+  ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter LDAP Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL  using DELETE Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth?name=DiameterLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth?operation=delete&name=DiameterLdapAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/ldapauth/DiameterLdapAuthDriver?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter LDAP Auth Driver(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

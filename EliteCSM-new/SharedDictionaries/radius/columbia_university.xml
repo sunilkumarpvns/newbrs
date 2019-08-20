@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>	
+<attribute-list vendorid="11862" vendor-name="Columbia-University">
+	<attribute id="0" name="Sip-Method" type="integer">
+		<supported-values>
+			<value id="0" name="INVITE"/>
+			<value id="1" name="BYE "/>
+			<value id="2" name="REGISTER"/>
+			<value id="3" name="OTHER"/>
+		</supported-values>
+	</attribute>
+	<attribute id="1" name="Sip-From" type="string"/>
+	<attribute id="2" name="Sip-To" type="string"/>
+	<attribute id="4" name="Sip-Translated-Request-URI" type="string"/>
+</attribute-list>

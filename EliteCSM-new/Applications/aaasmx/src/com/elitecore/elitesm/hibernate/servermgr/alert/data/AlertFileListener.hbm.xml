@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.alert.data.AlertFileListenerData" table="TBLMFILELISTENER" >          
+
+		<id name="fileListenerId" type="StringType" column="FILELISTNERID">
+		    <generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>		
+		</id>
+		<property name="fileName" type="StringType" column="FILENAME" not-null="false"/>
+		<property name="listenerId" type="StringType" column="INSTANCEID" not-null="false"/>
+		<property name="rollingType" type="java.lang.Long" column="ROLLINGTYPE" not-null="false"/>
+		<property name="rollingUnit" type="java.lang.Long" column="ROLLINGUNIT" not-null="false"/>
+		<property name="maxRollingUnit" type="java.lang.Long" column="MAXROLLINGUNIT" not-null="false"/>
+		<property name="compRollingUnit" type="StringType" column="COMPROLLINGUNIT" not-null="false"/>
+		<property name="repeatedMessageReduction" type="StringType" column="REPEATEDMESSAGEREDUCTION" not-null="false"/>
+	</class>
+	
+</hibernate-mapping>
+
+          

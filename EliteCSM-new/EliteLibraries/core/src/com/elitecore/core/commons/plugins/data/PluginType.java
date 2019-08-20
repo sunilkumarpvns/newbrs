@@ -1,0 +1,62 @@
+package com.elitecore.core.commons.plugins.data;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.xml.bind.annotation.XmlEnumValue;
+
+public enum PluginType {
+	@XmlEnumValue(value = "UNIVERSAL_AUTH_PLUGIN")
+	UNIVERSAL_AUTH(1, "UNIVERSAL_AUTH_PLUGIN"),
+
+	@XmlEnumValue(value = "UNIVERSAL_ACCT_PLUGIN")
+	UNIVERSAL_ACCT(2, "UNIVERSAL_ACCT_PLUGIN"),
+	
+	@XmlEnumValue(value = "RADIUS_GROOVY_PLUGIN")
+	RADIUS_GROOVY_PLUGIN(3, "RADIUS_GROOVY_PLUGIN"),
+	
+	@XmlEnumValue(value = "UNIVERSAL_DIAMETER_PLUGIN")
+	UNIVERSAL_DIAMETER_PLUGIN(4, "UNIVERSAL_DIAMETER_PLUGIN"),
+	
+	@XmlEnumValue(value = "DIAMETER_GROOVY_PLUGIN")
+	DIAMETER_GROOVY_PLUGIN(5, "DIAMETER_GROOVY_PLUGIN"),
+	
+	@XmlEnumValue(value = "RADIUS_TRANSACTION_LOGGER")
+	RADIUS_TRANSACTION_LOGGER(6, "RADIUS_TRANSACTION_LOGGER"),
+	
+	@XmlEnumValue(value = "DIAMETER_TRANSACTION_LOGGER")
+	DIAMETER_TRANSACTION_LOGGER(7, "DIAMETER_TRANSACTION_LOGGER"),
+	
+	@XmlEnumValue(value = "QUOTA_MANAGEMENT")
+	QUOTA_MANAGEMENT(8, "QUOTA_MANAGEMENT"),
+	
+	USER_STATISTICS_POST_AUTH_PLUGIN(9, "USER_STATISTICS_POST_AUTH_PLUGIN")
+	;
+	
+	private int typeId;
+	private String typeName;
+	
+	PluginType(int typeId, String typeName) {
+		this.typeId = typeId;
+		this.typeName = typeName;
+	}
+	
+	public String getTypeName() {
+		return typeName;
+	}
+	
+	private static final Map<Integer, PluginType> map;
+	
+	public static final PluginType[] VALUES = values();
+	
+	static {
+		map = new HashMap<Integer, PluginType>();
+		for (PluginType type : VALUES) {
+			map.put(type.typeId, type);
+		}
+	}
+	
+	public static PluginType from(int name) {
+		return map.get(name);
+	}
+}

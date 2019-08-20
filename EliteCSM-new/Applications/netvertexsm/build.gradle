@@ -1,0 +1,52 @@
+plugins {
+    id 'war'
+}
+apply plugin: 'war'
+
+description = 'netvertexsm'
+
+webAppDirName = "webroot"
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+
+        }
+        resources {
+            srcDirs = ['src/resources']
+        }
+    }
+
+    test {
+        java.srcDir 'testsrc'
+
+        resources {
+            srcDirs = ['testsrc/resources']
+        }
+    }
+}
+
+
+
+war {
+    webInf { from 'src/config' } // adds a file-set to the WEB-INF dir.
+}
+
+dependencies {
+
+    def depPojects = [":core", ":elitecommons", ":corenetvertex", ":diameterapi", ":coreradius", ":passwordutil", ":exprlib", ":license"]
+
+    depPojects.each {
+        compile project(it)
+        testCompile files(project(it).sourceSets.test.output)
+    }
+
+
+
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
+    compileOnly group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version:'2.3.1'
+    compile fileTree(dir: 'webroot/WEB-INF/lib', include: '**/*.jar')
+    compile fileTree(dir: project(':corenetvertex').projectDir.path + "/lib", include: '**/*.jar')
+
+}

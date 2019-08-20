@@ -1,0 +1,169 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+ 
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping/AAA_Server?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping?name=AAA_Server&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping/AAA_Server.xml
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping/AAA_Server?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping?name=AAA_Server&operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping?name=AAA_Server&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping/AAA_Server.xml?operation=search
+
+Response     :
+
+<mapping>
+    <rad-plugins>
+        <plugin>
+            <plugin-name>rad_Plugin</plugin-name>
+            <class-name>className</class-name>
+            <conf-class-name>configClassName</conf-class-name>
+            <description>handling radius packet's customization</description>
+        </plugin>
+    </rad-plugins>
+    <diameter-plugins>
+        <plugin>
+            <plugin-name>dia_plugin</plugin-name>
+            <class-name>className</class-name>
+            <conf-class-name>ConfigClassName</conf-class-name>
+            <description>handling diameter packet's customization</description>
+        </plugin>
+    </diameter-plugins>
+</mapping>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping/AAA_Server?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping?name=AAA_Server&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping/AAA_Server.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping/AAA_Server?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping?name=AAA_Server&operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping?name=AAA_Server&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping/AAA_Server.json?operation=search
+
+Response     :
+
+{
+  "rad-plugins": [
+    {
+      "plugin-name": "rad_Plugin",
+      "class-name": "className",
+      "conf-class-name": "configClassName",
+      "description": "handling radius packet customization"
+    }
+  ],
+  "diameter-plugins": [
+    {
+      "plugin-name": "dia_plugin",
+      "class-name": "className",
+      "conf-class-name": "ConfigClassName",
+      "description": "handling diameter packet customization"
+    }
+  ]
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#EliteCSM Server
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping/AAA_Server
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping/AAA_Server?operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/systemmapping?name=AAA_Server&operation=update
+
+
+Content Type : application/xml
+
+Body     :
+
+<mapping>
+    <rad-plugins>
+        <plugin>
+            <plugin-name>rad_Plugin</plugin-name>
+            <class-name>className</class-name>
+            <conf-class-name>configClassName</conf-class-name>
+            <description>handling radius packet's customization</description>
+        </plugin>
+    </rad-plugins>
+    <diameter-plugins>
+        <plugin>
+            <plugin-name>dia_plugin</plugin-name>
+            <class-name>className</class-name>
+            <conf-class-name>ConfigClassName</conf-class-name>
+            <description>handling diameter packet's customization</description>
+        </plugin>
+    </diameter-plugins>
+</mapping>
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>System Mapping Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "rad-plugins": [
+    {
+      "plugin-name": "rad_Plugin",
+      "class-name": "className",
+      "conf-class-name": "configClassName",
+      "description": "handling radius packet customization"
+    }
+  ],
+  "diameter-plugins": [
+    {
+      "plugin-name": "dia_plugin",
+      "class-name": "className",
+      "conf-class-name": "ConfigClassName",
+      "description": "handling diameter packet's customization"
+    }
+  ]
+}
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>System Mapping Configuration updated successfully</response-message>
+    </response>
+</response-detail>

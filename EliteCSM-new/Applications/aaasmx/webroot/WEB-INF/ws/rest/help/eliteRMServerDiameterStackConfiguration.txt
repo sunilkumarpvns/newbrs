@@ -1,0 +1,503 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+ 
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/EliteRM?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/?name=EliteRM&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/?name=EliteRM
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/EliteRM.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/EliteRM?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack?name=EliteRM&operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack?name=EliteRM&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/EliteRM.xml?operation=search
+
+Response     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<diameter-stack>
+    <diameter-stack-enable>true</diameter-stack-enable>
+    <service-address>0.0.0.0:3868</service-address>
+    <socket-receive-buffer-size>3267</socket-receive-buffer-size>
+    <socket-send-buffer-size>267</socket-send-buffer-size>
+    <queue-size>30000</queue-size>
+    <minimum-thread>50</minimum-thread>
+    <maximum-thread>100</maximum-thread>
+    <main-thread-priority>7</main-thread-priority>
+    <worker-thread-priority>7</worker-thread-priority>
+    <own-diameter-URI>aaa://localhost:3868</own-diameter-URI>
+    <routing-table>-NONE-</routing-table>
+    <security-standard>RFC 6733</security-standard>
+    <duplicate-request-check-enable>false</duplicate-request-check-enable>
+    <duplicate-request-purge-interval>15</duplicate-request-purge-interval>
+    <diameter-session-cleanup>
+        <session-cleanup-interval>86400</session-cleanup-interval>
+        <session-timeout>86400</session-timeout>
+    </diameter-session-cleanup>
+    <security-parameters>
+        <max-tls-version>TLSv1</max-tls-version>
+        <min-tls-version>TLSv1</min-tls-version>
+        <handshake-timeout>3000</handshake-timeout>
+        <server-certificate-id>NONE</server-certificate-id>
+        <client-certificate-request>true</client-certificate-request>
+        <enabled-cipher-suites>TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_DES_CBC_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_RC4_128_MD5</enabled-cipher-suites>
+        <certificate-validation>
+            <validate-certificate-expiry>true</validate-certificate-expiry>
+            <validate-certificate-ca>true</validate-certificate-ca>
+            <validate-certificate-revocation>true</validate-certificate-revocation>
+        </certificate-validation>
+    </security-parameters>
+    <logging>
+        <service-logger-enabled>false</service-logger-enabled>
+        <log-level>DEBUG</log-level>
+        <rolling-type>Time-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <location>logs</location>
+        <syslog>
+            <address></address>
+            <facility>SYSLOG</facility>
+        </syslog>
+    </logging>
+    <peer-list>
+        <name>-ALL-</name>
+    </peer-list>
+    <plugin-list>
+        <in-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </in-plugins>
+        <out-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </out-plugins>
+    </plugin-list>
+    <rfc-5729-nai>
+        <enabled>false</enabled>
+        <realm-names></realm-names>
+    </rfc-5729-nai>
+    <diameter-webservice>
+        <diameter-re-auth>
+            <ws-mapping-name>-NONE-</ws-mapping-name>
+        </diameter-re-auth>
+        <diameter-abort-session>
+            <ws-mapping-name>-NONE-</ws-mapping-name>
+        </diameter-abort-session>
+        <diameter-generic-request>
+            <ws-mapping-name>-NONE-</ws-mapping-name>
+        </diameter-generic-request>
+    </diameter-webservice>
+</diameter-stack>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/EliteRM?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/?name=EliteRM&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/?name=EliteRM
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/EliteRM.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/EliteRM?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack?name=EliteRM&operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack?name=EliteRM&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/EliteRM.json?operation=search
+Response     :
+
+{  
+   "diameter-stack-enable":"true",
+   "service-address":"0.0.0.0:3868",
+   "socket-receive-buffer-size":"3267",
+   "socket-send-buffer-size":"267",
+   "queue-size":"30000",
+   "minimum-thread":"50",
+   "maximum-thread":"100",
+   "main-thread-priority":"7",
+   "worker-thread-priority":"7",
+   "own-diameter-URI":"aaa://localhost:3868",
+   "routing-table":"-NONE-",
+   "security-standard":"RFC 6733",
+   "duplicate-request-check-enable":"false",
+   "duplicate-request-purge-interval":"15",
+   "diameter-session-cleanup":{  
+      "session-cleanup-interval":"86400",
+      "session-timeout":"86400"
+   },
+   "security-parameters":{  
+      "max-tls-version":"TLSv1",
+      "min-tls-version":"TLSv1",
+      "handshake-timeout":"3000",
+      "server-certificate-id":"NONE",
+      "client-certificate-request":"true",
+      "enabled-cipher-suites":"TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_DES_CBC_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_RC4_128_MD5",
+      "certificate-validation":{  
+         "validate-certificate-expiry":"true",
+         "validate-certificate-ca":"true",
+         "validate-certificate-revocation":"true"
+      }
+   },
+   "logging":{  
+      "service-logger-enabled":"false",
+      "log-level":"DEBUG",
+      "rolling-type":"Time-Based",
+      "rolling-unit":"5",
+      "max-rolled-unit":"10",
+      "compress-rolled-unit":"false",
+      "location":"logs",
+      "syslog":{  
+         "address":"",
+         "facility":"SYSLOG"
+      }
+   },
+   "peer-list":{  
+      "name":[  
+         "-ALL-"
+      ]
+   },
+   "plugin-list":{  
+      "in-plugins":{  
+         "plugin-entry":[  
+            {  
+               "plugin-name":"-NONE-",
+               "argument":""
+            }
+         ]
+      },
+      "out-plugins":{  
+         "plugin-entry":[  
+            {  
+               "plugin-name":"-NONE-",
+               "argument":""
+            }
+         ]
+      }
+   },
+   "rfc-5729-nai":{  
+      "enabled":"false",
+      "realm-names":""
+   },
+   "diameter-webservice":{  
+      "diameter-re-auth":{  
+         "ws-mapping-name":"-NONE-"
+      },
+      "diameter-abort-session":{  
+         "ws-mapping-name":"-NONE-"
+      },
+      "diameter-generic-request":{  
+         "ws-mapping-name":"-NONE-"
+      }
+   }
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#EliteCSM Server
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack?name=EliteRM
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/EliteRM
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack/EliteRM?operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/diameterstack?name=EliteRM&operation=update
+
+
+Content Type : application/xml
+
+Body     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<diameter-stack>
+    <diameter-stack-enable>true</diameter-stack-enable>
+    <service-address>0.0.0.0:3868</service-address>
+    <socket-receive-buffer-size>3267</socket-receive-buffer-size>
+    <socket-send-buffer-size>267</socket-send-buffer-size>
+    <queue-size>30000</queue-size>
+    <minimum-thread>0</minimum-thread>
+    <maximum-thread>100</maximum-thread>
+    <main-thread-priority>7</main-thread-priority>
+    <worker-thread-priority>7</worker-thread-priority>
+    <own-diameter-URI>aaa://localhost:3868</own-diameter-URI>
+    <routing-table>routing1</routing-table>
+    <security-standard>RFC 6733</security-standard>
+    <duplicate-request-check-enable>false</duplicate-request-check-enable>
+    <duplicate-request-purge-interval>15</duplicate-request-purge-interval>
+    <diameter-session-cleanup>
+        <session-cleanup-interval>86400</session-cleanup-interval>
+        <session-timeout>86400</session-timeout>
+    </diameter-session-cleanup>
+    <security-parameters>
+        <min-tls-version>TLSv1</min-tls-version>
+        <max-tls-version>TLSv1.2</max-tls-version>
+        <handshake-timeout>300</handshake-timeout>
+        <server-certificate-id>NONE</server-certificate-id>
+        <client-certificate-request>true</client-certificate-request>
+        <enabled-cipher-suites>TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_DES_CBC_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_RC4_128_MD5</enabled-cipher-suites>
+        <certificate-validation>
+            <validate-certificate-expiry>true</validate-certificate-expiry>
+            <validate-certificate-ca>true</validate-certificate-ca>
+            <validate-certificate-revocation>true</validate-certificate-revocation>
+        </certificate-validation>
+    </security-parameters>
+    <logging>
+        <service-logger-enabled>false</service-logger-enabled>
+        <log-level>DEBUG</log-level>
+        <rolling-type>Time-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <location>logs</location>
+        <syslog>
+            <address></address>
+            <facility>AUTH</facility>
+        </syslog>
+    </logging>
+    <peer-list>
+        <name>-ALL-</name>
+        <name>-ROUTING-</name>
+    </peer-list>
+    <plugin-list>
+        <in-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </in-plugins>
+        <out-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </out-plugins>
+    </plugin-list>
+    <rfc-5729-nai>
+        <enabled>false</enabled>
+        <realm-names></realm-names>
+    </rfc-5729-nai>
+    <diameter-webservice>
+        <diameter-re-auth>
+            <ws-mapping-name>translation_1</ws-mapping-name>
+        </diameter-re-auth>
+        <diameter-abort-session>
+            <ws-mapping-name>translation_1</ws-mapping-name>
+        </diameter-abort-session>
+        <diameter-generic-request>
+            <ws-mapping-name>-NONE-</ws-mapping-name>
+        </diameter-generic-request>
+    </diameter-webservice>
+</diameter-stack>
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Stack configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{  
+   "diameter-stack-enable":"true",
+   "service-address":"0.0.0.0:3868",
+   "socket-receive-buffer-size":"3267",
+   "socket-send-buffer-size":"267",
+   "queue-size":"30000",
+   "minimum-thread":"0",
+   "maximum-thread":"100",
+   "main-thread-priority":"7",
+   "worker-thread-priority":"7",
+   "own-diameter-URI":"aaa://localhost:3868",
+   "routing-table":"routing1",
+   "security-standard":"RFC 6733",
+   "duplicate-request-check-enable":"false",
+   "duplicate-request-purge-interval":"15",
+   "diameter-session-cleanup":{  
+      "session-cleanup-interval":"86400",
+      "session-timeout":"86400"
+   },
+   "security-parameters":{  
+      "min-tls-version":"TLSv1",
+      "max-tls-version":"TLSv1.2",
+      "handshake-timeout":"300",
+      "server-certificate-id":"NONE",
+      "client-certificate-request":"true",
+      "enabled-cipher-suites":"TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_DES_CBC_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_RC4_128_MD5",
+      "certificate-validation":{  
+         "validate-certificate-expiry":"true",
+         "validate-certificate-ca":"true",
+         "validate-certificate-revocation":"true"
+      }
+   },
+   "logging":{  
+      "service-logger-enabled":"false",
+      "log-level":"DEBUG",
+      "rolling-type":"Size-Based",
+      "rolling-unit":"5",
+      "max-rolled-unit":"10",
+      "compress-rolled-unit":"false",
+      "location":"logs",
+      "syslog":{  
+         "address":"",
+         "facility":"AUTH"
+      }
+   },
+   "peer-list":{  
+      "name":[  
+         "-ALL-",
+         "-ROUTING-"
+      ]
+   },
+   "plugin-list":{  
+      "in-plugins":{  
+         "plugin-entry":[  
+            {  
+               "plugin-name":"-NONE-",
+               "argument":""
+            }
+         ]
+      },
+      "out-plugins":{  
+         "plugin-entry":[  
+            {  
+               "plugin-name":"-NONE-",
+               "argument":""
+            }
+         ]
+      }
+   },
+   "rfc-5729-nai":{  
+      "enabled":"false",
+      "realm-names":""
+   },
+   "diameter-webservice":{  
+      "diameter-re-auth":{  
+         "ws-mapping-name":"translation_1"
+      },
+      "diameter-abort-session":{  
+         "ws-mapping-name":"translation_1"
+      },
+      "diameter-generic-request":{  
+         "ws-mapping-name":"-NONE-"
+      }
+   }
+}
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Stack configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
+
+++++++++++++++++++++ Additional Information+++++++++++++++
+
+# TLS versions : 
+	1) TLSv1
+	2) TLSv1.1
+	3) TLSv1.2
+
+# TLS Certificate Request ----- true/false
+
+# CipherSuite List (case sensitive and Valid selection of Minimum and Maximum TLS Version) 
+
+//(MinTLSVersion) TLSv1 and (MaxTLSVersion) TLSv1
+
+TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_DES_CBC_SHA, TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA, TLS_DH_anon_EXPORT_WITH_RC4_40_MD5, TLS_DH_anon_WITH_3DES_EDE_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_RC4_128_MD5, TLS_RSA_EXPORT_WITH_DES40_CBC_SHA, TLS_RSA_EXPORT_WITH_RC4_40_MD5, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_DES_CBC_SHA, TLS_RSA_WITH_NULL_MD5, TLS_RSA_WITH_NULL_SHA, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+
+//(MinTLSVersion) TLSv1 and (MaxTLSVersion) TLS1.1
+TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_DES_CBC_SHA, TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA, TLS_DH_anon_EXPORT_WITH_RC4_40_MD5, TLS_DH_anon_WITH_3DES_EDE_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_AES_256_CBC_SHA, TLS_DH_anon_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_RC4_128_MD5, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_RSA_EXPORT_WITH_DES40_CBC_SHA, TLS_RSA_EXPORT_WITH_RC4_40_MD5, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_DES_CBC_SHA, TLS_RSA_WITH_NULL_MD5, TLS_RSA_WITH_NULL_SHA, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+	
+//(MinTLSVersion) TLSv1 and (MaxTLSVersion) TLSv1.2
+TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_DES_CBC_SHA, TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA, TLS_DH_anon_EXPORT_WITH_RC4_40_MD5, TLS_DH_anon_WITH_3DES_EDE_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA256, TLS_DH_anon_WITH_AES_256_CBC_SHA, TLS_DH_anon_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_RC4_128_MD5, TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_NULL_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_NULL_SHA, TLS_ECDHE_RSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_NULL_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_ECDH_anon_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_anon_WITH_AES_128_CBC_SHA, TLS_ECDH_anon_WITH_NULL_SHA, TLS_ECDH_anon_WITH_RC4_128_SHA, TLS_RSA_EXPORT_WITH_DES40_CBC_SHA, TLS_RSA_EXPORT_WITH_RC4_40_MD5, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_DES_CBC_SHA, TLS_RSA_WITH_NULL_MD5, TLS_RSA_WITH_NULL_SHA, TLS_RSA_WITH_NULL_SHA256, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+
+//(MinTLSVersion) TLS1.1 and (MaxTLSVersion) TLS1.1
+TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_3DES_EDE_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_AES_256_CBC_SHA, TLS_DH_anon_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_RC4_128_MD5, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_RSA_EXPORT_WITH_RC4_40_MD5, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_DES_CBC_SHA, TLS_RSA_WITH_NULL_MD5, TLS_RSA_WITH_NULL_SHA, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+//(MinTLSVersion) TLSv1.1 and (MaxTLSVersion) TLSv1.2
+TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_3DES_EDE_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA256, TLS_DH_anon_WITH_AES_256_CBC_SHA, TLS_DH_anon_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_RC4_128_MD5, TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_NULL_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_NULL_SHA, TLS_ECDHE_RSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_NULL_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_ECDH_anon_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_anon_WITH_AES_128_CBC_SHA, TLS_ECDH_anon_WITH_NULL_SHA, TLS_ECDH_anon_WITH_RC4_128_SHA, TLS_RSA_EXPORT_WITH_RC4_40_MD5, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_DES_CBC_SHA, TLS_RSA_WITH_NULL_MD5, TLS_RSA_WITH_NULL_SHA, TLS_RSA_WITH_NULL_SHA256, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+//(MinTLSVersion) TLSv1.2 and (MaxTLSVersion) TLS1.2
+TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256, TLS_DH_anon_WITH_3DES_EDE_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA256, TLS_DH_anon_WITH_AES_256_CBC_SHA, TLS_DH_anon_WITH_RC4_128_MD5, TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_NULL_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_NULL_SHA, TLS_ECDHE_RSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_NULL_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_ECDH_anon_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_anon_WITH_AES_128_CBC_SHA, TLS_ECDH_anon_WITH_NULL_SHA, TLS_ECDH_anon_WITH_RC4_128_SHA, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_NULL_MD5, TLS_RSA_WITH_NULL_SHA, TLS_RSA_WITH_NULL_SHA256, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+# Rolling Type:
+	1) Size-Based
+	2) Time-Based
+
+# Facility (Sys log Configuration)
+	1) -None- 
+	2) AUTH
+	3) KERN
+	4) USER
+	5) MAIL
+	6) DAEMON
+	7) SYSLOG
+	8) LPR
+	9) NEWS
+	10) UUCP
+	11) CRON
+	12) AUTHPRIV
+	13) FTP
+	14) LOCAL0
+	15) LOCAL1
+	16) LOCAL2
+	17) LOCAL3
+	18) LOCAL4
+	19) LOCAL5 
+	20) LOCAL6
+    21) LOCAL7
+    
+ # Security Standard
+ 	1) RFC 6733
+ 	2) RFC 3588 Dynamic
+ 	3) RFC 3588 TLS
+ 	4) NONE
+ 	
+ # Log Level
+ 	1) OFF
+ 	2) WARN
+ 	3) ERROR
+ 	4) INFO
+ 	5) FATAL
+ 	6) DEBUG
+ 	7) TRACE
+ 	8) ALL
+ 

@@ -1,0 +1,116 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+ 
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys/AAA_Server?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys?name=AAA_Server&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys/AAA_Server.xml
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys/AAA_Server?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys?name=AAA_Server&operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys?name=AAA_Server&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys/AAA_Server.xml?operation=search
+
+Response     :
+
+<keys>
+    <dhcp-rk-threshold-time>6000</dhcp-rk-threshold-time>
+    <dhcp-keys-cleanup-interval>8700</dhcp-keys-cleanup-interval>
+    <dhcp-keys-cleanup-enabled>true</dhcp-keys-cleanup-enabled>
+</keys>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys/AAA_Server?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys?name=AAA_Server&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys/AAA_Server.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys/AAA_Server?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys?name=AAA_Server&operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys?name=AAA_Server&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys/AAA_Server.json?operation=search
+
+Response     :
+
+{
+  "dhcp-rk-threshold-time": "6000",
+  "dhcp-keys-cleanup-interval": "8700",
+  "dhcp-keys-cleanup-enabled": "true"
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#EliteCSM Server
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys/AAA_Server
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys/AAA_Server?operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/dhcpkeys?name=AAA_Server&operation=update
+
+
+Content Type : application/xml
+
+Body     :
+
+<keys>
+    <dhcp-rk-threshold-time>60000</dhcp-rk-threshold-time>
+    <dhcp-keys-cleanup-interval>87000</dhcp-keys-cleanup-interval>
+    <dhcp-keys-cleanup-enabled>false</dhcp-keys-cleanup-enabled>
+</keys>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>DHCP Keys Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "dhcp-rk-threshold-time": "600000",
+  "dhcp-keys-cleanup-interval": "87000",
+  "dhcp-keys-cleanup-enabled": "true"
+}
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>DHCP Keys Configuration updated successfully</response-message>
+    </response>
+</response-detail>

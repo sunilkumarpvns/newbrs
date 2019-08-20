@@ -1,0 +1,23 @@
+{
+  "id":"rest_ldap_11111111",
+  "status": "ACTIVE",
+  "groups": null,
+  "name": "UPDATED_REST_LDAP",
+  "password":"secret",
+  "address": "192.168.2.29:389",
+  "queryTimeout": 500,
+  "sizeLimit": 2,
+  "administrator": "cn=root,dc=elitecore,dc=ind",
+  
+  "userDnPrefix": "uids=",
+  "maximumPool": 6,
+  "minimumPool": 1,
+  "statusCheckDuration": 100,
+  "ldapBaseDns": [
+    {
+      "searchBaseDn": "ou=EliteAAA,o=App,dc=elitecore,dc=ind"
+    }
+  ],
+  "version": 3,
+  "groupNames": "DefaultGroup"
+}

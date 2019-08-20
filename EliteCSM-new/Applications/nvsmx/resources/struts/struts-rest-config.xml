@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+        <!-- the package that is used for handling rest request flow -->
+        <constant name="struts.convention.default.parent.package" value="sm"/>
+
+        <constant name="struts.convention.action.packages" value="pd,com.elitecore.nvsmx.integration"/>
+
+        <!-- A package from which the rest plugin will search the action classes -->
+        <constant name="struts.convention.package.locators" value="controller"/>
+
+        <!--added for jackson in order to remove cyclic dependency of Bi-directional relation on pojo.
+        It allows include or exclude properties from the json response -->
+        <bean type="org.apache.struts2.rest.handler.ContentTypeHandler" name="jackson" class="org.apache.struts2.rest.handler.JacksonLibHandler"/>
+        <constant name="struts.rest.handlerOverride.json" value="jackson"/>
+
+        <constant name="struts.rest.content.restrictToGET" value="false" />
+        <!-- struts encoding type -->
+        <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+        <!-- supported actions -->
+        <constant name="struts.action.extension" value="xhtml,,xml,json,action"/>
+
+        <!-- include jars -->
+        <constant name="struts.convention.action.includeJars" value=".*?/nvsmx.*?jar(!/)?"/>
+        <!--conventional property -->
+
+    <package name="sm" namespace="/sm/*" extends="rest-default">
+
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+        <interceptors>
+            <interceptor name="DiagnosticContext"
+                         class="com.elitecore.nvsmx.system.interceptor.DiagnosticContextInterceptor" />
+
+            <interceptor name="transaction"
+                         class="com.elitecore.nvsmx.system.interceptor.TransactionInterceptor"></interceptor>
+            <interceptor name="validConfiguration" class="com.elitecore.nvsmx.system.interceptor.VerifyValidConfigurationInterceptor"/>
+
+            <interceptor-stack name="restStack">
+
+                <interceptor-ref name="DiagnosticContext" />
+
+                <interceptor-ref name="transaction">
+                    <param name="excludeMethods">deleteConfirm,cacheServerGroups,validateRuleset</param>
+                </interceptor-ref>
+                <interceptor-ref name="validConfiguration">
+                    <param name="excludeMethods">initLogin,login,logout,edit</param>
+                </interceptor-ref>
+                <interceptor-ref name="restDefaultStack"></interceptor-ref>
+            </interceptor-stack>
+
+        </interceptors>
+        <global-results>
+            <result name="redirectAction" type="redirect">${actionChainUrl}</result>
+            <result name="exception" 	type="tiles">commons/general/UnhandledException</result>
+            <result name="error" 	 	type="tiles">commons/general/Error</result>
+            <result name="serverManagerWelcome" 	type="tiles">ServerManagerWelcome</result>
+            <result name="redirectURL" type="tiles">${actionChainUrl}</result>
+            <result name="genericPartnerSearch" type="tiles">_${actionChainUrl}</result>
+            <result name="redirectUploadReport" type="tiles">${actionChainUrl}</result>
+            <result name="dispatchView" type="tiles">${actionChainUrl}</result>
+            <result name="subtableurl">${actionChainUrl}</result>
+
+            <result name="download" type="stream">
+                <param name="contentDisposition">attachment;filename=${fileName}</param>
+                <param name="contentType">$(contentType)</param>
+                <param name="inputName">fileInputStream</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping result="exception" exception="java.lang.Throwable"></exception-mapping>
+            <exception-mapping result="exception" exception="java.lang.RuntimeException"></exception-mapping>
+        </global-exception-mappings>
+
+
+    </package>
+
+    <package name="integration" namespace="/integration/*" extends="sm"/>
+    <package name="pd" namespace="/pd/*" extends="sm"/>
+</struts>

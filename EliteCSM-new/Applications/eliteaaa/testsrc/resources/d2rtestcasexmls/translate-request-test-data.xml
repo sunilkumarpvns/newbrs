@@ -1,0 +1,764 @@
+
+<list>
+
+	<case behaviour="test-static(literal)-value" >
+		<diameter-packet cc="271" app-id="3" request="true">
+		</diameter-packet>
+
+		<radius-packet type="4">
+			<attribute id="0:40" value="2" />
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>static_value_mapping</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:40=&quot;2&quot;</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+
+	<case behaviour="test-avp(identifier)-value">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:89" value="919123456789" />
+		</diameter-packet>
+
+		<radius-packet type="4">
+			<attribute id="0:1" value="919123456789" />
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-identifiers-value</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>attributeAssignment</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=0:89</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+	<case behaviour="test-check-expression-should-apply-before-mapping">
+		<diameter-packet cc="265" app-id="3" request="true">
+			<attribute id="21067:65538" value="265" />
+		</diameter-packet>
+
+		<radius-packet type="1">
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-check-expression-value</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>checkExpression</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression> 21067:65538 = &quot;271&quot;
+								</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression> 21067:65538 = &quot;265&quot;
+								</checked-expression>
+								<mapping-expression>packettype=&quot;1&quot;
+								</mapping-expression>
+							</request-mapping>
+
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+
+	<case behaviour="test-check-default-value">
+		<diameter-packet cc="271" app-id="3" request="true">
+		</diameter-packet>
+
+		<radius-packet type="4">
+			<attribute id="0:1" value="anonymousUser" />
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-check-default-value</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>defaultValue</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=0:1</mapping-expression>
+								<default-value>0:1=&quot;anonymousUser&quot;</default-value>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+
+	<!-- <case behaviour="test-value-mapping">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:480" value="4" />
+		</diameter-packet>
+
+		<radius-packet type="4">
+			<attribute id="0:40" value="2" />
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-value-mapping</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>valueMapping</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:40=0:480</mapping-expression>
+								<value-mapping>2=&quot;1&quot;,4=&quot;2&quot;</value-mapping>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case> -->
+
+	<case behaviour="test-keyword-mathop-should-apply-as-per-configuration">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:363" value="4294967300" />
+		</diameter-packet>
+
+		<radius-packet type="4">
+			<attribute id="0:42" value="4" />
+			<attribute id="0:52" value="1" />
+		</radius-packet>
+
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-keyword-mathop</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>modulo_div</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:42=${MATHOP-mod,&quot;4294967296&quot;}:0:363
+								</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:52=${MATHOP-div,&quot;4294967296&quot;}:0:363
+								</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+	<case behaviour="test-keyword-strop-should-apply-as-per-configuration">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:89" value="919123456789" />
+		</diameter-packet>
+
+		<radius-packet type="4">
+			<attribute id="0:1" value="9123456789" />
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-keyword-STROP</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>strop</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=${STROP-stripprefix,&quot;91&quot;}:0:89
+								</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+	<case behaviour="test-keyword-multimode-should-add-all-the-attributes">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:89" value="919123456789" />
+			<attribute id="0:89" value="AA-AB-AC-10-10-10" />
+			<attribute id="0:89" value="username" />
+		</diameter-packet>
+
+		<radius-packet type="4">
+			<attribute id="0:1" value="919123456789" />
+			<attribute id="0:1" value="AA-AB-AC-10-10-10" />
+			<attribute id="0:1" value="username" />
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-keyword-MULTIMODE</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>multimode</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=${MULTIMODE}:0:89
+								</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+	<case behaviour="test-keyword-multimode-should-not-add-when-attribute-not-found">
+		<diameter-packet cc="271" app-id="3" request="true">
+		</diameter-packet>
+
+		<radius-packet type="4">
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-keyword-MULTIMODE</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>attribute-not-found</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=${MULTIMODE}:0:89
+								</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+
+	<case behaviour="test-keyword-multimode-should-add-attribute-with-default-value-when-attribute-not-found">
+		<diameter-packet cc="271" app-id="3" request="true">
+		</diameter-packet>
+
+		<radius-packet type="4">
+			<attribute id="0:1" value="anonymousUser" />
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-keyword-MULTIMODE</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>using_def_value</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=${MULTIMODE}:0:89
+								</mapping-expression>
+								<default-value>0:1=&quot;anonymousUser&quot;</default-value>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+
+	<case behaviour="test-keyword-multimode-should-add-attribute-by-applying-value-mapping">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:89" value="919123456789" />
+			<attribute id="0:89" value="AA-AB-AC-10-10-10" />
+			<attribute id="0:89" value="username" />
+		</diameter-packet>
+
+		<radius-packet type="4">
+			<attribute id="0:1" value="1" />
+			<attribute id="0:1" value="AA-AB-AC-10-10-10" />
+			<attribute id="0:1" value="2" />
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-keyword-MULTIMODE</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>value_mapping</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=${MULTIMODE}:0:89
+								</mapping-expression>
+								<value-mapping>919123456789=&quot;1&quot;,username=&quot;2&quot;
+								</value-mapping>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+	<case behaviour="test-keyword-should-not-add-dest-attribute-with-when-source-attribute-not-found">
+		<diameter-packet cc="271" app-id="3" request="true">
+		</diameter-packet>
+
+		<radius-packet type="4">
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-keyword</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>attribute_not_found</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=${STROP-stripprefix,&quot;91&quot;}:0:89
+								</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+
+	<case behaviour="test-dest-attribute--should-not-be-added-when-source-attribute-not-found-in-packet">
+		<diameter-packet cc="271" app-id="3" request="true">
+		</diameter-packet>
+
+		<radius-packet type="4">
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-attribute-not-found</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>skipMapping</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=0:89
+								</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot; </mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+
+	<case behaviour="test-dest-attribute--should-not-be-added-when-source-attribute-not-found-in-packet">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:1" value="userName" />
+		</diameter-packet>
+
+		<radius-packet type="4">
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-attribute-not-found-in-dictionary</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>doNothing</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>2190:190:1=0:1</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+	<case behaviour="test-dest-attribute-should-not-be-added-when-source-attribute-value-can-not-be-copied-like-types-incompatible">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:1" value="userName" />
+		</diameter-packet>
+
+		<radius-packet type="4">
+		</radius-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-exception-while-assignment</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>int_to_string</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:40=0:1</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+<!-- <case behaviour="test-keyword-mathop-should-apply-as-per-configuration">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:363" value="300" />
+			<attribute id="0:285" value="0" />
+		</diameter-packet>
+
+		<radius-packet type="4">
+			<attribute id="0:42" value="300" />
+			<attribute id="0:52" value="0" />
+		</radius-packet>
+
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-keyword-mathop</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>modulo_div</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:42=${MATHOP-mod,&quot;0&quot;}:0:363
+								</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:52=${MATHOP-log10}:0:285
+								</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>packettype=&quot;4&quot;
+								</mapping-expression>
+							</request-mapping>
+
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case> -->
+
+
+</list>

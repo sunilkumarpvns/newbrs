@@ -1,0 +1,312 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers?name=peer1&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers.xml?name=peer1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers?operation=search&name=peer1&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers.xml?operation=search&name=peer1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1.xml?operation=search
+
+Response :
+
+<diameter-peers>
+	<name>peer1</name>
+	<host-identity>aaa.elitecore.com</host-identity>
+	<realm>elitecore.com</realm>
+	<remote-address>10.121.21.55</remote-address>
+	<local-address>10.121.21.55</local-address>
+	<diameter-uri-format>${aaa}${FQDN}${port};transport=tcp;protocol=diameter</diameter-uri-format>
+	<request-timeout>3000</request-timeout>
+	<retransmission-count>0</retransmission-count>
+	<secondary-peer>peer2</secondary-peer>
+	<profile-name>diameter_peer_profile</profile-name>
+</diameter-peers>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers?name=peer1&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers.json?name=peer1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers?operation=search&name=peer1&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers.json?operation=search&name=peer1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1.json?operation=search
+
+Response :
+
+{
+	"name": "peer1",
+	"host-identity": "aaa.elitecore.com",
+	"realm": "elitecore.com",
+	"remote-address": "10.121.21.55",
+	"local-address": "10.121.21.55",
+	"diameter-uri-format": "${aaa}${FQDN}${port};transport=tcp;protocol=diameter",
+	"request-timeout": "3000",
+	"retransmission-count": "0",
+	"secondary-peer": "peer2",
+	"profile-name": "diameter_peer_profile"
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-peers>
+	<name>peer1</name>
+	<host-identity>aaa.elitecore.com</host-identity>
+	<realm>elitecore.com</realm>
+	<remote-address>10.121.21.55</remote-address>
+	<local-address>10.121.21.55</local-address>
+	<diameter-uri-format>${aaa}${FQDN}${port};transport=tcp;protocol=diameter</diameter-uri-format>
+	<request-timeout>3000</request-timeout>
+	<retransmission-count>0</retransmission-count>
+	<secondary-peer>peer2</secondary-peer>
+	<profile-name>diameter_peer_profile</profile-name>
+</diameter-peers>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "peer1",
+	"host-identity": "aaa.elitecore.com",
+	"realm": "elitecore.com",
+	"remote-address": "10.121.21.55",
+	"local-address": "10.121.21.55",
+	"diameter-uri-format": "${aaa}${FQDN}${port};transport=tcp;protocol=diameter",
+	"request-timeout": "3000",
+	"retransmission-count": "0",
+	"secondary-peer": "peer2",
+	"profile-name": "diameter_peer_profile"
+}		
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/bulk?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<diameter-peers>
+		<name>peer1</name>
+		<host-identity>aaa.elitecore.com</host-identity>
+		<realm>elitecore.com</realm>
+		<remote-address>10.121.21.55</remote-address>
+		<local-address>10.121.21.55</local-address>
+		<diameter-uri-format>${aaa}${FQDN}${port};transport=tcp;protocol=diameter</diameter-uri-format>
+		<request-timeout>3000</request-timeout>
+		<retransmission-count>0</retransmission-count>
+		<secondary-peer>peer2</secondary-peer>
+		<profile-name>diameter_peer_profile</profile-name>
+	</diameter-peers>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"list":[
+		{
+			"name": "peer1",
+			"host-identity": "aaa.elitecore.com",
+			"realm": "elitecore.com",
+			"remote-address": "10.121.21.55",
+			"local-address": "10.121.21.55",
+			"diameter-uri-format": "${aaa}${FQDN}${port};transport=tcp;protocol=diameter",
+			"request-timeout": "3000",
+			"retransmission-count": "0",
+			"secondary-peer": "peer2",
+			"profile-name": "diameter_peer_profile"
+		}		
+  	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers?name=peer1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers?operation=update&name=peer1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-peers>
+	<name>peer1</name>
+	<host-identity>aaa.elitecore.com</host-identity>
+	<realm>elitecore.com</realm>
+	<remote-address>10.121.21.60</remote-address>
+	<local-address>10.121.21.60</local-address>
+	<diameter-uri-format>${aaa}${FQDN}${port};transport=tcp;protocol=diameter</diameter-uri-format>
+	<request-timeout>5000</request-timeout>
+	<retransmission-count>2</retransmission-count>
+	<secondary-peer>peer3</secondary-peer>
+	<profile-name>diameter_peer_profile</profile-name>
+</diameter-peers>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "peer1",
+	"host-identity": "aaa.elitecore.com",
+	"realm": "elitecore.com",
+	"remote-address": "10.121.21.60",
+	"local-address": "10.121.21.60",
+	"diameter-uri-format": "${aaa}${FQDN}${port};transport=tcp;protocol=diameter",
+	"request-timeout": "5000",
+	"retransmission-count": "2",
+	"secondary-peer": "peer3",
+	"profile-name": "diameter_peer_profile"
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers?name=peer1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers?operation=delete&name=peer1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeers/peer1?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

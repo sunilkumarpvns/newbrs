@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class  name="com.elitecore.netvertexsm.datamanager.wsconfig.data.WSConfigData" table="TBLWSCONFIG">
+
+
+		<id name="wsconfigId" type="java.lang.Integer">
+		  <column name="WSCONFIGID" sql-type="NUMERIC(3)" not-null="true"/>
+		</id>    
+
+		<property name="databasedsId" type="java.lang.Long"> 
+			<column name="DATABASEDSID" sql-type="NUMERIC(20)" not-null="false" /> 
+		</property>
+		
+		<property name="tableName" type="string"> 
+			<column name="TABLENAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="userIdentityFieldName" type="string"> 
+			<column name="UIDFIELDNAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+
+		<property name="recordFetchLimit" type="java.lang.Integer"> 
+			<column name="RECORDFETCHLIMIT" sql-type="NUMERIC(5)" not-null="false" /> 
+		</property>
+		
+		<property name="primaryKeyColumn" type="string"> 
+			<column name="PRIMARYKEYCOLUMN" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="sequenceName" type="string"> 
+			<column name="SEQUENCENAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="bodCDRDriverId" type="java.lang.Integer"> 
+			<column name="BODCDRDRIVERID" sql-type="NUMERIC(20)" not-null="false" /> 
+		</property>
+
+		<property name="dynaSprDatabaseId" type="java.lang.Integer"> 
+			<column name="DYNASPRDATABASEDSID" sql-type="NUMERIC(20)" not-null="false" /> 
+		</property>
+		<many-to-one name="dynaSPRDatabaseDSData" column="DYNASPRDATABASEDSID" 
+        	unique="true" fetch="join" insert="false" update="false"
+        	class="com.elitecore.netvertexsm.datamanager.datasource.database.data.DatabaseDSData" >
+        </many-to-one>
+		
+		<property name="usageMonitoringDatabaseId" type="java.lang.Long"> 
+			<column name="USAGEMONITORINGDSID" sql-type="NUMERIC(20)" not-null="false" /> 
+		</property>
+		
+		<many-to-one name="usageMonitoringDatabaseData" column="USAGEMONITORINGDSID" 
+        	unique="true" fetch="join" insert="false" update="false"
+        	class="com.elitecore.netvertexsm.datamanager.datasource.database.data.DatabaseDSData" >
+        </many-to-one>
+		
+		<!-- <component name="provisioningAPIConfiguration" class="com.elitecore.netvertexsm.datamanager.wsconfig.data.ProvisioningAPIConfiguration">
+			<property name="batchUpdate" column="BATCHUPDATE" type="string" not-null="false"/>
+			<property name="batchSize" column="BATCHSIZE" type="java.lang.Integer" not-null="false"/>
+			<property name="batchUpdateInterval" column="BATCHUPDATEINTERVAL" type="java.lang.Integer" not-null="false"/>
+			<property name="dbQueryTimeout" column="DBQUERYTIMEOUT" type="java.lang.Integer" not-null="false"/>
+			<property name="quotaMgrDatabaseDSID" type="java.lang.Integer" column ="QUOTAMGRDATABASEDSID" length="20" not-null="false"/> 
+		</component> -->
+		
+		<property name="subscriberIdentity" type="string"> 
+			<column name="SUBSCRIBERIDENTITY" sql-type="VARACHAR2(20)" not-null="false" /> 
+		</property>
+	
+        <many-to-one name="datasourceConfigInstance" insert="false" update="false" fetch="join" class="com.elitecore.netvertexsm.datamanager.datasource.database.data.DatabaseDSData" column="DATABASEDSID"></many-to-one>
+        <many-to-one name="driverInstanceData" insert="false" update="false" fetch="join" class="com.elitecore.netvertexsm.datamanager.servermgr.drivers.data.DriverInstanceData" column="BODCDRDRIVERID"></many-to-one>
+        
+</class>            
+	            
+</hibernate-mapping>

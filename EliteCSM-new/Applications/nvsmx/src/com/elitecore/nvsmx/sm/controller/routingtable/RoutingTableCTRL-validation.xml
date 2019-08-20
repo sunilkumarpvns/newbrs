@@ -1,0 +1,41 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    <field name="name">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("routingtable.name")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="type">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("routingtable.type")})}</message>
+        </field-validator>
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(type=='MCC-MNC-BASED') || (type=='CUSTOM-REALM-BASED') ]]></param>
+            <message>${getText("invalid.field.value")}</message>
+        </field-validator>
+    </field>
+
+    <field name="mccMncGroupData.id">
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(type=='CUSTOM-REALM-BASED') || ((type=='MCC-MNC-BASED') && (mccMncGroupData.id != null))]]></param>
+            <message>${getText("invalid.field.value")}</message>
+        </field-validator>
+    </field>
+
+    <field name="action">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("routingtable.action")})}</message>
+        </field-validator>
+
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(action=='Local') || (action=='Proxy') ]]></param>
+            <message>${getText("invalid.field.value")}</message>
+        </field-validator>
+    </field>
+
+
+</validators>

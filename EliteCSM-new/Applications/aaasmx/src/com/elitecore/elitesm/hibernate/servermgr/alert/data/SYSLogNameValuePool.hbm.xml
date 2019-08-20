@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class  name="com.elitecore.elitesm.datamanager.servermgr.alert.data.SYSLogNameValuePoolData" table="TBLSSYSLOGVALUEPOOL">
+
+		<id name="id" column="id" type="CharType">			
+		</id>    
+
+		<property name="name" type="StringType"> 
+			<column name="name" sql-type="VARCHAR(60)" not-null="false" /> 
+		</property>
+		
+		<property name="value" type="StringType"> 
+			<column name="value" sql-type="VARCHAR(60)" not-null="false" /> 
+		</property>
+		
+	</class>
+
+</hibernate-mapping> 
+
+

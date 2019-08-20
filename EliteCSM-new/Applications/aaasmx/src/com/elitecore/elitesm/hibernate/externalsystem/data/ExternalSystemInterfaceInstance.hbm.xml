@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class  name="com.elitecore.elitesm.datamanager.externalsystem.data.ExternalSystemInterfaceInstanceData" table="TBLMESIINSTANCE">
+
+		<id name="esiInstanceId" column="esiinstanceid" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="esiTypeId" type="long"> 
+			<column name="esitypeid" sql-type="NUMBER(10)" not-null="true" /> 
+		</property>
+		
+		<property name="realmNames" type="StringType"> 
+			<column name="REALMNAMES" sql-type="VARCHAR(200)" not-null="false" /> 
+		</property>
+
+		<property name="name" type="StringType"> 
+			<column name="name" sql-type="VARCHAR(200)" not-null="true" /> 
+		</property>
+
+		<property name="description" type="StringType"> 
+			<column name="description" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+
+		<property name="address" type="StringType"> 
+			<column name="address" sql-type="VARCHAR(100)" not-null="true" /> 
+		</property>
+
+		<property name="sharedSecret" type="StringType"> 
+			<column name="sharedsecret" sql-type="VARCHAR(255)" not-null="true" /> 
+		</property>
+
+		<property name="status" type="CharType"> 
+			<column name="status" sql-type="CHAR(5)" not-null="true" /> 
+		</property>
+
+		<property name="timeout" type="java.lang.Long"> 
+			<column name="TIMEOUT" sql-type="NUMERIC(10)" not-null="true" /> 
+		</property>
+
+		<property name="minLocalPort" type="java.lang.Integer"> 
+			<column name="MINLOCALPORT" sql-type="NUMERIC(10)" not-null="true" /> 
+		</property>
+
+		<property name="expiredRequestLimitCount" type="java.lang.Long"> 
+			<column name="EXPIREDREQLIMITCOUNT" sql-type="NUMERIC(10)" not-null="true" /> 
+		</property>
+
+
+		<property name="createdByStaffId" type="StringType"> 
+			<column name="createdbystaffid" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+
+		<property name="lastModifiedByStaffId" type="StringType"> 
+			<column name="lastmodifiedbystaffid" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp"> 
+			<column name="lastmodifieddate" sql-type="TIMESTAMP(6)" not-null="false" /> 
+		</property>
+
+		<property name="createDate" type="java.sql.Timestamp"> 
+			<column name="createdate" sql-type="TIMESTAMP(6)" not-null="false" /> 
+		</property>
+		
+		<property name="retryLimit" type="java.lang.Long"> 
+			<column name="RETRYLIMIT" sql-type="NUMERIC(20)" not-null="true" /> 
+		</property>
+		
+		<property name="statusCheckDuration" type="java.lang.Long"> 
+			<column name="STATUSCHECKDURATION" sql-type="NUMERIC(20)" not-null="true" /> 
+		</property>
+		
+		<property name="supportedAttribute" type="StringType"> 
+			<column name="SUPPORTEDATTRIBUTE" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+		
+		<property name="unSupportedAttribute" type="StringType"> 
+			<column name="UNSUPPORTEDATTRIBUTE" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+		
+		<property name="statusCheckMethod" type="java.lang.Long"> 
+			<column name="STATUSCHECKMETHOD" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="packetBytes" type="StringType"> 
+			<column name="PACKETBYTES" sql-type="VARCHAR(1000)" not-null="false" /> 
+		</property>
+		
+		<property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	     </property>
+		
+	</class>
+
+</hibernate-mapping>  

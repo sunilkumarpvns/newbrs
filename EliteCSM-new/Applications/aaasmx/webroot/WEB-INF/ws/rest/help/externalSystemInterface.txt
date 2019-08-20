@@ -1,0 +1,402 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/esi?name=demo&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi.xml?name=demo
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/demo?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/demo.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/esi?operation=search&name=demo&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi.xml?operation=search&name=demo
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/demo?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/demo.xml?operation=search
+
+Response     :
+
+<external-system>
+    <name>demo</name>
+    <description>Created by admin on 11/28/2016 02:47:32 PM</description>
+    <esi-type>IP Pool Server</esi-type>
+    <address>10.121.21.221:1812</address>
+    <shared-secret>secret</shared-secret>
+    <timeout>1000</timeout>
+    <retry-count>1</retry-count>
+    <expired-request-limit-count>50</expired-request-limit-count>
+    <status-check-duration>120</status-check-duration>
+    <status-check-method>PACKET_BYTES</status-check-method>
+    <packet-bytes>create</packet-bytes>
+    <minimum-local-port>10</minimum-local-port>
+    <supported-attributes>0:1</supported-attributes>
+    <unsupported-attributes>0:2</unsupported-attributes>
+</external-system>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/esi?name=radAuthesi&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi.json?name=radAuthesi
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/radAuthesi?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/radAuthesi.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/esi?operation=search&name=radAuthesi&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi.json?operation=search&name=radAuthesi
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/radAuthesi?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/radAuthesi.json?operation=search
+
+Response     :
+
+{
+  "name": "demo",
+  "description": "Created by admin on 11/28/2016 02:47:32 PM",
+  "esi-type": "IP Pool Server",
+  "address": "10.121.21.221:1812",
+  "shared-secret": "secret",
+  "timeout": 1000,
+  "retry-count": 1,
+  "expired-request-limit-count": 50,
+  "status-check-duration": 120,
+  "status-check-method": "PACKET_BYTES",
+  "packet-bytes": "create",
+  "minimum-local-port": 10,
+  "supported-attributes": "0:1",
+  "unsupported-attributes": "0:2"
+}
+
+***********************************************************************
+					CREATE OPERATION(SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/esi
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/esi?operation=create
+
++-+-+-+-+-+ XML +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body:
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<external-system>
+    <name>radAuthesi</name>
+    <description>Created by admin on 11/28/2016 02:47:32 PM</description>
+    <esi-type>Rad Auth</esi-type>
+    <address>10.121.21.221:1812</address>
+    <shared-secret>secret</shared-secret>
+    <realm>elitecore.com</realm>
+    <timeout>1000</timeout>
+    <retry-count>10</retry-count>
+    <expired-request-limit-count>50</expired-request-limit-count>
+    <status-check-duration>120</status-check-duration>
+    <status-check-method>ICMP_REQUEST</status-check-method>
+    <minimum-local-port>10</minimum-local-port>
+    <supported-attributes>0:1</supported-attributes>
+    <unsupported-attributes>0:2</unsupported-attributes>
+</external-system>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>External System Interface created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "NasEsi",
+  "description": "Created by admin on 11/28/2016 02:47:32 PM",
+  "esi-type": "NAS",
+  "address": "10.121.21.221:1815",
+  "shared-secret": "secret",
+  "timeout": 1000,
+  "retry-count": 10,
+  "expired-request-limit-count": 50,
+  "status-check-duration": 120,
+  "status-check-method": "PACKET_BYTES",
+  "packet-bytes": "updatedbytes",
+  "minimum-local-port": 10,
+  "supported-attributes": "0:1",
+  "unsupported-attributes": "0:2"
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>External System Interface created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION(BULK CREATION)
+***********************************************************************
+
+#URL Using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+    <external-system>
+        <name>radAuthesi</name>
+        <description>Created by admin on 11/28/2016 02:47:32 PM</description>
+        <esi-type>Rad Auth</esi-type>
+        <address>10.121.21.221:1812</address>
+        <shared-secret>secret</shared-secret>
+        <realm>elitecore.com</realm>
+        <timeout>1000</timeout>
+        <retry-count>10</retry-count>
+        <expired-request-limit-count>50</expired-request-limit-count>
+        <status-check-duration>120</status-check-duration>
+        <status-check-method>ICMP_REQUEST</status-check-method>
+        <minimum-local-port>10</minimum-local-port>
+        <supported-attributes>0:1</supported-attributes>
+        <unsupported-attributes>0:2</unsupported-attributes>
+    </external-system>
+    <external-system>
+        <name>ChargingGateway</name>
+        <description>Created by admin on 11/28/2016 02:47:32 PM</description>
+        <esi-type>Charging Gateway</esi-type>
+        <address>10.121.21.221:1818</address>
+        <shared-secret>secret</shared-secret>
+        <timeout>1000</timeout>
+        <retry-count>10</retry-count>
+        <expired-request-limit-count>50</expired-request-limit-count>
+        <status-check-duration>120</status-check-duration>
+        <status-check-method>RADIUS_PACKET</status-check-method>
+        <packet-bytes>createRadius-Message</packet-bytes>
+        <minimum-local-port>10</minimum-local-port>
+        <supported-attributes>0:1</supported-attributes>
+        <unsupported-attributes>0:2</unsupported-attributes>
+    </external-system>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>External System Interface(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{  
+   "list":[  
+      {  
+         "name":"chargingGateway",
+         "description":"Created by admin on 11/28/2016 02:47:32 PM",
+         "esi-type":"Charging Gateway",
+         "address":"10.121.21.221:1815",
+         "shared-secret":"secret",
+         "timeout":1000,
+         "retry-count":10,
+         "expired-request-limit-count":50,
+         "status-check-duration":120,
+         "status-check-method":"ICMP_REQUEST",
+         "minimum-local-port":10,
+         "supported-attributes":"0:1",
+         "unsupported-attributes":"0:2"
+      },
+      {  
+         "name":"NasEsi",
+         "description":"Created by admin on 11/28/2016 02:47:32 PM",
+         "esi-type":"NAS",
+         "address":"10.121.21.221:1815",
+         "shared-secret":"secret",
+         "timeout":1000,
+         "retry-count":10,
+         "expired-request-limit-count":50,
+         "status-check-duration":120,
+         "status-check-method":"PACKET_BYTES",
+         "packet-bytes":"updatedbytes",
+         "minimum-local-port":10,
+         "supported-attributes":"0:1",
+         "unsupported-attributes":"0:2"
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>External System Interface(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/esi?name=radAuthesi
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/radAuthesi
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/esi?name=radAuthesi&operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/radAuthesi?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<external-system>
+    <name>radAuthESI</name>
+    <description>Created by admin on 11/28/2016 02:47:32 PM</description>
+    <esi-type>Rad Auth</esi-type>
+    <address>10.121.21.221:1812</address>
+    <shared-secret>secret</shared-secret>
+    <realm>elitecore.com</realm>
+    <timeout>1000</timeout>
+    <retry-count>10</retry-count>
+    <expired-request-limit-count>50</expired-request-limit-count>
+    <status-check-duration>120</status-check-duration>
+    <status-check-method>RADIUS_PACKET</status-check-method>
+    <packet-bytes>createupadte</packet-bytes>
+    <minimum-local-port>10</minimum-local-port>
+    <supported-attributes>0:1</supported-attributes>
+    <unsupported-attributes>0:2</unsupported-attributes>
+</external-system>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>External System Interface updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "name": "radAuthesi",
+  "description": "Created by admin on 11/28/2016 02:47:32 PM",
+  "esi-type": "Rad Auth",
+  "address": "10.121.21.221:1812",
+  "shared-secret": "secret",
+  "realm": "elitecore.com",
+  "timeout": 1000,
+  "retry-count": 10,
+  "expired-request-limit-count": 50,
+  "status-check-duration": 120,
+  "status-check-method": "RADIUS_PACKET",
+  "packet-bytes": "updatedbytes",
+  "minimum-local-port": 10,
+  "supported-attributes": "0:1",
+  "unsupported-attributes": "0:2"
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>External System Interface updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/esi?name=demo2,demo1,demo3
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/demo2,demo1,demo3
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/esi?operation=delete&name=demo2,demo1,demo3
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/esi/demo2,demo1,demo3?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>External System Interface(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+
+#Note : 
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+3) for address we strictly recommend following format :
+		Ipv4 : ip address:port
+		Ipv6 : [ip address]:port
+
+***********************************************************************
+						Additional Details
+***********************************************************************
+
+# ESI TYPE
+
+Rad Auth
+Rad Acct
+IP Pool Server
+Prepaid Server
+Session Manager
+Charging Gateway
+NAS
+
+
+## Status Check Method
+
+PACKET_BYTES
+RADIUS_PACKET
+ICMP_REQUEST

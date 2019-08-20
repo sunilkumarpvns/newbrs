@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class  name="com.elitecore.elitesm.datamanager.servermgr.eap.data.EAPSimAkaConfigData" table="TBLMEAPSIMAKACONFIG">
+
+		<id name="configId" column="CONFIGID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+		
+		<property name="pseudonymGenMethod" type="StringType"> 
+			<column name="PSEUDONYMGENMETHOD" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="pseudonymHexenCoding" type="StringType"> 
+			<column name="PSEUDONYMHEXENCODING" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="pseudonymPrefix" type="StringType"> 
+			<column name="PSEUDONYMPREFIX" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="fastReAuthGenMethod" type="StringType"> 
+			<column name="FASTREAUTHGENMETHOD" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="fastReAuthHexenCoding" type="StringType"> 
+			<column name="FASTREAUTHHEXENCODING" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="fastReAuthPrefix" type="StringType"> 
+			<column name="FASTREAUTHPREFIX" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="eapId" type="StringType"> 
+			<column name="EAP_ID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="eapAuthType" type="java.lang.Integer"> 
+			<column name="EAPAUTHTYPE" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="pseudonymRootNAI" type="StringType"> 
+			<column name="PSEUDONYMROOTNAI" sql-type="VARCHAR(10)" not-null="false" /> 
+		</property>
+		
+		<property name="pseudonymAAAIdentityInRootNAI" type="StringType"> 
+			<column name="PSEUDONYMAAAIDENTITYROOTNAI" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="fastReAuthRootNAI" type="StringType"> 
+			<column name="FASTREAUTHROOTNAI" sql-type="VARCHAR(10)" not-null="false" /> 
+		</property>
+		
+		<property name="fastReAuthAAAIdentityInRootNAI" type="StringType"> 
+			<column name="FASTREAUTHAAAIDENTITYROOTNAI" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+	</class>
+
+</hibernate-mapping> 
+
+	
+
+
+	

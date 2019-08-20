@@ -1,0 +1,17 @@
+{
+  "id": "rest_diameter_gateway_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Updated_rest_Diameter_Gateway",
+  "description": "Updated by REST",
+  "policyEnforcementMethod": "Cisco_SCE",
+  "connectionURL": "192.168.2.138",
+  "hostIdentity": "gx.sterlite.com",
+  "realm": "sterlite.com",
+  "localAddress": "10.121.21.76",
+  "alternateHostId": null,
+  "diameterGatewayProfileId": "rest_diameter_profile_11111111",
+  "requestTimeout": 3001,
+  "retransmissionCount": 2,
+  "groupNames": "DefaultGroup"
+}

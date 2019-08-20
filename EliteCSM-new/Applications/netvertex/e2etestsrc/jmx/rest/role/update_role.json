@@ -1,0 +1,94 @@
+{
+  "id": "rest_role_11111111",
+  "status": "ACTIVE",
+  "groups": null,
+  "name": "updated_rest_role",
+  "description": "Created by REST Automation",
+  "roleModuleActionData": [
+    {
+      "moduleName": "QUOTAPROFILE",
+      "actions": "CREATE,DELETE,UPDATE"
+    },
+    {
+      "moduleName": "PCCRULE",
+      "actions": "CREATE,DELETE,UPDATE"
+    },
+    {
+      "moduleName": "NOTIFICATION",
+      "actions": "CREATE,DELETE,UPDATE"
+    },
+    {
+      "moduleName": "DATAPKG",
+      "actions": "CREATE,DELETE,IMPORT,EXPORT,UPDATE,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "SUBSCRIBER",
+      "actions": "CREATE,DELETE,UPDATE,CREATE_SUBSCRIBER,VIEW_SUBSCRIBER,DELETE_SUBSCRIBER,UPDATE_SUBSCRIBER,PURGE_SUBSCRIBER,RESTORE_SUBSCRIBER,SUBSCRIBE_ADDON,UNSUBSCRIBE_ADDON,VIEW_DELETED_SUBSCRIBER,VIEW_SUBSCRIPTION,"
+    },
+    {
+      "moduleName": "SUBSCRIBERSESSION",
+      "actions": "REAUTH,DELETE,DISCONNECT,SEARCH,"
+    },
+    {
+      "moduleName": "IMSPKGSERVICE",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "IMSPKG",
+      "actions": "CREATE,DELETE,IMPORT,EXPORT,UPDATE,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "GLOBALPCCRULE",
+      "actions": "CREATE,DELETE,IMPORT,EXPORT,UPDATE,"
+    },
+    {
+      "moduleName": "EMERGENCYPCCRULE",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "EMERGENCYQOSPROFILE",
+      "actions": "CREATE,DELETE,MANAGEORDER,UPDATE,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "EMERGENCYPKG",
+      "actions": "CREATE,DELETE,IMPORT,EXPORT,MANAGEORDER,UPDATE,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "RATINGGROUP",
+      "actions": "CREATE,DELETE,IMPORT,EXPORT,UPDATE,"
+    },
+    {
+      "moduleName": "PROMOTIONALQUOTAPROFILE",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "PROMOTIONALPCCRULE",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "PROMOTIONALQOSPROFILE",
+      "actions": "CREATE,DELETE,MANAGEORDER,UPDATE,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "PROMOTIONALNOTIFICATION",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "PROMOTIONALPKG",
+      "actions": "CREATE,DELETE,MANAGEORDER,IMPORT,EXPORT,UPDATE,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "CHARGINGRULEBASENAME",
+      "actions": "CREATE,DELETE,UPDATE,IMPORT,EXPORT,"
+    },
+    {
+      "moduleName": "SPR",
+      "actions": "CREATE,UPDATE,DELETE,"
+    },
+    {
+      "moduleName": "LOB",
+      "actions": "CREATE,UPDATE,DELETE,"
+    }
+  ],
+  "groupNames": null
+}

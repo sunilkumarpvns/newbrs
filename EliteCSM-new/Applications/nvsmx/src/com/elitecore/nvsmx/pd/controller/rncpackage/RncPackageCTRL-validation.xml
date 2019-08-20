@@ -1,0 +1,71 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+ 
+ 	<field name="name">
+ 		<field-validator type="requiredstring" short-circuit="true">
+ 			<message>${getText("error.required.field", {getText("rncpackage.name")})}</message>
+ 		</field-validator>
+ 
+ 		<field-validator type="stringlength">
+ 			<param name="minLength">2</param>
+ 			<param name="maxLength">100</param>
+ 			<param name="trim">true</param>
+ 			<message>${getText("error.length", {getText("rncpackage.name")})}</message>
+ 		</field-validator>
+ 		
+ 		 <field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("rncpackage.name")})}</message>
+        </field-validator>		
+ 	</field>
+ 	
+ 	<field name="description">
+ 		<field-validator type="stringlength">
+ 			<param name="minLength">0</param>
+ 			<param name="maxLength">2000</param>
+ 			<param name="trim">true</param>
+ 			<message>${getText("error.length", {getText("rncpackage.description")})}</message>
+ 		</field-validator>
+ 	</field>	
+
+	<field name="mode">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("rncpackage.mode")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^DESIGN|TEST|LIVE|LIVE2$]]></param>
+			<message>${getText("invalid.required.field", {getText("rncpackage.mode")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="status">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("rncpackage.status")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^ACTIVE|INACTIVE|RETIRED$]]></param>
+			<message>${getText("invalid.required.field", {getText("rncpackage.status")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="type">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("rncpackage.type")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^BASE|MONETARY_ADDON|NON_MONETARY_ADDON$]]></param>
+			<message>${getText("invalid.required.field", {getText("rncpackage.type")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="chargingType">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("rncpackage.chargingtype")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^SESSION|EVENT$]]></param>
+			<message>${getText("invalid.required.field", {getText("rncpackage.chargingtype")})}</message>
+		</field-validator>
+	</field>
+ </validators>

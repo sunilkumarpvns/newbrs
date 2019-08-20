@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.radius.dictionary.data.DictionaryParameterDetailData" table="TBLMDICTIONARYPARAMETERDETAIL" >          
+	 
+		<id name="dictionaryParameterDetailId" column="DICTIONARYPARAMETERDETAILID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		    
+		<property name="dictionaryId" type="StringType">
+		        <column name="DICTIONARYID" sql-type="VARCHAR(36)" not-null="true" />
+		</property>
+        
+        <property name="parentDetailId" type="StringType">
+		        <column name="PARENTDETAILID" sql-type="VARCHAR(36)" not-null="false" />
+		</property>
+        
+		<property name="alias" type="StringType">
+		        <column name="ALIAS" sql-type="VARCHAR(100)" not-null="true" />
+		</property>
+     
+		<property name="name" type="StringType">
+		        <column name="NAME" sql-type="VARCHAR(100)" not-null="true"/>
+		</property>
+		
+		<property name="vendorParameterId" type="java.lang.Integer">
+		        <column name="VENDORPARAMETERID" sql-type="NUMBER(3)" not-null="true"/>
+		</property>
+     
+		<property name="predefinedValues" type="StringType">
+		        <column name="PREDEFINEDVALUES" sql-type="VARCHAR(4000)" not-null="false"/>
+		</property>
+		
+		<property name="radiusRFCDictionaryParameterId" type="long">
+		        <column name="RADIUSRFCDICTIONARYPARAMETERID" sql-type="NUMBER(20)" not-null="true"/>
+		</property>
+		
+		<property name="dataTypeId" type="CharType">
+		        <column name="DATATYPEID" sql-type="CHAR(5)" not-null="true"/>
+		</property>
+		
+		<property name="vendorParameterOveridden" type="CharType">
+		        <column name="VENDORPARAMETEROVERIDDEN" sql-type="CHAR(1)" not-null="true"/>
+		</property>
+		
+		<property name="operatorId" type="CharType">
+		        <column name="OPERATORID" sql-type="CHAR(5)" not-null="false"/>
+		</property>
+		
+		<property name="vendorId" type="long">
+		        <column name="VENDORID" sql-type="NUMBER(20)" not-null="true"/>
+		</property>
+		
+		<property name="dictionaryNumber" type="long">
+		        <column name="DICTIONARYNUMBER" sql-type="NUMBER(20)" not-null="true"/>
+		</property>
+		
+		<property name="networkFilterSupport" type="CharType">
+		        <column name="NETWORKFILTERSUPPORT" sql-type="CHAR(1)" not-null="false"/>
+		</property>
+		
+		<property name="usageType" type="StringType">
+		        <column name="USAGETYPE" sql-type="VARCHAR(20)" not-null="false"/>
+		</property>
+		
+		<property name="avPair" type="CharType">
+		        <column name="AVPAIR" sql-type="CHAR(1)" not-null="true"/>
+		</property>
+     	
+     	<property name="hasTag" type="StringType">
+		        <column name="HASTAG" sql-type="VARCHAR(3)" not-null="true"/>
+		</property>
+		
+		<property name="ignoreCase" type="StringType" >
+		        <column name="IGNORECASE" sql-type="VARCHAR(3)" not-null="false" />
+		</property>
+		
+		<property name="encryptStandard" type="java.lang.Integer">
+		        <column name="ENCRYPTSTANDARD" sql-type="NUMERIC" not-null="false"/>
+		</property>
+		
+		<property name="attributeId" type="StringType">
+		        <column name="ATTRIBUTEID" sql-type="VARCHAR(64)" not-null="true"/>
+		</property>
+		
+		<property name="lengthFormat" type="StringType">
+			<column name="LENGTHFORMAT" sql-type="VARCHAR(8)"></column>
+		</property>
+		
+		<property name="paddingType" type="StringType">
+			<column name="PADDINGTYPE" sql-type="VARCHAR(8)"></column>
+		</property>
+		
+		<set name="nestedParameterDetailSet" cascade="all" table="TBLMDICTIONARYPARAMETERDETAIL" lazy="false" inverse="true" order-by="vendorParameterId">
+      		<key column="PARENTDETAILID"></key>
+      		<one-to-many class="com.elitecore.elitesm.datamanager.radius.dictionary.data.DictionaryParameterDetailData"/>
+      	</set>
+		
+		<many-to-one name="dictionaryOperator" class="com.elitecore.elitesm.datamanager.radius.policies.radiuspolicy.data.OperatorData" column="OPERATORID" insert="false" update="false" not-null="true" lazy="false" />   
+		<many-to-one name="dataType" class="com.elitecore.elitesm.datamanager.radius.dictionary.data.DataTypeData" column="DATATYPEID" insert="false" update="false" not-null="true" lazy="false"/>   		
+		 <!--<many-to-one name="parentDetailId" class="com.elitecore.elitesm.datamanager.radius.dictionary.data.DictionaryParameterDetailData"  insert="false" update="false"  
+            column="PARENTDETAILID" not-null="false"/>  
+            -->
+	    	
+	</class>
+	
+</hibernate-mapping>
+
+          

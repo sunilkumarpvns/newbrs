@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_service,POST : Create Service rest_service : 201,pd/service/service.json,POST,create_service.json,,58306,201,service
+2,get_created_service,GET : rest_service should be displayed : 200,pd/service/service/SMS_REST.json,GET,,,58307,200,service
+3,update_service,PUT : Update rest_service and change to updated_rest_service : 200,pd/service/service/SMS_REST.json,PUT,update_service.json,,58308,200,service
+4,get_updated_service,GET : updated_rest_service should be displayed : 200,pd/service/service/SMS_REST.json,GET,,,58309,200,service
+5,delete_service,DELETE : Delete updated_rest_service : 200,pd/service/service/SMS_REST.json,DELETE,,,58310,200,service
+6,get_deleted_service,GET : rest_service should not be displayed : 404,pd/service/service/SMS_REST.json,GET,,"{""actionErrors"":[""Service Not Found with id: SMS_REST""]}",58311,404,service

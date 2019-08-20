@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.diameter.routingconf.data.DiameterRoutingTableData" table="TBLMROUTINGTABLE">
+
+		<id name="routingTableId" column="ROUTINGTABLEID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="routingTableName" type="StringType"> 
+			<column name="ROUTINGTABLENAME" sql-type="VARCHAR(128)" not-null="false" /> 
+		</property>
+		
+		<property name="overloadAction" type="StringType"> 
+			<column name="OVERLOADACTION" sql-type="VARCHAR(12)" not-null="false" /> 
+		</property>
+		
+		<property name="resultCode" type="int"> 
+			<column name="RESULTCODE" sql-type="NUMBER(32)" not-null="false" /> 
+		</property>
+		
+		<property name="routingScript" type="StringType">
+			<column name="ROUTINGSCRIPT" sql-type="VARCHAR(255)" not-null="false"></column>
+		</property>
+		
+   </class>            
+	            
+</hibernate-mapping>

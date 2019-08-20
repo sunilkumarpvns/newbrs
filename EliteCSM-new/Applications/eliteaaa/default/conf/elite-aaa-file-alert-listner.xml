@@ -1,0 +1,15 @@
+<elite-aaa-file-alert-listners>	
+
+	<elite-aaa-file-alert-listner>
+		<name></name> 			<!-- eg.AUTH-DB-DOWN -->
+		<file-name></file-name>
+		<file-path></file-path>
+	</elite-aaa-file-alert-listner>
+	
+	<elite-aaa-file-alert-listner>
+		<name></name> 			<!-- eg.ACCT-DB-DOWN -->
+		<file-name></file-name>
+		<file-path></file-path>
+	</elite-aaa-file-alert-listner>	
+	
+</elite-aaa-file-alert-listners>	

@@ -1,0 +1,18 @@
+{
+  "id": "rest_gtop_rx_packet_mapping_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Rest_AARequests",
+  "description": "Gateway to PCC Packet Mapping for Rx Diameter Gateway Profile",
+  "commProtocol": "DIAMETER",
+  "packetType": "AUTHENTICATE_AUTHORIZE_REQUEST",
+  "type": "GATEWAY_TO_PCC",
+  "attributeMappingData": {
+    "mappings": [
+      "{\"pid\":\"0\",\"policykey\":\"CS.UserName\",\"attribute\":\"0:1\",\"defaultvalue\":\"netvertex_user\",\"valuemapping\":\"V\"}"
+    ],
+    "orderNumber": null
+  },
+  "applicationType": null,
+  "groupNames": "DefaultGroup"
+}

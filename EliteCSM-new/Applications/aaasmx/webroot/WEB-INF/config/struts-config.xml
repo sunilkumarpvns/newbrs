@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <data-sources />
+
+    <form-beans>
+      <form-bean name="systemLoginForm" type="com.elitecore.elitesm.web.core.system.login.forms.SystemLoginForm" />
+      <form-bean name="searchStaffForm" type="com.elitecore.elitesm.web.core.system.staff.forms.SearchStaffForm"/>
+      <form-bean name="changePasswordForm" type="com.elitecore.elitesm.web.core.system.login.forms.ChangePasswordForm"/>      
+      <form-bean name="miscStaffForm" type="com.elitecore.elitesm.web.core.system.staff.forms.MiscStaffForm"/>
+	  <form-bean name="createStaffForm" type="com.elitecore.elitesm.web.core.system.staff.forms.CreateStaffForm"/>
+      <form-bean name="viewStaffForm" type="com.elitecore.elitesm.web.core.system.staff.forms.ViewStaffForm"/>
+      <form-bean name="updateStaffBasicDetailForm" type="com.elitecore.elitesm.web.core.system.staff.forms.UpdateStaffBasicDetailForm"/>
+      <form-bean name="updateAccessGroupForm" type="com.elitecore.elitesm.web.core.system.accessgroup.forms.UpdateAccessGroupForm"/>
+      <form-bean name="changeUserNameForm" type="com.elitecore.elitesm.web.core.system.staff.forms.UpdateStaffUserNameForm"/>
+      <form-bean name="changeStaffPasswordForm" type="com.elitecore.elitesm.web.core.system.staff.forms.UpdateStaffPasswordForm"/>
+      <form-bean name="changeStaffStatusForm" type="com.elitecore.elitesm.web.core.system.staff.forms.UpdateStaffStatusForm"/>
+      <form-bean name="viewStaffAdvanceDetailForm" type="com.elitecore.elitesm.web.core.system.staff.forms.ViewStaffAdvanceDetailForm"/>
+      <form-bean name="updateSystemParameterForm" type="com.elitecore.elitesm.web.core.system.systemparameter.forms.UpdateSystemParameterForm"/>
+      <form-bean name="viewSystemParameterForm" type="com.elitecore.elitesm.web.core.system.systemparameter.forms.ViewSystemParameterForm" />
+      <form-bean name="licenceForm" type="com.elitecore.elitesm.web.core.system.license.forms.LicenseForm" />
+      <form-bean name="dashboardConfigurationForm" type="com.elitecore.elitesm.web.core.system.dashboardconfiguration.forms.DashboardConfigurationForm" />
+      <form-bean name="systemInformationForm" type="com.elitecore.elitesm.web.core.system.systeminformation.form.SystemInformationForm"/>
+      <form-bean name="databasePropertiesForm" type="com.elitecore.elitesm.web.core.system.dbpropertiesconfiguration.form.DatabasePropertiesForm" />
+      
+      <form-bean name="createAccessGroupForm" type="com.elitecore.elitesm.web.core.system.accessgroup.forms.CreateAccessGroupForm"></form-bean>
+      <form-bean name="listAccessGroupForm" type="com.elitecore.elitesm.web.core.system.accessgroup.forms.ListAccessGroupForm"></form-bean>
+      <form-bean name="miscListAccessGroupForm" type="com.elitecore.elitesm.web.core.system.accessgroup.forms.MiscListAccessGroupForm"></form-bean>
+      <form-bean name="viewAccessGroupForm" type="com.elitecore.elitesm.web.core.system.accessgroup.forms.ViewAccessGroupForm"></form-bean>  
+      <form-bean name="licenseForm" type="com.elitecore.elitesm.web.core.system.license.forms.LicenseForm"></form-bean>
+      <form-bean name="helpForm" type="com.elitecore.elitesm.web.core.system.help.forms.HelpForm"></form-bean>    
+      <form-bean name="staffAuditForm" type="com.elitecore.elitesm.web.core.system.staff.forms.StaffAuditForm"/>
+      <form-bean name="tableOrderForm" type="com.elitecore.elitesm.web.tableorder.form.TableOrderForm"></form-bean>
+      <form-bean name="dashboardForm" type="com.elitecore.elitesm.web.dashboard.form.DashboardForm"/>
+      <form-bean name="newPasswordForm" type="com.elitecore.elitesm.web.core.system.login.forms.NewPasswordForm"/>
+      <form-bean name="eliteAAASetupForm" type="com.elitecore.elitesm.web.systemstartup.defaultsetup.form.EliteAAASetupForm" />
+      <form-bean name="eliteAAAStartupDBSetupForm" type="com.elitecore.elitesm.web.systemstartup.dbsetup.form.EliteAAAStartupDBSetupForm"/>
+      <form-bean name="inMemoryDataGridForm" type="com.elitecore.elitesm.web.inmemorydatagrid.form.InMemoryDataGridForm"/>
+      <form-bean name="eliteAAACaseSelectionForm" type="com.elitecore.elitesm.web.systemstartup.defaultsetup.form.EliteAAACaseSelectionForm"/>
+  
+    </form-beans>
+  
+    <global-exceptions />
+  
+    <global-forwards >
+      <forward name="success" path="/jsp/core/response/SuccessResponsePage.jsp" />
+      <forward name="failure" path="/handleException.do" />
+      <forward name="popupfailure" path="/handleException.do" /> 
+      <forward name="popupsuccess" path="/jsp/core/response/PopupSuccessResponsePage.jsp" />
+                 
+    </global-forwards>
+
+    <action-mappings>
+    
+       <action path="/eliteAAAStartupDBSetup" type="com.elitecore.elitesm.web.systemstartup.dbsetup.controller.EliteAAAStartupDBSetupAction"
+			name="eliteAAAStartupDBSetupForm" validate="false" scope="request">
+	 		 <forward name="success" path="/startup.do"/>
+	 		 <forward name="create_database_properties" path="/configureDBProperty.do"/>
+	 		 <forward name="change_database_properties" path="/configureDBProperty.do"/>
+	 		 <forward name="execute_sql" path="/executeSQL.do" />
+	  </action>
+	  
+	  <action path="/configureDBProperty" type="com.elitecore.elitesm.web.systemstartup.dbsetup.controller.ConfiguredDatabaseConnectionParamtersAction"
+	  		  name="eliteAAAStartupDBSetupForm" validate="false" parameter="updateDBProperties" scope="request">
+	  		<forward name="success" path="/startup.do"/>
+	  		<forward name="change_database_properties" path="/jsp/core/system/startup/dbstartup/ConfigureDatabaseProperties.jsp"/>
+	  		<forward name="execute_sql_file" path="/jsp/core/system/startup/dbstartup/ExecuteSQL.jsp" />
+	  		<forward name="forwardToDefaultStartup" path="/eliteAAAStartupDBSetup.do" />
+	  </action>
+	  
+	  <action path="/executeSQL" type="com.elitecore.elitesm.web.systemstartup.dbsetup.controller.ConfiguredDatabaseConnectionParamtersAction"
+	  		  name="eliteAAAStartupDBSetupForm" validate="false" parameter="executeSQL" scope="request">
+	  		<forward name="execute_sql_file" path="/jsp/core/system/startup/dbstartup/ExecuteSQL.jsp" />
+	  		<forward name="forwardToDefaultStartup" path="/eliteAAAStartupDBSetup.do" />
+	  		<forward name="success" path="/startup.do"/>
+	  </action>
+    
+      <action path="/startup" 
+         type="com.elitecore.elitesm.web.core.system.login.StartupPageAction"
+         name="systemLoginForm"
+         validate="false">
+         <forward name="startup_success" path="/jsp/core/system/login/Startup.jsp"  /> 
+         <forward name="startup_failure" path="/jsp/core/system/login/Startup.jsp" /> 
+         <forward name="forwardToDefaultStartup" path="/eliteAAAStartupDBSetup.do" />
+         <forward name="login" path="/Login.jsp" />
+      </action>
+    
+      <action path="/login" 
+         type="com.elitecore.elitesm.web.core.system.login.SystemLoginAction"
+         name="systemLoginForm"
+         validate="false" scope="request">
+         <forward name="loginHome" path="/jsp/core/system/login/LoginHome.jsp" />
+         <forward name="loginFailed" path="/Login.jsp" />
+         <forward name="loginFailedInitFailed" path="/eliteAAAStartupDBSetup.do" />
+         <forward name="changePassword" path="/jsp/core/system/login/PasswordExpired.jsp" />              
+      </action>
+ 
+      <action path="/logout" 
+         type="com.elitecore.elitesm.web.core.system.logout.SystemLogoutAction"
+         validate="false">
+         <forward name="logout" path="/Login.jsp" />        
+      </action>
+      
+     <action path="/welcomeHome" 
+         type="com.elitecore.elitesm.web.core.system.login.WelcomeUserHome"
+         validate="false">
+         <forward name="loginHome"  path="/jsp/core/system/login/LoginHome.jsp" /> 
+         <forward name="loginFailed" path="/Login.jsp" />
+         <forward name="loginFailedInitFailed" path="/eliteAAAStartupDBSetup.do" />
+      </action>        
+      <action path="/initSearchStaff"
+		 type="com.elitecore.elitesm.web.core.system.staff.InitSearchStaffAction"
+		 name="searchStaffForm"
+		 scope="request"
+		 validate="true">
+		 <forward name="initSearchStaff" path="/jsp/core/system/staff/SearchStaff.jsp"/>
+	  </action>
+	  
+	  <action path="/searchStaff"	
+	  	 type="com.elitecore.elitesm.web.core.system.staff.SearchStaffAction"
+	  	 scope="request"
+	  	 name="searchStaffForm"
+	  	 validate="true"
+	  	 input="/jsp/radius/staff/SearchStaff.jsp">
+	  	 <forward name="searchStaffList" path="/jsp/core/system/staff/SearchStaff.jsp"/>
+	  </action>
+	  
+	  <action path="/initCreateStaff"
+	  	  type="com.elitecore.elitesm.web.core.system.staff.InitCreateStaffAction"
+	  	  name="createStaffForm"
+	  	  scope="request"
+	  	  validate="false">
+	  	  <forward name="initCreateStaff" path="/jsp/core/system/staff/CreateStaff.jsp"/>
+	  </action>
+	  
+	  <action path="/createStaff"
+	  	 type="com.elitecore.elitesm.web.core.system.staff.CreateStaffAction"
+		 name="createStaffForm"
+		 scope="request"
+		 validate="false">
+	  	 <forward name="createStaff" path="/jsp/core/system/staff/CreateStaff.jsp"/>
+		 <forward name="searchStaffList" path="/initSearchStaff.do?"/>
+		 <forward name="createStaffDetail" path="/jsp/core/system/staff/CreateStaffDetail.jsp"/>
+	  </action>
+	  
+	  <action path="/createStaffDetail"
+	     type="com.elitecore.elitesm.web.core.system.staff.CreateStaffDetailAction"
+	     name="createStaffForm"
+	     scope="request"
+	     validate="false">
+	     <forward name="createStaffDeail" path="/jsp/core/system/staff/CreateStaffDetail.jsp"/>
+	  </action>
+	  
+	  <action path="/viewStaff"
+		 type="com.elitecore.elitesm.web.core.system.staff.ViewStaffAction"
+		 name="viewStaffForm"
+		 scope="request"
+		 validate="false">
+		 <forward name="viewStaffDetail" path="/jsp/core/system/staff/StaffContainer.jsp"/>
+	  </action>
+	 
+	  <action path="/viewStaffAdvanceDetail"
+	 	 type="com.elitecore.elitesm.web.core.system.staff.ViewStaffAdvanceDetailAction"
+	 	 name="viewStaffAdvanceDetailForm"
+	 	 scope="request"
+	 	 validate="false">
+	 	 <forward name="viewStaffAdvanceDetail" path="/jsp/core/system/staff/ViewStaffContainer.jsp"/>
+	  </action>
+	  
+	  <action path="/viewStaffHistory"
+	 	 type="com.elitecore.elitesm.web.core.system.staff.ViewStaffHistoryAction"
+	 	 name="viewStaffAdvanceDetailForm"
+	 	 scope="request"
+	 	 validate="false">
+	 	 <forward name="viewStaffHistory" path="/jsp/core/system/staff/ViewStaffHistoryContainer.jsp"/>
+	  </action>
+	
+	  <action path="/updateStaff"
+		 type="com.elitecore.elitesm.web.core.system.staff.UpdateStaffBasicDetailAction"
+		 name="updateStaffBasicDetailForm"
+		 scope="request"
+	 	 validate="false">
+		 <forward name="updateStaffBasicDetail" path="/jsp/core/system/staff/UpdateStaffContainer.jsp"/>
+		 <forward name="viewStaffDetail" path="/viewStaff.do?"/>
+	  </action>
+	  
+	  <action path="/updateAccessGroup"
+	  	 type="com.elitecore.elitesm.web.core.system.staff.UpdateAccessGroupAction"
+	  	 name="updateAccessGroupForm"
+	  	 scope="request"
+	  	 validate="false">
+	  	 <forward name="updateAccessGroup" path="/jsp/core/system/staff/UpdateAccessGroupContainer.jsp"/>
+	  	 <forward name="viewStaffDetail" path="/viewStaff.do?"/>
+	  </action>
+	
+	  <action path="/miscStaff"
+	     scope="request"
+	     type="com.elitecore.elitesm.web.core.system.staff.MiscStaffAction"
+	     name="miscStaffForm"
+	     validate="false">
+	     <forward name="searchStaffList" path="/searchStaff.do"	/>
+	  </action>
+	
+	  <action path="/changeUserName"
+		type="com.elitecore.elitesm.web.core.system.staff.UpdateStaffUserNameAction"
+		name="changeUserNameForm"
+		scope="request"
+		validate="false">
+		<forward name="changeUserName" path="/jsp/core/system/staff/UpdateUserNameContainer.jsp"/>
+		<forward name="viewStaffDetail" path="/viewStaff.do?"/>
+	  </action>
+	
+	  <action path="/changeStaffPassword"
+		type="com.elitecore.elitesm.web.core.system.staff.UpdateStaffPasswordAction"
+		name="changeStaffPasswordForm"
+		scope="request"
+		validate="false">
+		<forward name="changeStaffPassword" path="/jsp/core/system/staff/UpdatePasswordContainer.jsp"/>
+		<forward name="viewStaffDetail" path="/viewStaff.do?"/>
+	  </action>
+	
+	  <action path="/changeStaffStatus"
+		type="com.elitecore.elitesm.web.core.system.staff.UpdateStaffStatusAction"
+		name="changeStaffStatusForm"
+		scope="request"
+		validate="false">
+		<forward name="changeStaffStatus" path="/jsp/core/system/staff/UpdateStatusContainer.jsp"/>
+		<forward name="viewStaffDetail" path="/viewStaff.do?"/>
+	  </action>
+	  
+      <action path="/initChangePassword"
+      	 type="com.elitecore.elitesm.web.core.system.login.InitChangePasswordAction"
+      	 name="changePasswordForm"      	 
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="changePassword" path="/jsp/core/system/login/ChangePassword.jsp"/>
+      </action>  
+
+      <action path="/changePassword"
+      	 type="com.elitecore.elitesm.web.core.system.login.ChangePasswordAction"
+      	 name="changePasswordForm"      	 
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="changePassword" path="/jsp/core/system/login/ChangePassword.jsp"/>
+      </action>  
+   	  	  
+	  <action path="/viewSystemParameter"
+	     scope="request"
+	     type="com.elitecore.elitesm.web.core.system.systemparameter.ViewSystemParameterAction"
+	     name="viewSystemParameterForm"
+	     validate="false">
+	     <forward name="viewSystemParameter" path="/jsp/core/system/systemparameter/ViewSystemParameterContainer.jsp"	/>
+	  </action>
+	  
+	  <action path="/viewSystemParameterHistory"
+	     scope="request"
+	     type="com.elitecore.elitesm.web.core.system.systemparameter.ViewSystemParameterHistoryAction"
+	     name="viewSystemParameterForm"
+	     validate="false">
+	     <forward name="viewSystemParameter" path="/jsp/core/system/systemparameter/ViewSystemParameterHistoryContainer.jsp"	/>
+	  </action>
+	  
+	  <action  parameter="method" path="/viewLicenceAction" type="com.elitecore.elitesm.web.core.system.license.ViewLicenceAction" scope="request" name="licenceForm">
+	  		<forward name="viewNetserverLicense" path="/jsp/core/system/license/LicenseContainer.jsp" />
+	  		<forward name="updateServerLicense" path="/jsp/core/system/license/UpdateLicenseContainer.jsp" />
+	  </action>
+	  
+	   <action  parameter="method" path="/viewServerLicenceAction" type="com.elitecore.elitesm.web.core.system.license.ViewServerLicenseAction" scope="request" name="licenceForm">
+	  		<forward name="viewServerLicense" path="/jsp/core/system/license/DeregisterLicenseContainer.jsp" />
+	  </action>
+	  
+	  <action  parameter="method" path="/viewLicenceHistoryAction" type="com.elitecore.elitesm.web.core.system.license.ViewLicenseHistoryAction" scope="request" name="licenceForm">
+	  		<forward name="viewLicenseHistory" path="/jsp/core/system/license/ViewHistoryLicenseContainer.jsp" />
+	  </action>
+	 	
+	  <action path="/updateSystemParameter"
+	     scope="request"
+	     type="com.elitecore.elitesm.web.core.system.systemparameter.UpdateSystemParameterAction"
+	     name="updateSystemParameterForm"
+	     validate="false">
+	     <forward name="updateSystemParameter" path="/jsp/core/system/systemparameter/UpdateSystemParameterContainer.jsp"	/>
+	  </action>
+	  
+	
+	  <action path="/initCreateAccessGroup"
+	  	scope="request"
+	  	type="com.elitecore.elitesm.web.core.system.accessgroup.InitCreateAccessGroupAction"
+	  	name="createAccessGroupForm"
+	  	validate="false">
+	  	<forward name="initCreateAccessGroup" path="/jsp/core/system/accessgroup/CreateAccessGroup.jsp"/>
+	  </action>
+	  
+	  <action path="/createAccessGroup"
+	  	scope="request"
+	  	type="com.elitecore.elitesm.web.core.system.accessgroup.CreateAccessGroupAction"
+	  	name="createAccessGroupForm"
+	  	validate="false">
+	  	<forward name="createAccessGroup" path="/jsp/core/system/accessgroup/CreateAccessGroup.jsp"/>
+	  </action>
+	  
+	  <action path="/listAccessGroup"
+	  	scope="request"
+	  	type="com.elitecore.elitesm.web.core.system.accessgroup.ListAccessGroupAction"
+	  	name="listAccessGroupForm"
+	  	validate="false">
+	  	<forward name="listAccessGroup" path="/jsp/core/system/accessgroup/ListAccessGroup.jsp"/>
+	  </action>
+	  
+	  <action path="/miscListAccessGroup"
+	    scope="request"
+	    type="com.elitecore.elitesm.web.core.system.accessgroup.MiscListAccessGroupAction"
+	    name="miscListAccessGroupForm"
+	    validate="false">
+	    <forward name="miscListAccessGroup" path="/listAccessGroup.do"></forward>
+	  </action>
+	  
+	  <action path="/viewAccessGroup"
+	    scope="request"
+	    type="com.elitecore.elitesm.web.core.system.accessgroup.ViewAccessGroupAction"
+	    name="viewAccessGroupForm"
+	    validate="false">
+	    <forward name="viewAccessGroup" path="/jsp/core/system/accessgroup/ViewAccessGroupContainer.jsp"/>
+	  </action>
+	  
+	   <action path="/viewAccessGroupHistory"
+	    scope="request"
+	    type="com.elitecore.elitesm.web.core.system.accessgroup.ViewAccessGroupHistoryAction"
+	    name="viewAccessGroupForm"
+	    validate="false">
+	    <forward name="viewAccessGroupHistory" path="/jsp/core/system/accessgroup/ViewAccessGroupHistoryContainer.jsp"/>
+	  </action>
+	  
+	  <action path="/editAccessGroup"
+	    scope="request"
+	    type="com.elitecore.elitesm.web.core.system.accessgroup.EditAccessGroupAction"
+	    name="viewAccessGroupForm"
+	    validate="false">
+		<forward name="editAccessGroup" path="/jsp/core/system/accessgroup/EditAccessGroupContainer.jsp"/>
+		<forward name="viewAccessGroup" path="/viewAccessGroup.do?"></forward>
+	  </action>
+	  
+	 <action path="/initLicense"
+	    scope="request"
+	    type="com.elitecore.elitesm.web.core.system.license.InitLicenseAction"
+	    name="licenseForm"
+	    validate="false">
+	    <forward name="viewLicensePage" path="/jsp/core/system/license/License.jsp"/>
+	  </action>
+	  
+	  <action path="/initHelp"
+	    scope="request"
+	    type="com.elitecore.elitesm.web.core.system.help.InitHelpAction"
+	    name="helpForm"
+	    validate="false">
+	    <forward name="viewHelpPage" path="/jsp/core/system/help/Help.jsp"/>
+	  </action>
+	  
+	  <action path="/invalidateSession" 
+         type="com.elitecore.elitesm.web.core.system.login.InvalidateSessionAction"
+         validate="false">
+         <forward name="SessionExpired" path="/Login.jsp" />        
+      </action>
+	    
+	  <action path="/initStaffAudit"
+		 type="com.elitecore.elitesm.web.core.system.staff.InitStaffAuditAction"
+		 name="staffAuditForm"
+		 scope="request"
+		 validate="true">
+		 <forward name="initStaffAudit" path="/jsp/core/system/staff/StaffAudit.jsp"/>
+	  </action>  
+	  
+	  <action path="/auditDetails"
+		 type="com.elitecore.elitesm.web.systemaudit.AuditDetailsAction"
+		 name="staffAuditForm"
+		 scope="request"
+		 validate="true">
+		 <forward name="AuditDetails" path="/jsp/core/system/staff/StaffAudit.jsp"/>
+	  </action> 
+	  
+	 <action path="/changeTableOrder"
+		 type="com.elitecore.elitesm.web.tableorder.TableOrderAction"
+		 name="tableOrderForm"
+		 scope="request">
+	 </action>
+	 
+	  <action path="/handleException"
+		 type="com.elitecore.elitesm.web.core.system.exception.ExceptionAction"
+		 scope="request">
+		 <forward name="success" path="/jsp/core/response/FailureResponsePage.jsp"></forward>
+	 </action> 
+	 
+	  <!-- client Profile -->
+	   
+	  <action  parameter="method" path="/dashboardPlugin" type="com.elitecore.elitesm.web.dashboard.DashboardPluginAction" scope="request" >
+		 <forward name="viewTabContainer" path="/jsp/dashboardwidgets/DashboardTabsContainer.jsp" />
+		 <forward name="viewTabDashboard" path="/jsp/dashboardwidgets/DashboardHome.jsp" />
+		 <forward name="viewEliteDSC" path="/jsp/dashboard/EliteDSCDemoContainer.jsp"/>
+		 <forward name="viewGraphs" path="/jsp/dashboard/InstanceDemoContainer.jsp"/>
+		 <forward name="viewSessionDetails" path="/jsp/dashboard/SessionContainer.jsp"/>
+		 <forward name="viewtest" path="/jsp/dashboard/testing.jsp"/>
+		 <forward name="viewtest2" path="/jsp/dashboard/Testing2.jsp"/>
+ 	 </action>
+ 	 
+ 	  <action  parameter="method" path="/dashboard" type="com.elitecore.elitesm.web.dashboard.DashboardAction" scope="request" name="dashboardForm">
+		 <forward name="viewDashboardContainer" path="/jsp/dashboard/DashboardContainer.jsp" />
+		 <forward name="viewManageDashboard" path="/jsp/dashboardwidgets/ManageDashboard.jsp"/>
+		 <forward name="createDashboard" path="/jsp/dashboardwidgets/CreateDashboard.jsp"/>
+		 <forward name="viewTabDashboard" path="/jsp/dashboardwidgets/DashboardHome.jsp" />
+		 <forward name="viewEliteDSC" path="/jsp/dashboard/EliteDSCDemoContainer.jsp"/>
+		 <forward name="viewGraphs" path="/jsp/dashboard/InstanceDemoContainer.jsp"/>
+		 <forward name="viewSessionDetails" path="/jsp/dashboard/SessionContainer.jsp"/>
+		 <forward name="viewtest" path="/jsp/dashboard/testing.jsp"/>
+		 <forward name="viewtest2" path="/jsp/dashboard/Testing2.jsp"/>
+		 <forward name="initUpadateDashboard" path="/jsp/dashboardwidgets/EditDashboard.jsp"/>
+ 	 </action>
+ 	 
+ 	   <action parameter="method" path="/dashboardConfiguration" scope="request" type="com.elitecore.elitesm.web.core.system.dashboardconfiguration.DashboardConfigurationAction"
+	     name="dashboardConfigurationForm"
+	     validate="false">
+	     <forward name="dashboardConfiguration" path="/jsp/dashboardconfiguration/DashboardConfiguration.jsp"	/>
+	  </action>
+ 	 
+ 	 
+ 	 <action parameter="method" path="/systemInformation" scope="request" type="com.elitecore.elitesm.web.core.system.systeminformation.SystemInformationAction"
+	     name="systemInformationForm"
+	     validate="false">
+	     <forward name="systemInformation" path="/jsp/core/system/systeminformation/SystemInformation.jsp"	/>
+	  </action>
+ 	 
+ 	 <action path="/viewHistoryDetails"
+		 type="com.elitecore.elitesm.web.history.ViewHistoryAction"
+		 scope="request"
+		 validate="false">
+		 <forward name="viewHistoryDetail" path="/jsp/core/system/history/ViewHistoryContainer.jsp"/>
+	  </action> 
+ 	 
+ 	 <action path="/viewModuleDetails" 
+ 	  type="com.elitecore.elitesm.web.core.system.moduledetails.ModuleDetailsAction" 
+ 	  scope="request" 
+ 	  validate="false" parameter="method">
+ 	 </action>
+ 	  
+	<action path="/checkHistoricalPassword"
+		type="com.elitecore.elitesm.web.core.system.login.CheckHistoricalPasswordAction"
+		name="newPasswordForm" scope="request" validate="false">
+	</action>  
+	
+	<action path="/caseSelection" type="com.elitecore.elitesm.web.systemstartup.defaultsetup.controller.CaseSelection" name="eliteAAACaseSelectionForm" scop="request" validate="false">
+		<forward name="DoCaseSelection" path="/jsp/core/system/startup/CaseSelection.jsp"></forward>
+		<forward name="defaultEliteAAASetup" path="/defaultEliteAAASetup.do"></forward>
+		<forward name="startup" path="/Login.jsp"></forward>
+	</action>
+		
+	<action path="/defaultEliteAAASetup"
+		type="com.elitecore.elitesm.web.systemstartup.defaultsetup.controller.DefaultEliteAAASetupAction"
+		name="eliteAAASetupForm" scope="request" validate="false" >
+	<forward name="defaultEliteAAASetup" path="/jsp/core/system/startup/SubscriberProfileDetails.jsp"/>
+	<forward name="failure" path="/jsp/core/system/startup/EliteAAAStartup.jsp"/>
+	<forward name="loginFailedInitFailed" path="/eliteAAAStartupDBSetup.do" />
+	<forward name="startup" path="/Login.jsp"/>
+	</action>
+	<action path="/checkHistoricalPassword"
+		type="com.elitecore.elitesm.web.core.system.login.CheckHistoricalPasswordAction"
+		name="newPasswordForm" scope="request" validate="false">
+	</action>   
+    
+    <action path="/eliteAAASetup" type="com.elitecore.elitesm.web.systemstartup.defaultsetup.controller.EliteAAASetupAction" 
+   	 name="eliteAAASetupForm" validate="false" parameter="createDefault" scope="request">
+  	  <forward name="setupCreated" path="/jsp/core/system/startup/SubscriberProfileDetails.jsp"/>
+  	  <forward name="loginFailedInitFailed" path="/eliteAAAStartupDBSetup.do" />
+    </action>
+    
+      <action path="/deleteAlreadyExistData" type="com.elitecore.elitesm.web.systemstartup.defaultsetup.controller.EliteAAASetupAction" 
+   	 name="eliteAAASetupForm" validate="false" parameter="deleteAlreadyExistData" scope="request">
+  	  <forward name="defaultEliteAAASetup" path="/jsp/core/system/startup/SubscriberProfileDetails.jsp"/>
+  	  <forward name="startup" path="/Login.jsp"/>
+  	  <forward name="loginFailedInitFailed" path="/eliteAAAStartupDBSetup.do" />
+    </action>
+    
+    <action path="/schemaformaction"  
+		type="com.elitecore.elitesm.web.schemaform.SchemaFormAction"
+		 scope="request" parameter="method" validate="false" >
+	</action> 
+	
+	 <action parameter="method" path="/inMemoryDataGrid" type="com.elitecore.elitesm.web.inmemorydatagrid.InMemoryDataGridAction" scope="request" name="inMemoryDataGridForm">
+		 <forward name="search" path="/jsp/inmemorydatagrid/InMemoryDataGridContainer.jsp" />
+		 <forward name="viewhistory" path="/jsp/inmemorydatagrid/InMemoryDataGridViewHistoryContainer.jsp"></forward>
+	 </action>
+
+	 <action parameter="method" path="/databaseProperties" type="com.elitecore.elitesm.web.core.system.dbpropertiesconfiguration.DatabasePropertiesConfigAction" scope="request" name="databasePropertiesForm">
+		 <forward name="updateDatabasePropertiesConf" path="/jsp/core/system/databaseproperties/DatabasePropertiesContainer.jsp" />
+		 <forward name="viewHistory" path="/jsp/core/system/databaseproperties/ViewDatabasePropertiesHistoryContainer.jsp" />
+	 </action>
+	
+    </action-mappings>
+	
+	<!--   <action  parameter="method" path="/dashboard" type="com.elitecore.elitesm.web.dashboard.DashboardAction" scope="request" name="dashboardForm"> -->
+      
+    <message-resources parameter="com.elitecore.elitesm.web.ApplicationResources" />
+    <message-resources key="resultMessageResources" parameter="com.elitecore.elitesm.web.ResultMessageResources" />    
+    <message-resources key="alertMessageResources" parameter="com.elitecore.elitesm.web.AlertMessageResources" />        
+    <message-resources key="descriptionResources" parameter="com.elitecore.elitesm.web.description" />
+    <message-resources key="dashboardResources" parameter="com.elitecore.elitesm.web.dashboard.properties.DashboardResources" />
+    <message-resources key="serverConfigResources" parameter="com.elitecore.elitesm.web.ServerConfigResources" />
+    <message-resources key="descriptionExampleResources" parameter="com.elitecore.elitesm.web.descriptionExampleResources" />
+    <message-resources key="descriptionTipResources" parameter="com.elitecore.elitesm.web.descriptionTipResources" />
+    <message-resources key="descriptionCautionResources" parameter="com.elitecore.elitesm.web.descriptionCautionResources" />
+    <message-resources key="descriptionNoteResources" parameter="com.elitecore.elitesm.web.descriptionNoteResources" />
+  	<message-resources key="StaffResources" parameter="com.elitecore.elitesm.web.StaffResources" />
+    <message-resources key="LicenseResources" parameter="com.elitecore.elitesm.web.LicenseResources" />
+    <message-resources key="inMemoryDataGridResources" parameter="com.elitecore.elitesm.web.inmemorydatagrid.InMemoryDataGridResources" />
+    
+     <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validation/validator-rules.xml,/WEB-INF/validation/validation.xml,/WEB-INF/validation/diameter-validation.xml"/>
+    </plug-in>
+</struts-config>
+

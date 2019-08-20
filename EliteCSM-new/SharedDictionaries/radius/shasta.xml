@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="3199" vendor-name="Shasta">
+<attribute id="1" name="Shasta-User-Privilege" type="integer">
+	<supported-values>
+		<value id="1" name="User"/>
+		<value id="2" name="Super-User"/>
+		<value id="3" name="SSuper-User"/>
+	</supported-values>
+</attribute>
+<attribute id="2" name="Shasta-Service-Profile" type="string"/>
+<attribute id="3" name="Shasta-VPN-Name" type="string"/>
+</attribute-list>

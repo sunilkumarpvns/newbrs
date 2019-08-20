@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+		<class name="com.elitecore.elitesm.datamanager.servermgr.copypacket.data.CopyPacketDummyResponseParameterData" table="TBLMCOPYPACKETDUMMYRESPPARAM">
+	
+		<id name="dummyResponseParameterId" column="PARAMID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id> 
+
+		<property name="outField" type="StringType"> 
+			<column name="OUTFIELD" sql-type="VARCHAR(300)" not-null="false" /> 
+		</property>
+	
+		<property name="value" type="StringType"> 
+			<column name="PARAMVALUE" sql-type="VARCHAR(300)" not-null="false" /> 
+		</property>
+
+		<property name="copyPacketTransConfId" type="StringType"> 
+			<column name="COPYPACKETMAPCONFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false" /> 
+	</class>
+
+</hibernate-mapping> 

@@ -1,0 +1,897 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy?name=service-policy-name&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy.xml?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy?operation=search&name=service-policy-name&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy.xml?operation=search&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name.xml?operation=search
+
+Response     :
+
+<diameter-nas-policy>
+    <name>nas</name>
+    <description>Created by admin on 02/28/2017 12:17:11 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <session-management>false</session-management>
+    <request-mode>Authenticate and Authorize</request-mode>
+    <default-response-behaviour>REJECT</default-response-behaviour>
+    <default-response-behaviour-argument>5010</default-response-behaviour-argument>
+    <supported-authentication-methods>
+        <suppoted-method>
+            <name>PAP</name>
+        </suppoted-method>
+        <suppoted-method>
+            <name>CHAP</name>
+        </suppoted-method>
+    </supported-authentication-methods>
+    <user-identity-attribute>0:1</user-identity-attribute>
+    <user-identity-case-sensitivity>Lower Case</user-identity-case-sensitivity>
+    <strip-user-identity>true</strip-user-identity>
+    <trim-user-identity>true</trim-user-identity>
+    <seperator>@</seperator>
+    <trim-password>false</trim-password>
+    <realm-pattern>suffix</realm-pattern>
+    <annonymous-profile-identity>annonymous</annonymous-profile-identity>
+    <wimax>Enabled</wimax>
+    <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+    <reject-on-reject-item-not-found>true</reject-on-reject-item-not-found>
+    <accept-on-policy-not-found>true</accept-on-policy-not-found>
+    <diameter-concurrency>DCON</diameter-concurrency>
+    <additional-diameter-concurrency>DCON</additional-diameter-concurrency>
+    <default-session-timeout>600</default-session-timeout>
+    <cui>Authenticated-Identity</cui>
+    <command-code-wise-response-attribute-list>
+        <command-code-wise-response-attribute>
+            <command-code>265</command-code>
+            <response-attribute>0:1=0:1</response-attribute>
+        </command-code-wise-response-attribute>
+    </command-code-wise-response-attribute-list>
+    <primary-auth-driver-group>
+        <driver-detail>
+            <driver-instance-name>NASDRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </primary-auth-driver-group>
+    <additional-auth-driver-group>
+        <additional-driver-detail>
+            <driver-instance-name>NAS-DRI</driver-instance-name>
+        </additional-driver-detail>
+    </additional-auth-driver-group>
+    <auth-driver-script>auth-script</auth-driver-script>
+    <auth-pre-plugins>
+        <pre-plugin>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </pre-plugin>
+    </auth-pre-plugins>
+    <auth-post-plugins>
+        <post-plugin>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </post-plugin>
+    </auth-post-plugins>
+    <acct-driver-group>
+        <driver-detail>
+            <driver-instance-name>NAS_CSV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </acct-driver-group>
+    <acct-driver-script>acct-script</acct-driver-script>
+    <acct-pre-plugins>
+        <pre-plugin>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </pre-plugin>
+    </acct-pre-plugins>
+    <acct-post-plugins>
+        <post-plugin>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </post-plugin>
+    </acct-post-plugins>
+</diameter-nas-policy>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy?name=service-policy-name&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy.json?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy?operation=search&name=service-policy-name&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy.json?operation=search&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name.json?operation=search
+
+
+Response     :
+
+{
+  "name": "nas",
+  "description": "Created by admin on 02/28/2017 12:17:11 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "session-management": "false",
+  "request-mode": "Authenticate and Authorize",
+  "default-response-behaviour": "REJECT",
+  "default-response-behaviour-argument": "5010",
+  "supported-authentication-methods": [
+    {
+      "name": "PAP"
+    },
+    {
+      "name": "CHAP"
+    }
+  ],
+  "user-identity-attribute": "0:1",
+  "user-identity-case-sensitivity": "Lower Case",
+  "strip-user-identity": "true",
+  "trim-user-identity": "true",
+  "seperator": "@",
+  "trim-password": "false",
+  "realm-pattern": "suffix",
+  "annonymous-profile-identity": "annonymous",
+  "wimax": "Enabled",
+  "reject-on-check-item-not-found": "true",
+  "reject-on-reject-item-not-found": "true",
+  "accept-on-policy-not-found": "true",
+  "diameter-concurrency": "DCON",
+  "additional-diameter-concurrency": "DCON",
+  "default-session-timeout": 600,
+  "cui": "Authenticated-Identity",
+  "command-code-wise-response-attribute-list": [
+    {
+      "command-code": "265",
+      "response-attribute": "0:1=0:1"
+    }
+  ],
+  "primary-auth-driver-group": [
+    {
+      "weightage": 1,
+      "driver-instance-name": "NASDRV"
+    }
+  ],
+  "additional-auth-driver-group": [
+    {
+      "driver-instance-name": "NAS-DRI"
+    }
+  ],
+  "auth-driver-script": "auth-script",
+  "auth-pre-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI-TEST",
+      "plugin-argument": "arg"
+    }
+  ],
+  "auth-post-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI",
+      "plugin-argument": "arg"
+    }
+  ],
+  "acct-driver-group": [
+    {
+      "weightage": 1,
+      "driver-instance-name": "NAS_CSV"
+    }
+  ],
+  "acct-driver-script": "acct-script",
+  "acct-pre-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI-TEST",
+      "plugin-argument": "arg"
+    }
+  ],
+  "acct-post-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI",
+      "plugin-argument": "arg"
+    }
+  ]
+}
+
+
+***********************************************************************
+                    CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy?operation=create
+
+
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<diameter-nas-policy>
+    <name>nas</name>
+    <description>Created by admin on 02/28/2017 12:17:11 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <session-management>false</session-management>
+    <request-mode>Authenticate and Authorize</request-mode>
+    <default-response-behaviour>REJECT</default-response-behaviour>
+    <default-response-behaviour-argument>5010</default-response-behaviour-argument>
+    <supported-authentication-methods>
+        <suppoted-method>
+            <name>PAP</name>
+        </suppoted-method>
+        <suppoted-method>
+            <name>CHAP</name>
+        </suppoted-method>
+    </supported-authentication-methods>
+    <user-identity-attribute>0:1</user-identity-attribute>
+    <user-identity-case-sensitivity>Lower Case</user-identity-case-sensitivity>
+    <strip-user-identity>true</strip-user-identity>
+    <trim-user-identity>true</trim-user-identity>
+    <seperator>@</seperator>
+    <trim-password>false</trim-password>
+    <realm-pattern>suffix</realm-pattern>
+    <annonymous-profile-identity>annonymous</annonymous-profile-identity>
+    <wimax>Enabled</wimax>
+    <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+    <reject-on-reject-item-not-found>true</reject-on-reject-item-not-found>
+    <accept-on-policy-not-found>true</accept-on-policy-not-found>
+    <diameter-concurrency>DCON</diameter-concurrency>
+    <additional-diameter-concurrency>DCON</additional-diameter-concurrency>
+    <default-session-timeout>600</default-session-timeout>
+    <cui>Authenticated-Identity</cui>
+    <command-code-wise-response-attribute-list>
+        <command-code-wise-response-attribute>
+            <command-code>265</command-code>
+            <response-attribute>0:1=0:1</response-attribute>
+        </command-code-wise-response-attribute>
+    </command-code-wise-response-attribute-list>
+    <primary-auth-driver-group>
+        <driver-detail>
+            <driver-instance-name>NASDRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </primary-auth-driver-group>
+    <additional-auth-driver-group>
+        <additional-driver-detail>
+            <driver-instance-name>NAS-DRI</driver-instance-name>
+        </additional-driver-detail>
+    </additional-auth-driver-group>
+    <auth-driver-script>auth-script</auth-driver-script>
+    <auth-pre-plugins>
+        <pre-plugin>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </pre-plugin>
+    </auth-pre-plugins>
+    <auth-post-plugins>
+        <post-plugin>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </post-plugin>
+    </auth-post-plugins>
+    <acct-driver-group>
+        <driver-detail>
+            <driver-instance-name>NAS_CSV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </acct-driver-group>
+    <acct-driver-script>acct-script</acct-driver-script>
+    <acct-pre-plugins>
+        <pre-plugin>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </pre-plugin>
+    </acct-pre-plugins>
+    <acct-post-plugins>
+        <post-plugin>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </post-plugin>
+    </acct-post-plugins>
+</diameter-nas-policy>
+
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Nas Service Policy created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "nas",
+  "description": "Created by admin on 02/28/2017 12:17:11 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "session-management": "false",
+  "request-mode": "Authenticate and Authorize",
+  "default-response-behaviour": "REJECT",
+  "default-response-behaviour-argument": "5010",
+  "supported-authentication-methods": [
+    {
+      "name": "PAP"
+    },
+    {
+      "name": "CHAP"
+    }
+  ],
+  "user-identity-attribute": "0:1",
+  "user-identity-case-sensitivity": "Lower Case",
+  "strip-user-identity": "true",
+  "trim-user-identity": "true",
+  "seperator": "@",
+  "trim-password": "false",
+  "realm-pattern": "suffix",
+  "annonymous-profile-identity": "annonymous",
+  "wimax": "Enabled",
+  "reject-on-check-item-not-found": "true",
+  "reject-on-reject-item-not-found": "true",
+  "accept-on-policy-not-found": "true",
+  "diameter-concurrency": "DCON",
+  "additional-diameter-concurrency": "DCON",
+  "default-session-timeout": 600,
+  "cui": "Authenticated-Identity",
+  "command-code-wise-response-attribute-list": [
+    {
+      "command-code": "265",
+      "response-attribute": "0:1=0:1"
+    }
+  ],
+  "primary-auth-driver-group": [
+    {
+      "weightage": 1,
+      "driver-instance-name": "NASDRV"
+    }
+  ],
+  "additional-auth-driver-group": [
+    {
+      "driver-instance-name": "NAS-DRI"
+    }
+  ],
+  "auth-driver-script": "auth-script",
+  "auth-pre-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI-TEST",
+      "plugin-argument": "arg"
+    }
+  ],
+  "auth-post-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI",
+      "plugin-argument": "arg"
+    }
+  ],
+  "acct-driver-group": [
+    {
+      "weightage": 1,
+      "driver-instance-name": "NAS_CSV"
+    }
+  ],
+  "acct-driver-script": "acct-script",
+  "acct-pre-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI-TEST",
+      "plugin-argument": "arg"
+    }
+  ],
+  "acct-post-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI",
+      "plugin-argument": "arg"
+    }
+  ]
+}
+
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Nas Service Policy created successfully</response-message>
+    </response>
+</response-detail>
+
+
+***********************************************************************
+                    CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+<diameter-nas-policy>
+    <name>nas</name>
+    <description>Created by admin on 02/28/2017 12:17:11 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <session-management>false</session-management>
+    <request-mode>Authenticate and Authorize</request-mode>
+    <default-response-behaviour>REJECT</default-response-behaviour>
+    <default-response-behaviour-argument>5010</default-response-behaviour-argument>
+    <supported-authentication-methods>
+        <suppoted-method>
+            <name>PAP</name>
+        </suppoted-method>
+        <suppoted-method>
+            <name>CHAP</name>
+        </suppoted-method>
+    </supported-authentication-methods>
+    <user-identity-attribute>0:1</user-identity-attribute>
+    <user-identity-case-sensitivity>Lower Case</user-identity-case-sensitivity>
+    <strip-user-identity>true</strip-user-identity>
+    <trim-user-identity>true</trim-user-identity>
+    <seperator>@</seperator>
+    <trim-password>false</trim-password>
+    <realm-pattern>suffix</realm-pattern>
+    <annonymous-profile-identity>annonymous</annonymous-profile-identity>
+    <wimax>Enabled</wimax>
+    <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+    <reject-on-reject-item-not-found>true</reject-on-reject-item-not-found>
+    <accept-on-policy-not-found>true</accept-on-policy-not-found>
+    <diameter-concurrency>DCON</diameter-concurrency>
+    <additional-diameter-concurrency>DCON</additional-diameter-concurrency>
+    <default-session-timeout>600</default-session-timeout>
+    <cui>Authenticated-Identity</cui>
+    <command-code-wise-response-attribute-list>
+        <command-code-wise-response-attribute>
+            <command-code>265</command-code>
+            <response-attribute>0:1=0:1</response-attribute>
+        </command-code-wise-response-attribute>
+    </command-code-wise-response-attribute-list>
+    <primary-auth-driver-group>
+        <driver-detail>
+            <driver-instance-name>NASDRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </primary-auth-driver-group>
+    <additional-auth-driver-group>
+        <additional-driver-detail>
+            <driver-instance-name>NAS-DRI</driver-instance-name>
+        </additional-driver-detail>
+    </additional-auth-driver-group>
+    <auth-driver-script>auth-script</auth-driver-script>
+    <auth-pre-plugins>
+        <pre-plugin>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </pre-plugin>
+    </auth-pre-plugins>
+    <auth-post-plugins>
+        <post-plugin>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </post-plugin>
+    </auth-post-plugins>
+    <acct-driver-group>
+        <driver-detail>
+            <driver-instance-name>NAS_CSV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </acct-driver-group>
+    <acct-driver-script>acct-script</acct-driver-script>
+    <acct-pre-plugins>
+        <pre-plugin>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </pre-plugin>
+    </acct-pre-plugins>
+    <acct-post-plugins>
+        <post-plugin>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </post-plugin>
+    </acct-post-plugins>
+</diameter-nas-policy>
+</list>
+
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Nas Service Policies created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "list": [
+    {
+      "name": "nas",
+      "description": "Created by admin on 02/28/2017 12:17:11 PM",
+      "status": "ACTIVE",
+      "ruleset": "0:1=\"*\"",
+      "session-management": "false",
+      "request-mode": "Authenticate and Authorize",
+      "default-response-behaviour": "REJECT",
+      "default-response-behaviour-argument": "5010",
+      "supported-authentication-methods": [
+        {
+          "name": "PAP"
+        },
+        {
+          "name": "CHAP"
+        }
+      ],
+      "user-identity-attribute": "0:1",
+      "user-identity-case-sensitivity": "Lower Case",
+      "strip-user-identity": "true",
+      "trim-user-identity": "true",
+      "seperator": "@",
+      "trim-password": "false",
+      "realm-pattern": "suffix",
+      "annonymous-profile-identity": "annonymous",
+      "wimax": "Enabled",
+      "reject-on-check-item-not-found": "true",
+      "reject-on-reject-item-not-found": "true",
+      "accept-on-policy-not-found": "true",
+      "diameter-concurrency": "DCON",
+      "additional-diameter-concurrency": "DCON",
+      "default-session-timeout": 600,
+      "cui": "Authenticated-Identity",
+      "command-code-wise-response-attribute-list": [
+        {
+          "command-code": "265",
+          "response-attribute": "0:1=0:1"
+        }
+      ],
+      "primary-auth-driver-group": [
+        {
+          "weightage": 1,
+          "driver-instance-name": "NASDRV"
+        }
+      ],
+      "additional-auth-driver-group": [
+        {
+          "driver-instance-name": "NAS-DRI"
+        }
+      ],
+      "auth-driver-script": "auth-script",
+      "auth-pre-plugins": [
+        {
+          "plugin-name": "DIAMETER-UNI-TEST",
+          "plugin-argument": "arg"
+        }
+      ],
+      "auth-post-plugins": [
+        {
+          "plugin-name": "DIAMETER-UNI",
+          "plugin-argument": "arg"
+        }
+      ],
+      "acct-driver-group": [
+        {
+          "weightage": 1,
+          "driver-instance-name": "NAS_CSV"
+        }
+      ],
+      "acct-driver-script": "acct-script",
+      "acct-pre-plugins": [
+        {
+          "plugin-name": "DIAMETER-UNI-TEST",
+          "plugin-argument": "arg"
+        }
+      ],
+      "acct-post-plugins": [
+        {
+          "plugin-name": "DIAMETER-UNI",
+          "plugin-argument": "arg"
+        }
+      ]
+    }
+  ]
+}
+
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Nas Service Policies created successfully</response-message>
+    </response>
+</response-detail>
+
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy?operation=update&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<diameter-nas-policy>
+    <name>nas</name>
+    <description>Created by admin on 02/28/2017 12:17:11 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <session-management>false</session-management>
+    <request-mode>Authenticate and Authorize</request-mode>
+    <default-response-behaviour>REJECT</default-response-behaviour>
+    <default-response-behaviour-argument>5010</default-response-behaviour-argument>
+    <supported-authentication-methods>
+        <suppoted-method>
+            <name>PAP</name>
+        </suppoted-method>
+        <suppoted-method>
+            <name>CHAP</name>
+        </suppoted-method>
+    </supported-authentication-methods>
+    <user-identity-attribute>0:1</user-identity-attribute>
+    <user-identity-case-sensitivity>Lower Case</user-identity-case-sensitivity>
+    <strip-user-identity>true</strip-user-identity>
+    <trim-user-identity>true</trim-user-identity>
+    <seperator>@</seperator>
+    <trim-password>false</trim-password>
+    <realm-pattern>suffix</realm-pattern>
+    <annonymous-profile-identity>annonymous</annonymous-profile-identity>
+    <wimax>Enabled</wimax>
+    <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+    <reject-on-reject-item-not-found>true</reject-on-reject-item-not-found>
+    <accept-on-policy-not-found>true</accept-on-policy-not-found>
+    <diameter-concurrency>DCON</diameter-concurrency>
+    <additional-diameter-concurrency>DCON</additional-diameter-concurrency>
+    <default-session-timeout>600</default-session-timeout>
+    <cui>Authenticated-Identity</cui>
+    <command-code-wise-response-attribute-list>
+        <command-code-wise-response-attribute>
+            <command-code>265</command-code>
+            <response-attribute>0:1=0:1</response-attribute>
+        </command-code-wise-response-attribute>
+    </command-code-wise-response-attribute-list>
+    <primary-auth-driver-group>
+        <driver-detail>
+            <driver-instance-name>NASDRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </primary-auth-driver-group>
+    <additional-auth-driver-group>
+        <additional-driver-detail>
+            <driver-instance-name>NAS-DRI</driver-instance-name>
+        </additional-driver-detail>
+    </additional-auth-driver-group>
+    <auth-driver-script>auth-script</auth-driver-script>
+    <auth-pre-plugins>
+        <pre-plugin>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </pre-plugin>
+    </auth-pre-plugins>
+    <auth-post-plugins>
+        <post-plugin>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </post-plugin>
+    </auth-post-plugins>
+    <acct-driver-group>
+        <driver-detail>
+            <driver-instance-name>NAS_CSV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </acct-driver-group>
+    <acct-driver-script>acct-script</acct-driver-script>
+    <acct-pre-plugins>
+        <pre-plugin>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </pre-plugin>
+    </acct-pre-plugins>
+    <acct-post-plugins>
+        <post-plugin>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+            <plugin-argument>arg</plugin-argument>
+        </post-plugin>
+    </acct-post-plugins>
+</diameter-nas-policy>
+
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Nas Service Policy updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "nas",
+  "description": "Created by admin on 02/28/2017 12:17:11 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "session-management": "false",
+  "request-mode": "Authenticate and Authorize",
+  "default-response-behaviour": "REJECT",
+  "default-response-behaviour-argument": "5010",
+  "supported-authentication-methods": [
+    {
+      "name": "PAP"
+    },
+    {
+      "name": "CHAP"
+    }
+  ],
+  "user-identity-attribute": "0:1",
+  "user-identity-case-sensitivity": "Lower Case",
+  "strip-user-identity": "true",
+  "trim-user-identity": "true",
+  "seperator": "@",
+  "trim-password": "false",
+  "realm-pattern": "suffix",
+  "annonymous-profile-identity": "annonymous",
+  "wimax": "Enabled",
+  "reject-on-check-item-not-found": "true",
+  "reject-on-reject-item-not-found": "true",
+  "accept-on-policy-not-found": "true",
+  "diameter-concurrency": "DCON",
+  "additional-diameter-concurrency": "DCON",
+  "default-session-timeout": 600,
+  "cui": "Authenticated-Identity",
+  "command-code-wise-response-attribute-list": [
+    {
+      "command-code": "265",
+      "response-attribute": "0:1=0:1"
+    }
+  ],
+  "primary-auth-driver-group": [
+    {
+      "weightage": 1,
+      "driver-instance-name": "NASDRV"
+    }
+  ],
+  "additional-auth-driver-group": [
+    {
+      "driver-instance-name": "NAS-DRI"
+    }
+  ],
+  "auth-driver-script": "auth-script",
+  "auth-pre-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI-TEST",
+      "plugin-argument": "arg"
+    }
+  ],
+  "auth-post-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI",
+      "plugin-argument": "arg"
+    }
+  ],
+  "acct-driver-group": [
+    {
+      "weightage": 1,
+      "driver-instance-name": "NAS_CSV"
+    }
+  ],
+  "acct-driver-script": "acct-script",
+  "acct-pre-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI-TEST",
+      "plugin-argument": "arg"
+    }
+  ],
+  "acct-post-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI",
+      "plugin-argument": "arg"
+    }
+  ]
+}
+
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Nas Service Policy updated successfully</response-message>
+    </response>
+</response-detail>
+
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy?operation=delete&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/nasservicepolicy/service-policy-name?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Nas Service Policy/Policies deleted successfully.</response-message>
+    </response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

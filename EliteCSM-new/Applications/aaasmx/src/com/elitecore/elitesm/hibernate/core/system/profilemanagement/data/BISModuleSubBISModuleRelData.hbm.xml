@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.core.system.profilemanagement.data.BISModuleSubBISModuleRelData" table="TBLTBISMODULESUBBISMODULEREL">
+		<composite-id>
+			<key-property name="businessModuleId" column="BUSINESSMODULEID" type="CharType"></key-property>
+			<key-property name="subBusinessModuleId" column="SUBBUSINESSMODULEID" type="CharType"></key-property>
+		</composite-id>
+		
+		<property name="status" type="StringType">
+			<column name="STATUS" sql-type="VARCHAR(2)"></column>
+		</property>
+		
+		<many-to-one name="subBisModule" class="com.elitecore.elitesm.datamanager.core.system.profilemanagement.data.SubBISModuleData" column="SUBBUSINESSMODULEID" insert="false" update="false" not-null="true" lazy="false"/>  
+		<many-to-one name="bisModule" class="com.elitecore.elitesm.datamanager.core.system.profilemanagement.data.BISModuleData" column="BUSINESSMODULEID" insert="false" update="false" not-null="true" lazy="false"/>
+				
+	</class>
+</hibernate-mapping>          

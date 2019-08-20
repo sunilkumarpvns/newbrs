@@ -1,0 +1,18 @@
+{
+  "id": "BOD1",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "BOD1",
+  "description": "Created by admin on 01/03/2019 16:47:38",
+  "packageMode": "DESIGN",
+  "validityPeriod": 1 ,
+  "validityPeriodUnit": "DAY",
+  "applicableQosProfiles": "",
+  "validity": "",
+  "price":100.0,
+  "availabilityStartDate":"1549005615818",
+  "availabilityEndDate":"2180157194000",
+  "param1":"",
+  "param2":"",
+  "groupNames": "DefaultGroup"
+}

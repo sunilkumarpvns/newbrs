@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.radius.radiuspolicygroup.data.RadiusPolicyGroup" table="TBLMRADIUSPOLICYGROUP" >
+			
+			<id name="policyId" column="POLICYID" type="StringType">
+				<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+			</id>
+
+			<property name="policyName" type="StringType">
+				<column name="POLICYNAME" sql-type="VARCHAR(50)" not-null="true"/>
+			</property>
+			
+			<property name="expression" type="StringType">
+				<column name="EXPRESSION" sql-type="VARCHAR(100)" not-null="false"/>
+			</property>
+			
+			<property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	  	    </property>
+	  	    
+		</class>
+</hibernate-mapping>          

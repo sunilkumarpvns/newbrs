@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+		<class  name="com.elitecore.elitesm.datamanager.servermgr.drivers.dcdriver.data.DiameterChargingDriverPeerData" table="TBLMREALMPEERREL">
+
+		<id name="peerRelId" column="peerrelid" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id> 
+		
+		<property name="name" type="StringType"> 
+			<column name="name" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+		
+		<property name="communicationPort" type="java.lang.Long"> 
+			<column name="communicationport" sql-type="NUMERIC(5)" not-null="false" /> 
+		</property>
+		
+		<property name="attemptConnection" type="StringType"> 
+			<column name="attemptconnection" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+		
+		<property name="routingPolicyName" type="StringType"> 
+			<column name="routingpolicyname" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+		
+		<property name="watchDogInterval" type="java.lang.Long"> 
+			<column name="watchdoginterval" sql-type="NUMERIC(5)" not-null="true" /> 
+		</property>		
+			
+		<property name="realmRelId" type="StringType"> 
+			<column name="realmrelid" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="transMapConfId" type="StringType"> 
+			<column name="TRANSMAPCONFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>	
+		
+		<many-to-one name="translationMappingConfData" fetch="join"  insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.TranslationMappingConfData" column="TRANSMAPCONFID" ></many-to-one>
+	</class>
+
+</hibernate-mapping> 

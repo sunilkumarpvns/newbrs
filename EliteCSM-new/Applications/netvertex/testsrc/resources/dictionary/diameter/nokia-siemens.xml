@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="28458" applicationid="0" application-name="NOKIA-SIEMENS" vendor-name="NOKIA-SIEMENS"> 
+<attribute id="1" name="Nokia-Siemens-Information" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+			</required>				
+			<optional>				
+				<attributerule vendor-id="28458" id="4" name="Service-Information" type="Grouped" maximum="1" minimum="0"/>			
+				<attributerule vendor-id="28458" id="19" name="Extra-Information" type="Grouped" maximum="*" minimum="0"/>
+				<attributerule vendor-id="28458" id="22" name="Emergency-Call-Indication" type="UTF8String" maximum="1" minimum="0"/>
+				<attributerule vendor-id="28458" id="23" name="Refer-To-Header" type="UTF8String" maximum="1" minimum="0"/>
+				<attributerule vendor-id="28458" id="24" name="Accept-Contact-Header" type="UTF8String" maximum="1" minimum="0"/>
+				<attributerule vendor-id="28458" id="27" name="Diversion-Header" type="Grouped" maximum="1" minimum="0"/>
+				<attributerule vendor-id="28458" id="28" name="History-Info-Header" type="Grouped" maximum="1" minimum="0"/>
+			<!--	<attributerule name="User-Agent-Information" type="Grouped" maximum="1" minimum="0"/>
+					<attributerule name="Release-Reason-Information" type="Grouped" maximum="1" minimum="0"/>
+			-->	
+				<attributerule vendor-id="28458" id="31" name="Served-User-IP-Address" type="Grouped" maximum="1" minimum="0"/>
+				<attributerule vendor-id="28458" id="32" name="Served-User-Port-Number" type="Grouped" maximum="1" minimum="0"/>
+				<attributerule vendor-id="28458" id="33" name="Last-Known-Activity-Time-Stamp" type="Grouped" maximum="1" minimum="0"/>
+			</optional>
+		</grouped>
+		</attribute>
+
+			
+<attribute id="4" name="Service-Information" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+		<required>				
+		</required>				
+		<optional>				
+			<attributerule vendor-id="28458" id="7" name="SEE-Transparent-Data" type="UTF8String" maximum="1" minimum="0"/>			
+			<attributerule vendor-id="28458" id="8" name="FCI-Data" type="OctetString" maximum="1" minimum="0"/>
+		</optional>
+		</grouped>
+	</attribute>
+<attribute id="7" name="SEE-Transparent-Data" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+<attribute id="8" name="FCI-Data" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+<attribute id="22" name="Emergency-Call-Indication" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+        <supported-values>
+	   <value id="0" name="NO" />
+	   <value id="1" name="YES" />
+        </supported-values>
+    </attribute>
+<attribute id="23" name="Refer-To-Header" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+<attribute id="24" name="Accept-Contact-Header" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+<attribute id="27" name="Diversion-Header" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+<attribute id="28" name="History-Info-Header" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+<!-- <attribute id="29" name="History-Info-Header" mandatory="no" protected="no"  encryption="no" type="UTF8String"/> -->
+<attribute id="30" name="Release-Reason-Infor-mation" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+
+<attribute id="31" name="Served-User-IP-Address" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+<attribute id="32" name="Served-User-Port-Number" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+<attribute id="33" name="Last-Known-Activity-Time-Stamp" mandatory="no" protected="no"  encryption="no" type="Time"/>
+
+
+	<attribute id="19" name="Extra-Information" mandatory="no" protected="no" encryption="no" type="Grouped">
+		<grouped>
+			<required>
+			</required>
+			<optional>
+				<attributerule vendor-id="28458" id="20" name="Number-Of-Occurrence" type="Unsigned32" maximum="1" minimum="0" />
+				<attributerule vendor-id="28458" id="21" name="Info-Code" type="Unsigned32" maximum="1" minimum="0" />
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="20" name="Number-Of-Occurrence" mandatory="no" protected="no" encryption="no" type="Unsigned32" />
+	<attribute id="21" name="Info-Code" mandatory="no" protected="no" encryption="no" type="Unsigned32" />
+</attribute-list>
+

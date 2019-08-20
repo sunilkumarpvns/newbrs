@@ -1,0 +1,154 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+ 
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients/EliteRM?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients/EliteRM?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients/EliteRM.xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients?name=EliteRM
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients/EliteRM?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients?name=EliteRM&operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients?name=EliteRM&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients/EliteRM.xml?operation=search
+
+Response     :
+
+<clients>
+    <client>
+        <client-ip>127.0.0.1</client-ip>
+        <shared-secret>secret</shared-secret>
+        <request-expiry-time>8000</request-expiry-time>
+        <profile-name>test_profile</profile-name>
+    </client>
+    <client>
+        <client-ip>0.0.0.0</client-ip>
+        <shared-secret>secret</shared-secret>
+        <request-expiry-time>8000</request-expiry-time>
+        <profile-name>test_profile</profile-name>
+    </client>
+</clients>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients/EliteRM?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients?name=EliteRM&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients?name=EliteRM
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients/EliteRM.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients/EliteRM?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients?name=EliteRM&operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients?name=EliteRM&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients/EliteRM.json?operation=search
+
+Response     :
+
+{
+  "client": [
+    {
+      "client-ip": "127.0.0.1",
+      "shared-secret": "secret",
+      "request-expiry-time": "8000",
+      "profile-name": "test_profile"
+    },
+    {
+      "client-ip": "0.0.0.0",
+      "shared-secret": "secret",
+      "request-expiry-time": "8000",
+      "profile-name": "test_profile"
+    }
+  ]
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#EliteCSM Server
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients?name=EliteRM
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients/EliteRM
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients/EliteRM?operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/configuration/clients?name=EliteRM&operation=update
+
+
+Content Type : application/xml
+
+Body     :
+
+<clients>
+    <client>
+        <client-ip>127.0.0.1</client-ip>
+        <shared-secret>secret</shared-secret>
+        <request-expiry-time>100</request-expiry-time>
+        <profile-name>client_profile</profile-name>
+    </client>
+    <client>
+        <client-ip>0.0.0.1</client-ip>
+        <shared-secret>secret</shared-secret>
+        <request-expiry-time>8000</request-expiry-time>
+        <profile-name>test_profile</profile-name>
+    </client>
+</clients>
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Clients Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "client": [
+    {
+      "client-ip": "10.121.21.96",
+      "shared-secret": "secret",
+      "request-expiry-time": "100",
+      "profile-name": "client_profile",
+    }
+  ]
+}
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Clients Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+

@@ -1,0 +1,543 @@
+<user-accounts>
+	<user-account id="1">
+		<authentication-attributes>
+			<radius-attribute id="1" value="authonlyuser" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>authpassword</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2100</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>postpaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id></email-id>
+		<user-group></user-group>
+		<user-check-item></user-check-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	
+	<user-account id="2">
+		<authentication-attributes>
+			<radius-attribute id="1" value="inactiveuseraccount" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>dummypassword</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Inactive</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2100</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>postpaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id></email-id>
+		<user-group></user-group>
+		<user-check-item></user-check-item> 
+		<user-reject-item></user-reject-item>
+        	<user-reply-item></user-reply-item> 
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+		<concurrent-login-policy></concurrent-login-policy>
+		<ip-pool-name></ip-pool-name>
+	</user-account>
+	
+	<user-account id="3">
+		<authentication-attributes>
+			<radius-attribute id="1" value="expireduseraccount" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>expireduseraccountpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2001</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>postpaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id></email-id>
+		<user-group></user-group>
+		<user-check-item></user-check-item> 
+		<user-reject-item></user-reject-item>
+                <user-reply-item></user-reply-item> 
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+		<concurrent-login-policy></concurrent-login-policy>
+		<ip-pool-name></ip-pool-name>
+	</user-account>
+
+	
+	<user-account id="4">
+		<authentication-attributes>
+			<radius-attribute id="1" value="checkitemstring" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>checkitemstringpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2100</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>postpaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id></email-id>
+		<user-group></user-group>
+		<user-check-item>0:32="Elitecore-Test-NAS"</user-check-item> 
+		<user-reject-item></user-reject-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	
+	<user-account id="5">
+		<authentication-attributes>
+			<radius-attribute id="1" value="checkiteminteger" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>checkitemintegerpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2100</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>postpaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id></email-id>
+		<user-group></user-group>
+		<user-check-item>0:5=5</user-check-item> 
+		<user-reject-item></user-reject-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+
+	<user-account id="6">
+		<authentication-attributes>
+			<radius-attribute id="1" value="checkitemipaddr" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>checkitemipaddrpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2100</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>postpaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id></email-id>
+		<user-group></user-group>
+		<user-check-item>0:4=127.0.0.1</user-check-item> 
+		<user-reject-item></user-reject-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="7">
+		<authentication-attributes>
+			<radius-attribute id="1" value="multicheckitem" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>multicheckitempasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+		<user-check-item>0:6=5,0:32=Elitecore-Test-NAS,0:4=192.168.0.1</user-check-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="11">
+		<authentication-attributes>
+			<radius-attribute id="1" value="rejectiteminteger" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>rejectitemintegerpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+		<user-reject-item>0:5=15</user-reject-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="12">
+		<authentication-attributes>
+			<radius-attribute id="1" value="rejectitemstring" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>rejectitemstringpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+		<user-reject-item>0:32="Elitecore-Test-NAS"</user-reject-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="13">
+		<authentication-attributes>
+			<radius-attribute id="1" value="rejectitemipaddr" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>rejectitemipaddrpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+		<user-reject-item>0:5=15,0:4=192.168.0.1,0:32="Elitecore-Test-NAS"</user-reject-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="14">
+		<authentication-attributes>
+			<radius-attribute id="1" value="multirejectiteminteger" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>multirejectitemintegerpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+		<user-reject-item>0:5=5</user-reject-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="15">
+		<authentication-attributes>
+			<radius-attribute id="1" value="multirejectitemstring" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>multirejectitemstringpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+		<user-reject-item>0:32="Elitecore-Test-NAS"</user-reject-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="16">
+		<authentication-attributes>
+			<radius-attribute id="1" value="multirejectitemipaddr" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>multirejectitemipaddrpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+		<user-reject-item>0:4=192.168.0.1</user-reject-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="17">
+		<authentication-attributes>
+			<radius-attribute id="1" value="replyitemipaddr" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>replyitemipaddrpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+	    	<user-reply-item>0:8=192.168.0.1</user-reply-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="18">
+		<authentication-attributes>
+			<radius-attribute id="1" value="replyiteminteger" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>replyitemintegerpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+	    	<user-reply-item>0:27=1100</user-reply-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="19">
+		<authentication-attributes>
+			<radius-attribute id="1" value="replyitemstring" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>replyitemstringpasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+	        <user-reply-item>0:24=eliteaaa</user-reply-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="20">
+		<authentication-attributes>
+			<radius-attribute id="1" value="multiplereplyitem" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>multiplereplyitempasswd</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+	        <user-reply-item>0:8=192.168.15.51,0:31="988989,9898"</user-reply-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="21">
+		<authentication-attributes>
+			<radius-attribute id="1" value="radiusPolicy" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>radiusPolicy</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>		
+		<user-reject-item>0:4=223.168.0.1</user-reject-item>
+		<user-check-item>0:5=5,0:4=192.168.0.1,0:32="Elitecore-Test-NAS"</user-check-item>
+	    	<user-reply-item>0:8=192.168.0.1,0:31="9889899898"</user-reply-item>
+		<access-policy></access-policy>
+		<radius-policy></radius-policy>
+	</user-account>
+	<user-account id="22">
+		<authentication-attributes>
+			<radius-attribute id="1" value="radiusPolicy1" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>radiusPolicy1</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+	        <user-reply-item>0:8=192.168.0.1,0:31="988989,9898"</user-reply-item>
+		<access-policy></access-policy>
+		<radius-policy>Radius Policy</radius-policy>
+	</user-account>
+	<user-account id="23">
+		<authentication-attributes>
+			<radius-attribute id="1" value="deactiveAccount" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>deactiveAccount</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>deactive</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+	</user-account>
+	<user-account id="24">
+		<authentication-attributes>
+			<radius-attribute id="1" value="accessPolicy" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>accessPolicy</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+	    	<user-reply-item>0:8=192.168.1.1,0:31="988989,9898"</user-reply-item>
+		<access-policy>Test Access Policy</access-policy>
+		<radius-policy>Radius Policy</radius-policy>
+	</user-account>
+	<user-account id="25">
+		<authentication-attributes>
+			<radius-attribute id="1" value="radiusPolicy2" />
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>radiusPolicy2</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>12/31/2009</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>prepaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group></user-group>
+		<user-check-item>0:4=192.168.0.1</user-check-item> 
+		<user-reject-item>0:61=5</user-reject-item>
+		<user-reply-item>0:8=192.168.1.1</user-reply-item>
+		<access-policy></access-policy>
+		<radius-policy>Radius Policy</radius-policy>
+	</user-account>
+</user-accounts>
+
+<!-- ========================================================== -->
+<!-- Details of each configuration parameter                    -->
+<!-- ========================================================== -->
+
+<!--
+	
+	<userfile-auth-driver>
+	
+	</userfile-auth-driver>
+	
+-->
+
+<!-- ========================================================== -->
+<!-- End of configuration details                               -->
+<!-- ========================================================== -->
+

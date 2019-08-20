@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class  name="com.elitecore.elitesm.datamanager.servermanager.drivers.hssdriver.data.HssAuthDriverData" table="TBLMHSSAUTHDRIVER">
+
+		<id name="hssauthdriverid" column="HSSAUTHDRIVERID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+    	
+    	<property name="userIdentityAttributes" type="StringType"> 
+			<column name="USERIDENTITYATTRIBUTES" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property>
+		
+		<property name="applicationid" type="StringType"> 
+			<column name="APPLICATIONID" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+    	
+		<property name="requesttimeout" type="long"> 
+			<column name="REQUESTTIMEOUT" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+		
+		<property name="driverInstanceId" type="StringType"> 
+			<column name="driverinstanceid" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>	
+		
+		<property name="additionalAttributes" type="StringType"> 
+			<column name="additionalattributes" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<property name="noOfTriplets" type="long"> 
+			<column name="nooftriplets" sql-type="NUMBER(5)" not-null="true" /> 
+		</property>	
+		
+		<property name="commandCode" type="long"> 
+			<column name="commandcode" sql-type="NUMBER(20)" not-null="true" /> 
+		</property>
+		
+		<bag name="hssAuthFieldMapList" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+			<key column="HSSAUTHDRIVERID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermanager.drivers.hssdriver.data.HssAuthDriverFieldMapData" />
+	  	</bag>	
+	  	
+	  	<bag name="diameterPeerRelDataList" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+			<key column="HSSAUTHDRIVERID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.diameter.diameterpeer.data.DiameterPeerRelData" />
+	  	</bag>
+	  	
+	  </class>
+
+</hibernate-mapping> 

@@ -1,0 +1,249 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup?name=radius_policy_group&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup.xml?name=radius_policy_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup?operation=search&name=radius_policy_group&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup.xml?operation=search&name=radius_policy_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group.xml?operation=search
+
+Response :
+
+<radius-policy-group>
+	<name>radius_policy_group</name>
+	<expression>policy3 || policy4</expression>
+</radius-policy-group>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup?name=radius_policy_group&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup.json?name=radius_policy_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup?operation=search&name=radius_policy_group&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup.json?operation=search&name=radius_policy_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group.json?operation=search
+
+Response :
+
+{
+	"name":"radius_policy_group",
+	"expression":"policy3 || policy4"
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<radius-policy-group>
+	<name>radius_policy_group</name>
+	<expression>policy1 || policy2</expression>
+</radius-policy-group>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Policy Group created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name":"radius_policy_group",
+	"expression":"policy1 || policy2"
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Policy Group created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/bulk?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<radius-policy-group>
+		<name>radius_policy_group</name>
+		<expression>policy1 || policy2</expression>
+	</radius-policy-group>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Policy Group(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"list":[
+		{
+			"name":"radius_policy_group",
+			"expression":"policy1 || policy2"
+		}
+  	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Policy Group(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup?name=radius_policy_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup?operation=update&name=radius_policy_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<radius-policy-group>
+	<name>radius_policy_group</name>
+	<expression>policy3 || policy4</expression>
+</radius-policy-group>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Policy Group updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name":"radius_policy_group"
+	"expression":"policy3 || policy4",
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Policy Group updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup?name=radius_policy_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup?operation=delete&name=radius_policy_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicygroup/radius_policy_group?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Policy Group(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

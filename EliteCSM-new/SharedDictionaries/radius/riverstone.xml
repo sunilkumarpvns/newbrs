@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="5567" vendor-name="Riverstone">
+<attribute id="1" name="Riverstone-Command" type="string"/>
+<attribute id="2" name="Riverstone-System-Event" type="string"/>
+<attribute id="3" name="Riverstone-SNMP-Config-Change" type="string"/>
+<attribute id="4" name="Riverstone-User-Level" type="integer"/>
+</attribute-list>

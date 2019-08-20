@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="14559" vendor-name="ChilliSpot">
+<attribute id="1" name="ChilliSpot-Max-Input-Octets" type="integer"/>
+<attribute id="2" name="ChilliSpot-Max-Output-Octets" type="integer"/>
+<attribute id="3" name="ChilliSpot-Max-Total-Octets" type="integer"/>
+<attribute id="4" name="ChilliSpot-Bandwidth-Max-Up" type="integer"/>
+<attribute id="5" name="ChilliSpot-Bandwidth-Max-Down" type="integer"/>
+<attribute id="6" name="ChilliSpot-Config" type="string"/>
+<attribute id="7" name="ChilliSpot-Lang" type="string"/>
+<attribute id="8" name="ChilliSpot-Version" type="string"/>
+<attribute id="9" name="ChilliSpot-OriginalURL" type="string"/>
+<attribute id="100" name="ChilliSpot-UAM-Allowed" type="string"/>
+<attribute id="101" name="ChilliSpot-MAC-Allowed" type="string"/>
+<attribute id="102" name="ChilliSpot-Interval" type="integer"/>
+</attribute-list>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs" 
+	xmlns:cxf="http://cxf.apache.org/core"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://cxf.apache.org/jaxrs
+        http://cxf.apache.org/schemas/jaxrs.xsd 
+        http://cxf.apache.org/core 
+        http://cxf.apache.org/schemas/core.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	
+	<!-- Spring Security -->
+	<import resource="rest-security.xml" />
+
+	<bean id='jacksonProvider' class='org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider'/>
+	<bean id="jaxbProvider" class="org.apache.cxf.jaxrs.provider.JAXBElementProvider" />
+	<bean id="validationProvider" class="org.apache.cxf.validation.BeanValidationProvider" />
+	<bean id="jaxbResolver" class="com.elitecore.elitesm.ws.rest.util.JAXBResolver" />
+	<bean id="jsonResolver" class="com.elitecore.elitesm.ws.rest.util.JSONResolver" />
+
+	<bean id="messageInInterceptor" class="com.elitecore.elitesm.ws.rest.utility.MessageInInterceptor"/>
+	
+	<bean id="dataManagerExceptionMapper" class="com.elitecore.elitesm.ws.rest.exception.DataManagerExceptionMapper"/>
+	<bean id="restValidationMapper" class="com.elitecore.elitesm.ws.rest.exception.RESTValidationMapper"/>
+	<bean id="noSuchEncryptionExceptionMapper" class="com.elitecore.elitesm.ws.rest.exception.NoSuchEncryptionExceptionMapper"/>
+	<bean id="encryptionFailedExceptionMapper" class="com.elitecore.elitesm.ws.rest.exception.EncryptionFailedExceptionMapper"/>
+	<bean id="communicationExceptionMapper" class="com.elitecore.elitesm.ws.rest.exception.CommunicationExceptionMapper"/>
+	<bean id="notFoundExceptionMapper" class="com.elitecore.elitesm.ws.rest.exception.NotFoundExceptionMapper"/>
+	<bean id="unsupportedOperationExceptionMapper" class="com.elitecore.elitesm.ws.rest.exception.UnsupportedOperationExceptionMapper"/>	
+	<bean id="jaxbExceptionMapper" class="com.elitecore.elitesm.ws.rest.exception.JAXBExceptionMapper"/>
+	<bean id="validationInvoker" class="org.apache.cxf.jaxrs.validation.JAXRSBeanValidationInvoker">
+	 	 <property name="provider" ref="validationProvider" />
+	</bean>
+
+	<cxf:bus>
+        <cxf:inInterceptors>
+            <ref bean="messageInInterceptor"/>
+        </cxf:inInterceptors>
+    </cxf:bus>
+
+	<jaxrs:server id="rest" address="/restful/" serviceClass="com.elitecore.elitesm.ws.rest.RestController">
+		<jaxrs:serviceBeans>
+			<ref bean="rest" />
+		</jaxrs:serviceBeans>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:providers>
+			<ref bean="jacksonProvider" />
+			<ref bean="jsonResolver"/>
+			<ref bean="jaxbProvider" />
+			<ref bean="jaxbResolver" />
+ 			<ref bean="restValidationMapper"/>
+ 			<ref bean="dataManagerExceptionMapper"/>
+ 			<ref bean="communicationExceptionMapper"/>
+ 			<ref bean="encryptionFailedExceptionMapper"/>
+ 			<ref bean="noSuchEncryptionExceptionMapper"/>
+ 			<ref bean="notFoundExceptionMapper"/>
+ 			<ref bean="jaxbExceptionMapper"/>
+		</jaxrs:providers>
+		<jaxrs:invoker>
+			<ref bean="validationInvoker"/>
+		</jaxrs:invoker>
+	</jaxrs:server>
+	
+</beans>

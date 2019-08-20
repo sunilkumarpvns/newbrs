@@ -1,0 +1,303 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration?name=DigestConf&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration.xml?name=DigestConf
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration?operation=search&name=DigestConf&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration.xml?operation=search&name=DigestConf
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf.xml?operation=search
+
+Response     :
+
+<digest-configuration>
+    <name>DigestConf</name>
+    <description>Created by admin on 11/15/2016 04:52:28 PM</description>
+    <digest-realm>elitecore.com</digest-realm>
+    <default-digest-qop>auth</default-digest-qop>
+    <default-digest-algorithm>MD5</default-digest-algorithm>
+    <digest-opaque>elitecore</digest-opaque>
+    <default-digest-nonce>digest</default-digest-nonce>
+    <default-digest-nonce-length>4</default-digest-nonce-length>
+    <draft-sterman-aaa-sip>false</draft-sterman-aaa-sip>
+</digest-configuration>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration?name=DigestConf&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration.json?name=DigestConf
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration?operation=search&name=DigestConf&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration.json?operation=search&name=DigestConf
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf.json?operation=search
+
+Response     :
+
+{
+  "name": "DigestConf",
+  "description": "Created by admin on 11/15/2016 04:52:28 PM",
+  "digest-realm": "elitecore.com",
+  "default-digest-qop": "auth",
+  "default-digest-algorithm": "MD5",
+  "digest-opaque": "elitecore",
+  "default-digest-nonce": "digest",
+  "default-digest-nonce-length": 4,
+  "draft-sterman-aaa-sip": "false"
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<digest-configuration>
+   <name>DigestConf</name>
+   <description>Created by admin on 11/15/2016 04:52:28 PM</description>
+   <digest-realm>elitecore.com</digest-realm>
+   <default-digest-qop>auth</default-digest-qop>
+   <default-digest-algorithm>MD5</default-digest-algorithm>
+   <digest-opaque>elitecore</digest-opaque>
+   <default-digest-nonce>digest</default-digest-nonce>
+   <default-digest-nonce-length>4</default-digest-nonce-length>
+   <draft-sterman-aaa-sip>false</draft-sterman-aaa-sip>
+</digest-configuration>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Digest Configuration created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "DigestConf",
+ 	"description": "Created by admin on 11/15/2016 04:52:28 PM",
+  	"digest-realm": "elitecore.com",
+  	"default-digest-qop": "auth",
+  	"default-digest-algorithm": "MD5",
+  	"digest-opaque": "elitecore",
+  	"default-digest-nonce": "digest",
+  	"default-digest-nonce-length": 4,
+  	"draft-sterman-aaa-sip": "false" 
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Digest Configuration created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+   <digest-configuration>
+    	<name>DigestConf</name>
+    	<description>Created by admin on 11/15/2016 04:52:28 PM</description>
+    	<digest-realm>elitecore.com</digest-realm>
+    	<default-digest-qop>auth</default-digest-qop>
+    	<default-digest-algorithm>MD5</default-digest-algorithm>
+    	<digest-opaque>elitecore</digest-opaque>
+        <default-digest-nonce>digest</default-digest-nonce>
+    	<default-digest-nonce-length>4</default-digest-nonce-length>
+    	<draft-sterman-aaa-sip>false</draft-sterman-aaa-sip>
+   </digest-configuration>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Digest Configuration(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{ 
+   "list":
+	[
+	   {
+  		"name": "DigestConf",
+ 	    "description": "Created by admin on 11/15/2016 04:52:28 PM",
+  		"digest-realm": "elitecore.com",
+  		"default-digest-qop": "auth",
+  		"default-digest-algorithm": "MD5",
+  		"digest-opaque": "elitecore",
+  		"default-digest-nonce": "digest",
+  		"default-digest-nonce-length": 4,
+  		"draft-sterman-aaa-sip": "false" 
+	    }
+	]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Digest Configuration(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration?name=DigestConf
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration?operation=update&name=DigestConf
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<digest-configuration>
+    <name>DigestConf</name>
+    <description>Created by admin on 11/15/2016 04:52:28 PM</description>
+    <digest-realm>sterlite.com</digest-realm>
+    <default-digest-qop>auth</default-digest-qop>
+    <default-digest-algorithm>MD5</default-digest-algorithm>
+    <digest-opaque>sterlite</digest-opaque>
+    <default-digest-nonce>digest</default-digest-nonce>
+    <default-digest-nonce-length>8</default-digest-nonce-length>
+    <draft-sterman-aaa-sip>false</draft-sterman-aaa-sip>
+</digest-configuration>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Digest Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "name": "DigestConf",
+  "description": "Created by admin on 11/15/2016 04:52:28 PM",
+  "digest-realm": "sterlite.com",
+  "default-digest-qop": "auth",
+  "default-digest-algorithm": "MD5",
+  "digest-opaque": "sterlite",
+  "default-digest-nonce": "digest",
+  "default-digest-nonce-length": 9,
+  "draft-sterman-aaa-sip": "false"
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Digest Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration?name=DigestConf
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration?operation=delete&name=DigestConf
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/digestconfiguration/DigestConf?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Digest Configuration(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+***********************************************************************

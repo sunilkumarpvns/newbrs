@@ -1,0 +1,59 @@
+<list>
+	<test-case
+		behaviour="policy will be applied with configured action DROP if configured attribute is present in accounting request and accountig response">
+		<universal-plugin-detail>
+			<description>Created by admin on 04/17/2017 03:17:43 PM</description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies>
+				<pre-policy-detail name="prePolicy">
+					<action>3</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>toUpperCase("elitecore")</attribute-value>
+							<packet-type>4</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</pre-policy-detail>
+			</universal-pre-policies>
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>3</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"eliteaaa"</attribute-value>
+							<packet-type>5</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="4">
+			<attribute id="0:1" value="ELITEAAA" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:31" value="ELITECORE" />
+		</request-packet>
+
+		<response-packet type="5">
+			<attribute id="0:31" value="eliteaaa" />
+		</response-packet>
+
+		<assert>
+			<response>
+				<is-dropped/>
+			</response>
+		</assert>
+	</test-case>
+</list> 

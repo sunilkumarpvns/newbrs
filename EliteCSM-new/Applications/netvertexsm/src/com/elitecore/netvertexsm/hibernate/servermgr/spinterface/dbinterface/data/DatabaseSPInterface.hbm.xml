@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.spinterface.dbinterface.data.DatabaseSPInterfaceData" table="TBLMDBSPINTERFACE">
+
+		<id name="databaseSpInterfaceId" column="DBSPINTERFACEID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">				
+			</generator>
+		</id>    
+
+		<property name="databaseDsId" type="java.lang.Long"> 
+			<column name="DATABASEDSID" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+
+
+		<property name="tableName" type="string"> 
+			<column name="TABLENAME" sql-type="VARCHAR2(30)" not-null="false" /> 
+		</property>
+
+
+		<property name="dbQueryTimeout" type="java.lang.Long"> 
+			<column name="DBQUERYTIMEOUT" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+
+
+		<property name="maxQueryTimeoutCnt" type="java.lang.Long"> 
+			<column name="MAXQUERYTIMEOUTCOUNT" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+
+		<property name="driverInstanceId" type="java.lang.Long"> 
+			<column name="DRIVERINSTANCEID" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+		
+		<property name="identityField" type="string"> 
+			<column name="IDENTITYFIELD" sql-type="VARCHAR2(50)" not-null="false" /> 
+		</property>						
+
+		<set inverse="true" name="dbFieldMapSet" lazy="false" cascade="delete-orphan" >
+			<key column="DBSPINTERFACEID" />
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.servermgr.spinterface.dbinterface.data.DBFieldMapData" not-found="ignore" />
+		</set>
+		
+	  	
+	  	<many-to-one name="databaseDs" column="DATABASEDSID" lazy="false" insert="false" update="false" 
+     	  	class="com.elitecore.netvertexsm.datamanager.datasource.database.data.DatabaseDSData" not-null="false" cascade="save-update">
+     	</many-to-one>	
+	
+	</class>
+
+</hibernate-mapping>          

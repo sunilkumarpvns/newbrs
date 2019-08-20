@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.diameter.imsibasedroutingtable.data.IMSIFieldMappingData" table="TBLMIMSIFIELDMAP">
+
+		<id name="imsiFieldMapId" column="IMSIFIELDMAPID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+
+		<property name="imsiRange" type="StringType"> 
+			<column name="IMSIRANGE" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property>
+		
+		<property name="routingTableId" type="StringType"> 
+			<column name="ROUTINGTABLEID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="primaryPeerId" type="StringType"> 
+			<column name="PRIMARYPEERID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>	
+		
+		<property name="secondaryPeerId" type="StringType"> 
+			<column name="SECONDARYPEERID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>	
+		
+		<property name="primaryPeerName" type="StringType"> 
+			<column name="PRIMARYPEERNAME" sql-type="VARCHAR(60)" not-null="false" /> 
+		</property>	
+		
+		<property name="secondaryPeerName" type="StringType"> 
+			<column name="SECONDARYPEERNAME" sql-type="VARCHAR(60)" not-null="false"  /> 
+		</property>	
+		
+		<property name="tag" type="StringType"> 
+			<column name="TAG" sql-type="VARCHAR(50)" not-null="false"  /> 
+		</property>	
+		
+		<property name="orderNumber" type="java.lang.Integer">
+			<column name="ORDERNUMBER" sql-type="NUMERIC(20)" not-null="false"></column>
+		</property>
+		
+   </class>            
+	            
+</hibernate-mapping>

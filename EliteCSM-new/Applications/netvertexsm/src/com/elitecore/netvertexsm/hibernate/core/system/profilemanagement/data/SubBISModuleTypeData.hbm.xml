@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.SubBISModuleTypeData" table="TBLMSUBBISMODULETYPE">
+		<id name="subBisModuleTypeId" type="string">
+			<column name="SUBBISMODULETYPEID" sql-type="CHAR(8)"></column>
+		</id>
+		
+		<property name="name" type="string">
+			<column name="NAME" sql-type="VARCHAR(50)"></column>
+		</property>
+		
+		<property name="alias" type="string">
+			<column name="ALIAS" sql-type="VARCHAR(50)"></column>
+		</property>
+		
+		<property name="description" type="string">
+			<column name="DESCRIPTION" sql-type="VARCHAR(100)"></column>
+		</property>
+		
+		<property name="systemGenerated" type="string">
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)"></column>
+		</property>
+		
+		<property name="bisModuleTypeId" type="string">
+			<column name="BISMODULETYPEID" sql-type="CHAR(8)"></column>
+		</property>
+		
+		<property name="createDate" type="java.sql.Timestamp" column="CREATEDATE" not-null="true">
+		</property>
+	</class>
+</hibernate-mapping>

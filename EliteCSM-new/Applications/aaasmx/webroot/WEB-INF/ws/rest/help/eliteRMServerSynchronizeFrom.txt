@@ -1,0 +1,38 @@
+***********************************************************************
+						SYNCHRONIZE FROM OPERATION
+
+***********************************************************************
+
+# Using PUT Operation
+
+URL :
+
+http://IP:PORT/aaasmx/cxfservices/restful/v1/server/elitermserver/synchronizefrom/RM_Server
+
+OR
+
+http://IP:PORT/aaasmx/cxfservices/restful/v1/server/elitermserver/synchronizefrom?name=RM_Server
+
+***********************************************************************
+# Using POST Operation
+
+URL :
+ 
+http://IP:PORT/aaasmx/cxfservices/restful/v1/server/elitermserver/synchronizefrom/RM_Server?operation=update
+
+OR
+
+http://IP:PORT/aaasmx/cxfservices/restful/v1/server/elitermserver/synchronizefrom?name=RM_Server&operation=update
+
+Result :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>RM Server Synchronization From successfully completed</response-message>
+    </response>
+</response-detail>
+
+
+### NOTE :
+	1) Which Server Instance's configuration you want to update using synchronize from operation that server must be running on that IP and Port.

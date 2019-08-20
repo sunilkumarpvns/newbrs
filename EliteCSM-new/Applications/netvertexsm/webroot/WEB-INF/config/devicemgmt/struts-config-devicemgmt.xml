@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <form-beans>
+      <form-bean name="deviceManagementForm" type="com.elitecore.netvertexsm.web.devicemgmt.form.DeviceManagementForm"/>
+    </form-beans>
+  
+    <action-mappings>
+      
+     <action parameter="method" name="deviceManagementForm"
+			path="/deviceMgmt" scope="request" type="com.elitecore.netvertexsm.web.devicemgmt.DeviceManagementAction">
+			<forward name="searchDeviceMgmtPage" path="/jsp/devicemgmt/SearchDeviceManagement.jsp" />
+			<forward name="createDeviceMgmtPage" path="/jsp/devicemgmt/CreateDeviceManagement.jsp" />
+			<forward name="viewDeviceMgmtPage" path="/jsp/devicemgmt/ViewDeviceManagementContainer.jsp" />
+			<forward name="editDeviceMgmtPage" path="/jsp/devicemgmt/EditDeviceManagementContainer.jsp" />
+			<forward name="uploadDeviceMgmtPage" path="/jsp/devicemgmt/UploadDeviceManagement.jsp" />
+	 </action>
+    
+    </action-mappings>
+  
+    <message-resources key="deviceMgmtResources" parameter="com.elitecore.netvertexsm.web.devicemgmt.DeviceMgmtResources" />
+  
+</struts-config>
+

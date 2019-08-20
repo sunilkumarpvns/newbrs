@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.profile.data">
+
+  <class name="GatewayProfileRuleMappingData" table="TBLMPROFILEPCCRULEMAPPINGREL">
+  
+  	 <id name="profileRuleMappingId" column="PROFILEPCCRULEMAPPINGRELID" type="java.lang.Long" >
+     	  <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+	 	  </generator>
+     </id>     
+    
+     <property name="accessNetworkType" type="string">
+     	  <column name="ACCESSNETWORKTYPE" sql-type="VARCHAR2(4000)" not-null="false"/>
+     </property>
+     
+     <property name="profileId" type="java.lang.Long">
+     	  <column name="PROFILEID" sql-type="NUMBER(12)" not-null="false"/>
+     </property>
+     
+     <property name="ruleMappingId" type="java.lang.Long">
+     	  <column name="PCCRULEMAPPINGID" sql-type="NUMBER(12)" not-null="false"/>
+     </property>
+     
+     <property name="orderNumber" type="java.lang.Integer">
+     	  <column name="ORDERNUMBER" sql-type="NUMBER(12)" not-null="false"/>
+     </property>
+     
+     <many-to-one name="ruleMappingData" column="PCCRULEMAPPINGID" lazy="false" insert="false" update="false"
+     	  class="com.elitecore.netvertexsm.datamanager.gateway.pccrulemapping.data.RuleMappingData" not-null="false" cascade="save-update">
+     </many-to-one>
+     
+  </class>
+</hibernate-mapping>

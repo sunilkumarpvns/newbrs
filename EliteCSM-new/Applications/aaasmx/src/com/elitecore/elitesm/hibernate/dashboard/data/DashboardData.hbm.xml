@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.dashboard.data.DashboardData" table="TBLMDASHBOARD">
+		<id name="dashboardId" column="DASHBOARDID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		<property name="dashboardName" type="StringType">
+			<column name="DASHBOARDNAME" sql-type="VARCHAR(64)" not-null="false" />
+		</property>
+		<property name="dashboardDesc" type="StringType">
+			<column name="DASHBOARDDESC" sql-type="VARCHAR(200)" not-null="false" />
+		</property>
+		<property name="startFrom" type="StringType">
+			<column name="STARTFROM" sql-type="VARCHAR(64)" not-null="false" />
+		</property>
+		<property name="addShares" type="StringType">
+			<column name="ADDSHARES" sql-type="VARCHAR(64)" not-null="false" />
+		</property>
+		<property name="author" type="StringType">
+			<column name="AUTHOR" sql-type="VARCHAR(64)" not-null="false" />
+		</property>
+		<property name="orderNumber" type="java.lang.Long"> 
+			<column name="ORDERNUMBER" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<set name="widgetSet" lazy="false" inverse="true" cascade="delete">
+			<key column="dashboardId"></key>
+			<one-to-many class="com.elitecore.elitesm.web.dashboard.json.WidgetData" />
+	  	</set>
+	</class>
+
+</hibernate-mapping>

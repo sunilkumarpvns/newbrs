@@ -1,0 +1,6 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_server_profile,POST : Create New Server Profile : 405,sm/serverprofile/server-profile.json,POST,create_server_profile.json,"{""actionErrors"":[""Method Not Allowed""]}",28792,405,server profile
+2,get_server_profile,GET : Default Server Profile should be displayed : 200,sm/serverprofile/server-profile/SERVER_PROFILE_1.json,GET,,,26331,200,server profile
+3,update_server_profile,PUT : Update Default Server Profile : 200,sm/serverprofile/server-profile/SERVER_PROFILE_1.json,PUT,update_server_profile.json,,26332,200,server profile
+4,get_updated_server_profile,GET : Updated Server Profile should be displayed : 200,sm/serverprofile/server-profile/SERVER_PROFILE_1.json,GET,,,26333,200,server profile
+5,delete_server_profile,DELETE : Delete Server Profile : 405,sm/serverprofile/server-profile/SERVER_PROFILE_1.json,DELETE,,"{""actionErrors"":[""Method Not Allowed""]}",28793,405,server profile

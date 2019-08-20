@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+
+  <class name="com.elitecore.netvertexsm.datamanager.RoutingTable.mccmncgroup.data.MCCMNCGroupData" table="TBLMMCCMNCGROUP">
+
+		 <id name="mccmncGroupId" column="MCCMNCGROUPID" type="long">
+		 	<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"></generator>
+		 </id>
+		 
+		 <property name="name" type="string">
+        	<column name="NAME" sql-type="VARCHAR2(40)" not-null="true"/>
+     	 </property>
+     	      
+     	 <property name="description" type="string">
+        	<column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="false"/>
+     	 </property>
+     	 
+     	 <property name="brandId" type="java.lang.Long">
+	          <column name="BRANDID" sql-type="NUMERIC" not-null="true"/>
+	    </property>
+		 <many-to-one name="brandData" fetch="join"  insert="false" update="false" class="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.BrandData" column="BRANDID" ></many-to-one>
+		 
+		 <set name="mccmncCodeGroupRelSet" lazy="false" inverse="true" cascade="all,delete-orphan">
+		 
+     	<key column="MCCMNCGROUPID"/>
+     	<one-to-many class="com.elitecore.netvertexsm.datamanager.RoutingTable.mccmncgroup.data.MCCMNCCodeGroupRelData"/></set>
+  </class>
+</hibernate-mapping>

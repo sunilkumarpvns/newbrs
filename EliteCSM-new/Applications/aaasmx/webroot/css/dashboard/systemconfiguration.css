@@ -1,0 +1,187 @@
+.ui-corner-all{
+	border-radius: 2px !important;
+}
+
+.ui-progressbar.beginning .ui-progressbar-value { background: green; }
+.ui-progressbar.middle .ui-progressbar-value { background: orange; } 
+.ui-progressbar.end .ui-progressbar-value { background: red; }
+
+.progress-label {
+    float: left;
+    margin-left: 2%;
+    margin-top: 1px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+  }
+
+.table-Tr-style{
+	vertical-align: top;
+	border-right-color: #CCCCCC;
+	border-right-style: solid;
+	border-right-width: 1px;
+}
+.dataTables_filter {
+   	text-align: left;
+}
+.dataTables_scrollHeadInner{
+	width:0;
+}
+.dataTable{
+	width:0;
+}
+
+#example tbody tr td{
+	 border-bottom-color:#CCCCCC;
+	 border-bottom-style:solid;
+	 border-bottom-width:1px;
+	 padding: 2px;
+}
+
+#threadDemo tbody tr td{
+	 border-bottom-color:#CCCCCC;
+	 border-bottom-style:solid;
+	 border-bottom-width:1px;
+	 padding: 2px;
+}
+
+#threadDemo td table td{
+	border: none;
+	font-size: 12px;
+}
+
+
+#heapMemory tbody tr td{
+	 border-bottom-color:#CCCCCC;
+	 border-bottom-style:solid;
+	 border-bottom-width:1px;
+	 vertical-align: middle;
+}
+
+
+#heapMemoryTable tbody tr td table tr td{
+	border: none;
+	font-size: 12px;
+}
+#innerheapMemory tbody tr td{
+	 border-bottom: none;
+}
+#nonheapMemory tbody tr td{
+	 border-bottom-color:#CCCCCC;
+	 border-bottom-style:solid;
+	 border-bottom-width:1px;
+	 vertical-align: middle;
+}
+#innernonheapMemory tbody tr td{
+	border-bottom-color:white;
+	border-bottom-style:solid;
+ 	border-bottom-width:1px;
+}
+
+.table-Tr-style:hover{
+	background-color: #F2F2F2;
+}
+.serverUpTime{
+	font-weight: bold;
+	font-family: arial;
+	color:#8A4B08;
+	font-size: 12px;
+}
+.dataTables_scrollBody{
+	border-bottom-color: #CCCCCC;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+.first-left-border{
+	border-left-color: #CCCCCC;
+	border-left-style: solid;
+	border-left-width: 1px;
+}
+.restart-btn{
+	margin: 16px 8px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	cursor: default !important;
+	display: inline-block;
+	height: 25px;
+	line-height: 29px;
+	min-width: 54px;
+	padding: 0px 8px;
+	text-align: center;
+	text-decoration: none !important;
+	border-radius: 2px;
+	-moz-user-select: none;
+	white-space: nowrap;
+	font: 13px/27px Arial,sans-serif;
+	color:rgb(34, 34, 34) ;
+	
+}
+.restart-btn:hover {
+    border-color: #C6C6C6;
+    color: rgb(34, 34, 34) !important;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+    background: -moz-linear-gradient(center top , #F8F8F8, #F1F1F1) repeat scroll 0% 0% transparent;
+}
+.tabledata-text{ 
+	font-family: Arial; 
+	font-size: 12px; 
+	color: #000000;
+	padding-right: 0px; 
+	padding-left: 3px 
+	border-bottom: 1px solid #CCC;
+}
+.system-table-header{
+	font-family: Arial;
+	font-size: 12px;
+	color: #000;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.noHover{
+	background-color: white;
+}
+.garbage-table-Tr-style:hover{
+	background-color: #F2F2F2;
+}
+.dataTables_empty{
+	font-size: 12px !important;
+  	text-align: center !important;
+}
+.system-main-table{
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-right: 20px;
+}
+.memory-usage-style{
+	font-size: 12px;
+	color: white;
+	background-color: rgb(217, 230, 246);
+	font-weight: bold;
+}
+.garbage-collection-header{
+	font-size: 12px;
+	color: white;
+	background-color:#2565A5;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.header-color{
+	background-color:#E0ECF8;
+}
+.memory-usage-title{
+	font-size: 12px;
+	color: white;
+	background-color: #2565A5;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.memory-category{
+	border-left-style: solid;
+	border-left-color: #CCCCCC;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCCCCC;
+	border-top-width: 1px;
+}

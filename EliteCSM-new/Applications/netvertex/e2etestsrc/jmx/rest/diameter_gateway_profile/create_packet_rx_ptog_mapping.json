@@ -1,0 +1,17 @@
+{
+  "id": "rest_ptog_rx_packet_mapping_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Rest_AAResponse",
+  "description": "Gateway to PCC Packet Mapping for Diameter Gateway Profile",
+  "commProtocol": "DIAMETER",
+  "packetType": "AUTHENTICATE_AUTHORIZE_RESPONSE",
+  "type": "PCC_TO_GATEWAY",
+  "attributeMappingData": {
+    "mappings": [
+      "{\"pid\":\"0\",\"attribute\":\"0:1\",\"policykey\":\"CS.UserName\",\"defaultvalue\":\"netvertex_user\",\"valuemapping\":\"n\"}"],
+    "orderNumber": null
+  },
+  "applicationType": null,
+  "groupNames": "DefaultGroup"
+}

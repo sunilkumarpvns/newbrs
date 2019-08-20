@@ -1,0 +1,26 @@
+.update {
+	font-size: 15px;
+	font-family: "Operator Mono SSm A", "Operator Mono SSm B", 'Source Code Pro', Menlo, Consolas, Monaco, monospace;
+	background: cadetblue;
+	cursor: text;
+}
+
+.update-details {
+	font-size: 15px;
+	font-family: "Operator Mono SSm A", "Operator Mono SSm B", 'Source Code Pro', Menlo, Consolas, Monaco, monospace;
+	background: #666;
+	color: ghostwhite;
+    width: 100%;
+    max-height: 200px;
+    border-radius: 2px;
+    overflow: overlay;
+}
+
+.update-detail {
+	margin-left: 10px;
+}
+
+.update-value {
+	margin-left: 10px;
+	color: white;
+}

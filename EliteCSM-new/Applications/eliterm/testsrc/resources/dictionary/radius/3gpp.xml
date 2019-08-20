@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--                                                                     
+	3GPP stuff.                                                   
+                                                                     
+	ftp://ftp.3gpp.org/specs/2002-06/R1999/29_series/29061-3a0.zip
+                                                                     
+	$Id: dictionary.3gpp,v 1.1 2003/09/17 19:08:39 aland Exp $    
+--> 
+   
+<attribute-list vendorid="10415" vendor-name="3GPP">
+<!--	Most of the 'string' attributes are UTF-8 encoded text. 
+	Maybe we want a UTF-8 'type' in the server...           
+-->
+	<attribute id="1" name="3GPP-IMSI" type="string"/>
+	<attribute id="2" name="3GPP-Charging-ID" type="integer"/>
+	<attribute id="3" name="3GPP-PDP-Type" type="integer"/>
+	<attribute id="4" name="3GPP-Charging-Gateway-Address" type="ipaddr"/>
+	<attribute id="5" name="3GPP-GPRS-Negotiated-QoS-profile" type="string"/>
+	<attribute id="6" name="3GPP-SGSN-Address" type="ipaddr"/>
+	<attribute id="7" name="3GPP-GGSN-Address" type="ipaddr"/>
+	<attribute id="8" name="3GPP-IMSI-MCC-MNC" type="string"/>
+	<attribute id="9" name="3GPP-GGSN-MCC-MNC" type="string"/>
+	<attribute id="10" name="3GPP-NSAPI" type="string"/>
+	<attribute id="11" name="3GPP-Session-Stop-Indicator" type="octets"/>
+	<attribute id="12" name="3GPP-Selection-Mode" type="string"/>
+	<attribute id="13" name="3GPP-Charging-Characteristics" type="string"/>
+	<attribute id="14" name="3GPP-Charging-Gateway-IPv6-Address" type="ipv6addr"/>
+	<attribute id="15" name="3GPP-SGSN-IPv6-Address" type="ipv6addr"/>
+	
+<!--	This attribute is really an array of IPv6 addresses.      
+     	Why the heck couldn't they just send multiple attributes? 
+-->	
+	<attribute id="16" name="3GPP-GGSN-IPv6-Address" type="ipv6addr"/>	
+	<attribute id="17" name="3GPP-IPv6-DNS-Servers" type="octets"/>
+	<attribute id="18" name="3GPP-SGSN-MCC-MNC" type="string"/>
+	<attribute id="19" name="3GPP-Teardown-Indicator" type="octets"/>
+	<attribute id="20" name="3GPP-IMEISV" type="string"/>
+	<attribute id="21" name="3GPP-RAT-Type" type="octets"/>
+	<attribute id="22" name="3GPP-User-Location-Info" type="UserLocationInfo"/>
+	<attribute id="23" name="3GPP-MS-TimeZone" type="octets"/>
+	<attribute id="24" name="3GPP-CAMEL-Charging-Info" type="octets"/>
+	<attribute id="25" name="3GPP-Packet-Filter" type="octets"/>
+	<attribute id="26" name="3GPP-Negotiated-DSCP" type="octets"/>
+	<attribute id="27" name="3GPP-Allocate-IP-Type" type="integer"/>
+
+<!--	Gmb specific AVPs
+-->
+	<attribute id="900" name="TMGI" type="octets"/>
+	<attribute id="901" name="Required-MBMS-Bearer-Capabilities" type="string"/>
+	<attribute id="902" name="MBMS-StartStop-Indication" type="integer"/>
+	<attribute id="903" name="MBMS-Service-Area" type="octets"/>
+	<attribute id="904" name="MBMS-Session-Duration" type="octets"/>
+	<attribute id="905" name="Alternative-APN" type="string"/>
+	<attribute id="906" name="MBMS-Service-Type" type="integer"/>
+	<attribute id="907" name="MBMS-2G-3G-Indicator" type="integer"/>
+	<attribute id="908" name="MBMS-Session-Identity" type="octets"/>
+	<attribute id="909" name="RAI" type="string"/>
+	<attribute id="910" name="Additional-MBMS-Trace-Info" type="octets"/>
+	<attribute id="911" name="MBMS-Time-To-Data-Transfer" type="octets"/>
+	<attribute id="912" name="MBMS-Session-Repetition-Number" type="octets"/>
+	<attribute id="913" name="MBMS-Required-QoS" type="string"/>
+	<attribute id="914" name="MBMS-Counting-Information" type="integer"/>
+	<attribute id="915" name="MBMS-User-Data-Mode-Indication" type="integer"/>
+	<attribute id="916" name="MBMS-GGSN-Address" type="ipaddr"/>
+	<attribute id="917" name="MBMS-GGSN-IPv6-Address" type="ipv6addr"/>
+	<attribute id="918" name="MBMS-BMSC-SSM-IP-Address" type="ipaddr"/>
+	<attribute id="919" name="MBMS-BMSC-SSM-IPv6-Address" type="ipv6addr"/>
+	<attribute id="920" name="MBMS-Flow-Identifier" type="octets"/>
+	<attribute id="921" name="CN-IP-Multicast-Distribution" type="integer"/>
+	<attribute id="922" name="MBMS-HC-Indicator" type="integer"/>	
+</attribute-list>

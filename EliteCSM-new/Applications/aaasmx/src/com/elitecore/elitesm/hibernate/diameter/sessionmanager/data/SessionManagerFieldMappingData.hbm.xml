@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.diameter.sessionmanager.data.SessionManagerFieldMappingData" table="TBLMDIASESSIONDBFIELDMAP">
+
+		<id name="dbFieldMapId" column="DBFIELDMAPID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="dbFieldName" type="StringType"> 
+			<column name="DBFIELDNAME" sql-type="VARCHAR(64)"  not-null="false"/>
+		</property>
+		
+		<property name="referringAttr" type="StringType"> 
+			<column name="REFERRINGATTR" sql-type="VARCHAR(50)"  not-null="false"/> 
+		</property>
+		
+		<property name="dataType" type="java.lang.Long">
+		  <column name="DATATYPE" sql-type="NUMBER(2)" not-null="false"/>
+		</property>
+		
+		<property name="defaultValue" type="StringType"> 
+			<column name="DEFAULTVALUE" sql-type="VARCHAR(255)"  not-null="false"/> 
+		</property>
+		
+		<property name="mappingId" type="StringType">
+		  <column name="MAPPINGID" sql-type="VARCHAR(36)" not-null="true"/>
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer">
+			<column name="ORDERNUMBER" sql-type="NUMERIC(20)" not-null="false"></column>
+		</property>
+		
+</class>            
+	            
+</hibernate-mapping>

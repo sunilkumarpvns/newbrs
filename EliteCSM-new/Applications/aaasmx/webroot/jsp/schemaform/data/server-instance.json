@@ -1,0 +1,94 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "Create Server",
+		"properties": {
+			"server-type": {
+				"title": "Server Type",
+				"type": "string"
+			},
+			"server-instance-name": {
+				"title": "Server Instance Name",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"admin-interface-ip": {
+				"title": "Admin Interface IP",
+				"type": "string"
+			},
+			"admin-interface-port": {
+				"title": "Admin Interface Port",
+				"type": "string"
+			},
+			"add-services": {
+				"type": "object",
+				"properties": {
+					"service-name": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "server-type",
+			"type": "select",
+			"titleMap": {
+				"Server Type": "Server Type",
+				"EliteCSM Server": "EliteCSM Server",
+				"Resource Manager": "Resource Manager"
+			}
+		},
+		{
+			"key": "server-instance-name"
+		},
+		{
+			"key": "description"
+		},
+		{
+			"key": "admin-interface-ip"
+		},
+		{
+			"key": "admin-interface-port"
+		},
+		{
+			"key": "add-services",
+			"items": [
+				{
+					"key": "add-services.service-name",
+					"add": "Add",
+					"items": [
+						{
+							"key": "add-services.service-name[]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"model": {
+		"server-type": "EliteCSM Server",
+		"server-instance-name": "AAA_Server",
+		"description": "Created by admin on 01/04/2017 12:34:38 PM",
+		"admin-interface-ip": "10.121.21.96",
+		"admin-interface-port": 4477,
+		"add-services": {
+			"service-name": [
+				"3GPP-AAA-SERVER",
+				"DIAMETER-CC",
+				"DIAMETER-EAP",
+				"DIAMETER-NAS",
+				"RAD-ACCT",
+				"RAD-AUTH",
+				"RAD-DYNAUTH"
+			]
+		}
+	}
+}

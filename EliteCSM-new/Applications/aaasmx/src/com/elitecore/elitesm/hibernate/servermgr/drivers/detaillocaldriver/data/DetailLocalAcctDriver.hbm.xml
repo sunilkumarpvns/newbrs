@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.servermgr.drivers.detailacctlocal.data.DetailLocalAcctDriverData" table="TBLMDETAILLOCALACCTDRIVER">
+
+		<id name="detailLocalId" column="DETAILLOCALID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="driverInstanceId" type="StringType"> 
+			<column name="driverinstanceid" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="allocatingProtocol" type="StringType"> 
+			<column name="allocatingprotocol" sql-type="VARCHAR(16)" not-null="false" /> 
+		</property>
+		
+		<property name="ipaddress" type="StringType"> 
+			<column name="ipaddress" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+
+		<property name="remoteLocation" type="StringType"> 
+			<column name="remotelocation" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>		
+		
+		<property name="userName" type="StringType"> 
+			<column name="username" sql-type="VARCHAR(64)" not-null="false" /> 
+		</property>
+		
+		<property name="password" type="StringType"> 
+			<column name="password" sql-type="VARCHAR(64)" not-null="false" /> 
+		</property>
+
+		<property name="postOperation" type="StringType"> 
+			<column name="postoperation" sql-type="VARCHAR(32)" not-null="false" /> 
+		</property>
+
+		<property name="archiveLocation" type="StringType"> 
+			<column name="archivelocation" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>		
+		
+		<property name="failOverTime" type="long"> 
+			<column name="failovertime" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+		
+		<property name="fileName" type="StringType"> 
+			<column name="filename" sql-type="VARCHAR(64)" not-null="false" /> 
+		</property>
+		
+		<property name="location" type="StringType"> 
+			<column name="location" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+
+		<property name="defaultDirName" type="StringType"> 
+			<column name="defaultdirname" sql-type="VARCHAR(64)" not-null="false" /> 
+		</property>
+		
+		<property name="timeBoundry" type="java.lang.Long">
+            <column name="TIMEBOUNDRY" sql-type="NUMBER(6)" not-null="false" />
+        </property>
+        
+         <property name="sizeBasedRollingUnit" type="java.lang.Long">
+            <column name="SIZEBASEDROLLINGUNIT" sql-type="NUMBER(12)" not-null="false" />
+        </property>
+        
+          <property name="timeBasedRollingUnit" type="java.lang.Long">
+            <column name="TIMEBASEDROLLINGUNIT" sql-type="NUMBER(12)" not-null="false" />
+        </property>
+        
+         <property name="recordBasedRollingUnit" type="java.lang.Long">
+            <column name="RECORDBASEDROLLINGUNIT" sql-type="NUMBER(12)" not-null="false" />
+        </property>
+		
+		<property name="eventDateFormat" type="StringType"> 
+			<column name="eventdateformat" sql-type="VARCHAR(64)" not-null="false" /> 
+		</property>
+		
+		<property name="prefixFileName" type="StringType"> 
+			<column name="prefixfilename" sql-type="VARCHAR(64)" not-null="false" /> 
+		</property>
+
+		<property name="folderName" type="StringType"> 
+			<column name="foldername" sql-type="VARCHAR(64)" not-null="false" /> 
+		</property>
+
+		<property name="writeAttributes" type="StringType"> 
+			<column name="writeattributes" sql-type="VARCHAR(16)" not-null="false" /> 
+		</property>		
+		
+		<property name="useDictionaryValue" type="StringType"> 
+			<column name="usedictionaryvalue" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="avpairSeperator" type="StringType"> 
+			<column name="AVPAIRSEPARATOR" sql-type="VARCHAR(4)" not-null="false" /> 
+		</property>
+
+		<property name="range" type="StringType"> 
+			<column name="range" sql-type="VARCHAR(16)" not-null="false" /> 
+		</property>		
+		
+		<property name="globalization" type="StringType"> 
+			<column name="globalization" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="pattern" type="StringType"> 
+			<column name="pattern" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+	  	
+	  	<set name="detailLocalSet" lazy="false" inverse="false" cascade="delete" order-by="attrRelId"> 
+			<key column="detailLocalId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.detailacctlocal.data.DetailLocalAttrRelationData" />
+	  	</set>
+    
+	</class>
+
+</hibernate-mapping> 

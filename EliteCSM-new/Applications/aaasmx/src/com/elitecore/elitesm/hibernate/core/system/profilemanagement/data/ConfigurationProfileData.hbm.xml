@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.core.system.profilemanagement.data.ConfigurationProfileData" table="TBLMCONFIGURATIONPROFILE">
+		<id name="configurationProfileId" type="CharType">
+			<column name="CONFIGURATIONPROFILEID" sql-type="CHAR(7)"></column>
+		</id>
+		
+		<property name="alias" type="StringType">
+			<column name="ALIAS" sql-type="VARCHAR(50)"></column>
+		</property>
+		
+		<property name="description" type="StringType">
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)"></column>
+		</property>
+		
+		<property name="name" type="StringType">
+			<column name="NAME" sql-type="VARCHAR(50)"></column>
+		</property>
+		
+		<property name="systemGenerated" type="CharType">
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)"></column>
+		</property>
+		
+ 		<property name="xmlDataBlob" type="java.sql.Blob">
+			<column name="XMLDATA" sql-type="BLOB"></column>
+		</property>  
+	</class>
+</hibernate-mapping>          

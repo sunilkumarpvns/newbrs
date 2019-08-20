@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.rm.concurrentloginpolicy.data.ConcurrentLoginPolicyDetailData" table="TBLTCONCURRENTLOGINPOLICYDET" >          
+	 
+		<composite-id>
+	        <key-property name="concurrentLoginId" column="CONCURRENTLOGINID" type="StringType" />
+	        <key-property name="serialNumber" column="SERIALNUMBER" type="int" />
+	    </composite-id>
+	 
+	     <property name="attributeValue" type="StringType">
+	          <column name="ATTRIBUTEVALUE" sql-type="VARCHAR(255)" not-null="false"/>
+	      </property>
+	      
+	     <property name="login" type="java.lang.Integer">
+	          <column name="MAXIMUMLOGIN" sql-type="NUMERIC(3)" not-null="true"/>
+	     </property>
+	     
+	     <property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false" />
+     
+	</class>
+	
+</hibernate-mapping>

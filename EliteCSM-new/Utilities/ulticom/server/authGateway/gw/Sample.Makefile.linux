@@ -1,0 +1,58 @@
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+LD_RUN_PATH	= /usr/lib64/omni
+LIBRARY = /opt/ulcm/library 
+LDFLAGS		= -Xlinker -rpath -Xlinker $(LD_RUN_PATH)  -L$(LIBRARY)
+
+
+PROC_TYPE=$(shell uname -m)
+ifeq ($(PROC_TYPE),x86_64)
+ARCHFLAGS = -DAMD64_ARCH
+LD_RUN_PATH	= /usr/lib64/omni
+LDFLAGS   = -Xlinker -rpath -Xlinker $(LD_RUN_PATH) -L$(LIBRARY)
+endif
+DEBIAN=$(shell ls /etc/debian_version 2>/dev/null)
+ifeq ($(DEBIAN),/etc/debian_version)
+ARCHFLAGS += -DDEBIAN
+DEBIAN = true
+endif
+
+
+
+export LD_RUN_PATH LD_LIBRARY_PATH
+
+LD_RUN_PATH	= /usr/lib64/omni
+CC 		= gcc
+LD 		= /usr/bin/ld
+DEFINES		= -DOMNI_UNIX -DLINUX -D_GNU_SOURCE -D_REENTRANT -fpic
+CFLAGS		= $(INCLUDE) $(DEFINES) $(DEBUG)
+
+INCPATHS 	+= -I/vob/signalware/src/streams/include
+DEBUG 		= -g -Wall -O -std=gnu99
+
+LIB = -lsocket -lnsl  -lpthread
+
+PROT_FLAGS       = $(PROTOCOL_C7)
+
+LOCALLIB          = -ltcap -lgmap2 -lFt++ -lstream -lapi -lsccp -loos -lscos -lswrmm -ldgms -lpthread -lm
+
+INCLUDE       += -I. -I$(OMNI_HOME)/include -I$(OMNI_HOME)/streams/include
+
+SRCS_AUTHGATEWAY = authGateway.c authGWdbg.c ulcm_hash.c tcp_message.c wlan_custom.c
+
+OBJS_AUTHGATEWAY = $(SRCS_AUTHGATEWAY:%.c=%.o)
+
+all::	authGateway
+authGateway:  $(OBJS_AUTHGATEWAY)
+	$(RM) authGateway
+	$(CC) $(LDFLAGS) -o authGateway  $(OBJS_AUTHGATEWAY) $(LOCALLIB)
+
+clean::
+	$(RM) authGateway
+	$(RM) $(OBJS_AUTHGATEWAY)
+
+realclean::
+	$(RM) authGateway
+	$(RM) $(OBJS_AUTHGATEWAY)

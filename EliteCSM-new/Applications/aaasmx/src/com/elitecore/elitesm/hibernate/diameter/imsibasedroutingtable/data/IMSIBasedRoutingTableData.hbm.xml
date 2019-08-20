@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.diameter.imsibasedroutingtable.data.IMSIBasedRoutingTableData" table="TBLMIMSIBASEDROUTINGTABLE">
+
+		<id name="routingTableId" column="ROUTINGTABLEID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+
+		<property name="routingTableName" type="StringType"> 
+			<column name="ROUTINGTABLENAME" sql-type="VARCHAR(128)" not-null="false" /> 
+		</property>
+		
+		<property name="imsiIdentityAttributes" type="StringType"> 
+			<column name="IMSIIDENTITYATTRIBUTES" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property>
+		
+		<property name="auditUId" type="StringType" >
+	         <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false" />
+	    </property>
+	    
+	    <set name="imsiFieldMappingDataSet" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+			<key column="routingTableId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.diameter.imsibasedroutingtable.data.IMSIFieldMappingData" />
+	  	</set>	
+   </class>            
+	            
+</hibernate-mapping>

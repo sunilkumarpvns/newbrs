@@ -1,0 +1,118 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "RADIUS POLICY",
+		"properties": {
+			"name": {
+				"title": "Name",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"check-item-expression": {
+				"title": "Check Item Expressions",
+				"type": "string"
+			},
+			"add-item-expression": {
+				"title": "Add Item Expressions",
+				"type": "string"
+			},
+			"reject-item-expression": {
+				"title": "Reject Item Expressions",
+				"type": "string"
+			},
+			"reply-item-expression": {
+				"title": "Reply Item Expressions",
+				"type": "string"
+			},
+			"status": {
+				"title": "Active",
+				"type": "boolean"
+			},
+			"time-base-policy": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"month-of-year": {
+							"title": "Month of Year",
+							"type": "string"
+						},
+						"date-of-month": {
+							"title": "Day of Month",
+							"type": "string"
+						},
+						"day-of-week": {
+							"title": "Day of Week",
+							"type": "string"
+						},
+						"time-duration": {
+							"title": "Time Period",
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "description"
+		},
+		{
+			"key": "check-item-expression"
+		},
+		{
+			"key": "add-item-expression"
+		},
+		{
+			"key": "reject-item-expression"
+		},
+		{
+			"key": "reply-item-expression"
+		},
+		{
+			"key": "status"
+		},
+		{
+			"key": "time-base-policy",
+			"add": "Add",
+			"items": [
+				{
+					"key": "time-base-policy[].month-of-year"
+				},
+				{
+					"key": "time-base-policy[].date-of-month"
+				},
+				{
+					"key": "time-base-policy[].day-of-week"
+				},
+				{
+					"key": "time-base-policy[].time-duration"
+				}
+			]
+		}
+	],
+	"model": {
+		"name": "Rad_policy_Demo",
+		"description": "Created by admin on 11/29/2016 08:10:06 PM",
+		"check-item-expression": "0:1=\"test\"",
+		"reject-item-expression": "0:4=\"10.10.10.11\"",
+		"reply-item-expression": "0:18=\"Hotline success\"",
+		"add-item-expression": "0:31=\"10.10.10.10\"",
+		"status": "ACTIVE",
+		"time-base-policy": [
+			{
+				"month-of-year": "1-2,5,7",
+				"date-of-month": "12-17,20-30",
+				"day-of-week": "1,4,7",
+				"time-duration": "10:10-12:00"
+			}
+		]
+	}
+}

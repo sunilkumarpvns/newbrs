@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.digestconf.data.DigestConfigInstanceData" table="TBLMDIGESTCONF">
+		<id name="digestConfId" column="DIGESTCONFID" type="StringType">
+			 <generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+		<property name="name" type="StringType" column="NAME" not-null="true"/> 
+		<property name="description" type="StringType" column="DESCRIPTION" not-null="false"/> 
+		<property name="realm" type="StringType" column="REALM" not-null="true"/>
+		<property name="defaultQoP" type="StringType" column="DEFAULTQOP" not-null="false"/>
+		<property name="defaultAlgo" type="StringType" column="DEFAULTALGO" not-null="true"/>
+		<property name="opaque" type="StringType" column="OPAQUE" not-null="true"/>
+		<property name="defaultNonce" type="StringType" column="DEFAULTNONCE" not-null="true"/>
+		<property name="defaultNonceLength" type="integer" column="DEFAULTNONCELENGTH" not-null="true" />
+		<property name="draftAAASipEnable" type="StringType" column="DRAFT_AAA_SIPENABLE" not-null="true"/>
+		<property name="lastModifiedbyStaffid" type="StringType" column="LASTMODIFIEDBYSTAFFID" not-null="false" />
+		<property name="createdbyStaffid" type="StringType" column="CREATEDBYSTAFFID" not-null="false" />
+		<property name="lastModifiedDate" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" not-null="false"/>
+		<property name="createDate" type="java.sql.Timestamp" column="CREATEDATE" not-null="false"/>
+		<property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	     </property>
+	</class>            
+	            
+ 
+</hibernate-mapping>

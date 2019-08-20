@@ -1,0 +1,671 @@
+<list>
+	<test-case
+		behaviour="Dynamic Assign Item: Adds configured attribute in response packet from dictionary with configured attribute value if not present in response 
+			or replaces value with configured attribute value if present,
+						1) Attribute-value can be literal value
+						2) Attribute-value can be expression
+						3) Attribute-value can be Attribute-id
+	">
+						
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>0:30</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:89</attr-id>
+							<attribute-value>strip(0:1, "T", "@")</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"replaced"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+		</request-packet>
+
+		<response-packet type="2">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:30" value="12345" />
+		</response-packet>
+
+		<assert>
+			<response>
+				<contains-attribute id="0:31" value="12345" />
+				<contains-attribute id="0:30" value="replaced" />
+				<contains-attribute id="0:89" value="eliteaaa" />
+			</response>
+		</assert>
+
+	</test-case>
+	
+	<test-case
+		behaviour="Add Item: attribute is not added if not found in dictionary
+	">
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:233</attr-id>
+							<attribute-value>"any-value"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</request-packet>
+
+		<response-packet type="2">
+		</response-packet>
+
+		<assert>
+			<response>
+				<not>
+					<contains-attribute id="0:233" value="any-value" />
+				</not>
+			</response>
+		</assert>
+		
+	</test-case>
+
+	<test-case
+		behaviour="Update Item: 
+			if configured attribute is found in response packet, its value is appended with value configured.
+			Value configured can be:
+			1) Literal value
+			2) Attribute Id
+			3) Expression
+	">
+	
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"update"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>U</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>toUpperCase("update")</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>U</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>0:31</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>U</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+		
+		
+		<request-packet type="1">
+			<attribute id="0:1" value="ELITEAAA" />
+			<attribute id="0:2" value="ELITEAAA" />
+		</request-packet>
+
+		<response-packet type="2">
+			<attribute id="0:31" value="11:22:33:AA:BB:CC" />
+			<attribute id="0:30" value="11:22:33:AA:BB:CC" />
+			<attribute id="0:25" value="somevalue" />
+		</response-packet>
+
+		<assert>
+			<response>
+				<contains-attribute id="0:31" value="11:22:33:AA:BB:CCupdate" />
+				<contains-attribute id="0:30" value="11:22:33:AA:BB:CCUPDATE" />
+				<contains-attribute id="0:25" value="somevalue11:22:33:AA:BB:CCupdate" />
+			</response>
+		</assert>
+
+	</test-case>
+	
+	<test-case
+		behaviour="Update Item: 
+			if configured attribute is found in response packet, its value is appended with value configured.
+			Value configured can be:
+			For an example: 
+				1) attribut-id = 0:31 and value of attribute is '0A-0B-0C-0D' and attribute-value = '0:1*' and value of attribute is 'eliteaaa'
+					- then the final value of 0:31 will become 'eliteaaa0A-0B-0C-0D'
+				2) attributIdStr = 0:31 and value of attribute is '0A-0B-0C-0D' and strAttrValue = '0:1' and value of attribute is 'eliteaaa'
+					- then the final value of 0:31 will become '0A-0B-0C-0Deliteaaa'
+	">
+	
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>0:1*</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>U</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>0:1</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>U</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+		
+		
+		<request-packet type="1">
+			<attribute id="0:1" value="eliteaaa" />
+			<attribute id="0:2" value="ELITEAAA" />
+		</request-packet>
+
+		<response-packet type="2">
+			<attribute id="0:1" value="eliteaaa" />
+			<attribute id="0:31" value="0A-0B-0C-0D" />
+			<attribute id="0:30" value="11:22:33:AA:BB:CC" />
+			<attribute id="0:25" value="somevalue" />
+		</response-packet>
+
+		<assert>
+			<response>
+				<contains-attribute id="0:25" value="eliteaaasomevalue" />
+				<contains-attribute id="0:31" value="0A-0B-0C-0Deliteaaa" />
+			</response>
+		</assert>
+
+	</test-case>
+
+	<test-case
+		behaviour="Update Item: attribute is not appended if not found in dictionary
+	">
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:233</attr-id>
+							<attribute-value>"any-value"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>U</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</request-packet>
+
+		<response-packet type="2">
+		</response-packet>
+
+		<assert>
+			<response>
+				<not>
+					<contains-attribute id="0:233" value="any-value" />
+				</not>
+			</response>
+		</assert>
+		
+	</test-case>
+
+	<test-case
+		behaviour="Value Replace Item: 
+			if configured attribute is found in response packet, its value is replaced with value configured.
+			Value configured can be:
+			1) Literal value
+			2) Attribute Id
+			3) Expression
+		">
+		
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"replace"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>V</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>toUpperCase("replace")</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>V</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>0:31</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>V</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="ELITEAAA" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:31" value="ABCDEF" />
+		</request-packet>
+
+		<response-packet type="2">
+			<attribute id="0:31" value="11:22:33:AA:BB:CC" />
+			<attribute id="0:30" value="11:22:33:AA:BB:CC" />
+			<attribute id="0:25" value="somevalue" />
+		</response-packet>
+
+		<assert>
+			<response>
+				<contains-attribute id="0:31" value="replace" />
+				<contains-attribute id="0:30" value="REPLACE" />
+				<contains-attribute id="0:25" value="replace" />
+			</response>
+		</assert>
+
+	</test-case>
+	
+	
+	<test-case
+		behaviour="Replace Item: attribute is not replaced if not found in dictionary
+	">
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:233</attr-id>
+							<attribute-value>"any-value"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>V</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</request-packet>
+
+		<response-packet type="2">
+		</response-packet>
+
+		<assert>
+			<response>
+				<not>
+					<contains-attribute id="0:233" value="any-value" />
+				</not>
+			</response>
+		</assert>
+		
+	</test-case>
+
+	<test-case
+		behaviour="Filter Item: 
+		if configured attribute is found in response then it will be removed from response irrespecitive of its value
+		">
+		
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:11</attr-id>
+							<attribute-value>"unused"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>F</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="ELITEAAA" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:31" value="user1@elitecore.com" />
+		</request-packet>
+
+		<response-packet type="2">
+			<attribute id="0:11" value="user1@elitecore.com" />
+		</response-packet>
+
+		<assert>
+			<response>
+				<not>
+					<contains-attribute id="0:11" value="user1@elitecore.com" />
+				</not>
+				<packet-type value="2" />
+			</response>
+		</assert>
+
+	</test-case>
+	
+	<test-case
+		behaviour="Filter Item: attribute is not removed if not found in dictionary
+	">
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:233</attr-id>
+							<attribute-value>"any-value"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>F</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</request-packet>
+
+		<response-packet type="2">
+		</response-packet>
+
+		<assert>
+			<response>
+				<not>
+					<contains-attribute id="0:233" value="any-value" />
+				</not>
+			</response>
+		</assert>
+		
+	</test-case>
+
+	<test-case behaviour="Reply Item: 
+		configured policy attribute will be added in response packet as a reply item
+	">
+	
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"valueAdded"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>R</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"valueAdded"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>R</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="ELITEAAA" />
+			<attribute id="0:2" value="ELITEAAA" />
+		</request-packet>
+
+		<response-packet type="2">
+		</response-packet>
+
+		<assert>
+			<request>
+				<packet-type value="1" />
+			</request>
+			<response>
+				<contains-attribute id="0:25" value="valueAdded" />
+				<packet-type value="2" />
+			</response>
+		</assert>
+
+	</test-case>
+	
+	<test-case
+		behaviour="Reply Item: attribute is not removed if not found in dictionary
+	">
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:233</attr-id>
+							<attribute-value>"any-value"</attribute-value>
+							<packet-type>2</packet-type>
+							<parameter-usage>R</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345" />
+		</request-packet>
+
+		<response-packet type="2">
+		</response-packet>
+
+		<assert>
+			<response>
+				<not>
+					<contains-attribute id="0:233" value="any-value" />
+				</not>
+			</response>
+		</assert>
+		
+	</test-case>
+	
+	<test-case behaviour="it will add-update-replace-remove attributes and add reply item in request packet 
+	">
+	
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies />
+			<universal-post-policies>
+				<post-policy-detail name="postPolicy">
+					<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"12345"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"123456"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>U</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"VWXYZ"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>V</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:11</attr-id>
+							<attribute-value>"unused"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>F</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"valueAdded"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>R</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="ELITEAAA" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="12345123456" />
+			<attribute id="0:31" value="AAA" />
+			<attribute id="0:11" value="elitecore" />
+			<attribute id="0:25" value="valueAdded" />
+		</request-packet>
+
+		<response-packet type="2">
+		</response-packet>
+
+		<assert>
+			<request>
+				<packet-type value="1" />
+				<contains-attribute id="0:30" value="12345123456" />
+				<contains-attribute id="0:25" value="valueAdded" />
+				<contains-attribute id="0:31" value="VWXYZ" />
+			</request>
+		</assert>
+
+	</test-case>
+</list>

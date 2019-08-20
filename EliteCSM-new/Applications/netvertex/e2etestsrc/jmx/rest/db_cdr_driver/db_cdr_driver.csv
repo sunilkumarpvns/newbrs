@@ -1,0 +1,9 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_datasource,POST : Create DB Datasource : 201,sm/database/database.json,POST,create_datasource.json,,,201,database
+2,create_db_cdr_driver,POST : Create DB CDR Driver rest_db_cdr_driver  : 201,sm/driver/db-cdr-driver.json,POST,create_db_cdr_driver.json,,28853,201,db-cdr-driver
+3,get_created_cdr_driver,GET : rest_db_cdr_driver should be displayed : 200,sm/driver/db-cdr-driver/rest_db_cdr_driver_11111111.json,GET,,,28854,200,db-cdr-driver
+4,update_db_cdr_driver,PUT : Update rest_db_cdr_driver and change to updated_rest_db_cdr_driver : 200,sm/driver/db-cdr-driver/rest_db_cdr_driver_11111111.json,PUT,update_db_cdr_driver.json,,28855,200,db-cdr-driver
+5,get_updated_cdr_driver,GET : updated_rest_db_cdr_driver should be displayed : 200,sm/driver/db-cdr-driver/rest_db_cdr_driver_11111111.json,GET,,,28856,200,db-cdr-driver
+6,delete_db_cdr_driver,DELETE : Delete updated_rest_db_cdr_driver : 200,sm/driver/db-cdr-driver/rest_db_cdr_driver_11111111.json,DELETE,,,28857,200,db-cdr-driver
+7,get_deleted_cdr_driver,GET : updated_rest_db_cdr_driver should not be displayed : 404,sm/driver/db-cdr-driver/rest_db_cdr_driver_11111111.json,GET,,"{""actionErrors"":[""Driver Not Found with id: rest_db_cdr_driver_11111111""]}",28858,404,db-cdr-driver
+8,delete_datasource,DELETE : Delete DB Datasource : 200,sm/database/database/rest_db_datasource_11111111.json,DELETE,,,,200,database

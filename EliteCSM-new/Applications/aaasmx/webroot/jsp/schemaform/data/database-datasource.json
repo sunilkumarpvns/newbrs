@@ -1,0 +1,85 @@
+{
+   "schema":{
+      "type":"object",
+      "title":"Database Datasource",
+      "properties":{
+         "name":{
+            "title":"Datasource Name",
+            "type":"string"
+         },
+         "connection-url":{
+            "title":"Connection URL",
+            "type":"string"
+         },
+         "username":{
+            "title":"Username",
+            "type":"string",
+            "default":"eliteaaa"
+         },
+         "password":{
+            "title":"Password",
+            "type":"string",
+            "default":"eliteaaa"
+         },
+         "timeout":{
+            "title":"Timeout(ms)",
+            "type":"integer"
+         },
+         "status-check-duration":{
+            "title":"Status Check Duration(Sec.)",
+            "type":"integer"
+         },
+         "minimum-pool-size":{
+            "title":"Minimum Connection",
+            "type":"integer",
+            "default":10
+         },
+         "maximum-pool-size":{
+            "title":"Maximum Connection",
+            "type":"integer",
+            "default":50
+         }
+      }
+   },
+   "form":[
+      {
+         "key":"name"
+      },
+      {
+         "key":"connection-url"
+      },
+      {
+         "key":"username"
+      },
+      {
+         "key":"password"
+      },
+      {
+         "key":"timeout"
+      },
+      {
+         "key":"status-check-duration"
+      },
+      {
+         "key":"minimum-pool-size"
+      },
+      {
+         "key":"maximum-pool-size"
+      },
+      {
+         "type":"submit",
+         "style":"btn-info",
+         "title":"OK"
+      }
+   ],
+   "model":{
+	"name": "DefaultDatabaseDatasource",
+	"timeout": 1000,
+	"connection-url": "jdbc:oracle:thin:@//192.168.2.124:1521/csmdb",
+	"username": "admin",
+	"password": "admin",
+	"status-check-duration": 120,
+	"minimum-pool-size": 2,
+	"maximum-pool-size": 10
+}
+}

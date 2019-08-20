@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+	<form-beans>
+
+		<form-bean name="createPCRFServiceForm" type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.form.CreatePCRFServicePolicyForm"/>
+		<form-bean name="searchPCRFServiceForm" type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.form.SearchPCRFServicePolicyForm"/>
+		<form-bean name="editPCRFServicePolicyForm" type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.form.EditPCRFServicePolicyForm"/>
+		<form-bean name="miscPCRFPolicyForm" type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.form.MiscPCRFServicePolicyForm"/>
+		<form-bean name="manageServicePolicyForm" type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.form.ManageServicePolicyOrderForm"/>
+		
+	</form-beans>
+
+	<global-forwards>
+		<forward name="success" path="/jsp/core/response/SuccessResponsePage.jsp" />
+		<forward name="failure" path="/jsp/core/response/FailureResponsePage.jsp" />
+		<forward name="popupfailure" path="/jsp/core/response/PopupFailureResponsePage.jsp" />
+		<forward name="popupsuccess" path="/jsp/core/response/PopupSuccessResponsePage.jsp" />
+	</global-forwards>
+
+	<action-mappings>
+		
+		<action path="/manageOrderPolicy" 
+        	type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.ManageServicePolicyOrderAction"
+        	name="manageServicePolicyForm"
+         	scope="request"
+         	validate="false">
+        	<forward name="orderlist" path="/jsp/servicepolicy/pcrfservicepolicy/ManageServicePolicyOrder.jsp" />         				
+     	</action>
+		
+		<action path="/initSearchPCRFService"
+			type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.InitSearchPCRFServicePolicyAction"
+			name="searchPCRFServiceForm" 
+			scope="request" 
+			validate="false">
+			<forward name="initSearchPCRFService" path="/jsp/servicepolicy/pcrfservicepolicy/SearchPCRFServicePolicy.jsp" />
+		</action>
+		
+		<action path="/searchPCRFPolicy"
+			type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.SearchPCRFServicePolicyAction"
+			name="searchPCRFServiceForm" 
+			scope="request" 
+			validate="false">
+			<forward name="searchPCRFService" path="/jsp/servicepolicy/pcrfservicepolicy/SearchPCRFServicePolicy.jsp" />
+		</action>
+		
+		<action path="/initCreatePCRFService"
+			type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.InitCreatePCRFServicePolicyAction"
+			name="createPCRFServiceForm" 
+			scope="request" 
+			validate="false">
+			<forward name="initCreatePCRFService" path="/jsp/servicepolicy/pcrfservicepolicy/CreatePCRFServicePolicy.jsp" />
+		</action>
+
+		<action path="/createPCRFPolicy"
+			type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.CreatePCRFServicePolicyAction"
+			name="createPCRFServiceForm" 
+			scope="request" 
+			validate="false">
+		</action>
+		
+		<action path="/viewPCRFPolicy"
+			type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.ViewPCRFServicePolicyAction"
+			name="createPCRFServiceForm" 
+			scope="request" 
+			validate="false">
+			<forward name="viewPCRFServicePolicy" path="/jsp/servicepolicy/pcrfservicepolicy/ViewPCRFServicePolicyContainer.jsp" />
+		</action>
+		
+		<action path="/initEditPCRFServicePolicy"
+	  		scope="request"
+	  		type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.InitEditPCRFServicePolicyAction"
+	  		name="editPCRFServicePolicyForm"
+	  		validate="false">
+	  		<forward name="initEditPCRFServicePolicy" path="/jsp/servicepolicy/pcrfservicepolicy/EditPCRFServicePolicy.jsp" />
+	  </action>
+	  
+	  <action path="/editPCRFServicePolicy"
+	  		scope="request"
+	  		type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.EditPCRFServicePolicyAction"
+	  		name="editPCRFServicePolicyForm"
+	  		validate="false">
+	  		
+	  </action>	
+		
+	  <action path="/miscPCRFPolicy"
+          scope="request"
+          type="com.elitecore.netvertexsm.web.servicepolicy.pcrfservicepolicy.MiscPCRFServicePolicyAction"
+          name="miscPCRFPolicyForm"
+          validate="false">
+            <forward name="searchPCRFPolicyList" path="/searchPCRFPolicy.do"/>
+      </action>
+
+	</action-mappings>
+
+	<message-resources key="servicePolicyProperties" parameter="com.elitecore.netvertexsm.web.servicepolicy.servicePolicy" />
+	
+</struts-config>		

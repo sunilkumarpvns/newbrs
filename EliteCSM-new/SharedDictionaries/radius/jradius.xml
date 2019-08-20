@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="19211" vendor-name="JRadius">
+<attribute id="1" name="JRadius-Request-id" type="string"/>
+<attribute id="2" name="JRadius-Session-id" type="string"/>
+<attribute id="3" name="JRadius-Proxy-Client" type="octets"/>
+</attribute-list>

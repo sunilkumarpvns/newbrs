@@ -1,0 +1,17 @@
+{
+  "id": "rest_rad_packet_mapping_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "updated_rest_radius_coa",
+  "description": "Created by REST Automation",
+  "commProtocol": "RADIUS",
+  "packetType": "CHANGE_OF_AUTHORIZATION",
+  "type": "PCC_TO_GATEWAY",
+  "attributeMappingData": {
+    "mappings": [
+      "{\"pid\":\"0\",\"attribute\":\"5535:181\",\"policykey\":\"UserEquipment.Brand\",\"defaultvalue\":\"tested\",\"valuemapping\":\"testing\"}"],
+    "orderNumber": null
+  },
+  "applicationType": null,
+  "groupNames": "DefaultGroup"
+}

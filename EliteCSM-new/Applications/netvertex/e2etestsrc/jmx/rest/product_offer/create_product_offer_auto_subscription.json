@@ -1,0 +1,13 @@
+{
+   "id":"rest_product_offer_11111111",
+    "productOfferAutoSubscriptionRelDatas":[{
+        "addOnProductOfferId" : "rest_addon_product_offer_11111111",
+        "advanceCondition" : "Sub.InternationalRoaming = \"true\"",
+        "orderNo" : 1
+    },
+	{
+        "addOnProductOfferId" : "rest_addon_product_offer_11111112",
+        "advanceCondition" : null,
+        "orderNo" : 1
+    }]
+}

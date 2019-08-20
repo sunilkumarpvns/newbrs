@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.alert.data.AlertTrapListenerData" table="TBLMTRAPLISTENER" >          
+
+		<id name="trapListenerId" type="StringType" column="TRAPLISTNERID">
+		    <generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>			
+		</id>
+		<property name="trapServer" type="StringType" column="TRAPSERVER" not-null="false"/>                
+		<property name="trapVersion" type="StringType" column="TRAPVERSION" not-null="false"/>
+		<property name="community" type="StringType" column="COMMUNITY" not-null="false"/>
+		<property name="listenerId" type="StringType" column="INSTANCEID" not-null="false"/>
+		<property name="advanceTrap" type="StringType" column="ADVANCETRAP" not-null="false"/>
+		<property name="repeatedMessageReduction" type="StringType" column="REPEATEDMESSAGEREDUCTION" not-null="false"/>
+	</class>
+	
+</hibernate-mapping>
+
+          

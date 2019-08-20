@@ -1,0 +1,352 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy?name=Rad_policy_Demo&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy.xml?name=Rad_policy_Demo
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy?operation=search&name=Rad_policy_Demo&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy.xml?operation=search&name=Rad_policy_Demo
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo.xml?operation=search
+
+Response     :
+
+<radius-policy>
+    <name>Rad_Policy</name>
+    <description>Created by admin on 11/29/2016 08:10:06 PM</description>
+    <status>ACTIVE</status>
+    <check-item-expression>0:1="test"</check-item-expression>
+    <add-item-expression>0:31="10.10.10.10"</add-item-expression>
+    <reject-item-expression>0:4="10.10.10.11"</reject-item-expression>
+    <reply-item-expression>0:18="Hotline success"</reply-item-expression>
+    <time-base-policy>
+        <month-of-year>12</month-of-year>
+        <date-of-month>12</date-of-month>
+        <day-of-week>2</day-of-week>
+        <time-duration>10</time-duration>
+    </time-base-policy>
+</radius-policy>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy?name=Rad_policy_Demo&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy.json?name=Rad_policy_Demo
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy?operation=search&name=Rad_policy_Demo&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy.json?operation=search&name=Rad_policy_Demo
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo.json?operation=search
+
+Response     :
+
+{
+   "name":"Rad_Policy",
+   "description":"Created by admin on 11/29/2016 08:10:06 PM",
+   "status":"ACTIVE",
+   "check-item-expression":"0:1=\"test\"",
+   "add-item-expression":"0:31=\"10.10.10.10\"",
+   "reject-item-expression":"0:4=\"10.10.10.11\"",
+   "reply-item-expression":"0:18=\"Hotline success\"",
+   "time-base-policy":[
+      {
+         "month-of-year":"12",
+         "date-of-month":"12",
+         "day-of-week":"2",
+         "time-duration":"10"
+      }
+   ]
+}
+
+***********************************************************************
+                    CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<radius-policy>
+    <name>Rad_Policy</name>
+    <description>Created by admin on 11/29/2016 08:10:06 PM</description>
+    <status>ACTIVE</status>
+    <check-item-expression>0:1="test"</check-item-expression>
+    <add-item-expression>0:31="10.10.10.10"</add-item-expression>
+    <reject-item-expression>0:4="10.10.10.11"</reject-item-expression>
+    <reply-item-expression>0:18="Hotline success"</reply-item-expression>
+    <time-base-policy>
+        <month-of-year>12</month-of-year>
+        <date-of-month>12</date-of-month>
+        <day-of-week>2</day-of-week>
+        <time-duration>10</time-duration>
+    </time-base-policy>
+</radius-policy>
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Radius Policy created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "name":"Rad_Policy",
+   "description":"Created by admin on 11/29/2016 08:10:06 PM",
+   "status":"ACTIVE",
+   "check-item-expression":"0:1=\"test\"",
+   "add-item-expression":"0:31=\"10.10.10.10\"",
+   "reject-item-expression":"0:4=\"10.10.10.11\"",
+   "reply-item-expression":"0:18=\"Hotline success\"",
+   "time-base-policy":[
+      {
+         "month-of-year":"12",
+         "date-of-month":"12",
+         "day-of-week":"2",
+         "time-duration":"10"
+      }
+   ]
+}
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Radius Policy created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+    <radius-policy>
+        <name>Rad_Policy</name>
+        <description>Created by admin on 11/29/2016 08:10:06 PM</description>
+        <status>ACTIVE</status>
+        <check-item-expression>0:1="test"</check-item-expression>
+        <add-item-expression>0:31="10.10.10.10"</add-item-expression>
+        <reject-item-expression>0:4="10.10.10.11"</reject-item-expression>
+        <reply-item-expression>0:18="Hotline success"</reply-item-expression>
+        <time-base-policy>
+            <month-of-year>12</month-of-year>
+            <date-of-month>12</date-of-month>
+            <day-of-week>2</day-of-week>
+            <time-duration>10</time-duration>
+        </time-base-policy>
+    </radius-policy>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Radius Policy(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"Rad_Policy",
+         "description":"Created by admin on 11/29/2016 08:10:06 PM",
+         "status":"ACTIVE",
+         "check-item-expression":"0:1=\"test\"",
+         "add-item-expression":"0:31=\"10.10.10.10\"",
+         "reject-item-expression":"0:4=\"10.10.10.11\"",
+         "reply-item-expression":"0:18=\"Hotline success\"",
+         "time-base-policy":[
+            {
+               "month-of-year":"12",
+               "date-of-month":"12",
+               "day-of-week":"2",
+               "time-duration":"10"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Radius Policy(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy?name=Rad_policy_Demo
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy?operation=update&name=Rad_policy_Demo
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<radius-policy>
+    <name>Rad_Policy</name>
+    <description>Created by admin on 11/29/2016 08:10:06 PM</description>
+    <status>ACTIVE</status>
+    <check-item-expression>0:1="test"</check-item-expression>
+    <add-item-expression>0:31="10.10.10.10"</add-item-expression>
+    <reject-item-expression>0:4="10.10.10.11"</reject-item-expression>
+    <reply-item-expression>0:18="Hotline success"</reply-item-expression>
+    <time-base-policy>
+        <month-of-year>12</month-of-year>
+        <date-of-month>12</date-of-month>
+        <day-of-week>2</day-of-week>
+        <time-duration>10</time-duration>
+    </time-base-policy>
+</radius-policy>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Radius Policy updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+   "name":"Rad_Policy",
+   "description":"Created by admin on 11/29/2016 08:10:06 PM",
+   "status":"ACTIVE",
+   "check-item-expression":"0:1=\"test\"",
+   "add-item-expression":"0:31=\"10.10.10.10\"",
+   "reject-item-expression":"0:4=\"10.10.10.11\"",
+   "reply-item-expression":"0:18=\"Hotline success\"",
+   "time-base-policy":[
+      {
+         "month-of-year":"12",
+         "date-of-month":"12",
+         "day-of-week":"2",
+         "time-duration":"10"
+      }
+   ]
+}
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Radius Policy updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy?name=Rad_policy_Demo
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy?operation=delete&name=Rad_policy_Demo
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiuspolicy/Rad_policy_Demo?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Radius Policy(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************
+						Additional Details(Properties as per SM)
+***********************************************************************
+# Value of status field can be :
+ 	1) ACTIVE
+ 	2) INACTIVE

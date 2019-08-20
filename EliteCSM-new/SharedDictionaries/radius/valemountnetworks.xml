@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="16313" vendor-name="ValemountNetworks">
+<attribute id="1" name="VNC-PPPoE-CBQ-RX" type="integer"/>
+<attribute id="2" name="VNC-PPPoE-CBQ-TX" type="integer"/>
+<attribute id="3" name="VNC-PPPoE-CBQ-RX-Fallback" type="integer"/>
+<attribute id="4" name="VNC-PPPoE-CBQ-TX-Fallback" type="integer"/>
+<attribute id="10" name="VNC-Splash" type="integer">
+	<supported-values>
+		<value id="1" name="Show"/>
+		<value id="0" name="No-Show"/>
+	</supported-values>
+</attribute>
+</attribute-list>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+
+  <class name="com.elitecore.netvertexsm.datamanager.RoutingTable.mccmncroutingtable.data.RoutingTableData" table="TBLMROUTINGENTRY">
+
+		 <id name="routingTableId" column="ROUTINGID" type="long">
+		 	<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"></generator>
+		 </id>
+		 
+		 <property name="name" type="string">
+        	<column name="NAME" sql-type="VARCHAR(40)" not-null="true"/>
+     	 </property>
+     	      
+     	 <property name="type" type="string">
+        	<column name="TYPE" sql-type="VARCHAR(255)" not-null="false"/>
+     	 </property>
+     	 
+     	  <property name="roaming" type="string">
+        	<column name="ROAMING" sql-type="VARCHAR(255)" not-null="false"/>
+     	 </property>
+     	 
+     	 <property name="mccmncGroupId" type="java.lang.Long">
+	          <column name="MCCMNCGROUPID" sql-type="NUMBER(8)" not-null="false"/>
+	    </property>
+     	 
+     	 <property name="routingAction" type="java.lang.Long">
+	          <column name="ACTION" sql-type="NUMBER(2)" not-null="true"/>
+	    </property>
+	    <property name="orderNumber" type="java.lang.Integer">
+     	  <column name="ORDERNUMBER" sql-type="NUMBER(10)" not-null="false"/>
+     </property>
+        <property name="realmCondition" type="string">
+     	  <column name="REALMCONDITION" sql-type="VARCHAR(255)" not-null="false"/>
+     </property>
+	    
+	    
+	    
+	    <many-to-one name="mccmncGroupData" column="MCCMNCGROUPID" lazy="false" insert="false" update="false" not-found="ignore"  class="com.elitecore.netvertexsm.datamanager.RoutingTable.mccmncgroup.data.MCCMNCGroupData"  not-null="false" ></many-to-one>
+	 	
+		 
+		  <set name="routingTableGatewayRelSet" lazy="false" inverse="true" cascade="all,delete-orphan">
+		 	<key column="ROUTINGID"/>
+     		<one-to-many class="com.elitecore.netvertexsm.datamanager.RoutingTable.mccmncroutingtable.data.RoutingTableGatewayRelData"/></set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_csv_driver_policy,POST : Create CSV Driver rest_csv_driver_policy for Service Policy : 201,sm/driver/csv-driver.json,POST,create_csv_driver_policy.json,,,201,csv driver
+2,create_policy,POST : Create Service Policy rest_service_policy  : 201,sm/pccservicepolicy/pcc-service-policy.json,POST,create_service_policy.json,,28797,201,pcc-service-policy
+3,get_created_policy,GET : rest_service_policy should be displayed : 200,sm/pccservicepolicy/pcc-service-policy/rest_service_policy_11111111.json,GET,,,28798,200,pcc-service-policy
+4,update_policy,PUT : Update rest_service_policy and change name to updated_rest_service_policy : 200,sm/pccservicepolicy/pcc-service-policy/rest_service_policy_11111111.json,PUT,update_service_policy.json,,28799,200,pcc-service-policy
+5,get_updated_policy,GET : updated_rest_service_policy should be displayed : 200,sm/pccservicepolicy/pcc-service-policy/rest_service_policy_11111111.json,GET,,,28800,200,pcc-service-policy
+6,delete_policy,DELETE : Delete updated_rest_service_policy : 200,sm/pccservicepolicy/pcc-service-policy/rest_service_policy_11111111.json,DELETE,,,28801,200,pcc-service-policy
+7,get_deleted_policy,GET : updated_rest_service_policy should not be displayed : 404,sm/pccservicepolicy/pcc-service-policy/rest_service_policy_11111111.json,GET,,"{""actionErrors"":[""PCC Service Policy Not Found with id: rest_service_policy_11111111""]}",28802,404,pcc-service-policy
+8,delete_csv_driver_policy,DELETE : Delete rest_csv_driver_policy : 200,sm/driver/csv-driver/rest_csv_driver_pcc_11111111.json,DELETE,,,,200,csv driver

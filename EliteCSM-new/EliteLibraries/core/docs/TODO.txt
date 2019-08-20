@@ -1,0 +1,5 @@
+
+
+	1.	Force concrete implementation to invoke super.init method.
+	2. 	Validate MEDIATION_HOME configured in the system.
+	

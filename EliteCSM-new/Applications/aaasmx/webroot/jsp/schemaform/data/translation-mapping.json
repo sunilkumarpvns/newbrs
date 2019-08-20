@@ -1,0 +1,423 @@
+{
+	"schema": {
+	"type": "object",
+	"title": "Translation Mapping Config",
+	"properties": {
+		"name": {
+			"title": "Name",
+			"type": "string"
+		},
+		"description": {
+			"title": "Description",
+			"type": "string"
+		},
+		"script": {
+			"title": "Script",
+			"type": "string"
+		},
+		"from-translation-type": {
+			"title": "Translation Type From",
+			"type": "string"
+		},
+		"to-translation-type": {
+			"title": "Translation Type To",
+			"type": "string"
+		},
+		"base-translation-mapping": {
+			"title": "Base Translation Mapping",
+			"type": "string"
+		},
+		"mappings": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"mapping-name": {
+						"title": "Mapping Name",
+						"type": "string"
+					},
+					"in-message": {
+						"title": "In Message (Diameter)",
+						"type": "string"
+					},
+					"out-message": {
+						"title": "Out Message (Diameter)",
+						"type": "string"
+					},
+					"default-mapping": {
+						"title": "Default Mapping ",
+						"type": "string"
+					},
+					"dummy-response": {
+						"title": "Dummy Response ",
+						"type": "string"
+					},
+					"request-parameters": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"check-expression": {
+									"title": "Check Expression",
+									"type": "string"
+								},
+								"mapping-expression": {
+									"title": "Mapping Expression",
+									"type": "string"
+								},
+								"default-value": {
+									"title": "Default Value",
+									"type": "string"
+								},
+								"value-mapping": {
+									"title": "Default Value",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"response-parameters": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"check-expression": {
+									"title": "Check Expression",
+									"type": "string"
+								},
+								"mapping-expression": {
+									"title": "Mapping Expression",
+									"type": "string"
+								},
+								"default-value": {
+									"title": "Default Value",
+									"type": "string"
+								},
+								"value-mapping": {
+									"title": "Default Value",
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"dummy-response-parameters": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"out-field": {
+						"title": "Out Field",
+						"type": "string"
+					},
+					"value": {
+						"title": "Value",
+						"type": "string"
+					}
+				}
+			}
+		},
+		"default-mapping": {
+			"type": "object",
+			"properties": {
+				"request-parameters": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"check-expression": {
+								"title": "Check Expression",
+								"type": "string"
+							},
+							"mapping-expression": {
+								"title": "Mapping Expression",
+								"type": "string"
+							},
+							"default-value": {
+								"title": "Default Value",
+								"type": "string"
+							},
+							"value-mapping": {
+								"title": "Value Mapping",
+								"type": "string"
+							}
+						}
+					}
+				},
+				"response-parameters": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"check-expression": {
+								"title": "Check Expression",
+								"type": "string"
+							},
+							"mapping-expression": {
+								"title": "Mapping Expression",
+								"type": "string"
+							},
+							"default-value": {
+								"title": "Default Value",
+								"type": "string"
+							},
+							"value-mapping": {
+								"title": "Value Mapping",
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+},
+	"form": [
+	{
+		"key": "name"
+	},
+	{
+		"key": "description"
+	},
+	{
+		"key": "script"
+	},
+	{
+		"key": "from-translation-type",
+		"type": "select",
+		"titleMap": {
+			"Diameter": "Diameter",
+			"Web-Service": "Web-Service",
+			"Radius": "Radius"
+		}
+	},
+	{
+		"key": "to-translation-type",
+		"type": "select",
+		"titleMap": {
+			"Diameter": "Diameter",
+			"Crestal-Rating": "Crestal-Rating",
+			"Crestal_OCSv2":"Crestal_OCSv2",
+			"Radius":"Radius"
+		}
+	},
+	{
+		"key": "base-translation-mapping"
+	},
+	{
+		"key": "mappings",
+		"add": "Add Mappings",
+		"items": [
+			{
+				"key": "mappings[].mapping-name"
+			},
+			{
+				"key": "mappings[].in-message"
+			},
+			{
+				"key": "mappings[].out-message"
+			},
+			{
+				"key": "mappings[].default-mapping",
+				"type": "radios",
+				"titleMap": [
+					{
+						"value": "true",
+						"name": "true"
+					},
+					{
+						"value": "false",
+						"name": "false"
+					}
+				]
+			},
+			{
+				"key": "mappings[].dummy-response",
+				"type": "radios",
+				"titleMap": [
+					{
+						"value": "true",
+						"name": "true"
+					},
+					{
+						"value": "false",
+						"name": "false"
+					}
+				]
+			},
+			{
+				"key": "mappings[].request-parameters",
+				"add": "Add New Mappings",
+				"items": [
+					{
+						"key": "mappings[].request-parameters[].check-expression"
+					},
+					{
+						"key": "mappings[].request-parameters[].mapping-expression"
+					},
+					{
+						"key": "mappings[].request-parameters[].default-value"
+					},
+					{
+						"key": "mappings[].request-parameters[].value-mapping"
+					}
+				]
+			},
+			{
+				"key": "mappings[].response-parameters",
+				"add": "Add New Mappings",
+				"items": [
+					{
+						"key": "mappings[].response-parameters[].check-expression"
+					},
+					{
+						"key": "mappings[].response-parameters[].mapping-expression"
+					},
+					{
+						"key": "mappings[].response-parameters[].default-value"
+					},
+					{
+						"key": "mappings[].response-parameters[].value-mapping"
+					}
+				]
+			}
+			
+		]
+	},
+	{
+				"key": "dummy-response-parameters",
+				"add": "Add New Mapping",
+				"items": [
+					{
+						"key": "dummy-response-parameters[].out-field"
+					},
+					{
+						"key": "dummy-response-parameters[].value"
+					}
+				]
+	},
+	{
+		"key": "default-mapping",
+		"items": [
+			{
+				"key": "default-mapping.request-parameters",
+				"items": [
+					{
+						"key": "default-mapping.request-parameters[].check-expression",
+						"title": "Check Expression"
+					},
+					{
+						"key": "default-mapping.request-parameters[].mapping-expression",
+						"title": "Mapping Expression"
+					},
+					{
+					    "key":"default-mapping.request-parameters[].default-value",
+					    "title":"Default Value"
+					},
+					{
+					    "key":"default-mapping.request-parameters[].value-mapping"
+					}
+				]
+			},
+			{
+			    "key":"default-mapping.response-parameters",
+			    "items":[
+			        {
+			            "key":"default-mapping.response-parameters[].check-expression",
+			            "title":"Check Expression"
+			        },
+			        {
+			            "key":"default-mapping.response-parameters[].mapping-expression",
+			            "title":"Mapping Expression"
+			        },
+			        {
+			            "key":"default-mapping.response-parameters[].default-value",
+			            "title":"Default Value"
+			        },
+			        {
+			            "key":"default-mapping.response-parameters[].value-mapping"
+			        }
+			        ]
+			}
+		]
+	}
+
+],
+	"model": {
+		"name": "Translation_mapping",
+		"description": "Created by admin on 12/19/2016 11:51:44 AM",
+		"script": "translation-mapping-script",
+		"to-translation-type": "DIAMETER",
+		"from-translation-type": "DIAMETER",
+		"base-translation-mapping": "Translation_mapping",
+		"mappings": [
+			{
+				"mapping-name": "mapping1",
+				"in-message": "PacketType=\"1\"",
+				"out-message": "Auth-Method",
+				"default-mapping": "false",
+				"dummy-response": "false",
+				"request-parameters": [
+					{
+						"check-expression": "0:4=121.23.25.56",
+						"mapping-expression": "USERNAME=21067:125",
+						"default-value": "Test",
+						"value-mapping": "mapping1=MAPPING1"
+					}
+				],
+				"response-parameters": [
+					{
+						"check-expression": "0:4=121.23.25.56",
+						"mapping-expression": "USERNAME=21067:125",
+						"default-value": "Test",
+						"value-mapping": "mapping1=MAPPING1"
+					}
+				]
+			},
+			{
+				"mapping-name": "mapping2",
+				"in-message": "PacketType=\"41\"",
+				"out-message": "ReAuth-Method",
+				"default-mapping": "false",
+				"dummy-response": "true"
+			},
+			{
+				"mapping-name": "mapping3",
+				"in-message": "0:6=\"Authorize-Only\"",
+				"out-message": "Acct-Method",
+				"default-mapping": "true",
+				"dummy-response": "false"
+			}
+		],
+		"dummy-response-parameters": [
+			{
+				"value": "class",
+				"out-field": "0:25"
+			},
+			{
+				"value": "121.30.30.30",
+				"out-field": "0:4"
+			}
+		],
+		"default-mapping": {
+			"request-parameters": [
+				{
+					"check-expression": "0:4=121.21.21.21",
+					"mapping-expression": "USERNAME=21067:125",
+					"default-value": "req_default",
+					"value-mapping": "default mapping = DEFAULT-MAPPING"
+				}
+			],
+			"response-parameters": [
+				{
+					"check-expression": "0:4=198.160.2.2",
+					"mapping-expression": "USERNAME=21067:125",
+					"default-value": "res_default",
+					"value-mapping": "default mapping = DEFAULT-MAPPING"
+				}
+			]
+		}
+	}
+}

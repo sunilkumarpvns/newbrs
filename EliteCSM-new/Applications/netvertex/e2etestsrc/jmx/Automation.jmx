@@ -1,0 +1,2577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.1" jmeter="3.1 r1770033">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global variable Definition" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="nasip" elementType="Argument">
+            <stringProp name="Argument.name">nasip</stringProp>
+            <stringProp name="Argument.value">127.0.0.1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">NAS-IP-ADDRESS (4)</stringProp>
+          </elementProp>
+          <elementProp name="nasport" elementType="Argument">
+            <stringProp name="Argument.name">nasport</stringProp>
+            <stringProp name="Argument.value">3589</stringProp>
+            <stringProp name="Argument.desc">NAS-PORT (5)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dbip" elementType="Argument">
+            <stringProp name="Argument.name">dbip</stringProp>
+            <stringProp name="Argument.value">192.168.11.199</stringProp>
+            <stringProp name="Argument.desc">*database server ip</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dbport" elementType="Argument">
+            <stringProp name="Argument.name">dbport</stringProp>
+            <stringProp name="Argument.value">1521</stringProp>
+            <stringProp name="Argument.desc">database port</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dbservice" elementType="Argument">
+            <stringProp name="Argument.name">dbservice</stringProp>
+            <stringProp name="Argument.value">orcl12c</stringProp>
+            <stringProp name="Argument.desc">*Output of &apos;echo $ORACLE_SERVICE&apos;</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dbusername" elementType="Argument">
+            <stringProp name="Argument.name">dbusername</stringProp>
+            <stringProp name="Argument.value">netvertex6821</stringProp>
+            <stringProp name="Argument.desc">*oracle user</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jdbcvar" elementType="Argument">
+            <stringProp name="Argument.name">jdbcvar</stringProp>
+            <stringProp name="Argument.value">pool1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">variable name in jdbc connection config</stringProp>
+          </elementProp>
+          <elementProp name="clientip" elementType="Argument">
+            <stringProp name="Argument.name">clientip</stringProp>
+            <stringProp name="Argument.value">192.168.11.199</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">*</stringProp>
+          </elementProp>
+          <elementProp name="serverip" elementType="Argument">
+            <stringProp name="Argument.name">serverip</stringProp>
+            <stringProp name="Argument.value">192.168.11.199</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">*</stringProp>
+          </elementProp>
+          <elementProp name="clientport" elementType="Argument">
+            <stringProp name="Argument.name">clientport</stringProp>
+            <stringProp name="Argument.value">2819</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">* radius listener port</stringProp>
+          </elementProp>
+          <elementProp name="serverport" elementType="Argument">
+            <stringProp name="Argument.name">serverport</stringProp>
+            <stringProp name="Argument.value">3838</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Any free port</stringProp>
+          </elementProp>
+          <elementProp name="smserverport" elementType="Argument">
+            <stringProp name="Argument.name">smserverport</stringProp>
+            <stringProp name="Argument.value">6821</stringProp>
+            <stringProp name="Argument.desc">*Tomcat server connector port</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="nvhome" elementType="Argument">
+            <stringProp name="Argument.name">nvhome</stringProp>
+            <stringProp name="Argument.value">/home/6821/netvertex</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">*</stringProp>
+          </elementProp>
+          <elementProp name="nvuser" elementType="Argument">
+            <stringProp name="Argument.name">nvuser</stringProp>
+            <stringProp name="Argument.value">6821</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">*</stringProp>
+          </elementProp>
+          <elementProp name="serverinstancename" elementType="Argument">
+            <stringProp name="Argument.name">serverinstancename</stringProp>
+            <stringProp name="Argument.value">6821</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">*</stringProp>
+          </elementProp>
+          <elementProp name="logpath" elementType="Argument">
+            <stringProp name="Argument.name">logpath</stringProp>
+            <stringProp name="Argument.value">6821</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">*</stringProp>
+          </elementProp>
+          <elementProp name="sshusername" elementType="Argument">
+            <stringProp name="Argument.name">sshusername</stringProp>
+            <stringProp name="Argument.value">root</stringProp>
+            <stringProp name="Argument.desc">keep it root only</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tomcat_home" elementType="Argument">
+            <stringProp name="Argument.name">tomcat_home</stringProp>
+            <stringProp name="Argument.value">/home/6821/tomcat/apache-tomcat-7.0.39</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">*</stringProp>
+          </elementProp>
+          <elementProp name="pdcontextpath" elementType="Argument">
+            <stringProp name="Argument.name">pdcontextpath</stringProp>
+            <stringProp name="Argument.value">pd6821</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">*</stringProp>
+          </elementProp>
+          <elementProp name="radiusport" elementType="Argument">
+            <stringProp name="Argument.name">radiusport</stringProp>
+            <stringProp name="Argument.value">2819</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">*radius listener port</stringProp>
+          </elementProp>
+          <elementProp name="rest_data_package_url" elementType="Argument">
+            <stringProp name="Argument.name">rest_data_package_url</stringProp>
+            <stringProp name="Argument.value">rest/restful/import/import/pkgs</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="replace" elementType="Argument">
+            <stringProp name="Argument.name">replace</stringProp>
+            <stringProp name="Argument.value">action=REPLACE</stringProp>
+            <stringProp name="Argument.desc">Import Action with Replace</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="test_run_id" elementType="Argument">
+            <stringProp name="Argument.name">test_run_id</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.desc">Test Run ID in Test Rail (e.g. R196)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="fail" elementType="Argument">
+            <stringProp name="Argument.name">fail</stringProp>
+            <stringProp name="Argument.value">action=FAIL</stringProp>
+            <stringProp name="Argument.desc">Import Action with fail</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="checked_version" elementType="Argument">
+            <stringProp name="Argument.name">checked_version</stringProp>
+            <stringProp name="Argument.value">6.8.2.1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="checked_revision" elementType="Argument">
+            <stringProp name="Argument.name">checked_revision</stringProp>
+            <stringProp name="Argument.value">23216</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="elapsed_time" elementType="Argument">
+            <stringProp name="Argument.name">elapsed_time</stringProp>
+            <stringProp name="Argument.value">120</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Elapsed Time is in Minutes</stringProp>
+          </elementProp>
+          <elementProp name="clientshared" elementType="Argument">
+            <stringProp name="Argument.name">clientshared</stringProp>
+            <stringProp name="Argument.value">secret</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="servershared" elementType="Argument">
+            <stringProp name="Argument.name">servershared</stringProp>
+            <stringProp name="Argument.value">secret</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">user defined variables for redius regression 6821</stringProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="serverip" elementType="Argument">
+            <stringProp name="Argument.name">serverip</stringProp>
+            <stringProp name="Argument.value">192.168.11.199</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="serverport" elementType="Argument">
+            <stringProp name="Argument.name">serverport</stringProp>
+            <stringProp name="Argument.value">7000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="contextpath" elementType="Argument">
+            <stringProp name="Argument.name">contextpath</stringProp>
+            <stringProp name="Argument.value">policydesigner</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">Configuration variables</stringProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="REST Default Parameters" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">${serverip}</stringProp>
+        <stringProp name="HTTPSampler.port">${smserverport}</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        <stringProp name="HTTPSampler.protocol"></stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Authorization</stringProp>
+            <stringProp name="Header.value">Basic YWRtaW46YWRtaW4uMTIz</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">Header Manager for REST API</stringProp>
+      </HeaderManager>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration-192.168.11.199" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1 from dual</stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">${jdbcvar}</stringProp>
+        <stringProp name="dbUrl">jdbc:oracle:thin:@//${dbip}:${dbport}/${dbservice}</stringProp>
+        <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">netvertex6821</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">${dbusername}</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="setup Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1476949438000</longProp>
+        <longProp name="ThreadGroup.end_time">1476949438000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </SetupThreadGroup>
+      <hashTree/>
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1501592201000</longProp>
+        <longProp name="ThreadGroup.end_time">1501592201000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </PostThreadGroup>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Staff" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">stopthread</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1508151321000</longProp>
+        <longProp name="ThreadGroup.end_time">1508151321000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey"></stringProp>
+          <stringProp name="script">import org.apache.jmeter.engine.util.CompoundVariable;
+import org.apache.jmeter.protocol.http.util.HTTPArgument;
+import org.apache.jorphan.logging.LoggingManager;
+
+def httpMethod = vars.get(&quot;http.method&quot;);
+LoggingManager.getLoggerForClass().info(&quot;HTTP Method is :--------- &quot; + httpMethod);
+
+sampler.setMethod(httpMethod);
+
+if(!vars.get(&quot;input.json&quot;).equals(&quot;&quot;)){
+def dataToBePosted = new CompoundVariable(new File(vars.get(&quot;input.json&quot;)).text).execute();
+
+def arg= new HTTPArgument(&quot;&quot;, dataToBePosted, null, true);
+arg.setAlwaysEncoded(false);
+sampler.getArguments().addArgument(arg);
+}</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+          <stringProp name="WhileController.condition"></stringProp>
+        </WhileController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">staff.csv</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">true</boolProp>
+            <stringProp name="variableNames"></stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${test.description}" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${serverip}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverport}</stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">${contextpath}/${http.path}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Role" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">stopthread</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1508151321000</longProp>
+        <longProp name="ThreadGroup.end_time">1508151321000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Roles" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${serverip}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverport}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">policydesigner/sm/role/role.json</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Data Driven - tmp" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">stopthread</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1508151321000</longProp>
+        <longProp name="ThreadGroup.end_time">1508151321000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey"></stringProp>
+          <stringProp name="script">import org.apache.jmeter.engine.util.CompoundVariable;
+import org.apache.jmeter.protocol.http.util.HTTPArgument;
+import org.apache.jorphan.logging.LoggingManager;
+
+def httpMethod = vars.get(&quot;http.method&quot;);
+LoggingManager.getLoggerForClass().info(&quot;HTTP Method is :--------- &quot; + httpMethod);
+
+sampler.setMethod(httpMethod);
+
+		if(!vars.get(&quot;input.json&quot;).equals(&quot;&quot;)){
+			def dataToBePosted = new CompoundVariable(new File(vars.get(&quot;input.json&quot;)).text).execute();
+	
+			def arg= new HTTPArgument(&quot;&quot;, dataToBePosted, null, true);
+			arg.setAlwaysEncoded(false);
+			sampler.getArguments().addArgument(arg);
+		}</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+          <stringProp name="WhileController.condition"></stringProp>
+        </WhileController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">staff.csv</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">true</boolProp>
+            <stringProp name="variableNames"></stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${test.description}" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${serverip}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverport}</stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">${contextpath}/${http.path}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="CRUD for SM" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1489675226000</longProp>
+        <longProp name="ThreadGroup.end_time">1489675226000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">${__P(test.module,)}</stringProp>
+          <boolProp name="quotedData">true</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="variableNames"></stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${test.description}" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${serverip}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverport}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">policydesigner/${http.path}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic YWRtaW46YWRtaW4uMTIz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="cacheKey">d7fc748e-22b1-43b5-9f67-56334eaace08</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import org.apache.jmeter.engine.util.CompoundVariable;
+import org.apache.jmeter.protocol.http.util.HTTPArgument;
+
+//tets input parameters
+def httpMethod = vars.get(&quot;http.method&quot;);
+
+//change the http method as per the data sheet
+sampler.setMethod(httpMethod);
+
+//set the HTTP request body
+if(!vars.get(&quot;input.json&quot;).equals(&quot;&quot;)){
+	def dataToBePosted = new CompoundVariable(new File(vars.get(&quot;jmeter.test.home&quot;) + vars.get(&quot;input.json&quot;)).text).execute();
+	def arg= new HTTPArgument(&quot;&quot;, dataToBePosted, null, true);
+	arg.setAlwaysEncoded(false);
+	sampler.getArguments().addArgument(arg);
+
+	//HTTP Body is set to
+	log.info(dataToBePosted);
+}
+
+// If you need to modify anything else, check HTTPSamplerBase API
+// https://jmeter.apache.org/api/org/apache/jmeter/protocol/http/sampler/HTTPSamplerBase.html
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="461893074">${assertion}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">300</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <JSR223Listener guiclass="TestBeanGUI" testclass="JSR223Listener" testname="Test-Rail Push Result JSR223 Listener" enabled="false">
+        <stringProp name="TestPlan.comments">This Listener will Push Pass/Fail Result to Test Rail</stringProp>
+        <stringProp name="cacheKey"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="parameters">${test_run_id} ${test_case_id}</stringProp>
+        <stringProp name="script">import java.util.HashMap;
+import java.util.Map;
+import org.json.simple.JSONObject;
+import org.apache.jorphan.logging.LoggingManager;
+import com.gurock.testrail.APIClient;
+import org.apache.jmeter.samplers.*;
+import org.apache.jmeter.assertions.*;
+
+		
+APIClient client = new APIClient(&quot;http://192.168.2.138/csmqa/&quot;);
+client.setUser(&quot;nirav.modhiya@elitecore.com&quot;);
+client.setPassword(&quot;elitecore&quot;);	
+
+LoggingManager.getLoggerForClass().info(&quot;JSON Object To Be Sent Is : &quot;+ args);
+// Here STATUS 1 is for &apos;Passed&apos; and &apos;5&apos; is for &apos;Failed&apos;
+String STATUS_ID = &quot;status_id&quot;;
+//Validations on results
+
+Map data = new HashMap();
+LoggingManager.getLoggerForClass().info(&quot;SampleResult.isStopThread : &quot;+ sampleResult.isStopThread()); 
+LoggingManager.getLoggerForClass().info(&quot;SampleResult.isSuccessful : &quot;+ sampleResult.isSuccessful()); 
+
+int status = 1;
+// 1) This will be executed when all the samplers are executed succesffully.
+String commit = &quot;All the Steps are executed Successfully&quot;
+// 1) End
+
+// 2) Exectuion failed on Sampler. i.e. Sampler ERROR &amp; Test Thread is stopped.
+if(sampleResult.isStopThread()) {
+	status = 5;
+	Sampler sampler = ctx.getCurrentSampler();
+	commit = &quot;\n&quot; + sampler.getName() + &quot; execution failed&quot;;
+// 2) End
+	
+} else {
+// 3) Execution failed on Assertion. i.e. Assertion failed / multiple Assertion failed.
+	Sampler sampler = ctx.getCurrentSampler();
+	String name = sampler.getName();
+
+	if(name.equals(&quot;end sampler&quot;)){
+		status = 1;
+	} else if (sampleResult.isSuccessful() == false) {
+		status = 5;
+
+		if(sampleResult.getAssertionResults() == null || sampleResult.getAssertionResults().size() == 0) {
+			commit = &quot;Execution failed of: &quot; + &quot;\n Thread Name: &quot; + sampler.getThreadName() + &quot;\n Sampler Name: &quot; + sampler.getName();
+			LoggingManager.getLoggerForClass().info(&quot;SampleResult.isSuccessful : &quot;+ sampleResult.isSuccessful());
+		} else {
+			commit = &quot;Execution failed of: &quot; + &quot;\n Thread Name: &quot; + sampler.getThreadName() + &quot;\n Sampler Name: &quot; + sampler.getName() + &quot; on following Assertion:&quot;;
+			for (AssertionResult assertionResult : sampleResult.getAssertionResults()) {
+	
+				if(assertionResult.isFailure() || assertionResult.isError()) {
+commit = commit + &quot;\n Assertion Name: &quot; + assertionResult.getName() + &quot;\n Assertion Failure Message: &quot; + assertionResult.getFailureMessage();
+				}
+			}
+		}
+	} else {
+		return;
+	}
+}
+// 3) End
+
+// Null Check for Elapsed Time.
+String elapsedTime = vars.get(&quot;elapsed_time&quot;);
+if (elapsedTime == null) {
+	LoggingManager.getLoggerForClass().error(&quot;&lt;&lt; Elapsed Time is not defined in Global Variable Definition &gt;&gt;&quot;);
+	return;
+} else {
+LoggingManager.getLoggerForClass().info(&quot;elapsed time is: &quot; + elapsedTime);
+}
+
+// Null Check for Checked Version.
+String checkedVersion = vars.get(&quot;checked_version&quot;);
+if (checkedVersion == null) {
+	LoggingManager.getLoggerForClass().error(&quot;&lt;&lt; Checked Version is not defined in Global Variable Definition &gt;&gt;&quot;);
+	return;
+} else {
+LoggingManager.getLoggerForClass().info(&quot;Checked Version is: &quot; + checkedVersion);
+}
+
+// Null Check for Checked Revision.
+String checkedRevision = vars.get(&quot;checked_revision&quot;);
+if (checkedRevision == null) {
+	LoggingManager.getLoggerForClass().error(&quot;&lt;&lt; Checked Revision is not defined in Global Variable Definition &gt;&gt;&quot;);
+	return;
+} else {
+LoggingManager.getLoggerForClass().info(&quot;Checked Revision is: &quot; + checkedRevision);
+}
+
+// Null Check for Test Run ID.
+String testRunId = vars.get(&quot;test_run_id&quot;);
+if (testRunId == null) {
+	LoggingManager.getLoggerForClass().error(&quot;&lt;&lt; Test Run ID is not defined in Global Variable Definition &gt;&gt;&quot;);
+	return;
+} else {
+LoggingManager.getLoggerForClass().info(&quot;Test Run ID is: &quot; + testRunId);
+}
+
+// Null Check for Test Case ID.
+String testCaseId = vars.get(&quot;test_case_id&quot;);
+if (testCaseId == null) {
+	LoggingManager.getLoggerForClass().error(&quot;&lt;&lt; Test Case ID is not defined in TTS Parameterized Configuration &gt;&gt;&quot;);
+	return;
+} else {
+LoggingManager.getLoggerForClass().info(&quot;Test Case ID is: &quot; + testCaseId);
+}
+
+data.put(STATUS_ID, status);
+data.put(&quot;comment&quot;, commit);
+// Elapsed time is in Minutes
+data.put(&quot;elapsed&quot;, new Integer(elapsedTime));
+data.put(&quot;custom_version&quot;, new Integer(checkedVersion));
+data.put(&quot;custom_revision&quot;, new Integer(checkedRevision));
+LoggingManager.getLoggerForClass().info(&quot;Add_result_for_case/&quot;+args[0]+&quot;/&quot;+args[1]);
+JSONObject r = (JSONObject) client.sendPost(&quot;Add_result_for_case/&quot;+args[0]+&quot;/&quot;+args[1], data);
+LoggingManager.getLoggerForClass().info(&quot;JSON Object To Be Sent Is : &quot;+ r);</stringProp>
+        <stringProp name="scriptLanguage">groovy</stringProp>
+      </JSR223Listener>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>false</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Common Functions" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1454995107000</longProp>
+        <longProp name="ThreadGroup.end_time">1454995107000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Capture PCAP" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Start Pcap" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>mkdir -p ${logpath}/${pcapdir}</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>nohup  /usr/sbin/tcpdump -s 0 -i any port ${diameterport} or ${syport} -w ${logpath}/${pcapdir}/${pcapdir}.pcap  &amp; echo $!</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>mkdir -p ${logpath}/${pcapdir}</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>nohup  /usr/sbin/tcpdump -s 0 -i any port ${diameterport} or ${syport} -w ${logpath}/${pcapdir}/${pcapdir}.pcap  &amp; echo $!</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <com.computaris.jmeter.extractor.DiameterStore guiclass="com.computaris.jmeter.extractor.gui.DiameterStoreGui" testclass="com.computaris.jmeter.extractor.DiameterStore" testname="Store PID of Tcpdump Command " enabled="true">
+              <stringProp name="DiameterStoredefault"></stringProp>
+              <stringProp name="DiameterStorerefname">PcapPID</stringProp>
+              <stringProp name="DiameterStorevalue">${__telnetSSHGetResultLineByRegex(2,^\d+$)}</stringProp>
+              <boolProp name="DiameterStoretolerant">true</boolProp>
+            </com.computaris.jmeter.extractor.DiameterStore>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Stop Pcap" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Stop PCAP On Server" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>kill  ${PcapPID}</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>kill  ${PcapPID}</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <com.computaris.jmeter.modifiers.DiameterLoad guiclass="com.computaris.jmeter.modifiers.gui.DiameterLoadGui" testclass="com.computaris.jmeter.modifiers.DiameterLoad" testname="TTS Load Variable" enabled="true">
+              <stringProp name="DiameterLoaddefault"></stringProp>
+              <stringProp name="DiameterLoadrefname">PcapPID</stringProp>
+              <stringProp name="DiameterLoadvalue">PcapPID</stringProp>
+              <boolProp name="DiameterLoadtolerant">false</boolProp>
+            </com.computaris.jmeter.modifiers.DiameterLoad>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Capture log " enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Start NV logs" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>mkdir -p ${logpath}/${pcapdir}</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>nohup tail -f ${nvhome}/logs/*&gt;${logpath}/${pcapdir}/${pcapdir}-server.log &amp; echo $!</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>mkdir -p ${logpath}/${pcapdir}</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>nohup tail -f ${nvhome}/logs/*&gt;${logpath}/${pcapdir}/${pcapdir}-server.log &amp; echo $!</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <com.computaris.jmeter.extractor.DiameterStore guiclass="com.computaris.jmeter.extractor.gui.DiameterStoreGui" testclass="com.computaris.jmeter.extractor.DiameterStore" testname="Store PID of log Command" enabled="true">
+              <stringProp name="DiameterStoredefault"></stringProp>
+              <stringProp name="DiameterStorerefname">LogPID</stringProp>
+              <stringProp name="DiameterStorevalue">${__telnetSSHGetResultLineByRegex(2,^\d+$)}</stringProp>
+              <boolProp name="DiameterStoretolerant">true</boolProp>
+            </com.computaris.jmeter.extractor.DiameterStore>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Capture PD log " enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Start PD logs" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>nohup tail -f ${nvhome}/logs/netvertex-server-${serverinstancename}.log&gt;/opt/${logpath}/${pcapdir}/${logfilename}.log &amp; echo $!</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>mkdir -p ${logpath}/${pcapdir}</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>nohup tail -f ${pdhome}/logs/*&gt;${logpath}/${pcapdir}/${pcapdir}-policy-designer.log &amp; echo $!</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <com.computaris.jmeter.extractor.DiameterStore guiclass="com.computaris.jmeter.extractor.gui.DiameterStoreGui" testclass="com.computaris.jmeter.extractor.DiameterStore" testname="Store PID of log Command" enabled="true">
+              <stringProp name="DiameterStoredefault"></stringProp>
+              <stringProp name="DiameterStorerefname">PDPID</stringProp>
+              <stringProp name="DiameterStorevalue">${__telnetSSHGetResultLineByRegex(2,^\d+$)}</stringProp>
+              <boolProp name="DiameterStoretolerant">true</boolProp>
+            </com.computaris.jmeter.extractor.DiameterStore>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Stop NV log" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="StopNV logs" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>kill ${LogPID}</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>kill ${LogPID}</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <com.computaris.jmeter.modifiers.DiameterLoad guiclass="com.computaris.jmeter.modifiers.gui.DiameterLoadGui" testclass="com.computaris.jmeter.modifiers.DiameterLoad" testname="TTS Load Variable" enabled="true">
+              <stringProp name="DiameterLoaddefault"></stringProp>
+              <stringProp name="DiameterLoadrefname">LogPID</stringProp>
+              <stringProp name="DiameterLoadvalue">LogPID</stringProp>
+              <boolProp name="DiameterLoadtolerant">false</boolProp>
+            </com.computaris.jmeter.modifiers.DiameterLoad>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Stop PD log" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="StopPD logs" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>kill ${LogPID}</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>kill ${PDPID}</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <com.computaris.jmeter.modifiers.DiameterLoad guiclass="com.computaris.jmeter.modifiers.gui.DiameterLoadGui" testclass="com.computaris.jmeter.modifiers.DiameterLoad" testname="TTS Load Variable" enabled="true">
+              <stringProp name="DiameterLoaddefault"></stringProp>
+              <stringProp name="DiameterLoadrefname">PDPID</stringProp>
+              <stringProp name="DiameterLoadvalue">PDPID</stringProp>
+              <boolProp name="DiameterLoadtolerant">false</boolProp>
+            </com.computaris.jmeter.modifiers.DiameterLoad>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="NV Restart " enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="NV Restart " enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;shutdown\ abort&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>3000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; sh netvertex.sh&quot;</__commandText>
+                  <__timeout>20000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;shutdown\ abort&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>3000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; sh netvertex.sh&quot;</__commandText>
+                  <__timeout>20000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Capture Tomcat log " enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Start Tomcat logs" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>nohup tail -f ${nvhome}/logs/netvertex-server-${serverinstancename}.log&gt;/opt/${logpath}/${pcapdir}/${logfilename}.log &amp; echo $!</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>/bin/mkdir -p ${logpath}/${pcapdir}</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>nohup tail -f ${tomcat_home}/logs/catalina.out&gt;${logpath}/${pcapdir}/${tomcatlogs}.log &amp; echo $!</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <com.computaris.jmeter.extractor.DiameterStore guiclass="com.computaris.jmeter.extractor.gui.DiameterStoreGui" testclass="com.computaris.jmeter.extractor.DiameterStore" testname="Store PID of log Command" enabled="true">
+              <stringProp name="DiameterStoredefault"></stringProp>
+              <stringProp name="DiameterStorerefname">TomcatLogPID</stringProp>
+              <stringProp name="DiameterStorevalue">${__telnetSSHGetResultLineByRegex(2,^\d+$)}</stringProp>
+              <boolProp name="DiameterStoretolerant">true</boolProp>
+            </com.computaris.jmeter.extractor.DiameterStore>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Stop Tomcat log" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Stop Tomcat logs" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>kill ${LogPID}</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>kill ${TomcatLogPID}</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <com.computaris.jmeter.modifiers.DiameterLoad guiclass="com.computaris.jmeter.modifiers.gui.DiameterLoadGui" testclass="com.computaris.jmeter.modifiers.DiameterLoad" testname="TTS Load Variable" enabled="true">
+              <stringProp name="DiameterLoaddefault"></stringProp>
+              <stringProp name="DiameterLoadrefname">TomcatLogPID</stringProp>
+              <stringProp name="DiameterLoadvalue">TomcatLogPID</stringProp>
+              <boolProp name="DiameterLoadtolerant">false</boolProp>
+            </com.computaris.jmeter.modifiers.DiameterLoad>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="NV Restart (shut immediate)" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="NV Restart (shut immediate)" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - netvertex -c &quot;cd /home/netvertex/netvertex662/netvertex/bin; echo &quot;shutdown\ immediate&quot; | sh cli.sh&quot; ; sleep 5</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - netvertex -c &quot;cd /home/netvertex/netvertex662/netvertex/bin; sh netvertex.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;shutdown\ abort&quot; | sh cli.sh&quot; ; sleep 5</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; sh netvertex.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="show statistics usage" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="show statistics usage" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - netvertex -c &quot;cd /home/netvertex/netvertex662/netvertex/bin; echo &quot;show\ statistics\ usage&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;show\ statistics\ usage&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="clear statistics usage" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="clear statistics usage" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - netvertex -c &quot;cd /home/netvertex/netvertex662/netvertex/bin; echo &quot;clear\ statistics\ usage&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;clear\ statistics\ usage&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="show spr-cache Stats" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="show statistics cache spr-cache" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - netvertex -c &quot;cd /home/netvertex/netvertex662/netvertex/bin; echo &quot;show\ statistics\ usage&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;show\ statistics\ cache\ spr-cache&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="clear spr-cache Stats" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="clear statistics cache spr-cache" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - netvertex -c &quot;cd /home/netvertex/netvertex662/netvertex/bin; echo &quot;show\ statistics\ usage&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;clear\ statistics\ cache\ spr-cache&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="clear spr-cache" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="clear cache spr-cache -all" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - netvertex -c &quot;cd /home/netvertex/netvertex662/netvertex/bin; echo &quot;show\ statistics\ usage&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;clear\ cache\ spr-cache\ -all&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Tomcat Restart " enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Tomcat Restart " enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;shutdown\ abort&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; sh netvertex.sh&quot;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${tomcat_home}/bin; sh shutdown.sh&quot; ; sleep 3</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${tomcat_home}/bin; sh shutdown.sh&quot; ;</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${tomcat_home}/bin; rm -rf ../work/*&quot; </__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${tomcat_home}/bin; sh startup.sh&quot; ; sleep 15</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Set spr.cache-enabled = true" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Set spr.cache-enabled = true" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;vi ${nvhome}/system/misc-config.properties&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/#spr.cache-enabled = true/spr.cache-enabled = true/g</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/spr.cache-enabled = false/spr.cache-enabled = true/g</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:x</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Set spr.cache-enabled = false" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Set spr.cache-enabled = false" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;vi ${nvhome}/system/misc-config.properties&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/#spr.cache-enabled = true/spr.cache-enabled = false/g</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/spr.cache-enabled = true/spr.cache-enabled = false/g</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:x</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="serverinitiated.destination-host = true" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="serverinitiated.destination-host = true" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;vi ${nvhome}/system/misc-config.properties&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/#serverinitiated.destination-host = true/serverinitiated.destination-host = true/g</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/serverinitiated.destination-host = false/serverinitiated.destination-host = true/g</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/#serverinitiated.destination-host = false/serverinitiated.destination-host = true/g</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/#serverinitiated.destination-host = true/serverinitiated.destination-host = true/g</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:x</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="serverinitiated.destination-host = false" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Set spr.cache-enabled = false" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;vi ${nvhome}/system/misc-config.properties&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/#serverinitiated.destination-host = true/serverinitiated.destination-host = false/g</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/serverinitiated.destination-host = true/serverinitiated.destination-host = false/g</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/#serverinitiated.destination-host = false/serverinitiated.destination-host = false/g</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:x</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="set -Drevalidationtime.delta=0" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="-Drevalidationtime.delta=0" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;vi ${nvhome}/bin/netvertex.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/server.gcInterval=86400000/server.gcInterval=86400000 -Drevalidationtime.delta=0/g</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/server.gcInterval=86400000 -Drevalidationtime.delta=0 -Drevalidationtime.delta=0/server.gcInterval=86400000 -Drevalidationtime.delta=0/g</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:x</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="End Sampler Simple Controller" enabled="true"/>
+        <hashTree>
+          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="end sampler" enabled="true">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">false</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="PD: Reload Policy" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PD: Reload Policy" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">${pdcontextpath}/rest/restful/policy/reload/policy</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Set session.cache-enabled = true" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Set session.cache-enabled = true" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;vi ${nvhome}/system/misc-config.properties&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/session.cache-enabled = false/session.cache-enabled = true/g</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/session.cache-enabled = true/session.cache-enabled = true/g</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:x</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Set session.cache-enabled = false" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Set session.cache-enabled = false" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;vi ${nvhome}/system/misc-config.properties&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/session.cache-enabled = false/session.cache-enabled = false/g</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:1,$s/session.cache-enabled = true/session.cache-enabled = false/g</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>:x</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="RConf" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Rconf" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;&apos;rconf&apos;&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>20000</__timeout>
+                  <__waitFor>Server Configuration Successfully Reloaded for NetVertex</__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1770785172">Server Configuration Successfully Reloaded for NetVertex</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Verify PCRF Running" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Verify PCRF Running" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;&apos;services&apos;&quot; | sh cli.sh&quot; | grep PCRF</__commandText>
+                  <__timeout>3000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1079530081">Running</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Verify OfflineRnC Running" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Verify OfflineRnC Running" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;&apos;services&apos;&quot; | sh cli.sh&quot; | grep OfflineRnC</__commandText>
+                  <__timeout>3000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1079530081">Running</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Verify Diameter Running" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Verify Diameter Running" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;&apos;globallisteners&apos;&quot; | sh cli.sh&quot; | grep DIAMETER</__commandText>
+                  <__timeout>3000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1079530081">Running</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Verify Radius Running" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Verify Radius Running" enabled="true">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>sed -i &quot;161 i serverinitiated.destination-host=true&quot; ${nvhome}/system/misc-config.properties</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;rconf&quot; | sh cli.sh&quot;</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>su - ${nvuser} -c &quot;cd ${nvhome}/bin; echo &quot;&apos;globallisteners&apos;&quot; | sh cli.sh&quot; | grep RADIUS</__commandText>
+                  <__timeout>3000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1079530081">Running</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

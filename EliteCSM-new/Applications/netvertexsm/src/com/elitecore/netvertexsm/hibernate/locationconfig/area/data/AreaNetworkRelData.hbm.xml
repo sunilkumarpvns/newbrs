@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+		
+<hibernate-mapping>
+ 	<class name="com.elitecore.netvertexsm.datamanager.locationconfig.area.data.AreaNetworkRelationData" table="TBLMNETWORKAREAREL">
+		<id name="areaId" >
+	            <column name="AREAID" />
+	            <generator class="foreign">
+	                <param name="property">areaData</param>
+	            </generator>
+	    </id>	
+	    <property 		name="networkId"   		column="NETWORKID" type="java.lang.Long"/>
+		<one-to-one 	name="areaData"  		class="com.elitecore.netvertexsm.datamanager.locationconfig.area.data.AreaData" constrained="true"></one-to-one>
+		<many-to-one 	name="networkData"  	column="NETWORKID" lazy="false" not-found="ignore" insert="false" update="false" class="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.NetworkData" not-null="false">
+	    </many-to-one>
+  </class>
+</hibernate-mapping>
+

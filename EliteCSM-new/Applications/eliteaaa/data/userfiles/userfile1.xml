@@ -1,0 +1,52 @@
+<user-accounts>
+	<user-account id="1">
+		<authentication-attributes>
+			<radius-attribute id="1" value="eliteaaa"/>
+		</authentication-attributes>
+		<user-password>
+			<password-check-enabled>yes</password-check-enabled>
+			<password>eliteaaa</password>
+			<encryption-type>0</encryption-type>
+		</user-password>
+		<account-status>Active</account-status>
+		<credit-limit>100</credit-limit>
+		<expiry-date>10/10/2020</expiry-date>
+		<customer-service></customer-service>
+		<customer-type>postpaid</customer-type>
+		<service-type></service-type>
+		<calling-station-id></calling-station-id>
+		<called-station-id></called-station-id>
+		<email-id>aaa@elitecore.com</email-id>
+		<user-group>Elitecore</user-group>
+		<CUI></CUI>
+		<user-check-item></user-check-item>
+		<user-reject-item></user-reject-item>
+		<concurrent-login-policy></concurrent-login-policy>
+		<user-reply-item></user-reply-item>
+		<user-add-item></user-add-item>
+		<ip-pool-name></ip-pool-name>
+		<access-policy></access-policy>
+		<authorization-policy></authorization-policy>
+		<additional-policy></additional-policy>
+		<hotline-policy></hotline-policy>
+		<grace-policy></grace-policy>
+		<param1></param1>
+		<param2></param2>
+		<param3></param3>
+		<param4></param4>
+		<param5></param5>
+		<mac-validation></mac-validation>
+		<callback-id></callback-id>
+		<user-name></user-name>
+		<imsi></imsi>
+		<meid></meid>
+		<msisdn></msisdn>
+		<mdn></mdn>
+		<imei></imei>
+		<device-vendor></device-vendor>
+		<device-name></device-name>
+		<device-port></device-port>
+		<device-vlan></device-vlan>
+		<geo-location></geo-location>
+	</user-account>
+</user-accounts>

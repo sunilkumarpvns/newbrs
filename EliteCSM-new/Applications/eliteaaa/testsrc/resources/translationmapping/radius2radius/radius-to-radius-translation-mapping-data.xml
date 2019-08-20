@@ -1,0 +1,90 @@
+<list>
+	<test-case behaviour="mapping is applied if ruleset is satisfied">
+		<translation-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<name>translation-mapping-policy</name>
+				<from-interpreter-id>TTI0004</from-interpreter-id>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<dummy-responses></dummy-responses>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<mapping-name>mapping1</mapping-name>
+						<in-request-type>*</in-request-type>
+						<out-request-type></out-request-type>
+						<dummy-response-enabled></dummy-response-enabled>
+
+						<request-mappings>
+							<checked-expression></checked-expression>
+							<mapping-expression></mapping-expression>
+							<default-value></default-value>
+							<value-mapping></value-mapping>
+						</request-mappings>
+
+						<response-mappings>
+							<checked-expression></checked-expression>
+							<mapping-expression></mapping-expression>
+							<default-value></default-value>
+							<value-mapping></value-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</translation-mapping>
+
+		<radius-packet type="1">
+			<attribute id="0:1" value="eliteaaa" />
+			<attribute id="0:2" value="eliteaaa" />
+		</radius-packet>
+
+		<expected-mapping>mapping1</expected-mapping>
+	</test-case>
+	
+	<test-case behaviour="mapping is skipped if ruleset is not satisfied">
+		<translation-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<name>translation-mapping-policy</name>
+				<from-interpreter-id>TTI0004</from-interpreter-id>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<dummy-responses></dummy-responses>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<mapping-name>mapping1</mapping-name>
+						<in-request-type>0:1="aaa"</in-request-type>
+						<out-request-type></out-request-type>
+						<dummy-response-enabled></dummy-response-enabled>
+
+						<request-mappings>
+							<checked-expression></checked-expression>
+							<mapping-expression></mapping-expression>
+							<default-value></default-value>
+							<value-mapping></value-mapping>
+						</request-mappings>
+
+						<response-mappings>
+							<checked-expression></checked-expression>
+							<mapping-expression></mapping-expression>
+							<default-value></default-value>
+							<value-mapping></value-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</translation-mapping>
+
+		<radius-packet type="1">
+			<attribute id="0:1" value="eliteaaa" />
+			<attribute id="0:2" value="eliteaaa" />
+		</radius-packet>
+	
+		<!-- indicated no mapping is selection -->
+		<expected-mapping></expected-mapping>
+	</test-case>
+</list>

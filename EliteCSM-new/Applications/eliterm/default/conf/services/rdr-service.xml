@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdr-service>
+
+	<service-address>10.106.1.12:9999</service-address>
+
+	<socket-receive-buffer-size>32767</socket-receive-buffer-size>
+	<socket-send-buffer-size>32767</socket-send-buffer-size>
+
+	<queue-size>150000</queue-size>
+	<minimum-thread>3</minimum-thread>
+	<maximum-thread>100</maximum-thread>
+	<main-thread-priority>1</main-thread-priority>
+	<worker-thread-priority>1</worker-thread-priority>
+	<logging>
+		<service-logger-enabled>true</service-logger-enabled>
+		<log-level>ALL</log-level>
+		<rolling-type>1</rolling-type>
+		<rolling-unit>5</rolling-unit>
+		<max-rolled-unit>10</max-rolled-unit>
+		<compress-rolled-unit>false</compress-rolled-unit>
+		<location></location>
+	</logging>
+	<plugin-list>
+		<pre-plugins> 
+			<pre-plugin></pre-plugin> 
+		</pre-plugins> 
+		
+		<post-plugins> 
+			<post-plugin></post-plugin> 
+		</post-plugins> 
+	</plugin-list>
+	<clients>
+		<client>
+			<client-ip>192.168.14.100</client-ip>
+			<file-name>cdrFile.rdr</file-name>
+			<file-location>d:</file-location>
+			<rolling-type>2</rolling-type> <!-- 1 - Time Base, 2 - Size Base -->
+			<rolling-unit>10240</rolling-unit>
+		</client>
+		<client>
+			<client-ip>10.106.1.12</client-ip>
+			<file-name>cdrFile.rdr</file-name>
+			<file-location>d:</file-location>
+			<rolling-type>2</rolling-type> <!-- 1 - Time Base, 2 - Size Base -->
+			<rolling-unit>10240</rolling-unit>
+		</client>
+	</clients>
+</rdr-service>

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.diameter.creditcontrolpolicy.data.CreditControlPolicyData" 
+			table="TBLMCCPOLICY">
+
+		<id name="policyId" column="POLICYID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="name" type="StringType"> 
+			<column name="NAME" sql-type="VARCHAR(60)" not-null="false" /> 
+		</property>
+
+		<property name="description" type="StringType"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+
+		<property name="ruleSet" type="StringType"> 
+			<column name="RULESET" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+
+		<property name="orderNumber" type="long"> 
+			<column name="ORDERNUMBER" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+
+		<property name="status" type="CharType"> 
+			<column name="STATUS" sql-type="CHAR(5)" not-null="true" /> 
+		</property>
+		
+		<property name="script" type="StringType" column="DRIVERSCRIPT" />
+		
+		<property name="auditUId" type="StringType" column="AUDIT_UID" not-null="false"/>
+		
+		<property name="sessionManagement" type="StringType" column="SESSIONMANAGEMENT" not-null="false"/>
+		<property name="defaultResponseBehaviorArgument" type="StringType" column="DEFAULTRESPONSEBEHAVIORPARAM" not-null="false"/>
+		<property name="defaultResponseBehaviour" type="StringType" column="DEFAULTRESPONSEBEHAVIORTYPE" not-null="false"/>
+		
+		<set name="ccPolicyDriverRelDataSet" lazy="false" inverse="false" cascade="delete">
+			<key column="POLICYID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.creditcontrolpolicy.data.CreditControlDriverRelationData" />
+	  	</set>
+	  	
+	  	<set name="ccResponseAttributesSet" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+  			<key column="POLICYID"></key>
+  			<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.creditcontrolpolicy.data.CCResponseAttributes" />
+		</set>
+
+		<bag name="ccPolicyPluginConfigList" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+		 	<key column="CCPOLICYID"></key>
+  			<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.creditcontrolpolicy.data.CCPolicyPluginConfig" />
+		</bag>
+</class>            
+	            
+</hibernate-mapping>
+

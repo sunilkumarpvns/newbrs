@@ -1,0 +1,274 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "LDAP Auth Driver",
+		"properties": {
+			"name": {
+				"title": "Instance Name",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"ldap-auth-driver": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"ldap-datasource": {
+							"title": "LDAP Datasource",
+							"type": "string"
+						},
+						"expiry-date-pattern": {
+							"title": "Expiry Date Pattern",
+							"type": "string",
+							"default": "MM/dd/yyyy"
+						},
+						"password-decrypt-type": {
+							"title": "Password Decrypt Type",
+							"type": "string"
+						},
+						"search-scope": {
+							"title": "Search Scope",
+							"type": "string"
+						},
+						"query-maximum-execution-time": {
+							"title": "Query Maximum Execution Time(Sec)",
+							"type": "integer",
+							"default": 1
+						},
+						"maximum-query-timeout-count": {
+							"title": "Maximum Query Timeout Count",
+							"type": "integer",
+							"default": 100
+						},
+						"user-identity-attributes": {
+							"title": "User Identity Attributes",
+							"type": "string"
+						},
+						"search-filter": {
+							"title": "Search Filter",
+							"type": "string"
+						},
+						"ldap-field-mappings": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"logical-name": {
+										"title": "Logical Name",
+										"type": "string"
+									},
+									"ldap-attribute": {
+										"title": "LDAP Attribute",
+										"type": "string"
+									},
+									"default-value": {
+										"title": "Default Value",
+										"type": "string"
+									},
+									"value-mapping": {
+										"title": "Value Mapping",
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "description"
+		},
+		{
+			"key": "ldap-auth-driver",
+			"items": [
+				{
+					"key": "ldap-auth-driver[].ldap-datasource"
+				},
+				{
+					"key": "ldap-auth-driver[].expiry-date-pattern",
+					"type": "select",
+					"titleMap": {
+						"MM/dd/yyyy": "MM/dd/yyyy"
+					}
+				},
+				{
+					"key": "ldap-auth-driver[].password-decrypt-type",
+					"type": "select",
+					"titleMap": {
+						"0": "0"
+					}
+				},
+				{
+					"key": "ldap-auth-driver[].search-scope",
+					"type": "select",
+					"titleMap": {
+						"SCOPE_SUB": "SCOPE_SUB",
+						"SCOPE_BASE": "SCOPE_BASE",
+						"SCOPE_ONE": "SCOPE_ONE"
+					}
+				},
+				{
+					"key": "ldap-auth-driver[].query-maximum-execution-time"
+				},
+				{
+					"key": "ldap-auth-driver[].maximum-query-timeout-count"
+				},
+				{
+					"key": "ldap-auth-driver[].user-identity-attributes"
+				},
+				{
+					"key": "ldap-auth-driver[].search-filter"
+				},
+				{
+					"key": "ldap-auth-driver[].ldap-field-mappings",
+					"add": "Add Mapping",
+					"items": [
+						{
+							"key": "ldap-auth-driver[].ldap-field-mappings[].logical-name",
+							"title": "Logical Name",
+							"type": "select",
+							"titleMap": {
+								"CUI": "CUI",
+								"Callback ID": "Callback ID",
+								"Called Station ID": "Called Station ID",
+								"Calling Station ID": "Calling Station ID",
+								"Concurrent Login Policy": "Concurrent Login Policy",
+								"Credit Limit": "Credit Limit",
+								"Customer Check Items": "Customer Check Items",
+								"Customer Reject Items": "Customer Reject Items",
+								"Customer Reply Items": "Customer Reply Items",
+								"Customer Status": "Customer Status",
+								"Customer Type": "Customer Type",
+								"Encryption Type": "Encryption Type",
+								"Expiry Date": "Expiry Date",
+								"Grace Period": "Grace Period",
+								"Group Name": "Group Name",
+								"Hotline Policy": "Hotline Policy",
+								"IP Pool Name": "IP Pool Name",
+								"Param1": "Param1",
+								"Param2": "Param2",
+								"Param3": "Param3",
+								"Password Check": "Password Check",
+								"Authorization Policy": "Authorization Policy",
+								"Service Type": "Service Type",
+								"User Name": "User Name",
+								"User Password": "User Password",
+								"MAC Validation": "MAC Validation",
+								"Access Policy": "Access Policy",
+								"Group Bandwidth": "Group Bandwidth",
+								"Dynamic Check Items": "Dynamic Check Items",
+								"IMSI": "IMSI",
+								"MEID": "MEID",
+								"MSISDN": "MSISDN",
+								"MDN": "MDN",
+								"IMEI": "IMEI",
+								"Customer Services": "Customer Services",
+								"Additional Policy": "Additional Policy",
+								"Param4": "Param4",
+								"Param5": "Param5",
+								"Device Vendor": "Device Vendor",
+								"Device Name": "Device Name",
+								"Device Port": "Device Port",
+								"GEO Location": "GEO Location",
+								"Device VLAN": "Device VLAN",
+								"Reply Framed IPV4 Address": "Reply Framed IPV4 Address",
+								"Reply Framed IPV6 Prefix": "Reply Framed IPV6 Prefix",
+								"Reply Framed Pool": "Reply Framed Pool",
+								"Policy Group": "Policy Group"
+							}
+						},
+						{
+							"key": "ldap-auth-driver[].ldap-field-mappings[].ldap-attribute",
+							"title": "LDAP Attribute"
+						},
+						{
+							"key": "ldap-auth-driver[].ldap-field-mappings[].default-value",
+							"title": "Default Value"
+						},
+						{
+							"key": "ldap-auth-driver[].ldap-field-mappings[].value-mapping",
+							"title": "Value Mapping"
+						}
+					]
+				}
+			]
+		}
+	],
+	"model": {
+		"name": "RadiusLdapAuthDriver",
+		"description": "Created by admin on 01/24/2017 11:30:57 AM",
+		"ldap-auth-driver": [
+			{
+				"ldap-datasource": "LDAPDataSource",
+				"expiry-date-pattern": "MM/dd/yyyy",
+				"password-decrypt-type": "0",
+				"search-scope": "SCOPE_SUB",
+				"query-maximum-execution-time": 1,
+				"maximum-query-timeout-count": 100,
+				"user-identity-attributes": "0:1",
+				"search-filter": "0:2",
+				"ldap-field-mappings": [
+					{
+						"logical-name": "User Name",
+						"ldap-attribute": "USERNAME"
+					},
+					{
+						"logical-name": "CUI",
+						"ldap-attribute": "CUI"
+					},
+					{
+						"logical-name": "User Password",
+						"ldap-attribute": "PASSWORD"
+					},
+					{
+						"logical-name": "Password Check",
+						"ldap-attribute": "PASSWORDCHECK"
+					},
+					{
+						"logical-name": "Encryption Type",
+						"ldap-attribute": "ENCRYPTIONTYPE"
+					},
+					{
+						"logical-name": "Customer Status",
+						"ldap-attribute": "CUSTOMERSTATUS"
+					},
+					{
+						"logical-name": "Calling Station ID",
+						"ldap-attribute": "CALLINGSTATIONID"
+					},
+					{
+						"logical-name": "Authorization Policy",
+						"ldap-attribute": "RADIUSPOLICY"
+					},
+					{
+						"logical-name": "Customer Check Items",
+						"ldap-attribute": "CUSTOMERCHECKITEM"
+					},
+					{
+						"logical-name": "Customer Reply Items",
+						"ldap-attribute": "CUSTOMERREPLYITEM"
+					},
+					{
+						"logical-name": "Expiry Date",
+						"ldap-attribute": "EXPIRYDATE"
+					},
+					{
+						"logical-name": "Credit Limit",
+						"ldap-attribute": "CREDITLIMIT",
+						"default-value": "Active",
+						"value-mapping": "1=Active,0=inActive"
+					}
+				]
+			}
+		]
+	}
+}

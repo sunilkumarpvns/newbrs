@@ -1,0 +1,113 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    <field name="minThread" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+                <param name="min">1</param>
+                <param name="max">300</param>
+                <message>${getText("error.length", {getText("offlineserverprofile.offlinernc.minthread")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="maxThread" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">300</param>
+            <message>${getText("error.length", {getText("offlineserverprofile.offlinernc.maxthread")})}</message>
+        </field-validator>
+
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[maxThread > minThread ]]></param>
+            <message>${getText("maxThreads.must.greater.than.minThreads")}</message>
+        </field-validator>
+    </field>
+
+    <field name="fileBatchQueue" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">500</param>
+            <message>${getText("error.length", {getText("offlineserverprofile.offlinernc.filebatchqueue")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="threadPriority" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">10</param>
+            <message>${getText("error.length", {getText("offlineserverprofile.offlinernc.threadpriority")})}</message>
+        </field-validator>
+    </field>
+    
+    <field name="fileBatchSize" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">500</param>
+            <message>${getText("error.length", {getText("offlineserverprofile.offlinernc.filebatchsize")})}</message>
+        </field-validator>
+    </field>
+    
+     <field name="scanInterval" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">100000</param>
+             <message>${getText("error.length", {getText("offlineserverprofile.offlinernc.scanInterval")})} mili seconds</message>
+        </field-validator>
+    </field>
+
+
+    <field name="logLevel" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="stringlength" short-circuit="true">
+            <param name="minLength">3</param>
+            <param name="maxLength">5</param>
+            <message>${getText("invalid.field.value")}</message>
+        </field-validator>
+
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(logLevel=='NONE' || logLevel=='ERROR' || logLevel=='WARN' || logLevel=='INFO' || logLevel=='DEBUG' || logLevel=='TRACE' || logLevel=='ALL')]]></param>
+            <message>${getText("invalid.field.value")}</message>
+        </field-validator>
+    </field>
+
+    <field name="maxRolledUnits" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">500</param>
+            <message>${getText("error.length", {getText("offlineserverprofile.offlinernc.maxRolledUnits")})}</message>
+        </field-validator>
+    </field>
+
+   
+</validators>

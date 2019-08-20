@@ -1,0 +1,9 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_ldap_datasource,POST : Create LDAP Datasource : 201,sm/ldap/ldap.json,POST,create_ldap_sp_datasource.json,,,201,ldap
+2,create_ldap_sp_interface,POST : Create LDAP Sp Interface rest_ldap_sp_interface : 201,sm/spinterface/ldap-sp-interface.json,POST,create_ldap_sp_interface.json,,28866,201,db-sp-interface
+3,get_created_ldap_sp_interface,GET : rest_ldap_sp_interface should be displayed : 200,sm/spinterface/ldap-sp-interface/rest_ldap_interface_11111111.json,GET,,,28867,200,db-sp-interface
+4,update_ldap_sp_interface,PUT : Update rest_ldap_sp_interface and change to update_rest_ldap_sp_interface : 200,sm/spinterface/ldap-sp-interface/rest_ldap_interface_11111111.json,PUT,update_ldap_sp_interface.json,,28868,200,db-sp-interface
+5,get_updated_ldap_sp_interface,GET : update_rest_ldap_sp_interface should be displayed : 200,sm/spinterface/ldap-sp-interface/rest_ldap_interface_11111111.json,GET,,,28869,200,db-sp-interface
+6,delete_ldap_sp_interface,DELETE : Delete update_rest_ldap_sp_interface : 200,sm/spinterface/ldap-sp-interface/rest_ldap_interface_11111111.json,DELETE,,,28870,200,db-sp-interface
+7,get_deleted_ldap_sp_interface,GET : update_rest_ldap_sp_interface should not be displayed : 404,sm/spinterface/ldap-sp-interface/rest_ldap_interface_11111111.json,GET,,"{""actionErrors"":[""Sp Interface Not Found with id: rest_ldap_interface_11111111""]}",28871,404,db-sp-interface
+8,delete_ldap_datasource,DELETE : Delete LDAP Datasource : 200,sm/ldap/ldap/rest_ldap_sp_11111111.json,DELETE,,,,200,ldap

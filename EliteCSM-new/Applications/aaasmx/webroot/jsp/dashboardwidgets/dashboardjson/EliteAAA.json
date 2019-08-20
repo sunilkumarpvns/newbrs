@@ -1,0 +1,87 @@
+{
+"result" :
+  {
+  "layout": "layout2",
+  "data" : [
+    {
+      "title" : "AAA-Banglore-Primary Server",
+      "id" : "widget1",
+      "column" : "first",
+      "editurl" : "jsp/dashboardwidgets/aaadashboard/EditPrimaryServerWidget.jsp",
+      "open" : true,
+      "url" : "jsp/dashboardwidgets/aaadashboard/PrimaryServerWidget.jsp"
+    },
+    {
+      "title" : "Auth Service Statistics",
+      "column" : "second",
+      "id" : "widget3",
+      "url" : "jsp/dashboardwidgets/aaadashboard/AuthServiceStatTable.jsp",
+      "editurl" : "jsp/dashboardwidgets/aaadashboard/EditAuthServiceTableWidget.jsp",
+      "open" : true
+    },
+    {
+      "title" : "Acct Service Statistics",
+      "id" : "widget2",
+      "column" : "second",
+      "url" : "jsp/dashboardwidgets/aaadashboard/AcctServiceStatTable.jsp",
+      "editurl" : "jsp/dashboardwidgets/aaadashboard/EditAcctServiceTableWidget.jsp",
+      "open" : true
+    },
+    {
+     	"title" : "Reply Message Statistics",
+      "id" : "widget4",
+      "column" : "first",
+      "url" : "jsp/dashboardwidgets/aaadashboard/ReplyMsgStatsWidget.jsp",
+      "editurl" : "jsp/dashboardwidgets/aaadashboard/EditReplyMsgWidget.jsp",
+      "open" : true
+    },
+    {
+      "title" : "Total Request Statistics Summary",
+      "id" : "widget5",
+      "column" : "first",
+      "url" : "jsp/dashboardwidgets/aaadashboard/TotalRequestStatsSummary.jsp",
+      "editurl" : "jsp/dashboardwidgets/aaadashboard/EditTotalRequestStatsWidget.jsp",
+      "open" : true
+    },
+    {
+      "title" : "MMS-Gateway ESI Summary",
+      "id" : "widget6",
+      "column" : "first",
+      "url" : "jsp/dashboardwidgets/aaadashboard/MMSGatewayStatsSummary.jsp",
+      "editurl" : "jsp/dashboardwidgets/aaadashboard/EditMMSGatewayStatsWidget.jsp",
+      "open" : true
+    },
+    {
+      "title" : "Driver Dead Alive Statistics",
+      "id" : "widget7",
+      "column" : "first",
+      "url" : "jsp/dashboardwidgets/aaadashboard/DriverDeadAliveStats.jsp",
+      "editurl" : "jsp/dashboardwidgets/aaadashboard/EditDriverDeadAliveStatsWidget.jsp",
+      "open" : true
+    },
+     {
+      "title" : "Alert Statistics",
+      "id" : "widget8",
+      "column" : "second",
+      "url" : "jsp/dashboardwidgets/aaadashboard/AlertStatisticsTable.jsp",
+      "editurl" : "jsp/dashboardwidgets/aaadashboard/EditAlertStatsWidget.jsp",
+      "open" : true
+    },
+    {
+      "title" : "AAA Clients Details",
+      "id" : "widget9",
+      "column" : "second",
+      "url" : "jsp/dashboardwidgets/aaadashboard/AAAClientDetailsTable.jsp",
+      "editurl" : "jsp/dashboardwidgets/aaadashboard/EditAlertStatsWidget.jsp",
+      "open" : true
+    },{
+    	"title" : "AAA High Response Time Statistics",
+     	 "id" : "widget10",
+     	 "column" : "second",
+     	 "url" : "jsp/dashboardwidgets/aaadashboard/HighResponseTimeWidget.jsp",
+     	 "editurl" : "jsp/dashboardwidgets/aaadashboard/EditHighResponseTimeWidget.jsp",
+     	 "open" : true
+    }
+  ]
+  }
+}

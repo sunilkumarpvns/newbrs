@@ -1,0 +1,45 @@
+<cases>
+	
+	<case name="when-query-string-does-not-match" 
+		query="xyz">
+		<tree>
+			<node key="a">
+				<node key = "b" value="B">
+					<node key="e" value="E"/>
+					<node key = "c">
+						<node key="d" value="D"/>
+					</node>
+				</node>
+			</node>
+		</tree>
+	</case>
+	
+	<case name="when-query-string-does-not-find-value-on-match" 
+		query="abxyz">
+		<tree>
+			<node key="a">
+				<node key = "b">
+					<node key="e" value="E"/>
+					<node key = "c">
+						<node key="d" value="D"/>
+					</node>
+				</node>
+			</node>
+		</tree>
+	</case>
+	
+	<case name="when-match-does-not-contain-value" 
+		query="abexyz">
+		<tree>
+			<node key="a">
+				<node key = "b">
+					<node key="e"/>
+					<node key = "c">
+						<node key="d"/>
+					</node>
+				</node>
+			</node>
+		</tree>
+	</case>
+	
+</cases>

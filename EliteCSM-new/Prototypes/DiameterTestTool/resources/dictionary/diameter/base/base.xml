@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="0" applicationid="0" application-name="base" vendor-name="base">
+  <!-- ***************** Base Protocol Definition ******************* -->
+  	<!--
+  	     +============+==========+=============+====================+
+         | Attribute  | Presence | Constraints |       Values       |
+         +============+==========+=============+====================+
+         |   name     | Required |  UniqueKey  |       String       |
+         +============+==========+=============+====================+
+         |description | Optional |    None     |       String       |
+         +============+==========+=============+====================+
+         |   code     | Required |  UniqueKey  |      Integer       |
+         +============+==========+=============+====================+
+         | encryption | Optional |    None     |     yes or no      |
+         |            |          |             |  (default is yes)  |
+         +============+==========+=============+====================+
+         | mandatory  | Optional |    None     |     yes or no      |
+         |            |          |             |  (default is yes)  |
+         +============+==========+=============+====================+
+         | protected  | Optional |    None     |     yes or no      |
+         |            |          |             |  (default is yes)  |
+         +============+==========+=============+====================+
+         | vendor-id  | Optional |  Reference  |      Integer       |
+         +============+==========+=============+====================+
+  	-->
+     <!-- *****************************RADIUS *********************** -->
+
+    <attribute id="30" name="Called-Station-Id" mandatory="yes" protected="yes"  encryption="yes" type="string"/>        
+    <attribute id="31" name="Calling-Station-Id" mandatory="yes" protected="yes"  encryption="yes" type="string"/>       
+     
+    <!-- ***************** DIAMETER BASE PROTOCOL AVPS ************** --> 
+    <attribute id="85"  name="Acct-Interim-Interval" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32" />       
+    <attribute id="483" name="Accounting-Realtime-Required"  mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+    	<supported-values>
+	   <value id="1" name="DELIVER_AND_GRANT" />
+	   <value id="2" name="GRANT_AND_STORE" />
+	   <value id="3" name="GRANT_AND_LOSE" />
+        </supported-values>
+    </attribute>
+    <attribute id="50"  name="Acct-Multi-Session-Id"  mandatory="yes" protected="yes"  encryption="yes" type="UTF8String"/>
+    <attribute id="485" name="Accounting-Record-Number" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/>
+    <attribute id="480" name="Accounting-Record-Type" mandatory="yes" protected="yes"   encryption="yes" type="Enumerated">
+     	<supported-values>
+	   <value id="1" name="EVENT_RECORD" />
+	   <value id="2" name="START_RECORD" />
+	   <value id="3" name="INTERIM_RECORD" />
+	   <value id="4" name="STOP_RECORD" />
+        </supported-values>
+    </attribute>
+    <attribute id="44"  name="Accounting-Session-Id"  mandatory="yes" protected="yes"   encryption="yes" type="OctetString"/>
+    <attribute id="287" name="Accounting-Sub-Session-Id"  mandatory="yes" protected="yes"   encryption="yes" type="Unsigned64"/>
+    <attribute id="259" name="Acct-Application-Id" mandatory="yes" protected="yes"  encryption="no" type="Unsigned32"/>
+    <attribute id="258" name="Auth-Application-Id" mandatory="yes" protected="yes"  encryption="no" type="Unsigned32"/>
+    <attribute id="274" name="Auth-Request-Type" mandatory="yes" protected="yes"  encryption="no" type="Enumerated">
+        <supported-values>
+	   <value id="1" name="AUTHENTICATE_ONLY" />
+	   <value id="2" name="AUTHORIZE_ONLY" />
+	   <value id="3" name="AUTHORIZE_AUTHENTICATE" />
+        </supported-values>
+    </attribute>
+    <attribute id="291" name="Authorization-Lifetime" mandatory="yes" protected="yes"  encryption="no" type="Unsigned32"/>
+    <attribute id="276" name="Auth-Grace-Period"  mandatory="yes" protected="yes"  encryption="no" type="Unsigned32"/>
+    <attribute id="277" name="Auth-Session-State" mandatory="yes" protected="yes"  encryption="no" type="Enumerated">
+     	<supported-values>
+           <value id="0" name="STATE_MAINTAINED" />
+           <value id="1" name="NO_STATE_MAINTAINED" />
+        </supported-values>
+    </attribute>
+    <attribute id="285" name="Re-Auth-Request-Type" mandatory="yes" protected="yes"  encryption="no" type="Enumerated">
+         <supported-values>
+            <value id="0" name="AUTHORIZE_ONLY" />
+            <value id="1" name="AUTHORIZE_AUTHENTICATE" />
+         </supported-values>
+    </attribute>
+    <attribute id="25"  name="Class"  mandatory="yes" protected="yes"  encryption="yes" type="OctetString"/>
+    <attribute id="293" name="Destination-Host" mandatory="yes" protected="yes"  encryption="no" type="DiameterIdentity"/>
+    <attribute id="283" name="Destination-Realm"  mandatory="yes" protected="yes"  encryption="no" type="DiameterIdentity"/>
+    <attribute id="273" name="Disconnect-Cause"  mandatory="yes" protected="yes"  encryption="no" type="Enumerated">
+    	<supported-values>
+	   <value id="0" name="REBOOTING" />
+	   <value id="1" name="BUSY" />
+	   <value id="2" name="DO_NOT_WANT_TO_TALK_TO_YOU" />
+	</supported-values>      
+    </attribute>
+    <attribute id="300" name="E2E-Sequence AVP" mandatory="yes" protected="yes"  encryption="yes" type="Grouped"/>
+    <attribute id="281" name="Error-Message" mandatory="no" protected="yes"  encryption="no" type="UTF8String"/>
+    <attribute id="294" name="Error-Reporting-Host" mandatory="no" protected="yes"  encryption="no" type="DiameterIdentity"/> 
+    <attribute id="55"  name="Event-Timestamp" mandatory="yes" protected="yes"  encryption="no" type="Time"/> <!-- Type is Time which is based on OctetString -->
+    <attribute id="297" name="Experimental-Result" mandatory="yes" protected="yes"  encryption="no" type="Grouped"/>
+    <attribute id="298" name="Experimental-Result-Code" mandatory="yes" protected="yes"  encryption="no" type="Unsigned32"/>
+    <attribute id="279" name="Failed-AVP" mandatory="yes" protected="yes"  encryption="no" type="Grouped">
+      <grouped>
+        <optional>
+	  <attributerule vendor-id="*" id="*" name="attribute" maximum="*" minimum="1" />
+        </optional>
+      </grouped>
+    </attribute>
+    <attribute id="267" name="Firmware-Revision" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+    <attribute id="257" name="Host-IP-Address" mandatory="yes" protected="yes"  encryption="no" type="IPAddress"/>   <!--IPAddress -->
+    <attribute id="299" name="Inband-Security-Id" mandatory="yes" protected="yes"  encryption="no"  type="Unsigned32">
+    	<supported-values>
+	   <value id="0" name="NO_INBAND_SECURITY" />
+	   <value id="1" name="TLS" />
+        </supported-values>
+    </attribute>
+    <attribute id="272" name="Multi-Round-Time-Out" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/> 
+    <attribute id="264" name="Origin-Host" mandatory="yes" protected="yes"  encryption="no" type="DiameterIdentity"/>
+    <attribute id="296" name="Origin-Realm" mandatory="yes" protected="yes"  encryption="no" type="DiameterIdentity"/>
+    <attribute id="278" name="Origin-State-Id" mandatory="yes" protected="yes"  encryption="no" type="Unsigned32"/>
+    <attribute id="269" name="Product-Name" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+    <attribute id="280" name="Proxy-Host" mandatory="no" protected="no"  encryption="no" type="DiameterIdentity"/>
+    <attribute id="284" name="Proxy-Info" mandatory="no" protected="no"  encryption="no" type="Grouped">
+      <grouped>
+	<required>
+	  <attributerule vendor-id="0" id="280" name="Proxy-Host" maximum="1" minimum="1"/>
+	  <attributerule vendor-id="0" id="33" name="Proxy-State" maximum="*" minimum="1"/>
+        </required>
+	<optional>
+	  <attributerule vendor-id="*" id="*" name="attribute" maximum="*" minimum="1"/>
+        </optional>
+      </grouped>
+    </attribute>
+    <attribute id="33"  name="Proxy-State"  mandatory="yes" protected="no"  encryption="no" type="OctetString"/>
+    <attribute id="292" name="Redirect-Host" mandatory="yes" protected="yes"  encryption="no" type="DiameterURI"/> <!-- Need to discuss about DiameterURI type-->
+    <attribute id="261" name="Redirect-Host-Usage"  mandatory="yes" protected="yes"  encryption="no" type="Enumerated">
+   	 <supported-values>	
+	    <value id="0" name="DONT_CACHE" />
+	    <value id="1" name="ALL_SESSION" />
+	    <value id="2" name="ALL_REALM" />
+	    <value id="3" name="REALM_AND_APPLICATION" />
+	    <value id="4" name="ALL_APPLICATION" />
+	    <value id="5" name="ALL_HOST" />
+	    <value id="6" name="ALL_USER" />
+	 </supported-values>     
+    </attribute>
+    <attribute id="262" name="Redirect-Max-Cache-Time" mandatory="yes" protected="yes"  encryption="no" type="Unsigned32"/>
+    <attribute id="268" name="Result-Code"  mandatory="yes" protected="yes"  encryption="no" type="Unsigned32">
+    	<supported-values>	
+    		<!-- Informational     -->
+	    <value id="1001" name="DIAMETER_MULTI_ROUND_AUTH" />
+	        <!--   Success         -->
+	    <value id="2001" name="DIAMETER_SUCCESS" />
+	    <value id="2002" name="DIAMETER_LIMITED_SUCCESS" />	    
+	    <value id="2003" name="DIAMETER_FIRST_REGISTRATION" />	  
+	    <value id="2004" name="DIAMETER_SUBSEQUENT_REGISTRATION" />	  
+	    <value id="2005" name="DIAMETER_UNREGISTERED_SERVICE" />	  
+	    <value id="2006" name="DIAMETER_SUCCESS_SERVER_NAME_NOT_STORED" />	  
+	    <value id="2007" name="DIAMETER_SERVER_SELECTION" />	  
+	    <value id="2008" name="DIAMETER_SUCCESS_AUTH_SENT_SERVER_NOT_STORED" />	
+	    	<!-- Protocol Errors   -->
+	    <value id="3001" name="DIAMETER_COMMAND_UNSUPPORTED" />
+	    <value id="3002" name="DIAMETER_UNABLE_TO_DELIVER" />
+	    <value id="3003" name="DIAMETER_REALM_NOT_SERVED" />
+	    <value id="3004" name="DIAMETER_TOO_BUSY" />
+	    <value id="3005" name="DIAMETER_LOOP_DETECTED" />
+	    <value id="3006" name="DIAMETER_REDIRECT_INDICATION" />
+	    <value id="3007" name="DIAMETER_APPLICATION_UNSUPPORTED" />
+	    <value id="3008" name="DIAMETER_INVALID_HDR_BITS" />
+	    <value id="3009" name="DIAMETER_INVALID_AVP_BITS" />
+	    <value id="3010" name="DIAMETER_UNKNOWN_PEER" />	
+	    <value id="3501" name="DIAMETER_INVALID_PROXY_PATH_STACK" />   <!-- Added for RFC 6156 Exp Routing-->
+	        <!-- Transient Failures -->
+	    <value id="4001" name="DIAMETER_AUTHENTICATION_REJECTED" />
+	    <value id="4002" name="DIAMETER_OUT_OF_SPACE" />
+	    <value id="4003" name="ELECTION_LOST" />
+	    <value id="4005" name="DIAMETER_ERROR_MIP_REPLY_FAILURE" />
+	    <value id="4006" name="DIAMETER_ERROR_HA_NOT_AVAILABLE" />
+	    <value id="4007" name="DIAMETER_ERROR_BAD_KEY" />
+	    <value id="4008" name="DIAMETER_ERROR_MIP_FILTER_NOT_SUPPORTED" />
+	    <value id="4010" name="DIAMETER_END_USER_SERVICE_DENIED" />
+	    <value id="4011" name="DIAMETER_CREDIT_CONTROL_NOT_APPLICABLE" />
+	    <value id="4012" name="DIAMETER_CREDIT_LIMIT_REACHED" />
+	    <value id="4013" name="DIAMETER_USER_NAME_REQUIRED" />
+	    <value id="4501" name="DIAMETER_ER_NOT_AVAILABLE" />  <!-- Added for RFC 6156 Exp Routing-->
+	        <!-- Permanent Failure  -->
+	    <value id="5001" name="DIAMETER_AVP_UNSUPPORTED" />
+	    <value id="5002" name="DIAMETER_UNKNOWN_SESSION_ID" />
+	    <value id="5003" name="DIAMETER_AUTHORIZATION_REJECTED" />
+	    <value id="5004" name="DIAMETER_INVALID_AVP_VALUE" />
+	    <value id="5005" name="DIAMETER_MISSING_AVP" />
+	    <value id="5006" name="DIAMETER_RESOURCES_EXCEEDED" />
+	    <value id="5007" name="DIAMETER_CONTRADICTING_AVPS" />
+	    <value id="5008" name="DIAMETER_AVP_NOT_ALLOWED" />
+	    <value id="5009" name="DIAMETER_AVP_OCCURS_TOO_MANY_TIMES" />
+	    <value id="5010" name="DIAMETER_NO_COMMON_APPLICATION" />	   
+	    <value id="5011" name="DIAMETER_UNSUPPORTED_VERSION" />                
+	    <value id="5012" name="DIAMETER_UNABLE_TO_COMPLY" />         
+	    <value id="5013" name="DIAMETER_INVALID_BIT_IN_HEADER" />         
+	    <value id="5014" name="DIAMETER_INVALID_AVP_LENGTH" />            
+	    <value id="5015" name="DIAMETER_INVALID_MESSAGE_LENGTH" />  
+	    <value id="5016" name="DIAMETER_INVALID_AVP_BIT_COMBO" />	   
+            <value id="5017" name="DIAMETER_NO_COMMON_SECURITY" />	
+	    <value id="5018" name="DIAMETER_RADIUS_AVP_UNTRANSLATABLE" />
+            <value id="5024" name="DIAMETER_ERROR_NO_FOREIGN_HA_SERVICE" />
+            <value id="5025" name="DIAMETER_ERROR_END_TO_END_MIP_KEY_ENCRYPTION" />
+            <value id="5030" name="DIAMETER_USER_UNKNOWN" />
+            <value id="5031" name="DIAMETER_RATING_FAILED" />
+            <value id="5032" name="DIAMETER_ERROR_USER_UNKNOWN" />
+            <value id="5033" name="DIAMETER_ERROR_IDENTITIES_DONT_MATCH" />
+            <value id="5034" name="DIAMETER_ERROR_IDENTITY_NOT_REGISTERED" />
+            <value id="5035" name="DIAMETER_ERROR_ROAMING_NOT_ALLOWED" />
+            <value id="5036" name="DIAMETER_ERROR_IDENTITY_ALREADY_REGISTERED" />
+            <value id="5037" name="DIAMETER_ERROR_AUTH_SCHEME_NOT_SUPPORTED" />    
+            <value id="5038" name="DIAMETER_ERROR_IN_ASSIGNMENT_TYPE" />
+            <value id="5039" name="DIAMETER_ERROR_TOO_MUCH_DATA" />
+            <value id="5040" name="DIAMETER_ERROR_NOT_SUPPORTED_USER_DATA" /> 
+	 </supported-values> 
+    </attribute>	 
+    <attribute id="282" name="Route-Record" mandatory="yes" protected="no"  encryption="no" type="DiameterIdentity"/>
+    <attribute id="263" name="Session-Id" mandatory="yes" protected="yes"   encryption="yes" type="UTF8String"/>
+    <attribute id="27"  name="Session-Timeout" mandatory="yes" protected="yes"  encryption="no" type="Unsigned32"/>
+    <attribute id="270" name="Session-Binding" mandatory="yes" protected="yes"   encryption="yes" type="Unsigned32">
+    	<supported-values>
+	   <value id="1" name="RE_AUTH" />
+	   <value id="2" name="STR" />
+	   <value id="4" name="ACCOUNTING"/>
+	</supported-values>   
+    </attribute>
+    <attribute id="271" name="Session-Server-Failover" mandatory="yes" protected="yes"   encryption="yes" type="Enumerated">
+    	<supported-values>
+	   <value id="0" name="REFUSE_SERVICE" />
+	   <value id="1" name="TRY_AGAIN" />
+	   <value id="2" name="ALLOW_SERVICE"/>
+	   <value id="3" name="TRY_AGAIN_ALLOW_SERVICE" />
+	</supported-values>   
+    </attribute>
+    <attribute id="265" name="Supported-Vendor-Id" mandatory="yes" protected="yes"  encryption="no" type="Unsigned32"/>
+    <attribute id="295" name="Termination-Cause" mandatory="yes" protected="yes"  encryption="no" type="Enumerated">
+        <supported-values>
+           <value id="1" name="DIAMETER_LOGOUT" />
+           <value id="2" name="DIAMETER_SERVICE_NOT_PROVIDED" />
+           <value id="3" name="DIAMETER_BAD_ANSWER" />
+           <value id="4" name="DIAMETER_ADMINISTRATIVE" />
+           <value id="5" name="DIAMETER_LINK_BROKEN" />
+           <value id="6" name="DIAMETER_AUTH_EXPIRED" />
+           <value id="7" name="DIAMETER_USER_MOVED" />
+           <value id="8" name="DIAMETER_SESSION_TIMEOUT" />
+        </supported-values>
+    </attribute>
+    <attribute id="1"  name="User-Name" mandatory="yes" protected="yes"  encryption="yes" type="UTF8String"/>
+    <attribute id="2"  name="User-Password" mandatory="yes" protected="yes"  encryption="yes" type="UTF8String"/>
+    <attribute id="266" name="Vendor-Id" mandatory="yes" protected="yes"  encryption="no" type="Unsigned32"/>
+    <attribute id="260" name="Vendor-Specific-Application-Id" mandatory="yes" protected="yes"  encryption="no" type="Grouped">
+      <grouped>
+	<fixed>
+	  <attributerule vendor-id="0" id="266" name="Vendor-Id" minimum="1" maximum="1" />
+	</fixed>
+	<required>
+  	  <attributerule vendor-id="0" id="258" name="Auth-Application-Id" maximum="1" minimum="0"/>
+	</required>
+      </grouped>
+    </attribute>
+    <attribute id="12"  name="Framed-MTU" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/>
+    <!-- ************** END DIAMETER BASE PROTOCOL attributeS ************* --> 
+    
+    
+  <!--
+    <attribute id="275" name="Alternate-Peer" mandatory="yes" protected="no" type="DiameterIdentity"/> 
+    <attribute id="286" name="Source-Route"  mandatory="yes" protected="no" type="DiameterIdentity"/>
+   -->
+   
+
+ </attribute-list>
+  
+  

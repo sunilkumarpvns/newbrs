@@ -1,0 +1,63 @@
+<cases>
+
+ 	<case name="from-tree-one-level" expected="A"
+		query="abcdefghij">
+		<tree>
+			<node key="a" value="A" />
+		</tree>
+	</case>
+	
+	<case name="from-tree-n-level" expected="C"
+		query="abcdefghij">
+		<tree>
+			<node key="a">
+				<node key = "b">
+					<node key = "c" value="C"/>
+				</node>
+			</node>
+		</tree>
+	</case>
+	
+	<case name="match-longest-branch" expected="D"
+		query="abcdefghij">
+		<tree>
+			<node key="a">
+				<node key = "b" value = "B">
+					<node key = "e" value = "E"/>
+					<node key = "c">
+						<node key = "d" value = "D"/>
+					</node>
+				</node>
+			</node>
+		</tree>
+	</case>
+	
+	<case name="return-last-successfull-match-value" expected="B"
+		query="abdefghij">
+		<tree>
+			<node key = "a">
+				<node key = "b" value = "B">
+					<node key = "e" value = "E"/>
+					<node key = "c">
+						<node key="d" value = "D"/>
+					</node>
+				</node>
+			</node>
+		</tree>
+	</case> 
+	
+	<case name="if-input-is-totally-matched-with-branch" 
+		expected="E" query="abe">
+		<tree>
+			<node key="a">
+				<node key = "b" value="B">
+					<node key="e" value="E"/>
+					<node key = "c">
+						<node key="d" value="D"/>
+					</node>
+				</node>
+			</node>
+		</tree>
+	</case>
+	
+</cases>

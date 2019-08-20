@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ================================================================================= -->
+<!-- Details of each element of the configuration is given at the end of this document -->
+<!-- ================================================================================= -->
+
+<concurrent-login-service>
+
+	<service-address>10.106.1.120:1920</service-address>	
+	
+	<socket-receive-buffer-size>32767</socket-receive-buffer-size>
+    <socket-send-buffer-size>32767</socket-send-buffer-size>
+	
+	<queue-size>150000</queue-size>
+    
+    <minimum-thread>5</minimum-thread>
+    <maximum-thread>5</maximum-thread>
+    
+    <main-thread-priority>1</main-thread-priority>
+    <worker-thread-priority>1</worker-thread-priority>
+    
+    <startup-mode>Automatic</startup-mode> <!-- Manual or Automatic, default will be Manual -->
+	
+	 <logging>
+		<service-logger-enabled>false</service-logger-enabled>
+		<log-level>DEBUG</log-level>
+		<rolling-type>1</rolling-type>
+		<rolling-unit>5</rolling-unit>
+		<max-rolled-unit>10</max-rolled-unit>
+		<compress-rolled-unit>false</compress-rolled-unit>
+		<location></location>
+		<immediate-flush>true</immediate-flush>
+	</logging>
+	
+	<plugin-list>
+    	<pre-plugins>			
+			<pre-plugin></pre-plugin>			
+		</pre-plugins>
+		<post-plugins>
+			<post-plugin></post-plugin> 
+		</post-plugins>
+	</plugin-list>
+	
+	<session-manager-name></session-manager-name>
+
+</concurrent-login-service>
+
+<!-- ================================================================================= -->
+<!-- End of configuration                                                              -->
+<!-- ================================================================================= -->
+
+
+
+
+<!-- ========================================================== -->
+<!-- Details of each configuration parameter                    -->
+<!-- ========================================================== -->
+
+<!--
+	<ip-list>
+		<ip>192.168.1.71</ip>
+	</ip-list>
+		The IP on which the service should listen for request. At present it is
+		recomemded to configure only one IP, becasue as of now support for only
+		one IP is implemented.
+	    Change in value requires service restart.
+
+	<port>1212</port>
+		The port on which the service is to be provided.
+	    Change in value requires service restart.
+
+    <startup-mode>Manual</startup-mode>
+        Startup mode of the service, can be either Manual or Automatic. In case
+        of Manual mode, the service will be added to the list but will not be
+        started, but in case of Automatic the service is started automatically
+        when the server is started.
+        Change in value requires service restart.
+        
+	<queue-size>1000</queue-size>
+    	Maximum requests that can stay in the queue, any new request recevied
+	    when the queue is full will be dropped.
+	    Change in value requires soft restart of the service after reloading
+	    the configuration.
+
+	<minimum-thread>5</minimum-thread>
+    	Minimum number of threads that should stay in the pool to handle the
+    	request. All the threads will be created during initilization.
+	    Change in value requires soft restart of the service after reloading
+	    the configuration.
+
+	<maximum-thread>7</maximum-thread>
+    	Maximum number of threads that should be created during load.
+	    Change in value requires soft restart of the service after reloading
+	    the configuration.
+
+	<driver-list>
+		List of dirvers configured for concurrent login service
+
+		<driver>
+		  Driver details.
+
+			<application-order>1</application-order>
+			    The order in which the driver to be assigned the task.
+
+			<driver-name>DATABASE_CONCURRENT_LOGIN_DRIVER</driver-name>
+				The name of the driver, must match to any of the name available
+				in service mapping file (service-mapping.xml).
+
+			<timeout>2000</timeout>
+				Timeout in milli seconds for driver process, if the driver fails to
+				respond within this specified time, response will be given back
+				without any ip allocation.
+
+			<next-driver>false</next-driver>
+				Can be used to specify whether to give the request that is successfully
+				processed by this driver. If configured to true, on successful completion
+				of process by this driver, the request will be given to next available
+				driver and the response given by the next driver will be returned back
+				to the client. In case next driver is not present, the response of current
+				driver will be returned.
+
+		</driver>
+	</driver-list>
+
+
+	<session-cleanup-process>
+		Details about the session cleanup process which removes the session
+		which are not removed upto maximum session time specified.
+		
+		<enabled>true</enabled>
+			Represents the session clean up process is enabled or not.
+			
+		<execution-interval>1</execution-interval>
+			It represents the execution interval in terms of minutes by which
+			the session cleanup process will be executed after each specified
+			interval.
+			
+		<max-open-session-time>5</max-open-session-time>
+			It represents the time in terms of minutes for which the session
+			is opened upto the specified minutes which are to be cleaned up.
+			
+	</session-cleanup-process>
+
+ -->
+
+<!-- ========================================================== -->
+<!-- End of configuration details                               -->
+<!-- ========================================================== -->

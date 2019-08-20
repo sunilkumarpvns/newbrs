@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="2356" vendor-name="Lancom">
+<attribute id="1" name="LCS-Traffic-Limit" type="integer"/>
+<attribute id="2" name="LCS-Mac-Address" type="string"/>
+<attribute id="3" name="LCS-Redirection-URL" type="string"/>
+<attribute id="4" name="LCS-Comment" type="string"/>
+<attribute id="5" name="LCS-Account-End" type="integer"/>
+<attribute id="6" name="LCS-WPA-Passphrase" type="string"/>
+<attribute id="7" name="LCS-PbSpotUserName" type="string"/>
+<attribute id="8" name="LCS-TxRateLimit" type="integer"/>
+<attribute id="9" name="LCS-RxRateLimit" type="integer"/>
+</attribute-list>

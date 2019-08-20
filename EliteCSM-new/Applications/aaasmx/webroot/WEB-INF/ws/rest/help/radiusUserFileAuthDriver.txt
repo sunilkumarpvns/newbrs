@@ -1,0 +1,280 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth?name=radiusUserFileDriverAuth&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth.xml?name=radiusUserFileDriverAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth?operation=search&name=radiusUserFileDriverAuth&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth.xml?operation=search&name=radiusUserFileDriverAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+<driver-instance>
+    <name>radiusUserFileDriverAuth</name>
+    <description>Created by admin on 11/15/2016 02:38:26 PM</description>
+    <user-file-auth-driver>
+        <file-locations>data/userfiles</file-locations>
+        <expiry-date-formats>MM/dd/yyyy</expiry-date-formats>
+    </user-file-auth-driver>
+</driver-instance>
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth?name=radiusUserFileDriverAuth&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth.json?name=radiusUserFileDriverAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth?operation=search&name=radiusUserFileDriverAuth&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth.json?operation=search&name=radiusUserFileDriverAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+   "name":"radiusUserFileDriverAuth",
+   "description":"Created by admin on 11/15/2016 02:38:26 PM",
+   "user-file-auth-driver":[
+      {
+         "file-locations":"data/userfiles",
+         "expiry-date-formats":"MM/dd/yyyy"
+      }
+   ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<driver-instance>
+    <name>radiusUserFileDriverAuth</name>
+    <description>Created by admin on 11/15/2016 02:38:26 PM</description>
+    <user-file-auth-driver>
+        <file-locations>data/userfiles</file-locations>
+        <expiry-date-formats>MM/dd/yyyy</expiry-date-formats>
+    </user-file-auth-driver>
+</driver-instance>
+
+Response : 
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius User File Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+{
+   "name":"radiusUserFileDriverAuth1",
+   "description":"Created by admin on 11/15/2016 02:38:26 PM",
+   "user-file-auth-driver":[
+      {
+         "file-locations":"data/userfiles",
+         "expiry-date-formats":"MM/dd/yyyy"
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius User File Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<list>
+    <driver-instance>
+        <name>radiusUserFileDriverAuth</name>
+        <description>Created by admin on 11/15/2016 02:38:26 PM</description>
+        <user-file-auth-driver>
+            <file-locations>data/userfiles</file-locations>
+            <expiry-date-formats>MM/dd/yyyy</expiry-date-formats>
+        </user-file-auth-driver>
+    </driver-instance>
+</list>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius User File Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+{
+   "list":[
+      {
+         "name":"radiusUserFileDriverAuth1",
+         "description":"Created by admin on 11/15/2016 02:38:26 PM",
+         "user-file-auth-driver":[
+            {
+               "file-locations":"data/userfiles",
+               "expiry-date-formats":"MM/dd/yyyy"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius User File Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth?name=radiusUserFileDriverAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth?operation=update&name=radiusUserFileDriverAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+<driver-instance>
+    <name>radiusUserFileDriverAuth1</name>
+    <description>Created by admin on 11/15/2016 02:38:26 PM</description>
+    <user-file-auth-driver>
+        <expiry-date-formats>MM/dd/yyyy</expiry-date-formats>
+        <file-locations>opt/Checkout</file-locations>
+    </user-file-auth-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius User File Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+{
+   "name":"radiusUserFileDriverAuth1",
+   "description":"Created by admin on 11/15/2016 02:38:26 PM",
+   "user-file-auth-driver":[
+      {
+         "file-locations":"data/userfiles",
+         "expiry-date-formats":"MM/dd/yyyy"
+      }
+   ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius User File Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth?name=radiusUserFileDriverAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth?operation=delete&name=radiusUserFileDriverAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/userfileauth/radiusUserFileDriverAuth?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius User File Auth Driver(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

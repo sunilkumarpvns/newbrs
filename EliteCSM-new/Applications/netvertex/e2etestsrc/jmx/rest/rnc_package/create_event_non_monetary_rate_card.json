@@ -1,0 +1,21 @@
+{
+  "id": "rest_event_non_mon_rc_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "rest_event_non_monetary_rate_card",
+  "description": "Created by rest automation",
+  "type": "NON_MONETARY",
+  "monetaryRateCardData": null,
+  "nonMonetaryRateCardData": {
+    "pulseUom": "EVENT",
+    "timeUom": null,
+    "pulse": 1,
+    "time": null,
+    "event": 2,
+    "renewalIntervalUnit": "MONTH",
+    "renewalInterval": null,
+    "rncPackageData": null
+  },
+  "rncPkgId": "rest_event_rnc_package_11111111",
+  "groupNames": "DefaultGroup"
+}

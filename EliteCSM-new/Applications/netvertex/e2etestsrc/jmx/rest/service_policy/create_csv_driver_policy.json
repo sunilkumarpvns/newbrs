@@ -1,0 +1,49 @@
+{
+  "id": "rest_csv_driver_pcc_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "REST_CSV_DRIVER_PCC",
+  "description": "CSV Driver for PCC Service Policy",
+  "driverType": "",
+  "csvDriverData": {
+    "header": "true",
+    "delimiter": ",",
+    "timeStampFormat": "EEE dd MMM,yyyy,hh:mm:ss aaa",
+    "fileName": "CDRs.csv",
+    "fileLocation": "data/csvfiles",
+    "prefixFileName": "dump",
+    "defaultFolderName": "CSV_Dump",
+    "folderName": "FolderName",
+    "sequenceRange": "1-10",
+    "sequencePosition": "SUFFIX",
+    "sequenceGlobalization": "false",
+    "allocatingProtocol": "LOCAL",
+    "address": "127.0.0.1:22",
+    "remoteFileLocation": "data/csvfiles/archive",
+    "userName": "admin",
+    "archiveLocation": "data/csvfiles/archive",
+    "failOverTime": 3,
+    "reportingType": "CHARGING_CDR",
+    "timeBoundary": 30,
+    "sizeBasedRollingUnit": 1,
+    "timeBasedRollingUnit": 1,
+    "recordBasedRollingUnit": 1,
+    "csvDriverFieldMappingDataList": [
+      {
+        "headerField": "USERNAME",
+        "pcrfKey": "CS.UserName",
+        "orderNo": 1
+      }
+    ],
+    "csvDriverStripMappingDataList": [
+      {
+        "pcrfKey": "CS.IMSI",
+        "pattern": "SUFFIX",
+        "separator": ","
+      }
+    ],
+    "postOperation": "DELETE"
+  },
+  "dbCdrDriverData": null,
+  "groupNames": "DefaultGroup"
+}

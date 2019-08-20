@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>         
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+                               
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.radiusservicepolicy.data.RadServicePolicyData" table="TBLMRADIUSSERVICEPOLICY">
+		
+		<id name="radiusPolicyId" column="RADIUSPOLICYID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+		
+		<property name="name" type="StringType" column="NAME" not-null="true"/> 
+		<property name="description" type="StringType" column="DESCRIPTION" not-null="false"/> 
+		<property name="status" type="CharType" column="STATUS" not-null="true"/>
+		<property name="authMsg" type="StringType" not-null="false" column="AUTHMSG"></property>
+		<property name="acctMsg" type="StringType" not-null="false" column="ACCTMSG"></property>
+		<property name="authRuleset" type="StringType" not-null="false" column="AUTHRULESET"></property>
+		<property name="acctRuleset" type="StringType" not-null="false" column="ACCTRULESET"></property>
+		<property name="validatepacket" type="StringType" column="VALIDATEPACKET" not-null="false"></property>
+		<property name="defaultAuthResBehavior" type="StringType" column="DEFAULTAUTHRESBEHAVIOUR" not-null="false"/>
+		<property name="hotlinePolicy" type="StringType" column="HOTLINEPOLICY" not-null="false"/>
+		<property name="defaultAcctResBehavior" type="StringType" column="DEFAULTACCTRESBEHAVIOUR" not-null="false"/>
+		<property name="sessionManagerId" type="StringType" column="SMINSTANCEID" not-null="false"></property>
+		<property name="authResponseAttributes" type="StringType" column="AUTHRESPONSEATTRIBUTES" not-null="false"/>
+		<property name="acctResponseAttributes" type="StringType" column="ACCTRESPONSEATTRIBUTES" not-null="false"/>
+		<property name="authAttribute" type="StringType" column="AUTHATTRIBUTES" not-null="false"></property>
+		<property name="acctAttribute" type="java.lang.String" column="ACCTATTRIBUTES" not-null="false"></property>
+		<property name="cui" type="StringType" column="CUI" not-null="false"></property>
+		<property name="auditUid" type="StringType" column="AUDIT_UID" not-null="false"/>
+		<property name="orderNumber" type="java.lang.Long" column="ORDERNUMBER" not-null="false"/>
+		<property name="radiusPolicyXml" type="byte[]" column="RADIUSPOLICYXML" not-null="false" />
+		<property name="userIdentity" type="StringType" column="USERIDENTITY" not-null="false"></property>
+
+	</class>            
+
+</hibernate-mapping>

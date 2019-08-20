@@ -1,0 +1,54 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="name">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("email.agent.name")})}</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">100</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("email.agent.name")})}</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+            <message>${getText("invalid.name", {getText("email.agent.name")})}</message>
+        </field-validator>
+    </field>
+    <field name="emailHost">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("email.agent.hostaddress")})}</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">1</param>
+            <param name="maxLength">255</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("email.agent.hostaddress")})}</message>
+        </field-validator>
+    </field>
+    <field name="userName">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("email.agent.username")})}</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">1</param>
+            <param name="maxLength">20</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("email.agent.username")})}</message>
+        </field-validator>
+    </field>
+    <field name="fromAddress">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("email.agent.fromaddress")})}</message>
+        </field-validator>
+     <field-validator type="stringlength">
+            <param name="minLength">1</param>
+            <param name="maxLength">255</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("email.agent.fromaddress")})}</message>
+        </field-validator>
+    </field>
+</validators>

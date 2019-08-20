@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.diameter.routingconf.data.DiameterPeerGroupRelData" table="TBLMPEERGROUPREL">
+		
+		<composite-id>
+			<key-property name="peerUUID" column="PEERUUID" type="StringType"></key-property>
+			<key-property name="peerGroupId" column="PEERGROUPID" type="StringType"></key-property>
+		</composite-id>
+		
+		<property name="loadFector" type="java.lang.Long"> 
+			<column name="LOADFACTOR" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="peerName" type="StringType">
+			<column name="PEERNAME" sql-type="VARCHAR(60)" not-null="true"></column>
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Long">
+			<column name="ORDERNUMBER" sql-type="NUMERIC(20)" not-null="false"></column>
+		</property>
+		
+		<many-to-one name="diameterPeerData" column="PEERUUID" lazy="false" insert="false" update="false" 
+     	  	class="com.elitecore.elitesm.datamanager.diameter.diameterpeer.data.DiameterPeerData" not-null="false" cascade="save-update">
+     	</many-to-one>
+		
+	</class>            
+	            
+</hibernate-mapping>

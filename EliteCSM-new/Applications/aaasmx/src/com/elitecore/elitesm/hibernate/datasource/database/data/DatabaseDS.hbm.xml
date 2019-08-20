@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.datasource.database.data.DatabaseDSData" table="TBLMDATABASEDS" >          
+		
+		<id name="databaseId" column="DATABASEDSID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"> 
+			</generator>
+		</id>
+		
+		 <property name="name" type="StringType">
+           <column name="NAME" sql-type="VARCHAR(200)" not-null="true"/>
+    	 </property>
+	     <property name="connectionUrl" type="StringType">
+	          <column name="CONNECTIONURL" sql-type="VARCHAR(2000)" not-null="true"/>
+	     </property>
+	     <property name="userName" type="StringType">
+	          <column name="USERNAME" sql-type="VARCHAR(200)" />
+	     </property>
+	     <property name="password" type="StringType">
+	          <column name="PASSWORD" sql-type="VARCHAR(200)" />
+	     </property>
+	     
+	     <property name="minimumPool" type="long">
+	          <column name="MINIMUMPOOL" sql-type="NUMBER(10)" not-null="true"/>
+	     </property>
+	     <property name="maximumPool" type="long">
+	          <column name="MAXIMUMPOOL" sql-type="NUMBER(10)" not-null="true"/>
+	     </property>
+	     
+	     <property name="lastmodifiedByStaffId" type="StringType">
+	          <column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" />
+	     </property>
+	     <property name="statusCheckDuration" type="java.lang.Long"> 
+			<column name="STATUSCHECKDURATION" sql-type="NUMERIC(20)" not-null="true" /> 
+		</property>
+		<property name="timeout" type="java.lang.Long"> 
+			<column name="TIMEOUT" sql-type="NUMBER(20)" not-null="true" /> 
+		</property>
+	     <property name="createdByStaffId" type="StringType">
+	          <column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" />
+	     </property>
+	     <property name="lastmodifiedDate" type="java.sql.Timestamp">
+	          <column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP(6)" />
+	     </property>
+	     <property name="createDate" type="java.sql.Timestamp" >
+	          <column name="CREATEDATE" sql-type="TIMESTAMP(6)" />
+	     </property>
+	     
+	      <property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false" />
+	     </property>
+	     
+	</class>
+</hibernate-mapping>

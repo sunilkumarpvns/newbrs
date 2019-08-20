@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<typedef name="StringType" class="com.elitecore.elitesm.hibernate.customtypes.StringType"></typedef>
+	<typedef name="CharType" class="com.elitecore.elitesm.hibernate.customtypes.CharType"></typedef>
+	<typedef name="PolicyCaseSensitivityType" class="com.elitecore.elitesm.hibernate.customtypes.PolicyCaseSensitivityType"></typedef>
+	<typedef name="SubscriberCaseSensitivityType" class="com.elitecore.elitesm.hibernate.customtypes.SubscriberCaseSensitivityType"></typedef>
+</hibernate-mapping>

@@ -1,0 +1,185 @@
+spool  SP_PCRF_RESET_DW_QUOTA.log
+
+prompt Enter the credential of NETVERTEX 
+connect &&username/&&password@&&NET_STR
+
+CREATE OR REPLACE PROCEDURE SP_PCRF_RESET_DW_QUOTA
+AS
+  v_dcnt 	NUMERIC;
+  v_wcnt 	NUMERIC;
+  CNT       	NUMBER := 0;
+  SUC       	NUMBER := 0;
+  STIME     	NUMBER := DBMS_UTILITY.GET_TIME;
+  ETIME     	NUMBER;
+  TME_TAKEN 	NUMBER;
+  INST      	NUMBER := DBMS_UTILITY.CURRENT_INSTANCE;
+  USAGE_CNT     NUMBER :=0;
+  HISTORY_CNT   NUMBER :=0;
+BEGIN
+  /* JIRA : NETVERTEX-2098 */
+
+  SELECT PKG_PCRF_SCHEDULER_KPI.FUNC_CHECK_PARTITION('TBLT_USAGE') INTO USAGE_CNT  FROM DUAL;
+  SELECT PKG_PCRF_SCHEDULER_KPI.FUNC_CHECK_PARTITION('TBLT_USAGE_HISTORY') INTO HISTORY_CNT  FROM DUAL;
+
+  FOR REC_DW IN
+  (SELECT DW.ID ,
+    DW.SUBSCRIBER_ID,
+    DW.PACKAGE_ID,
+    DW.SUBSCRIPTION_ID,
+    DW.QUOTA_PROFILE_ID,
+    DW.SERVICE_ID,
+    DW.DAILY_TOTAL ,
+    DW.DAILY_UPLOAD ,
+    DW.DAILY_DOWNLOAD ,
+    DW.DAILY_TIME ,
+    DW.WEEKLY_TOTAL ,
+    DW.WEEKLY_UPLOAD ,
+    DW.WEEKLY_DOWNLOAD ,
+    DW.WEEKLY_TIME ,
+    DW.BILLING_CYCLE_TOTAL ,
+    DW.BILLING_CYCLE_UPLOAD ,
+    DW.BILLING_CYCLE_DOWNLOAD ,
+    DW.BILLING_CYCLE_TIME ,
+    DW.CUSTOM_TOTAL ,
+    DW.CUSTOM_UPLOAD ,
+    DW.CUSTOM_DOWNLOAD ,
+    DW.CUSTOM_TIME ,
+    DW.DAILY_RESET_TIME ,
+    DW.WEEKLY_RESET_TIME,
+    DW.CUSTOM_RESET_TIME,
+    DW.BILLING_CYCLE_RESET_TIME,
+    DW.LAST_UPDATE_TIME,
+    DW.PRODUCT_OFFER_ID
+  FROM TBLT_USAGE DW
+  )
+  LOOP
+    CNT := CNT + 1;
+    IF REC_DW.DAILY_RESET_TIME <= SYSDATE AND REC_DW.WEEKLY_RESET_TIME <= SYSDATE THEN
+      UPDATE TBLT_USAGE I
+      SET I.DAILY_TOTAL             = 0,
+        I.DAILY_UPLOAD              = 0,
+        I.DAILY_DOWNLOAD            = 0,
+        I.DAILY_TIME                = 0,
+        I.WEEKLY_TOTAL              = 0,
+        I.WEEKLY_UPLOAD             = 0,
+        I.WEEKLY_DOWNLOAD           = 0,
+        I.WEEKLY_TIME               = 0,
+        I.DAILY_RESET_TIME          = TRUNC(SYSDATE)+86399/86400,
+        I.WEEKLY_RESET_TIME         = NEXT_DAY(TRUNC(SYSDATE),'SATURDAY')+86399/86400,
+        I.LAST_UPDATE_TIME          = CURRENT_TIMESTAMP
+      WHERE I.ID                    = REC_DW.ID
+      AND REC_DW.DAILY_RESET_TIME  <= SYSDATE
+      AND REC_DW.WEEKLY_RESET_TIME <= SYSDATE;
+      v_dcnt                       := SQL%ROWCOUNT;
+    ELSIF REC_DW.DAILY_RESET_TIME  <= SYSDATE THEN
+      UPDATE TBLT_USAGE I
+      SET I.DAILY_TOTAL            = 0,
+        I.DAILY_UPLOAD             = 0,
+        I.DAILY_DOWNLOAD           = 0,
+        I.DAILY_TIME               = 0,
+        I.DAILY_RESET_TIME         = TRUNC(SYSDATE)+86399/86400,
+        I.LAST_UPDATE_TIME         = CURRENT_TIMESTAMP
+      WHERE I.ID                   = REC_DW.ID
+      AND REC_DW.DAILY_RESET_TIME <= SYSDATE;
+      v_wcnt                      := SQL%ROWCOUNT;
+    END IF;
+    IF v_dcnt > 0 OR v_wcnt > 0 THEN
+      INSERT
+      INTO TBLT_USAGE_HISTORY
+        (
+          CREATE_DATE,
+          ID ,
+          SUBSCRIBER_ID,
+          PACKAGE_ID,
+          SUBSCRIPTION_ID,
+          QUOTA_PROFILE_ID,
+          SERVICE_ID,
+          DAILY_TOTAL ,
+          DAILY_UPLOAD ,
+          DAILY_DOWNLOAD ,
+          DAILY_TIME ,
+          WEEKLY_TOTAL ,
+          WEEKLY_UPLOAD ,
+          WEEKLY_DOWNLOAD ,
+          WEEKLY_TIME ,
+          BILLING_CYCLE_TOTAL ,
+          BILLING_CYCLE_UPLOAD ,
+          BILLING_CYCLE_DOWNLOAD ,
+          BILLING_CYCLE_TIME ,
+          CUSTOM_TOTAL ,
+          CUSTOM_UPLOAD ,
+          CUSTOM_DOWNLOAD ,
+          CUSTOM_TIME ,
+          DAILY_RESET_TIME ,
+          WEEKLY_RESET_TIME,
+          CUSTOM_RESET_TIME,
+          BILLING_CYCLE_RESET_TIME,
+          LAST_UPDATE_TIME,
+	  PRODUCT_OFFER_ID
+        )
+        VALUES
+        (
+          CURRENT_TIMESTAMP,
+          REC_DW.ID ,
+          REC_DW.SUBSCRIBER_ID,
+          REC_DW.PACKAGE_ID,
+          REC_DW.SUBSCRIPTION_ID,
+          REC_DW.QUOTA_PROFILE_ID,
+          REC_DW.SERVICE_ID,
+          REC_DW.DAILY_TOTAL ,
+          REC_DW.DAILY_UPLOAD ,
+          REC_DW.DAILY_DOWNLOAD ,
+          REC_DW.DAILY_TIME ,
+          REC_DW.WEEKLY_TOTAL ,
+          REC_DW.WEEKLY_UPLOAD ,
+          REC_DW.WEEKLY_DOWNLOAD ,
+          REC_DW.WEEKLY_TIME ,
+          REC_DW.BILLING_CYCLE_TOTAL ,
+          REC_DW.BILLING_CYCLE_UPLOAD ,
+          REC_DW.BILLING_CYCLE_DOWNLOAD ,
+          REC_DW.BILLING_CYCLE_TIME ,
+          REC_DW.CUSTOM_TOTAL ,
+          REC_DW.CUSTOM_UPLOAD ,
+          REC_DW.CUSTOM_DOWNLOAD ,
+          REC_DW.CUSTOM_TIME ,
+          REC_DW.DAILY_RESET_TIME ,
+          REC_DW.WEEKLY_RESET_TIME,
+          REC_DW.CUSTOM_RESET_TIME,
+          REC_DW.BILLING_CYCLE_RESET_TIME,
+          REC_DW.LAST_UPDATE_TIME,
+	  REC_DW.PRODUCT_OFFER_ID
+        );
+      SUC:= SUC + SQL%ROWCOUNT;
+      COMMIT;
+    END IF;
+  END LOOP;
+
+    ETIME := DBMS_UTILITY.GET_TIME;
+    TME_TAKEN:=ROUND((ETIME - STIME)/100,1);
+    IF HISTORY_CNT=1 AND USAGE_CNT=1 THEN
+    
+    USAGE_CNT:=1;
+    
+    ELSE    
+    
+    USAGE_CNT:=0;
+    
+    END IF;
+ 
+    PKG_PCRF_SCHEDULER_KPI.SP_SCHEDULER_GENERAL (CNT,SUC,INST,'JOB_SP_PCRF_RESET_DW_QUOTA',TME_TAKEN,USAGE_CNT);
+END;
+/
+
+BEGIN
+DBMS_SCHEDULER.CREATE_JOB (
+   JOB_NAME           =>  'JOB_SP_PCRF_RESET_DW_QUOTA',
+   JOB_TYPE           =>  'PLSQL_BLOCK',
+   JOB_ACTION         =>  'BEGIN SP_PCRF_RESET_DW_QUOTA; END;',
+   START_DATE         =>   SYSTIMESTAMP,
+   REPEAT_INTERVAL    =>  'FREQ=DAILY;BYHOUR=01;BYMINUTE=48;',   
+   END_DATE           =>   NULL,
+   ENABLED            =>   TRUE,
+   COMMENTS           =>  'This scheduler reset quota for daily and weekly on frequency of daily 00:48 hour');
+END;
+/
+

@@ -1,0 +1,359 @@
+<project name="Elite Radius " default="all" basedir=".">
+
+    <property name="basedir" location="." />
+	<property file="${basedir}/eliteradius-test.properties"/>
+    <property name="local.server.home" location="${local.test.home.folder}/EliteRadius5.1.2.10"/>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - -
+          target: init
+         - - - - - - - - - - - - - - - - - - - - - - -->
+    <target name="init">
+      <mkdir dir="${local.server.home}"/>
+    </target>
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - -
+          target: -get-library-source-macrodef
+         - - - - - - - - - - - - - - - - - - - - - - -->
+    <target name="-get-library-source-macrodef">
+
+    <!-- = = = = = = = = = = = = = = = = =
+          macrodef: get-library-source
+         = = = = = = = = = = = = = = = = = -->
+      <macrodef name="get-library-source">
+        <attribute name="module.name"/>
+        <sequential>
+          <echo message="Getting source for @{module.name}" />
+          <vssget
+              login="${source.vss.account}"
+              ssdir="${ss.dir}"
+              serverpath="${source.vss.server}"
+              vsspath="${elitelibrary.vss.base.location}/@{module.name}/src"
+              localpath="${local.server.home}/src"
+              writable="true"
+              recursive="yes"
+              quiet="yes"
+          />
+        </sequential>
+      </macrodef>
+    </target>
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - -
+          target: -get-library-dependency-jars-macrodef
+         - - - - - - - - - - - - - - - - - - - - - - -->
+    <target name="-get-library-dependency-jars-macrodef">
+
+      <!-- = = = = = = = = = = = = = = = = =
+            macrodef: verify-and-get-source
+           = = = = = = = = = = = = = = = = = -->
+      <macrodef name="get-library-dependency-jars">
+        <attribute name="module.name"/>
+        <sequential>
+          <echo message="Getting dependent libraries for @{module.name}" />
+          <vssget
+              login="${source.vss.account}"
+              ssdir="${ss.dir}"
+              serverpath="${source.vss.server}"
+              vsspath="${elitelibrary.vss.base.location}/@{module.name}/lib"
+              localpath="${local.server.home}/lib"
+              writable="true"
+              recursive="yes"
+              quiet="yes"
+          />
+        </sequential>
+      </macrodef>
+    </target>
+
+
+    <target name="all" depends="init,-get-library-source-macrodef,-get-library-dependency-jars-macrodef">
+      <antcall target="clean-local-temp-folder"/>
+      <antcall target="get-source"/> 
+      <antcall target="copy-default-config"/>
+      <antcall target="copy-test-case-userfile"/>
+      <antcall target="compile-src"/>
+      <antcall target="compile-test-src"/>
+      <antcall target="start-radius-server"/>
+      <antcall target="stop-radius-server"/>
+      <antcall target="send-test-report"/>
+    </target>
+    
+    <target name="test" depends="init,-get-library-source-macrodef,-get-library-dependency-jars-macrodef">
+      <antcall target="clean-local-temp-file"/>
+      <antcall target="copy-default-config"/>
+      <antcall target="copy-test-case-userfile"/>
+      <antcall target="compile-src"/>
+      <antcall target="compile-test-src"/>
+      <antcall target="start-radius-server"/>
+      <antcall target="stop-radius-server"/>
+      <antcall target="send-test-report"/>
+    </target>
+    
+
+
+    <!-- Getting Latest Source from VSS -->
+    <target name="get-source" >
+      <get-library-source module.name="coreserver"/>
+      <get-library-dependency-jars module.name="coreserver"/>
+      <get-library-source module.name="coreradius"/>
+      <get-library-dependency-jars module.name="coreradius"/>
+      <get-library-source module.name="coresnmp"/>
+      <get-library-source module.name="passwordutil"/>
+      <get-library-source module.name="license"/>
+      <get-library-dependency-jars module.name="license"/>
+
+      <echo message="Getting source for eliteradius" />
+      <vssget
+          login="${source.vss.account}"
+          ssdir="${ss.dir}"
+          serverpath="${source.vss.server}"
+          vsspath="${application.vss.base.location}/eliteradius/src"
+          localpath="${local.server.home}/src"
+          writable="true"
+          recursive="yes"
+          quiet="yes"
+      />
+      <echo message="Getting dependent libraries for eliteradius" />
+      <vssget
+          login="${source.vss.account}"
+          ssdir="${ss.dir}"
+          serverpath="${source.vss.server}"
+          vsspath="${application.vss.base.location}/eliteradius/lib"
+          localpath="${local.server.home}/lib"
+          writable="true"
+          recursive="yes"
+          quiet="yes"
+      />
+      <echo message="Getting default config folder" />
+      <vssget
+          login="${source.vss.account}"
+          ssdir="${ss.dir}"
+          serverpath="${source.vss.server}"
+          vsspath="${application.vss.base.location}/eliteradius/default"
+          localpath="${local.server.home}/default"
+          writable="true"
+          recursive="yes"
+          quiet="yes"
+      />
+
+      <echo message="Getting data folder" />
+      <vssget
+          login="${source.vss.account}"
+          ssdir="${ss.dir}"
+          serverpath="${source.vss.server}"
+          vsspath="${application.vss.base.location}/eliteradius/data"
+          localpath="${local.server.home}/data"
+          writable="true"
+          recursive="yes"
+          quiet="yes"
+      />
+
+      <echo message="Getting data folder" />
+      <vssget
+          login="${source.vss.account}"
+          ssdir="${ss.dir}"
+          serverpath="${source.vss.server}"
+          vsspath="${application.vss.base.location}/eliteradius/system"
+          localpath="${local.server.home}/system"
+          writable="true"
+          recursive="yes"
+          quiet="yes"
+      />
+
+      <echo message="Getting dependent internal shared libraries for eliteradius" />
+      <vssget
+          login="${source.vss.account}"
+          ssdir="${ss.dir}"
+          serverpath="${source.vss.server}"
+          vsspath="${sharedlibrary.vss.base.location}/internal"
+          localpath="${local.server.home}/lib/third-party"
+          writable="true"
+          recursive="yes"
+          quiet="yes"
+      />
+    </target>
+    
+    <target name="copy-default-config">
+    	<echo message="Copying config from default folder."/>
+      <copy todir="${local.server.home}">
+        <fileset dir="${local.server.home}/default"/>
+      </copy>
+    </target>
+        
+    <target name="copy-test-case-userfile">
+    	<echo message="Copying test case userfile"/>
+      <copy todir="${local.server.home}/data/usersfile" overwrite="true">
+        <fileset dir="${basedir}/data/usersfile">
+        	<include name="**/*.xml"/>
+      	</fileset>
+      </copy>
+    </target>
+        
+    <target name="compile-src" >
+      <mkdir dir="${local.server.home}/classes"/>
+      <echo message="Compiling source"/>
+
+      <javac srcdir="${local.server.home}/src"
+          debug="on"
+          debuglevel="lines,vars,source"
+          destdir="${local.server.home}/classes"
+          includes="**/*.java">
+      	
+            <classpath>
+              <fileset dir="${local.server.home}/lib/">
+                <include name="**/*.jar"/>
+                <include name="**/*.zip"/>
+              </fileset>
+              <fileset dir="${local.server.home}/lib/third-party">
+                <include name="**/*.jar"/>
+                <include name="**/*.zip"/>
+              </fileset>
+            </classpath>
+      </javac>
+    </target>
+
+    <target name="compile-test-src" >
+      <mkdir dir="${basedir}/classes"/>
+      <echo message="Compiling test source"/>
+
+      <javac srcdir="${basedir}/src"
+          debug="on"
+          debuglevel="lines,vars,source"
+          destdir="${basedir}/classes"
+          includes="**/*.java">
+            <classpath>
+              <fileset dir="${basedir}/lib/">
+                <include name="**/*.jar"/>
+                <include name="**/*.zip"/>
+              </fileset>
+              <fileset dir="${basedir}/lib/third-party">
+                <include name="**/*.jar"/>
+                <include name="**/*.zip"/>
+              </fileset>
+            </classpath>
+      </javac>
+    </target>
+	
+    <target name="start-radius-server">
+      <echo>Starting EliteRadius Server...</echo>
+      <parallel>
+        <daemons>
+          <java classname="com.elitecore.radius.Main" fork="true">
+            <classpath>
+              <path path="${local.server.home}/classes"></path>
+              <fileset dir="${local.server.home}/lib">
+                <include name="**/*.jar"/>
+                <include name="**/*.zip"/>
+              </fileset>
+            </classpath>
+            <env key="JAVA_HOME" path="${java.home.path}" />
+            <env key="RADIUS_HOME" path="${local.server.home}"/>
+    
+            <arg value="com.elitecore.radius.server.EliteRadiusServer"/>
+    
+            <jvmarg value="-Xms128m"/>
+            <jvmarg value="-Xmx256m"/>
+          	<jvmarg value="-Dcom.sun.management.jmxremote"/>
+          	<jvmarg value="-Dcom.sun.management.jmxremote.port=4434"/>
+          	<jvmarg value="-Dcom.sun.management.jmxremote.ssl=false"/>
+          	<jvmarg value="-Dcom.sun.management.jmxremote.authenticate=false"/>
+          </java>
+        </daemons>
+            
+        <sequential>
+          <waitfor maxwait="60" maxwaitunit="second" checkevery="10" checkeveryunit="second">
+	      <available file="${local.server.home}/system/_sys.start"/>         
+          </waitfor>
+                
+          <condition property="server.startup.complete" value="server started">
+            <available file="${local.server.home}/system/_sys.start"/>
+          </condition>
+        </sequential>
+            
+      </parallel>         
+
+      <echo> Starting testcase execution</echo>
+      <antcall target="run-test-case" inheritall="true"/>
+      <antcall target="echo-server-state" inheritall="true"/>
+      <echo>Test completed finally</echo>	
+    </target>
+
+    <target name="run-test-case" if="server.startup.complete">
+      <echo>Server startup completed successfully</echo>
+
+      <junit printsummary="yes" haltonfailure="off" haltonerror="off" fork="false" failureproperty="unit.test.status">
+        <classpath>
+          <fileset dir="${local.server.home}/lib">
+            <include name="*.jar"/>
+          </fileset>
+          <fileset dir="${local.server.home}/lib/third-party">
+            <include name="*.jar"/>
+          </fileset>
+          <pathelement location="${basedir}/classes"/>
+        </classpath>
+        <formatter type="plain"/>
+        <test name="com.elitecore.test.radius.testing.basicfunctionalities.AuthenticationBasicFunctionalitiesTest"  todir="." filtertrace="true" haltonerror="true" fork="true" />               
+      </junit>
+      <echo>Testcase completed</echo>
+    </target>
+
+    <target name="echo-server-state" unless="server.startup.complete">
+      <echo>Server startup failed, could not continue with execution of test cases.</echo>
+    </target>
+
+    <target name="stop-radius-server">
+    	 <sequential>            
+        	<java classname="com.elitecore.radius.ConsoleManager" fork="true" inputstring="shutdown">
+            	<classpath>
+              		<path path="${local.server.home}/classes"></path>
+              		<fileset dir="${local.server.home}/lib">
+                		<include name="**/*.jar"/>
+                		<include name="**/*.zip"/>
+              		</fileset>
+            	</classpath>            	            	
+            	<env key="JAVA_HOME" path="${java.home.path}" />
+            	<env key="RADIUS_HOME" path="${local.server.home}"/>                	                	
+	        </java>	 
+      	 </sequential>                  
+    </target>
+    
+    <target name="clean-local-temp-folder">
+      <delete includeemptydirs="true">
+        <fileset dir="${local.server.home}"/>
+      </delete>
+    </target>
+    
+    <target name="clean-local-temp-file">
+    	<delete file="${local.server.home}/system/_sys.start"/>
+    </target>
+
+    <target name="send-test-report">
+        <macrodef name="send-mail">
+            <attribute name="recipients"/>	        
+            <attribute name="status"/>          
+            <sequential>
+              <echo message="Sending email to @{recipients}" />            
+              <mail mailhost="mailhost.elitecore.com" mailport="25" subject="@{status}" tolist="@{recipients}">
+        		<from address="devang.adeshara@elitecore.com"/>
+        		<replyto address="devang.adeshara@elitecore.com"/>        		
+        		<message>@{status}</message>  	    
+            	<fileset dir=".">
+    	   		<include name="report.zip"/>
+    		</fileset>            
+    	    </mail>
+            </sequential>
+         </macrodef>	              
+         <zip destfile="report.zip"  basedir="." includes="**/*.txt"/>	     
+         <antcall target="send-success-report"/>
+     	 <antcall target="send-failure-report"/>                                   
+    </target>
+    
+    <target name="send-success-report" unless="unit.test.status">
+       <send-mail recipients="${elite.test.report.recipients}" status="Test Success" />             	  
+    </target>
+    
+    <target name="send-failure-report" if="unit.test.status">
+      <send-mail recipients="${elite.test.report.recipients}" status="Test Failed" />             	  
+    </target>
+</project>
+    

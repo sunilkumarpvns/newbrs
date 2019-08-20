@@ -1,0 +1,19 @@
+{
+  "id": "rest_dia_packet_mapping_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Updated_Rest_Diameter_ASResponse",
+  "description": "Updated by REST Automation",
+  "commProtocol": "DIAMETER",
+  "packetType": "ABORT_SESSION_RESPONSE",
+  "type": "GATEWAY_TO_PCC",
+  "attributeMappingData": {
+    "mappings": [
+      "{\"pid\":\"0\",\"policykey\":\"Sub.ProfileExpiredHours\",\"attribute\":\"0:15\",\"defaultvalue\":\"netvertex_users\",\"valuemapping\":\"m\"}",
+      "{\"pid\":\"0\",\"policykey\":\"CS.CreditLimit\",\"attribute\":\"0:52\",\"defaultvalue\":\"device\",\"valuemapping\":\"s\"}"
+    ],
+    "orderNumber": null
+  },
+  "applicationType": null,
+  "groupNames": "DefaultGroup"
+}

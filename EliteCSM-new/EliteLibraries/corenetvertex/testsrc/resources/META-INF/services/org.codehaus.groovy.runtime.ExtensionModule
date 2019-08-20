@@ -1,0 +1,6 @@
+moduleName = pcc
+moduleVersion = 1.0
+extensionClasses = com.elitecore.corenetvertex.extension.AllowedUsageExtension,\
+  com.elitecore.corenetvertex.extension.NumberExtension,\
+  com.elitecore.corenetvertex.extension.SubscriberNonMonitoryBalanceExtension,\
+  groovy.time.TimeCategory

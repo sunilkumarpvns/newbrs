@@ -1,0 +1,71 @@
+<session-manager>
+   <name>def_SessionManager</name>
+   <description>This session manager is created by EliteAAA Default configuration Setup. It will manage the session based on accounting request</description>
+   <status>ACTIVE</status>
+   <database-datasource>def_DatabaseDatasource</database-datasource>
+   <table-name>tblmconcurrentusers</table-name>
+   <sequence-name>SEQ_TBLMCONCURRENTUSERS</sequence-name>
+   <start-time-field>START_TIME</start-time-field>
+   <last-updated-time-field>LAST_UPDATED_TIME</last-updated-time-field>
+   <db-query-timeout>1</db-query-timeout>
+   <behaviour>Acct</behaviour>
+   <db-failure-action>IGNORE</db-failure-action>
+   <session-stop-action>DELETE</session-stop-action>
+   <batch-update-enabled>true</batch-update-enabled>
+   <batch-size>1000</batch-size>
+   <batch-update-interval>100</batch-update-interval>
+   <auto-session-closer-enabled>false</auto-session-closer-enabled>
+   <session-timeout>120</session-timeout>
+   <session-close-batch-count>50</session-close-batch-count>
+   <session-thread-sleep-time>10</session-thread-sleep-time>
+   <session-close-action>None</session-close-action>
+   <session-override-action>None</session-override-action>
+   <session-override-fields>CALLING_STATION_ID</session-override-fields>
+   <concurrency-identity-field>GROUPNAME</concurrency-identity-field>
+   <discrete-search-fields>CALLING_STATION_ID</discrete-search-fields>
+   <mandatory-db-field-mappings>
+      <mandatory-field-mapping-data>
+         <data-type>String</data-type>
+         <db-field-name>ACCT_SESSION_ID</db-field-name>
+         <field>Session ID</field>
+         <referring-entity>0:44</referring-entity>
+      </mandatory-field-mapping-data>
+      <mandatory-field-mapping-data>
+         <data-type>String</data-type>
+         <db-field-name>NAS_PORT_TYPE</db-field-name>
+         <field>PDP Type</field>
+         <referring-entity>0:61</referring-entity>
+      </mandatory-field-mapping-data>
+      <mandatory-field-mapping-data>
+         <data-type>String</data-type>
+         <db-field-name>SESSION_TIMEOUT</db-field-name>
+         <field>Session Timeout</field>
+         <referring-entity>$RES(0:27)</referring-entity>
+      </mandatory-field-mapping-data>
+      <mandatory-field-mapping-data>
+         <data-type>String</data-type>
+         <db-field-name>AAA_ID</db-field-name>
+         <field>AAA ID</field>
+         <referring-entity>21067:143</referring-entity>
+      </mandatory-field-mapping-data>
+      <mandatory-field-mapping-data>
+         <data-type>String</data-type>
+         <db-field-name>NAS_IDENTIFIER</db-field-name>
+         <field>NAS ID</field>
+         <referring-entity>0:32</referring-entity>
+      </mandatory-field-mapping-data>
+      <mandatory-field-mapping-data>
+         <data-type>String</data-type>
+         <db-field-name>USER_NAME</db-field-name>
+         <field>User Identity</field>
+         <referring-entity>0:1</referring-entity>
+      </mandatory-field-mapping-data>
+   </mandatory-db-field-mappings>
+   <additional-db-field-mappings>
+      <additional-db-field-mapping-data>
+         <data-type>String</data-type>
+         <db-field-name>CALLING_STATION_ID</db-field-name>
+         <referring-entity>0:31</referring-entity>
+      </additional-db-field-mapping-data>
+   </additional-db-field-mappings>
+</session-manager>

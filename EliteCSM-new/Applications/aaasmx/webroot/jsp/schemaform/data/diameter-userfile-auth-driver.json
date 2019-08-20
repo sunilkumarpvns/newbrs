@@ -1,0 +1,65 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Nas User File Auth Driver",
+  "properties":{
+      "name":{
+          "title":"Instance Name",
+          "type":"string"
+      },
+      "description":{
+          "title":"Description",
+          "type":"string"
+      },
+      "user-file-auth-driver":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "file-locations":{
+                      "title":"File Locations",
+                      "type":"string",
+                      "default":"data/userfiles"
+                  },
+                  "expiry-date-formats":{
+                      "title":"Expiry Date Formats",
+                      "type":"string",
+                      "default":"MM/dd/yyyy"
+                  }
+              }
+          }
+      }
+  }
+  
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"user-file-auth-driver",
+      "items":[
+          {
+              "key":"user-file-auth-driver[].file-locations"
+          },
+          {
+              "key":"user-file-auth-driver[].expiry-date-formats"
+          }
+          ]
+  }
+  
+],
+"model":{
+   "name":"diameterUserFileDriverAuth",
+   "description":"Created by admin on 11/15/2016 02:38:26 PM",
+   "user-file-auth-driver":[
+      {
+         "file-locations":"data/userfiles",
+         "expiry-date-formats":"MM/dd/yyyy"
+      }
+   ]
+}
+}

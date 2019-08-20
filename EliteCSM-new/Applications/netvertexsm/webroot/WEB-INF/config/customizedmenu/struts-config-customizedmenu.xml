@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <form-beans>
+      <form-bean name="customizedMenuForm" type="com.elitecore.netvertexsm.web.customizedmenu.CustomizedMenuForm"/>
+    </form-beans>
+  
+    <action-mappings>
+      
+     <action parameter="method" name="customizedMenuForm"
+			path="/customizedMenumgmt" scope="request" type="com.elitecore.netvertexsm.web.customizedmenu.CustomizedMenuAction">
+			<forward name="searchCustomizedMenuPage" path="/jsp/CustomizedMenu/SearchCustomizedMenu.jsp" />
+			<forward name="createCustomizedMenuPage" path="/jsp/CustomizedMenu/CreateCustomizedMenu.jsp" />
+			<forward name="viewCustomizedMenuPage" path="/jsp/CustomizedMenu/ViewCustomizedMenuContainer.jsp" />
+			<forward name="editCustomizedMenuPage" path="/jsp/CustomizedMenu/EditCustomizedMenuContainer.jsp" />
+			<forward name="viewCustomizedMenuUrl" path="/jsp/CustomizedMenu/ViewCustomizedMenuUrl.jsp" />			
+	 </action>
+	 
+	 </action-mappings>
+  
+    <message-resources key="customizedMenuResources" parameter="com.elitecore.netvertexsm.web.customizedmenu.customizedMenuResources" /> 
+  
+</struts-config>

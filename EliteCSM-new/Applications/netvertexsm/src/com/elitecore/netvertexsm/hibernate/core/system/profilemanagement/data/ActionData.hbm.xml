@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.ActionData" table="TBLMACTION">
+		<id name="actionId" type="string">
+			<column name="ACTIONID" sql-type="CHAR(8)"></column>
+		</id>
+		
+		<property name="name" type="string">
+			<column name="NAME" sql-type="VARCHAR(100)"></column>
+		</property>
+		
+		<property name="alias" type="string">
+			<column name="ALIAS" sql-type="VARCHAR(50)"></column>
+		</property>
+		
+		<property name="description" type="string">
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)"></column>
+		</property>
+		
+		<property name="actionTypeId" type="string">
+			<column name="ACTIONTYPEID" sql-type="CHAR(5)"></column>
+		</property>
+		
+		<property name="parentActionId" type="string">
+			<column name="PARENTACTIONID" sql-type="CHAR(8)"></column>
+		</property>
+		
+		<property name="actionLevel" type="string">
+			<column name="ACTIONLEVEL" sql-type="NUMBER(2)"></column>
+		</property>
+		
+		<property name="systemGenerated" type="string">
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)"></column>
+		</property>
+		
+		<property name="screenId" type="string">
+			<column name="SCREENID" sql-type="CHAR(6)"></column>
+		</property>
+		
+		<property name="status" type="string">
+			<column name="STATUS" sql-type="CHAR(1)" not-null="true"></column>
+		</property>
+		
+		<property name="freezeProfile" type="string">
+			<column name="FREEZEPROFILE" sql-type="CHAR(1)"></column>
+		</property>
+	</class>
+</hibernate-mapping>          

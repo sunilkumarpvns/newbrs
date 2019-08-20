@@ -1,0 +1,320 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/script?name=Diameter_Router_Script&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script.xml?name=Diameter_Router_Script
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/script?operation=search&name=Diameter_Router_Script&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script.xml?operation=search&name=Diameter_Router_Script
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script.xml?operation=search
+
+
+Response     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <script-name>Diameter_Router_Script</script-name>
+    <description>Created by admin on 08/31/2017 12:06:01 PM</description>
+    <status>ACTIVE</status>
+    <script-type>Diameter Router Script</script-type>
+    <script-files>
+        <script-filename>DiameterRouterSampleScript.groovy</script-filename>
+    </script-files>
+</script>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/script?name=Diameter_Router_Script&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script.json?name=Diameter_Router_Script
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/script?operation=search&name=Diameter_Router_Script&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script.json?operation=search&name=Diameter_Router_Script
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script.json?operation=search
+
+Response     :
+
+{
+    "script-name": "Diameter_Router_Script",
+    "description": "Created by admin on 08/31/2017 12:06:01 PM",
+    "status": "ACTIVE",
+    "script-type": "Diameter Router Script",
+    "script-files": [
+        "DiameterRouterSampleScript.groovy"
+    ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/script
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/script?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<script>
+    <script-name>Diameter_Router_Script</script-name>
+    <description>Created by admin on 08/31/2017 12:06:01 PM</description>
+    <status>ACTIVE</status>
+    <script-type>Diameter Router Script</script-type>
+</script>
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Script created successfully"
+    }
+  ]
+}
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+    "script-name": "Diameter_Router_Script",
+    "description": "Created by admin on 08/31/2017 12:06:01 PM",
+    "status": "ACTIVE",
+    "script-type": "Diameter Router Script"
+}
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Script created successfully"
+    }
+  ]
+}
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/script/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/script/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+  	<script>
+	    <script-name>Diameter_Router_Script_1</script-name>
+	    <description>Created by admin on 08/31/2017 12:06:01 PM</description>
+	    <status>ACTIVE</status>
+	    <script-type>Diameter Router Script</script-type>
+	</script>
+	<script>
+	    <script-name>Diameter_Router_Script_2</script-name>
+	    <description>Created by admin on 08/31/2017 12:06:01 PM</description>
+	    <status>ACTIVE</status>
+	    <script-type>Diameter Router Script</script-type>
+	</script>
+</list>
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Script(s) created successfully"
+    }
+  ]
+}
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "script-name": "Diameter_Router_Script_1",
+		 "description": "Created by admin on 08/31/2017 12:06:01 PM",
+		 "status": "ACTIVE",
+		 "script-type": "Diameter Router Script"
+      },
+      {
+      	 "script-name": "Diameter_Router_Script_2",
+		 "description": "Created by admin on 08/31/2017 12:06:01 PM",
+		 "status": "ACTIVE",
+		 "script-type": "Diameter Router Script"
+      }
+   ]
+}
+
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Script(s) created successfully"
+    }
+  ]
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/script?name=Diameter_Router_Script
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/script?operation=update&name=Diameter_Router_Script
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<script>
+    <script-name>Diameter_Router_Script</script-name>
+    <description>Created by admin on 08/31/2017 12:06:01 PM</description>
+    <status>ACTIVE</status>
+    <script-type>Diameter Router Script</script-type>
+</script>
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Script updated successfully"
+    }
+  ]
+}
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+    "script-name": "Diameter_Router_Script",
+    "description": "Created by nayana111 on 08/31/2017 12:06:01 PM",
+    "status": "ACTIVE",
+    "script-type": "Driver Script"
+}
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Script updated successfully"
+    }
+  ]
+}
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/script?name=Diameter_Router_Script
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/script?operation=delete&name=Diameter_Router_Script
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/script/Diameter_Router_Script?operation=delete
+
+Response :
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Script deleted successfully"
+    }
+  ]
+}
+Note : For multiple delete use comma separated values
+***********************************************************************
+					FILE DOWNLOAD
+***********************************************************************
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/script/download?name=Diameter_Router_Script&filename=example.txt
+
+***********************************************************************
+					FILE UPLOAD
+***********************************************************************
+#URL (By using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/script/upload?name=Diameter_Router_Script
+
+Attched File In attchement.
+
+Response :
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Script File uploaded successfully"
+    }
+  ]
+}
+
+***********************************************************************

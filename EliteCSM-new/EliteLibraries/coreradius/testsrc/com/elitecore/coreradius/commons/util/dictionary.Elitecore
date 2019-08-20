@@ -1,0 +1,50 @@
+#
+#  dictionary.Elitecore
+#
+
+
+VENDOR EliteCore 21067
+begin EliteCore
+
+# 24Online-AVPair possible values
+# 
+# MaximumInputOctets = <value> for specifying the limit of download limit.
+# BandwidthPolicyName= <value> for specifying the name of bandwidth policy.
+# 
+#  *********************** Cyber Cafe Rating *************************
+#  LocationID = <value>. It denotes billing area number.                   
+#  LocationLicense = <value>. It signifies total no of seats in Cyber Cafe.
+#  LocationCurrentOccupancy = <value>. It signifies current occupancy in Cyber Cafe.
+#  ResellerNo = <value>. Reseller Number.
+#  MyAccountURL=<value>. e.g. MyAccountURL=http://myaccount.elitecore.com
+#  *********************** Event-Based Rating *************************
+#  Event-Alias = <value>. Name of the Event ( e.g. Coca-Cola, IceCream etc.)
+#  Event-Qty   = <value>. Event-Quantity.
+#  Event-Rate  = <value>. Event-Rate.
+#  ServiceID   = <value>. Global Service ID. (e.g. WebCam,GAME etc.)
+#
+# *************************** CoA *************************************
+#  CurrentBurningRate = <value>. Current Burning Rate
+#  LeftAmount = <value>. LeftAmount of the user after deducting the usage of current session.
+#  TotalAmount = <value>. TotalAmount of the user's account.
+#
+
+ATTRIBUTE	24Online-AVPair		0	string 
+ATTRIBUTE	Tekelec-AVPair		1	string 
+ATTRIBUTE       Cyberoam-AVPair         2       string 
+ATTRIBUTE       IP-Pool-AVPair          3       string 
+ATTRIBUTE       Rating-AVPair           4       string 
+
+#
+# Resource-Manager-AVPair
+# Possible values of Resource-Manager-AVPair
+#
+# CustomerType=Prepaid
+# Status=Success 
+# Status=Failure 
+# Default-Sesssion-Timeout=172800
+# PrepaidSessionId=781
+# 
+#
+ATTRIBUTE       Resource-Manager-AVPair	 5	string  
+end EliteCore

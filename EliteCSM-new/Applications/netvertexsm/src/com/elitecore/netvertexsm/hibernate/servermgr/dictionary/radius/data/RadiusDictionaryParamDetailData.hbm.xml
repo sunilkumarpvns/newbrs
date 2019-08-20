@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.netvertexsm.datamanager.servermgr.dictionary.radius.data.RadiusDictionaryParamDetailData" table="TBLMRADIUSDICPARAMDETAIL" >          
+	 
+		<id name="dictionaryParameterDetailId" column="DICTIONARYPARAMETERDETAILID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"> 
+			</generator>
+		</id>
+		    
+		<property name="dictionaryId" type="long">
+		        <column name="DICTIONARYID" sql-type="NUMBER(10)" not-null="true" />
+		</property>
+        
+        <property name="parentDetailId" type="java.lang.Long">
+		        <column name="PARENTDETAILID" sql-type="NUMBER(12)" not-null="false" />
+		</property>
+	    
+        
+		<property name="alias" type="string">
+		        <column name="ALIAS" sql-type="VARCHAR(100)" not-null="true" />
+		</property>
+     
+		<property name="name" type="string">
+		        <column name="NAME" sql-type="VARCHAR(100)" not-null="true"/>
+		</property>
+		
+		<property name="vendorParameterId" type="java.lang.Integer">
+		        <column name="VENDORPARAMETERID" sql-type="NUMBER(12)" not-null="true"/>
+		</property>
+		
+     
+		<property name="predefinedValues" type="string">
+		        <column name="PREDEFINEDVALUES" sql-type="VARCHAR(4000)" not-null="false"/>
+		</property>
+		
+		<property name="radiusRFCDictionaryParameterId" type="long">
+		        <column name="RADIUSRFCDICTIONARYPARAMETERID" sql-type="NUMBER(20)" not-null="true"/>
+		</property>
+		
+		<property name="dataTypeId" type="string">
+		        <column name="DATATYPEID" sql-type="CHAR(5)" not-null="true"/>
+		</property>
+		
+		<property name="vendorParameterOveridden" type="string">
+		        <column name="VENDORPARAMETEROVERIDDEN" sql-type="CHAR(1)" not-null="true"/>
+		</property>
+		
+	
+		<property name="vendorId" type="long">
+		        <column name="VENDORID" sql-type="NUMBER(20)" not-null="true"/>
+		</property>
+		
+		<property name="dictionaryNumber" type="long">
+		        <column name="DICTIONARYNUMBER" sql-type="NUMBER(20)" not-null="true"/>
+		</property>
+		
+		<property name="networkFilterSupport" type="string">
+		        <column name="NETWORKFILTERSUPPORT" sql-type="CHAR(1)" not-null="false"/>
+		</property>
+		
+		<property name="usageType" type="string">
+		        <column name="USAGETYPE" sql-type="VARCHAR(20)" not-null="false"/>
+		</property>
+		
+		<property name="avPair" type="string">
+		        <column name="AVPAIR" sql-type="CHAR(1)" not-null="true"/>
+		</property>
+     	
+     	<property name="hasTag" type="string">
+		        <column name="HASTAG" sql-type="VARCHAR(3)" not-null="true"/>
+		</property>
+		
+		<property name="ignoreCase" type="string">
+		        <column name="IGNORECASE" sql-type="VARCHAR(3)" not-null="false"/>
+		</property>
+		
+		<property name="encryptStandard" type="java.lang.Integer">
+		        <column name="ENCRYPTSTANDARD" sql-type="NUMERIC" not-null="false"/>
+		</property>
+
+
+		<property name="attributeId" type="string">
+		        <column name="ATTRIBUTEID" sql-type="VARCHAR2(64)" not-null="true"/>
+		</property>
+		
+		<set name="nestedParameterDetailSet" cascade="all" table="TBLMDICTIONARYPARAMETERDETAIL" lazy="false" inverse="true" order-by="vendorParameterId">
+      	<key column="PARENTDETAILID"></key>
+      	<one-to-many class="com.elitecore.netvertexsm.datamanager.servermgr.dictionary.radius.data.RadiusDictionaryParamDetailData"/>
+      	</set>
+		
+		<many-to-one name="dataType" class="com.elitecore.netvertexsm.datamanager.servermgr.dictionary.data.DataTypeData" column="DATATYPEID" insert="false" update="false" not-null="true" lazy="false"/>   		
+	</class>
+	
+</hibernate-mapping>
+
+          

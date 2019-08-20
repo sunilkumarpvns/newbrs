@@ -1,0 +1,651 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy?name=service-policy-name&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy.xml?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/service-policy-name?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/service-policy-name.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy?operation=search&name=service-policy-name&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy.xml?operation=search&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/service-policy-name?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/service-policy-name.xml?operation=search
+
+
+Response:
+
+<diameter-eap-policy>
+    <name>EAP</name>
+    <description>Created by admin on 03/01/2017 04:10:49 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1=*</ruleset>
+    <session-management>false</session-management>
+    <request-mode>Authenticate and Authorize</request-mode>
+    <default-response-behaviour>REJECT</default-response-behaviour>
+    <default-response-behaviour-argument>5012</default-response-behaviour-argument>
+    <eap-config>Demo</eap-config>
+    <user-identity-attribute>0:1</user-identity-attribute>
+    <case>No Change</case>
+    <strip-user-identity>true</strip-user-identity>
+    <trim-user-identity>true</trim-user-identity>
+    <seperator>@</seperator>
+    <trim-password>true</trim-password>
+    <realm-pattern>suffix</realm-pattern>
+    <annonymous-profile-identity>annonymous</annonymous-profile-identity>
+    <wimax>Enabled</wimax>
+    <reject-on-check-item-not-found>false</reject-on-check-item-not-found>
+    <reject-on-reject-item-not-found>false</reject-on-reject-item-not-found>
+    <action-on-policy-not-found>false</action-on-policy-not-found>
+    <diameter-concurrency>20</diameter-concurrency>
+    <additional-diameter-concurrency>20</additional-diameter-concurrency>
+    <default-session-timeout>600</default-session-timeout>
+    <cui>Authenticated-Identity</cui>
+    <cui-response-attributes>0:89</cui-response-attributes>
+    <primary-driver-group>
+        <driver-group>
+            <driver-instance-name>NASDRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-group>
+    </primary-driver-group>
+    <additional-driver-group>
+        <driver-group>
+            <driver-instance-name>NAS-DRI</driver-instance-name>
+        </driver-group>
+    </additional-driver-group>
+    <script>script</script>
+    <pre-plugins>
+        <pre-plugin>
+            <plugin-argument>arg</plugin-argument>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+        </pre-plugin>
+    </pre-plugins>
+    <post-plugins>
+        <post-plugin>
+            <plugin-argument>arg</plugin-argument>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+        </post-plugin>
+    </post-plugins>
+    <command-code-wise-response-attribute-list>
+        <command-code-wise-response-attribute>
+            <command-code>265</command-code>
+            <response-attribute>0:1="static"</response-attribute>
+        </command-code-wise-response-attribute>
+    </command-code-wise-response-attribute-list>
+</diameter-eap-policy>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy?name=EAP&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy.json?name=EAP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/EAP?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/EAP.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy?operation=search&name=EAP&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy.json?operation=search&name=EAP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/EAP?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/EAP.json?operation=search
+
+
+Response     :
+
+
+{
+  "name": "EAP",
+  "description": "Created by admin on 03/01/2017 04:10:49 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "session-management": "false",
+  "request-mode": "Authenticate and Authorize",
+  "default-response-behaviour": "REJECT",
+  "default-response-behaviour-argument": "5012",
+  "eap-config": "Demo",
+  "user-identity-attribute": "0:1",
+  "case": "No Change",
+  "strip-user-identity": "true",
+  "trim-user-identity": "true",
+  "seperator": "@",
+  "trim-password": "true",
+  "realm-pattern": "suffix",
+  "annonymous-profile-identity": "annonymous",
+  "wimax": "Enabled",
+  "reject-on-check-item-not-found": false,
+  "reject-on-reject-item-not-found": false,
+  "action-on-policy-not-found": false,
+  "diameter-concurrency": 20,
+  "additional-diameter-concurrency": 20,
+  "default-session-timeout": 600,
+  "cui": "Authenticated-Identity",
+  "cui-response-attributes": "0:89",
+  "primary-driver-group": [
+    {
+      "weightage": 1,
+      "driver-instance-name": "NASDRV"
+    }
+  ],
+  "additional-driver-group": [
+    {
+      "driver-instance-name": "NAS-DRI"
+    }
+  ],
+  "script": "script",
+  "pre-plugins": [],
+  "post-plugins": [],
+  "command-code-wise-response-attribute-list": [
+    {
+      "command-code": "265",
+      "response-attribute": "0:1=\"static\""
+    }
+  ]
+}
+
+
+
+***********************************************************************
+                    CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy?operation=create
+
+
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-eap-policy>
+    <name>EAP</name>
+    <description>Created by admin on 03/01/2017 04:10:49 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1=*</ruleset>
+    <session-management>false</session-management>
+    <request-mode>Authenticate and Authorize</request-mode>
+    <default-response-behaviour>REJECT</default-response-behaviour>
+    <default-response-behaviour-argument>5012</default-response-behaviour-argument>
+    <eap-config>Demo</eap-config>
+    <user-identity-attribute>0:1</user-identity-attribute>
+    <case>No Change</case>
+    <strip-user-identity>true</strip-user-identity>
+    <trim-user-identity>true</trim-user-identity>
+    <seperator>@</seperator>
+    <trim-password>true</trim-password>
+    <realm-pattern>suffix</realm-pattern>
+    <annonymous-profile-identity>annonymous</annonymous-profile-identity>
+    <wimax>Enabled</wimax>
+    <reject-on-check-item-not-found>false</reject-on-check-item-not-found>
+    <reject-on-reject-item-not-found>false</reject-on-reject-item-not-found>
+    <action-on-policy-not-found>false</action-on-policy-not-found>
+    <diameter-concurrency>20</diameter-concurrency>
+    <additional-diameter-concurrency>20</additional-diameter-concurrency>
+    <default-session-timeout>600</default-session-timeout>
+    <cui>Authenticated-Identity</cui>
+    <cui-response-attributes>0:89</cui-response-attributes>
+    <primary-driver-group>
+        <driver-group>
+            <driver-instance-name>NASDRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-group>
+    </primary-driver-group>
+    <additional-driver-group>
+        <driver-group>
+            <driver-instance-name>NAS-DRI</driver-instance-name>
+        </driver-group>
+    </additional-driver-group>
+    <script>script</script>
+    <pre-plugins>
+        <pre-plugin>
+            <plugin-argument>arg</plugin-argument>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+        </pre-plugin>
+    </pre-plugins>
+    <post-plugins>
+        <post-plugin>
+            <plugin-argument>arg</plugin-argument>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+        </post-plugin>
+    </post-plugins>
+    <command-code-wise-response-attribute-list>
+        <command-code-wise-response-attribute>
+            <command-code>265</command-code>
+            <response-attribute>0:1="static"</response-attribute>
+        </command-code-wise-response-attribute>
+    </command-code-wise-response-attribute-list>
+</diameter-eap-policy>
+
+
+Response:
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Eap Service Policy created successfully</response-message>
+    </response>
+</response-detail>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "EAP",
+  "description": "Created by admin on 03/01/2017 04:10:49 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "session-management": "false",
+  "request-mode": "Authenticate and Authorize",
+  "default-response-behaviour": "REJECT",
+  "default-response-behaviour-argument": "5012",
+  "eap-config": "Demo",
+  "user-identity-attribute": "0:1",
+  "case": "No Change",
+  "strip-user-identity": "true",
+  "trim-user-identity": "true",
+  "seperator": "@",
+  "trim-password": "true",
+  "realm-pattern": "suffix",
+  "annonymous-profile-identity": "annonymous",
+  "wimax": "Enabled",
+  "reject-on-check-item-not-found": false,
+  "reject-on-reject-item-not-found": false,
+  "action-on-policy-not-found": false,
+  "diameter-concurrency": 20,
+  "additional-diameter-concurrency": 20,
+  "default-session-timeout": 600,
+  "cui": "Authenticated-Identity",
+  "cui-response-attributes": "0:89",
+  "primary-driver-group": [
+    {
+      "weightage": 1,
+      "driver-instance-name": "NASDRV"
+    }
+  ],
+  "additional-driver-group": [
+    {
+      "driver-instance-name": "NAS-DRI"
+    }
+  ],
+  "script": "script",
+  "pre-plugins": [],
+  "post-plugins": [],
+  "command-code-wise-response-attribute-list": [
+    {
+      "command-code": "265",
+      "response-attribute": "0:1=\"static\""
+    }
+  ]
+}
+
+Response:
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Eap Service Policy created successfully</response-message>
+    </response>
+</response-detail>
+
+
+***********************************************************************
+                    CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+    <diameter-eap-policy>
+        <name>EAP</name>
+        <description>Created by admin on 03/01/2017 04:10:49 PM</description>
+        <status>ACTIVE</status>
+        <ruleset>0:1=*</ruleset>
+        <session-management>false</session-management>
+        <request-mode>Authenticate and Authorize</request-mode>
+        <default-response-behaviour>REJECT</default-response-behaviour>
+        <default-response-behaviour-argument>5012</default-response-behaviour-argument>
+        <eap-config>Demo</eap-config>
+        <user-identity-attribute>0:1</user-identity-attribute>
+        <case>No Change</case>
+        <strip-user-identity>true</strip-user-identity>
+        <trim-user-identity>true</trim-user-identity>
+        <seperator>@</seperator>
+        <trim-password>true</trim-password>
+        <realm-pattern>suffix</realm-pattern>
+        <annonymous-profile-identity>annonymous</annonymous-profile-identity>
+        <wimax>Enabled</wimax>
+        <reject-on-check-item-not-found>false</reject-on-check-item-not-found>
+        <reject-on-reject-item-not-found>false</reject-on-reject-item-not-found>
+        <action-on-policy-not-found>false</action-on-policy-not-found>
+        <diameter-concurrency>20</diameter-concurrency>
+        <additional-diameter-concurrency>20</additional-diameter-concurrency>
+        <default-session-timeout>600</default-session-timeout>
+        <cui>Authenticated-Identity</cui>
+        <cui-response-attributes>0:89</cui-response-attributes>
+        <primary-driver-group>
+            <driver-group>
+                <driver-instance-name>NASDRV</driver-instance-name>
+                <weightage>1</weightage>
+            </driver-group>
+        </primary-driver-group>
+        <additional-driver-group>
+            <driver-group>
+                <driver-instance-name>NAS-DRI</driver-instance-name>
+            </driver-group>
+        </additional-driver-group>
+        <script>script</script>
+        <pre-plugins>
+            <pre-plugin>
+                <plugin-argument>arg</plugin-argument>
+                <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+            </pre-plugin>
+        </pre-plugins>
+        <post-plugins>
+            <post-plugin>
+                <plugin-argument>arg</plugin-argument>
+                <plugin-name>DIAMETER-UNI</plugin-name>
+            </post-plugin>
+        </post-plugins>
+        <command-code-wise-response-attribute-list>
+            <command-code-wise-response-attribute>
+                <command-code>265</command-code>
+                <response-attribute>0:1="static"</response-attribute>
+            </command-code-wise-response-attribute>
+        </command-code-wise-response-attribute-list>
+    </diameter-eap-policy>
+</list>
+
+Response: 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Eap Service Policies created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "list": [
+    {
+      "name": "EAP",
+      "description": "Created by admin on 03/01/2017 04:10:49 PM",
+      "status": "ACTIVE",
+      "ruleset": "0:1=\"*\"",
+      "session-management": "false",
+      "request-mode": "Authenticate and Authorize",
+      "default-response-behaviour": "REJECT",
+      "default-response-behaviour-argument": "5012",
+      "eap-config": "Demo",
+      "user-identity-attribute": "0:1",
+      "case": "No Change",
+      "strip-user-identity": "true",
+      "trim-user-identity": "true",
+      "seperator": "@",
+      "trim-password": "true",
+      "realm-pattern": "suffix",
+      "annonymous-profile-identity": "annonymous",
+      "wimax": "Enabled",
+      "reject-on-check-item-not-found": false,
+      "reject-on-reject-item-not-found": false,
+      "action-on-policy-not-found": false,
+      "diameter-concurrency": 20,
+      "additional-diameter-concurrency": 20,
+      "default-session-timeout": 600,
+      "cui": "Authenticated-Identity",
+      "cui-response-attributes": "0:89",
+      "primary-driver-group": [
+        {
+          "weightage": 1,
+          "driver-instance-name": "NASDRV"
+        }
+      ],
+      "additional-driver-group": [
+        {
+          "driver-instance-name": "NAS-DRI"
+        }
+      ],
+      "script": "script",
+      "pre-plugins": [],
+      "post-plugins": [],
+      "command-code-wise-response-attribute-list": [
+        {
+          "command-code": "265",
+          "response-attribute": "0:1=\"static\""
+        }
+      ]
+    }
+  ]
+}
+
+Resonose: 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Eap Service Policies created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy?name=EAP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/EAP
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy?operation=update&name=EAP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/EAP?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<diameter-eap-policy>
+    <name>EAP</name>
+    <description>Created by admin on 03/01/2017 04:10:49 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1=*</ruleset>
+    <session-management>false</session-management>
+    <request-mode>Authenticate and Authorize</request-mode>
+    <default-response-behaviour>REJECT</default-response-behaviour>
+    <default-response-behaviour-argument>5012</default-response-behaviour-argument>
+    <eap-config>Demo</eap-config>
+    <user-identity-attribute>0:1</user-identity-attribute>
+    <case>No Change</case>
+    <strip-user-identity>true</strip-user-identity>
+    <trim-user-identity>true</trim-user-identity>
+    <seperator>@</seperator>
+    <trim-password>true</trim-password>
+    <realm-pattern>suffix</realm-pattern>
+    <annonymous-profile-identity>annonymous</annonymous-profile-identity>
+    <wimax>Enabled</wimax>
+    <reject-on-check-item-not-found>false</reject-on-check-item-not-found>
+    <reject-on-reject-item-not-found>false</reject-on-reject-item-not-found>
+    <action-on-policy-not-found>false</action-on-policy-not-found>
+    <diameter-concurrency>20</diameter-concurrency>
+    <additional-diameter-concurrency>20</additional-diameter-concurrency>
+    <default-session-timeout>600</default-session-timeout>
+    <cui>Authenticated-Identity</cui>
+    <cui-response-attributes>0:89</cui-response-attributes>
+    <primary-driver-group>
+        <driver-group>
+            <driver-instance-name>NASDRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-group>
+    </primary-driver-group>
+    <additional-driver-group>
+        <driver-group>
+            <driver-instance-name>NAS-DRI</driver-instance-name>
+        </driver-group>
+    </additional-driver-group>
+    <script>script</script>
+    <pre-plugins>
+        <pre-plugin>
+            <plugin-argument>arg</plugin-argument>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+        </pre-plugin>
+    </pre-plugins>
+    <post-plugins>
+        <post-plugin>
+            <plugin-argument>arg</plugin-argument>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+        </post-plugin>
+    </post-plugins>
+    <command-code-wise-response-attribute-list>
+        <command-code-wise-response-attribute>
+            <command-code>265</command-code>
+            <response-attribute>0:1="static"</response-attribute>
+        </command-code-wise-response-attribute>
+    </command-code-wise-response-attribute-list>
+</diameter-eap-policy>
+
+Response:
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Eap Service Policy updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "EAP",
+  "description": "Created by admin on 03/01/2017 04:10:49 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "session-management": "false",
+  "request-mode": "Authenticate and Authorize",
+  "default-response-behaviour": "REJECT",
+  "default-response-behaviour-argument": "5012",
+  "eap-config": "Demo",
+  "user-identity-attribute": "0:1",
+  "case": "No Change",
+  "strip-user-identity": "true",
+  "trim-user-identity": "true",
+  "seperator": "@",
+  "trim-password": "true",
+  "realm-pattern": "suffix",
+  "annonymous-profile-identity": "annonymous",
+  "wimax": "Enabled",
+  "reject-on-check-item-not-found": false,
+  "reject-on-reject-item-not-found": false,
+  "action-on-policy-not-found": false,
+  "diameter-concurrency": 20,
+  "additional-diameter-concurrency": 20,
+  "default-session-timeout": 600,
+  "cui": "Authenticated-Identity",
+  "cui-response-attributes": "0:89",
+  "primary-driver-group": [
+    {
+      "weightage": 1,
+      "driver-instance-name": "NASDRV"
+    }
+  ],
+  "additional-driver-group": [
+    {
+      "driver-instance-name": "NAS-DRI"
+    }
+  ],
+  "script": "script",
+  "pre-plugins": [],
+  "post-plugins": [],
+  "command-code-wise-response-attribute-list": [
+    {
+      "command-code": "265",
+      "response-attribute": "0:1=\"static\""
+    }
+  ]
+}
+
+Response:
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Eap Service Policy updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy?name=EAP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/EAP
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy?operation=delete&name=EAP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapservicepolicy/EAP?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Eap Service Policy/Policies deleted successfully</response-message>
+    </response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

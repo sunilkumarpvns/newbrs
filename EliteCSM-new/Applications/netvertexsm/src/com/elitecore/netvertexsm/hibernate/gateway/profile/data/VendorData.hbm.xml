@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.profile.data">
+
+  <class name="com.elitecore.netvertexsm.datamanager.gateway.profile.data.VendorData" table="TBLMVENDOR">
+  
+  		<id name="vendorId" column="VENDORID" type="java.lang.Long">
+  			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"></generator>
+  		</id>
+  		<property name="vendorName" type="string" >
+  			 <column name="VENDORNAME" sql-type="VARCHAR2(40)" not-null="true"/>
+  		</property>
+  		<property name="description" type="string" >
+  			<column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="false"/>
+  		</property>
+  		
+  </class>
+</hibernate-mapping>

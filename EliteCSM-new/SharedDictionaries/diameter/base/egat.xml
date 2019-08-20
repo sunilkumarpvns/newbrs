@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="10425" applicationid="0"
+	application-name="Egat" vendor-name="nokia">
+	<attribute id="1" name="Egat-Nokia-Unkown" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="2" name="Egat-Nokia-User-Profile" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="3" name="Egat-Nokia-Service-Name" mandatory="yes"
+		protected="yes" encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+			</required>
+			<optional>
+				<!--
+					<attributerule name="Tag" type="OctetString" maximum="1"
+					minimum="0"/> <attributerule name="Value" type="UTF8String"
+					maximum="1" minimum="0"/>
+				-->
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="4" name="Egat-Nokia-Service-Id" mandatory="yes"
+		protected="yes" encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+			</required>
+			<optional>
+				<!--
+					<attributerule name="Tag" type="OctetString" maximum="1"
+					minimum="0"/> <attributerule name="Value" type="UTF8String"
+					maximum="1" minimum="0"/>
+				-->
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="5" name="Egat-Nokia-Service-Username" mandatory="yes"
+		protected="yes" encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+			</required>
+			<optional>
+				<!--
+					<attributerule name="Tag" type="OctetString" maximum="1"
+					minimum="0"/> <attributerule name="Value" type="UTF8String"
+					maximum="1" minimum="0"/>
+				-->
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="6" name="Egat-Nokia-Service-Password" mandatory="yes"
+		protected="yes" encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+			</required>
+			<optional>
+				<!--
+					<attributerule name="Tag" type="OctetString" maximum="1"
+					minimum="0"/> <attributerule name="Value" type="UTF8String"
+					maximum="1" minimum="0"/>
+				-->
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="7" name="Egat-Nokia-Service-Primary-Indicator"
+		mandatory="yes" protected="yes" encryption="no" type="OctetString" />
+	<attribute id="8" name="Egat-Nokia-Service-Charging-Type"
+		mandatory="yes" protected="yes" encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+			</required>
+			<optional>
+				<!--
+					<attributerule name="Tag" type="OctetString" maximum="1"
+					minimum="0"/> <attributerule name="Value" type="UTF8String"
+					maximum="1" minimum="0"/>
+				-->
+				<attributerule vendor-id="10425" id="11"
+					name="Egat-Nokia-Session-Charging-Type" type="Enumerated" maximum="1"
+					minimum="0" />
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="9" name="Egat-Nokia-Service-Encrypted-Password"
+		mandatory="yes" protected="yes" encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+			</required>
+			<optional>
+				<!--
+					<attributerule name="Tag" type="OctetString" maximum="1"
+					minimum="0"/> <attributerule name="Value" type="UTF8String"
+					maximum="1" minimum="0"/>  Type is salted-password
+				-->
+
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="10" name="Egat-Nokia-Session-Access-Method"
+		mandatory="yes" protected="yes" encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="GPRS" />
+			<value id="1" name="3G" />
+			<value id="2" name="WLAN" />
+			<value id="3" name="IP" />
+		</supported-values>
+	</attribute>
+	<attribute id="11" name="Egat-Nokia-Session-Charging-Type"
+		mandatory="yes" protected="yes" encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="prepaid" />
+			<value id="1" name="postpaid" />
+			<value id="2" name="postpaid with credit control" />
+			<value id="3" name="prepaid with credit card" />
+			<value id="4" name="HLR" />
+			<value id="5" name="wallet specific" />
+		</supported-values>
+	</attribute>
+	<attribute id="135" name="Egat-Nokia-Primary-DNS-Server"
+		mandatory="yes" protected="yes" encryption="no" type="IPAddress" />
+	<attribute id="136" name="Egat-Nokia-Secondary-DNS-Server"
+		mandatory="yes" protected="yes" encryption="no" type="IPAddress" />
+	<attribute id="224" name="Egat-Nokia-IMSI" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="225" name="Egat-Nokia-Charging-Id" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="226" name="Egat-Nokia-Prepaid-Ind" mandatory="yes"
+		protected="yes" encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="1" name="hotbilling" />
+			<value id="2" name="flatrate" />
+			<value id="4" name="prepaid" />
+			<value id="8" name="normal" />
+		</supported-values>
+	</attribute>
+	<attribute id="227" name="Egat-Nokia-GGSN-IP-Address" mandatory="yes"
+		protected="yes" encryption="no" type="IPAddress" />
+	<attribute id="228" name="Egat-Nokia-SGSN-IP-Address" mandatory="yes"
+		protected="yes" encryption="no" type="IPAddress" />
+</attribute-list>

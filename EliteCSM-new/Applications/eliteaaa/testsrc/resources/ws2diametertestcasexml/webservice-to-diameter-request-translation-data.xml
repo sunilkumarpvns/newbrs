@@ -1,0 +1,414 @@
+<list>
+	
+	<case behaviour="check expression should apply before mapping expression" >
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>checkExpression</mapping-name>
+						<out-request-type></out-request-type>
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>21067:65538 = "264"</checked-expression>
+								<mapping-expression>0:25=0:1</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>21067:65538 = "265"</checked-expression>
+								<mapping-expression>0:31=0:1</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+		
+		<web-service-request-map>
+			<item>
+				<key>0:1</key>
+				<value>test</value>
+			</item>
+			<item>
+				<key>21067:65538</key>
+				<value>265</value>
+			</item>
+    	</web-service-request-map>
+    	
+    	<assert>
+			<request>
+					<contains-attribute id="0:31" value="test" />
+				<not>
+					<contains-attribute id="0:25" value="test" />
+				</not>
+			</request>
+		</assert>
+		
+	</case>
+	
+	<case behaviour="Whole translation mapping is not applied when check item expression is empty or null" >
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>Test</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>Mapping1</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression></checked-expression>
+								<mapping-expression>0:31=0:1</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<mapping-expression>0:25=0:1</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+		
+		<web-service-request-map>
+			<item>
+				<key>0:1</key>
+				<value>test</value>
+			</item>
+    	</web-service-request-map>
+    	
+    	<assert>
+			<request>
+				<not>
+					<contains-attribute id="0:31" value="test" />
+					<contains-attribute id="0:25" value="test" />
+				</not>
+				
+			</request>
+		</assert>
+		
+	</case>
+	
+	<case
+		behaviour = "attribute value can be assigned with an assignment expression having syntax LHS=RHS,
+						LHS represents the attribute in which value of RHS will be assigned,
+						RHS can only be of identifier type, 
+						if identifier in RHS is not found then assigns default value,
+						default value is literal (without single quotes) and identifier is not supported.
+	">
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>static_value_mapping</mapping-name>
+						<out-request-type></out-request-type>
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:4=0:4</mapping-expression>
+								<default-value>0:4=0.0.0.0</default-value>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+		
+		<web-service-request-map>
+			<item>
+				<key>0:1</key>
+				<value>test</value>
+			</item>
+    	</web-service-request-map>
+    	
+		<assert>
+			<request>
+					<contains-attribute id="0:4" value="0.0.0.0" />
+			</request>
+		</assert>
+	</case>
+	
+	<case behaviour="Skips request mappings with invalid configuration. 
+						Note that it applies rest of the request mappings of selected mapping" >
+		
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>Mapping1</mapping-name>
+						<out-request-type></out-request-type>
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0;30="10.10.10.10"</mapping-expression>
+								<default-value></default-value>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:30</mapping-expression>
+								<default-value></default-value>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>0:1="*"</checked-expression>
+								<mapping-expression>0:31=0:1</mapping-expression>
+								<default-value></default-value>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+		
+		<web-service-request-map>
+			<item>
+				<key>0:1</key>
+				<value>test</value>
+			</item>
+    	</web-service-request-map>
+    	
+    	<assert>
+			<request>
+					<contains-attribute id="0:31" value="test" />
+			</request>
+		</assert>
+	</case>
+	
+	<case behaviour="Translation keywords can be recursed in RHS of expression.
+					LHS=${KEYWORD}:${KEYWORD}....n" >
+		
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>mapping1</mapping-name>
+						<out-request-type></out-request-type>
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>"1"="1"</checked-expression>
+								<mapping-expression>0:31=${STROP-(toUpperCase)}:${STROP-(stripSuffix,"@")}:0:1
+								</mapping-expression>
+								<default-value></default-value>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+		
+		<web-service-request-map>
+			<item>
+				<key>0:1</key>
+				<value>eliteaaa@elitecore.com</value>
+			</item>
+    	</web-service-request-map>
+    	
+    	<assert>
+			<request>
+					<contains-attribute id="0:31" value="ELITEAAA" />
+			</request>
+		</assert>
+	</case>
+	
+	<case behaviour="Translation keywords can be applied for advanced support. 
+					Keywords can be configured in RHS part of expression like LHS=${KEYWORD[-ARG]}:SRC_ARG,
+					SRC_ARG can either be identifier or another keyword expression" >
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>checkExpression</mapping-name>
+						<out-request-type></out-request-type>
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:25=${MATHOP-mod,"9"}:0:363</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+		
+		<web-service-request-map>
+			<item>
+				<key>0:363</key>
+				<value>19</value>
+			</item>
+    	</web-service-request-map>
+    	
+    	<assert>
+			<request>
+				<contains-attribute id="0:25" value="1" />
+			</request>
+		</assert>
+	</case>
+	
+	<case behaviour="Destination attribute should not be added when source attribute not found in packet 
+						and default value is not configured">
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>strop</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=0:89</mapping-expression>
+							</request-mapping>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:31=0:25</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+		
+		<web-service-request-map>
+			<item>
+				<key>0:89</key>
+				<value>UserIdentity</value>
+			</item>
+    	</web-service-request-map>
+    	
+    	<assert>
+			<request>
+				<contains-attribute id="0:1" value="UserIdentity" />
+				<not>
+					<contains-attribute id="0:31" value="1" />
+				</not>
+			</request>
+		</assert>
+	</case>
+	
+	<case behaviour="Destination attribute should not be added when source attribute value 
+							can not be copied because of invalid dictonary value" >
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>strop</mapping-name>
+						<out-request-type></out-request-type>
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:40=0:1</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+
+		<diameter-packet cc="265" app-id="1" request="true">
+		</diameter-packet>
+
+		<web-service-request-map>
+		<item>
+				<key>0:1</key>
+				<value>test</value>
+			</item>
+    	</web-service-request-map>
+    	
+    	<assert>
+			<request>
+				<not>
+					<contains-attribute id="0:40" value="test" />
+				</not>
+			</request>
+		</assert>
+	</case>
+	
+</list>

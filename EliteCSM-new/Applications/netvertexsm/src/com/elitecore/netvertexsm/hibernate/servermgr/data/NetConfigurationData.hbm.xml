@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.data.NetConfigurationData" table="TBLMNETCONFIGURATION">
+		<id name="netConfigId" column="NETCONFIGID" type="string"/>
+
+		<property name="serialNo" type="int" >
+			<column name="SERIALNO" sql-type="NUMBER(5)" not-null="true"></column>
+		</property>
+		<property name="name" type="string">
+			<column name="NAME" sql-type="VARCHAR2(100)" not-null="true"></column>
+		</property>
+		<property name="displayName" type="string">
+			<column name="DISPLAYNAME" sql-type="VARCHAR2(100)" not-null="true"></column>
+		</property>
+		<property name="fileName" type="string">
+			<column name="FILENAME" sql-type="VARCHAR2(100)" not-null="true"></column>
+		</property>
+		<property name="alias" type="string">
+			<column name="ALIAS" sql-type="VARCHAR2(100)" not-null="false"></column>
+		</property>
+		<property name="configVersion" type="string">
+			<column name="CONFIGVERSION" sql-type="VARCHAR2(25)" not-null="false"></column>
+		</property>
+	</class>
+</hibernate-mapping>

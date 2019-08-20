@@ -1,0 +1,34 @@
+#  
+#  This sample makefile is only a guide.
+#
+
+WLAN_LIBS=.
+CC              = gcc
+C64FLAGS        = -m64
+LD_RUN_PATH	=$(WLAN_LIBS)
+LIBRARY =$(WLAN_LIBS)
+LDFLAGS		= -R$(LD_RUN_PATH)  -L$(LIBRARY)
+JAVA_HOME = /opt/java/jdk1.6.0_17
+JAVA_FLAGS	= -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/solaris
+LIB = -lsocket -lnsl  -lpthread
+
+
+
+INCLUDE       += -I. 
+LOCALLIB       =  -lulcmmg  -lpthread -lsocket
+
+all::	
+	$(RM) testApp
+	$(CC) -G $(JAVA_FLAGS) $(LDFLAGS) $(LOCALLIB) -I.  -D_REENTRANT -DC7_Q -g -Wall -m64 UlticomProfileRequestor.c -o libUlticomProfileRequestorlib.so 
+	$(CC) -G $(JAVA_FLAGS) $(LDFLAGS) $(LOCALLIB) -I.  -D_REENTRANT -DC7_Q -g -Wall -m64 UlticomRequestor.c -o libUlticomRequestorlib.so 
+	$(CC) -G $(JAVA_FLAGS) $(LDFLAGS) $(LOCALLIB) -I.  -D_REENTRANT -DC7_Q -g -Wall -m64 UlticomIMSIRequestor.c -o libUlticomIMSIRequestorlib.so 
+		
+clean::
+	$(RM) libUlticomProfileRequestorlib.so
+	$(RM) libUlticomRequestorlib.so
+	$(RM) libUlticomIMSIRequestorlib.so
+
+realclean::
+	$(RM) libUlticomProfileRequestorlib.so
+	$(RM) libUlticomRequestorlib.so
+	$(RM) libUlticomIMSIRequestorlib.so

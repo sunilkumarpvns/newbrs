@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servermgr.alert.data.AlertListenerRelData" table="TBLMALERTLISTENERREL">
+		<composite-id>
+			<key-property name="instanceId" column="INSTANCEID" type="StringType"></key-property>
+			<key-property name="typeId" column="ALERTTYPEID" type="CharType"></key-property>
+		</composite-id>
+		
+		<many-to-one name="alertListenerData" class="com.elitecore.elitesm.datamanager.servermgr.alert.data.AlertListenerData" column="INSTANCEID" insert="false" update="false" not-null="true" lazy="false"/>  
+	</class>		
+</hibernate-mapping>          

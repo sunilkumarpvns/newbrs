@@ -1,0 +1,162 @@
+{
+   "schema":{
+ "type":"object",
+ "title":"File Alert Listener",
+ "properties":{
+     "name":{
+         "title":"Listener Name",
+         "type":"string"
+     },
+     "file-listener":{
+         "type":"object",
+         "properties":{
+             "file-name":{
+                 "title":"File Name",
+                 "type":"string",
+                 "default":"elite-aaa-alert.log"
+             },
+             "rolling-type":{
+                 "title":"Rolling Type",
+                 "type":"string"
+             },
+             "rolling-unit":{
+                 "title":"Rolling Unit",
+                 "type":"string"
+             },
+             "compress-rolled-unit":{
+                 "title":"Compress Rolled Unit",
+                 "type":"string"
+             },
+             "repeated-message-reduction":{
+                 "title":"Repeated Message Reduction",
+                 "type":"string"
+             }
+         }
+     },
+     "enable":{
+         "type":"array",
+         "items":{
+             "title":"Alert List",
+             "type":"string"
+         }
+     }
+ }
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"file-listener",
+      "items":[
+          {
+              "key":"file-listener.file-name"
+          },
+          {
+              "key":"file-listener.rolling-type",
+              "type":"radios",
+              "titleMap":[
+                  {
+                      "value":"Time-Based",
+                      "name":"Time-Based"
+                  },
+                  {
+                      "value":"Size-Based",
+                      "name":"Size-Based"
+                  }
+                  ]
+          },
+          {
+              "key":"file-listener.rolling-unit",
+              "type":"select",
+              "titleMap":{
+                  "Daily":"Daily",
+                  "Hour":"Hour",
+                  "Minute":"Minute"
+              }
+          },
+          {
+              "key":"file-listener.compress-rolled-unit",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                  "False":"False"
+              }
+          },
+          {
+              "key":"file-listener.repeated-message-reduction",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                  "False":"False"
+              }
+          }
+          ]
+  },
+  {
+      "key":"enable",
+      "add":"Add"
+  }
+],
+"model":{
+   "name":"File_Listener",
+   "file-listener":{
+      "file-name":"elite-aaa-alert.log",
+      "rolling-type":"Time-Based",
+      "rolling-unit":"Daily",
+      "compress-rolled-unit":"false",
+      "repeated-message-reduction":"true"
+   },
+   "enable":[
+      "ServerUp",
+      "ServerDown",
+      "UnknownUser",
+      "InvalidClient",
+      "CDRStorageProblem",
+      "DatbaseUp",
+      "DatabaseDown",
+      "QueryTimeout",
+      "RadiusUp",
+      "RadiusDown",
+      "RadiusRequestTimeout",
+      "RadiusEsiHighResponseTime",
+      "LdapUp",
+      "LdapDown",
+      "NotLicensedVendor",
+      "LicenseExpired",
+      "NotLicensedSupportedVendor",
+      "LicenseTpsExceeded",
+      "LicenseCPUExceeded",
+      "LicenseClientsExceeded",
+      "LicensedConcurrentUserExceeded",
+      "RadiusServicePolicyNotSatisfied",
+      "DatabaseUniqueConstraints",
+      "RadiusAuthGeneric",
+      "RadiusAcctGeneric",
+      "DynaAuthGeneric",
+      "DataBaseGeneric",
+      "LDAPGeneric",
+      "ESIGeneric",
+      "IPPoolGeneric",
+      "ConcurrencyGeneric",
+      "PrePaidGeneric",
+      "NASGeneric",
+      "CreditControlGeneric",
+      "EAPGeneric",
+      "MIPGeneric",
+      "DiameterWebServiceGeneric",
+      "OtherGeneric",
+      "RADIUSWebServiceGeneric",
+      "Thread Not Available",
+      "High AAA Response Time",
+      "Diameter Stack Up",
+      "Diameter Stack Down",
+      "Diameter Peer Up",
+      "Diameter Peer Down",
+      "IDLE Communication",
+      "Diameter Peer Connection Rejected",
+      "Diameter Stack High Response Time",
+      "Diameter Peer High Response Time"
+   ]
+}
+}

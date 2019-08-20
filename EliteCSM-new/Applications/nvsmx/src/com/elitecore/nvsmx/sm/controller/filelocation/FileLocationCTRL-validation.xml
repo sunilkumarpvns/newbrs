@@ -1,0 +1,83 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("filelocation.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("filelocation.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("filelocation.name")})}</message>
+        </field-validator>		
+	</field>
+	
+	<field name="fileMappingId">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("filelocation.fileMapping")})}</message>
+		</field-validator>
+	</field>
+	
+	<field name="inputPath">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("filelocation.inputpath")})}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">1</param>
+			<param name="maxLength">200</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("filelocation.inputpath")})}</message>
+		</field-validator>
+	</field> 
+	
+	<field name="errorPath">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("filelocation.errorpath")})}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">1</param>
+			<param name="maxLength">200</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("filelocation.errorpath")})}</message>
+		</field-validator>
+	</field>
+	
+	<field name="archivePath">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("filelocation.archivepath")})}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">1</param>
+			<param name="maxLength">200</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("filelocation.archivepath")})}</message>
+		</field-validator>
+	</field>
+	
+	<field name="databaseId">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("filelocation.db.datasource")})}</message>
+		</field-validator>
+	</field>
+	
+	<field name="tableName">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("filelocation.table.name")})}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">1</param>
+			<param name="maxLength">200</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("filelocation.table.name")})}</message>
+		</field-validator>
+	</field> 
+	 
+</validators> 

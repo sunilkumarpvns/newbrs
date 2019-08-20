@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<peer-groups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:////opt/Source/V-6.6.4/Applications/eliteaaa/system/schema/diameter/peer-groups.xsd">
+    <peer-group>
+        <id>1</id>
+        <name>Gx_Group</name>
+        <peer-info>
+            <load-factor>1</load-factor>
+            <peer-name>Gx1</peer-name>
+        </peer-info>
+        <peer-info>
+            <load-factor>1</load-factor>
+            <peer-name>Gx2</peer-name>
+        </peer-info>
+        <peer-info>
+            <load-factor>0</load-factor>
+            <peer-name>Gx_Secondary</peer-name>
+        </peer-info>
+    </peer-group>
+    <peer-group>
+        <id>2</id>
+        <name>Gy_Group</name>
+        <peer-info>
+            <load-factor>1</load-factor>
+            <peer-name>Gy1</peer-name>
+        </peer-info>
+    </peer-group>
+    <peer-group>
+        <id>3</id>
+        <name>Gateway_Group</name>
+        <peer-info>
+            <load-factor>1</load-factor>
+            <peer-name>Vital-Peer</peer-name>
+        </peer-info>
+    </peer-group>
+</peer-groups>

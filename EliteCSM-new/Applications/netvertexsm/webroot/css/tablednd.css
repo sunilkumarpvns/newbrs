@@ -1,0 +1,18 @@
+
+tr.alt td {
+    background-color: #ecf6fc;
+}
+
+td.dragHandle {
+    
+}
+.tDnD_whileDrag {
+    background-color: #eee;
+}
+td.showDragHandle {
+	background-image: url(../images/updown2.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: move;
+}
+

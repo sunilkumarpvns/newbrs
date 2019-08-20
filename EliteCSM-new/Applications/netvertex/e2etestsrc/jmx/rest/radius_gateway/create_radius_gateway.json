@@ -1,0 +1,13 @@
+{
+  "id": "rest_radius_gateway_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "rest_radius_gateway",
+  "description": "Created by Rest Automation",
+  "policyEnforcementMethod": "COA",
+  "connectionURL": "192.168.2.133",
+  "sharedSecret": "secret",
+  "minLocalPort": 5869,
+  "radiusGatewayProfileId": "rest_r_gateway_profile_11111111",
+  "groupNames": "DefaultGroup"
+}

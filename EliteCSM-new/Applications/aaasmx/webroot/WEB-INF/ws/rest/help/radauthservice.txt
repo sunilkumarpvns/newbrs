@@ -1,0 +1,379 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth?name=CSMServer&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth.xml?name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth/CSMServer?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth/CSMServer.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth?operation=search&name=CSMServer&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth.xml?operation=search&name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth/CSMServer?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth/CSMServer.xml?operation=search
+
+Response     :
+
+<auth-service>
+    <service-address>0.0.0.0:1812</service-address>
+    <socket-receive-buffer-size>-1</socket-receive-buffer-size>
+    <socket-send-buffer-size>-1</socket-send-buffer-size>
+    <queue-size>3000</queue-size>
+    <minimum-thread>5</minimum-thread>
+    <maximum-thread>10</maximum-thread>
+    <main-thread-priority>7</main-thread-priority>
+    <worker-thread-priority>7</worker-thread-priority>
+    <duplicate-request-check-enabled>false</duplicate-request-check-enabled>
+    <duplicate-request-purge-interval>15</duplicate-request-purge-interval>
+    <service-policies>
+        <service-policy>ALL</service-policy>
+    </service-policies>
+    <logging>
+        <service-logger-enabled>false</service-logger-enabled>
+        <log-level>INFO</log-level>
+        <rolling-type>Time-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <location>logs</location>
+        <syslog>
+            <address></address>
+            <facility>-None-</facility>
+        </syslog>
+    </logging>
+    <plugin-list>
+        <pre-plugins>
+            <plugin-entry>
+                <plugin-name>-None-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins>
+        <post-plugins>
+            <plugin-entry>
+                <plugin-name>-None-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins>
+    </plugin-list>
+    <rrd>
+        <response-time>false</response-time>
+        <summary>false</summary>
+        <errors>false</errors>
+        <reject-with-reasons>false</reject-with-reasons>
+    </rrd>
+</auth-service>
+
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth?name=CSMServer&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth.json?name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth/CSMServer?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth/CSMServer.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth?operation=search&name=CSMServer&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth.json?operation=search&name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth/CSMServer?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth/CSMServer.json?operation=search
+
+Response     :
+
+{
+   "service-address":"0.0.0.0:1812",
+   "socket-receive-buffer-size":"-1",
+   "socket-send-buffer-size":"-1",
+   "queue-size":"3000",
+   "minimum-thread":"5",
+   "maximum-thread":"10",
+   "main-thread-priority":"7",
+   "worker-thread-priority":"7",
+   "duplicate-request-check-enabled":"false",
+   "duplicate-request-purge-interval":"15",
+   "service-policies":[
+      "ALL"
+   ],
+   "logging":{
+      "service-logger-enabled":"false",
+      "log-level":"INFO",
+      "rolling-type":"Time-Based",
+      "rolling-unit":"5",
+      "max-rolled-unit":"10",
+      "compress-rolled-unit":"false",
+      "location":"logs",
+      "syslog":{
+         "address":"",
+         "facility":"-None-"
+      }
+   },
+   "plugin-list":{
+      "pre-plugins":{
+         "plugin-entry":[
+            {
+               "plugin-name":"-None-",
+               "argument":""
+            }
+         ]
+      },
+      "post-plugins":{
+         "plugin-entry":[
+            {
+               "plugin-name":"-None-",
+               "argument":""
+            }
+         ]
+      }
+   },
+   "rrd":{
+      "response-time":"false",
+      "summary":"false",
+      "errors":"false",
+      "reject-with-reasons":"false"
+   }
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth?name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth/CSMServer
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth?operation=update&name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/radauth/CSMServer?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<auth-service>
+    <service-address>0.0.0.0:1812</service-address>
+    <socket-receive-buffer-size>-1</socket-receive-buffer-size>
+    <socket-send-buffer-size>-1</socket-send-buffer-size>
+    <queue-size>3000</queue-size>
+    <minimum-thread>5</minimum-thread>
+    <maximum-thread>10</maximum-thread>
+    <main-thread-priority>7</main-thread-priority>
+    <worker-thread-priority>7</worker-thread-priority>
+    <duplicate-request-check-enabled>false</duplicate-request-check-enabled>
+    <duplicate-request-purge-interval>15</duplicate-request-purge-interval>
+    <service-policies>
+        <service-policy>ALL</service-policy>
+    </service-policies>
+    <logging>
+        <service-logger-enabled>false</service-logger-enabled>
+        <log-level>INFO</log-level>
+        <rolling-type>Time-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <location>logs</location>
+        <syslog>
+            <address></address>
+            <facility>-None-</facility>
+        </syslog>
+    </logging>
+    <plugin-list>
+        <pre-plugins>
+            <plugin-entry>
+                <plugin-name>-None-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins>
+        <post-plugins>
+            <plugin-entry>
+                <plugin-name>-None-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins>
+    </plugin-list>
+    <rrd>
+        <response-time>false</response-time>
+        <summary>false</summary>
+        <errors>false</errors>
+        <reject-with-reasons>false</reject-with-reasons>
+    </rrd>
+</auth-service>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Radius Authentication Service updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+   "service-address":"0.0.0.0:1812",
+   "socket-receive-buffer-size":"-1",
+   "socket-send-buffer-size":"-1",
+   "queue-size":"3000",
+   "minimum-thread":"5",
+   "maximum-thread":"10",
+   "main-thread-priority":"7",
+   "worker-thread-priority":"7",
+   "duplicate-request-check-enabled":"false",
+   "duplicate-request-purge-interval":"15",
+   "service-policies":[
+      "ALL"
+   ],
+   "logging":{
+      "service-logger-enabled":"false",
+      "log-level":"INFO",
+      "rolling-type":"Time-Based",
+      "rolling-unit":"5",
+      "max-rolled-unit":"10",
+      "compress-rolled-unit":"false",
+      "location":"logs",
+      "syslog":{
+         "address":"",
+         "facility":"-None-"
+      }
+   },
+   "plugin-list":{
+      "pre-plugins":{
+         "plugin-entry":[
+            {
+               "plugin-name":"-None-",
+               "argument":""
+            }
+         ]
+      },
+      "post-plugins":{
+         "plugin-entry":[
+            {
+               "plugin-name":"-None-",
+               "argument":""
+            }
+         ]
+      }
+   },
+   "rrd":{
+      "response-time":"false",
+      "summary":"false",
+      "errors":"false",
+      "reject-with-reasons":"false"
+   }
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Radius Authentication Service updated successfully</response-message>
+    </response>
+</response-detail>
+
+#Notes :
+
+1) To enable debug, add debug=true in query parameter
+
+***********************************************************************
+						Additional Details(Properties as per SM)
+***********************************************************************
+ 	
+# List of Possible value for Duplicate Request Check Enabled (anyone) :
+	1) true
+	2) false
+	
+# List of possible value of Service Policy: 
+	It must be list of name of Radius Authentication services policy or 'ALL' to select all Authentication service policy.
+	
+# List of possible value of Service Logger Enabled :
+	1) true
+	2) false
+
+# List of possible value of Log Level (anyone) :
+	1) OFF
+ 	2) WARN
+ 	3) ERROR
+ 	4) INFO
+ 	5) FATAL
+ 	6) DEBUG
+ 	7) TRACE
+ 	8) ALL
+
+# List of Possible value for rolling-type (anyone):
+ 	1) Time-Based
+ 	2) Size-Based
+
+# List of Possible value for compress-rolled-unit (anyone):
+	1) true
+	2) false
+
+# List of Possible value Facility (Sys log Configuration) (anyone):
+	
+	1) -None- 
+	2) AUTH
+	3) KERN
+	4) USER
+	5) MAIL
+	6) DAEMON
+	7) SYSLOG
+	8) LPR
+	9) NEWS
+	10) UUCP
+	11) CRON
+	12) AUTHPRIV
+	13) FTP
+	14) LOCAL0
+	15) LOCAL1
+	16) LOCAL2
+	17) LOCAL3
+	18) LOCAL4
+	19) LOCAL5 
+	20) LOCAL6
+    21) LOCAL7
+    
+# Plugin Name in Pre plugins and Post plugins:
+	It can be name of Radius plugin or -None-
+
+# List of Possible value for Response Time (anyone):
+	1) true
+	2) false
+	
+# List of Possible value for Summary (anyone):
+	1) true
+	2) false
+	
+# List of Possible value for Errors (anyone):
+	1) true
+	2) false
+	
+# List of Possible value for Reject With Reasons (anyone):
+	1) true
+	2) false
+

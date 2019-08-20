@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,get_staff,GET : Staff Details in fresh setup should be displayed : 200,sm/staff/staff.json,GET,,,26334,200,staff
+2,create_staff,POST : Create Staff rest_staff : 200,sm/staff/staff.json,POST,create_staff.json,,26335,201,staff
+3,get_created_staff,GET : Staff rest_staff should be displayed : 200,sm/staff/staff/rest_staff_11111111.json,GET,,,26336,200,staff
+4,update_staff,PUT : Update Staff rest_staff and set name as updated_rest_staff : 200,sm/staff/staff/rest_staff_11111111.json,PUT,update_staff.json,,26337,200,staff
+5,get_updated_staff,GET : updated_rest_staff should be displayed : 200,sm/staff/staff/rest_staff_11111111.json,GET,,,26338,200,staff
+6,delete_staff,DELETE : Delete Staff updated_rest_staff : 405,sm/staff/staff/rest_staff_11111111.json,DELETE,,"{""actionErrors"":[""Method Not Allowed""]}",28796,405,staff

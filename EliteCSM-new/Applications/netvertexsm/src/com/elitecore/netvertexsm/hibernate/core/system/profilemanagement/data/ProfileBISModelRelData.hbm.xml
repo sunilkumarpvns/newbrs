@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.ProfileBISModelRelData" table="TBLTPROFILEBISMODELREL">
+		<composite-id>
+			<key-property name="configurationProfileId" column="CONFIGURATIONPROFILEID" type="string"></key-property>
+			<key-property name="businessModelId" column="BUSINESSMODELID" type="string"></key-property>
+		</composite-id>
+		
+		<property name="status" type="string">
+			<column name="STATUS" sql-type="VARCHAR(2)"></column>
+		</property>
+	</class>
+</hibernate-mapping>          

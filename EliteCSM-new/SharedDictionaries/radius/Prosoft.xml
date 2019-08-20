@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="1958" vendor-name="RedCreek">
+<attribute id="5" name="RedCreek-Tunneled-IP-Addr" type="ipaddr"/>
+<attribute id="6" name="RedCreek-Tunneled-IP-Netmask" type="ipaddr"/>
+<attribute id="7" name="RedCreek-Tunneled-Gateway" type="ipaddr"/>
+<attribute id="8" name="RedCreek-Tunneled-DNS-Server" type="string"/>
+<attribute id="9" name="RedCreek-Tunneled-WINS-Server1" type="string"/>
+<attribute id="10" name="RedCreek-Tunneled-WINS-Server2" type="string"/>
+<attribute id="11" name="RedCreek-Tunneled-HostName" type="string"/>
+<attribute id="12" name="RedCreek-Tunneled-DomainName" type="string"/>
+<attribute id="13" name="RedCreek-Tunneled-Search-List" type="string"/>
+</attribute-list>

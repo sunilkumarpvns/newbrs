@@ -1,0 +1,50 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="tac">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("device.tac")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^[0-9]{8}$]]></param>
+			<message>${getText("invalid.number", {getText("device.tac")})}</message>
+		</field-validator>
+	</field>
+	<field name="brand">
+		<field-validator type="stringlength">
+			<param name="maxLength">512</param>
+			<message>${getText("error.max.length", {getText("device.brand")})}</message>
+		</field-validator>
+	</field>
+	<field name="deviceModel">
+		<field-validator type="stringlength">
+			<param name="maxLength">512</param>
+			<message>${getText("error.max.length", {getText("device.tacModel")})}</message>
+		</field-validator>
+	</field>
+	<field name="hardwareType">
+		<field-validator type="stringlength">
+			<param name="maxLength">512</param>
+			<message>${getText("error.max.length", {getText("device.hardware")})}</message>
+		</field-validator>
+	</field>
+	<field name="os">
+		<field-validator type="stringlength">
+			<param name="maxLength">512</param>
+			<message>${getText("error.max.length", {getText("device.os")})}</message>
+		</field-validator>
+	</field>
+	<field name="year">
+		<field-validator type="stringlength">
+			<param name="maxLength">40</param>
+			<message>${getText("error.max.length", {getText("device.release_year")})}</message>
+		</field-validator>
+	</field>
+	<field name="additionalInformation">
+		<field-validator type="stringlength">
+			<param name="maxLength">200</param>
+			<message>${getText("error.max.length", {getText("device.additional_info")})}</message>
+		</field-validator>
+	</field>
+</validators>

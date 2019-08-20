@@ -1,0 +1,64 @@
+package com.elitecore.elitesm.datamanager.servermgr.eap.data;
+
+import java.sql.Timestamp;
+import java.util.List;
+import java.util.Set;
+
+public interface IEAPConfigData {
+	
+	public String getEapId() ;
+	public void setEapId(String eapId);
+	public String getName();
+	public void setName(String name);
+	public String getDescription();
+	public void setDescription(String description);
+	public Long getDefaultNegiotationMethod();
+	public void setDefaultNegiotationMethod(Long defaultNegiotationMethod);
+	public String getTreatInvalidPacketAsFatal();
+	public void setTreatInvalidPacketAsFatal(String treatInvalidPacketAsFatal);
+	public String getNotificationSuccess();
+	public void setNotificationSuccess(String notificationSuccess);
+	public String getNotificationFailure();
+	public void setNotificationFailure(String notificationFailure);
+	public Long getMaxEapPacketSize();
+	public void setMaxEapPacketSize(Long maxEapPacketSize);
+	public Long getSessionCleanupInterval();
+	public void setSessionCleanupInterval(Long sessionCleanupInterval);
+	public Long getSessionDurationForCleanup();
+	public void setSessionDurationForCleanup(Long sessionDurationForCleanup);
+	public Long getSessionTimeout();
+	public void setSessionTimeout(Long sessionTimeout);
+	public Long getMskRevalidationTime();
+	public void setMskRevalidationTime(Long mskRevalidationTime);
+	public String getEapTtlsCertificateRequest();
+	public void setEapTtlsCertificateRequest(String eapTtlsCertificateRequest);
+	public String getCreatedByStaffId();
+	public void setCreatedByStaffId(String createdByStaffId);
+	public Timestamp getCreateDate();
+	public void setCreateDate(Timestamp createDate);
+	public String getLastModifiedByStaffId();
+	public void setLastModifiedByStaffId(String lastModifiedByStaffId);
+	public Timestamp getLastModifiedDate();
+	public void setLastModifiedDate(Timestamp lastModifiedDate);
+	public Set<EAPTLSConfigData> getEapTlsConfigSet();
+	public void setEapTlsConfigSet(Set<EAPTLSConfigData> eapTlsConfigSet);
+	public EAPTLSConfigData getEaptlsConfigData();
+	public void setEaptlsConfigData(EAPTLSConfigData eaptlsConfigData);
+	public String getEnabledAuthMethods();
+	public void setEnabledAuthMethods(String enabledAuthMethods);
+	public List<String> getCheckedEnabledMethodsArray();
+	public void setCheckedEnabledMethodsArray(List<String> checkedEnabledMethodsArray);
+	public List<String> getUnCkeckedEnabledMethodsArray();
+	public void setUnCkeckedEnabledMethodsArray(List<String> unCkeckedEnabledMethodsArray);
+	public String getPeapVersion();
+	public void setPeapVersion(String peapVersion);
+	public String getEapPeapCertificateRequest();
+	public void setEapPeapCertificateRequest(String eapPeapCertificateRequest);
+	public EAPSimAkaConfigData getSimConfigData();
+	public void setSimConfigData(EAPSimAkaConfigData simConfigData);
+	public EAPSimAkaConfigData getAkaConfigData();
+	public void setAkaConfigData(EAPSimAkaConfigData akaConfigData);
+	public void setAkaPrimeConfigData(EAPSimAkaConfigData akaConfigData);
+	public String getAuditUId();
+	public void setAuditUId(String auditUId);
+}

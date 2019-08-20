@@ -1,0 +1,542 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile?name=testClientProfile&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile.xml?name=testClientProfile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfile?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfile.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile?operation=search&name=testClientProfile&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile.xml?operation=search&name=testClientProfile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfile?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfile.xml?operation=search
+
+Response     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<trusted-client-profile>
+    <profile-name>testClientProfile</profile-name>
+    <decription>Created by admin on 11/26/2016 10:57:43 AM</decription>
+    <client-type>Softswitch</client-type>
+    <vendor-name>3gpp2</vendor-name>
+    <dns-list>192.168.25.121,192.168.26.122</dns-list>
+    <user-identities>0:101,0:85</user-identities>
+    <prepaid-standard>WIMAX_1_2</prepaid-standard>
+    <client-policy>radiusPolicy1@</client-policy>
+    <hotline-policy>hotlinepolicy</hotline-policy>
+    <dhcp-address>192.169.2.178</dhcp-address>
+    <ha-address>10.121.21.102</ha-address>
+    <multiple-class-attribute>NO</multiple-class-attribute>
+    <filter-unsupported-vsa>true</filter-unsupported-vsa>
+    <supported-vendors>
+        <vendor>
+            <vendor-name>standard</vendor-name>
+        </vendor>
+        <vendor>
+            <vendor-name>3gpp2</vendor-name>
+        </vendor>
+        <vendor>
+            <vendor-name>microsoft</vendor-name>
+        </vendor>
+        <vendor>
+            <vendor-name>3gpp</vendor-name>
+        </vendor>
+    </supported-vendors>
+    <dyn-auth-port>3799</dyn-auth-port>
+    <coa-supported-attributes>0:1</coa-supported-attributes>
+    <coa-unsupported-attributes>0:31</coa-unsupported-attributes>
+    <dm-supported-attributes>0:1,0:4</dm-supported-attributes>
+    <dm-unsupported-attributes>0:89</dm-unsupported-attributes>
+</trusted-client-profile>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile?name=testClientProfile&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile.json?name=testClientProfileByJson
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfileByJson?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfileByJson.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile?operation=search&name=testClientProfile&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile.json?operation=search&name=testClientProfile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfile?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfile.json?operation=search
+
+
+
+Response     :
+
+{
+  "profile-name": "testClientProfile",
+  "decription": "Created by admin on 11/26/2016 10:57:43 AM",
+  "client-type": "Softswitch",
+  "vendor-name": "3gpp2",
+  "dns-list": "192.168.25.121,192.168.26.122",
+  "user-identities": "0:101,0:85",
+  "prepaid-standard": "WIMAX_1_2",
+  "client-policy": "radiusPolicy1@",
+  "hotline-policy": "hotlinepolicy",
+  "dhcp-address": "192.169.2.178",
+  "ha-address": "10.121.21.102",
+  "multiple-class-attribute": "NO",
+  "filter-unsupported-vsa": "true",
+  "supported-vendors": [
+    {
+      "vendor-name": "standard"
+    },
+    {
+      "vendor-name": "3gpp2"
+    },
+    {
+      "vendor-name": "microsoft"
+    },
+    {
+      "vendor-name": "3gpp"
+    }
+  ],
+  "dyn-auth-port": 3799,
+  "coa-supported-attributes": "0:1",
+  "coa-unsupported-attributes": "0:31",
+  "dm-supported-attributes": "0:1,0:4",
+  "dm-unsupported-attributes": "0:89"
+}
+
+***********************************************************************
+					CREATE OPERATION(SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<trusted-client-profile>
+    <profile-name>testClientProfile</profile-name>
+    <decription>Created by admin on 11/26/2016 10:57:43 AM</decription>
+    <client-type>Softswitch</client-type>
+    <vendor-name>3gpp2</vendor-name>
+    <dns-list>192.168.25.121,192.168.26.122</dns-list>
+    <user-identities>0:101,0:85</user-identities>
+    <prepaid-standard>WIMAX_1_2</prepaid-standard>
+    <client-policy>radiusPolicy1@</client-policy>
+    <hotline-policy>hotlinepolicy</hotline-policy>
+    <dhcp-address>192.169.2.178</dhcp-address>
+    <ha-address>10.121.21.102</ha-address>
+    <multiple-class-attribute>NO</multiple-class-attribute>
+    <filter-unsupported-vsa>true</filter-unsupported-vsa>
+    <supported-vendors>
+        <vendor>
+            <vendor-name>standard</vendor-name>
+        </vendor>
+        <vendor>
+            <vendor-name>3gpp2</vendor-name>
+        </vendor>
+        <vendor>
+            <vendor-name>microsoft</vendor-name>
+        </vendor>
+        <vendor>
+            <vendor-name>3gpp</vendor-name>
+        </vendor>
+    </supported-vendors>
+    <dyn-auth-port>3799</dyn-auth-port>
+    <coa-supported-attributes>0:1</coa-supported-attributes>
+    <coa-unsupported-attributes>0:31</coa-unsupported-attributes>
+    <dm-supported-attributes>0:1,0:4</dm-supported-attributes>
+    <dm-unsupported-attributes>0:89</dm-unsupported-attributes>
+</trusted-client-profile>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Trusted Client Profile created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "profile-name": "testClientProfile",
+  "decription": "Created by admin on 11/26/2016 10:57:43 AM",
+  "client-type": "Softswitch",
+  "vendor-name": "3gpp2",
+  "dns-list": "192.168.25.121,192.168.26.122",
+  "user-identities": "0:101,0:85",
+  "prepaid-standard": "WIMAX_1_2",
+  "client-policy": "radiusPolicy1@",
+  "hotline-policy": "hotlinepolicy",
+  "dhcp-address": "192.169.2.178",
+  "ha-address": "10.121.21.102",
+  "multiple-class-attribute": "NO",
+  "filter-unsupported-vsa": "true",
+  "supported-vendors": [
+    {
+      "vendor-name": "standard"
+    },
+    {
+      "vendor-name": "3gpp2"
+    },
+    {
+      "vendor-name": "microsoft"
+    },
+    {
+      "vendor-name": "3gpp"
+    }
+  ],
+  "dyn-auth-port": 3799,
+  "coa-supported-attributes": "0:1",
+  "coa-unsupported-attributes": "0:31",
+  "dm-supported-attributes": "0:1,0:4",
+  "dm-unsupported-attributes": "0:89"
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Trusted Client Profile created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION(BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+    <trusted-client-profile>
+        <profile-name>testClientProfile</profile-name>
+        <decription>Created by admin on 11/26/2016 10:57:43 AM</decription>
+        <client-type>Softswitch</client-type>
+        <vendor-name>3gpp2</vendor-name>
+        <dns-list>192.168.25.121,192.168.26.122</dns-list>
+        <user-identities>0:101,0:85</user-identities>
+        <prepaid-standard>WIMAX_1_2</prepaid-standard>
+        <client-policy>radiusPolicy1@</client-policy>
+        <hotline-policy>hotlinepolicy</hotline-policy>
+        <dhcp-address>192.169.2.178</dhcp-address>
+        <ha-address>10.121.21.102</ha-address>
+        <multiple-class-attribute>NO</multiple-class-attribute>
+        <filter-unsupported-vsa>true</filter-unsupported-vsa>
+        <supported-vendors>
+            <vendor>
+                <vendor-name>standard</vendor-name>
+            </vendor>
+            <vendor>
+                <vendor-name>3gpp2</vendor-name>
+            </vendor>
+            <vendor>
+                <vendor-name>microsoft</vendor-name>
+            </vendor>
+            <vendor>
+                <vendor-name>3gpp</vendor-name>
+            </vendor>
+        </supported-vendors>
+        <dyn-auth-port>3799</dyn-auth-port>
+        <coa-supported-attributes>0:1</coa-supported-attributes>
+        <coa-unsupported-attributes>0:31</coa-unsupported-attributes>
+        <dm-supported-attributes>0:1,0:4</dm-supported-attributes>
+        <dm-unsupported-attributes>0:89</dm-unsupported-attributes>
+    </trusted-client-profile>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Trusted Client Profile(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{  
+   "list":[  
+      {  
+         "profile-name":"testClientProfile",
+         "decription":"Created by admin on 11/26/2016 10:57:43 AM",
+         "client-type":"Softswitch",
+         "vendor-name":"3gpp2",
+         "dns-list":"192.168.25.121,192.168.26.122",
+         "user-identities":"0:101,0:85",
+         "prepaid-standard":"WIMAX_1_2",
+         "client-policy":"radiusPolicy1@",
+         "hotline-policy":"hotlinepolicy",
+         "dhcp-address":"192.169.2.178",
+         "ha-address":"10.121.21.102",
+         "multiple-class-attribute":"NO",
+         "filter-unsupported-vsa":"true",
+         "supported-vendors":[  
+            {  
+               "vendor-name":"standard"
+            },
+            {  
+               "vendor-name":"3gpp2"
+            },
+            {  
+               "vendor-name":"microsoft"
+            },
+            {  
+               "vendor-name":"3gpp"
+            }
+         ],
+         "dyn-auth-port":3799,
+         "coa-supported-attributes":"0:1",
+         "coa-unsupported-attributes":"0:31",
+         "dm-supported-attributes":"0:1,0:4",
+         "dm-unsupported-attributes":"0:89"
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Trusted Client Profile(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile?name=testClientProfile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfile
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile?name=testClientProfile&operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfile?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<trusted-client-profile>
+    <profile-name>testClientProfile</profile-name>
+    <decription>Created by admin on 11/26/2016 10:57:43 AM</decription>
+    <client-type>Softswitch</client-type>
+    <vendor-name>3gpp</vendor-name>
+    <dns-list>192.168.25.121,192.168.26.122</dns-list>
+    <user-identities>0:101,0:85</user-identities>
+    <prepaid-standard>WIMAX_1_2_3</prepaid-standard>
+    <client-policy>radiusPolicy1@</client-policy>
+    <hotline-policy>hotlinepolicyupdated</hotline-policy>
+    <dhcp-address>192.169.2.178</dhcp-address>
+    <ha-address>10.121.21.102</ha-address>
+    <multiple-class-attribute>NO</multiple-class-attribute>
+    <filter-unsupported-vsa>true</filter-unsupported-vsa>
+    <supported-vendors>
+        <vendor>
+            <vendor-name>standard</vendor-name>
+        </vendor>
+        <vendor>
+            <vendor-name>3gpp2</vendor-name>
+        </vendor>
+        <vendor>
+            <vendor-name>microsoft</vendor-name>
+        </vendor>
+    </supported-vendors>
+    <dyn-auth-port>3799</dyn-auth-port>
+    <coa-supported-attributes>0:1</coa-supported-attributes>
+    <coa-unsupported-attributes>0:31</coa-unsupported-attributes>
+    <dm-supported-attributes>0:1,0:4</dm-supported-attributes>
+    <dm-unsupported-attributes>0:89</dm-unsupported-attributes>
+</trusted-client-profile>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Trusted Client Profile updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "profile-name": "testClientProfile",
+  "decription": "Created by admin on 11/26/2016 10:57:43 AM",
+  "client-type": "Softswitch",
+  "vendor-name": "3gpp",
+  "dns-list": "192.168.25.121,192.168.26.122",
+  "user-identities": "0:101,0:85",
+  "prepaid-standard": "WIMAX_1_2_3",
+  "client-policy": "radiusPolicy1@",
+  "hotline-policy": "hotlinepolicyupdated",
+  "dhcp-address": "192.169.2.178",
+  "ha-address": "10.121.21.102",
+  "multiple-class-attribute": "NO",
+  "filter-unsupported-vsa": "true",
+  "supported-vendors": [
+    {
+      "vendor-name": "standard"
+    },
+    {
+      "vendor-name": "3gpp2"
+    },
+    {
+      "vendor-name": "microsoft"
+    }
+  ],
+  "dyn-auth-port": 3799,
+  "coa-supported-attributes": "0:1",
+  "coa-unsupported-attributes": "0:31",
+  "dm-supported-attributes": "0:1,0:4",
+  "dm-unsupported-attributes": "0:89"
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Trusted Client Profile updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile?name=testClientProfileByJson
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfileByJson
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile?operation=delete&name=testClientProfile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/clientprofile/testClientProfile?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Trusted Client Profile(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+
+#Note : 
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************
+						Additional Details
+***********************************************************************
+
+#Vendor names
+
+standard
+elitecore
+wimax
+3gpp2
+microsoft
+3gpp
+
+# Client Types
+
+NAS
+Proxy
+Portal
+WiMAX Portal
+3GPP2-HA
+WiMAX-HA
+WiMAX-DHCP
+ASN
+GGSN
+PDSN
+Cisco-ISG
+Cisco-SSG
+Cisco-LAC
+Cisco-LNS
+A12-ANAAA
+RADIUS1
+RADIUS2
+RADIUS3
+Softswitch
+VoIP
+Voice
+ATM-VC
+PPPoA
+PPPoE
+PPPoX
+DOCSIS
+WAG
+Custom1
+Custom2
+Custom3
+Custom4
+Custom5
+Custom6
+Custom7
+Custom8
+Custom9
+Custom10
+
+# NOTE ********
+Vendor Name and Client Type is case sensitive. Their value must be according to given in this help.
+***************

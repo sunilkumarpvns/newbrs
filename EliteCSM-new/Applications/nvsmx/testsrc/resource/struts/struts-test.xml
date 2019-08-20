@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <constant name="struts.devMode" value="false" />
+        <constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+        <constant name="struts.enable.SlashesInActionNames" value="true" />
+        <constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+        <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+        <constant name="struts.mapper.action.prefix.enabled" value="true"/>
+        <constant name="struts.multipart.maxSize" value="100000000" />
+        <package name="ratinggroup" extends="struts-default">
+
+                <action name="export" class="com.elitecore.nvsmx.policydesigner.controller.ratinggroup.RatingGroupCTRL" method="export">
+                        <interceptor-ref name="defaultStack">
+                                <param name="validation.excludeMethods">
+                                        export</param></interceptor-ref>
+                        <result name="EXPORT_COMPLETED">/index.jsp</result>
+                        <result name="RedirecError" 	type="redirect">${actionChainUrl}</result>
+                        <result name="list" >_${jspUrl}</result>
+                </action>
+                <action name="exportAll" class="com.elitecore.nvsmx.policydesigner.controller.ratinggroup.RatingGroupCTRL" method="exportAll">
+                        <interceptor-ref name="defaultStack">
+                                <param name="validation.excludeMethods">
+                                        exportAll</param></interceptor-ref>
+                        <result name="EXPORT_COMPLETED">/index.jsp</result>
+                        <result name="RedirecError" 	type="redirect">${actionChainUrl}</result>
+                        <result name="list" >_${jspUrl}</result>
+                </action>
+
+                <!-- actions for create and initCreate -->
+                <action name="initCreate" class="com.elitecore.nvsmx.policydesigner.controller.ratinggroup.RatingGroupCTRL" method="initCreate">
+                        <interceptor-ref name="defaultStack">
+                                <param name="validation.excludeMethods">
+                                        initCreate</param></interceptor-ref>
+                        <result name="create">RatingGroupCreate.jsp</result>
+                </action>
+                <action name="create" class="com.elitecore.nvsmx.policydesigner.controller.ratinggroup.RatingGroupCTRL" method="create">
+                        <interceptor-ref name="defaultStack">
+                        </interceptor-ref>
+                      <!--  <result type="json">
+                                <param name="root">validationMessage</param>
+                        </result>-->
+                        <result name="redirectAction" 	type="redirect">${actionChainUrl}</result>
+                        <result name="list" >_${jspUrl}</result>
+                </action>
+
+                <!-- initUpdate and update actions -->
+                <action name="initUpdate" class="com.elitecore.nvsmx.policydesigner.controller.ratinggroup.RatingGroupCTRL" method="initUpdate">
+                        <interceptor-ref name="defaultStack">
+                                <param name="validation.excludeMethods">
+                                        initUpdate</param></interceptor-ref>
+                        <result name="update">RatingGroupUpdate.jsp</result>
+                        <result name="list">_${jspUrl}</result>
+                </action>
+
+                <action name="update" class="com.elitecore.nvsmx.policydesigner.controller.ratinggroup.RatingGroupCTRL" method="update">
+                        <interceptor-ref name="defaultStack">
+                        </interceptor-ref>
+                        <result name="redirectAction" 	type="redirect">${actionChainUrl}</result>
+                        <result name="list" >_${jspUrl}</result>
+                </action>
+
+                <action name="view" class="com.elitecore.nvsmx.policydesigner.controller.ratinggroup.RatingGroupCTRL" method="view">
+                        <interceptor-ref name="defaultStack">
+                                <param name="validation.excludeMethods">
+                                view</param>
+                        </interceptor-ref>
+                        <result name="view">${actionChainUrl}</result>
+                        <result name="list">_${jspUrl}</result>
+                </action>
+
+                <action name="delete" class="com.elitecore.nvsmx.policydesigner.controller.ratinggroup.RatingGroupCTRL" method="delete">
+                        <interceptor-ref name="defaultStack">
+                                <param name="validation.excludeMethods">
+                                        delete</param>
+                        </interceptor-ref>
+                        <result name="redirectAction" 	type="redirect">${actionChainUrl}</result>
+                        <result name="list" >_${jspUrl}</result>
+                </action>
+
+                <action name="importRatingGroup" class="com.elitecore.nvsmx.policydesigner.controller.ratinggroup.RatingGroupCTRL" method="importRatingGroup">
+                        <interceptor-ref name="defaultStack">
+                                <param name="validation.excludeMethods">
+                                        importRatingGroup</param></interceptor-ref>
+                        <result name="RedirecError" 	type="redirect">${actionChainUrl}</result>
+                        <result name="list">_${jspUrl}</result>
+                        <result name="importRatingGroup">RatingGroupImport.jsp</result>
+                </action>
+
+                <action name="importData" class="com.elitecore.nvsmx.policydesigner.controller.ratinggroup.RatingGroupCTRL" method="importData">
+                        <interceptor-ref name="defaultStack">
+                                <param name="validation.excludeMethods">
+                                        importData</param></interceptor-ref>
+                        <result name="RedirecError" 	type="redirect">${actionChainUrl}</result>
+                        <result name="list">_${jspUrl}</result>
+                        <result name="importStatusReport">ImportStatusReport.jsp</result>
+                </action>
+        </package>
+
+</struts>

@@ -1,0 +1,134 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+ 
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax/AAA_Server?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax?name=AAA_Server&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax/AAA_Server.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax/AAA_Server?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax?name=AAA_Server&operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax?name=AAA_Server&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax/AAA_Server.xml?operation=search
+
+Response     :
+
+<wimax>
+    <accounting-capabilities>IP-session-based accounting</accounting-capabilities>
+    <idle-mode-notification-capabilities>Required</idle-mode-notification-capabilities>
+    <ha-rk-lifetime>172800</ha-rk-lifetime>
+    <dhcp-rk-lifetime>172800</dhcp-rk-lifetime>
+</wimax>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax/AAA_Server?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax?name=AAA_Server&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax/AAA_Server.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax/AAA_Server?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax?name=AAA_Server&operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax?name=AAA_Server&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax/AAA_Server.json?operation=search
+
+Response     :
+
+{
+  "accounting-capabilities": "IP-session-based accounting",
+  "idle-mode-notification-capabilities": "Required",
+  "ha-rk-lifetime": "172800",
+  "dhcp-rk-lifetime": "172800"
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#EliteCSM Server
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax/AAA_Server
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax/AAA_Server?operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/wimax?name=AAA_Server&operation=update
+
+
+Content Type : application/xml
+
+Body     :
+
+<wimax>
+    <accounting-capabilities>Flow-based accounting</accounting-capabilities>
+    <idle-mode-notification-capabilities>Not Required</idle-mode-notification-capabilities>
+    <ha-rk-lifetime>1728</ha-rk-lifetime>
+    <dhcp-rk-lifetime>172</dhcp-rk-lifetime>
+</wimax>
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>WiMax Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "accounting-capabilities": "IP-session-based accounting",
+  "idle-mode-notification-capabilities": "Required",
+  "ha-rk-lifetime": "17280",
+  "dhcp-rk-lifetime": "17280"
+}
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>WiMax Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++++++++++++++++++++ Additional Information ++++++++++++++++++++
+
+# Accounting Capabilities 
+	1) IP-session-based accounting
+	2) Flow-based accounting
+
+# Idle Mode Notification Capabilities 
+	1)  Required
+	2)  Not Required
+
+

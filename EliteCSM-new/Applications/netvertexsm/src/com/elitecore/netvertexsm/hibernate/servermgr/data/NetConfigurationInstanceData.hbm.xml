@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.data.NetConfigurationInstanceData" table="TBLMNETCONFIGURATIONINSTANCE">
+		<id name="configInstanceId" column="CONFIGINSTANCEID" type="long">	
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+			</generator>
+		</id>
+		<property name="configId" type="string">
+			<column name="CONFIGID" sql-type="CHAR(7)" not-null="true"></column>
+		</property>
+	</class>
+</hibernate-mapping>          

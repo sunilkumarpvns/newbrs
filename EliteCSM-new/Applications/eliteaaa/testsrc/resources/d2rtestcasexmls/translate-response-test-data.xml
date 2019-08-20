@@ -1,0 +1,317 @@
+
+<list>
+
+	<case selectedmapping="static_value_mapping"
+	 	behaviour="test-static-value">
+		<expected-diameter-answer cc="271" app-id="3">
+			<attribute id="0:263" value="anyStaticValue" />
+			<attribute id="0:264" value="eliteaaa.elitecore.com" />
+			<attribute id="0:296" value="elitecore.com" />
+		</expected-diameter-answer>
+
+		<radius-response type="4">
+		</radius-response>
+
+		<source-dia-request cc="271" app-id="3" request="true">
+		</source-dia-request>
+
+		<dest-rad-packet type="4">
+		</dest-rad-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>static_value_mapping</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:263=&quot;anyStaticValue&quot; </mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+
+	<case selectedmapping="attributeAssignment"
+		behaviour="test-attibutes-value">
+		<expected-diameter-answer cc="271" app-id="3">
+			<attribute id="0:263" value="anyValue" />
+			<attribute id="0:264" value="eliteaaa.elitecore.com" />
+			<attribute id="0:296" value="elitecore.com" />
+		</expected-diameter-answer>
+
+		<radius-response type="4">
+			<attribute id="0:44" value="anyValue" />
+		</radius-response>
+
+		<source-dia-request cc="271" app-id="3" request="true">
+		</source-dia-request>
+
+		<dest-rad-packet type="4">
+		</dest-rad-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-identifiers-value</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>attributeAssignment</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:263=0:44</mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+
+	</case>
+
+
+	<case selectedmapping="check-expressions"
+		behaviour="test-check-expressions">
+		<expected-diameter-answer cc="265" app-id="3">
+			<attribute id="0:263" value="anyValue" />
+			<attribute id="0:264" value="eliteaaa.elitecore.com" />
+			<attribute id="0:296" value="elitecore.com" />
+			<attribute id="0:268" value="2001" />
+		</expected-diameter-answer>
+
+		<radius-response type="2">
+			<attribute id="0:18" value="Authentication Success" />
+		</radius-response>
+
+		<source-dia-request cc="265" app-id="3" request="true">
+			<attribute id="0:263" value="anyValue" />
+		</source-dia-request>
+
+		<dest-rad-packet type="4">
+		</dest-rad-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-check-expression-value</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>check-expressions</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>0:18 = &quot;*Success*&quot; </checked-expression>
+								<mapping-expression>0:268=&quot;2001&quot;</mapping-expression>
+							</response-mapping>
+							<response-mapping>
+								<checked-expression>0:18 = &quot;NOT(*Success*)&quot; </checked-expression>
+								<mapping-expression>0:268=&quot;4001&quot;</mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+
+	</case>
+
+
+	<case selectedmapping="check-expressions"
+	behaviour="test-check-expressions">
+		<expected-diameter-answer cc="265" app-id="3">
+			<attribute id="0:263" value="anyValue" />
+			<attribute id="0:264" value="eliteaaa.elitecore.com" />
+			<attribute id="0:296" value="elitecore.com" />
+			<attribute id="0:268" value="4001" />
+		</expected-diameter-answer>
+
+		<radius-response type="2">
+			<attribute id="0:18" value="Authentication Failure" />
+		</radius-response>
+
+		<source-dia-request cc="265" app-id="3" request="true">
+			<attribute id="0:263" value="anyValue" />
+		</source-dia-request>
+
+		<dest-rad-packet type="4">
+		</dest-rad-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-check-expression-value</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>check-expressions</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>0:18 = &quot;*Success*&quot; </checked-expression>
+								<mapping-expression>0:268=&quot;2001&quot;</mapping-expression>
+							</response-mapping>
+							<response-mapping>
+								<checked-expression>NOT(0:18 = &quot;*Success*&quot;)
+								</checked-expression>
+								<mapping-expression>0:268=&quot;4001&quot;</mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+	<case selectedmapping="srcreq"
+		behaviour="test-srcreq-keyword">
+		<expected-diameter-answer cc="265" app-id="3">
+			<attribute id="0:264" value="eliteaaa.elitecore.com" />
+			<attribute id="0:296" value="elitecore.com" />
+			<attribute id="0:1" value="anyValue" />
+		</expected-diameter-answer>
+
+		<radius-response type="2">
+		</radius-response>
+
+		<source-dia-request cc="265" app-id="3" request="true">
+			<attribute id="0:1" value="anyValue" />
+		</source-dia-request>
+
+		<dest-rad-packet type="4">
+		</dest-rad-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-keyword-SRCREQ</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>srcreq</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=${SRCREQ}:0:1</mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+
+	<case selectedmapping="dstreq"
+		behaviour="test-dstreq-keyword">
+		<expected-diameter-answer cc="265" app-id="3">
+			<attribute id="0:264" value="eliteaaa.elitecore.com" />
+			<attribute id="0:296" value="elitecore.com" />
+			<attribute id="0:1" value="anyValue" />
+		</expected-diameter-answer>
+
+		<radius-response type="2">
+		</radius-response>
+
+		<source-dia-request cc="265" app-id="3" request="true">
+		</source-dia-request>
+
+		<dest-rad-packet type="4">
+			<attribute id="0:1" value="anyValue" />
+		</dest-rad-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-keyword-dstreq</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+
+					<mapping>
+						<in-request-type>&quot;1&quot; = &quot;1&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>dstreq</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=${DSTREQ}:0:1</mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+
+</list>

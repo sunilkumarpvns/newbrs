@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="23782" vendor-name="ASN">
+<attribute id="1" name="ASN-IP-Pool-Name" type="string"/>
+<attribute id="100" name="ASN-Kbps-Down" type="integer"/>
+<attribute id="112" name="ASN-Kbps-Down-Localmedia" type="integer"/>
+<attribute id="101" name="ASN-Kbps-Up" type="integer"/>
+<attribute id="102" name="ASN-Pps-Down" type="integer"/>
+<attribute id="103" name="ASN-Pps-Up" type="integer"/>
+<attribute id="104" name="ASN-TCP-Connlimit" type="integer"/>
+<attribute id="110" name="ASN-Firewall-Available" type="integer">
+	<supported-values>
+		<value id="1" name="Yes"/>
+		<value id="2" name="No"/>
+	</supported-values>
+</attribute>
+<attribute id="105" name="ASN-Firewall-State" type="integer">
+	<supported-values>
+		<value id="1" name="Enabled"/>
+		<value id="2" name="Disabled"/>
+	</supported-values>
+</attribute>
+<attribute id="107" name="ASN-Firewall-Block-Ping" type="integer">
+	<supported-values>
+		<value id="1" name="Enabled"/>
+		<value id="2" name="Disabled"/>
+	</supported-values>
+</attribute>
+<attribute id="106" name="ASN-Firewall-Open" type="string"/>
+<attribute id="111" name="ASN-QoS-Available" type="integer">
+	<supported-values>
+		<value id="1" name="Yes"/>
+		<value id="2" name="No"/>
+	</supported-values>
+</attribute>
+<attribute id="108" name="ASN-QoS-State" type="integer">
+	<supported-values>
+		<value id="1" name="Enabled"/>
+		<value id="2" name="Disabled"/>
+	</supported-values>
+</attribute>
+<attribute id="109" name="ASN-IP-Redirect" type="string"/>
+<attribute id="113" name="ASN-Webfilter-Mode" type="integer">
+	<supported-values>
+		<value id="1" name="Deny"/>
+		<value id="2" name="Allow"/>
+	</supported-values>
+</attribute>
+<attribute id="114" name="ASN-Webfilter-Redirect" type="string"/>
+<attribute id="115" name="ASN-Webfilter-Destination" type="string"/>
+<attribute id="116" name="ASN-Webfilter-Domain" type="string"/>
+</attribute-list>

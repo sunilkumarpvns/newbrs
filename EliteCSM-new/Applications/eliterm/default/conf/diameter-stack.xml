@@ -1,0 +1,107 @@
+<diameter-stack>
+
+	<diameter-stack-enable>false</diameter-stack-enable>
+	<service-address>0.0.0.0:3868</service-address>
+
+	<socket-receive-buffer-size>-1</socket-receive-buffer-size>
+	<socket-send-buffer-size>-1</socket-send-buffer-size>
+
+	<queue-size>30000</queue-size>
+
+	<minimum-thread>50</minimum-thread>
+	<maximum-thread>100</maximum-thread>
+	<main-thread-priority>7</main-thread-priority>
+	<worker-thread-priority>7</worker-thread-priority>
+
+	<own-diameter-URI>aaa://localhost:3868</own-diameter-URI>
+
+	<!-- Added For Diameter Routing Table Entries -->
+	<routing-table>Diameter_Test_RoutingTable</routing-table>
+	<security-standard>RFC 6733</security-standard>
+	<duplicate-request-check-enable>false</duplicate-request-check-enable>
+	<duplicate-request-purge-interval>15</duplicate-request-purge-interval>
+
+	<!-- For Diameter Session Cleanup -->
+	<session-manager-id/>
+	<diameter-session-cleanup>
+		<session-cleanup-interval>86400</session-cleanup-interval>
+		<session-timeout>86400</session-timeout>
+	</diameter-session-cleanup>
+
+	<!-- Security Parameters -->
+	<security-parameters>
+              <min-tls-version>TLSv1</min-tls-version>
+              <max-tls-version>TLSv1</max-tls-version>
+              <handshake-timeout>3000</handshake-timeout>
+              <server-certificate-id/>
+              <client-certificate-request/>
+              <enabled-cipher-suites>17,50,20,22,51,21,25,23,27,52,26,24,8,3,10,47,9,1,2,4,5</enabled-cipher-suites>
+              <certificate-validation>
+                     <validate-certificate-expiry>true</validate-certificate-expiry>
+                     <validate-certificate-ca>true</validate-certificate-ca>
+                     <validate-certificate-revocation>true</validate-certificate-revocation>
+              </certificate-validation>
+       </security-parameters>
+	
+	<!-- Logging Parameters -->
+	
+	<logging>
+		<service-logger-enabled>false</service-logger-enabled>
+		<!-- ALL/INFO/DEBUG/WARN/ERROR/OFF -->
+		<log-level>DEBUG</log-level>
+
+		<!-- 0:Time-Based Rolling -->
+		<!-- 1:Size-Based Rolling -->
+		<rolling-type>1</rolling-type>
+
+		<!--
+			1:Every-Minute-Rolling, 2:Every-Hour-Rolling and 3:Daily-Rolling
+			[Time-Based Rolling]
+		-->
+		<!-- Number of MBs [Volume-Based Rolling] -->
+		<rolling-unit>10</rolling-unit>
+
+		<!-- Maximum Number of rolled files -->
+		<max-rolled-unit>10</max-rolled-unit>
+
+		<!-- Want to compress the rolled files or not -->
+		<compress-rolled-unit>false</compress-rolled-unit>
+		<location></location>
+		<syslog>
+        	<address></address>
+        	<facility></facility>
+        </syslog>
+	</logging>
+	
+	<peer-list>
+		<name></name>
+    </peer-list>
+	
+	
+	<plugin-list>
+		<in-plugins>
+			<in-plugin></in-plugin>
+		</in-plugins>
+		<out-plugins>
+			<out-plugin></out-plugin>
+		</out-plugins>
+	</plugin-list>
+	
+    <rfc-5729-nai>
+    	<enabled></enabled>
+    	<realm-names></realm-names>
+    </rfc-5729-nai>
+
+	<diameter-webservice>
+		<diameter-re-auth>
+			<ws-mapping-name></ws-mapping-name>
+		</diameter-re-auth>
+		<diameter-abort-session>
+			<ws-mapping-name></ws-mapping-name>
+		</diameter-abort-session>
+		<diameter-generic-request>
+			<ws-mapping-name></ws-mapping-name>
+		</diameter-generic-request>
+	</diameter-webservice>
+
+</diameter-stack>

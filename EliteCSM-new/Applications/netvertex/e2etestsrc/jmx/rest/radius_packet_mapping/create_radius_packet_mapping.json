@@ -1,0 +1,18 @@
+{
+  "id": "rest_rad_packet_mapping_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "rest_radius_dm",
+  "description": "Created by REST Automation",
+  "commProtocol": "RADIUS",
+  "packetType": "DISCONNECT_REQUEST",
+  "type": "PCC_TO_GATEWAY",
+  "attributeMappingData": {
+    "mappings": [
+      "{\"pid\":\"0\",\"attribute\":\"5535:180\",\"policykey\":\"Sub.ProfileExpiredHours\",\"defaultvalue\":\"test\",\"valuemapping\":\"tested\"}"
+    ],
+    "orderNumber": null
+  },
+  "applicationType": null,
+  "groupNames": "DefaultGroup"
+}

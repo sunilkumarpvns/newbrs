@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicySecDriverRelData" table="TBLMAUTHPOLICYSECDRIVERREL">
+		<composite-id>
+			<key-property name="authPolicyId" column="AUTHPOLICYID" type="StringType"></key-property>
+			<key-property name="secondaryDriverInstId" column="SECONDARYDRIVERINSTID" type="StringType"></key-property>
+		</composite-id>
+		<property name="cacheDriverInstId" type="StringType" column="CACHEDRIVERINSTID" not-null="false"/>
+		<many-to-one name="secondaryDriverData" lazy="false" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.drivers.data.DriverInstanceData" column="SECONDARYDRIVERINSTID">
+		</many-to-one>			
+		<many-to-one name="cacheDriverData" lazy="false" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.drivers.data.DriverInstanceData" column="CACHEDRIVERINSTID">
+		</many-to-one>
+	</class>		
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transaction-logger>
+    <mappings>
+        <format>User-name={0:1},NAS-IP-Address={0:4},Framed-IP-Address={0:8},Calling-Station-Id={0:31},Reply-Mesasge={$RES:0:18}</format>
+        <key>LOG</key>
+    </mappings>
+    <sequence-globalization>false</sequence-globalization>
+    <log-file>log/transaction.log</log-file>
+    <sequence-position>suffix</sequence-position>
+    <description>This plugin is created by EliteAAA Default configuration Setup. This transaction logger will create a log on each radius request</description>
+    <name>def_RadiusTransactionLogger</name>
+    <status>ACTIVE</status>
+    <sequence-range>[001-100]</sequence-range>
+    <time-boundry>30 Min</time-boundry>
+</transaction-logger>

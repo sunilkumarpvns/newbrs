@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="eap-config" type="eapConfiguration"/>
+
+  <xs:element name="tls" type="tlsConfiguration"/>
+
+  <xs:complexType name="eapConfiguration">
+    <xs:all>
+      <xs:element name="client-address" type="xs:string" minOccurs="0"/>
+      <xs:element name="eap-method" type="xs:string" minOccurs="0"/>
+      <xs:element name="identity" type="xs:string" minOccurs="0"/>
+      <xs:element name="servre-port" type="xs:int"/>
+      <xs:element name="request-timeout-in-secs" type="xs:int"/>
+      <xs:element name="secret" type="xs:string" minOccurs="0"/>
+      <xs:element name="server-address" type="xs:string" minOccurs="0"/>
+      <xs:element ref="tls" minOccurs="0"/>
+      <xs:element name="user-name" type="xs:string" minOccurs="0"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="tlsConfiguration">
+    <xs:all>
+      <xs:element name="certificate-file" type="xs:string" minOccurs="0"/>
+      <xs:element name="certificate-passwd" type="xs:string" minOccurs="0"/>
+      <xs:element name="client-cert-file" type="xs:string" minOccurs="0"/>
+      <xs:element name="client-cert-passwd" type="xs:string" minOccurs="0"/>
+      <xs:element name="private-key-file" type="xs:string" minOccurs="0"/>
+      <xs:element name="session-resumption-duration" type="xs:int"/>
+      <xs:element name="trusted-file" type="xs:string" minOccurs="0"/>
+      <xs:element name="version" type="xs:string" minOccurs="0"/>
+    </xs:all>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.data.NetServiceInstanceData" table="TBLMNETSERVICEINSTANCE">
+		<id name="netServiceId" column="NETSERVICEID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+			</generator>
+		</id>
+		<property name="instanceId" type="string">
+			<column name="INSTANCEID" sql-type="CHAR(3)" not-null="true"></column>
+		</property>
+		<property name="name" type="string">
+			<column name="NAME" sql-type="VARCHAR2(100)" not-null="true"></column>
+		</property>
+		<property name="displayName" type="string">
+			<column name="DISPLAYNAME" sql-type="VARCHAR2(100)" not-null="true"></column>
+		</property>
+		<property name="description" type="string">
+			<column name="DESCRIPTION" sql-type="VARCHAR2(255)" ></column>
+		</property>
+		<property name="netServiceTypeId" type="string">
+			<column name="NETSERVICETYPEID" sql-type="CHAR(7)" not-null="true"></column>
+		</property>
+		<property name="netServerId" type="long">
+			<column name="NETSERVERID" sql-type="NUMBER(20)" not-null="true"></column>
+		</property>
+
+		<property name="createDate" type="java.sql.Timestamp" column="CREATEDATE">
+		</property>
+		<property name="createdByStaffId" type="java.lang.Long">
+			<column name="CREATEDBYSTAFFID" sql-type="CHAR(7)" not-null="true"></column>
+		</property>
+		<property name="lastModifiedDate" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" >
+		</property>
+		<property name="lastModifiedByStaffId" type="java.lang.Long">
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="CHAR(7)" ></column>
+		</property>
+		<property name="commonStatusId" type="string">
+			<column name="COMMONSTATUSID" sql-type="CHAR(5)" ></column>
+		</property>
+		<property name="statusChangeDate" type="java.sql.Timestamp" column="STATUSCHANGEDATE" >
+		</property>
+		<property name="systemGenerated" type="string">
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"></column>
+		</property>
+		<property name="lastSyncDate" type="java.sql.Timestamp" column="LASTSYNCDATE" >
+		</property>
+		<property name="lastSuccessSynDate" type="java.sql.Timestamp" column="LASTSUCCESSSYNCDATE" >
+		</property>
+		<property name="lastSyncStatus" type="string">
+			<column name="LASTSYNCSTATUS" sql-type="CHAR(5)" ></column>
+		</property>
+		<property name="isInSync" type="string">
+			<column name="ISCONFIGINSYNC" sql-type="CHAR(5)" not-null="false"></column>
+		</property>
+	</class>
+</hibernate-mapping>          

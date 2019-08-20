@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="3085" vendor-name="Cosine">
+<attribute id="1" name="Cosine-Connection-Profile-Name" type="string"/>
+<attribute id="2" name="Cosine-Enterprise-id" type="string"/>
+<attribute id="3" name="Cosine-Address-Pool-Name" type="string"/>
+<attribute id="4" name="Cosine-DS-Byte" type="integer"/>
+<attribute id="5" name="Cosine-VPI-VCI" type="octets"/>
+<attribute id="6" name="Cosine-DLCI" type="integer"/>
+<attribute id="7" name="Cosine-LNS-IP-Address" type="ipaddr"/>
+<attribute id="8" name="Cosine-CLI-User-Permission-id" type="string"/>
+</attribute-list>

@@ -1,0 +1,48 @@
+<list>
+<test-case behaviour="accept request when eap massage and eap massage authenticator attribute configured in request packet">
+		<universal-plugin-detail>
+			<description>Created by admin on 04/17/2017 03:17:43 PM</description>
+			<name>RadiusAuthPlugin</name>
+			<universal-pre-policies>
+				<pre-policy-detail name="prePolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:1</attr-id>
+							<attribute-value>"eliteaaa"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true
+					</reject-on-check-item-not-found>
+				</pre-policy-detail>
+			</universal-pre-policies>
+			<universal-post-policies/>
+		</universal-plugin-detail>
+
+		<request-packet type="1">
+			<attribute id="0:1" value="eliteaaa" />
+			<attribute id="0:2" value="eliteaaa" />
+			<attribute id="0:80" value="anyvalue" />
+			<attribute id="0:79" value="anyvalue" />
+		</request-packet>
+
+		<response-packet type="2">
+		</response-packet>
+	
+		<assert>
+			<request>
+				<packet-type value = "1" />
+			</request>
+			<response>
+				<packet-type value = "2" />
+				<contains-attribute id="0:79" value="0x03010004" />
+			</response>
+		</assert>
+
+	</test-case>
+	
+	</list>

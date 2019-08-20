@@ -1,0 +1,682 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth?name=RadiusWebServiceAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth.xml?name=RadiusWebServiceAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth?operation=search&name=RadiusWebServiceAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth.xml?operation=search&name=RadiusWebServiceAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver.xml?operation=search
+
+Content Type : application/xml
+
+Response    :
+<driver-instance>
+    <name>RadiusWebServiceAuthDriver</name>
+    <description>Created by admin on 01/30/2017 11:29:26 AM</description>
+    <web-service-auth-driver>
+        <service-address>www.aircel.com</service-address>
+        <maximum-query-timeout-count>50</maximum-query-timeout-count>
+        <status-check-duration>120</status-check-duration>
+        <imsi-attribute>0:1</imsi-attribute>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <web-method-key-mappings>
+            <web-method-key-mapping>
+                <logical-name>MSISDN</logical-name>
+                <webservice-method-key>MSISDN</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>IMSI</logical-name>
+                <webservice-method-key>IMSI</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>IMEI</logical-name>
+                <webservice-method-key>IMEI</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <webservice-method-key>CreditLimit</webservice-method-key>
+                <default-value>1</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Password Check</logical-name>
+                <webservice-method-key>PasswordCheck</webservice-method-key>
+                <default-value>no</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>User Password</logical-name>
+                <webservice-method-key>User-Password</webservice-method-key>
+                <default-value>test</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Param1</logical-name>
+                <webservice-method-key>CustomerServices</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Customer Status</logical-name>
+                <webservice-method-key>CustomerStatus</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Customer Type</logical-name>
+                <webservice-method-key>CustomerType</webservice-method-key>
+                <default-value>prepaid</default-value>
+                <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+            </web-method-key-mapping>
+        </web-method-key-mappings>
+    </web-service-auth-driver>
+</driver-instance>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth?name=RadiusWebServiceAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth.json?name=RadiusWebServiceAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth?operation=search&name=RadiusWebServiceAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth.json?operation=search&name=RadiusWebServiceAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+    "name": "RadiusWebServiceAuthDriver",
+    "description": "Created by admin on 01/30/2017 11:29:26 AM",
+    "web-service-auth-driver": [
+        {
+            "service-address": "www.aircel.com",
+            "maximum-query-timeout-count": 50,
+            "status-check-duration": 120,
+            "imsi-attribute": "0:1",
+            "user-identity-attributes": "0:1",
+            "web-method-key-mappings": [
+                {
+                    "logical-name": "MSISDN",
+                    "webservice-method-key": "MSISDN"
+                },
+                {
+                    "logical-name": "IMSI",
+                    "webservice-method-key": "IMSI"
+                },
+                {
+                    "logical-name": "IMEI",
+                    "webservice-method-key": "IMEI"
+                },
+                {
+                    "logical-name": "Credit Limit",
+                    "webservice-method-key": "CreditLimit",
+                    "default-value": "1"
+                },
+                {
+                    "logical-name": "Password Check",
+                    "webservice-method-key": "PasswordCheck",
+                    "default-value": "no"
+                },
+                {
+                    "logical-name": "User Password",
+                    "webservice-method-key": "User-Password",
+                    "default-value": "test"
+                },
+                {
+                    "logical-name": "Param1",
+                    "webservice-method-key": "CustomerServices"
+                },
+                {
+                    "logical-name": "Customer Status",
+                    "webservice-method-key": "CustomerStatus"
+                },
+                {
+                    "logical-name": "Customer Type",
+                    "webservice-method-key": "CustomerType",
+                    "default-value": "prepaid",
+                    "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+                }
+            ]
+        }
+    ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth?operation=create
+
+Note :- For Inserting Default Value in Webservice Method Key Mapping use below format.
+		
+		<default-value>prepaid</default-value>
+	    <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<driver-instance>
+    <name>RadiusWebServiceAuthDriver</name>
+    <description>Created by admin on 01/30/2017 11:29:26 AM</description>
+    <web-service-auth-driver>
+        <service-address>www.aircel.com</service-address>
+        <maximum-query-timeout-count>50</maximum-query-timeout-count>
+        <status-check-duration>120</status-check-duration>
+        <imsi-attribute>0:1</imsi-attribute>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <web-method-key-mappings>
+            <web-method-key-mapping>
+                <logical-name>MSISDN</logical-name>
+                <webservice-method-key>MSISDN</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>IMSI</logical-name>
+                <webservice-method-key>IMSI</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>IMEI</logical-name>
+                <webservice-method-key>IMEI</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <webservice-method-key>CreditLimit</webservice-method-key>
+                <default-value>1</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Password Check</logical-name>
+                <webservice-method-key>PasswordCheck</webservice-method-key>
+                <default-value>no</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>User Password</logical-name>
+                <webservice-method-key>User-Password</webservice-method-key>
+                <default-value>test</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Param1</logical-name>
+                <webservice-method-key>CustomerServices</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Customer Status</logical-name>
+                <webservice-method-key>CustomerStatus</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Customer Type</logical-name>
+                <webservice-method-key>CustomerType</webservice-method-key>
+                <default-value>prepaid</default-value>
+                <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+            </web-method-key-mapping>
+        </web-method-key-mappings>
+    </web-service-auth-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Web Service Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note :- For Inserting Default Value in Webservice Method Key Mapping use below format.
+		
+		"default-value": "prepaid",
+        "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+
+Body :
+{
+    "name": "RadiusWebServiceAuthDriver",
+    "description": "Created by admin on 01/30/2017 11:29:26 AM",
+    "web-service-auth-driver": [
+        {
+            "service-address": "www.aircel.com",
+            "maximum-query-timeout-count": 50,
+            "status-check-duration": 120,
+            "imsi-attribute": "0:1",
+            "user-identity-attributes": "0:1",
+            "web-method-key-mappings": [
+                {
+                    "logical-name": "MSISDN",
+                    "webservice-method-key": "MSISDN"
+                },
+                {
+                    "logical-name": "IMSI",
+                    "webservice-method-key": "IMSI"
+                },
+                {
+                    "logical-name": "IMEI",
+                    "webservice-method-key": "IMEI"
+                },
+                {
+                    "logical-name": "Credit Limit",
+                    "webservice-method-key": "CreditLimit",
+                    "default-value": "1"
+                },
+                {
+                    "logical-name": "Password Check",
+                    "webservice-method-key": "PasswordCheck",
+                    "default-value": "no"
+                },
+                {
+                    "logical-name": "User Password",
+                    "webservice-method-key": "User-Password",
+                    "default-value": "test"
+                },
+                {
+                    "logical-name": "Param1",
+                    "webservice-method-key": "CustomerServices"
+                },
+                {
+                    "logical-name": "Customer Status",
+                    "webservice-method-key": "CustomerStatus"
+                },
+                {
+                    "logical-name": "Customer Type",
+                    "webservice-method-key": "CustomerType",
+                    "default-value": "prepaid",
+                    "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+                }
+            ]
+        }
+    ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Web Service Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/bulk?operation=create
+
+Note :- For Inserting Default Value in Webservice Method Key Mapping use below format.
+		
+		<default-value>prepaid</default-value>
+	    <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Note :- For Inserting Default Value in Webservice Method Key Mapping use below format.
+		
+		"default-value": "prepaid",
+        "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+
+Body :
+<list>
+   <driver-instance>
+      <name>RadiusWebServiceAuthDriver</name>
+      <description>Created by admin on 01/30/2017 11:29:26 AM</description>
+      <web-service-auth-driver>
+         <service-address>www.aircel.com</service-address>
+         <maximum-query-timeout-count>50</maximum-query-timeout-count>
+         <status-check-duration>120</status-check-duration>
+         <imsi-attribute>0:1</imsi-attribute>
+         <user-identity-attributes>0:1</user-identity-attributes>
+         <web-method-key-mappings>
+            <web-method-key-mapping>
+               <logical-name>MSISDN</logical-name>
+               <webservice-method-key>MSISDN</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+               <logical-name>IMSI</logical-name>
+               <webservice-method-key>IMSI</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+               <logical-name>IMEI</logical-name>
+               <webservice-method-key>IMEI</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+               <logical-name>Credit Limit</logical-name>
+               <webservice-method-key>CreditLimit</webservice-method-key>
+               <default-value>1</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+               <logical-name>Password Check</logical-name>
+               <webservice-method-key>PasswordCheck</webservice-method-key>
+               <default-value>no</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+               <logical-name>User Password</logical-name>
+               <webservice-method-key>User-Password</webservice-method-key>
+               <default-value>test</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+               <logical-name>Param1</logical-name>
+               <webservice-method-key>CustomerServices</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+               <logical-name>Customer Status</logical-name>
+               <webservice-method-key>CustomerStatus</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+               <logical-name>Customer Type</logical-name>
+               <webservice-method-key>CustomerType</webservice-method-key>
+               <default-value>prepaid</default-value>
+               <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+            </web-method-key-mapping>
+         </web-method-key-mappings>
+      </web-service-auth-driver>
+   </driver-instance>
+</list>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Web Service Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note :- For Inserting Default Value in Webservice Method Key Mapping use below format.
+		
+		"default-value": "prepaid",
+        "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+
+
+Body :
+{
+   "list":[
+      {
+         "name":"RadiusWebServiceAuthDriver",
+         "description":"Created by admin on 01/30/2017 11:29:26 AM",
+         "web-service-auth-driver":[
+            {
+               "service-address":"www.aircel.com",
+               "maximum-query-timeout-count":50,
+               "status-check-duration":120,
+               "imsi-attribute":"0:1",
+               "user-identity-attributes":"0:1",
+               "web-method-key-mappings":[
+                  {
+                     "logical-name":"MSISDN",
+                     "webservice-method-key":"MSISDN"
+                  },
+                  {
+                     "logical-name":"IMSI",
+                     "webservice-method-key":"IMSI"
+                  },
+                  {
+                     "logical-name":"IMEI",
+                     "webservice-method-key":"IMEI"
+                  },
+                  {
+                     "logical-name":"Credit Limit",
+                     "webservice-method-key":"CreditLimit",
+                     "default-value":"1"
+                  },
+                  {
+                     "logical-name":"Password Check",
+                     "webservice-method-key":"PasswordCheck",
+                     "default-value":"no"
+                  },
+                  {
+                     "logical-name":"User Password",
+                     "webservice-method-key":"User-Password",
+                     "default-value":"test"
+                  },
+                  {
+                     "logical-name":"Param1",
+                     "webservice-method-key":"CustomerServices"
+                  },
+                  {
+                     "logical-name":"Customer Status",
+                     "webservice-method-key":"CustomerStatus"
+                  },
+                  {
+                     "logical-name":"Customer Type",
+                     "webservice-method-key":"CustomerType",
+                     "default-value":"prepaid",
+                     "value-mapping":"GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Web Service Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth?name=RadiusWebServiceAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth?operation=update&name=RadiusWebServiceAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Note :- For Updating Default Value in Webservice Method Key Mapping use below format.
+		
+		<default-value>prepaid</default-value>
+	    <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+
+Content Type : application/xml
+
+Body     :
+<driver-instance>
+    <name>RadiusWebServiceAuthDriver</name>
+    <description>Created by admin on 01/30/2017 11:29:26 AM</description>
+    <web-service-auth-driver>
+        <service-address>www.aircel.com</service-address>
+        <maximum-query-timeout-count>50</maximum-query-timeout-count>
+        <status-check-duration>120</status-check-duration>
+        <imsi-attribute>0:1</imsi-attribute>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <web-method-key-mappings>
+            <web-method-key-mapping>
+                <logical-name>MSISDN</logical-name>
+                <webservice-method-key>MSISDN</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>IMSI</logical-name>
+                <webservice-method-key>IMSI</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>IMEI</logical-name>
+                <webservice-method-key>IMEI</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <webservice-method-key>CreditLimit</webservice-method-key>
+                <default-value>1</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Password Check</logical-name>
+                <webservice-method-key>PasswordCheck</webservice-method-key>
+                <default-value>no</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>User Password</logical-name>
+                <webservice-method-key>User-Password</webservice-method-key>
+                <default-value>test</default-value>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Param1</logical-name>
+                <webservice-method-key>CustomerServices</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Customer Status</logical-name>
+                <webservice-method-key>CustomerStatus</webservice-method-key>
+            </web-method-key-mapping>
+            <web-method-key-mapping>
+                <logical-name>Customer Type</logical-name>
+                <webservice-method-key>CustomerType</webservice-method-key>
+                <default-value>prepaid</default-value>
+                <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+            </web-method-key-mapping>
+        </web-method-key-mappings>
+    </web-service-auth-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Web Service Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note :- For Updating Default Value in Webservice Method Key Mapping use below format.
+		
+		"default-value": "prepaid",
+        "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+
+Body     :
+{
+    "name": "RadiusWebServiceAuthDriver",
+    "description": "Created by admin on 01/30/2017 11:29:26 AM",
+    "web-service-auth-driver": [
+        {
+            "service-address": "www.aircel.com",
+            "maximum-query-timeout-count": 50,
+            "status-check-duration": 120,
+            "imsi-attribute": "0:1",
+            "user-identity-attributes": "0:1",
+            "web-method-key-mappings": [
+                {
+                    "logical-name": "MSISDN",
+                    "webservice-method-key": "MSISDN"
+                },
+                {
+                    "logical-name": "IMSI",
+                    "webservice-method-key": "IMSI"
+                },
+                {
+                    "logical-name": "IMEI",
+                    "webservice-method-key": "IMEI"
+                },
+                {
+                    "logical-name": "Credit Limit",
+                    "webservice-method-key": "CreditLimit",
+                    "default-value": "1"
+                },
+                {
+                    "logical-name": "Password Check",
+                    "webservice-method-key": "PasswordCheck",
+                    "default-value": "no"
+                },
+                {
+                    "logical-name": "User Password",
+                    "webservice-method-key": "User-Password",
+                    "default-value": "test"
+                },
+                {
+                    "logical-name": "Param1",
+                    "webservice-method-key": "CustomerServices"
+                },
+                {
+                    "logical-name": "Customer Status",
+                    "webservice-method-key": "CustomerStatus"
+                },
+                {
+                    "logical-name": "Customer Type",
+                    "webservice-method-key": "CustomerType",
+                    "default-value": "prepaid",
+                    "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+                }
+            ]
+        }
+    ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Web Service Auth Driver(s) updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth?name=RadiusWebServiceAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth?operation=delete&name=RadiusWebServiceAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/radius/webserviceauth/RadiusWebServiceAuthDriver?operation=delete
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Web Service Auth Driver(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

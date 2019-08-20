@@ -1,0 +1,57 @@
+#  
+#  This sample makefile is only a guide.
+#
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+WLAN_LIBS=../../../library
+LD_RUN_PATH	=$(WLAN_LIBS)
+LIBRARY =$(WLAN_LIBS)
+LDFLAGS		= -Xlinker -rpath -Xlinker $(LD_RUN_PATH)  -L$(LIBRARY)
+
+
+PROC_TYPE=$(shell uname -m)
+ifeq ($(PROC_TYPE),x86_64)
+ARCHFLAGS = -DAMD64_ARCH
+LDFLAGS   = -Xlinker -rpath -Xlinker $(LD_RUN_PATH) -L$(LIBRARY)
+endif
+DEBIAN=$(shell ls /etc/debian_version 2>/dev/null)
+ifeq ($(DEBIAN),/etc/debian_version)
+ARCHFLAGS += -DDEBIAN
+DEBIAN = true
+endif
+
+
+
+export LD_RUN_PATH LD_LIBRARY_PATH
+
+CC 		= gcc
+LD 		= /usr/bin/ld
+DEFINES		= -DOMNI_UNIX -DLINUX -D_GNU_SOURCE -D_REENTRANT -fpic
+CFLAGS		= $(INCLUDE) $(DEFINES) $(DEBUG)
+
+DEBUG 		= -g -Wall -O -std=gnu99
+
+
+
+LIB = -lsocket -lnsl  -lpthread
+
+PROT_FLAGS       = $(PROTOCOL_C7)
+
+INCLUDE       += -I.
+LOCALLIB       =  -lulcmmg  -lpthread
+
+all::	UlticomProfileRequestor
+UlticomProfileRequestor:  UlticomProfileRequestor.o
+	$(RM) UlticomProfileRequestor
+	$(CC) $(LDFLAGS) -o UlticomProfileRequestor  UlticomProfileRequestor.o  $(LOCALLIB)
+
+clean::
+	$(RM) UlticomProfileRequestor
+	$(RM) UlticomProfileRequestor.o
+
+realclean::
+	$(RM) UlticomProfileRequestor
+	$(RM) UlticomProfileRequestor.o
+

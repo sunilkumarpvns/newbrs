@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.servermgr.sessionmgr.data">
+
+  <class name="CoreSessionData" table="TBLMCORESESSIONS">
+  
+  	 <id name="csID" column="CSID" type="java.lang.Long" >
+     	  <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+	 	  </generator>
+     </id>    
+     
+     <property name="coreSessionID" type="java.lang.String">
+     	  <column name="CORESESSIONID" sql-type="VARCHAR2(40)" not-null="false"/>
+     </property> 
+      <property name="userIdentity" type="java.lang.String">
+     	  <column name="USERIDENTITY" sql-type="VARCHAR2(50)" not-null="false"/>
+     </property> 
+      <property name="sessionID" type="java.lang.String">
+     	  <column name="SESSIONID" sql-type="VARCHAR2(40)" not-null="false"/>
+     </property> 
+      <property name="gatewayAddress" type="java.lang.String">
+     	  <column name="GATEWAYADDRESS" sql-type="VARCHAR2(40)" not-null="false"/>
+     </property> 
+     
+      <property name="sessionManagerID" type="java.lang.String">
+     	  <column name="SESSIONMANAGERID" sql-type="VARCHAR2(50)" not-null="false"/>
+     </property> 
+    
+      <property name="sessionIPV4" type="java.lang.String">
+     	  <column name="SESSIONIPV4" sql-type="VARCHAR2(35)" not-null="false"/>
+     </property> 
+     <property name="sessionIPV6" type="java.lang.String">
+     	  <column name="SESSIONIPV6" sql-type="VARCHAR2(35)" not-null="false"/>
+     </property> 
+      <property name="accessNetwork" type="java.lang.String">
+     	  <column name="ACCESSNETWORK" sql-type="VARCHAR2(20)" not-null="false"/>
+     </property> 
+      <property name="sessionState" type="java.lang.String">
+     	  <column name="SESSIONSTATE" sql-type="VARCHAR2(10)" not-null="false"/>
+     </property> 
+      <property name="deviceID" type="java.lang.String">
+     	  <column name="DEVICEID" sql-type="VARCHAR2(50)" not-null="false"/>
+     </property> 
+      <property name="gatewayRealm" type="java.lang.String">
+     	  <column name="GATEWAYREALM" sql-type="VARCHAR2(50)" not-null="false"/>
+     </property> 
+      <property name="sessionType" type="java.lang.String">
+     	  <column name="SESSIONTYPE" sql-type="VARCHAR2(20)" not-null="false"/>
+     </property> 
+      <property name="multiSessionID" type="java.lang.String">
+     	  <column name="MULTISESSIONID" sql-type="VARCHAR2(50)" not-null="false"/>
+     </property> 
+      <property name="startTime" type="java.sql.Timestamp">
+     	  <column name="STARTTIME" sql-type="TIMESTAMP(6)" not-null="false"/>
+     </property> 
+      <property name="lastUpdateTime" type="java.sql.Timestamp">
+     	  <column name="LASTUPDATETIME" sql-type="TIMESTAMP(6)" not-null="false"/>
+     </property> 
+      <property name="afApplicationID" type="java.lang.String">
+     	  <column name="AFAPPLICATIONID" sql-type="VARCHAR2(30)" not-null="false"/>
+     </property> 
+      <property name="mediaType" type="java.lang.String">
+     	  <column name="MEDIATYPE" sql-type="VARCHAR2(10)" not-null="false"/>
+     </property> 
+      <property name="maxRequestBWU" type="java.lang.Integer">
+     	  <column name="MAXREQUESTEDBWU" sql-type="NUMBER(38)" not-null="false"/>
+     </property> 
+      <property name="maxRequestBWD" type="java.lang.Integer">
+     	  <column name="MAXREQUESTEDBWD" sql-type="NUMBER(38)" not-null="false"/>
+     </property> 
+     <property name="pdnConnectionID" type="java.lang.String">
+     	  <column name="PDNCONNECTIONID" sql-type="VARCHAR2(40)" not-null="false"/>
+     </property>
+      <property name="location" type="java.lang.String">
+     	  <column name="LOCATION" sql-type="VARCHAR2(35)" not-null="false"/>
+     </property> 
+      <property name="timeZone" type="java.lang.String">
+     	  <column name="TIMEZONE" sql-type="VARCHAR2(35)" not-null="false"/>
+     </property> 
+      <property name="csgInfoReport" type="java.lang.String">
+     	  <column name="CSGINFORMATIONREPORTING" sql-type="VARCHAR2(35)" not-null="false"/>
+     </property> 
+      <property name="csgID" type="java.lang.String">
+     	  <column name="CSGID" sql-type="VARCHAR2(35)" not-null="false"/>
+     </property> 
+      <property name="csgAccessMode" type="java.lang.String">
+     	  <column name="CSGACCESSMODE" sql-type="VARCHAR2(35)" not-null="false"/>
+     </property> 
+    <property name="csgMeberIndicate" type="java.lang.String">
+     	  <column name="CSGMEMBERSHIPINDICATION" sql-type="VARCHAR2(35)" not-null="false"/>
+     </property>
+      <property name="pccRules" type="java.lang.String">
+     	  <column name="PCCRULES" sql-type="VARCHAR2(1000)" not-null="false"/>
+     </property> 
+  </class>
+</hibernate-mapping>

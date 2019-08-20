@@ -1,0 +1,95 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("db.cdr.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("db.cdr.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("db.cdr.name")})}</message>
+        </field-validator>		
+	</field>
+
+    <field name="description">
+        <field-validator type="stringlength">
+            <param name="minLength">0</param>
+            <param name="maxLength">2000</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("db.cdr.description")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="dbCdrDriverData.databaseId">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("db.cdr.datasource")})}</message>
+        </field-validator>
+    </field>
+
+	<field name="dbCdrDriverData.tableName">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("db.cdr.table.name")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="dbCdrDriverData.identityField">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("db.cdr.identity.field")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="dbCdrDriverData.sequenceName">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("db.cdr.sequence.name")})}</message>
+        </field-validator>
+	</field>
+
+    <field name="dbCdrDriverData.storeAllCdr">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("db.cdr.store.all.cdr")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="dbCdrDriverData.sessionIdFieldName">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("db.cdr.session.id.field.name")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="dbCdrDriverData.createDateFieldName">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("db.cdr.create.date.field.name")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="dbCdrDriverData.lastModifiedDateFieldName">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("db.cdr.last.modified.date.field.name")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="dbCdrDriverData.timeStampFieldName">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("db.cdr.timestamp.field.name")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="dbCdrDriverData.maxQueryTimeoutCount">
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">65535</param>
+            <message>${getText("error.numeric.range", {getText("db.cdr.max.query.timeout.count")})}</message>
+        </field-validator>
+    </field>
+
+
+</validators>

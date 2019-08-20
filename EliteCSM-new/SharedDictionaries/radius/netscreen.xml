@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="3224" vendor-name="Netscreen">
+<attribute id="1" name="NS-Admin-Privilege" type="integer">
+	<supported-values>
+		<value id="1" name="Root-Admin"/>
+		<value id="2" name="All-VSYS-Root-Admin"/>
+		<value id="3" name="VSYS-Admin"/>
+		<value id="4" name="Read-Only-Admin"/>
+		<value id="5" name="Read-Only-VSYS-Admin"/>
+	</supported-values>
+</attribute>
+<attribute id="2" name="NS-VSYS-Name" type="string"/>
+<attribute id="3" name="NS-User-Group" type="string"/>
+<attribute id="4" name="NS-Primary-DNS" type="ipaddr"/>
+<attribute id="5" name="NS-Secondary-DNS" type="ipaddr"/>
+<attribute id="6" name="NS-Primary-WINS" type="ipaddr"/>
+<attribute id="7" name="NS-Secondary-WINS" type="ipaddr"/>
+<attribute id="220" name="NS-NSM-User-Domain-Name" type="string"/>
+<attribute id="221" name="NS-NSM-User-Role-Mapping" type="string"/>
+</attribute-list>

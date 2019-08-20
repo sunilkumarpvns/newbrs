@@ -1,0 +1,82 @@
+html {text-rendering: optimizelegibility !important;}
+
+body{font-size: 13px;line-height: 1.42857;color: #000;background-color: #005197;margin: 0px;font-family: Arial;}
+
+*{box-sizing: border-box;}
+
+/* Main Div for Startup Page */
+.maindiv{width: 700px;height: auto;position: absolute;top: 5%;bottom: 0px;left: 0px;right: 0px;margin: auto;}
+
+/* CSS for EliteCSM Image and DIV */
+.imagediv {min-height: 50px;position: relative;text-align: center;text-shadow: 2px 2px #000;margin: 10px 0px;padding: 10px 0px;font-size: 36px;font-family: "Open Sans",sans-serif;color: #FFF;}
+
+
+/* Container Div for Startup Page*/
+.containerdiv {height: inherit;border: 1px solid #FFF;background-color: #FFF;box-shadow: 0px 2px 7px #292929;border-radius: 10px;}
+
+/* CopyRight Div for Startup Page*/
+.copyrightdiv {text-align: right !important;color: #FFF;padding-top: 2px;}
+
+/* header css*/
+.header {height: 40px;border-bottom: 1px solid #EEE;border-top-left-radius: 5px;border-top-right-radius: 5px;margin: 2px 10px;font: 13px;}
+
+/* main body css */
+.mainbody {height: 350px;overflow: hidden;margin: 2px 10px;}
+
+/* main body,header and footer common css */
+.mainbody, .header, .footer {padding: 5px;}
+
+/* footer */
+.footer {height: 35px;background-color: #F5F5F5;border-top: 1px solid #DDD;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;margin-left: 2px;}
+    
+/* Copyright Div*/
+.copyrightdiv {text-align: right !important;color: #FFF;padding-top: 2px}
+
+/* Header */
+h4{font-weight: 500;line-height: 1.1;color: inherit;margin-top: 10px;margin-bottom: 10px;font-family: Arial;font-size: 18px !important;}
+
+/* Start up label text */
+.mainbody > span {display: block;font-size: 15px;margin: 10px 0px;}
+
+/* Start up label */
+.blue-label {color: #005197;font-family: Arial;font-size: 15px;margin-left: 1px;}
+
+/*CSS for Progress bar*/
+.progress_bar_css{vertical-align: top;margin-top: 60px;}
+
+.startupfont{font-family: Arial; font-size: 13px;padding-bottom: 3px;}
+
+.css_Pending{}
+.css_Processing{background-color: #CCCCCC;font-weight: bold;}
+.css_Success{color:#808080;background-color:none;}
+.css_Failed{color:red;background-color: none;}
+
+.css_status_Pending{}
+.css_status_Processing{background-color: #CCCCCC;font-weight: bold;}
+.css_status_Success{color:green;background-color:none;}
+.css_status_Failed{color:red;background-color: none;}
+
+.btn-primary{background: none repeat scroll 0% 0% #005197;color: #FFF;text-shadow: none;filter: none;border: none;}
+.labeltext { font-family: Arial; font-size: 12px; color: #000000;padding-top: 1px; padding-right: 0px; padding-bottom: 1px; padding-left: 3px }
+.textbox_div {outline:none;}
+.textbox_div {
+    border: 1px solid #ddd;
+    height:25px;
+    width:260px;
+}
+.textbox_div:focus {
+    outline:none;
+    border: 1px solid #005197;
+}
+.selectbox_div {
+    border: 1px solid #ddd;
+    height:22px;
+    width:80px;
+}
+.selectbox_div:focus {
+    outline:none;
+    border: 1px solid #005197;
+}
+.top_image_div{
+	float: right;
+}

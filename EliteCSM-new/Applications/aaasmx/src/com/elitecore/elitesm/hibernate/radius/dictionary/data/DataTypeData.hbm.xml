@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.radius.dictionary.data.DataTypeData" table="TBLSDATATYPE" >          
+	 
+		<id name="dataTypeId" type="CharType"  >
+		  <column name="DATATYPEID" sql-type="CHAR(5)" not-null="true"/>
+		</id>
+     
+		<property name="alias" type="StringType">
+		  <column name="ALIAS" sql-type="VARCHAR(25)" not-null="true"/>
+		</property>
+
+		<property name="name" type="StringType">
+		  <column name="NAME" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+     
+		<property name="description" type="StringType">
+		  <column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"/>
+		</property>
+
+		<property name="systemGenerated" type="CharType">
+		  <column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+		</property>
+
+		<property name="javaScriptRegex" type="StringType">
+		  <column name="JAVASCRIPTREGEX" sql-type="VARCHAR(255)" not-null="false"/>
+		</property>
+
+		<property name="javaRegex" type="StringType">
+		  <column name="JAVAREGEX" sql-type="VARCHAR(255)" not-null="false"/>
+		</property>
+
+		<property name="errorMessage" type="StringType">
+		  <column name="ERRORMESSAGE" sql-type="VARCHAR(255)" not-null="false"/>
+		</property>
+		
+		<property name="dictionaryType" type="CharType">
+		  <column name="DICTIONARYTYPE" sql-type="CHAR(1)" not-null="true"/>
+		</property>
+
+	</class>
+	
+</hibernate-mapping>
+
+          

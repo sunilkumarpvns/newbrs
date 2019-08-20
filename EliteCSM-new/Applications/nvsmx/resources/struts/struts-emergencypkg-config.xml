@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+        <package name="emergency" extends="nvsmx"  >
+        <action name="emergencypccrule/*/*/*/*" class="com.elitecore.nvsmx.policydesigner.controller.pccrule.PccRuleCTRL" method="{4}">
+                <interceptor-ref name="nvsmxStack" />
+                <result name="create"       	type="tiles">{1}/{2}/PccRule_Create</result>
+                <result name="update"        	type="tiles">{1}/{2}/PccRule_Update</result>
+                <result name="detail" 			type="tiles">{1}/{2}/PccRule_ViewDetail</result>
+                <result name="dispatchToParent">../../../../${actionChainUrl}</result>
+        </action>
+</package>
+</struts>

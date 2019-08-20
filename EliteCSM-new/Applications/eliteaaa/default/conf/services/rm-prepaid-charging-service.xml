@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<prepaid-charging-service>
+
+	<service-address>127.0.0.1:1923</service-address>
+	
+	<socket-receive-buffer-size>32767</socket-receive-buffer-size>
+
+    <socket-send-buffer-size>32767</socket-send-buffer-size>
+
+    <queue-size>15000</queue-size>
+
+    <startup-mode>Automatic</startup-mode> <!-- Manual or Automatic, default will be Manual -->
+
+    <minimum-thread>5</minimum-thread>  <!-- -->
+
+    <maximum-thread>5</maximum-thread>
+    
+	<main-thread-priority>7</main-thread-priority>
+	
+	<worker-thread-priority>7</worker-thread-priority>		
+    
+      <logging>
+		<service-logger-enabled>false</service-logger-enabled>
+		<log-level>DEBUG</log-level>
+		<rolling-type>1</rolling-type>
+		<rolling-unit>5</rolling-unit>
+		<max-rolled-unit>10</max-rolled-unit>
+		<compress-rolled-unit>false</compress-rolled-unit>
+		<location></location>
+		<immediate-flush>true</immediate-flush>
+	</logging>
+	
+	<plugin-list>
+    	<pre-plugins>			
+			<pre-plugin></pre-plugin>			
+		</pre-plugins>
+		<post-plugins>
+			<post-plugin></post-plugin> 
+		</post-plugins>
+	</plugin-list>
+		
+	<prepaid-fallback-driver></prepaid-fallback-driver>
+
+</prepaid-charging-service>

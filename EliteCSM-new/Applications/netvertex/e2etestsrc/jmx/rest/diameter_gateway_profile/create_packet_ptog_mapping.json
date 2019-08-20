@@ -1,0 +1,18 @@
+{
+  "id": "rest_ptog_packet_mapping_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Rest_CCResponse",
+  "description": "PCC to Gateway Packet Mapping for Diameter Gateway Profile",
+  "commProtocol": "DIAMETER",
+  "packetType": "CREDIT_CONTROL_RESPONSE",
+  "type": "PCC_TO_GATEWAY",
+  "attributeMappingData": {
+    "mappings": [
+      "{\"pid\":\"0\",\"attribute\":\"10415:1\",\"policykey\":\"CS.IMSI\",\"defaultvalue\":\"441441\",\"valuemapping\":\"M\"}"
+    ],
+    "orderNumber": null
+  },
+  "applicationType": null,
+  "groupNames": "DefaultGroup"
+}

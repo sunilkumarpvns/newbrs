@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <form-beans>
+      <form-bean name="searchGatewayForm" type="com.elitecore.netvertexsm.web.gateway.gateway.form.SearchGatewayForm"/>
+      <form-bean name="viewGatewayForm" type="com.elitecore.netvertexsm.web.gateway.gateway.form.ViewGatewayForm"/>
+      <form-bean name="radiusGatewayForm" type="com.elitecore.netvertexsm.web.gateway.gateway.form.RadiusGatewayForm" />
+      <form-bean name="diameterGatewayForm" type="com.elitecore.netvertexsm.web.gateway.gateway.form.DiameterGatewayForm" />
+      <form-bean name="miscGatewayForm" type="com.elitecore.netvertexsm.web.gateway.gateway.form.MiscGatewayForm" />
+      <form-bean name="gatewayForm" type="com.elitecore.netvertexsm.web.gateway.gateway.form.GatewayForm" />
+      
+      <form-bean name="createProfileForm" type="com.elitecore.netvertexsm.web.gateway.profile.form.CreateProfileForm"/>
+      <form-bean name="searchProfileForm" type="com.elitecore.netvertexsm.web.gateway.profile.form.SearchProfileForm"/>
+      <form-bean name="viewGatewayProfileForm" type="com.elitecore.netvertexsm.web.gateway.profile.form.ViewGatewayProfileForm" />           
+      <form-bean name="editGatewayProfileForm" type="com.elitecore.netvertexsm.web.gateway.profile.form.EditGatewayProfileForm" />
+	  <form-bean name="miscGatewayProfileForm" type="com.elitecore.netvertexsm.web.gateway.profile.form.MiscProfileForm" />
+	  
+	  <form-bean name="packetMappingForm" type="com.elitecore.netvertexsm.web.gateway.attrmapping.form.PacketMappingForm" />
+	  <form-bean name="manageMappingForm" type="com.elitecore.netvertexsm.web.gateway.profile.form.ManagePacketMapOrderForm"/>
+	  <form-bean name="pccRuleMappingForm" type="com.elitecore.netvertexsm.web.gateway.pccrulemapping.form.PCCRuleMappingForm"/>
+	                  
+    </form-beans>
+  
+    <global-forwards >
+      <forward name="success" path="/jsp/core/response/SuccessResponsePage.jsp" />
+      <forward name="failure" path="/jsp/core/response/FailureResponsePage.jsp" />
+      <forward name="popupfailure" path="/jsp/core/response/PopupFailureResponsePage.jsp" /> 
+      <forward name="popupsuccess" path="/jsp/core/response/PopupSuccessResponsePage.jsp" />                 
+    </global-forwards>
+
+    <action-mappings>
+    
+      <action path="/manageMappingOrder" 
+        	type="com.elitecore.netvertexsm.web.gateway.profile.ManageMappingOrderAction"
+        	name="manageMappingForm"
+         	scope="request"
+         	validate="false">
+        	<forward name="orderlist" path="/jsp/gateway/profile/ManageMappingOrder.jsp" />         				
+      </action>
+    
+        
+<!--				  Gateway related mapping				-->       
+       
+      <action path="/createGateway"
+      	 type="com.elitecore.netvertexsm.web.gateway.gateway.CreateGatewayAction"
+      	 name="gatewayForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="searchGateway" path="/initSearchGateway.do"/>      	      
+      </action>
+      
+      <action path="/initSearchGateway"
+      	 type="com.elitecore.netvertexsm.web.gateway.gateway.InitSearchGatewayAction"
+      	 name="searchGatewayForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="initSearchGateway" path="/jsp/gateway/gateway/SearchGateway.jsp"/>
+      </action>
+      
+      <action path="/searchGateway"	
+	  	 type="com.elitecore.netvertexsm.web.gateway.gateway.SearchGatewayAction"	  	 
+	  	 name="searchGatewayForm"
+	  	 scope="request"
+	  	 validate="false">
+	  	 <forward name="searchGatewayList" path="/jsp/gateway/gateway/SearchGateway.jsp"/>
+	  </action>
+	   
+      <action path="/initCreateGateway"
+      	 type="com.elitecore.netvertexsm.web.gateway.gateway.InitCreateGatewayAction"
+      	 name="gatewayForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="initCreateGateway" path="/jsp/gateway/gateway/CreateGateway.jsp"/>
+      </action>
+      
+      
+      <action path="/createGateway"
+      	 type="com.elitecore.netvertexsm.web.gateway.gateway.CreateGatewayAction"
+      	 name="gatewayForm"
+      	 scope="request"
+      	 validate="false">
+      	 	<forward name="initRadiusGateway" path="/createRadiusGateway.do"/>
+      	 	<forward name="initDiameterGateway" path="/createDiameterGateway.do"/>      
+      </action>
+      
+       
+       <action path="/createRadiusGateway"
+      	 type="com.elitecore.netvertexsm.web.gateway.gateway.CreateRadiusGatewayAction"
+      	 name="radiusGatewayForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="createRadiusGatewayPage" path="/jsp/gateway/gateway/CreateRadiusGateway.jsp"/>      
+      </action>
+      
+      <action path="/createDiameterGateway"
+      	 type="com.elitecore.netvertexsm.web.gateway.gateway.CreateDiameterGatewayAction"
+      	 name="diameterGatewayForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="createDiameterGatewayPage" path="/jsp/gateway/gateway/CreateDiameterGateway.jsp"/>      
+      </action>
+      
+      
+       <action path="/createDuplicateGateway"
+      	 type="com.elitecore.netvertexsm.web.gateway.gateway.CreateDuplicateGatewayAction"
+      	 name="gatewayForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="createDuplicateGateway" path="/jsp/gateway/gateway/CreateDuplicateGateway.jsp"/>
+      	 <forward name="initRadiusGateway" path="/createRadiusGateway.do"/>
+      	 <forward name="initDiameterGateway" path="/createDiameterGateway.do"/>      
+      </action>
+      
+      <action path="/viewGateway"
+		 type="com.elitecore.netvertexsm.web.gateway.gateway.ViewGatewayAction"
+		 name="viewGatewayForm"
+		 scope="request"
+		 validate="false">
+		 <forward name="viewGateway" path="/jsp/gateway/gateway/ViewGatewayContainer.jsp"/>
+		 <forward name="viewGatewayAssociation" path="/jsp/gateway/gateway/ViewGatewayAssociationContainer.jsp"/>
+	  </action>
+	  
+	  
+	  <action path="/initEditGateway"
+	  		scope="request"
+	  		type="com.elitecore.netvertexsm.web.gateway.gateway.InitEditGatewayAction"
+	  		name="gatewayForm"
+	  		validate="false">
+	  		<forward name="initEditRadiusGateway" path="/editRadiusGateway.do" />
+	  		<forward name="initEditDiameterGateway" path="/editDiameterGateway.do" />
+	  </action>
+	  
+	  <action path="/initEditGatewayBasicDetails"
+	  		scope="request"
+	  		type="com.elitecore.netvertexsm.web.gateway.gateway.InitEditGatewayBasicDetailsAction"
+	  		name="gatewayForm"
+	  		validate="false">
+	  		<forward name="initEditGatewayBasicDetails" path="/jsp/gateway/gateway/EditGatewayBasicDetailsContainer.jsp" />
+	  </action>
+	  
+	  
+	  
+	  <action path="/editGatewayBasicDetails"
+	  		scope="request"
+	  		type="com.elitecore.netvertexsm.web.gateway.gateway.EditGatewayBasicDetailsAction"
+	  		name="gatewayForm"
+	  		validate="false">
+	  </action>	
+	  
+	  <action path="/editDiameterGateway"
+	  		scope="request"
+	  		type="com.elitecore.netvertexsm.web.gateway.gateway.EditDiameterGatewayAction"
+	  		name="diameterGatewayForm"
+	  		validate="false">
+	  		<forward name="editDiameterGateway" path="/jsp/gateway/gateway/EditDiameterGatewayContainer.jsp"/>
+	  </action>	
+	  
+	  <action path="/editRadiusGateway"
+	  		scope="request"
+	  		type="com.elitecore.netvertexsm.web.gateway.gateway.EditRadiusGatewayAction"
+	  		name="radiusGatewayForm"
+	  		validate="false">
+	  			<forward name="editRadiusGateway" path="/jsp/gateway/gateway/EditRadiusGatewayContainer.jsp"/>
+	  </action>	
+	  
+	  <action path="/miscGateway"
+             scope="request"
+             type="com.elitecore.netvertexsm.web.gateway.gateway.MiscGatewayAction"
+             name="miscGatewayForm"
+             validate="false">
+            <forward name="initSearchGateway" path="/initSearchGateway.do" />
+       </action>
+      
+      
+<!--			   Gateway Profile related mapping				-->            
+      
+      <action path="/initCreateProfile"
+      	 type="com.elitecore.netvertexsm.web.gateway.profile.InitCreateProfileAction"
+      	 name="createProfileForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="initCreateProfile" path="/jsp/gateway/profile/CreateProfile.jsp"/>
+      </action>
+      
+      <action path="/initProfileDetail"
+      	 type="com.elitecore.netvertexsm.web.gateway.profile.InitProfileDetailAction"
+      	 name="createProfileForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="radiusProfile" path="/jsp/gateway/profile/RadiusProfile.jsp"/>
+      	 <forward name="diameterProfile" path="/jsp/gateway/profile/DiameterProfile.jsp"/>
+      </action>
+      
+      <action path="/profileDetail"
+      	 type="com.elitecore.netvertexsm.web.gateway.profile.CreateProfileAction"
+      	 name="createProfileForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="searchProfile" path="/initSearchProfile.do"/>      	      
+      </action>
+      
+      <action path="/initSearchProfile"
+      	 type="com.elitecore.netvertexsm.web.gateway.profile.InitSearchProfileAction"
+      	 name="searchProfileForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="initSearchProfile" path="/jsp/gateway/profile/SearchProfile.jsp"/>
+      </action>
+      
+      <action path="/searchProfile"
+      	 type="com.elitecore.netvertexsm.web.gateway.profile.SearchProfileAction"
+      	 name="searchProfileForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="searchProfileList" path="/jsp/gateway/profile/SearchProfile.jsp"/>
+      </action>
+      
+      <action path="/viewGatewayProfile"
+	  		type="com.elitecore.netvertexsm.web.gateway.profile.ViewGatewayProfileAction"
+	  		name="viewGatewayProfileForm"
+	  		scope="request">
+	  		<forward name="profileSearchList" path="/searchProfile.do"/>
+	  		<forward name="viewGatewayProfile" path="/jsp/gateway/profile/ViewGatewayProfileContainer.jsp"/>
+	  		<forward name="viewGatewayProfileAssociations" path="/jsp/gateway/profile/ViewGatewayProfileAssociationsContainer.jsp"/>
+	  </action>
+	  
+	  <action path="/initEditGatewayProfile"
+	  		scope="request"
+	  		type="com.elitecore.netvertexsm.web.gateway.profile.InitEditGatewayProfileAction"
+	  		name="editGatewayProfileForm"
+	  		validate="false">
+	  		<forward name="editGatewayProfile" path="/jsp/gateway/profile/EditGatewayProfile.jsp" />
+	  </action>
+	  
+	  <action path="/editGatewayProfile"
+	  		scope="request"
+	  		type="com.elitecore.netvertexsm.web.gateway.profile.EditGatewayProfileAction"
+	  		name="editGatewayProfileForm"
+	  		validate="false">
+	  </action>
+	  
+	  
+	  <action path="/editRadiusGatewayProfile"
+	  		   scope="request"
+	  		  type="com.elitecore.netvertexsm.web.gateway.profile.EditRadiusGatewayProfileAction"
+	  		  name="editGatewayProfileForm"
+	  		  validate="false">
+	          <forward name="editRadiusGatewayProfile" path="/jsp/gateway/profile/EditRadiusGatewayProfileContainer.jsp"></forward> 
+	  </action>
+	  	
+	  <action path="/editDiameterGatewayProfile"
+	  		scope="request"
+	  		type="com.elitecore.netvertexsm.web.gateway.profile.EditDiameterGatewayProfileFieldMap"
+	  		name="editGatewayProfileForm"
+	  		validate="false">
+	  		<forward name="editDiameterGatewayProfile" path="/jsp/gateway/profile/EditDiameterGatewayProfileContainer.jsp"></forward>
+	  </action>
+      
+      <action path="/miscGatewayProfile"
+          	scope="request"
+          	type="com.elitecore.netvertexsm.web.gateway.profile.MiscProfileAction"
+          	name="miscGatewayProfileForm"
+          	validate="false">
+          	<forward name="deleteFailure" path="/jsp/gateway/profile/DeleteFailureProfile.jsp" />
+          	<forward name="success" path="/jsp/core/response/SuccessResponsePage.jsp" />
+     </action> 
+	  
+<!-- 			attribute mapping related 				-->
+
+      <action path="/searchMapping"	
+	  	 type="com.elitecore.netvertexsm.web.gateway.attrmapping.SearchPacketMappingAction"	  	 
+	  	 name="packetMappingForm"
+	  	 scope="request"
+	  	 validate="false">
+	  	 <forward name="searchMappingList" path="/jsp/gateway/attrmapping/SearchPacketMapping.jsp"/>
+	  </action>
+	   
+      <action path="/initCreateMapping"
+      	 type="com.elitecore.netvertexsm.web.gateway.attrmapping.InitCreatePacketMappingAction"
+      	 name="packetMappingForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="createMapping" path="/jsp/gateway/attrmapping/CreatePacketMapping.jsp"/>
+      </action>
+      
+      <action path="/createMapping"
+      	 type="com.elitecore.netvertexsm.web.gateway.attrmapping.CreatePacketMappingAction"
+      	 name="packetMappingForm"
+      	 scope="request"
+      	 validate="false">
+      </action>
+      
+      <action path="/initEditMapping"
+      	 type="com.elitecore.netvertexsm.web.gateway.attrmapping.InitEditPacketMappingAction"
+      	 name="packetMappingForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="initEditMapping" path="/jsp/gateway/attrmapping/EditPacketMappingContainer.jsp"/>
+      </action>
+      
+      <action path="/viewPacketMapping"
+      	 type="com.elitecore.netvertexsm.web.gateway.attrmapping.ViewPacketMappingAction"
+      	 name="packetMappingForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="viewPacketMapping" path="/jsp/gateway/attrmapping/ViewPacketMappingContainer.jsp"/>
+      </action>
+            
+      <action path="/editMapping"
+      	 type="com.elitecore.netvertexsm.web.gateway.attrmapping.EditPacketMappingAction"
+      	 name="packetMappingForm"
+      	 scope="request"
+      	 validate="false">
+      </action>
+      
+	  <action path="/miscPacketMapping"
+             scope="request"
+             type="com.elitecore.netvertexsm.web.gateway.attrmapping.MiscPacketMappingAction"
+             name="packetMappingForm"
+             validate="false">
+       </action>   
+       
+      <action path="/createDuplicatePacketMapping"
+      	 type="com.elitecore.netvertexsm.web.gateway.attrmapping.CreateDuplicatePacketMappingAction"      	 	   
+      	 name="packetMappingForm"
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="createDuplicatePacketMapping" path="/jsp/gateway/attrmapping/CreateDuplicatePacketMapping.jsp"/>
+      </action>  
+      
+      <action parameter="method" 
+      name="pccRuleMappingForm" 
+      path="/pccRuleManagement"
+      scope="request"
+      type="com.elitecore.netvertexsm.web.gateway.pccrulemapping.PCCRuleMappingManagementAction">
+		<forward name="searchpccrulemapping" path="/jsp/gateway/pccrulemapping/SearchPCCRuleMapping.jsp"/>
+		<forward name="createpccrulemapping" path="/jsp/gateway/pccrulemapping/CreatePCCRuleMapping.jsp"/>  
+		<forward name="viewpccrulemapping" path="/jsp/gateway/pccrulemapping/ViewPCCRuleMappingContainer.jsp"/>
+		<forward name="editpccrulemapping" path="/jsp/gateway/pccrulemapping/EditPCCRuleMappingContainer.jsp"/>
+	 </action>
+      
+      
+                         	  	  
+    </action-mappings>
+  
+    <message-resources key="gatewayResources" parameter="com.elitecore.netvertexsm.web.gateway.gateway" />
+  
+</struts-config>
+

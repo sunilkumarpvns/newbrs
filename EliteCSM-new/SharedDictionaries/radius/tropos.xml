@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="14529" vendor-name="Tropos">
+<attribute id="1" name="Tropos-Unicast-Cipher" type="integer">
+	<supported-values>
+		<value id="0" name="Legacy-Open"/>
+		<value id="1" name="Legacy-WEP"/>
+		<value id="5304834" name="WPA-TKIP"/>
+		<value id="5304836" name="WPA-AES-CCMP"/>
+		<value id="1027074" name="WPA2-TKIP"/>
+		<value id="1027076" name="WPA2-AES-CCMP"/>
+	</supported-values>
+</attribute>
+<attribute id="2" name="Tropos-Layer2-Input-Octets" type="integer"/>
+<attribute id="3" name="Tropos-Layer2-Output-Octets" type="integer"/>
+<attribute id="4" name="Tropos-Layer2-Input-Frames" type="integer"/>
+<attribute id="5" name="Tropos-Layer2-Output-Frames" type="integer"/>
+<attribute id="6" name="Tropos-Layer2-Input-Drops" type="integer"/>
+<attribute id="7" name="Tropos-Noise-Floor" type="ifid"/>
+<attribute id="8" name="Tropos-Noise-Upper-Bound" type="ifid"/>
+<attribute id="9" name="Tropos-Release" type="string"/>
+<attribute id="11" name="Tropos-Secondary-IP" type="octets"/>
+<attribute id="12" name="Tropos-Terminate-Cause" type="integer"/>
+<attribute id="13" name="Tropos-Average-RSSI" type="integer"/>
+<attribute id="15" name="Tropos-Channel" type="ifid"/>
+<attribute id="16" name="Tropos-Retries-Sent" type="integer"/>
+<attribute id="17" name="Tropos-Retry-Bits" type="integer"/>
+<attribute id="18" name="Tropos-Rates-Sent" type="octets"/>
+<attribute id="19" name="Tropos-Rates-Received" type="octets"/>
+<attribute id="21" name="Tropos-Routed-Time" type="integer"/>
+<attribute id="22" name="Tropos-Routless-Since" type="integer"/>
+<attribute id="23" name="Tropos-Capability-Info" type="octets"/>
+<attribute id="24" name="Tropos-Input-Cap" type="integer"/>
+<attribute id="25" name="Tropos-Output-Cap" type="integer"/>
+<attribute id="26" name="Tropos-Class-Mult" type="integer"/>
+<attribute id="27" name="Tropos-Cell-Name" type="string"/>
+<attribute id="28" name="Tropos-Cell-Location" type="string"/>
+<attribute id="29" name="Tropos-Serial-Number" type="string"/>
+<attribute id="30" name="Tropos-Latitude" type="string"/>
+<attribute id="31" name="Tropos-Longitude" type="string"/>
+</attribute-list>

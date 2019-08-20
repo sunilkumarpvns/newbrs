@@ -1,0 +1,1 @@
+<#include "/${parameters.templateDir}/bootstrap/datatablecolumn.ftl" />

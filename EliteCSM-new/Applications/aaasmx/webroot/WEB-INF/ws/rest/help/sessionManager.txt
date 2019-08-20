@@ -1,0 +1,814 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager?name=SessionManager&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager.xml?name=SessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager?operation=search&name=SessionManager&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager.xml?operation=search&name=SessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager.xml?operation=search
+
+Response :
+
+<session-manager>
+    <name>Session_Mgr</name>
+    <description>Created by admin on 03/01/2017 05:02:47 PM</description>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>tblmconcurrentusers</table-name>
+    <start-time-field>START_TIME</start-time-field>
+    <last-updated-time-field>LAST_UPDATED_TIME</last-updated-time-field>
+    <db-query-timeout>1</db-query-timeout>
+    <sequence-name>SEQ_TBLMCONCURRENTUSERS</sequence-name>
+    <behaviour>Acct</behaviour>
+    <db-failure-action>IGNORE</db-failure-action>
+    <session-stop-action>DELETE</session-stop-action>
+    <batch-update-enabled>true</batch-update-enabled>
+    <batch-size>1000</batch-size>
+    <batch-update-interval>100</batch-update-interval>
+    <auto-session-closer-enabled>false</auto-session-closer-enabled>
+    <session-timeout>120</session-timeout>
+    <session-close-batch-count>50</session-close-batch-count>
+    <session-thread-sleep-time>10</session-thread-sleep-time>
+    <session-close-action>None</session-close-action>
+    <session-override-action>None</session-override-action>
+    <session-override-fields>CALLING_STATION_ID</session-override-fields>
+    <concurrency-identity-field>GROUPNAME</concurrency-identity-field>
+    <mandatory-db-field-mappings>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>ACCT_SESSION_ID</db-field-name>
+            <field>Session ID</field>
+            <referring-entity>0:44</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>NAS_PORT_TYPE</db-field-name>
+            <field>PDP Type</field>
+            <referring-entity>0:61</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>SESSION_TIMEOUT</db-field-name>
+            <field>Session Timeout</field>
+            <referring-entity>$RES(0:27)</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>AAA_ID</db-field-name>
+            <field>AAA ID</field>
+            <referring-entity>21067:143</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>NAS_IDENTIFIER</db-field-name>
+            <field>NAS ID</field>
+            <referring-entity>0:32</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>USER_NAME</db-field-name>
+            <field>User Identity</field>
+            <referring-entity>0:1</referring-entity>
+        </mandatory-field-mapping-data>
+    </mandatory-db-field-mappings>
+    <additional-db-field-mappings>
+        <additional-db-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>CALLING_STATION_ID</db-field-name>
+            <referring-entity>0:31</referring-entity>
+        </additional-db-field-mapping-data>
+    </additional-db-field-mappings>
+</session-manager>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager?name=SessionManager&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager.json?name=SessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager?operation=search&name=SessionManager&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager.json?operation=search&name=SessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager.json?operation=search
+
+Response :
+
+
+{
+  "name": "Session_Mgr",
+  "description": "Created by admin on 03/01/2017 05:02:47 PM",
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "tblmconcurrentusers",
+  "start-time-field": "START_TIME",
+  "last-updated-time-field": "LAST_UPDATED_TIME",
+  "db-query-timeout": 1,
+  "sequence-name": "SEQ_TBLMCONCURRENTUSERS",
+  "behaviour": "Acct",
+  "db-failure-action": "IGNORE",
+  "session-stop-action": "DELETE",
+  "batch-update-enabled": "true",
+  "batch-size": 1000,
+  "batch-update-interval": 100,
+  "auto-session-closer-enabled": "false",
+  "session-timeout": 120,
+  "session-close-batch-count": 50,
+  "session-thread-sleep-time": 10,
+  "session-close-action": "None",
+  "session-override-action": "None",
+  "session-override-fields": "CALLING_STATION_ID",
+  "concurrency-identity-field": "GROUPNAME",
+  "mandatory-db-field-mappings": [
+    {
+      "field": "Session ID",
+      "db-field-name": "ACCT_SESSION_ID",
+      "referring-entity": "0:44",
+      "data-type": "String"
+    },
+    {
+      "field": "PDP Type",
+      "db-field-name": "NAS_PORT_TYPE",
+      "referring-entity": "0:61",
+      "data-type": "String"
+    },
+    {
+      "field": "Session Timeout",
+      "db-field-name": "SESSION_TIMEOUT",
+      "referring-entity": "$RES(0:27)",
+      "data-type": "String"
+    },
+    {
+      "field": "AAA ID",
+      "db-field-name": "AAA_ID",
+      "referring-entity": "21067:143",
+      "data-type": "String"
+    },
+    {
+      "field": "NAS ID",
+      "db-field-name": "NAS_IDENTIFIER",
+      "referring-entity": "0:32",
+      "data-type": "String"
+    },
+    {
+      "field": "User Identity",
+      "db-field-name": "USER_NAME",
+      "referring-entity": "0:1",
+      "data-type": "String"
+    }
+  ],
+  "additional-db-field-mappings": [
+    {
+      "db-field-name": "CALLING_STATION_ID",
+      "referring-entity": "0:31",
+      "data-type": "String"
+    }
+  ]
+}
+
+
+######################### GENERAL INSTRUCTION  ############################
+
+[CASE 1] : If Session Overide Action is "Generate Disconnect and Stop" then it is mandatory 
+to configure ESI Server(NAS and RAD_ACCT), In such a case the XML and JSON format is as follows,
+
+#### XML Format ####
+
+<session-override-action>Generate Disconnect and Stop</session-override-action>
+<esi>
+	<rad-acct-server>
+    	<esi-name>RAD_ACCT_ESI</esi-name>
+        <weightage>1</weightage>
+	</rad-acct-server>
+    <nas-server>
+        <esi-name>NAS_ESI</esi-name>
+        <weightage>1</weightage>
+    </nas-server>
+</esi>
+
+
+#### JSON Format ####
+
+{
+   "session-override-action":"Generate Disconnect and Stop",
+   "esi": {
+    "nas-server": [
+      {
+        "weightage": 1,
+        "esi-name": "NAS_ESI"
+      }
+    ],
+    "rad-acct-server": [
+      {
+        "weightage": 1,
+        "esi-name": "RAD_ACCT_ESI"
+      }
+    ]
+  }
+}
+
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<session-manager>
+    <name>Session_Mgr</name>
+    <description>Created by admin on 03/01/2017 05:02:47 PM</description>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>tblmconcurrentusers</table-name>
+    <start-time-field>START_TIME</start-time-field>
+    <last-updated-time-field>LAST_UPDATED_TIME</last-updated-time-field>
+    <db-query-timeout>1</db-query-timeout>
+    <sequence-name>SEQ_TBLMCONCURRENTUSERS</sequence-name>
+    <behaviour>Acct</behaviour>
+    <db-failure-action>IGNORE</db-failure-action>
+    <session-stop-action>DELETE</session-stop-action>
+    <batch-update-enabled>true</batch-update-enabled>
+    <batch-size>1000</batch-size>
+    <batch-update-interval>100</batch-update-interval>
+    <auto-session-closer-enabled>false</auto-session-closer-enabled>
+    <session-timeout>120</session-timeout>
+    <session-close-batch-count>50</session-close-batch-count>
+    <session-thread-sleep-time>10</session-thread-sleep-time>
+    <session-close-action>None</session-close-action>
+    <session-override-action>None</session-override-action>
+    <session-override-fields>CALLING_STATION_ID</session-override-fields>
+    <concurrency-identity-field>GROUPNAME</concurrency-identity-field>
+    <mandatory-db-field-mappings>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>ACCT_SESSION_ID</db-field-name>
+            <field>Session ID</field>
+            <referring-entity>0:44</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>NAS_PORT_TYPE</db-field-name>
+            <field>PDP Type</field>
+            <referring-entity>0:61</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>SESSION_TIMEOUT</db-field-name>
+            <field>Session Timeout</field>
+            <referring-entity>$RES(0:27)</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>AAA_ID</db-field-name>
+            <field>AAA ID</field>
+            <referring-entity>21067:143</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>NAS_IDENTIFIER</db-field-name>
+            <field>NAS ID</field>
+            <referring-entity>0:32</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>USER_NAME</db-field-name>
+            <field>User Identity</field>
+            <referring-entity>0:1</referring-entity>
+        </mandatory-field-mapping-data>
+    </mandatory-db-field-mappings>
+    <additional-db-field-mappings>
+        <additional-db-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>CALLING_STATION_ID</db-field-name>
+            <referring-entity>0:31</referring-entity>
+        </additional-db-field-mapping-data>
+    </additional-db-field-mappings>
+</session-manager>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Session Manager created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "Session_Mgr",
+  "description": "Created by admin on 03/01/2017 05:02:47 PM",
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "tblmconcurrentusers",
+  "start-time-field": "START_TIME",
+  "last-updated-time-field": "LAST_UPDATED_TIME",
+  "db-query-timeout": 1,
+  "sequence-name": "SEQ_TBLMCONCURRENTUSERS",
+  "behaviour": "Acct",
+  "db-failure-action": "IGNORE",
+  "session-stop-action": "DELETE",
+  "batch-update-enabled": "true",
+  "batch-size": 1000,
+  "batch-update-interval": 100,
+  "auto-session-closer-enabled": "false",
+  "session-timeout": 120,
+  "session-close-batch-count": 50,
+  "session-thread-sleep-time": 10,
+  "session-close-action": "None",
+  "session-override-action": "None",
+  "session-override-fields": "CALLING_STATION_ID",
+  "concurrency-identity-field": "GROUPNAME",
+  "mandatory-db-field-mappings": [
+    {
+      "field": "Session ID",
+      "db-field-name": "ACCT_SESSION_ID",
+      "referring-entity": "0:44",
+      "data-type": "String"
+    },
+    {
+      "field": "PDP Type",
+      "db-field-name": "NAS_PORT_TYPE",
+      "referring-entity": "0:61",
+      "data-type": "String"
+    },
+    {
+      "field": "Session Timeout",
+      "db-field-name": "SESSION_TIMEOUT",
+      "referring-entity": "$RES(0:27)",
+      "data-type": "String"
+    },
+    {
+      "field": "AAA ID",
+      "db-field-name": "AAA_ID",
+      "referring-entity": "21067:143",
+      "data-type": "String"
+    },
+    {
+      "field": "NAS ID",
+      "db-field-name": "NAS_IDENTIFIER",
+      "referring-entity": "0:32",
+      "data-type": "String"
+    },
+    {
+      "field": "User Identity",
+      "db-field-name": "USER_NAME",
+      "referring-entity": "0:1",
+      "data-type": "String"
+    }
+  ],
+  "additional-db-field-mappings": [
+    {
+      "db-field-name": "CALLING_STATION_ID",
+      "referring-entity": "0:31",
+      "data-type": "String"
+    }
+  ]
+}      
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Session Manager created successfully"
+    }
+  ]
+}
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+   <session-manager>
+      <name>Session_Mgr</name>
+      <description>Created by admin on 03/01/2017 05:02:47 PM</description>
+      <database-datasource>DefaultDatabaseDatasource</database-datasource>
+      <table-name>tblmconcurrentusers</table-name>
+      <start-time-field>START_TIME</start-time-field>
+      <last-updated-time-field>LAST_UPDATED_TIME</last-updated-time-field>
+      <db-query-timeout>1</db-query-timeout>
+      <sequence-name>SEQ_TBLMCONCURRENTUSERS</sequence-name>
+      <behaviour>Acct</behaviour>
+      <db-failure-action>IGNORE</db-failure-action>
+      <session-stop-action>DELETE</session-stop-action>
+      <batch-update-enabled>true</batch-update-enabled>
+      <batch-size>1000</batch-size>
+      <batch-update-interval>100</batch-update-interval>
+      <auto-session-closer-enabled>false</auto-session-closer-enabled>
+      <session-timeout>120</session-timeout>
+      <session-close-batch-count>50</session-close-batch-count>
+      <session-thread-sleep-time>10</session-thread-sleep-time>
+      <session-close-action>None</session-close-action>
+      <session-override-action>None</session-override-action>
+      <session-override-fields>CALLING_STATION_ID</session-override-fields>
+      <concurrency-identity-field>GROUPNAME</concurrency-identity-field>
+      <mandatory-db-field-mappings>
+         <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>ACCT_SESSION_ID</db-field-name>
+            <field>Session ID</field>
+            <referring-entity>0:44</referring-entity>
+         </mandatory-field-mapping-data>
+         <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>NAS_PORT_TYPE</db-field-name>
+            <field>PDP Type</field>
+            <referring-entity>0:61</referring-entity>
+         </mandatory-field-mapping-data>
+         <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>SESSION_TIMEOUT</db-field-name>
+            <field>Session Timeout</field>
+            <referring-entity>$RES(0:27)</referring-entity>
+         </mandatory-field-mapping-data>
+         <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>AAA_ID</db-field-name>
+            <field>AAA ID</field>
+            <referring-entity>21067:143</referring-entity>
+         </mandatory-field-mapping-data>
+         <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>NAS_IDENTIFIER</db-field-name>
+            <field>NAS ID</field>
+            <referring-entity>0:32</referring-entity>
+         </mandatory-field-mapping-data>
+         <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>USER_NAME</db-field-name>
+            <field>User Identity</field>
+            <referring-entity>0:1</referring-entity>
+         </mandatory-field-mapping-data>
+      </mandatory-db-field-mappings>
+      <additional-db-field-mappings>
+         <additional-db-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>CALLING_STATION_ID</db-field-name>
+            <referring-entity>0:31</referring-entity>
+         </additional-db-field-mapping-data>
+      </additional-db-field-mappings>
+   </session-manager>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Session Managers created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"Session_Mgr",
+         "description":"Created by admin on 03/01/2017 05:02:47 PM",
+         "database-datasource":"DefaultDatabaseDatasource",
+         "table-name":"tblmconcurrentusers",
+         "start-time-field":"START_TIME",
+         "last-updated-time-field":"LAST_UPDATED_TIME",
+         "db-query-timeout":1,
+         "sequence-name":"SEQ_TBLMCONCURRENTUSERS",
+         "behaviour":"Acct",
+         "db-failure-action":"IGNORE",
+         "session-stop-action":"DELETE",
+         "batch-update-enabled":"true",
+         "batch-size":1000,
+         "batch-update-interval":100,
+         "auto-session-closer-enabled":"false",
+         "session-timeout":120,
+         "session-close-batch-count":50,
+         "session-thread-sleep-time":10,
+         "session-close-action":"None",
+         "session-override-action":"None",
+         "session-override-fields":"CALLING_STATION_ID",
+         "concurrency-identity-field":"GROUPNAME",
+         "mandatory-db-field-mappings":[
+            {
+               "field":"Session ID",
+               "db-field-name":"ACCT_SESSION_ID",
+               "referring-entity":"0:44",
+               "data-type":"String"
+            },
+            {
+               "field":"PDP Type",
+               "db-field-name":"NAS_PORT_TYPE",
+               "referring-entity":"0:61",
+               "data-type":"String"
+            },
+            {
+               "field":"Session Timeout",
+               "db-field-name":"SESSION_TIMEOUT",
+               "referring-entity":"$RES(0:27)",
+               "data-type":"String"
+            },
+            {
+               "field":"AAA ID",
+               "db-field-name":"AAA_ID",
+               "referring-entity":"21067:143",
+               "data-type":"String"
+            },
+            {
+               "field":"NAS ID",
+               "db-field-name":"NAS_IDENTIFIER",
+               "referring-entity":"0:32",
+               "data-type":"String"
+            },
+            {
+               "field":"User Identity",
+               "db-field-name":"USER_NAME",
+               "referring-entity":"0:1",
+               "data-type":"String"
+            }
+         ],
+         "additional-db-field-mappings":[
+            {
+               "db-field-name":"CALLING_STATION_ID",
+               "referring-entity":"0:31",
+               "data-type":"String"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Session Managers created successfully"
+    }
+  ]
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager?name=SessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager?operation=update&name=SessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<session-manager>
+    <name>Session_Mgr</name>
+    <description>Created by admin on 03/01/2017 05:02:47 PM</description>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>tblmconcurrentusers</table-name>
+    <start-time-field>START_TIME</start-time-field>
+    <last-updated-time-field>LAST_UPDATED_TIME</last-updated-time-field>
+    <db-query-timeout>1</db-query-timeout>
+    <sequence-name>SEQ_TBLMCONCURRENTUSERS</sequence-name>
+    <behaviour>Acct</behaviour>
+    <db-failure-action>IGNORE</db-failure-action>
+    <session-stop-action>DELETE</session-stop-action>
+    <batch-update-enabled>true</batch-update-enabled>
+    <batch-size>1000</batch-size>
+    <batch-update-interval>100</batch-update-interval>
+    <auto-session-closer-enabled>false</auto-session-closer-enabled>
+    <session-timeout>125</session-timeout>
+    <session-close-batch-count>50</session-close-batch-count>
+    <session-thread-sleep-time>10</session-thread-sleep-time>
+    <session-close-action>None</session-close-action>
+    <session-override-action>None</session-override-action>
+    <session-override-fields>CALLING_STATION_ID</session-override-fields>
+    <concurrency-identity-field>GROUPNAME</concurrency-identity-field>
+    <mandatory-db-field-mappings>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>ACCT_SESSION_ID</db-field-name>
+            <field>Session ID</field>
+            <referring-entity>0:44</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>NAS_PORT_TYPE</db-field-name>
+            <field>PDP Type</field>
+            <referring-entity>0:61</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>SESSION_TIMEOUT</db-field-name>
+            <field>Session Timeout</field>
+            <referring-entity>$RES(0:27)</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>AAA_ID</db-field-name>
+            <field>AAA ID</field>
+            <referring-entity>21067:143</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>NAS_IDENTIFIER</db-field-name>
+            <field>NAS ID</field>
+            <referring-entity>0:32</referring-entity>
+        </mandatory-field-mapping-data>
+        <mandatory-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>USER_NAME</db-field-name>
+            <field>User Identity</field>
+            <referring-entity>0:1</referring-entity>
+        </mandatory-field-mapping-data>
+    </mandatory-db-field-mappings>
+    <additional-db-field-mappings>
+        <additional-db-field-mapping-data>
+            <data-type>String</data-type>
+            <db-field-name>CALLING_STATION_ID</db-field-name>
+            <referring-entity>0:31</referring-entity>
+        </additional-db-field-mapping-data>
+    </additional-db-field-mappings>
+</session-manager>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Session Manager updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     	 :
+
+{
+  "name": "Session_Mgr",
+  "description": "Created by admin on 03/01/2017 05:02:47 PM",
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "tblmconcurrentusers",
+  "start-time-field": "START_TIME",
+  "last-updated-time-field": "LAST_UPDATED_TIME",
+  "db-query-timeout": 1,
+  "sequence-name": "SEQ_TBLMCONCURRENTUSERS",
+  "behaviour": "Acct",
+  "db-failure-action": "IGNORE",
+  "session-stop-action": "DELETE",
+  "batch-update-enabled": "true",
+  "batch-size": 1000,
+  "batch-update-interval": 100,
+  "auto-session-closer-enabled": "false",
+  "session-timeout": 125,
+  "session-close-batch-count": 50,
+  "session-thread-sleep-time": 10,
+  "session-close-action": "None",
+  "session-override-action": "None",
+  "session-override-fields": "CALLING_STATION_ID",
+  "concurrency-identity-field": "GROUPNAME",
+  "mandatory-db-field-mappings": [
+    {
+      "field": "Session ID",
+      "db-field-name": "ACCT_SESSION_ID",
+      "referring-entity": "0:44",
+      "data-type": "String"
+    },
+    {
+      "field": "PDP Type",
+      "db-field-name": "NAS_PORT_TYPE",
+      "referring-entity": "0:61",
+      "data-type": "String"
+    },
+    {
+      "field": "Session Timeout",
+      "db-field-name": "SESSION_TIMEOUT",
+      "referring-entity": "$RES(0:27)",
+      "data-type": "String"
+    },
+    {
+      "field": "AAA ID",
+      "db-field-name": "AAA_ID",
+      "referring-entity": "21067:143",
+      "data-type": "String"
+    },
+    {
+      "field": "NAS ID",
+      "db-field-name": "NAS_IDENTIFIER",
+      "referring-entity": "0:32",
+      "data-type": "String"
+    },
+    {
+      "field": "User Identity",
+      "db-field-name": "USER_NAME",
+      "referring-entity": "0:1",
+      "data-type": "String"
+    }
+  ],
+  "additional-db-field-mappings": [
+    {
+      "db-field-name": "CALLING_STATION_ID",
+      "referring-entity": "0:31",
+      "data-type": "String"
+    }
+  ]
+}
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Session Manager updated successfully"
+    }
+  ]
+}
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager?name=SessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager?operation=delete&name=SessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sessionmanager/SessionManager?operation=delete
+
+Response :
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Session Managers deleted successfully</response-message>
+    </response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+***********************************************************************

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+
+<hibernate-mapping>
+
+    <class name="com.elitecore.elitesm.datamanager.servicepolicy.dynauth.data.DynAuthNasClientDetailData" table="TBLMDYNAUTHNASCLIENTDETAIL" >        
+        
+        <id name="nasClientDetailId" type="StringType" column="NASCLIENTDETAILID">            
+            <generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">				
+			</generator>
+        </id>
+        
+        <property name="esiInstanceId" type="StringType">
+            <column name="ESIINSTANCEID" sql-type="VARCHAR(36)" not-null="true" />
+        </property>
+        
+        <property name="loadFactor" type="java.lang.Long">
+            <column name="LOADFACTOR" sql-type="NUMBER(10)" not-null="false"  />
+        </property>
+        <property name="dynaAuthNasId" type="StringType">
+            <column name="DYNAAUTHNASID" sql-type="VARCHAR(36)" not-null="false"  />
+        </property>
+        
+       	<many-to-one name="externalSystemInstanceData" class="com.elitecore.elitesm.datamanager.externalsystem.data.ExternalSystemInterfaceInstanceData" column="ESIINSTANCEID" insert="false" update="false" not-null="true" lazy="false"/>  
+  	
+    </class>
+    
+</hibernate-mapping>

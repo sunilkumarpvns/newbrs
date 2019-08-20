@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.radius.policies.radiuspolicy.data.OperatorData" table="TBLSOPERATOR" >
+		<id name="operatorId" type="CharType">
+			<column name="OPERATORID" sql-type="CHAR(5)" not-null="true"/>
+		</id> 
+		<property name="operatorName" type="StringType">
+			<column name="NAME" sql-type="VARCHAR(20)" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>          

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class name="com.elitecore.elitesm.datamanager.diameter.diameterpeer.data.DiameterPeerRelData" table="TBLMHSSPEERGROUPREL">
+
+
+		<id name="hhsPeerGroupRelId" column="hhspeergrouprelid" type="StringType">
+			<generator
+				class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+
+		<property name="peerUUID" type="StringType"> 
+			<column name="PEERUUID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		
+		<property name="weightage" type="java.lang.Long"> 
+			<column name="weightage" sql-type="NUMERIC(3)" not-null="false" /> 
+		</property>
+		
+		<property name="hssauthdriverid" type="StringType"> 
+			<column name="hssauthdriverid" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="peerName" type="StringType"> 
+			<column name="PEERNAME" sql-type="VARCHAR(60)" not-null="false" /> 
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false" /> 
+		
+		<many-to-one name="diameterPeerData" lazy="false" insert="false" update="false" class="com.elitecore.elitesm.datamanager.diameter.diameterpeer.data.DiameterPeerData" column="peerUUID">
+		</many-to-one>
+		
+  </class>            
+	            
+</hibernate-mapping>

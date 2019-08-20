@@ -1,0 +1,12 @@
+{
+ 	"id": "rest_po_rnc_package_11111111",
+        "status": "ACTIVE",
+        "groups": "GROUP_1",
+        "name": "rest_po_rnc_package",
+        "description": "Created by rest automation",
+        "type": "BASE",
+        "mode": "TEST",
+        "chargingType":"SESSION",
+        "groupNames": "DefaultGroup",
+		"currency": "INR"
+}

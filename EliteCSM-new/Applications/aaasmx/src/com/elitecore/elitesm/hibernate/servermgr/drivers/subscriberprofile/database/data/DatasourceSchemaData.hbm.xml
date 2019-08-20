@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.drivers.subscriberprofile.database.data.DatasourceSchemaData" table="TBLMDATASOURCESCHEMA" >
+	   
+		<id name="fieldId" column="FIELDID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+				
+		<property name="fieldName" type="StringType">
+		  <column name="FIELDNAME" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		
+		<property name="dataType" type="StringType">
+		  <column name="DATATYPE" sql-type="VARCHAR(255)" not-null="true"/>
+		</property>
+		
+		<property name="length" type="long">
+		  <column name="LENGTH" sql-type="NUMERIC(10)" not-null="true"/>
+		</property>
+		
+		<property name="dbAuthId" type="StringType">
+		  <column name="OPENDBAUTHID" sql-type="VARCHAR(36)" not-null="true"/>
+		</property>	
+		
+		<property name="displayName" type="StringType">
+		  <column name="DISPLAYNAME" sql-type="VARCHAR(100)" not-null="false"/>
+		</property>		
+		
+		<property name="appOrder" type="integer">
+		  <column name="APPORDER" sql-type="NUMERIC(5)" not-null="false"/>
+		</property>
+		
+		<set name="dbdsParamPoolValueSet" lazy="false" cascade="all,delete-orphan" inverse="true" order-by="paramPoolId">
+			<key column="FIELDID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.subscriberprofile.database.data.DBSubscriberProfileParamPoolValueData"/>
+	    </set>  
+	    
+	    <many-to-one name="sqlData" class="com.elitecore.elitesm.datamanager.servermgr.drivers.subscriberprofile.database.data.SQLParamPoolValueData" column="sqlId" lazy="false" not-null="false"/>
+		
+	</class>
+	
+</hibernate-mapping>
+
+          

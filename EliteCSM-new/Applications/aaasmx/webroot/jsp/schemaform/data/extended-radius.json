@@ -1,0 +1,154 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "External System Interface",
+		"properties": {
+			"name": {
+				"title": "Name",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"esi-type": {
+				"title": "Extended Radius Type",
+				"type": "string"
+			},
+			"address": {
+				"title": "Address",
+				"type": "string"
+			},
+			"shared-secret": {
+				"title": "Shared Secret",
+				"type": "string",
+				"default": "secret"
+			},
+			"realm": {
+				"title": "Realm Names",
+				"type": "string"
+			},
+			"timeout": {
+				"title": "Timeout (ms)",
+				"type": "integer",
+				"default": 1000
+			},
+			"retry-count": {
+				"title": "Retry Count",
+				"type": "integer",
+				"default": 1
+			},
+			"expired-request-limit-count": {
+				"title": "Expired Request Limit Count",
+				"type": "integer",
+				"default": 50
+			},
+			"status-check-duration": {
+				"title": "Status Check Duration (Sec.)",
+				"type": "integer",
+				"default": 120
+			},
+			"status-check-method": {
+				"title": "Status Check Method",
+				"type": "string"
+			},
+			"packet-bytes": {
+				"title": "Packet Bytes",
+				"type": "string"
+			},
+			"minimum-local-port": {
+				"title": "Minimum Local Port",
+				"type": "integer",
+				"default": 10
+			},
+			"supported-attributes": {
+				"title": "Supported Attribute",
+				"type": "string"
+			},
+			"unsupported-attributes": {
+				"title": "Unsupported Attribute",
+				"type": "string"
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "description"
+		},
+		{
+			"key": "esi-type",
+			"type": "select",
+			"titleMap": {
+				"Rad Auth": "Rad Auth",
+				"Rad Acct": "Rad Acct",
+				"IP Pool Server": "IP Pool Server",
+				"Prepaid Server": "Prepaid Server",
+				"Session Manager": "Session Manager",
+				"Charging Gateway": "Charging Gateway",
+				"NAS": "NAS"
+			}
+		},
+		{
+			"key": "address"
+		},
+		{
+			"key": "shared-secret"
+		},
+		{
+			"key": "realm"
+		},
+		{
+			"key": "timeout"
+		},
+		{
+			"key": "retry-count"
+		},
+		{
+			"key": "expired-request-limit-count"
+		},
+		{
+			"key": "status-check-duration"
+		},
+		{
+			"key": "status-check-method",
+			"type": "select",
+			"titleMap": {
+				"ICMP_REQUEST":"ICMP_REQUEST",
+				"RADIUS_PACKET":"RADIUS_PACKET",
+				"PACKET_BYTES":"PACKET_BYTES"
+			}
+		},
+		{
+			"key": "packet-bytes"
+		},
+		{
+			"key": "minimum-local-port"
+		},
+		{
+			"key": "supported-attributes"
+		},
+		{
+			"key": "unsupported-attributes"
+		}
+	],
+	"model": {
+		"name": "radAuthesi",
+		"address": "10.121.21.221:1812",
+		"timeout": 1000,
+		"esi-type": "Rad Auth",
+		"description": "Created by admin on 11/28/2016 02:47:32 PM",
+		"shared-secret": "secret",
+		"minimum-local-port": 10,
+		"expired-request-limit-count": 50,
+		"retry-count": 10,
+		"status-check-duration": 120,
+		"realm": "elitecore.com",
+		"supported-attributes": "0:1",
+		"unsupported-attributes": "0:2",
+		"status-check-method": "RADIUS_PACKET",
+		"packet-bytes": "updatedbytes"
+	}
+}

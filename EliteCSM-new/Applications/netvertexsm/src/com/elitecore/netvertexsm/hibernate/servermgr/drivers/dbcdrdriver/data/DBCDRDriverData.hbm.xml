@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.drivers.dbcdrdriver.data.DBCDRDriverData" table="TBLMDBCDRDRIVER">
+
+		<id name="dbCDRDriverID" column="DBCDRDRIVERID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">				
+			</generator>
+		</id>    
+	
+		<property name="driverInstanceId" type="java.lang.Long"> 
+			<column name="DRIVERINSTANCEID" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+		
+		<property name="databaseDSID" type="java.lang.Long"> 
+			<column name="DATABASEDSID" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+		
+		<property name="dbQueryTimeout" type="java.lang.Long"> 
+			<column name="DBQUERYTIMEOUT" sql-type="NUMBER(16)" not-null="false" /> 
+		</property>
+
+		<property name="maxQueryTimeoutCount" type="java.lang.Long"> 
+			<column name="MAXQUERYTIMEOUTCOUNT" sql-type="NUMBER(16)" not-null="false" /> 
+		</property>
+		
+		<property name="isBatchUpdate" type="string"> 
+			<column name="ISBATCHUPDATE" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+   	 	<property name="batchSize" type="java.lang.Long"> 
+			<column name="BATCHSIZE" sql-type="NUMBER(4)" not-null="false" /> 
+		</property>
+
+ 		<property name="batchUpdateInterval" type="java.lang.Long"> 
+			<column name="BATCHUPDATEINTERVAL" sql-type="NUMBER(16)" not-null="false" /> 
+		</property>
+    
+     	<property name="queryTimeout" type="java.lang.Long"> 
+			<column name="QUERYTIMEOUT" sql-type="NUMBER(16)" not-null="false" /> 
+		</property>
+		
+		<property name="tableName" type="string"> 
+			<column name="TABLENAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="identityField" type="string"> 
+			<column name="IDENTITYFIELD" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="sequenceName" type="string"> 
+			<column name="SEQUENCENAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="storeAllCDR" type="string"> 
+			<column name="STOREALLCDR" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<property name="timeStampformat" type="string"> 
+			<column name="TIMESTAMPFIELDNAME" sql-type="VARCHAR(128)" not-null="false" /> 
+		</property>
+		
+		<property name="reportingType" type="string"> 
+			<column name="REPORTINGTYPE" sql-type="VARCHAR(2)" not-null="false" /> 
+		</property>
+		
+        <property name="sessionIDFieldName" type="string">
+            <column name="SESSIONIDFIELDNAME" sql-type="VARCHAR(30)" not-null="false" />
+        </property>
+       
+        <property name="createDateFieldName" type="string">
+            <column name="CREATEDATEFIELDNAME" sql-type="VARCHAR(30)" not-null="false"/>
+        </property>
+       
+        <property name="lastModifiedFieldName" type="string">
+            <column name="LASTMODIFIEDFIELDNAME" sql-type="VARCHAR(30)" not-null="false"/>
+        </property>
+		
+		<property name="inputOctetsFieldName" type="string"> 
+			<column name="INPUTOCTETSFIELDNAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="outputOctetsFieldName" type="string"> 
+			<column name="OUTPUTOCTETSFIELDNAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="totalOctetsFieldName" type="string"> 
+			<column name="TOTALOCTETSFIELDNAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="usageTimeFieldName" type="string"> 
+			<column name="USAGETIMEFIELDNAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="usageKeyFieldName" type="string"> 
+			<column name="USAGEKEYFIELDNAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<set inverse="true" name="dbcdrDriverFieldMappingDataSet" lazy="false" cascade="delete-orphan"  order-by="fieldMappingID" >
+			<key column="DBCDRDRIVERID" />
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.servermgr.drivers.dbcdrdriver.data.DBCDRFieldMappingData" not-found="ignore"  />
+		</set>
+		
+		<many-to-one name="dataSourceData" column="DATABASEDSID" lazy="false" insert="false" update="false"
+      	  class="com.elitecore.netvertexsm.datamanager.datasource.database.data.DatabaseDSData" not-null="false" cascade="save-update">
+     	</many-to-one>
+		
+	</class>
+
+</hibernate-mapping>          

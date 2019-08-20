@@ -1,0 +1,389 @@
+IMDG-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+       MODULE-IDENTITY, OBJECT-TYPE, OBJECT-IDENTITY,
+       NOTIFICATION-TYPE, Counter32, Integer32,
+       IpAddress, TimeTicks, mib-2      FROM SNMPv2-SMI
+       SnmpAdminString                  FROM SNMP-FRAMEWORK-MIB
+       MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP  FROM SNMPv2-CONF;
+       
+
+        internet      OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 }
+
+        directory     OBJECT IDENTIFIER ::= { internet 1 }
+
+        mgmt          OBJECT IDENTIFIER ::= { internet 2 }
+ 
+        experimental  OBJECT IDENTIFIER ::= { internet 3 }
+
+        private       OBJECT IDENTIFIER ::= { internet 4 }
+
+        enterprises   OBJECT IDENTIFIER ::= { private 1 }
+
+        elitecore     OBJECT IDENTIFIER ::= { enterprises 21067 }
+        
+        imdg		  OBJECT IDENTIFIER ::= { elitecore 6 }
+        
+-------ALERTS
+
+alerts OBJECT IDENTIFIER ::= { imdg 1 }
+    
+alertInstanceStatus NOTIFICATION-TYPE
+    OBJECTS { instanceStatus }
+    STATUS  current
+    DESCRIPTION "notifies the status of the current instance."
+	::= { alerts 1}
+
+alertMemberStatus NOTIFICATION-TYPE
+    OBJECTS { member, memberStatus }
+    STATUS  current
+    DESCRIPTION "notifies when a member is added or removed to the cluster."
+	::= { alerts 2}
+
+alertMigrationHealth NOTIFICATION-TYPE
+    OBJECTS { migrationStatus }
+    STATUS  current
+    DESCRIPTION "notifies the state of migration."
+	::= { alerts 3}
+
+alertInfoGroup OBJECT IDENTIFIER ::= {imdg 2}
+ 
+instanceStatus OBJECT-TYPE
+    SYNTAX          INTEGER {
+    				active(0),
+    				inactive(1)
+    				}
+    MAX-ACCESS      accessible-for-notify
+    STATUS          current
+    DESCRIPTION
+            "represents the status of the instance. 0-Active, 1-Inactive"
+    ::= { alertInfoGroup 1 }
+
+
+member OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      accessible-for-notify
+    STATUS          current
+    DESCRIPTION
+            "represents the address of the member which added/removed to grid"
+    ::= { alertInfoGroup 2 }
+
+memberStatus OBJECT-TYPE
+    SYNTAX          INTEGER {
+    				added(0),
+    				removed(1)
+    				}
+    MAX-ACCESS      accessible-for-notify
+    STATUS          current
+    DESCRIPTION
+            "represents whether the member is added or removed in the grid. 
+            	added(0) - a member is added in the grid.
+            	removed(1) - a member removed from the grid. "
+    ::= { alertInfoGroup 3 }
+
+
+migrationStatus OBJECT-TYPE
+    SYNTAX          INTEGER {
+    				completed(0),
+    				partial(1),
+    				failure(3)
+    				}
+    MAX-ACCESS      accessible-for-notify
+    STATUS          current
+    DESCRIPTION
+            "represents the status of migration process.
+            	 completed(0) - migration completed
+            	 partial(1) - migration is started
+            	 failure(3) - migration failed"
+    ::= { alertInfoGroup 4 }
+    
+-- CLUSTER
+
+clusterVersion OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " version of the IMDG Cluster "
+    ::= { imdg 3 }
+    
+clusterName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " name of the cluster/group "
+    ::= { imdg 4 }
+        
+clusterMembersCount OBJECT-TYPE
+    SYNTAX          Counter32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " total number of members in the cluster "
+    ::= { imdg 5 }
+     
+clusterState OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            " current state of the cluster "
+    ::= { imdg 6 }
+     
+------OWN DETAIL
+
+ownIpAddress OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "IP address of the local member"
+    ::= { imdg 7 }
+
+    
+ownPort OBJECT-TYPE
+    SYNTAX          INTEGER
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "start port of the local member"
+    ::= { imdg 8 }
+ 
+ 
+ownState OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "current state of the local member"
+    ::= { imdg 9 }
+ 
+ 
+------------MAP STATISTICS
+ 
+mapStatistics OBJECT IDENTIFIER ::= { imdg 10 }
+
+mapStatisticsTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF MapDetailEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+			"table contains the map statistics of own"
+    ::= { mapStatistics 1 }
+
+mapDetailEntry OBJECT-TYPE
+    SYNTAX          MapDetailEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            "Entry represents statistics of own(self)"
+    INDEX           {
+                        mapIndex
+                    }
+    ::= { mapStatisticsTable 1 }
+    
+MapDetailEntry ::= SEQUENCE {
+    mapIndex  			Unsigned32,
+    mapName			SnmpAdminString,
+    activeSessions		Counter64,
+    backupSessions		Counter64,
+    memoryUsedbyMap		Counter64,
+    memoryUsedForBackUp 	Counter64,
+    noOfLockedSessions		Counter64,
+    totalPutOperations  	Counter64,
+    totalGetOperations  	Counter64,
+    totalRemoveOperations  	Counter64,
+    avgPutLatency		Counter64,
+    avgGetLatency		Counter64,
+    avgRemoveLatency		Counter64
+}
+
+
+mapIndex OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            "a number that uniquely identify each map statistics entry"
+    ::= { mapDetailEntry 1 }
+    
+mapName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "name of the map"
+    ::= { mapDetailEntry 2 }
+    
+activeSessions OBJECT-TYPE
+    SYNTAX          Counter64
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "number of sessions contained by map"
+    ::= { mapDetailEntry 3 }
+    
+backupSessions OBJECT-TYPE
+    SYNTAX          Counter64
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "number of backup sessions hold on this map on local member  "
+    ::= { mapDetailEntry 4 }
+    
+    
+memoryUsedbyMap OBJECT-TYPE
+    SYNTAX          Counter64
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "memory cost (number of bytes) of owned entries in this member"
+    ::= { mapDetailEntry 5 }
+    
+    
+memoryUsedForBackUp OBJECT-TYPE
+    SYNTAX          Counter64
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "memory cost (number of bytes) of backup entries in this member."
+    ::= { mapDetailEntry 6 }
+    
+noOfLockedSessions OBJECT-TYPE
+    SYNTAX          Counter64
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "the number of currently locked locally owned keys"
+    ::= { mapDetailEntry 7 }
+    
+totalPutOperations OBJECT-TYPE
+    SYNTAX          Counter64
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "the number of put operations"
+    ::= { mapDetailEntry 8 }
+    
+    
+totalGetOperations OBJECT-TYPE
+    SYNTAX          Counter64
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "the number of get operations"
+    ::= { mapDetailEntry 9 }
+    
+    
+ totalRemoveOperations OBJECT-TYPE
+    SYNTAX          Counter64
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "the number of remove operations"
+    ::= { mapDetailEntry 10 }
+    
+    
+ avgPutLatency OBJECT-TYPE
+    SYNTAX          Counter64
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "average latency of put operations i.e (total put latency/ no of put operations)"
+    ::= { mapDetailEntry 11 }
+    
+avgGetLatency OBJECT-TYPE
+    SYNTAX          Counter64
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "average latency of get operations i.e (total get latency/ no of get operations)"
+    ::= { mapDetailEntry 12 }
+    
+avgRemoveLatency OBJECT-TYPE
+    SYNTAX          Counter64
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "average latency of remove operations i.e (total remove latency/ no of remove operations)"
+    ::= { mapDetailEntry 13 }
+    
+     
+--------- MEMBERS
+
+members OBJECT IDENTIFIER ::= { imdg 11 }
+
+membersDetailTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF MembersDetailEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            " The table contains members' information for the cluster"
+    ::= { members 1 }
+
+membersDetailEntry OBJECT-TYPE
+    SYNTAX          MembersDetailEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+            " Entry represents members' informations"
+    INDEX           {
+                        memberID
+                    }
+    ::= { membersDetailTable 1 }
+    
+MembersDetailEntry ::= SEQUENCE {
+    memberID  			Unsigned32,
+    memberName			SnmpAdminString,
+    ipAddress			SnmpAdminString,
+    port				INTEGER,
+    status				INTEGER
+}
+
+memberID OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "number that uniquely identify a cluster member"
+    ::= { membersDetailEntry 1 }
+
+memberName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "name of the cluster member"
+    ::= { membersDetailEntry 2 }
+
+ipAddress OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "IP address of the cluster member"
+    ::= { membersDetailEntry 3 }
+
+    
+port OBJECT-TYPE
+    SYNTAX          INTEGER
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "start port of the cluster member"
+    ::= { membersDetailEntry 4 }
+    
+    
+status OBJECT-TYPE
+    SYNTAX          INTEGER {
+    				active(0),
+    				inactive(1)
+    				}
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+            "status of the cluster member"
+    ::= { membersDetailEntry 5 }
+
+END

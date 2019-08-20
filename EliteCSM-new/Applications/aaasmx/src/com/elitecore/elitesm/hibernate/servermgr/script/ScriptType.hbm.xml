@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servermgr.script.data.ScriptTypeData" table="TBLSCRIPTTYPE">
+		
+		<id name="scriptTypeId" column="SCRIPTTYPEID" type="StringType"/>
+			
+		<property name="name" type="StringType">
+			<column name="NAME" sql-type="VARCHAR(200)" not-null="true"></column>
+		</property>
+		
+		<property name="serialNo" type="long">
+			<column name="SERIALNO" sql-type="NUMERIC(10)"></column>
+		</property>
+		
+		<property name="displayName" type="StringType">
+			<column name="DISPLAYNAME" sql-type="VARCHAR(200)" not-null="false"></column>
+		</property>
+		
+		<property name="alias" type="StringType">
+			<column name="ALIAS" sql-type="VARCHAR(100)" not-null="false"></column>
+		</property>
+		
+		<property name="description" type="StringType">
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)"></column>
+		</property>
+		
+		<property name="status" type="CharType">
+			<column name="STATUS" sql-type="CHAR(1)" not-null="true"></column>
+		</property>
+		
+	</class>
+</hibernate-mapping>          

@@ -1,0 +1,112 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "Mapping",
+		"properties": {
+			"rad-plugins": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"plugin-name": {
+							"title": "Plugin Name",
+							"type": "string"
+						},
+						"class-name": {
+							"title": "Class Name",
+							"type": "string"
+						},
+						"conf-class-name": {
+							"title": "Config Class Name",
+							"type": "string"
+						},
+						"description": {
+							"title": "Description",
+							"type": "string"
+						}
+					}
+				}
+			},
+			"diameter-plugins": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"plugin-name": {
+							"title": "Plugin Name",
+							"type": "string"
+						},
+						"class-name": {
+							"title": "Class Name",
+							"type": "string"
+						},
+						"conf-class-name": {
+							"title": "Config Class Name",
+							"type": "string"
+						},
+						"description": {
+							"title": "Description",
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "rad-plugins",
+			"add": "Add",
+			"items": [
+				{
+					"key": "rad-plugins[].plugin-name"
+				},
+				{
+					"key": "rad-plugins[].class-name"
+				},
+				{
+					"key": "rad-plugins[].conf-class-name"
+				},
+				{
+					"key": "rad-plugins[].description"
+				}
+			]
+		},
+		{
+			"key": "diameter-plugins",
+			"add": "Add",
+			"items": [
+				{
+					"key": "diameter-plugins[].plugin-name"
+				},
+				{
+					"key": "diameter-plugins[].class-name"
+				},
+				{
+					"key": "diameter-plugins[].conf-class-name"
+				},
+				{
+					"key": "diameter-plugins[].description"
+				}
+			]
+		}
+	],
+	"model": {
+		"rad-plugins": [
+			{
+				"plugin-name": "rad_Plugin",
+				"class-name": "className",
+				"conf-class-name": "configClassName",
+				"description": "handling radius packet customization"
+			}
+		],
+		"diameter-plugins": [
+			{
+				"plugin-name": "dia_plugin",
+				"class-name": "className",
+				"conf-class-name": "ConfigClassName",
+				"description": "handling diameter packet customization"
+			}
+		]
+	}
+}

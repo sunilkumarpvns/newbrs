@@ -1,0 +1,96 @@
+{
+  "id": "rest_d_gateway_profile_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Updated_Rest_Diameter_Gateway_Profile",
+  "description": "Updated by REST Automation",
+  "gatewayType": "APPLICATION_FUNCTION",
+  "vendorId": "2011",
+  "firmware": "firmwares",
+  "usageReportingType": "CUMULATIVE",
+  "revalidationMode": "ServerInitiated",
+  "timeout": 3001,
+  "gxApplicationId": "10415:16777238",
+  "gyApplicationId": "10415:4",
+  "rxApplicationId": "10415:16777236",
+  "s9ApplicationId": "10415:16777267",
+  "syApplicationId": "10415:16777302",
+  "dwInterval": 30,
+  "supportedVendorList": "3Com - 43",
+  "supportedStandard": "RELEASE_8",
+  "chargingRuleInstallMode": "SINGLE",
+  "sessionCleanUpCER": false,
+  "sessionCleanUpDPR": false,
+  "cerAvps": null,
+  "dprAvps": null,
+  "dwrAvps": null,
+  "socketReceiveBufferSize": 1,
+  "sendDPRCloseEvent": true,
+  "socketSendBufferSize": 1,
+  "tcpNagleAlgorithm": false,
+  "initConnectionDuration": 30,
+  "groovyScriptDatas": [],
+  "umStandard": "TGPPR9",
+  "sessionLookUpKey": "CS.SessionIPv4, CS.SessionIPv6",
+  "diameterGwProfilePCCRuleMappings": [
+    {
+      "orderNumber": 1,
+      "pccRuleMappingId": "rest_pcc_rule_mapping_11111111",
+      "condition": "0:1=\"netvertex\""
+    }
+  ],
+  "vendorData": {
+    "id": "2011",
+    "name": "Huawei",
+    "description": "Huawei"
+  },
+  "pccToGWGxPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_ptog_packet_mapping_11111111",
+      "applicationType": "GX",
+      "condition": "0:1=\"netvertex\""
+    }
+  ],
+  "gwToPccGxPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_gtop_packet_mapping_11111111",
+      "applicationType": "GX",
+      "condition": "0:1=\"netvertex\""
+    }
+  ],
+  "pccToGWGyPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_ptog_packet_mapping_11111111",
+      "applicationType": "GY",
+      "condition": "0:1=\"netvertex\""
+    }
+  ],
+  "gwToPccGyPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_gtop_packet_mapping_11111111",
+      "applicationType": "GY",
+      "condition": "0:1=\"netvertex\""
+    }
+  ],
+  "pccToGWRxPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_ptog_rx_packet_mapping_11111111",
+      "applicationType": "RX",
+      "condition": "0:1=\"netvertex\""
+    }
+  ],
+  "gwToPccRxPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_gtop_rx_packet_mapping_11111111",
+      "applicationType": "RX",
+      "condition": "0:1=\"netvertex\""
+    }
+  ],
+  "groupNames": "DefaultGroup"
+}

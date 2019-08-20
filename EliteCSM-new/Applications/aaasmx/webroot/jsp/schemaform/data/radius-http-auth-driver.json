@@ -1,0 +1,237 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "Http Auth Driver",
+		"properties": {
+			"name": {
+				"title": "Instance Name",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"http-auth-driver": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"http-url": {
+							"title": "Http Url",
+							"type": "string"
+						},
+						"status-check-duration": {
+							"title": "Status Check Duration(sec)",
+							"type": "integer",
+							"default": 120
+						},
+						"maximum-query-timeout-count": {
+							"title": "Maximum Query Timeout Count",
+							"type": "integer",
+							"default": 200
+						},
+						"expiry-date-formats": {
+							"title": "Expiry Date Formats",
+							"type": "string",
+							"default": "MM/dd/yyyy"
+						},
+						"user-identity-attributes": {
+							"title": "User Identity Attributes",
+							"type": "string"
+						},
+						"http-response-mappings": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"logical-name": {
+										"title": "Logical Name",
+										"type": "string"
+									},
+									"response-parameter-index": {
+										"title": "Response Parameter Index",
+										"type": "integer",
+										"default": "1"
+									},
+									"default-value": {
+										"title": "Default Value",
+										"type": "string"
+									},
+									"value-mapping": {
+										"title": "Value Mapping",
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "description"
+		},
+		{
+			"key": "http-auth-driver",
+			"items": [
+				{
+					"key": "http-auth-driver[].http-url"
+				},
+				{
+					"key": "http-auth-driver[].status-check-duration"
+				},
+				{
+					"key": "http-auth-driver[].maximum-query-timeout-count"
+				},
+				{
+					"key": "http-auth-driver[].expiry-date-formats"
+				},
+				{
+					"key": "http-auth-driver[].user-identity-attributes"
+				},
+				{
+					"key": "http-auth-driver[].http-response-mappings",
+					"add": "Add Mapping",
+					"items": [
+						{
+							"key": "http-auth-driver[].http-response-mappings[].logical-name",
+							"title": "Logical Name",
+							"type": "select",
+							"titleMap": {
+								"CUI": "CUI",
+								"Callback ID": "Callback ID",
+								"Called Station ID": "Called Station ID",
+								"Calling Station ID": "Calling Station ID",
+								"Concurrent Login Policy": "Concurrent Login Policy",
+								"Credit Limit": "Credit Limit",
+								"Customer Check Items": "Customer Check Items",
+								"Customer Reject Items": "Customer Reject Items",
+								"Customer Reply Items": "Customer Reply Items",
+								"Customer Status": "Customer Status",
+								"Customer Type": "Customer Type",
+								"Encryption Type": "Encryption Type",
+								"Expiry Date": "Expiry Date",
+								"Grace Period": "Grace Period",
+								"Group Name": "Group Name",
+								"Hotline Policy": "Hotline Policy",
+								"IP Pool Name": "IP Pool Name",
+								"Param1": "Param1",
+								"Param2": "Param2",
+								"Param3": "Param3",
+								"Password Check": "Password Check",
+								"Authorization Policy": "Authorization Policy",
+								"Service Type": "Service Type",
+								"User Name": "User Name",
+								"User Password": "User Password",
+								"MAC Validation": "MAC Validation",
+								"Access Policy": "Access Policy",
+								"Group Bandwidth": "Group Bandwidth",
+								"Dynamic Check Items": "Dynamic Check Items",
+								"IMSI": "IMSI",
+								"MEID": "MEID",
+								"MSISDN": "MSISDN",
+								"MDN": "MDN",
+								"IMEI": "IMEI",
+								"Customer Services": "Customer Services",
+								"Additional Policy": "Additional Policy",
+								"Param4": "Param4",
+								"Param5": "Param5",
+								"Device Vendor": "Device Vendor",
+								"Device Name": "Device Name",
+								"Device Port": "Device Port",
+								"GEO Location": "GEO Location",
+								"Device VLAN": "Device VLAN",
+								"Reply Framed IPV4 Address": "Reply Framed IPV4 Address",
+								"Reply Framed IPV6 Prefix": "Reply Framed IPV6 Prefix",
+								"Reply Framed Pool": "Reply Framed Pool",
+								"Policy Group": "Policy Group"
+							}
+						},
+						{
+							"key": "http-auth-driver[].http-response-mappings[].response-parameter-index",
+							"title": "Response Parameter Index "
+						},
+						{
+							"key": "http-auth-driver[].http-response-mappings[].default-value",
+							"title": "Default Value"
+						},
+						{
+							"key": "http-auth-driver[].http-response-mappings[].value-mapping",
+							"title": "Value Mapping"
+						}
+					]
+				}
+			]
+		}
+	],
+	"model": {
+		"name": "RadiusHttpAuthDriver",
+		"description": "Created by admin on 01/23/2017 06:25:21 PM",
+		"http-auth-driver": [
+			{
+				"http-url": "www.elitecore.com",
+				"status-check-duration": 120,
+				"maximum-query-timeout-count": 200,
+				"expiry-date-formats": "MM/dd/yyyy",
+				"user-identity-attributes": "0:1",
+				"http-response-mappings": [
+					{
+						"logical-name": "User Name",
+						"response-parameter-index": 1
+					},
+					{
+						"logical-name": "CUI",
+						"response-parameter-index": 2
+					},
+					{
+						"logical-name": "User Password",
+						"response-parameter-index": 3
+					},
+					{
+						"logical-name": "Password Check",
+						"response-parameter-index": 4
+					},
+					{
+						"logical-name": "Encryption Type",
+						"response-parameter-index": 5
+					},
+					{
+						"logical-name": "Customer Status",
+						"response-parameter-index": 6
+					},
+					{
+						"logical-name": "Calling Station ID",
+						"response-parameter-index": 7
+					},
+					{
+						"logical-name": "Authorization Policy",
+						"response-parameter-index": 8
+					},
+					{
+						"logical-name": "Customer Check Items",
+						"response-parameter-index": 9
+					},
+					{
+						"logical-name": "Customer Reply Items",
+						"response-parameter-index": 10
+					},
+					{
+						"logical-name": "Expiry Date",
+						"response-parameter-index": 11
+					},
+					{
+						"logical-name": "Credit Limit",
+						"response-parameter-index": 12,
+						"default-value": "Active",
+						"value-mapping": "1=Active,0=inActive"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+    <class name="com.elitecore.elitesm.datamanager.servermgr.drivers.csvdriver.data.ClassicCSVAttrRelationData" table="TBLMCLASSICCSVATTRREL" >
+    
+        <id name="attrRelId" type="StringType" column="ATTRRELID">            
+            <generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+        </id>
+      	
+      	<property name="classicCsvId" type="StringType">
+            <column name="CLASSICCSVID" sql-type="VARCHAR(36)" not-null="true"/>
+        </property>
+        <property name="header" type="StringType">
+            <column name="HEADER" sql-type="VARCHAR(255)" not-null="false"/>
+        </property>
+        <property name="attributeids" type="StringType">
+            <column name="ATTRIBUTEIDS" sql-type="VARCHAR(255)" not-null="false"/>
+        </property>
+        <property name="defaultvalue" type="StringType">
+            <column name="DEFAULTVALUE" sql-type="VARCHAR(255)" not-null="false"/>
+        </property>
+        <property name="usedictionaryvalue" type="StringType">
+            <column name="USEDICTIONARYVALUE" sql-type="VARCHAR(8)" not-null="false" />
+        </property>
+        <property name="orderNumber" type="java.lang.Integer">
+        	 <column name="ORDERNUMBER" sql-type="NUMERIC(20)" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>          

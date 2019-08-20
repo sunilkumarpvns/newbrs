@@ -1,0 +1,9 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_radius_gateway_profile,POST : Create Radius Profile for Radius Gateway : 201,sm/gatewayprofile/radius-gateway-profile.json,POST,create_radius_profile.json,,,201,radius-gateway-profile
+2,create_radius_gateway,POST : Create Radius Gateway rest_radius_gateway : 201,sm/gateway/radius-gateway.json,POST,create_radius_gateway.json,,28847,201,radius-gateway
+3,get_created_radius_gateway,GET : rest_radius_gateway should be displayed : 200,sm/gateway/radius-gateway/rest_radius_gateway_11111111.json,GET,,,28848,200,radius-gateway
+4,update_radius_gateway,PUT : Update rest_radius_gateway and change to  updated_rest_radius_gateway :200,sm/gateway/radius-gateway/rest_radius_gateway_11111111.json,PUT,update_radius_gateway.json,,28849,200,radius-gateway
+5,get_updated_radius_gateway,GET : updated_rest_radius_gateway should be displayed : 200,sm/gateway/radius-gateway/rest_radius_gateway_11111111.json,GET,,,28850,200,radius-gateway
+6,delete_radius_gateway,DELETE : Delete  updated_rest_radius_gateway : 200,sm/gateway/radius-gateway/rest_radius_gateway_11111111.json,DELETE,,,28851,200,radius-gateway
+7,get_deleted_radius_gateway,GET : updated_rest_radius_gateway should not be displayed : 404,sm/gateway/radius-gateway/rest_radius_gateway_11111111.json,GET,,"{""actionErrors"":[""Gateway Not Found with id: rest_radius_gateway_11111111""]}",28852,404,radius-gateway
+8,delete_radius_gateway_profile,DELETE : Delete Radius Gateway Profile : 200,sm/gatewayprofile/radius-gateway-profile/rest_r_gateway_profile_11111111.json,DELETE,,,,200,radius-gateway-profile

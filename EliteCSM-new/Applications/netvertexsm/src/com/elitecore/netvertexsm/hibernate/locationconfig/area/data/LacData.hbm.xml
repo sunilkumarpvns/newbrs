@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.locationconfig.area.data.LacData" table="TBLMLACINFO" >
+		
+		<id name="lacId" column="LACINFOID" type="java.lang.Long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"> 
+			</generator>
+		</id>
+	    
+	    <property name="lacCode" type="java.lang.Long">
+	          <column name="LAC" sql-type="NUMERIC(6)" not-null="false"/>
+	    </property>
+		
+		<property name="strCellIds" type="string">
+	          <column name="CI_LIST" length="4000" not-null="false"/>
+	    </property>
+	    
+	    <property name="strRacs" type="string">
+	          <column name="RAC_LIST" length="4000" not-null="false"/>
+	    </property>
+		
+		<property name="strSacs" type="string">
+	          <column name="SAC_LIST" length="4000" not-null="false"/>
+	    </property>
+	    
+	    <property  name="networkId" type="java.lang.Long">
+			<column name="NETWORKID" not-null="true" sql-type="NUMERIC" />
+		</property>
+	    
+	    <many-to-one name="networkData" fetch="join"  insert="false" update="false" class="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.NetworkData" column="NETWORKID" ></many-to-one>
+	    
+	    <set name="areaDataSet" table="TBLMLACAREAREL" inverse="false" lazy="true" fetch="select" cascade="all,save-update">
+            <key>
+                <column name="LACINFOID" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.elitecore.netvertexsm.datamanager.locationconfig.area.data.AreaData">
+                <column name="AREAID" not-null="true" />
+            </many-to-many>
+        </set>
+	    	    
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+#!/bin/ksh
+
+# Modify the following options:
+#  -conf : path and name of the configuration file for the HLR simulator
+#  -node : node name as configured in Signalware
+#  -lpc  : local point code
+#  -lssn : local SSN
+#  [-cont v,w,x,y,z] : used to implement segmentation in SendAuthenticationInfo response.
+#                      (See annex C in TS 29.002). At least u an v must be present
+#                      and v+w+x+y+z =<5. v,w,x,y,z represent then number of
+#                      Authentication Vectors present in each message.
+#                      Example: -cont 1,1,1,1,1
+#
+
+./gmapHLR 0xff -hlr ./gmapHLR.conf -alone -node C72 -prot C7 -lpc 2363 -lssn 6 -name HLR -appctx 3

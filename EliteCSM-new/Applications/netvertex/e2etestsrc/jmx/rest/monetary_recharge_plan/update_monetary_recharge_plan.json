@@ -1,0 +1,14 @@
+  {
+    "id": "MRP_1000",
+    "status": "ACTIVE",
+    "groups": "GROUP_1",
+    "price": 1000,
+    "amount": 1000,
+    "validity": 30,
+    "validityPeriodUnit": "DAY",
+    "description": "Created by admin on 09/12/2018 15:20:09",
+    "name": "UPDATED_MRP_1000",
+    "packageMode": "DESIGN",
+    "groupNames": null
+  }
+

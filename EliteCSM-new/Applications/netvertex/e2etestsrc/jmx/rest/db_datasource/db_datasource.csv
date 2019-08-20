@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_db_datasource,POST : Create DB datasource rest_datasource : 201,sm/database/database.json,POST,create_db_datasource.json,,28173,201,datasource
+2,get_created_db_datasource,GET : rest_datasource should be displayed : 200,sm/database/database/rest_datasource_11111111.json,GET,,,28174,200,datasource
+3,update_db_datasource,PUT  : Update rest_datasource and change name to updated_rest_datasource : 200,sm/database/database/rest_datasource_11111111.json,PUT,update_db_datasource.json,,28175,200,datasource
+4,get_updated_db_datasource,GET : updated_rest_datasource should be displayed : 200,sm/database/database/rest_datasource_11111111.json,GET,,,28176,200,datasource
+5,delete_db_datasource,DELETE : Delete updated_rest_datasource : 200,sm/database/database/rest_datasource_11111111.json,DELETE,,,28177,200,datasource
+6,get_deleted_db_datasource,GET : updated_rest_datasource should not be displayed : 404,sm/database/database/rest_datasource_11111111.json,GET,,"{""actionErrors"":[""Database Datasource Not Found with id: rest_datasource_11111111""]}",28178,404,datasource

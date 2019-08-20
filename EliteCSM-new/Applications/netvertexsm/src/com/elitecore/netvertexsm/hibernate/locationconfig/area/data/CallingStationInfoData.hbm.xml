@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 19, 2013 11:06:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.elitecore.netvertexsm.datamanager.locationconfig.area.data.CallingStationInfoData" table="TBLMCALLINGSTATIONIDINFO" >
+    
+        <id name="csId" column="CSID" type="long">
+            <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"></generator>
+        </id>
+        
+        <property name="callingStaionIds" type="string">
+            <column name="CALLINGSTATIONID_LIST" length="256" />
+        </property>
+        
+        <many-to-one name="areaData"  foreign-key="areaId"  column="AREAID"  class="com.elitecore.netvertexsm.datamanager.locationconfig.area.data.AreaData"></many-to-one>
+        
+    </class>
+</hibernate-mapping>

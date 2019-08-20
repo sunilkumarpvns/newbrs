@@ -1,0 +1,7 @@
+description = 'CSM Core library'
+
+dependencies {
+    compile project(':elitecommons')
+
+    compile group: 'uk.com.robust-it', name: 'cloning', version: '1.8.5'
+}

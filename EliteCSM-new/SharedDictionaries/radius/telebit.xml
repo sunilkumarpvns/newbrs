@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="117" vendor-name="Telebit">
+<attribute id="1" name="Telebit-Login-Command" type="string"/>
+<attribute id="2" name="Telebit-Port-Name" type="string"/>
+<attribute id="3" name="Telebit-Activate-Command" type="string"/>
+<attribute id="4" name="Telebit-Accounting-Info" type="string"/>
+</attribute-list>

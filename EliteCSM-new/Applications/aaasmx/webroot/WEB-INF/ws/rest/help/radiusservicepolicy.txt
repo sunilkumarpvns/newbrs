@@ -1,0 +1,2821 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy?name=Radius_Service_Policy&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy.xml?name=Radius_Service_Policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/Radius_Service_Policy?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/Radius_Service_Policy.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy?operation=search&name=Radius_Service_Policy&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy.xml?operation=search&name=Radius_Service_Policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/Radius_Service_Policy?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/Radius_Service_Policy.xml?operation=search
+
+Response     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<radius-policy>
+    <name>Radius_Service_Policy</name>
+    <description>Created by admin on 03/07/2017 11:18:46 AM</description>
+    <status>ACTIVE</status>
+    <supported-messages>
+        <accounting-message>true</accounting-message>
+        <authentication-message>true</authentication-message>
+    </supported-messages>
+    <authentication-ruleset>0:1="*"</authentication-ruleset>
+    <accounting-ruleset>0:1="*"</accounting-ruleset>
+    <user-identity>0:1</user-identity>
+    <validate-packet>false</validate-packet>
+    <default-auth-response-behavior>REJECT</default-auth-response-behavior>
+    <default-acct-response-behavior>DROP</default-acct-response-behavior>
+    <auth-response-attributes></auth-response-attributes>
+    <acct-response-attributes></acct-response-attributes>
+    <session-manager>--None--</session-manager>
+    <chargeable-user-identity>
+        <cui>NONE</cui>
+        <expression></expression>
+        <authentication-attributes></authentication-attributes>
+        <accounting-attributes></accounting-attributes>
+    </chargeable-user-identity>
+    <authentication-policy>
+        <pre-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins-list>
+        <authentication-handler>
+            <enabled>true</enabled>
+            <handler-name>Authentication Handler</handler-name>
+            <supported-methods>
+                <method>PAP</method>
+                <method>CHAP</method>
+                <method>EAP</method>
+            </supported-methods>
+            <eap-config>EAP</eap-config>
+            <digest-config>Digest_Configuration</digest-config>
+            <user-name>NONE</user-name>
+            <username-expression></username-expression>
+            <user-name-response-attribute></user-name-response-attribute>
+        </authentication-handler>
+        <authorization-handler>
+            <enabled>true</enabled>
+            <handler-name>Authorization Handler</handler-name>
+            <wimax>false</wimax>
+            <three-gpp>false</three-gpp>
+            <default-session-timeout>600</default-session-timeout>
+            <radius-policy>
+                <accept-on-policy-not-found>false</accept-on-policy-not-found>
+                <reject-on-check-item-not-found>false</reject-on-check-item-not-found>
+                <reject-on-reject-item-not-found>false</reject-on-reject-item-not-found>
+            </radius-policy>
+            <grace-policy></grace-policy>
+        </authorization-handler>
+        <user-profile-repository>
+            <enabled>true</enabled>
+            <handler-name>Profile Lookup Handler</handler-name>
+            <update-identity>
+                <strip-identity>None</strip-identity>
+                <separator></separator>
+                <case>No Change</case>
+            </update-identity>
+            <profile-drivers>
+                <primary-group>
+                    <primary-driver>
+                        <driver-instace-id>DBAUTHDRIVR</driver-instace-id>
+                        <weightage>1</weightage>
+                    </primary-driver>
+                </primary-group>
+                <secondary-group>
+                    <secondary-driver>
+                        <cache-driver-id>--None--</cache-driver-id>
+                        <secondary-driver-id>Http_auth_driverr</secondary-driver-id>
+                    </secondary-driver>
+                </secondary-group>
+                <additional-group>
+                    <additional-driver>
+                        <additional-driver-id>LDAP</additional-driver-id>
+                    </additional-driver>
+                </additional-group>
+                <driver-script></driver-script>
+            </profile-drivers>
+            <anonymous-identity></anonymous-identity>
+        </user-profile-repository>
+        <proxy-handler>
+            <enabled>true</enabled>
+            <handler-name>Proxy(Sequential) Handler</handler-name>
+            <proxy-communication-entry accept-on-timeout="false">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="Rad_Auth" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+        </proxy-handler>
+        <plugin-handler>
+            <enabled>true</enabled>
+            <handler-name>Plugin Handler</handler-name>
+            <plugin-entry onResponse="false">
+                <ruleset></ruleset>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <plugin-argument></plugin-argument>
+            </plugin-entry>
+        </plugin-handler>
+        <post-plugins-list>
+            <plugin-entry>
+                <plugin-name>User_Stat_Post_Auth</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins-list>
+        <post-response-handler>
+            <enabled>true</enabled>
+            <cdr-generation>
+                <enabled>true</enabled>
+                <handler-name>CDR Handler</handler-name>
+                <cdr-handler-entry wait="false">
+                    <ruleset></ruleset>
+                    <cdr-drivers>
+                        <primary-group>
+                            <primary-driver>
+                                <driver-instace-id>DB_Acct_Driver</driver-instace-id>
+                            </primary-driver>
+                        </primary-group>
+                        <secondary-group>
+                            <secondary-driver>
+                                <secondary-driver-id>DB_Acct_Driver</secondary-driver-id>
+                            </secondary-driver>
+                        </secondary-group>
+                        <additional-group/>
+                        <driver-script></driver-script>
+                    </cdr-drivers>
+                </cdr-handler-entry>
+            </cdr-generation>
+        </post-response-handler>
+    </authentication-policy>
+    <accounting-policy>
+        <pre-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins-list>
+        <cdr-generation>
+            <enabled>true</enabled>
+            <handler-name>CDR Handler</handler-name>
+            <cdr-handler-entry wait="false">
+                <ruleset></ruleset>
+                <cdr-drivers>
+                    <primary-group>
+                        <primary-driver>
+                            <driver-instace-id>DB_Acct_Driver</driver-instace-id>
+                        </primary-driver>
+                    </primary-group>
+                    <secondary-group>
+                        <secondary-driver>
+                            <secondary-driver-id>DB_Acct_Driver</secondary-driver-id>
+                        </secondary-driver>
+                    </secondary-group>
+                    <additional-group/>
+                    <driver-script></driver-script>
+                </cdr-drivers>
+            </cdr-handler-entry>
+        </cdr-generation>
+        <proxy-handler>
+            <enabled>true</enabled>
+            <handler-name>Proxy(Sequential) Handler</handler-name>
+            <proxy-communication-entry accept-on-timeout="true">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="NAS_ESI" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+        </proxy-handler>
+        <post-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_TRANSACTION_LOGGER</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins-list>
+        <post-response-handler>
+            <enabled>true</enabled>
+            <coa-dm-generation-handler schedule-after-in-ms="2000">
+                <enabled>true</enabled>
+                <handler-name>COA/DM Handler</handler-name>
+                <coa-dm-handler>
+                    <ruleset></ruleset>
+                    <packet-type>COA Request</packet-type>
+                    <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                </coa-dm-handler>
+            </coa-dm-generation-handler>
+        </post-response-handler>
+    </accounting-policy>
+</radius-policy>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy?name=Radius_Service_Policy&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy.json?name=Radius_Service_Policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/Radius_Service_Policy?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/Radius_Service_Policy.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy?operation=search&name=Radius_Service_Policy&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy.json?operation=search&name=Radius_Service_Policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/Radius_Service_Policy?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/Radius_Service_Policy.json?operation=search
+
+
+Response     :
+
+{
+  "name": "Radius_Service_Policy",
+  "description": "Created by admin on 03/07/2017 11:18:46 AM",
+  "status": "ACTIVE",
+  "supported-messages": {
+    "authentication-message": "true",
+    "accounting-message": "true"
+  },
+  "authentication-ruleset": "0:1=\"*\"",
+  "accounting-ruleset": "0:1=\"*\"",
+  "user-identity": "0:1",
+  "validate-packet": "false",
+  "default-auth-response-behavior": "REJECT",
+  "default-acct-response-behavior": "DROP",
+  "auth-response-attributes": "",
+  "acct-response-attributes": "",
+  "session-manager": "--None--",
+  "chargeable-user-identity": {
+    "cui": "NONE",
+    "expression": "",
+    "authentication-attributes": "",
+    "accounting-attributes": ""
+  },
+  "authentication-policy": {
+    "pre-plugins-list": [
+      {
+        "plugin-name": "RADIUS_GROOVY_PLUGIN",
+        "argument": ""
+      }
+    ],
+    "handlersData": [
+      {
+        "authentication-handler": {
+          "supported-methods": [
+            "PAP",
+            "CHAP",
+            "EAP"
+          ],
+          "eap-config": "EAP",
+          "digest-config": "Digest_Configuration",
+          "user-name": "NONE",
+          "username-expression": "",
+          "user-name-response-attribute": "",
+          "enabled": "true",
+          "handler-name": "Authentication Handler"
+        }
+      },
+      {
+        "authorization-handler": {
+          "wimax": "false",
+          "three-gpp": "false",
+          "default-session-timeout": 600,
+          "radius-policy": {
+            "reject-on-reject-item-not-found": "false",
+            "reject-on-check-item-not-found": "false",
+            "accept-on-policy-not-found": "false"
+          },
+          "grace-policy": "",
+          "enabled": "true",
+          "handler-name": "Authorization Handler"
+        }
+      },
+      {
+        "user-profile-repository": {
+          "update-identity": {
+            "strip-identity": "None",
+            "separator": "",
+            "case": "No Change"
+          },
+          "profile-drivers": {
+            "primary-group": [
+              {
+                "weightage": 1,
+                "driver-instace-id": "DBAUTHDRIVR"
+              }
+            ],
+            "secondary-group": [
+              {
+                "secondary-driver-id": "Http_auth_driverr",
+                "cache-driver-id": "--None--"
+              }
+            ],
+            "additional-group": [
+              {
+                "additional-driver-id": "LDAP"
+              }
+            ],
+            "driver-script": ""
+          },
+          "anonymous-identity": "",
+          "enabled": "true",
+          "handler-name": "Profile Lookup Handler"
+        }
+      },
+      {
+        "proxy-handler": {
+          "enabled": "true",
+          "handler-name": "Proxy(Sequential) Handler",
+          "proxy-communication-entry": [
+            {
+              "ruleset": "",
+              "communicator-group": {
+                "communicator": [
+                  {
+                    "id": "Rad_Auth",
+                    "load-factor": "1"
+                  }
+                ]
+              },
+              "translation-mapping": "TranstionMapping_RTR",
+              "script": "",
+              "accept-on-timeout": "false"
+            }
+          ]
+        }
+      },
+      {
+        "plugin-handler": {
+          "enabled": "true",
+          "handler-name": "Plugin Handler",
+          "plugin-entry": [
+            {
+              "ruleset": "",
+              "plugin-name": "RADIUS_GROOVY_PLUGIN",
+              "plugin-argument": "",
+              "onResponse": false
+            }
+          ]
+        }
+      }
+    ],
+    "post-plugins-list": [
+      {
+        "plugin-name": "User_Stat_Post_Auth",
+        "argument": ""
+      }
+    ],
+    "post-response-handler": {
+      "handlersData": [
+        {
+          "cdr-generation": {
+            "enabled": "true",
+            "handler-name": "CDR Handler",
+            "cdr-handler-entry": [
+              {
+                "ruleset": "",
+                "cdr-drivers": {
+                  "primary-group": [
+                    {
+                      "driver-instace-id": "DB_Acct_Driver"
+                    }
+                  ],
+                  "secondary-group": [
+                    {
+                      "secondary-driver-id": "DB_Acct_Driver"
+                    }
+                  ],
+                  "additional-group": [],
+                  "driver-script": ""
+                },
+                "wait": "false"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "accounting-policy": {
+    "pre-plugins-list": [
+      {
+        "plugin-name": "RADIUS_GROOVY_PLUGIN",
+        "argument": ""
+      }
+    ],
+    "handlersData": [
+      {
+        "cdr-generation": {
+          "enabled": "true",
+          "handler-name": "CDR Handler",
+          "cdr-handler-entry": [
+            {
+              "ruleset": "",
+              "cdr-drivers": {
+                "primary-group": [
+                  {
+                    "driver-instace-id": "DB_Acct_Driver"
+                  }
+                ],
+                "secondary-group": [
+                  {
+                    "secondary-driver-id": "DB_Acct_Driver"
+                  }
+                ],
+                "additional-group": [],
+                "driver-script": ""
+              },
+              "wait": "false"
+            }
+          ]
+        }
+      },
+      {
+        "proxy-handler": {
+          "enabled": "true",
+          "handler-name": "Proxy(Sequential) Handler",
+          "proxy-communication-entry": [
+            {
+              "ruleset": "",
+              "communicator-group": {
+                "communicator": [
+                  {
+                    "id": "NAS_ESI",
+                    "load-factor": "1"
+                  }
+                ]
+              },
+              "translation-mapping": "TranstionMapping_RTR",
+              "script": "",
+              "accept-on-timeout": "true"
+            }
+          ]
+        }
+      }
+    ],
+    "post-plugins-list": [
+      {
+        "plugin-name": "RADIUS_TRANSACTION_LOGGER",
+        "argument": ""
+      }
+    ],
+    "post-response-handler": {
+      "handlersData": [
+        {
+          "coa-dm-generation-handler": {
+            "enabled": "true",
+            "handler-name": "COA/DM Handler",
+            "coa-dm-handler": [
+              {
+                "ruleset": "",
+                "packet-type": "COA Request",
+                "translation-mapping": "TranstionMapping_RTR"
+              }
+            ],
+            "schedule-after-in-ms": "2000"
+          }
+        }
+      ]
+    }
+  }
+}
+***********************************************************************
+                    CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy?operation=create
+
+
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<radius-policy>
+    <name>Radius_Service_Policy</name>
+    <description>Created by admin on 03/07/2017 11:18:46 AM</description>
+    <status>ACTIVE</status>
+    <supported-messages>
+        <accounting-message>true</accounting-message>
+        <authentication-message>true</authentication-message>
+    </supported-messages>
+    <authentication-ruleset>0:1="*"</authentication-ruleset>
+    <accounting-ruleset>0:1="*"</accounting-ruleset>
+    <user-identity>0:1</user-identity>
+    <validate-packet>false</validate-packet>
+    <default-auth-response-behavior>REJECT</default-auth-response-behavior>
+    <default-acct-response-behavior>DROP</default-acct-response-behavior>
+    <auth-response-attributes></auth-response-attributes>
+    <acct-response-attributes></acct-response-attributes>
+    <session-manager>--None--</session-manager>
+    <chargeable-user-identity>
+        <cui>NONE</cui>
+        <expression></expression>
+        <authentication-attributes></authentication-attributes>
+        <accounting-attributes></accounting-attributes>
+    </chargeable-user-identity>
+    <authentication-policy>
+        <pre-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins-list>
+        <authentication-handler>
+            <enabled>true</enabled>
+            <handler-name>Authentication Handler</handler-name>
+            <supported-methods>
+                <method>PAP</method>
+                <method>CHAP</method>
+                <method>EAP</method>
+            </supported-methods>
+            <eap-config>EAP</eap-config>
+            <digest-config>Digest_Configuration</digest-config>
+            <user-name>NONE</user-name>
+            <username-expression></username-expression>
+            <user-name-response-attribute></user-name-response-attribute>
+        </authentication-handler>
+        <authorization-handler>
+            <enabled>true</enabled>
+            <handler-name>Authorization Handler</handler-name>
+            <wimax>false</wimax>
+            <three-gpp>false</three-gpp>
+            <default-session-timeout>600</default-session-timeout>
+            <radius-policy>
+                <accept-on-policy-not-found>false</accept-on-policy-not-found>
+                <reject-on-check-item-not-found>false</reject-on-check-item-not-found>
+                <reject-on-reject-item-not-found>false</reject-on-reject-item-not-found>
+            </radius-policy>
+            <grace-policy></grace-policy>
+        </authorization-handler>
+        <user-profile-repository>
+            <enabled>true</enabled>
+            <handler-name>Profile Lookup Handler</handler-name>
+            <update-identity>
+                <strip-identity>None</strip-identity>
+                <separator></separator>
+                <case>No Change</case>
+            </update-identity>
+            <profile-drivers>
+                <primary-group>
+                    <primary-driver>
+                        <driver-instace-id>DBAUTHDRIVR</driver-instace-id>
+                        <weightage>1</weightage>
+                    </primary-driver>
+                </primary-group>
+                <secondary-group>
+                    <secondary-driver>
+                        <cache-driver-id>--None--</cache-driver-id>
+                        <secondary-driver-id>Http_auth_driverr</secondary-driver-id>
+                    </secondary-driver>
+                </secondary-group>
+                <additional-group>
+                    <additional-driver>
+                        <additional-driver-id>LDAP</additional-driver-id>
+                    </additional-driver>
+                </additional-group>
+                <driver-script></driver-script>
+            </profile-drivers>
+            <anonymous-identity></anonymous-identity>
+        </user-profile-repository>
+        <proxy-handler>
+            <enabled>true</enabled>
+            <handler-name>Proxy(Sequential) Handler</handler-name>
+            <proxy-communication-entry accept-on-timeout="false">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="Rad_Auth" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+        </proxy-handler>
+        <plugin-handler>
+            <enabled>true</enabled>
+            <handler-name>Plugin Handler</handler-name>
+            <plugin-entry onResponse="false">
+                <ruleset></ruleset>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <plugin-argument></plugin-argument>
+            </plugin-entry>
+        </plugin-handler>
+        <post-plugins-list>
+            <plugin-entry>
+                <plugin-name>User_Stat_Post_Auth</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins-list>
+        <post-response-handler>
+            <enabled>true</enabled>
+            <cdr-generation>
+                <enabled>true</enabled>
+                <handler-name>CDR Handler</handler-name>
+                <cdr-handler-entry wait="false">
+                    <ruleset></ruleset>
+                    <cdr-drivers>
+                        <primary-group>
+                            <primary-driver>
+                                <driver-instace-id>DB_Acct_Driver</driver-instace-id>
+                            </primary-driver>
+                        </primary-group>
+                        <secondary-group>
+                            <secondary-driver>
+                                <secondary-driver-id>DB_Acct_Driver</secondary-driver-id>
+                            </secondary-driver>
+                        </secondary-group>
+                        <additional-group/>
+                        <driver-script></driver-script>
+                    </cdr-drivers>
+                </cdr-handler-entry>
+            </cdr-generation>
+        </post-response-handler>
+    </authentication-policy>
+    <accounting-policy>
+        <pre-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins-list>
+        <cdr-generation>
+            <enabled>true</enabled>
+            <handler-name>CDR Handler</handler-name>
+            <cdr-handler-entry wait="false">
+                <ruleset></ruleset>
+                <cdr-drivers>
+                    <primary-group>
+                        <primary-driver>
+                            <driver-instace-id>DB_Acct_Driver</driver-instace-id>
+                        </primary-driver>
+                    </primary-group>
+                    <secondary-group>
+                        <secondary-driver>
+                            <secondary-driver-id>DB_Acct_Driver</secondary-driver-id>
+                        </secondary-driver>
+                    </secondary-group>
+                    <additional-group/>
+                    <driver-script></driver-script>
+                </cdr-drivers>
+            </cdr-handler-entry>
+        </cdr-generation>
+        <proxy-handler>
+            <enabled>true</enabled>
+            <handler-name>Proxy(Sequential) Handler</handler-name>
+            <proxy-communication-entry accept-on-timeout="true">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="NAS_ESI" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+        </proxy-handler>
+        <post-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_TRANSACTION_LOGGER</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins-list>
+        <post-response-handler>
+            <enabled>true</enabled>
+            <coa-dm-generation-handler schedule-after-in-ms="2000">
+                <enabled>true</enabled>
+                <handler-name>COA/DM Handler</handler-name>
+                <coa-dm-handler>
+                    <ruleset></ruleset>
+                    <packet-type>COA Request</packet-type>
+                    <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                </coa-dm-handler>
+            </coa-dm-generation-handler>
+        </post-response-handler>
+    </accounting-policy>
+</radius-policy>
+
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Service Policy created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "Radius_Service_Policy_json",
+  "description": "Created by admin on 03/07/2017 11:18:46 AM",
+  "status": "ACTIVE",
+  "supported-messages": {
+    "authentication-message": "true",
+    "accounting-message": "true"
+  },
+  "authentication-ruleset": "0:1=\"*\"",
+  "accounting-ruleset": "0:1=\"*\"",
+  "user-identity": "0:1",
+  "validate-packet": "false",
+  "default-auth-response-behavior": "REJECT",
+  "default-acct-response-behavior": "DROP",
+  "auth-response-attributes": "",
+  "acct-response-attributes": "",
+  "session-manager": "--None--",
+  "chargeable-user-identity": {
+    "cui": "NONE",
+    "expression": "",
+    "authentication-attributes": "",
+    "accounting-attributes": ""
+  },
+  "authentication-policy": {
+    "pre-plugins-list": [
+      {
+        "plugin-name": "RADIUS_GROOVY_PLUGIN",
+        "argument": ""
+      }
+    ],
+    "handlersData": [
+      {
+        "authentication-handler": {
+          "supported-methods": [
+            "PAP",
+            "CHAP",
+            "EAP"
+          ],
+          "eap-config": "EAP",
+          "digest-config": "Digest_Configuration",
+          "user-name": "NONE",
+          "username-expression": "",
+          "user-name-response-attribute": "",
+          "enabled": "true",
+          "handler-name": "Authentication Handler"
+        }
+      },
+      {
+        "authorization-handler": {
+          "wimax": "false",
+          "three-gpp": "false",
+          "default-session-timeout": 600,
+          "radius-policy": {
+            "reject-on-reject-item-not-found": "false",
+            "reject-on-check-item-not-found": "false",
+            "accept-on-policy-not-found": "false"
+          },
+          "grace-policy": "",
+          "enabled": "true",
+          "handler-name": "Authorization Handler"
+        }
+      },
+      {
+        "user-profile-repository": {
+          "update-identity": {
+            "strip-identity": "None",
+            "separator": "",
+            "case": "No Change"
+          },
+          "profile-drivers": {
+            "primary-group": [
+              {
+                "weightage": 1,
+                "driver-instace-id": "DBAUTHDRIVR"
+              }
+            ],
+            "secondary-group": [
+              {
+                "secondary-driver-id": "Http_auth_driverr",
+                "cache-driver-id": "--None--"
+              }
+            ],
+            "additional-group": [
+              {
+                "additional-driver-id": "LDAP"
+              }
+            ],
+            "driver-script": ""
+          },
+          "anonymous-identity": "",
+          "enabled": "true",
+          "handler-name": "Profile Lookup Handler"
+        }
+      },
+      {
+        "proxy-handler": {
+          "enabled": "true",
+          "handler-name": "Proxy(Sequential) Handler",
+          "proxy-communication-entry": [
+            {
+              "ruleset": "",
+              "communicator-group": {
+                "communicator": [
+                  {
+                    "id": "Rad_Auth",
+                    "load-factor": "1"
+                  }
+                ]
+              },
+              "translation-mapping": "TranstionMapping_RTR",
+              "script": "",
+              "accept-on-timeout": "false"
+            }
+          ]
+        }
+      },
+      {
+        "plugin-handler": {
+          "enabled": "true",
+          "handler-name": "Plugin Handler",
+          "plugin-entry": [
+            {
+              "ruleset": "",
+              "plugin-name": "RADIUS_GROOVY_PLUGIN",
+              "plugin-argument": "",
+              "onResponse": false
+            }
+          ]
+        }
+      }
+    ],
+    "post-plugins-list": [
+      {
+        "plugin-name": "User_Stat_Post_Auth",
+        "argument": ""
+      }
+    ],
+    "post-response-handler": {
+      "handlersData": [
+        {
+          "cdr-generation": {
+            "enabled": "true",
+            "handler-name": "CDR Handler",
+            "cdr-handler-entry": [
+              {
+                "ruleset": "",
+                "cdr-drivers": {
+                  "primary-group": [
+                    {
+                      "driver-instace-id": "DB_Acct_Driver"
+                    }
+                  ],
+                  "secondary-group": [
+                    {
+                      "secondary-driver-id": "DB_Acct_Driver"
+                    }
+                  ],
+                  "additional-group": [],
+                  "driver-script": ""
+                },
+                "wait": "false"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "accounting-policy": {
+    "pre-plugins-list": [
+      {
+        "plugin-name": "RADIUS_GROOVY_PLUGIN",
+        "argument": ""
+      }
+    ],
+    "handlersData": [
+      {
+        "cdr-generation": {
+          "enabled": "true",
+          "handler-name": "CDR Handler",
+          "cdr-handler-entry": [
+            {
+              "ruleset": "",
+              "cdr-drivers": {
+                "primary-group": [
+                  {
+                    "driver-instace-id": "DB_Acct_Driver"
+                  }
+                ],
+                "secondary-group": [
+                  {
+                    "secondary-driver-id": "DB_Acct_Driver"
+                  }
+                ],
+                "additional-group": [],
+                "driver-script": ""
+              },
+              "wait": "false"
+            }
+          ]
+        }
+      },
+      {
+        "proxy-handler": {
+          "enabled": "true",
+          "handler-name": "Proxy(Sequential) Handler",
+          "proxy-communication-entry": [
+            {
+              "ruleset": "",
+              "communicator-group": {
+                "communicator": [
+                  {
+                    "id": "NAS_ESI",
+                    "load-factor": "1"
+                  }
+                ]
+              },
+              "translation-mapping": "TranstionMapping_RTR",
+              "script": "",
+              "accept-on-timeout": "true"
+            }
+          ]
+        }
+      }
+    ],
+    "post-plugins-list": [
+      {
+        "plugin-name": "RADIUS_TRANSACTION_LOGGER",
+        "argument": ""
+      }
+    ],
+    "post-response-handler": {
+      "handlersData": [
+        {
+          "coa-dm-generation-handler": {
+            "enabled": "true",
+            "handler-name": "COA/DM Handler",
+            "coa-dm-handler": [
+              {
+                "ruleset": "",
+                "packet-type": "COA Request",
+                "translation-mapping": "TranstionMapping_RTR"
+              }
+            ],
+            "schedule-after-in-ms": "2000"
+          }
+        }
+      ]
+    }
+  }
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Service Policy created successfully</response-message>
+	</response>
+</response-detail>
+
+
+***********************************************************************
+                    CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<list>
+<radius-policy>
+    <name>Radius_Service_Policy_1</name>
+    <description>Created by admin on 03/06/2017 02:59:07 PM</description>
+    <status>ACTIVE</status>
+    <supported-messages>
+        <accounting-message>true</accounting-message>
+        <authentication-message>true</authentication-message>
+    </supported-messages>
+    <authentication-ruleset>0:1="*"</authentication-ruleset>
+    <accounting-ruleset>0:1="*"</accounting-ruleset>
+    <user-identity>0:1</user-identity>
+    <validate-packet>false</validate-packet>
+    <default-auth-response-behavior>REJECT</default-auth-response-behavior>
+    <default-acct-response-behavior>RESPONSE</default-acct-response-behavior>
+    <auth-response-attributes></auth-response-attributes>
+    <acct-response-attributes></acct-response-attributes>
+    <session-manager>Session_Mgr2</session-manager>
+    <chargeable-user-identity>
+        <cui>NONE</cui>
+        <expression></expression>
+        <authentication-attributes></authentication-attributes>
+        <accounting-attributes></accounting-attributes>
+    </chargeable-user-identity>
+    <authentication-policy>
+        <pre-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins-list>
+        <authentication-handler>
+            <enabled>true</enabled>
+            <handler-name>Authentication Handler</handler-name>
+            <supported-methods>
+                <method>PAP</method>
+                <method>CHAP</method>
+                <method>EAP</method>
+            </supported-methods>
+            <eap-config>EAP</eap-config>
+            <digest-config>Digest_Configuration</digest-config>
+            <user-name>NONE</user-name>
+            <username-expression></username-expression>
+            <user-name-response-attribute></user-name-response-attribute>
+        </authentication-handler>
+        <authorization-handler>
+            <enabled>true</enabled>
+            <handler-name>Authorization Handler</handler-name>
+            <wimax>false</wimax>
+            <three-gpp>false</three-gpp>
+            <default-session-timeout>600</default-session-timeout>
+            <radius-policy>
+                <accept-on-policy-not-found>true</accept-on-policy-not-found>
+                <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+                <reject-on-reject-item-not-found>true</reject-on-reject-item-not-found>
+            </radius-policy>
+            <grace-policy></grace-policy>
+        </authorization-handler>
+        <user-profile-repository>
+            <enabled>true</enabled>
+            <handler-name>Profile Lookup Handler</handler-name>
+            <update-identity>
+                <strip-identity>None</strip-identity>
+                <separator>@</separator>
+                <case>No Change</case>
+                <trim-identity>true</trim-identity>
+                <trim-password>true</trim-password>
+            </update-identity>
+            <profile-drivers>
+                <primary-group>
+                    <primary-driver>
+                        <driver-instace-id>DBAUTHDRIVR</driver-instace-id>
+                        <weightage>1</weightage>
+                    </primary-driver>
+                </primary-group>
+                <secondary-group>
+                    <secondary-driver>
+                        <cache-driver-id>--None--</cache-driver-id>
+                        <secondary-driver-id>Http_auth_driverr</secondary-driver-id>
+                    </secondary-driver>
+                </secondary-group>
+                <additional-group>
+                    <additional-driver>
+                        <additional-driver-id>LDAP</additional-driver-id>
+                    </additional-driver>
+                </additional-group>
+                <driver-script>SCRIPT</driver-script>
+            </profile-drivers>
+            <anonymous-identity></anonymous-identity>
+        </user-profile-repository>
+        <proxy-handler>
+            <enabled>true</enabled>
+            <handler-name>Proxy(Sequential) Handler</handler-name>
+            <proxy-communication-entry accept-on-timeout="true">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="NAS_ESI" load-factor="1"/>
+                    <communicator id="Rad_Auth" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+            <proxy-communication-entry accept-on-timeout="true">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="ChargingGw" load-factor="1"/>
+                    <communicator id="NAS" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+        </proxy-handler>
+        <plugin-handler>
+            <enabled>true</enabled>
+            <handler-name>Plugin Handler</handler-name>
+            <plugin-entry onResponse="false">
+                <ruleset>0:1="eliteaaa" &amp;&amp; 0:2="test"</ruleset>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <plugin-argument></plugin-argument>
+            </plugin-entry>
+        </plugin-handler>
+        <concurrency-handler>
+            <enabled>true</enabled>
+            <handler-name>Concurrency Handler</handler-name>
+            <ruleset>0:1="eliteaaa" &amp;&amp; 0:2="test"</ruleset>
+            <session-manager>Session_Mgr</session-manager>
+        </concurrency-handler>
+        <broadcast-handler>
+            <enabled>true</enabled>
+            <handler-name>Broadcasting(Parallel) Handler</handler-name>
+            <async-communication-entry wait="true" accept-on-timeout="true">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="NAS_ESI" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </async-communication-entry>
+        </broadcast-handler>
+        <post-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_TRANSACTION_LOGGER</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins-list>
+        <post-response-handler>
+            <enabled>true</enabled>
+            <cdr-generation>
+                <enabled>true</enabled>
+                <handler-name>CDR Handler</handler-name>
+                <cdr-handler-entry wait="true">
+                    <ruleset></ruleset>
+                    <cdr-drivers>
+                        <primary-group>
+                            <primary-driver>
+                                <driver-instace-id>DB_Acct_Driver</driver-instace-id>
+                            </primary-driver>
+                        </primary-group>
+                        <secondary-group>
+                            <secondary-driver>
+                                <secondary-driver-id>DB_Acct_Driver</secondary-driver-id>
+                            </secondary-driver>
+                        </secondary-group>
+                        <additional-group/>
+                        <driver-script></driver-script>
+                    </cdr-drivers>
+                </cdr-handler-entry>
+            </cdr-generation>
+        </post-response-handler>
+    </authentication-policy>
+    <accounting-policy>
+        <pre-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_TRANSACTION_LOGGER</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins-list>
+        <cdr-generation>
+            <enabled>true</enabled>
+            <handler-name>CDR Handler</handler-name>
+            <cdr-handler-entry wait="false">
+                <ruleset></ruleset>
+                <cdr-drivers>
+                    <primary-group>
+                        <primary-driver>
+                            <driver-instace-id>DB_Acct_Driver</driver-instace-id>
+                        </primary-driver>
+                    </primary-group>
+                    <secondary-group>
+                        <secondary-driver>
+                            <secondary-driver-id>DB_Acct_Driver</secondary-driver-id>
+                        </secondary-driver>
+                    </secondary-group>
+                    <additional-group/>
+                    <driver-script></driver-script>
+                </cdr-drivers>
+            </cdr-handler-entry>
+        </cdr-generation>
+        <proxy-handler>
+            <enabled>true</enabled>
+            <handler-name>Proxy(Sequential) Handler</handler-name>
+            <proxy-communication-entry accept-on-timeout="false">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="NAS_ESI" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+        </proxy-handler>
+        <coa-dm-generation-handler schedule-after-in-ms="2000">
+            <enabled>true</enabled>
+            <handler-name>COA/DM Handler(2)</handler-name>
+            <coa-dm-handler>
+                <ruleset></ruleset>
+                <packet-type>COA Request</packet-type>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+            </coa-dm-handler>
+            <coa-dm-handler>
+                <ruleset></ruleset>
+                <packet-type>Disconnect Request</packet-type>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+            </coa-dm-handler>
+        </coa-dm-generation-handler>
+        <post-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_TRANSACTION_LOGGER</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins-list>
+        <post-response-handler>
+            <enabled>true</enabled>
+            <plugin-handler>
+                <enabled>true</enabled>
+                <handler-name>Plugin Handler</handler-name>
+                <plugin-entry onResponse="false">
+                    <ruleset></ruleset>
+                    <plugin-name>UAP</plugin-name>
+                    <plugin-argument></plugin-argument>
+                </plugin-entry>
+                <plugin-entry onResponse="false">
+                    <ruleset></ruleset>
+                    <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                    <plugin-argument></plugin-argument>
+                </plugin-entry>
+            </plugin-handler>
+            <coa-dm-generation-handler schedule-after-in-ms="2000">
+                <enabled>true</enabled>
+                <handler-name>COA/DM Handler</handler-name>
+                <coa-dm-handler>
+                    <ruleset></ruleset>
+                    <packet-type>COA Request</packet-type>
+                    <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                </coa-dm-handler>
+            </coa-dm-generation-handler>
+        </post-response-handler>
+    </accounting-policy>
+</radius-policy>
+<radius-policy>
+    <name>Radius_Service_Policy_2</name>
+    <description>Created by admin on 03/06/2017 02:59:07 PM</description>
+    <status>ACTIVE</status>
+    <supported-messages>
+        <accounting-message>true</accounting-message>
+        <authentication-message>true</authentication-message>
+    </supported-messages>
+    <authentication-ruleset>0:1="*"</authentication-ruleset>
+    <accounting-ruleset>0:1="*"</accounting-ruleset>
+    <user-identity>0:1</user-identity>
+    <validate-packet>false</validate-packet>
+    <default-auth-response-behavior>REJECT</default-auth-response-behavior>
+    <default-acct-response-behavior>RESPONSE</default-acct-response-behavior>
+    <auth-response-attributes></auth-response-attributes>
+    <acct-response-attributes></acct-response-attributes>
+    <session-manager>Session_Mgr2</session-manager>
+    <chargeable-user-identity>
+        <cui>NONE</cui>
+        <expression></expression>
+        <authentication-attributes></authentication-attributes>
+        <accounting-attributes></accounting-attributes>
+    </chargeable-user-identity>
+    <authentication-policy>
+        <pre-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins-list>
+        <authentication-handler>
+            <enabled>true</enabled>
+            <handler-name>Authentication Handler</handler-name>
+            <supported-methods>
+                <method>PAP</method>
+                <method>CHAP</method>
+                <method>EAP</method>
+            </supported-methods>
+            <eap-config>EAP</eap-config>
+            <digest-config>Digest_Configuration</digest-config>
+            <user-name>NONE</user-name>
+            <username-expression></username-expression>
+            <user-name-response-attribute></user-name-response-attribute>
+        </authentication-handler>
+        <authorization-handler>
+            <enabled>true</enabled>
+            <handler-name>Authorization Handler</handler-name>
+            <wimax>false</wimax>
+            <three-gpp>false</three-gpp>
+            <default-session-timeout>600</default-session-timeout>
+            <radius-policy>
+                <accept-on-policy-not-found>true</accept-on-policy-not-found>
+                <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+                <reject-on-reject-item-not-found>true</reject-on-reject-item-not-found>
+            </radius-policy>
+            <grace-policy></grace-policy>
+        </authorization-handler>
+        <user-profile-repository>
+            <enabled>true</enabled>
+            <handler-name>Profile Lookup Handler</handler-name>
+            <update-identity>
+                <strip-identity>None</strip-identity>
+                <separator>@</separator>
+                <case>No Change</case>
+                <trim-identity>true</trim-identity>
+                <trim-password>true</trim-password>
+            </update-identity>
+            <profile-drivers>
+                <primary-group>
+                    <primary-driver>
+                        <driver-instace-id>DBAUTHDRIVR</driver-instace-id>
+                        <weightage>1</weightage>
+                    </primary-driver>
+                </primary-group>
+                <secondary-group>
+                    <secondary-driver>
+                        <cache-driver-id>--None--</cache-driver-id>
+                        <secondary-driver-id>Http_auth_driverr</secondary-driver-id>
+                    </secondary-driver>
+                </secondary-group>
+                <additional-group>
+                    <additional-driver>
+                        <additional-driver-id>LDAP</additional-driver-id>
+                    </additional-driver>
+                </additional-group>
+                <driver-script>SCRIPT</driver-script>
+            </profile-drivers>
+            <anonymous-identity></anonymous-identity>
+        </user-profile-repository>
+        <proxy-handler>
+            <enabled>true</enabled>
+            <handler-name>Proxy(Sequential) Handler</handler-name>
+            <proxy-communication-entry accept-on-timeout="true">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="NAS_ESI" load-factor="1"/>
+                    <communicator id="Rad_Auth" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+            <proxy-communication-entry accept-on-timeout="true">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="ChargingGw" load-factor="1"/>
+                    <communicator id="NAS" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+        </proxy-handler>
+        <plugin-handler>
+            <enabled>true</enabled>
+            <handler-name>Plugin Handler</handler-name>
+            <plugin-entry onResponse="false">
+                <ruleset>0:1="eliteaaa" &amp;&amp; 0:2="test"</ruleset>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <plugin-argument></plugin-argument>
+            </plugin-entry>
+        </plugin-handler>
+        <concurrency-handler>
+            <enabled>true</enabled>
+            <handler-name>Concurrency Handler</handler-name>
+            <ruleset>0:1="eliteaaa" &amp;&amp; 0:2="test"</ruleset>
+            <session-manager>Session_Mgr</session-manager>
+        </concurrency-handler>
+        <broadcast-handler>
+            <enabled>true</enabled>
+            <handler-name>Broadcasting(Parallel) Handler</handler-name>
+            <async-communication-entry wait="true" accept-on-timeout="true">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="NAS_ESI" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </async-communication-entry>
+        </broadcast-handler>
+        <post-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_TRANSACTION_LOGGER</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins-list>
+        <post-response-handler>
+            <enabled>true</enabled>
+            <cdr-generation>
+                <enabled>true</enabled>
+                <handler-name>CDR Handler</handler-name>
+                <cdr-handler-entry wait="true">
+                    <ruleset></ruleset>
+                    <cdr-drivers>
+                        <primary-group>
+                            <primary-driver>
+                                <driver-instace-id>DB_Acct_Driver</driver-instace-id>
+                            </primary-driver>
+                        </primary-group>
+                        <secondary-group>
+                            <secondary-driver>
+                                <secondary-driver-id>DB_Acct_Driver</secondary-driver-id>
+                            </secondary-driver>
+                        </secondary-group>
+                        <additional-group/>
+                        <driver-script></driver-script>
+                    </cdr-drivers>
+                </cdr-handler-entry>
+            </cdr-generation>
+        </post-response-handler>
+    </authentication-policy>
+    <accounting-policy>
+        <pre-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_TRANSACTION_LOGGER</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins-list>
+        <cdr-generation>
+            <enabled>true</enabled>
+            <handler-name>CDR Handler</handler-name>
+            <cdr-handler-entry wait="false">
+                <ruleset></ruleset>
+                <cdr-drivers>
+                    <primary-group>
+                        <primary-driver>
+                            <driver-instace-id>DB_Acct_Driver</driver-instace-id>
+                        </primary-driver>
+                    </primary-group>
+                    <secondary-group>
+                        <secondary-driver>
+                            <secondary-driver-id>DB_Acct_Driver</secondary-driver-id>
+                        </secondary-driver>
+                    </secondary-group>
+                    <additional-group/>
+                    <driver-script></driver-script>
+                </cdr-drivers>
+            </cdr-handler-entry>
+        </cdr-generation>
+        <proxy-handler>
+            <enabled>true</enabled>
+            <handler-name>Proxy(Sequential) Handler</handler-name>
+            <proxy-communication-entry accept-on-timeout="false">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="NAS_ESI" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+        </proxy-handler>
+        <coa-dm-generation-handler schedule-after-in-ms="2000">
+            <enabled>true</enabled>
+            <handler-name>COA/DM Handler(2)</handler-name>
+            <coa-dm-handler>
+                <ruleset></ruleset>
+                <packet-type>COA Request</packet-type>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+            </coa-dm-handler>
+            <coa-dm-handler>
+                <ruleset></ruleset>
+                <packet-type>Disconnect Request</packet-type>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+            </coa-dm-handler>
+        </coa-dm-generation-handler>
+        <post-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_TRANSACTION_LOGGER</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins-list>
+        <post-response-handler>
+            <enabled>true</enabled>
+            <plugin-handler>
+                <enabled>true</enabled>
+                <handler-name>Plugin Handler</handler-name>
+                <plugin-entry onResponse="false">
+                    <ruleset></ruleset>
+                    <plugin-name>UAP</plugin-name>
+                    <plugin-argument></plugin-argument>
+                </plugin-entry>
+                <plugin-entry onResponse="false">
+                    <ruleset></ruleset>
+                    <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                    <plugin-argument></plugin-argument>
+                </plugin-entry>
+            </plugin-handler>
+            <coa-dm-generation-handler schedule-after-in-ms="2000">
+                <enabled>true</enabled>
+                <handler-name>COA/DM Handler</handler-name>
+                <coa-dm-handler>
+                    <ruleset></ruleset>
+                    <packet-type>COA Request</packet-type>
+                    <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                </coa-dm-handler>
+            </coa-dm-generation-handler>
+        </post-response-handler>
+    </accounting-policy>
+</radius-policy>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Service Policies created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"Radius_Service_Policy_by_json1",
+         "description":"Created by admin on 03/06/2017 02:59:07 PM",
+         "status":"ACTIVE",
+         "supported-messages":{
+            "authentication-message":"true",
+            "accounting-message":"true"
+         },
+         "authentication-ruleset":"0:1=\"*\"",
+         "accounting-ruleset":"0:1=\"*\"",
+         "user-identity":"0:1",
+         "validate-packet":"false",
+         "default-auth-response-behavior":"REJECT",
+         "default-acct-response-behavior":"RESPONSE",
+         "auth-response-attributes":"",
+         "acct-response-attributes":"",
+         "session-manager":"Session_Mgr2",
+         "chargeable-user-identity":{
+            "cui":"NONE",
+            "expression":"",
+            "authentication-attributes":"",
+            "accounting-attributes":""
+         },
+         "authentication-policy":{
+            "pre-plugins-list":[
+               {
+                  "plugin-name":"RADIUS_GROOVY_PLUGIN",
+                  "argument":""
+               }
+            ],
+            "handlersData":[
+               {
+                  "authentication-handler":{
+                     "supported-methods":[
+                        "PAP",
+                        "CHAP",
+                        "EAP"
+                     ],
+                     "eap-config":"EAP",
+                     "digest-config":"Digest_Configuration",
+                     "user-name":"NONE",
+                     "username-expression":"",
+                     "user-name-response-attribute":"",
+                     "enabled":"true",
+                     "handler-name":"Authentication Handler"
+                  }
+               },
+               {
+                  "authorization-handler":{
+                     "wimax":"false",
+                     "three-gpp":"false",
+                     "default-session-timeout":600,
+                     "radius-policy":{
+                        "reject-on-reject-item-not-found":"true",
+                        "reject-on-check-item-not-found":"true",
+                        "accept-on-policy-not-found":"true"
+                     },
+                     "grace-policy":"",
+                     "enabled":"true",
+                     "handler-name":"Authorization Handler"
+                  }
+               },
+               {
+                  "user-profile-repository":{
+                     "update-identity":{
+                        "strip-identity":"None",
+                        "separator":"@",
+                        "case":"No Change",
+                        "trim-identity":"true",
+                        "trim-password":"true"
+                     },
+                     "profile-drivers":{
+                        "primary-group":[
+                           {
+                              "weightage":1,
+                              "driver-instace-id":"DBAUTHDRIVR"
+                           }
+                        ],
+                        "secondary-group":[
+                           {
+                              "secondary-driver-id":"Http_auth_driverr",
+                              "cache-driver-id":"--None--"
+                           }
+                        ],
+                        "additional-group":[
+                           {
+                              "additional-driver-id":"LDAP"
+                           }
+                        ],
+                        "driver-script":"SCRIPT"
+                     },
+                     "anonymous-identity":"",
+                     "enabled":"true",
+                     "handler-name":"Profile Lookup Handler"
+                  }
+               },
+               {
+                  "proxy-handler":{
+                     "enabled":"true",
+                     "handler-name":"Proxy(Sequential) Handler",
+                     "proxy-communication-entry":[
+                        {
+                           "ruleset":"",
+                           "communicator-group":{
+                              "communicator":[
+                                 {
+                                    "id":"NAS_ESI",
+                                    "load-factor":"1"
+                                 },
+                                 {
+                                    "id":"Rad_Auth",
+                                    "load-factor":"1"
+                                 }
+                              ]
+                           },
+                           "translation-mapping":"TranstionMapping_RTR",
+                           "script":"",
+                           "accept-on-timeout":"true"
+                        },
+                        {
+                           "ruleset":"",
+                           "communicator-group":{
+                              "communicator":[
+                                 {
+                                    "id":"ChargingGw",
+                                    "load-factor":"1"
+                                 },
+                                 {
+                                    "id":"NAS",
+                                    "load-factor":"1"
+                                 }
+                              ]
+                           },
+                           "translation-mapping":"TranstionMapping_RTR",
+                           "script":"",
+                           "accept-on-timeout":"true"
+                        }
+                     ]
+                  }
+               },
+               {
+                  "plugin-handler":{
+                     "enabled":"true",
+                     "handler-name":"Plugin Handler",
+                     "plugin-entry":[
+                        {
+                           "ruleset":"0:1=\"eliteaaa\" && 0:2=\"test\"",
+                           "plugin-name":"RADIUS_GROOVY_PLUGIN",
+                           "plugin-argument":"",
+                           "onResponse":false
+                        }
+                     ]
+                  }
+               },
+               {
+                  "concurrency-handler":{
+                     "ruleset":"0:1=\"eliteaaa\" && 0:2=\"test\"",
+                     "session-manager":"Session_Mgr",
+                     "enabled":"true",
+                     "handler-name":"Concurrency Handler"
+                  }
+               },
+               {
+                  "broadcast-handler":{
+                     "enabled":"true",
+                     "handler-name":"Broadcasting(Parallel) Handler",
+                     "async-communication-entry":[
+                        {
+                           "ruleset":"",
+                           "communicator-group":{
+                              "communicator":[
+                                 {
+                                    "id":"NAS_ESI",
+                                    "load-factor":"1"
+                                 }
+                              ]
+                           },
+                           "translation-mapping":"TranstionMapping_RTR",
+                           "script":"",
+                           "accept-on-timeout":"true",
+                           "wait":"true"
+                        }
+                     ]
+                  }
+               }
+            ],
+            "post-plugins-list":[
+               {
+                  "plugin-name":"RADIUS_TRANSACTION_LOGGER",
+                  "argument":""
+               }
+            ],
+            "post-response-handler":{
+               "handlersData":[
+                  {
+                     "cdr-generation":{
+                        "enabled":"true",
+                        "handler-name":"CDR Handler",
+                        "cdr-handler-entry":[
+                           {
+                              "ruleset":"",
+                              "cdr-drivers":{
+                                 "primary-group":[
+                                    {
+                                       "driver-instace-id":"DB_Acct_Driver"
+                                    }
+                                 ],
+                                 "secondary-group":[
+                                    {
+                                       "secondary-driver-id":"DB_Acct_Driver"
+                                    }
+                                 ],
+                                 "additional-group":[
+
+                                 ],
+                                 "driver-script":""
+                              },
+                              "wait":"true"
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         "accounting-policy":{
+            "pre-plugins-list":[
+               {
+                  "plugin-name":"RADIUS_TRANSACTION_LOGGER",
+                  "argument":""
+               }
+            ],
+            "handlersData":[
+               {
+                  "cdr-generation":{
+                     "enabled":"true",
+                     "handler-name":"CDR Handler",
+                     "cdr-handler-entry":[
+                        {
+                           "ruleset":"",
+                           "cdr-drivers":{
+                              "primary-group":[
+                                 {
+                                    "driver-instace-id":"DB_Acct_Driver"
+                                 }
+                              ],
+                              "secondary-group":[
+                                 {
+                                    "secondary-driver-id":"DB_Acct_Driver"
+                                 }
+                              ],
+                              "additional-group":[
+
+                              ],
+                              "driver-script":""
+                           },
+                           "wait":"false"
+                        }
+                     ]
+                  }
+               },
+               {
+                  "proxy-handler":{
+                     "enabled":"true",
+                     "handler-name":"Proxy(Sequential) Handler",
+                     "proxy-communication-entry":[
+                        {
+                           "ruleset":"",
+                           "communicator-group":{
+                              "communicator":[
+                                 {
+                                    "id":"NAS_ESI",
+                                    "load-factor":"1"
+                                 }
+                              ]
+                           },
+                           "translation-mapping":"TranstionMapping_RTR",
+                           "script":"",
+                           "accept-on-timeout":"false"
+                        }
+                     ]
+                  }
+               },
+               {
+                  "coa-dm-generation-handler":{
+                     "enabled":"true",
+                     "handler-name":"COA/DM Handler(2)",
+                     "coa-dm-handler":[
+                        {
+                           "ruleset":"",
+                           "packet-type":"COA Request",
+                           "translation-mapping":"TranstionMapping_RTR"
+                        },
+                        {
+                           "ruleset":"",
+                           "packet-type":"Disconnect Request",
+                           "translation-mapping":"TranstionMapping_RTR"
+                        }
+                     ],
+                     "schedule-after-in-ms":"2000"
+                  }
+               }
+            ],
+            "post-plugins-list":[
+               {
+                  "plugin-name":"RADIUS_TRANSACTION_LOGGER",
+                  "argument":""
+               }
+            ],
+            "post-response-handler":{
+               "handlersData":[
+                  {
+                     "plugin-handler":{
+                        "enabled":"true",
+                        "handler-name":"Plugin Handler",
+                        "plugin-entry":[
+                           {
+                              "ruleset":"",
+                              "plugin-name":"UAP",
+                              "plugin-argument":"",
+                              "onResponse":false
+                           },
+                           {
+                              "ruleset":"",
+                              "plugin-name":"RADIUS_GROOVY_PLUGIN",
+                              "plugin-argument":"",
+                              "onResponse":false
+                           }
+                        ]
+                     }
+                  },
+                  {
+                     "coa-dm-generation-handler":{
+                        "enabled":"true",
+                        "handler-name":"COA/DM Handler",
+                        "coa-dm-handler":[
+                           {
+                              "ruleset":"",
+                              "packet-type":"COA Request",
+                              "translation-mapping":"TranstionMapping_RTR"
+                           }
+                        ],
+                        "schedule-after-in-ms":"2000"
+                     }
+                  }
+               ]
+            }
+         }
+      },
+      {
+         "name":"Radius_Service_Policy_by_json2",
+         "description":"Created by admin on 03/06/2017 02:59:07 PM",
+         "status":"ACTIVE",
+         "supported-messages":{
+            "authentication-message":"true",
+            "accounting-message":"true"
+         },
+         "authentication-ruleset":"0:1=\"*\"",
+         "accounting-ruleset":"0:1=\"*\"",
+         "user-identity":"0:1",
+         "validate-packet":"false",
+         "default-auth-response-behavior":"REJECT",
+         "default-acct-response-behavior":"RESPONSE",
+         "auth-response-attributes":"",
+         "acct-response-attributes":"",
+         "session-manager":"Session_Mgr2",
+         "chargeable-user-identity":{
+            "cui":"NONE",
+            "expression":"",
+            "authentication-attributes":"",
+            "accounting-attributes":""
+         },
+         "authentication-policy":{
+            "pre-plugins-list":[
+               {
+                  "plugin-name":"RADIUS_GROOVY_PLUGIN",
+                  "argument":""
+               }
+            ],
+            "handlersData":[
+               {
+                  "authentication-handler":{
+                     "supported-methods":[
+                        "PAP",
+                        "CHAP",
+                        "EAP"
+                     ],
+                     "eap-config":"EAP",
+                     "digest-config":"Digest_Configuration",
+                     "user-name":"NONE",
+                     "username-expression":"",
+                     "user-name-response-attribute":"",
+                     "enabled":"true",
+                     "handler-name":"Authentication Handler"
+                  }
+               },
+               {
+                  "authorization-handler":{
+                     "wimax":"false",
+                     "three-gpp":"false",
+                     "default-session-timeout":600,
+                     "radius-policy":{
+                        "reject-on-reject-item-not-found":"true",
+                        "reject-on-check-item-not-found":"true",
+                        "accept-on-policy-not-found":"true"
+                     },
+                     "grace-policy":"",
+                     "enabled":"true",
+                     "handler-name":"Authorization Handler"
+                  }
+               },
+               {
+                  "user-profile-repository":{
+                     "update-identity":{
+                        "strip-identity":"None",
+                        "separator":"@",
+                        "case":"No Change",
+                        "trim-identity":"true",
+                        "trim-password":"true"
+                     },
+                     "profile-drivers":{
+                        "primary-group":[
+                           {
+                              "weightage":1,
+                              "driver-instace-id":"DBAUTHDRIVR"
+                           }
+                        ],
+                        "secondary-group":[
+                           {
+                              "secondary-driver-id":"Http_auth_driverr",
+                              "cache-driver-id":"--None--"
+                           }
+                        ],
+                        "additional-group":[
+                           {
+                              "additional-driver-id":"LDAP"
+                           }
+                        ],
+                        "driver-script":"SCRIPT"
+                     },
+                     "anonymous-identity":"",
+                     "enabled":"true",
+                     "handler-name":"Profile Lookup Handler"
+                  }
+               },
+               {
+                  "proxy-handler":{
+                     "enabled":"true",
+                     "handler-name":"Proxy(Sequential) Handler",
+                     "proxy-communication-entry":[
+                        {
+                           "ruleset":"",
+                           "communicator-group":{
+                              "communicator":[
+                                 {
+                                    "id":"NAS_ESI",
+                                    "load-factor":"1"
+                                 },
+                                 {
+                                    "id":"Rad_Auth",
+                                    "load-factor":"1"
+                                 }
+                              ]
+                           },
+                           "translation-mapping":"TranstionMapping_RTR",
+                           "script":"",
+                           "accept-on-timeout":"true"
+                        },
+                        {
+                           "ruleset":"",
+                           "communicator-group":{
+                              "communicator":[
+                                 {
+                                    "id":"ChargingGw",
+                                    "load-factor":"1"
+                                 },
+                                 {
+                                    "id":"NAS",
+                                    "load-factor":"1"
+                                 }
+                              ]
+                           },
+                           "translation-mapping":"TranstionMapping_RTR",
+                           "script":"",
+                           "accept-on-timeout":"true"
+                        }
+                     ]
+                  }
+               },
+               {
+                  "plugin-handler":{
+                     "enabled":"true",
+                     "handler-name":"Plugin Handler",
+                     "plugin-entry":[
+                        {
+                           "ruleset":"0:1=\"eliteaaa\" && 0:2=\"test\"",
+                           "plugin-name":"RADIUS_GROOVY_PLUGIN",
+                           "plugin-argument":"",
+                           "onResponse":false
+                        }
+                     ]
+                  }
+               },
+               {
+                  "concurrency-handler":{
+                     "ruleset":"0:1=\"eliteaaa\" && 0:2=\"test\"",
+                     "session-manager":"Session_Mgr",
+                     "enabled":"true",
+                     "handler-name":"Concurrency Handler"
+                  }
+               },
+               {
+                  "broadcast-handler":{
+                     "enabled":"true",
+                     "handler-name":"Broadcasting(Parallel) Handler",
+                     "async-communication-entry":[
+                        {
+                           "ruleset":"",
+                           "communicator-group":{
+                              "communicator":[
+                                 {
+                                    "id":"NAS_ESI",
+                                    "load-factor":"1"
+                                 }
+                              ]
+                           },
+                           "translation-mapping":"TranstionMapping_RTR",
+                           "script":"",
+                           "accept-on-timeout":"true",
+                           "wait":"true"
+                        }
+                     ]
+                  }
+               }
+            ],
+            "post-plugins-list":[
+               {
+                  "plugin-name":"RADIUS_TRANSACTION_LOGGER",
+                  "argument":""
+               }
+            ],
+            "post-response-handler":{
+               "handlersData":[
+                  {
+                     "cdr-generation":{
+                        "enabled":"true",
+                        "handler-name":"CDR Handler",
+                        "cdr-handler-entry":[
+                           {
+                              "ruleset":"",
+                              "cdr-drivers":{
+                                 "primary-group":[
+                                    {
+                                       "driver-instace-id":"DB_Acct_Driver"
+                                    }
+                                 ],
+                                 "secondary-group":[
+                                    {
+                                       "secondary-driver-id":"DB_Acct_Driver"
+                                    }
+                                 ],
+                                 "additional-group":[
+
+                                 ],
+                                 "driver-script":""
+                              },
+                              "wait":"true"
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         },
+         "accounting-policy":{
+            "pre-plugins-list":[
+               {
+                  "plugin-name":"RADIUS_TRANSACTION_LOGGER",
+                  "argument":""
+               }
+            ],
+            "handlersData":[
+               {
+                  "cdr-generation":{
+                     "enabled":"true",
+                     "handler-name":"CDR Handler",
+                     "cdr-handler-entry":[
+                        {
+                           "ruleset":"",
+                           "cdr-drivers":{
+                              "primary-group":[
+                                 {
+                                    "driver-instace-id":"DB_Acct_Driver"
+                                 }
+                              ],
+                              "secondary-group":[
+                                 {
+                                    "secondary-driver-id":"DB_Acct_Driver"
+                                 }
+                              ],
+                              "additional-group":[
+
+                              ],
+                              "driver-script":""
+                           },
+                           "wait":"false"
+                        }
+                     ]
+                  }
+               },
+               {
+                  "proxy-handler":{
+                     "enabled":"true",
+                     "handler-name":"Proxy(Sequential) Handler",
+                     "proxy-communication-entry":[
+                        {
+                           "ruleset":"",
+                           "communicator-group":{
+                              "communicator":[
+                                 {
+                                    "id":"NAS_ESI",
+                                    "load-factor":"1"
+                                 }
+                              ]
+                           },
+                           "translation-mapping":"TranstionMapping_RTR",
+                           "script":"",
+                           "accept-on-timeout":"false"
+                        }
+                     ]
+                  }
+               },
+               {
+                  "coa-dm-generation-handler":{
+                     "enabled":"true",
+                     "handler-name":"COA/DM Handler(2)",
+                     "coa-dm-handler":[
+                        {
+                           "ruleset":"",
+                           "packet-type":"COA Request",
+                           "translation-mapping":"TranstionMapping_RTR"
+                        },
+                        {
+                           "ruleset":"",
+                           "packet-type":"Disconnect Request",
+                           "translation-mapping":"TranstionMapping_RTR"
+                        }
+                     ],
+                     "schedule-after-in-ms":"2000"
+                  }
+               }
+            ],
+            "post-plugins-list":[
+               {
+                  "plugin-name":"RADIUS_TRANSACTION_LOGGER",
+                  "argument":""
+               }
+            ],
+            "post-response-handler":{
+               "handlersData":[
+                  {
+                     "plugin-handler":{
+                        "enabled":"true",
+                        "handler-name":"Plugin Handler",
+                        "plugin-entry":[
+                           {
+                              "ruleset":"",
+                              "plugin-name":"UAP",
+                              "plugin-argument":"",
+                              "onResponse":false
+                           },
+                           {
+                              "ruleset":"",
+                              "plugin-name":"RADIUS_GROOVY_PLUGIN",
+                              "plugin-argument":"",
+                              "onResponse":false
+                           }
+                        ]
+                     }
+                  },
+                  {
+                     "coa-dm-generation-handler":{
+                        "enabled":"true",
+                        "handler-name":"COA/DM Handler",
+                        "coa-dm-handler":[
+                           {
+                              "ruleset":"",
+                              "packet-type":"COA Request",
+                              "translation-mapping":"TranstionMapping_RTR"
+                           }
+                        ],
+                        "schedule-after-in-ms":"2000"
+                     }
+                  }
+               ]
+            }
+         }
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Service Policies created successfully</response-message>
+	</response>
+</response-detail>
+
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/service-policy-name
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy?operation=update&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/service-policy-name?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<radius-policy>
+    <name>Radius_Service_Policy</name>
+    <description>Created by admin on 03/07/2017 11:18:46 AM</description>
+    <status>ACTIVE</status>
+    <supported-messages>
+        <accounting-message>true</accounting-message>
+        <authentication-message>true</authentication-message>
+    </supported-messages>
+    <authentication-ruleset>0:1="*"</authentication-ruleset>
+    <accounting-ruleset>0:1="*"</accounting-ruleset>
+    <user-identity>0:1</user-identity>
+    <validate-packet>false</validate-packet>
+    <default-auth-response-behavior>REJECT</default-auth-response-behavior>
+    <default-acct-response-behavior>DROP</default-acct-response-behavior>
+    <auth-response-attributes></auth-response-attributes>
+    <acct-response-attributes></acct-response-attributes>
+    <session-manager>--None--</session-manager>
+    <chargeable-user-identity>
+        <cui>NONE</cui>
+        <expression></expression>
+        <authentication-attributes></authentication-attributes>
+        <accounting-attributes></accounting-attributes>
+    </chargeable-user-identity>
+    <authentication-policy>
+        <pre-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins-list>
+        <authentication-handler>
+            <enabled>true</enabled>
+            <handler-name>Authentication Handler</handler-name>
+            <supported-methods>
+                <method>PAP</method>
+                <method>CHAP</method>
+                <method>EAP</method>
+            </supported-methods>
+            <eap-config>EAP</eap-config>
+            <digest-config>Digest_Configuration</digest-config>
+            <user-name>NONE</user-name>
+            <username-expression></username-expression>
+            <user-name-response-attribute></user-name-response-attribute>
+        </authentication-handler>
+        <authorization-handler>
+            <enabled>true</enabled>
+            <handler-name>Authorization Handler</handler-name>
+            <wimax>false</wimax>
+            <three-gpp>false</three-gpp>
+            <default-session-timeout>600</default-session-timeout>
+            <radius-policy>
+                <accept-on-policy-not-found>false</accept-on-policy-not-found>
+                <reject-on-check-item-not-found>false</reject-on-check-item-not-found>
+                <reject-on-reject-item-not-found>false</reject-on-reject-item-not-found>
+            </radius-policy>
+            <grace-policy></grace-policy>
+        </authorization-handler>
+        <user-profile-repository>
+            <enabled>true</enabled>
+            <handler-name>Profile Lookup Handler</handler-name>
+            <update-identity>
+                <strip-identity>None</strip-identity>
+                <separator></separator>
+                <case>No Change</case>
+            </update-identity>
+            <profile-drivers>
+                <primary-group>
+                    <primary-driver>
+                        <driver-instace-id>DBAUTHDRIVR</driver-instace-id>
+                        <weightage>1</weightage>
+                    </primary-driver>
+                </primary-group>
+                <secondary-group>
+                    <secondary-driver>
+                        <cache-driver-id>--None--</cache-driver-id>
+                        <secondary-driver-id>Http_auth_driverr</secondary-driver-id>
+                    </secondary-driver>
+                </secondary-group>
+                <additional-group>
+                    <additional-driver>
+                        <additional-driver-id>LDAP</additional-driver-id>
+                    </additional-driver>
+                </additional-group>
+                <driver-script></driver-script>
+            </profile-drivers>
+            <anonymous-identity></anonymous-identity>
+        </user-profile-repository>
+        <proxy-handler>
+            <enabled>true</enabled>
+            <handler-name>Proxy(Sequential) Handler</handler-name>
+            <proxy-communication-entry accept-on-timeout="false">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="Rad_Auth" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+        </proxy-handler>
+        <plugin-handler>
+            <enabled>true</enabled>
+            <handler-name>Plugin Handler</handler-name>
+            <plugin-entry onResponse="false">
+                <ruleset></ruleset>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <plugin-argument></plugin-argument>
+            </plugin-entry>
+        </plugin-handler>
+        <post-plugins-list>
+            <plugin-entry>
+                <plugin-name>User_Stat_Post_Auth</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins-list>
+        <post-response-handler>
+            <enabled>true</enabled>
+            <cdr-generation>
+                <enabled>true</enabled>
+                <handler-name>CDR Handler</handler-name>
+                <cdr-handler-entry wait="false">
+                    <ruleset></ruleset>
+                    <cdr-drivers>
+                        <primary-group>
+                            <primary-driver>
+                                <driver-instace-id>DB_Acct_Driver</driver-instace-id>
+                            </primary-driver>
+                        </primary-group>
+                        <secondary-group>
+                            <secondary-driver>
+                                <secondary-driver-id>DB_Acct_Driver</secondary-driver-id>
+                            </secondary-driver>
+                        </secondary-group>
+                        <additional-group/>
+                        <driver-script></driver-script>
+                    </cdr-drivers>
+                </cdr-handler-entry>
+            </cdr-generation>
+        </post-response-handler>
+    </authentication-policy>
+    <accounting-policy>
+        <pre-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_GROOVY_PLUGIN</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins-list>
+        <cdr-generation>
+            <enabled>true</enabled>
+            <handler-name>CDR Handler</handler-name>
+            <cdr-handler-entry wait="false">
+                <ruleset></ruleset>
+                <cdr-drivers>
+                    <primary-group>
+                        <primary-driver>
+                            <driver-instace-id>DB_Acct_Driver</driver-instace-id>
+                        </primary-driver>
+                    </primary-group>
+                    <secondary-group>
+                        <secondary-driver>
+                            <secondary-driver-id>DB_Acct_Driver</secondary-driver-id>
+                        </secondary-driver>
+                    </secondary-group>
+                    <additional-group/>
+                    <driver-script></driver-script>
+                </cdr-drivers>
+            </cdr-handler-entry>
+        </cdr-generation>
+        <proxy-handler>
+            <enabled>true</enabled>
+            <handler-name>Proxy(Sequential) Handler</handler-name>
+            <proxy-communication-entry accept-on-timeout="true">
+                <ruleset></ruleset>
+                <communicator-group>
+                    <communicator id="NAS_ESI" load-factor="1"/>
+                </communicator-group>
+                <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                <script></script>
+            </proxy-communication-entry>
+        </proxy-handler>
+        <post-plugins-list>
+            <plugin-entry>
+                <plugin-name>RADIUS_TRANSACTION_LOGGER</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins-list>
+        <post-response-handler>
+            <enabled>true</enabled>
+            <coa-dm-generation-handler schedule-after-in-ms="2000">
+                <enabled>true</enabled>
+                <handler-name>COA/DM Handler</handler-name>
+                <coa-dm-handler>
+                    <ruleset></ruleset>
+                    <packet-type>COA Request</packet-type>
+                    <translation-mapping>TranstionMapping_RTR</translation-mapping>
+                </coa-dm-handler>
+            </coa-dm-generation-handler>
+        </post-response-handler>
+    </accounting-policy>
+</radius-policy>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Service Policy updated successfully</response-message>
+	</response>
+</response-detail>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "name": "Radius_Service_Policy",
+  "description": "Created by admin on 03/07/2017 11:18:46 AM",
+  "status": "ACTIVE",
+  "supported-messages": {
+    "authentication-message": "true",
+    "accounting-message": "true"
+  },
+  "authentication-ruleset": "0:1=\"*\"",
+  "accounting-ruleset": "0:1=\"*\"",
+  "user-identity": "0:1",
+  "validate-packet": "false",
+  "default-auth-response-behavior": "REJECT",
+  "default-acct-response-behavior": "DROP",
+  "auth-response-attributes": "",
+  "acct-response-attributes": "",
+  "session-manager": "--None--",
+  "chargeable-user-identity": {
+    "cui": "NONE",
+    "expression": "",
+    "authentication-attributes": "",
+    "accounting-attributes": ""
+  },
+  "authentication-policy": {
+    "pre-plugins-list": [
+      {
+        "plugin-name": "RADIUS_GROOVY_PLUGIN",
+        "argument": ""
+      }
+    ],
+    "handlersData": [
+      {
+        "authentication-handler": {
+          "supported-methods": [
+            "PAP",
+            "CHAP",
+            "EAP"
+          ],
+          "eap-config": "EAP",
+          "digest-config": "Digest_Configuration",
+          "user-name": "NONE",
+          "username-expression": "",
+          "user-name-response-attribute": "",
+          "enabled": "true",
+          "handler-name": "Authentication Handler"
+        }
+      },
+      {
+        "authorization-handler": {
+          "wimax": "false",
+          "three-gpp": "false",
+          "default-session-timeout": 600,
+          "radius-policy": {
+            "reject-on-reject-item-not-found": "false",
+            "reject-on-check-item-not-found": "false",
+            "accept-on-policy-not-found": "false"
+          },
+          "grace-policy": "",
+          "enabled": "true",
+          "handler-name": "Authorization Handler"
+        }
+      },
+      {
+        "user-profile-repository": {
+          "update-identity": {
+            "strip-identity": "None",
+            "separator": "",
+            "case": "No Change"
+          },
+          "profile-drivers": {
+            "primary-group": [
+              {
+                "weightage": 1,
+                "driver-instace-id": "DBAUTHDRIVR"
+              }
+            ],
+            "secondary-group": [
+              {
+                "secondary-driver-id": "Http_auth_driverr",
+                "cache-driver-id": "--None--"
+              }
+            ],
+            "additional-group": [
+              {
+                "additional-driver-id": "LDAP"
+              }
+            ],
+            "driver-script": ""
+          },
+          "anonymous-identity": "",
+          "enabled": "true",
+          "handler-name": "Profile Lookup Handler"
+        }
+      },
+      {
+        "proxy-handler": {
+          "enabled": "true",
+          "handler-name": "Proxy(Sequential) Handler",
+          "proxy-communication-entry": [
+            {
+              "ruleset": "",
+              "communicator-group": {
+                "communicator": [
+                  {
+                    "id": "Rad_Auth",
+                    "load-factor": "1"
+                  }
+                ]
+              },
+              "translation-mapping": "TranstionMapping_RTR",
+              "script": "",
+              "accept-on-timeout": "false"
+            }
+          ]
+        }
+      },
+      {
+        "plugin-handler": {
+          "enabled": "true",
+          "handler-name": "Plugin Handler",
+          "plugin-entry": [
+            {
+              "ruleset": "",
+              "plugin-name": "RADIUS_GROOVY_PLUGIN",
+              "plugin-argument": "",
+              "onResponse": false
+            }
+          ]
+        }
+      }
+    ],
+    "post-plugins-list": [
+      {
+        "plugin-name": "User_Stat_Post_Auth",
+        "argument": ""
+      }
+    ],
+    "post-response-handler": {
+      "handlersData": [
+        {
+          "cdr-generation": {
+            "enabled": "true",
+            "handler-name": "CDR Handler",
+            "cdr-handler-entry": [
+              {
+                "ruleset": "",
+                "cdr-drivers": {
+                  "primary-group": [
+                    {
+                      "driver-instace-id": "DB_Acct_Driver"
+                    }
+                  ],
+                  "secondary-group": [
+                    {
+                      "secondary-driver-id": "DB_Acct_Driver"
+                    }
+                  ],
+                  "additional-group": [],
+                  "driver-script": ""
+                },
+                "wait": "false"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "accounting-policy": {
+    "pre-plugins-list": [
+      {
+        "plugin-name": "RADIUS_GROOVY_PLUGIN",
+        "argument": ""
+      }
+    ],
+    "handlersData": [
+      {
+        "cdr-generation": {
+          "enabled": "true",
+          "handler-name": "CDR Handler",
+          "cdr-handler-entry": [
+            {
+              "ruleset": "",
+              "cdr-drivers": {
+                "primary-group": [
+                  {
+                    "driver-instace-id": "DB_Acct_Driver"
+                  }
+                ],
+                "secondary-group": [
+                  {
+                    "secondary-driver-id": "DB_Acct_Driver"
+                  }
+                ],
+                "additional-group": [],
+                "driver-script": ""
+              },
+              "wait": "false"
+            }
+          ]
+        }
+      },
+      {
+        "proxy-handler": {
+          "enabled": "true",
+          "handler-name": "Proxy(Sequential) Handler",
+          "proxy-communication-entry": [
+            {
+              "ruleset": "",
+              "communicator-group": {
+                "communicator": [
+                  {
+                    "id": "NAS_ESI",
+                    "load-factor": "1"
+                  }
+                ]
+              },
+              "translation-mapping": "TranstionMapping_RTR",
+              "script": "",
+              "accept-on-timeout": "true"
+            }
+          ]
+        }
+      }
+    ],
+    "post-plugins-list": [
+      {
+        "plugin-name": "RADIUS_TRANSACTION_LOGGER",
+        "argument": ""
+      }
+    ],
+    "post-response-handler": {
+      "handlersData": [
+        {
+          "coa-dm-generation-handler": {
+            "enabled": "true",
+            "handler-name": "COA/DM Handler",
+            "coa-dm-handler": [
+              {
+                "ruleset": "",
+                "packet-type": "COA Request",
+                "translation-mapping": "TranstionMapping_RTR"
+              }
+            ],
+            "schedule-after-in-ms": "2000"
+          }
+        }
+      ]
+    }
+  }
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Service Policy updated successfully</response-message>
+	</response>
+</response-detail>
+
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/service-policy-name
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy?operation=delete&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusservicepolicy/service-policy-name?operation=delete
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Service Policy/Policies deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************
+
+========================================================================================================================
+                                            Concurrency(IMDG) Handler
+
+************************************************************************************************************************
+Using XML :
+************************************************************************************************************************
+<rad-imdg-concurrency-handler>
+    <enabled>true</enabled>
+    <handler-name>Concurrency(IMDG) Handler</handler-name>
+    <ruleset>0:1="*"</ruleset>
+    <concurrency-identity-field>User-Name</concurrency-identity-field>
+</rad-imdg-concurrency-handler>
+
+************************************************************************************************************************
+Using JSON :
+************************************************************************************************************************
+
+{
+    "concurrency-imdg-handler":
+    {
+        "ruleset": "0:1=\"*\"",
+        "concurrency-identity-field": "User-Name",
+        "enabled": "true",
+        "handler-name": "Concurrency(IMDG) Handler"
+    }
+}
+************************************************************************************************************************
+Note : Concurrency(IMDG) Handler will be added only if In-Memory Data Grid is configured.
+************************************************************************************************************************
+========================================================================================================================

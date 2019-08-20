@@ -1,0 +1,120 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("pccServicePolicy.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("pccServicePolicy.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("pccServicePolicy.name")})}</message>
+        </field-validator>		
+	</field>
+
+	<field name="description">
+
+			<field-validator type="stringlength">
+				<param name="minLength">0</param>
+				<param name="maxLength">255</param>
+				<param name="trim">true</param>
+				<message>${getText("error.length", {getText("pccServicePolicy.description")})}</message>
+			</field-validator>
+
+	</field>
+
+	<field name="status">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("pccServicePolicy.status")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^ACTIVE|INACTIVE$]]></param>
+			<message>${getText("invalid.required.field", {getText("pccServicePolicy.status")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="ruleset">
+
+		<field-validator type="stringlength">
+			<param name="minLength">0</param>
+			<param name="maxLength">1000</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("pccServicePolicy.ruleset")})}</message>
+		</field-validator>
+
+	</field>
+
+	<field name="action">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("pccServicePolicy.action")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^PROCESS_REQUEST|DROP_REQUEST]]></param>
+			<message>${getText("invalid.required.field", {getText("pccServicePolicy.action")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="subscriberLookupOn">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("pccServicePolicy.subscriberLookupOn")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^SUBSCRIBER_IDENTITY|ALTERNATE_IDENTITY]]></param>
+			<message>${getText("invalid.required.field", {getText("pccServicePolicy.subscriberLookupOn")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="identityAttribute">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("pccServicePolicy.identity.attribute")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("pccServicePolicy.identity.attribute")})}</message>
+		</field-validator>
+
+	</field>
+
+	<field name="syMode">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("pccServicePolicy.sy.mode")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^PULL|PUSH]]></param>
+			<message>${getText("invalid.required.field", {getText("pccServicePolicy.sy.mode")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="unknownUserAction">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("pccServicePolicy.unknown.user.action")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^ALLOW_UNKNOWN_USER|REJECT_UNKNOWN_USER|DROP_REQUEST]]></param>
+			<message>${getText("invalid.required.field", {getText("pccServicePolicy.unknown.user.action")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="chargingCdrDriverId">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("pccServicePolicy.charging.cdr")})}</message>
+		</field-validator>
+		<field-validator type="fieldexpression" short-circuit="true">
+			<param name="expression"><![CDATA[(chargingCdrDriverId!=policyCdrDriverId)]]></param>
+			<message>${getText("pccServicePolicy.policycdr.chargingcdr.cannot.be.same")}</message>
+		</field-validator>
+
+	</field>
+
+</validators>

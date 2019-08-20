@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.spinterface.dbinterface.data.DBFieldMapData" table="TBLMDBFIELDMAP">
+
+		<id name="dbFieldMapId" column="DBFIELDMAPID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">				
+			</generator>
+		</id>    
+
+		<property name="logicalName" type="string"> 
+			<column name="LOGICALNAME" sql-type="VARCHAR2(50)" not-null="true" /> 
+		</property>
+
+		<property name="dbField" type="string"> 
+			<column name="DBFIELD" sql-type="VARCHAR2(50)" not-null="true" /> 
+		</property>
+
+
+		<property name="dbSpInterfaceId" type="java.lang.Long"> 
+			<column name="DBSPINTERFACEID" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+	
+	</class>
+
+</hibernate-mapping>          

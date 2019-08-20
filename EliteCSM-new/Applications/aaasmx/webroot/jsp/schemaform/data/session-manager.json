@@ -1,0 +1,630 @@
+{  
+   "schema":{  
+      "type":"object",
+      "title":"Session Manager",
+      "properties":{  
+         "name":{  
+            "title":"Name",
+            "type":"string"
+         },
+         "description":{  
+            "title":"Description",
+            "type":"string"
+         },
+         "status":{  
+            "title":"Status",
+            "type":"string"
+         },
+         "database-datasource":{  
+            "title":"Database Datasource",
+            "type":"string"
+         },
+         "table-name":{  
+            "title":"Table Name",
+            "type":"string",
+            "default":"tblmconcurrentusers"
+         },
+         "sequence-name":{  
+            "title":"Sequence Name",
+            "type":"string",
+            "default":"SEQ_TBLMCONCURRENTUSERS"
+         },
+         "start-time-field":{  
+            "title":"Start Time Field",
+            "type":"string",
+            "default":"START_TIME"
+         },
+         "last-updated-time-field":{  
+            "title":"Last Update Time Field",
+            "type":"string",
+            "default":"LAST_UPDATED_TIME"
+         },
+         "db-query-timeout":{  
+            "title":"DB Query TimeOut (Sec.)",
+            "type":"integer",
+            "default":1
+         },
+         "behaviour":{  
+            "title":"Behavior",
+            "type":"string"
+         },
+         "db-failure-action":{  
+            "title":"DB Failure Action",
+            "type":"string"
+         },
+         "session-stop-action":{  
+            "title":"Session Stop Action",
+            "type":"string"
+         },
+         "batch-update-enabled":{  
+            "title":"Enabled",
+            "type":"string"
+         },
+         "batch-size":{  
+            "title":"Batch Size",
+            "type":"integer",
+            "default":1000
+         },
+         "batch-update-interval":{  
+            "title":"Update Interval (ms)",
+            "type":"integer",
+            "default":100
+         },
+         "auto-session-closer-enabled":{  
+            "title":"Auto Session Closer Enabled",
+            "type":"string"
+         },
+         "session-timeout":{  
+            "title":"Session Timeout(sec)",
+            "type":"integer",
+            "default":120
+         },
+         "session-close-batch-count":{  
+            "title":"Session Close Batch Count",
+            "type":"integer",
+            "default":50
+         },
+         "session-thread-sleep-time":{  
+            "title":"Session Thread Sleep Time(sec)",
+            "type":"integer",
+            "default":10
+         },
+         "session-close-action":{  
+            "title":"Session Close Action",
+            "type":"string"
+         },
+         "session-override-action":{  
+            "title":"Session Override Action",
+            "type":"string"
+         },
+         "session-override-fields":{  
+            "title":"Session Override Fields",
+            "type":"string",
+            "default":"CALLING_STATION_ID"
+         },
+         "esi":{  
+            "type":"object",
+            "properties":{  
+               "nas-server":{  
+                  "type":"array",
+                  "items":{  
+                     "type":"object",
+                     "properties":{  
+                        "esi-name":{  
+                           "title":"Name",
+                           "type":"string"
+                        },
+                        "address":{  
+                           "title":"Address",
+                           "type":"string"
+                        },
+                        "minimum_local_port":{  
+                           "title":"Minimum Local Port",
+                           "type":"integer"
+                        },
+                        "expired-request-limit-count":{  
+                           "title":"Expired Request Limit Count",
+                           "type":"integer"
+                        },
+                        "weightage":{  
+                           "title":"Weightage",
+                           "type":"number"
+                        }
+                     }
+                  }
+               },
+               "rad-acct-server":{  
+                  "type":"array",
+                  "items":{  
+                     "type":"object",
+                     "properties":{  
+                        "esi-name":{  
+                           "title":"Name",
+                           "type":"string"
+                        },
+                        "address":{  
+                           "title":"Address",
+                           "type":"string"
+                        },
+                        "minimum_local_port":{  
+                           "title":"Minimum Local Port",
+                           "type":"integer"
+                        },
+                        "expired-request-limit-count":{  
+                           "title":"Expired Request Limit Count",
+                           "type":"integer"
+                        },
+                        "weightage":{  
+                           "title":"Weightage",
+                           "type":"number"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "concurrency-identity-field":{  
+            "title":"Concurrency Identity Field",
+            "type":"string",
+            "default":"GROUPNAME"
+         },
+         "discrete-search-fields":{  
+            "title":"Discrete Search Fields",
+            "type":"string"
+         },
+         "mandatory-db-field-mappings":{  
+            "type":"array",
+            "items":{  
+               "type":"object",
+               "properties":{  
+                  "field":{  
+                     "title":"Fields",
+                     "type":"string"
+                  },
+                  "db-field-name":{  
+                     "title":"DB Field Name",
+                     "type":"string"
+                  },
+                  "referring-entity":{  
+                     "title":"Referring Attribute",
+                     "type":"string"
+                  },
+                  "data-type":{  
+                     "title":"Data Type",
+                     "type":"string"
+                  },
+                  "default-value":{  
+                     "title":"Default Value",
+                     "type":"string"
+                  }
+               }
+            }
+         },
+         "additional-db-field-mappings":{  
+            "type":"array",
+            "items":{  
+               "type":"object",
+               "properties":{  
+                  "db-field-name":{  
+                     "title":"DB Field Name",
+                     "type":"string"
+                  },
+                  "referring-entity":{  
+                     "title":"Referring Attribute",
+                     "type":"string"
+                  },
+                  "data-type":{  
+                     "title":"Data Type",
+                     "type":"string"
+                  },
+                  "default-value":{  
+                     "title":"Default Value",
+                     "type":"string"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "form":[  
+      {  
+         "key":"name"
+      },
+      {  
+         "key":"description"
+      },
+      {  
+         "key":"status",
+         "type":"radios",
+         "titleMap":[  
+            {  
+               "value":"ACTIVE",
+               "name":"ACTIVE"
+            },
+            {  
+               "value":"INACTIVE",
+               "name":"INACTIVE"
+            }
+         ]
+      },
+      {  
+         "key":"database-datasource"
+      },
+      {  
+         "key":"table-name"
+      },
+      {  
+         "key":"sequence-name"
+      },
+      {  
+         "key":"start-time-field"
+      },
+      {  
+         "key":"last-updated-time-field"
+      },
+      {  
+         "key":"db-query-timeout"
+      },
+      {  
+         "key":"behaviour",
+         "type":"select",
+         "titleMap":[  
+            {  
+               "value":"Acct",
+               "name":"Acct"
+            },
+            {  
+               "value":"Auth",
+               "name":"Auth"
+            }
+         ]
+      },
+      {  
+         "key":"db-failure-action",
+         "type":"select",
+         "titleMap":[  
+            {  
+               "value":"Ignore(Default)",
+               "name":"Ignore(Default)"
+            },
+            {  
+               "value":"Reject",
+               "name":"Reject"
+            },
+            {  
+               "value":"Drop",
+               "name":"Drop"
+            }
+         ]
+      },
+      {  
+         "key":"session-stop-action",
+         "type":"select",
+         "titleMap":[  
+            {  
+               "value":"Ignore(Default)",
+               "name":"Ignore(Default)"
+            },
+            {  
+               "value":"Reject",
+               "name":"Reject"
+            },
+            {  
+               "value":"Drop",
+               "name":"Drop"
+            }
+         ]
+      },
+      {  
+         "key":"batch-update-enabled",
+         "type":"select",
+         "titleMap":{  
+            "True":"True",
+            "False":"False"
+         }
+      },
+      {  
+         "key":"batch-size"
+      },
+      {  
+         "key":"batch-update-interval"
+      },
+      {  
+         "key":"auto-session-closer-enabled",
+         "type":"select",
+         "titleMap":{  
+            "True":"True",
+            "False":"False"
+         }
+      },
+      {  
+         "key":"session-timeout"
+      },
+      {  
+         "key":"session-close-batch-count"
+      },
+      {  
+         "key":"session-thread-sleep-time"
+      },
+      {  
+         "key":"session-close-action",
+         "type":"select",
+         "titleMap":{  
+            "Generate Disconnect":"Generate Disconnect",
+            "Generate Stop":"Generate Stop",
+            "Generate Disconnect and Stop":"Generate Disconnect and Stop"
+         }
+      },
+      {  
+         "key":"session-override-action",
+         "type":"select",
+         "titleMap":{  
+            "Generate Disconnect":"Generate Disconnect",
+            "Generate Stop":"Generate Stop",
+            "Generate Disconnect and Stop":"Generate Disconnect and Stop"
+         }
+      },
+      {  
+         "key":"session-override-fields"
+      },
+      {  
+         "key":"esi",
+         "items":[  
+            {  
+               "key":"esi.nas-server",
+               "add":"Add",
+               "items":[  
+                  {  
+                     "key":"esi.nas-server[].esi-name"
+                  },
+                  {  
+                     "key":"esi.nas-server[].address"
+                  },
+                  {  
+                     "key":"esi.nas-server[].minimum_local_port"
+                  },
+                  {  
+                     "key":"esi.nas-server[].expired-request-limit-count"
+                  },
+                  {  
+                     "key":"esi.nas-server[].weightage",
+                     "type":"select",
+                     "titleMap":[  
+                        {  
+                           "value":0,
+                           "name":0
+                        },
+                        {  
+                           "value":1,
+                           "name":1
+                        },
+                        {  
+                           "value":2,
+                           "name":2
+                        },
+                        {  
+                           "value":3,
+                           "name":3
+                        },
+                        {  
+                           "value":4,
+                           "name":4
+                        },
+                        {  
+                           "value":5,
+                           "name":5
+                        },
+                        {  
+                           "value":6,
+                           "name":6
+                        },
+                        {  
+                           "value":7,
+                           "name":7
+                        },
+                        {  
+                           "value":8,
+                           "name":8
+                        },
+                        {  
+                           "value":9,
+                           "name":9
+                        },
+                        {  
+                           "value":10,
+                           "name":10
+                        }
+                     ]
+                  }
+               ]
+            },
+            {  
+               "key":"esi.rad-acct-server",
+               "add":"Add",
+               "items":[  
+                  {  
+                     "key":"esi.rad-acct-server[].esi-name",
+                     "title":"Name"
+                  },
+                  {  
+                     "key":"esi.rad-acct-server[].address",
+                     "title":"Address"
+                  },
+                  {  
+                     "key":"esi.rad-acct-server[].minimum_local_port",
+                     "title":"Minimum Local Port"
+                  },
+                  {  
+                     "key":"esi.rad-acct-server[].expired-request-limit-count",
+                     "title":"Expired Request Limit Count"
+                  },
+                  {  
+                     "key":"esi.rad-acct-server[].weightage",
+                     "title":"Weightage",
+                     "type":"select",
+                     "titleMap":[  
+                        {  
+                           "value":0,
+                           "name":0
+                        },
+                        {  
+                           "value":1,
+                           "name":1
+                        },
+                        {  
+                           "value":2,
+                           "name":2
+                        },
+                        {  
+                           "value":3,
+                           "name":3
+                        },
+                        {  
+                           "value":4,
+                           "name":4
+                        },
+                        {  
+                           "value":5,
+                           "name":5
+                        },
+                        {  
+                           "value":6,
+                           "name":6
+                        },
+                        {  
+                           "value":7,
+                           "name":7
+                        },
+                        {  
+                           "value":8,
+                           "name":8
+                        },
+                        {  
+                           "value":9,
+                           "name":9
+                        },
+                        {  
+                           "value":10,
+                           "name":10
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {  
+         "key":"concurrency-identity-field"
+      },
+      {  
+         "key":"discrete-search-fields"
+      },
+      {  
+         "key":"mandatory-db-field-mappings",
+         "items":[  
+            {  
+               "key":"mandatory-db-field-mappings[].field"
+            },
+            {  
+               "key":"mandatory-db-field-mappings[].db-field-name"
+            },
+            {  
+               "key":"mandatory-db-field-mappings[].referring-entity"
+            },
+            {  
+               "key":"mandatory-db-field-mappings[].data-type"
+            },
+            {  
+               "key":"mandatory-db-field-mappings[].default-value"
+            }
+         ]
+      },
+      {  
+         "key":"additional-db-field-mappings",
+         "add":"Add",
+         "items":[  
+            {  
+               "key":"additional-db-field-mappings[].db-field-name"
+            },
+            {  
+               "key":"additional-db-field-mappings[].referring-entity"
+            },
+            {  
+               "key":"additional-db-field-mappings[].data-type"
+            },
+            {  
+               "key":"additional-db-field-mappings[].default-value"
+            }
+         ]
+      }
+   ],
+   "model":{
+  "name": "Session_Mgr",
+  "description": "Created by admin on 03/01/2017 05:02:47 PM",
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "tblmconcurrentusers",
+  "start-time-field": "START_TIME",
+  "last-updated-time-field": "LAST_UPDATED_TIME",
+  "db-query-timeout": 1,
+  "sequence-name": "SEQ_TBLMCONCURRENTUSERS",
+  "behaviour": "Acct",
+  "db-failure-action": "IGNORE",
+  "session-stop-action": "DELETE",
+  "batch-update-enabled": "true",
+  "batch-size": 1000,
+  "batch-update-interval": 100,
+  "auto-session-closer-enabled": "false",
+  "session-timeout": 125,
+  "session-close-batch-count": 50,
+  "session-thread-sleep-time": 10,
+  "session-close-action": "None",
+  "session-override-action": "None",
+  "session-override-fields": "CALLING_STATION_ID",
+  "concurrency-identity-field": "GROUPNAME",
+  "mandatory-db-field-mappings": [
+    {
+      "field": "Session ID",
+      "db-field-name": "ACCT_SESSION_ID",
+      "referring-entity": "0:44",
+      "data-type": "String"
+    },
+    {
+      "field": "PDP Type",
+      "db-field-name": "NAS_PORT_TYPE",
+      "referring-entity": "0:61",
+      "data-type": "String"
+    },
+    {
+      "field": "Session Timeout",
+      "db-field-name": "SESSION_TIMEOUT",
+      "referring-entity": "$RES(0:27)",
+      "data-type": "String"
+    },
+    {
+      "field": "AAA ID",
+      "db-field-name": "AAA_ID",
+      "referring-entity": "21067:143",
+      "data-type": "String"
+    },
+    {
+      "field": "NAS ID",
+      "db-field-name": "NAS_IDENTIFIER",
+      "referring-entity": "0:32",
+      "data-type": "String"
+    },
+    {
+      "field": "User Identity",
+      "db-field-name": "USER_NAME",
+      "referring-entity": "0:1",
+      "data-type": "String"
+    }
+  ],
+  "additional-db-field-mappings": [
+    {
+      "db-field-name": "CALLING_STATION_ID",
+      "referring-entity": "0:31",
+      "data-type": "String"
+    }
+  ]
+}
+}

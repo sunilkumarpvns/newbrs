@@ -1,0 +1,48 @@
+{
+"result" :
+  {
+  "layout": "layout2",
+  "data" : [
+    {
+      "title" : "AAA-Banglore-Primary Server",
+      "id" : "widget11",
+      "column" : "first",
+      "editurl" : "jsp/dashboardwidgets/dscdashboard/EditDSCPrimaryServerWidget.jsp",
+      "open" : true,
+      "url" : "jsp/dashboardwidgets/dscdashboard/DSCPrimaryServerWidget.jsp"
+    },
+    {
+      "title" : "Peer Statistics",
+      "column" : "second",
+      "id" : "widget12",
+      "url" : "jsp/dashboardwidgets/dscdashboard/PeerStatsTable.jsp",
+      "editurl" : "jsp/dashboardwidgets/dscdashboard/EditPeerStatsTable.jsp",
+      "open" : true
+    },
+    {
+      "title" : "AAA-Banglore-Primary Server",
+      "column" : "first",
+      "id" : "widget13",
+      "url" : "jsp/dashboardwidgets/dscdashboard/DSCMemoryUsageWidget.jsp",
+      "editurl" : "jsp/dashboardwidgets/dscdashboard/EditDSCMemoryUsageWidget.jsp",
+      "open" : true
+    },
+    {
+      "title" : "Realm wise Result-Code Statistics",
+      "column" : "first",
+      "id" : "widget14",
+      "url" : "jsp/dashboardwidgets/dscdashboard/RealmWiseResultCodeStats.jsp",
+      "editurl" : "jsp/dashboardwidgets/dscdashboard/EditRealmWiseResultCodeStats.jsp",
+      "open" : true
+    },
+    {
+      "title" : "Realm Statistics",
+      "column" : "second",
+      "id" : "widget15",
+      "url" : "jsp/dashboardwidgets/dscdashboard/RealmStatistics.jsp",
+      "editurl" : "jsp/dashboardwidgets/dscdashboard/EditRealmStatistics.jsp",
+      "open" : true
+    }
+  ]
+  }
+}

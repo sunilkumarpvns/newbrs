@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.core.system.accessgroup.data.GroupData" table="TBLMGROUP">
+		<id name="groupId" column="GROUPID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>
+		
+		<property name="name" type="StringType">
+			<column name="NAME" sql-type="VARCHAR(50)" not-null="true"></column>
+		</property>
+
+		<property name="groupMailId" type="StringType">
+			<column name="GROUPMAILID" sql-type="VARCHAR(50)" not-null="false"></column>
+		</property>
+
+		<property name="description" type="StringType">
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"></column>
+		</property>
+
+		<property name="systemGenerated" type="CharType">
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="false"></column>
+		</property>
+
+		<property name="statusChangeDate" type="java.sql.Timestamp" column="STATUSCHANGEDATE" not-null="false">
+		</property>
+
+		<property name="commonStatusId" type="CharType">
+			<column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="false"></column>
+		</property>
+
+		<property name="createDate" type="java.sql.Timestamp" column="CREATEDATE" not-null="true">
+		</property>
+
+		<property name="createdByStaffId" type="StringType">
+			<column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"></column>
+		</property>
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" not-null="true">
+		</property>
+
+		<property name="lastModifiedByStaffId" type="StringType">
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"></column>
+		</property>
+		
+		<set name="staffGroupRel" lazy="false" inverse="true">
+			<key column="groupId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.core.system.staff.data.StaffGroupRelData"/>
+		</set>
+	</class>
+</hibernate-mapping>          

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--                                                                     
+	Alcatel Broadband Access Server dictionary.                                              
+                                                                                                 
+	Version:      1.00  10-July-2002  Lasse Johnsen <lassejohnsen@bulldogcommunications.com> 
+        	      $Id: dictionary.alcatel,v 1.3 2004/02/16 22:33:10 aland Exp $                           
+	
+-->          
+
+   
+<attribute-list vendorid="3041 " vendor-name="Alcatel">
+	<attribute id ="5" name="AAT-Client-Primary-DNS" type="ipaddr"/> 
+        <attribute id ="6" name="AAT-Client-Primary-WINS-NBNS" type="ipaddr"/> 
+        <attribute id ="7" name="AAT-Client-Secondary-WINS-NBNS" type="ipaddr"/> 
+        <attribute id ="8" name="AAT-Client-Primary-DNS" type="ipaddr"/>
+        <attribute id ="9" name="AAT-PPP-Address" type="ipaddr"/> 
+        <attribute id ="21" name="AAT-ATM-Direct" type="string"/> 
+        <attribute id ="22" name="AAT-IP-TOS" type="integer"> 
+                <supported-values>
+        		 <value id="0" name="IP-TOS-Normal"/>       
+                         <value id="1" name="IP-TOS-Disabled"/>     
+                         <value id="2" name="IP-TOS-Cost"/>         
+                         <value id="4" name="IP-TOS-Reliability"/>  
+                         <value id="8" name="IP-TOS-Throughput"/>   
+                         <value id="16" name="IP-TOS-Latency"/>     
+                </supported-values>
+        </attribute>
+        <attribute id ="23" name="AAT-IP-TOS-Precedence" type="integer"> 
+        	<supported-values>
+        		<value id="0" name="IP-TOS-Precedence-Pri-Normal"/>  
+                        <value id="32" name="IP-TOS-Precedence-Pri-One"/>    
+                        <value id="64" name="IP-TOS-Precedence-Pri-Two"/>    
+                        <value id="96" name="IP-TOS-Precedence-Pri-Three"/>  
+                        <value id="128" name="IP-TOS-Precedence-Pri-Four"/>  
+                        <value id="160" name="IP-TOS-Precedence-Pri-Five"/>  
+                        <value id="192" name="IP-TOS-Precedence-Pri-Six"/>   
+                        <value id="224" name="IP-TOS-Precedence-Pri-Seven"/> 
+                </supported-values>
+	</attribute>
+        <attribute id ="24" name="AAT-IP-TOS-Apply-To" type="integer"> 
+        	<supported-values>
+        		<value id="1024" name="IP-TOS-Apply-To-Incoming"/>
+                        <value id="3072" name="IP-TOS-Apply-To-Both"/>    
+                        <value id="2048" name="IP-TOS-Apply-To-Outgoing"/>
+                </supported-values>
+        </attribute>
+        <attribute id ="27" name="AAT-MCast-Client" type="integer">
+        	<supported-values>	
+        		<value id="0" name="Multicast-No"/>  
+                        <value id="1" name="Multicast-Yes"/> 
+         	</supported-values>
+	</attribute>         	
+        <attribute id ="61" name="AAT-Vrouter-Name" type="string"/> 
+        <attribute id ="62" name="AAT-Require-Auth" type="integer">  
+        	<supported-values>
+        		<value id="0" name="Not-Require-Auth"/> 
+                        <value id="1" name="Require-Auth"/>     
+        	</supported-values>
+	</attribute>        	
+        <attribute id ="63" name="AAT-IP-Pool-Definition" type="string"/> 
+        <attribute id ="64" name="AAT-Assign-IP-Pool" type="integer"/> 
+        <attribute id ="65" name="AAT-Data-Filter" type="string"/> 
+        <attribute id ="66" name="AAT-Source-IP-Check" type="integer">  
+        	<supported-values>
+        		<value id="0" name="Source-IP-Check-No"/> 
+                        <value id="1" name="Source-IP-Check-Yes"/>
+        	</supported-values>
+	</attribute>        	
+        <attribute id ="128" name="AAT-ATM-VPI" type="integer"/> 
+        <attribute id ="129" name="AAT-ATM-VCI" type="integer"/> 
+        <attribute id ="130" name="AAT-Input-Octets-Diff" type="integer"/> 
+        <attribute id ="131" name="AAT-Output-Octets-Diff" type="integer"/> 
+        <attribute id ="132" name="AAT-User-MAC-Address" type="string"/> 
+        <attribute id ="133" name="AAT-ATM-Traffic-Profile" type="string"/> 
+</attribute-list>                        
+                        
+                        
+                        
+                        
+                        
+                         
+                        
+                       
+                       
+                       
+                       
+                       
+                       
+                        
+                         
+                        
+                         
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        

@@ -1,0 +1,18 @@
+{
+  "id": "rest_gtop_r_packet_map_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Rest_DM",
+  "description": "PCC to Gateway Packet Mapping for Radius Gateway Profile",
+  "commProtocol": "RADIUS",
+  "packetType": "DISCONNECT_REQUEST",
+  "type": "PCC_TO_GATEWAY",
+  "attributeMappingData": {
+    "mappings": [
+      "{\"pid\":\"0\",\"attribute\":\"0:1\",\"policykey\":\"CS.UserName\",\"defaultvalue\":\"netvertex_user\",\"valuemapping\":\"f\"}"
+    ],
+    "orderNumber": null
+  },
+  "applicationType": null,
+  "groupNames": "DefaultGroup"
+}

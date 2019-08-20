@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ======================================================= -->
+<!-- AAA server configuration.                         -->
+<!-- ======================================================= -->
+
+<elite-aaa-server>
+    
+    <server-name>eliteaaa</server-name>
+    <domain-name>elitecore.com</domain-name>
+   
+    <service-list>
+		<service>
+			<service-id>RAD_AUTH</service-id>
+			<enabled>true</enabled>
+		</service>
+		<service>
+			<service-id>RAD_ACCT</service-id>
+			<enabled>true</enabled>
+		</service>
+		<service>
+			<service-id>RAD_DYNAUTH</service-id>
+			<enabled>true</enabled>
+		</service>
+		<service>
+			<service-id>DIA_NAS</service-id>
+			<enabled>true</enabled>
+		</service>
+		<service>
+			<service-id>DIA_EAP</service-id>
+			<enabled>true</enabled>
+		</service>
+		<service>
+			<service-id>DIA_CC</service-id>
+			<enabled>true</enabled>
+		</service>
+	</service-list>
+	
+	<aaa-db-datasource>
+		<connection-url>jdbc:oracle:thin:@//192.168.8.94:1521/eliteaaa</connection-url>
+        <user-name>ELITEAAADEV60</user-name>
+        <password>ELITEAAADEV60</password>
+	</aaa-db-datasource>
+
+    <logging>
+        <!-- ALL/INFO/DEBUG/WARN/ERROR/OFF -->
+        <log-level>ALL</log-level>
+
+        <!-- 1:Time-Based Rolling -->
+        <!-- 2:Size-Based Rolling -->
+        <rolling-type>1</rolling-type> 
+        
+        <!-- 3:Every-Minute-Rolling, 4:Every-Hour-Rolling and 5:Daily-Rolling [Time-Based Rolling] -->
+        <!-- Number of MBs [Volume-Based Rolling] -->
+        <rolling-unit>5</rolling-unit> 
+        
+        <!-- Maximum Number of rolled files -->
+        <max-rolled-unit>10</max-rolled-unit>
+        
+        <!-- Want to compress the rolled files or not -->
+        <compress-rolled-unit>false</compress-rolled-unit>
+        
+         <syslog>
+        	<address></address>
+        	<facility></facility>
+        </syslog>
+        
+        <immediate-flush>true</immediate-flush>
+        
+    </logging>
+
+   	<snmp-address>127.0.0.1:1161</snmp-address>
+
+	<snmp-community>public</snmp-community>
+
+	<alert-listeners>
+		<alert-listener></alert-listener>
+	</alert-listeners>
+    
+    <web-service-config>
+
+		<web-service-enabled>false</web-service-enabled>
+			    
+	    <service-address>0.0.0.0:8080</service-address>
+	    	
+	    <max-session>5</max-session>
+	    	
+	    <thread-pool-size>10</thread-pool-size>
+    
+  </web-service-config>
+    
+    <!-- for supporting NAI set enabled = true and specify the realm names of the EliteAAA server -->
+    <rfc-4282-nai>
+    	<enabled>false</enabled>
+    	<realm-names>elitecore.com,elitecore.co.in</realm-names>
+    </rfc-4282-nai>
+    
+</elite-aaa-server>

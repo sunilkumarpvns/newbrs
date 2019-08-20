@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_radius_packet,POST : Create radius Packet Mappinig rest_radius_dm : 201,sm/packetmapping/radius-packet-mapping.json,POST,create_radius_packet_mapping.json,,28884,201,radius-packet-mapping
+2,get_created_radius_packet,GET : rest_radius_dm should be displayed : 200,sm/packetmapping/radius-packet-mapping/rest_rad_packet_mapping_11111111.json,GET,,,28885,200,radius-packet-mapping
+3,update_radius_packet,PUT :  Update rest_radius_dm to updated_rest_radius_coa : 200,sm/packetmapping/radius-packet-mapping/rest_rad_packet_mapping_11111111.json,PUT,update_radius_packet_mapping.json,,28886,200,radius-packet-mapping
+4,get_created_radius_packet,GET : updated_rest_radius_coa should be displayed : 200,sm/packetmapping/radius-packet-mapping/rest_rad_packet_mapping_11111111.json,GET,,,28887,200,radius-packet-mapping
+5,delete_radius_packet,DELETE : Delete updated_rest_radius_coa : 200,sm/packetmapping/radius-packet-mapping/rest_rad_packet_mapping_11111111.json,DELETE,,,28888,200,radius-packet-mapping
+6,get_created_radius_packet,GET : updated_rest_radius_coa should not be displayed : 404,sm/packetmapping/radius-packet-mapping/rest_rad_packet_mapping_11111111.json,GET,,"{""actionErrors"":[""Packet Mapping Not Found with id: rest_rad_packet_mapping_11111111""]}",28895,404,radius-packet-mapping

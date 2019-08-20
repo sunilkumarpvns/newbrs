@@ -1,0 +1,48 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    <field name="name">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">100</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length")}</message>
+        </field-validator>
+
+         <field-validator type="regex">
+            <param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+            <message>${getText("invalid.name")}</message>
+        </field-validator>
+    </field>
+
+
+    <field name="trapServer">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("trap.alert.server")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="trapVersion">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("trap.alert.version")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="community">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("trap.alert.community")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="snmpRequestType">
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(trapVersion=='V1') || ((trapVersion=='V2c') && (snmpRequestType == 'TRAP' || snmpRequestType == 'INFORM'))]]></param>
+            <message>${getText("invalid.field.value")}</message>
+        </field-validator>
+    </field>
+
+</validators>

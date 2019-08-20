@@ -1,0 +1,52 @@
+{
+    "id": "rest_csv_driver_11111111",
+    "status": "ACTIVE",
+    "groups": "GROUP_1",
+    "name": "UPDATED_REST_CSVDRIVER",
+    "description": "Created by admin on 02/21/2018 17:18:21",
+    "driverType": "CSV_DRIVER",
+    "csvDriverData": {
+        "id": "1cbea70f-5f02-46c4-a983-57b3b304706d",
+        "header": "true",
+        "delimiter": ",",
+        "timeStampFormat": "EEE dd MMM,yyyy,hh:mm:ss aaa",
+        "fileName": "CDRs.csv",
+        "fileLocation": "data/csvfiles",
+        "prefixFileName": "dump",
+        "defaultFolderName": "CSV_Dump",
+        "folderName": "FolderName",
+        "sequenceRange": "1-10",
+        "sequencePosition": "SUFFIX",
+        "sequenceGlobalization": "false",
+        "allocatingProtocol": "LOCAL",
+        "address": "127.0.0.1:22",
+        "remoteFileLocation": "data/csvfiles/archive",
+        "userName": "admin",
+        "archiveLocation": "data/csvfiles/archive",
+        "failOverTime": 3,
+        "reportingType": "CHARGING_CDR",
+        "timeBoundary": 30,
+        "sizeBasedRollingUnit": 1,
+        "timeBasedRollingUnit": 1,
+        "recordBasedRollingUnit": 1,
+        "csvDriverFieldMappingDataList": [
+            {
+                "id": "afad5a00-c85a-4f26-bb9b-9cb0e7a37554",
+                "headerField": "USERNAME",
+                "pcrfKey": "CS.UserName",
+                "orderNo": 1
+            }
+        ],
+        "csvDriverStripMappingDataList": [
+            {
+                "id": "9a9bf425-b2d4-4a48-a2a0-efca3dbf6d61",
+                "pcrfKey": "CS.IMSI",
+                "pattern": "SUFFIX",
+                "separator": ","
+            }
+        ],
+        "postOperation": "DELETE"
+    },
+    "dbCdrDriverData": null,
+    "groupNames": "DefaultGroup"
+}

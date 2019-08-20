@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.ConfigurationProfileHistoryData" table="TBLMCONFIGPROFILEHISTORY">
+		<id name="configProfileHistoryId" type="string">
+			<column name="CONFIGPROFILEHISTORYID" sql-type="CHAR(8)"></column>
+		</id>
+		
+		<property name="name" type="string">
+			<column name="NAME" sql-type="VARCHAR(50)"></column>
+		</property>
+		
+		<property name="description" type="string">
+			<column name="DESCRIPTION" sql-type="VARCHAR(100)"></column>
+		</property>
+		
+		<property name="createDate" type="java.sql.Timestamp">
+          <column name="CREATEDATE" sql-type="DATE" not-null="true"/>
+        </property>
+        
+		<property name="configurationProfileId" type="string">
+			<column name="CONFIGURATIONPROFILEID" sql-type="CHAR(7)"></column>
+		</property>
+		
+		<property name="xmlDataBlob" type="java.sql.Blob">
+			<column name="XMLDATA" sql-type="BLOB"></column>
+		</property>  
+		
+		<property name="version" type="string">
+			<column name="VERSION" sql-type="VARCHAR(15)"></column>
+		</property>
+		
+		<property name="createdBy" type="string">
+			<column name="CREATEDBY" sql-type="VARCHAR(50)"></column>
+		</property>
+	</class>
+</hibernate-mapping>          

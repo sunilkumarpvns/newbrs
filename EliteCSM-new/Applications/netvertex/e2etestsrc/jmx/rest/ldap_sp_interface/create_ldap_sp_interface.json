@@ -1,0 +1,26 @@
+{
+  "id": "rest_ldap_interface_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "rest_ldap_sp_interface",
+  "description": "Created by REST Automation",
+  "spInterfaceType": "LDAP_SP_INTERFACE",
+  "dbSpInterfaceData": null,
+  "ldapSpInterfaceData": {
+    "expiryDatePattern": "MM/dd/yyyy HH:mm:ss",
+    "passwordDecryptType": 0,
+    "maxQueryTimeoutCount": 1,
+    "spInterfaceFieldMappingDatas": [
+      {
+        "logicalName": "SUBSCRIBER_IDENTITY",
+        "fieldName": "SUBSCRIBERIDENTITY"
+      },
+      {
+        "logicalName": "PRODUCT_OFFER",
+        "fieldName": "PRODUCT_OFFER"
+      }
+    ],
+    "ldapDataId": "rest_ldap_sp_11111111"
+  },
+  "groupNames": "DefaultGroup"
+}

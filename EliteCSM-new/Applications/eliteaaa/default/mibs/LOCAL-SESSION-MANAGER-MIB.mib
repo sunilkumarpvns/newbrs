@@ -1,0 +1,434 @@
+LOCAL-SESSION-MANAGER-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+       MODULE-IDENTITY, OBJECT-TYPE, OBJECT-IDENTITY,
+       Counter32, Integer32,
+       IpAddress, TimeTicks, mib-2      FROM SNMPv2-SMI
+       SnmpAdminString                  FROM SNMP-FRAMEWORK-MIB
+       MODULE-COMPLIANCE, OBJECT-GROUP  FROM SNMPv2-CONF;
+       
+
+        internet      OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 }
+
+        directory     OBJECT IDENTIFIER ::= { internet 1 }
+
+        mgmt          OBJECT IDENTIFIER ::= { internet 2 }
+ 
+        experimental  OBJECT IDENTIFIER ::= { internet 3 }
+
+        private       OBJECT IDENTIFIER ::= { internet 4 }
+
+        enterprises   OBJECT IDENTIFIER ::= { private 1 }
+
+        elitecore     OBJECT IDENTIFIER ::= { enterprises 21067 }
+                    
+        eliteAAA       OBJECT IDENTIFIER ::= { elitecore 1 }
+        
+        sessionManagerMIB   OBJECT IDENTIFIER ::= { eliteAAA 6 }
+
+localSessionManagerMIBObjects OBJECT IDENTIFIER ::= { sessionManagerMIB 1 }
+
+localSessionManagerStatsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF LocalSessionManagerEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Table defines number of Session Manager"
+       ::= { localSessionManagerMIBObjects 1 }
+
+localSessionManagerEntry OBJECT-TYPE
+	SYNTAX     LocalSessionManagerEntry
+	MAX-ACCESS not-accessible
+       	STATUS     current
+       	DESCRIPTION
+             "Entry represents the configured Session Manager"
+       	INDEX      { smIndex }
+       	::= { localSessionManagerStatsTable 1 }
+
+LocalSessionManagerEntry ::= SEQUENCE {
+
+	smIndex							Integer32,
+	smName							SnmpAdminString,
+	smTotalSessionCreationFailure	Counter32,	
+	smTotalSessionUpdationFailure	Counter32,
+	smTotalSessionDeletionFailure	Counter32,
+	smTotalActiveSession			Counter32,
+	smTotalInActiveSession			Counter32,
+	smTotalOverridedSession			Counter32,
+	smTotalTimedOutSession			Counter32,
+
+--- sessionManager-server-MIB
+
+	smStatsResetTime				TimeTicks,
+	smTotalRequestRx				Counter32,
+	smTotalAccessRequestRx			Counter32,
+	smTotalAccessRejectTx			Counter32,
+	smTotalAcctRequestRx			Counter32,
+	smTotalAcctStartRequestRx		Counter32,
+	smTotalAcctStopRequestRx		Counter32,
+	smTotalAcctUpdateRequestRx		Counter32,
+	
+--- sessionManager-client-MIB
+
+	smTotalAcctStopRequestTx				Counter32,
+	smTotalAcctStopResponseRx				Counter32,	
+	smTotalAcctStopRequestTimeouts			Counter32,
+	smTotalAcctStopResponseDropped			Counter32,
+	
+	smTotalDisconnectRequest					Counter32,
+	smTotalDisconnectAck						Counter32,
+	smTotalDisconnectNAck						Counter32,
+    smTotalDisconnectRequestTimeouts			Counter32,
+	smTotalDisconnectResponseDropped			Counter32,
+	
+	smTotalDisconnectNAckResidualSessCtxRemoved 		Counter32,
+	smTotalDisconnectNAckInvalidEAPPacket				Counter32,
+	smTotalDisconnectNAckUnsupporteAttribute			Counter32,
+	smTotalDisconnectNAckMissingAttribute				Counter32,
+	smTotalDisconnectNAckNASIdentificationMismatch			Counter32,
+	smTotalDisconnectNAckInvalidRequest					Counter32,
+	smTotalDisconnectNAckUnsupportedService				Counter32,
+	smTotalDisconnectNAckUnsupportedExtension			Counter32,
+	smTotalDisconnectNAckAdministrativelyProhibited			Counter32,
+	smTotalDisconnectNAckRequestNotRoutable				Counter32,
+	smTotalDisconnectNAckSessionCtxNotFound			Counter32,
+	smTotalDisconnectNAckSessionCtxNotRemovable			Counter32,
+	smTotalDisconnectNAckOtherProxyProcessingError			Counter32,
+	smTotalDisconnectNAckResourcesUnavailable			Counter32,
+	smTotalDisconnectNAckRequestInitiated				Counter32
+}
+
+smIndex OBJECT-TYPE
+       SYNTAX     Integer32
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Index uniquely defines the configured Session Manager"
+       ::= { localSessionManagerEntry 1 }
+
+smName OBJECT-TYPE
+       SYNTAX	SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "indicate the name of Session Manager"
+       ::= { localSessionManagerEntry 2 }
+
+smTotalSessionCreationFailure OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of session creation failed"
+       ::= { localSessionManagerEntry 3 }
+
+smTotalSessionUpdationFailure OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of session updation failed"
+       ::= { localSessionManagerEntry 4 }
+
+smTotalSessionDeletionFailure OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of session deletion failed"
+       ::= { localSessionManagerEntry 5 }
+
+smTotalActiveSession OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of active session"
+       ::= { localSessionManagerEntry 6 }
+
+smTotalInActiveSession OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of InActive session"
+       ::= { localSessionManagerEntry 7 }
+
+smTotalOverridedSession OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Overrided session"
+       ::= { localSessionManagerEntry 8 }
+
+smTotalTimedOutSession OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of session Timeout"
+       ::= { localSessionManagerEntry 9 }
+
+smStatsResetTime OBJECT-TYPE
+       SYNTAX     TimeTicks
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "counters reset time"
+       ::= { localSessionManagerEntry 101 }
+
+smTotalRequestRx OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of request received by Session Manager"
+       ::= { localSessionManagerEntry 102 }
+
+smTotalAccessRequestRx OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Access request received by Session Manager"
+       ::= { localSessionManagerEntry 103 }
+
+smTotalAccessRejectTx OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Access reject given by Session Manager"
+       ::= { localSessionManagerEntry 104 }
+
+smTotalAcctRequestRx OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Accounting request received by Session Manager"
+       ::= { localSessionManagerEntry 105 }
+
+smTotalAcctStartRequestRx OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Accounting start request received by Session Manager"
+       ::= { localSessionManagerEntry 106 }
+
+smTotalAcctStopRequestRx OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Accounting stop request received by Session Manager"
+       ::= { localSessionManagerEntry 107 }
+       
+smTotalAcctUpdateRequestRx OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Accounting update request received by Session Manager"
+       ::= { localSessionManagerEntry 108 }
+
+--- client-MIB
+
+smTotalAcctStopRequestTx OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Accounting stop request send by Session Manager"
+       ::= { localSessionManagerEntry 201 }
+
+smTotalAcctStopResponseRx OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Accounting stop response received by Session Manager"
+       ::= { localSessionManagerEntry 202 }
+
+smTotalAcctStopRequestTimeouts OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Accounting stop response timeout by Session Manager"
+       ::= { localSessionManagerEntry 203 }
+
+smTotalAcctStopResponseDropped OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Accounting stop response dropped by Session Manager"
+       ::= { localSessionManagerEntry 204 }
+
+smTotalDisconnectRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Dynauth request send by Session Manager"
+       ::= { localSessionManagerEntry 205 }
+
+smTotalDisconnectAck OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Dynauth Ack received by Session Manager"
+       ::= { localSessionManagerEntry 206 }
+
+smTotalDisconnectNAck OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Dynauth NAck received by Session Manager"
+       ::= { localSessionManagerEntry 207 }
+
+smTotalDisconnectRequestTimeouts OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Dynauth request timeout by Session Manager"
+       ::= { localSessionManagerEntry 208 }		
+
+smTotalDisconnectResponseDropped OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "total no. of Dynauth response dropped by Session Manager"
+       ::= { localSessionManagerEntry 209 }	
+       
+smTotalDisconnectNAckResidualSessCtxRemoved OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,Residual session context removed"
+       ::= { localSessionManagerEntry 210 }
+
+
+smTotalDisconnectNAckInvalidEAPPacket OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,InvalidEAPPacket"
+       ::= { localSessionManagerEntry 211 }
+
+smTotalDisconnectNAckUnsupporteAttribute OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,UnsupporteAttribute"
+       ::= { localSessionManagerEntry 212 }
+
+smTotalDisconnectNAckMissingAttribute OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,MissingAttribute"
+       ::= { localSessionManagerEntry 213 }
+
+smTotalDisconnectNAckNASIdentificationMismatch OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,NASIdentificationMismatch"
+       ::= { localSessionManagerEntry 214 }
+
+smTotalDisconnectNAckInvalidRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,InvalidRequest"
+       ::= { localSessionManagerEntry 215 }
+
+smTotalDisconnectNAckUnsupportedService OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,UnsupportedService"
+       ::= { localSessionManagerEntry 216 }
+
+smTotalDisconnectNAckUnsupportedExtension OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,UnsupportedExtension"
+       ::= { localSessionManagerEntry 217 }
+       
+smTotalDisconnectNAckAdministrativelyProhibited OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,AdministrativelyProhibited"
+       ::= { localSessionManagerEntry 218 }
+
+smTotalDisconnectNAckRequestNotRoutable OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,RequestNotRoutable"
+       ::= { localSessionManagerEntry 219 }
+
+smTotalDisconnectNAckSessionCtxNotFound OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,SessionContextNotFound"
+       ::= { localSessionManagerEntry 220 }
+
+smTotalDisconnectNAckSessionCtxNotRemovable	OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,SessionContextNotRemovable"
+       ::= { localSessionManagerEntry 221 }
+
+smTotalDisconnectNAckOtherProxyProcessingError OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,OtherProxyProcessingError"
+       ::= { localSessionManagerEntry 222 }
+
+smTotalDisconnectNAckResourcesUnavailable OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,ResourcesUnavailable"
+       ::= { localSessionManagerEntry 223 }
+
+smTotalDisconnectNAckRequestInitiated OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Error cause for NAck,RequestInitiated"
+       ::= { localSessionManagerEntry 224 }
+
+--- end of SessionManagerStatTable
+
+END

@@ -1,0 +1,33 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="staff.name">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("staff.name")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="staff.emailAddress">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("staff.email")})}</message>
+		</field-validator>
+		<field-validator type="email" short-circuit="true">
+			<message>${getText("error.email")}</message>
+		</field-validator>
+	</field>
+	<field name="staff.phone">
+		<field-validator type="regex"  short-circuit="true">
+			<param name="regex"><![CDATA[^\d*$]]></param>
+			<message>${getText("error.required.numeric", {getText("staff.phone")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="staff.mobile">
+		<field-validator type="regex"  short-circuit="true">
+			<param name="trim">true</param>
+			<param name="regex"><![CDATA[^\d*$]]></param>
+			<message>${getText("error.required.numeric", {getText("staff.mobile")})}</message>
+		</field-validator>
+	</field>
+
+</validators>

@@ -1,0 +1,6 @@
+description = ''
+
+dependencies {
+    compile project(':elitecommons')
+compile fileTree(dir: 'lib', include: '**/*.jar')
+}

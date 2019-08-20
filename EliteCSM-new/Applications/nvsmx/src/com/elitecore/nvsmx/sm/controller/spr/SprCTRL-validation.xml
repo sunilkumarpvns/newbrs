@@ -1,0 +1,60 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("spr.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("spr.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("spr.name")})}</message>
+        </field-validator>		
+	</field>
+
+	<field name="description">
+		<field-validator type="stringlength">
+			<param name="minLength">0</param>
+			<param name="maxLength">2000</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("spr.description")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="alternateIdField">
+
+		<field-validator type="stringlength">
+			<param name="minLength">0</param>
+			<param name="maxLength">255</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("spr.alternate.id.field")})}</message>
+		</field-validator>
+
+	</field>
+
+	<field name="databaseId">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("spr.database")})}</message>
+		</field-validator>
+
+	</field>
+
+	<field name="batchSize">
+		<field-validator type="int" short-circuit="true">
+			<param name="min">1</param>
+			<param name="max">2000</param>
+			<message>${getText("error.numeric.range", {getText("spr.batch.size")})}</message>
+		</field-validator>
+	</field>
+
+
+
+</validators>

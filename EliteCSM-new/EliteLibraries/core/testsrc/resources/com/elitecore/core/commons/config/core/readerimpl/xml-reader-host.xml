@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-reader-host>
+	<property>Test</property>
+	
+	<reloadable-property>Test</reloadable-property>
+	
+	<reloadable-collection>
+		<collection-entry>entry1</collection-entry>
+	</reloadable-collection>
+	
+	<custom-type>
+		<custom-property>Test</custom-property>
+		<custom-reloadable-property>Test</custom-reloadable-property>
+	</custom-type>
+	
+	<fully-reloadable-custom-type>
+		<id>1</id>
+		<custom-property>Test</custom-property>
+	</fully-reloadable-custom-type>
+	
+	<custom-type-collection>
+		<custom-type>
+			<id>1</id>
+			<custom-property>Test</custom-property>
+			<custom-reloadable-property>Test</custom-reloadable-property>
+		</custom-type>
+	</custom-type-collection>
+	
+	<fully-reloadable-custom-type-collection>
+		<fully-reloadable-custom-type>
+			<id>1</id>
+			<custom-property>Test</custom-property>
+		</fully-reloadable-custom-type>
+	</fully-reloadable-custom-type-collection>
+</xml-reader-host>

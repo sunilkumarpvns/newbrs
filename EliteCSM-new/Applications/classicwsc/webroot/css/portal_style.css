@@ -1,0 +1,370 @@
+BODY {
+	FONT-SIZE: 12px;
+	MARGIN-BOTTOM: 0px;
+	MARGIN-LEFT: 0px;
+	COLOR: #000000;
+	MARGIN-RIGHT: 0px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #cccccc
+}
+
+.MenuText {
+	FONT-SIZE: 12px;
+	COLOR: #ffffff;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #758cac
+}
+
+.LoginBkgd {
+	LINE-HEIGHT: 1px;
+	BACKGROUND-COLOR: #758cac
+}
+
+.LoginText {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	COLOR: #ffffff;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.CompanyName {
+	PADDING-LEFT: 8px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	BORDER-LEFT: #cccccc 1px solid;
+	COLOR: #333333;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.BreadCrumbs {
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 11px;
+	COLOR: #666666;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.PageHeader {
+	PADDING-LEFT: 2px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 15px;
+	COLOR: #5a6a80;
+	LINE-HEIGHT: 23px;
+	BORDER-BOTTOM: #cccccc 1px solid;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.SmallGap {
+	LINE-HEIGHT: 4px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.Box {
+	BORDER-RIGHT: #999999 1px solid;
+	BORDER-TOP: #999999 1px solid;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #999999 1px solid;
+	COLOR: #000000;
+	BORDER-BOTTOM: #999999 1px solid;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #ffffff
+}
+
+.TextLabels {
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	LINE-HEIGHT: 18px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.Footer {
+	FONT-SIZE: 11px;
+	COLOR: #ffffff;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #eeeeee
+}
+
+.TextLabelsBold {
+	PADDING-LEFT: 2px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	LINE-HEIGHT: 18px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.MenuText A {
+	COLOR: #ffffff;
+	TEXT-DECORATION: none
+}
+
+.MenuText A:hover {
+	COLOR: #ffffff;
+	TEXT-DECORATION: underline
+}
+
+.BreadCrumbs A {
+	COLOR: #666666;
+	TEXT-DECORATION: underline
+}
+
+.BreadCrumbs A:hover {
+	COLOR: #000000;
+	TEXT-DECORATION: none
+}
+
+.VerticalSeprator {
+	BORDER-RIGHT: #cccccc 1px solid;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.TableHeader {
+	PADDING-LEFT: 2px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	LINE-HEIGHT: 20px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #e1e1e1
+}
+
+.TableRows {
+	BORDER-RIGHT: #e1e1e1 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #e1e1e1 1px solid;
+	COLOR: #000000;
+	LINE-HEIGHT: 18px;
+	BORDER-BOTTOM: #e1e1e1 1px solid;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.TableRowsBkgd {
+	BORDER-RIGHT: #e1e1e1 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #e1e1e1 1px solid;
+	COLOR: #000000;
+	LINE-HEIGHT: 18px;
+	BORDER-BOTTOM: #e1e1e1 1px solid;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #f8f8f8
+}
+
+.TableRowsRightAlign {
+	BORDER-RIGHT: #e1e1e1 1px solid;
+	PADDING-RIGHT: 6px;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #e1e1e1 1px solid;
+	COLOR: #000000;
+	LINE-HEIGHT: 18px;
+	BORDER-BOTTOM: #e1e1e1 1px solid;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	TEXT-ALIGN: right
+}
+
+.TableRowsBkgdRightAlign {
+	BORDER-RIGHT: #e1e1e1 1px solid;
+	PADDING-RIGHT: 6px;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #e1e1e1 1px solid;
+	COLOR: #000000;
+	LINE-HEIGHT: 18px;
+	BORDER-BOTTOM: #e1e1e1 1px solid;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #f8f8f8;
+	TEXT-ALIGN: right
+}
+
+.TableRowsIndented {
+	BORDER-RIGHT: #e1e1e1 1px solid;
+	PADDING-LEFT: 15px;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #e1e1e1 1px solid;
+	COLOR: #000000;
+	LINE-HEIGHT: 18px;
+	BORDER-BOTTOM: #e1e1e1 1px solid;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.TableRowsBkgdIndented {
+	BORDER-RIGHT: #e1e1e1 1px solid;
+	PADDING-LEFT: 15px;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #e1e1e1 1px solid;
+	COLOR: #000000;
+	LINE-HEIGHT: 18px;
+	BORDER-BOTTOM: #e1e1e1 1px solid;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #f8f8f8
+}
+
+.Notes {
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 11px;
+	COLOR: #333333;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.TableMessage {
+	BORDER-RIGHT: #e1e1e1 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #e1e1e1 1px solid;
+	COLOR: #495769;
+	LINE-HEIGHT: 30px;
+	BORDER-BOTTOM: #e1e1e1 1px solid;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.LeftNavigation {
+	BORDER-RIGHT: #cccccc 1px;
+	PADDING-RIGHT: 1px;
+	BORDER-TOP: #cccccc 1px solid;
+	PADDING-LEFT: 20px;
+	FONT-SIZE: 11px;
+	BORDER-LEFT: #cccccc 1px;
+	COLOR: #333333;
+	LINE-HEIGHT: 22px;
+	BORDER-BOTTOM: #cccccc 1px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.LeftNavigationSelected {
+	BORDER-RIGHT: #5a6a80 8px solid;
+	PADDING-RIGHT: 1px;
+	BORDER-TOP: #eeeeee 1px solid;
+	PADDING-LEFT: 20px;
+	FONT-SIZE: 11px;
+	BORDER-LEFT: 0px;
+	COLOR: #333333;
+	LINE-HEIGHT: 22px;
+	BORDER-BOTTOM: 0px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #eaeaea
+}
+
+.LeftNavigationSelected A {
+	COLOR: #333333;
+	TEXT-DECORATION: none
+}
+
+.LeftNavigationSelected A:hover {
+	COLOR: #5a6a80;
+	TEXT-DECORATION: none
+}
+
+.LeftNavigation A {
+	COLOR: #333333;
+	TEXT-DECORATION: none
+}
+
+.LeftNavigation A:hover {
+	COLOR: #5a6a80;
+	TEXT-DECORATION: none
+}
+
+.InputFields {
+	BORDER-RIGHT: #999999 1px inset;
+	BORDER-TOP: #ebebeb 1px solid;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #ebebeb 1px solid;
+	COLOR: #000000;
+	BORDER-BOTTOM: #999999 1px inset;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.Buttons {
+	BORDER-RIGHT: #666666 1px solid;
+	PADDING-RIGHT: 5px;
+	PADDING-LEFT: 3px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	LINE-HEIGHT: 18px;
+	BORDER-BOTTOM: #666666 1px solid;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #ececec
+}
+
+.WhiteText {
+	FONT-SIZE: 12px;
+	COLOR: #ffffff;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.PwdText {
+	FONT-SIZE: 11px;
+	COLOR: #ffffff;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.PwdText A {
+	COLOR: #ffffff;
+	TEXT-DECORATION: underline
+}
+
+.PwdText A:hover {
+	COLOR: #ffffff;
+	TEXT-DECORATION: none
+}
+
+.WhiteHeader {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 16px;
+	COLOR: #ffffff;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.headerBackground {
+	BACKGROUND:
+		url(/images/Header.jpg)
+		
+	PADDING-BOTTOM: 5px;
+	WIDTH: 100%;
+	PADDING-TOP: 5px;
+	TEXT-ALIGN: center
+}
+
+.footer-container {
+	BORDER-RIGHT: #999999 1px solid;
+	BORDER-TOP: #999999 1px solid;
+	FONT-SIZE: 12px;
+	BACKGROUND: #736F6E;
+	PADDING-BOTTOM: 10px;
+	BORDER-LEFT: #999999 1px solid;
+	WIDTH: 100%;
+	COLOR: #000000;
+	PADDING-TOP: 10px;
+	BORDER-BOTTOM: #999999 1px solid;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	POSITION: absolute;
+	HEIGHT: 40px;
+	TEXT-ALIGN: center
+}
+
+A.portal-copyright {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	COLOR: #9900cc;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+
+BODY {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	FONT-SIZE: 11px;
+	BACKGROUND-IMAGE: none;
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	COLOR: #000;
+	PADDING-TOP: 0px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	HEIGHT: 100%;
+	BACKGROUND-COLOR: #cccccc
+}

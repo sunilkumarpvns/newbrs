@@ -1,0 +1,93 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="name">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("quotaprofile.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("quotaprofile.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("quotaprofile.name")})}</message>
+        </field-validator>		
+	</field>
+	<field name="quotaProfileDetailDatas[0].total">
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[0-9]*$]]></param>
+    		<message>${getText("invalid.value", {getText("quotaprofile.total")})}</message>
+        </field-validator>
+	</field>
+	<field name="quotaProfileDetailDatas[0].upload">
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[0-9]*$]]></param>
+    		<message>${getText("invalid.value", {getText("quotaprofile.upload")})}</message>
+        </field-validator>
+		
+	</field>
+	<field name="quotaProfileDetailDatas[0].download">
+	<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[0-9]*$]]></param>
+    		<message>${getText("invalid.value", {getText("quotaprofile.download")})}</message>
+        </field-validator>
+	
+	</field>
+	<field name="quotaProfileDetailDatas[0].time">
+	<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[0-9]*$]]></param>
+    		<message>${getText("invalid.value", {getText("quotaprofile.time")})}</message>
+        </field-validator>
+	</field>
+	
+	
+	<field name="quotaProfile.name">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("quotaprofile.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("quotaprofile.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("quotaprofile.name")})}</message>
+        </field-validator>		
+	</field>
+	<field name="quotaProfile.quotaProfileDetailDatas[0].total">
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[0-9]*$]]></param>
+    		<message>${getText("invalid.value", {getText("quotaprofile.total")})}</message>
+        </field-validator>
+	</field>
+	<field name="quotaProfile.quotaProfileDetailDatas[0].upload">
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[0-9]*$]]></param>
+    		<message>${getText("invalid.value", {getText("quotaprofile.upload")})}</message>
+        </field-validator>
+		
+	</field>
+	<field name="quotaProfile.quotaProfileDetailDatas[0].download">
+	<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[0-9]*$]]></param>
+    		<message>${getText("invalid.value", {getText("quotaprofile.download")})}</message>
+        </field-validator>
+	
+	</field>
+	<field name="quotaProfile.quotaProfileDetailDatas[0].time">
+	<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[0-9]*$]]></param>
+    		<message>${getText("invalid.value", {getText("quotaprofile.time")})}</message>
+        </field-validator>
+	</field>
+</validators>

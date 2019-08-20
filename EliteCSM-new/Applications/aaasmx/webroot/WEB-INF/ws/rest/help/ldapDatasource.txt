@@ -1,0 +1,349 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource?name=LDAP_DS&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource.xml?name=LDAP_DS
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource?operation=search&name=LDAP_DS&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource.xml?operation=search&name=LDAP_DS
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS.xml?operation=search
+
+Response     :
+
+<ldap-datasource>
+    <name>LDAP_DS</name>
+    <address>10.121.21.62:1812</address>
+    <administrator>admin</administrator>
+    <timeout>1000</timeout>
+    <status-check-duration>120</status-check-duration>
+    <minimum-pool-size>2</minimum-pool-size>
+    <maximum-pool-size>5</maximum-pool-size>
+    <user-dn-prefix>uid=</user-dn-prefix>
+    <ldap-size-limit>1</ldap-size-limit>
+    <ldap-version>2</ldap-version>
+    <ldap-base-dn-details>
+        <ldap-search-base-dn>elitecore</ldap-search-base-dn>
+    </ldap-base-dn-details>
+</ldap-datasource>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource?name=LDAP_DS&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource.json?name=LDAP_DS
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource?operation=search&name=LDAP_DS&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource.json?operation=search&name=LDAP_DS
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS.json?operation=search
+
+Response     :
+
+{
+  "name": "LDAP_DS",
+  "address": "10.121.21.62:1812",
+  "timeout": 1000,
+  "status-check-duration": 120,
+  "minimum-pool-size": 2,
+  "maximum-pool-size": 5,
+  "user-dn-prefix": "uid=",
+  "ldap-size-limit": 1,
+  "ldap-version": 2,
+  "ldap-base-dn-details": [
+    {
+      "ldap-search-base-dn": "elitecore"
+    }
+  ],
+  "administrator": "admin"
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+ 
+<ldap-datasource>
+   <name>LDAP_DS</name>
+   <address>10.121.21.62:1812</address>
+   <administrator>admin</administrator>
+   <password>admin</password>
+   <timeout>1000</timeout>
+   <status-check-duration>120</status-check-duration>
+   <minimum-pool-size>2</minimum-pool-size>
+   <maximum-pool-size>5</maximum-pool-size>
+   <user-dn-prefix>uid=</user-dn-prefix>
+   <ldap-size-limit>1</ldap-size-limit>
+   <ldap-version>2</ldap-version>
+   <ldap-base-dn-details>
+      <ldap-search-base-dn>elitecore</ldap-search-base-dn>
+   </ldap-base-dn-details>
+</ldap-datasource>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>LDAP Datasource created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "LDAP_DS",
+  "address": "10.121.21.62:1812",
+  "administrator": "admin",
+  "password": "admin",
+  "timeout": 1000,
+  "status-check-duration": 120,
+  "minimum-pool-size": 2,
+  "maximum-pool-size": 5,
+  "user-dn-prefix": "uid=",
+  "ldap-size-limit": 1,
+  "ldap-version": 3,
+  "ldap-base-dn-details": [
+    {
+      "ldap-search-base-dn": "elitecore"
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>LDAP Datasource created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<ldap-datasource>
+	    <name>LDAP_DS</name>
+	    <address>10.121.21.62:1812</address>
+	    <administrator>admin</administrator>
+	    <password>admin</password>
+	    <timeout>1000</timeout>
+	    <status-check-duration>120</status-check-duration>
+	    <minimum-pool-size>2</minimum-pool-size>
+	    <maximum-pool-size>5</maximum-pool-size>
+	    <user-dn-prefix>uid=</user-dn-prefix>
+	    <ldap-size-limit>1</ldap-size-limit>
+	    <ldap-version>2</ldap-version>
+	    <ldap-base-dn-details>
+	        <ldap-search-base-dn>elitecore</ldap-search-base-dn>
+	    </ldap-base-dn-details>
+	</ldap-datasource>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>LDAP Datasource(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"LDAP_DS",
+         "address":"10.121.21.62:1812",
+         "timeout":1000,
+         "password":"admin",
+         "status-check-duration":120,
+         "minimum-pool-size":2,
+         "maximum-pool-size":5,
+         "user-dn-prefix":"uid=",
+         "ldap-size-limit":1,
+         "ldap-version":2,
+         "ldap-base-dn-details":[
+            {
+               "ldap-search-base-dn":"elitecore"
+            }
+         ],
+         "administrator":"admin"
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>LDAP Datasource(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource?name=LDAP_DS
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource?operation=update&name=LDAP_DS
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<ldap-datasource>
+    <name>LDAP_DS</name>
+    <address>10.121.21.62:1812</address>
+    <administrator>admin</administrator>
+    <password>admin</password>
+    <timeout>1000</timeout>
+    <status-check-duration>125</status-check-duration>
+    <minimum-pool-size>3</minimum-pool-size>
+    <maximum-pool-size>7</maximum-pool-size>
+    <user-dn-prefix>uid=</user-dn-prefix>
+    <ldap-size-limit>1</ldap-size-limit>
+    <ldap-version>2</ldap-version>
+    <ldap-base-dn-details>
+        <ldap-search-base-dn>sterlite</ldap-search-base-dn>
+    </ldap-base-dn-details>
+</ldap-datasource>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>LDAP Datasource updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "name": "LDAP_DS",
+  "address": "10.121.21.62:1812",
+  "timeout": 2000,
+  "password": "admin",
+  "status-check-duration": 110,
+  "minimum-pool-size": 2,
+  "maximum-pool-size": 5,
+  "user-dn-prefix": "uid=",
+  "ldap-size-limit": 1,
+  "ldap-version": 2,
+  "ldap-base-dn-details": [
+    {
+      "ldap-search-base-dn": "elitecore"
+    }
+  ],
+  "administrator": "admin"
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>LDAP Datasource updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource?name=LDAP_DS
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource?operation=delete&name=LDAP_DS
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ldapdatasource/LDAP_DS?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>LDAP Datasource(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

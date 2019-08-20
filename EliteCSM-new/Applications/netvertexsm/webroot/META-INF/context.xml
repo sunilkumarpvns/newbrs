@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="" crossContext="true">
+<Parameter name="pdContextPath" value="policydesigner" override="false"/>
+<Parameter name="smContextPath" value="netvertexsm" override="false"/>
+</Context>

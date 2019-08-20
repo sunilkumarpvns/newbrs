@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="16459" vendor-name="Epygi">
+<attribute id="1" name="Epygi-AVPair" type="string"/>
+<attribute id="2" name="Epygi-NAS-Port" type="string"/>
+<attribute id="23" name="Epygi-h323-remote-address" type="string"/>
+<attribute id="24" name="Epygi-h323-conf-id" type="string"/>
+<attribute id="25" name="Epygi-h323-setup-time" type="string"/>
+<attribute id="26" name="Epygi-h323-call-origin" type="string"/>
+<attribute id="27" name="Epygi-h323-call-type" type="string"/>
+<attribute id="28" name="Epygi-h323-connect-time" type="string"/>
+<attribute id="29" name="Epygi-h323-disconnect-time" type="string"/>
+<attribute id="30" name="Epygi-h323-disconnect-cause" type="string"/>
+<attribute id="31" name="Epygi-h323-voice-quality" type="string"/>
+<attribute id="33" name="Epygi-h323-gw-id" type="string"/>
+<attribute id="35" name="Epygi-h323-incoming-conf-id" type="string"/>
+<attribute id="101" name="Epygi-h323-credit-amount" type="string"/>
+<attribute id="102" name="Epygi-h323-credit-time" type="string"/>
+<attribute id="103" name="Epygi-h323-return-code" type="string"/>
+<attribute id="104" name="Epygi-h323-prompt-id" type="string"/>
+<attribute id="105" name="Epygi-h323-time-and-day" type="string"/>
+<attribute id="106" name="Epygi-h323-redirect-number" type="string"/>
+<attribute id="107" name="Epygi-h323-preferred-lang" type="string"/>
+<attribute id="108" name="Epygi-h323-redirect-ip-address" type="string"/>
+<attribute id="109" name="Epygi-h323-billing-model" type="string"/>
+<attribute id="110" name="Epygi-h323-currency" type="string"/>
+<attribute id="150" name="Epygi-RegExpDate" type="string"/>
+<attribute id="151" name="Epygi-Fiadid" type="string"/>
+<attribute id="152" name="Epygi-Portid" type="string"/>
+<attribute id="153" name="Epygi-AccessType" type="string"/>
+<attribute id="154" name="Epygi-CallInfo" type="string"/>
+<attribute id="170" name="Epygi-OrigCallid" type="string"/>
+<attribute id="171" name="Epygi-ParentCallid" type="string"/>
+<attribute id="172" name="Epygi-CallType" type="integer">
+	<supported-values>
+		<value id="0" name="Internal"/>
+		<value id="1" name="SIP"/>
+		<value id="2" name="H.323"/>
+		<value id="3" name="FXO"/>
+		<value id="4" name="T1-E1-CAS"/>
+		<value id="5" name="T1-E1-CCS"/>
+		<value id="6" name="ISDN-PRI"/>
+	</supported-values>
+</attribute>
+<attribute id="173" name="Epygi-DeviceName" type="string"/>
+<attribute id="174" name="Epygi-InterfaceName" type="integer">
+	<supported-values>
+		<value id="0" name="Ethernet"/>
+		<value id="1" name="FXO"/>
+		<value id="2" name="T1-E1-User"/>
+		<value id="3" name="T1-E1-Network"/>
+		<value id="4" name="ISDN"/>
+	</supported-values>
+</attribute>
+<attribute id="175" name="Epygi-InterfaceNumber" type="integer"/>
+<attribute id="176" name="Epygi-TimeslotNumber" type="integer"/>
+<attribute id="177" name="Epygi-OrigIpAddr" type="integer"/>
+<attribute id="178" name="Epygi-DestIpAddr" type="integer"/>
+<attribute id="179" name="Epygi-OrigIpPort" type="integer"/>
+<attribute id="180" name="Epygi-DestIpPort" type="integer"/>
+<attribute id="181" name="Epygi-CallingPartyNumber" type="string"/>
+<attribute id="182" name="Epygi-CalledPartyNumber" type="string"/>
+<attribute id="183" name="Epygi-DateTimeOrigination" type="integer"/>
+<attribute id="184" name="Epygi-DateTimeConnect" type="integer"/>
+<attribute id="185" name="Epygi-DateTimeDisconnect" type="integer"/>
+<attribute id="186" name="Epygi-Duration" type="integer"/>
+<attribute id="187" name="Epygi-OutSourceRTP_IP" type="integer"/>
+<attribute id="188" name="Epygi-OutDestRTP_IP" type="integer"/>
+<attribute id="189" name="Epygi-InSourceRTP_IP" type="integer"/>
+<attribute id="190" name="Epygi-InDestRTP_IP" type="integer"/>
+<attribute id="191" name="Epygi-OutSourceRTP_port" type="integer"/>
+<attribute id="192" name="Epygi-OutDestRTP_port" type="integer"/>
+<attribute id="193" name="Epygi-InSourceRTP_port" type="integer"/>
+<attribute id="194" name="Epygi-InDestRTP_port" type="integer"/>
+<attribute id="195" name="Epygi-CallRedirectReason" type="integer">
+	<supported-values>
+		<value id="0" name="No-Reason"/>
+		<value id="1" name="Call-Forward-Uncondit"/>
+		<value id="2" name="Call-Forward-Busy"/>
+		<value id="3" name="Call-Forward-NoAnswer"/>
+		<value id="4" name="Call-Tranfer"/>
+		<value id="5" name="Call-Park"/>
+		<value id="6" name="Call-Pickup"/>
+		<value id="7" name="ManyExtension-Ringing"/>
+		<value id="8" name="Hunt-Group"/>
+	</supported-values>
+</attribute>
+<attribute id="196" name="Epygi-CallDisconnectReason" type="integer">
+	<supported-values>
+		<value id="0" name="Call-Is-Redirected"/>
+		<value id="1" name="Call-Origin-OnHook"/>
+		<value id="2" name="Call-Temin-OnHook"/>
+		<value id="3" name="Disconected-by-CAC"/>
+		<value id="4" name="Other"/>
+	</supported-values>
+</attribute>
+<attribute id="197" name="Epygi-OutRTP_Payload" type="integer"/>
+<attribute id="198" name="Epygi-OutRTP_PacketSize" type="integer"/>
+<attribute id="199" name="Epygi-OutRTP_Packets" type="integer"/>
+<attribute id="200" name="Epygi-OutRTP_Octets" type="integer"/>
+<attribute id="201" name="Epygi-InRTP_Payload" type="integer"/>
+<attribute id="202" name="Epygi-InRTP_PacketSize" type="integer"/>
+<attribute id="203" name="Epygi-InRTP_Packets" type="integer"/>
+<attribute id="204" name="Epygi-InRTP_Octets" type="integer"/>
+<attribute id="205" name="Epygi-InRTP_PacketsLost" type="integer"/>
+<attribute id="206" name="Epygi-InRTP_PacketsDupl" type="integer"/>
+<attribute id="207" name="Epygi-InRTP_Jitter" type="integer"/>
+<attribute id="208" name="Epygi-InRTP_Latency" type="integer"/>
+</attribute-list>

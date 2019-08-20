@@ -1,0 +1,392 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging?name=crestelChargingDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging.xml?name=crestelChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging?operation=search&name=crestelChargingDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging.xml?operation=search&name=crestelChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+<driver-instance>
+    <name>crestelChargingDriver</name>
+    <description>Created by admin on 02/10/2017 12:11:50 PM</description>
+    <crestel-charging-driver>
+        <translation-mapping-configuration>crestelChargingTranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+        <jndi-properties>
+            <jndi-property>
+                <property>java.naming.factory.initial</property>
+                <value>org.jnp.interfaces.NamingContextFactory</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.factory.url.pkgs</property>
+                <value>org.jboss.naming:org.jnp.interfaces</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.provider.url</property>
+                <value>127.0.0.1:4099</value>
+            </jndi-property>
+        </jndi-properties>
+    </crestel-charging-driver>
+</driver-instance>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging?name=crestelChargingDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging.json?name=crestelChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging?operation=search&name=crestelChargingDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging.json?operation=search&name=crestelChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+    "name": "crestelChargingDriver",
+    "description": "Created by admin on 02/10/2017 12:11:50 PM",
+    "crestel-charging-driver": [
+        {
+            "translation-mapping-configuration": "crestelChargingTranslationMapping",
+            "number-of-instance": 5,
+            "jndi-properties": [
+                {
+                    "property": "java.naming.factory.initial",
+                    "value": "org.jnp.interfaces.NamingContextFactory"
+                },
+                {
+                    "property": "java.naming.factory.url.pkgs",
+                    "value": "org.jboss.naming:org.jnp.interfaces"
+                },
+                {
+                    "property": "java.naming.provider.url",
+                    "value": "127.0.0.1:4099"
+                }
+            ]
+        }
+    ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<driver-instance>
+    <name>crestelChargingDriver</name>
+    <description>Created by admin on 02/10/2017 12:11:50 PM</description>
+    <crestel-charging-driver>
+        <translation-mapping-configuration>crestelChargingTranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+        <jndi-properties>
+            <jndi-property>
+                <property>java.naming.factory.initial</property>
+                <value>org.jnp.interfaces.NamingContextFactory</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.factory.url.pkgs</property>
+                <value>org.jboss.naming:org.jnp.interfaces</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.provider.url</property>
+                <value>127.0.0.1:4099</value>
+            </jndi-property>
+        </jndi-properties>
+    </crestel-charging-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Charging  Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+{
+    "name": "crestelChargingDriver",
+    "description": "Created by admin on 02/10/2017 12:11:50 PM",
+    "crestel-charging-driver": [
+        {
+            "translation-mapping-configuration": "crestelChargingTranslationMapping",
+            "number-of-instance": 5,
+            "jndi-properties": [
+                {
+                    "property": "java.naming.factory.initial",
+                    "value": "org.jnp.interfaces.NamingContextFactory"
+                },
+                {
+                    "property": "java.naming.factory.url.pkgs",
+                    "value": "org.jboss.naming:org.jnp.interfaces"
+                },
+                {
+                    "property": "java.naming.provider.url",
+                    "value": "127.0.0.1:4099"
+                }
+            ]
+        }
+    ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Charging  Driver created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<list>
+   <driver-instance>
+    <name>crestelChargingDriver</name>
+    <description>Created by admin on 02/10/2017 12:11:50 PM</description>
+    <crestel-charging-driver>
+        <translation-mapping-configuration>crestelChargingTranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+       		 <jndi-properties>
+	            <jndi-property>
+	                <property>java.naming.factory.initial</property>
+	                <value>org.jnp.interfaces.NamingContextFactory</value>
+	            </jndi-property>
+	            <jndi-property>
+	                <property>java.naming.factory.url.pkgs</property>
+	                <value>org.jboss.naming:org.jnp.interfaces</value>
+	            </jndi-property>
+	            <jndi-property>
+	                <property>java.naming.provider.url</property>
+	                <value>127.0.0.1:4099</value>
+	            </jndi-property>
+	        </jndi-properties>
+	    </crestel-charging-driver>
+	</driver-instance>
+</list>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Charging  Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+{
+   "list":[
+      {
+         "name":"crestelChargingDrivers",
+         "description":"Created by admin on 02/10/2017 12:11:50 PM",
+         "crestel-charging-driver":[
+            {
+               "translation-mapping-configuration":"crestelChargingTranslationMapping",
+               "number-of-instance":5,
+               "jndi-properties":[
+                  {
+                     "property":"java.naming.factory.initial",
+                     "value":"org.jnp.interfaces.NamingContextFactory"
+                  },
+                  {
+                     "property":"java.naming.factory.url.pkgs",
+                     "value":"org.jboss.naming:org.jnp.interfaces"
+                  },
+                  {
+                     "property":"java.naming.provider.url",
+                     "value":"127.0.0.1:4099"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Charging Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging?name=crestelChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging?operation=update&name=crestelChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+<driver-instance>
+    <name>crestelChargingDriver</name>
+    <description>Created by admin on 02/10/2017 12:11:50 PM</description>
+    <crestel-charging-driver>
+        <translation-mapping-configuration>crestelChargingTranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+        <jndi-properties>
+            <jndi-property>
+                <property>java.naming.factory.initial</property>
+                <value>org.jnp.interfaces.NamingContextFactory</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.factory.url.pkgs</property>
+                <value>org.jboss.naming:org.jnp.interfaces</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.provider.url</property>
+                <value>127.0.0.1:4099</value>
+            </jndi-property>
+        </jndi-properties>
+    </crestel-charging-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Charging  Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+{
+    "name": "crestelChargingDriver",
+    "description": "Created by admin on 02/10/2017 12:11:50 PM",
+    "crestel-charging-driver": [
+        {
+            "translation-mapping-configuration": "crestelChargingTranslationMapping",
+            "number-of-instance": 5,
+            "jndi-properties": [
+                {
+                    "property": "java.naming.factory.initial",
+                    "value": "org.jnp.interfaces.NamingContextFactory"
+                },
+                {
+                    "property": "java.naming.factory.url.pkgs",
+                    "value": "org.jboss.naming:org.jnp.interfaces"
+                },
+                {
+                    "property": "java.naming.provider.url",
+                    "value": "127.0.0.1:4099"
+                }
+            ]
+        }
+    ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Charging  Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging?name=crestelChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging?operation=delete&name=crestelChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelcharging/crestelChargingDriver?operation=delete
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Charging  Driver(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

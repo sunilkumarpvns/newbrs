@@ -1,0 +1,339 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy?name=service-policy-name&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy.xml?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy?operation=search&name=service-policy-name&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy.xml?operation=search&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name.xml?operation=search
+
+Response     :
+
+<charging-service-policy>
+    <name>RAD_CG</name>
+    <description>Created by admin on 02/17/2017 01:38:33 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <driver-group>
+        <driver-detail>
+            <driver-instance-name>CG_DRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </driver-group>
+    <script>ddd</script>
+</charging-service-policy>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy?name=service-policy-name&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy.json?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy?operation=search&name=service-policy-name&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy.json?operation=search&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name.json?operation=search
+
+
+Response     :
+
+{
+  "name": "RAD_CG",
+  "description": "Created by admin on 02/17/2017 01:38:33 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "driver-group": [
+    {
+      "driver-instance-name": "CG_DRV",
+      "weightage": 1
+    }
+  ],
+  "script": "ddd"
+}
+
+
+***********************************************************************
+                    CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy?operation=create
+
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<charging-service-policy>
+    <name>RAD_CG</name>
+    <description>Created by admin on 02/17/2017 01:38:33 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <driver-group>
+        <driver-detail>
+            <driver-instance-name>CG_DRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </driver-group>
+    <script>ddd</script>
+</charging-service-policy>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Charging Service Policy created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "RAD_CG",
+  "description": "Created by admin on 02/17/2017 01:38:33 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "driver-group": [
+    {
+      "driver-instance-name": "CG_DRV",
+      "weightage": 1
+    }
+  ],
+  "script": "ddd"
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Charging Service Policy created successfully</response-message>
+	</response>
+</response-detail>
+
+
+***********************************************************************
+                    CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/bulk?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+<charging-service-policy>
+    <name>RAD_CG</name>
+    <description>Created by admin on 02/17/2017 01:38:33 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <driver-group>
+        <driver-detail>
+            <driver-instance-name>CG_DRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </driver-group>
+    <script>ddd</script>
+</charging-service-policy>
+<charging-service-policy>
+    <name>RAD_CG1</name>
+    <description>Created by admin on 02/17/2017 01:38:33 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <driver-group>
+        <driver-detail>
+            <driver-instance-name>CG_DRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </driver-group>
+    <script>ddd</script>
+</charging-service-policy>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Charging Service Policies created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "list": [
+    {
+      "name": "RAD_CG",
+      "description": "Created by admin on 02/17/2017 01:38:33 PM",
+      "status": "ACTIVE",
+      "ruleset": "0:1=\"*\"",
+      "driver-group": [
+        {
+          "driver-instance-name": "CG_DRV",
+          "weightage": 1
+        }
+      ],
+      "script": "ddd"
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Charging Service Policies created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy?operation=update&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<charging-service-policy>
+    <name>RAD_CG</name>
+    <description>Created by admin on 02/17/2017 01:38:33 PM</description>
+    <status>ACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <driver-group>
+        <driver-detail>
+            <driver-instance-name>CG_DRV</driver-instance-name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </driver-group>
+    <script>ddd</script>
+</charging-service-policy>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Charging Service Policy updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "RAD_CG",
+  "description": "Created by admin on 02/17/2017 01:38:33 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "driver-group": [
+    {
+      "driver-instance-name": "CG_DRV",
+      "weightage": 1
+    }
+  ],
+  "script": "ddd"
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Charging Service Policy updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy?operation=delete&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/chargingservicepolicy/service-policy-name?operation=delete
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Charging Service Policy/Policies deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

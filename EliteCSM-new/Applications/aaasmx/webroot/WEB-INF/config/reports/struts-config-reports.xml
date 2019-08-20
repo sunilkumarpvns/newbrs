@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <data-sources />
+
+    <form-beans>
+        <form-bean name="userStatisticsForm" type="com.elitecore.elitesm.web.reports.userstat.forms.SearchUserStatisticsForm"/>
+    </form-beans>
+
+    <global-exceptions />
+
+    <action-mappings>
+		<action path="/initSearchUserStatistics"
+			type="com.elitecore.elitesm.web.reports.userstat.InitSearchUserStatisticsAction"
+			name="userStatisticsForm"
+			scope="request"
+			validate="false">
+			<forward name="searchUserStatistics" path="/jsp/reports/userstat/SearchUserStatistics.jsp"/>
+		</action>
+		
+		<action path="/searchUserStatistics"
+          type="com.elitecore.elitesm.web.reports.userstat.SearchUserStatisticsAction"
+          name="userStatisticsForm"
+          scope="request"
+          validate="false">
+        <forward name="searchUserStatistics" path="/jsp/reports/userstat/SearchUserStatistics.jsp"/>
+      </action>
+
+    </action-mappings>
+    <message-resources key="reportResources" parameter="com.elitecore.elitesm.web.reports.ReportResources" null="false"/>
+	
+</struts-config>
+

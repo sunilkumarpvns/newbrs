@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class  name="com.elitecore.elitesm.datamanager.servermgr.plugins.data.PluginServiceTypeData" table="TBLSPLUGINSERVICETYPE">
+
+			<id name="pluginServiceTypeId" column="PLUGINSERVICETYPEID" type="StringType">
+			</id>    
+
+			<property name="name" type="StringType"> 
+				<column name="NAME" sql-type="VARCHAR(200)" not-null="true" /> 
+			</property>
+
+			<property name="displayName" type="StringType"> 
+				<column name="DISPLAYNAME" sql-type="VARCHAR(200)" not-null="true" /> 
+			</property>
+
+			<property name="alias" type="StringType"> 
+				<column name="ALIAS" sql-type="VARCHAR(100)" not-null="true" /> 
+			</property>
+
+			<property name="serialNo" type="long"> 
+				<column name="SERIALNO" sql-type="NUMBER(10)" not-null="false" /> 
+			</property>
+
+			<property name="description" type="StringType"> 
+				<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false" /> 
+			</property>
+
+			<property name="status" type="char"> 
+				<column name="STATUS" sql-type="CHAR(1)" not-null="true" /> 
+			</property>
+    
+	    	<set name="pluginTypeSet" lazy="false" inverse="true" order-by="name" where="status='Y'">
+				<key column="pluginServiceTypeId"></key>			
+				<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.plugins.data.PluginTypesData"/>
+		  	</set>
+	
+	</class>
+
+</hibernate-mapping> 
+
+
+
+
+
+
+
+
+
+

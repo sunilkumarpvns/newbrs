@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="14436" vendor-name="Quiconnect">
+<attribute id="1" name="Quiconnect-AVPair" type="string"/>
+<attribute id="2" name="Quiconnect-VNP-Information" type="string"/>
+<attribute id="3" name="Quiconnect-HSP-Information" type="string"/>
+</attribute-list>

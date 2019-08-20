@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="272" vendor-name="BinTec">
+<attribute id="224" name="BinTec-biboPPPTable" type="string"/>
+<attribute id="225" name="BinTec-biboDialTable" type="string"/>
+<attribute id="226" name="BinTec-ipExtIfTable" type="string"/>
+<attribute id="227" name="BinTec-ipRouteTable" type="string"/>
+<attribute id="228" name="BinTec-ipExtRtTable" type="string"/>
+<attribute id="229" name="BinTec-ipNatPresetTable" type="string"/>
+<attribute id="230" name="BinTec-ipxCircTable" type="string"/>
+<attribute id="231" name="BinTec-ripCircTable" type="string"/>
+<attribute id="232" name="BinTec-sapCircTable" type="string"/>
+<attribute id="233" name="BinTec-ipxStaticRouteTable" type="string"/>
+<attribute id="234" name="BinTec-ipxStaticServTable" type="string"/>
+<attribute id="235" name="BinTec-ospfIfTable" type="string"/>
+<attribute id="236" name="BinTec-pppExtIfTable" type="string"/>
+<attribute id="237" name="BinTec-ipFilterTable" type="string"/>
+<attribute id="238" name="BinTec-ipQoSTable" type="string"/>
+<attribute id="239" name="BinTec-qosIfTable" type="string"/>
+<attribute id="240" name="BinTec-qosPolicyTable" type="string"/>
+</attribute-list>

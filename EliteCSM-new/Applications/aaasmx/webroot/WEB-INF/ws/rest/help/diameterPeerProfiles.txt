@@ -1,0 +1,504 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles?name=diameter_peer_profile&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles.xml?name=diameter_peer_profile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles?operation=search&name=diameter_peer_profile&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles.xml?operation=search&name=diameter_peer_profile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile.xml?operation=search
+
+Response :
+
+<diameter-peer-profiles>
+	<profile-name>diameter_peer_profile</profile-name>
+	<description>Created by admin on 01/02/2017 07:01:17 PM</description>
+	<exclusive-auth-application-ids>1,5</exclusive-auth-application-ids>
+	<exclusive-acct-application-ids>1,4,5</exclusive-acct-application-ids>
+	<cer-avps>0:265="10415"</cer-avps>
+	<dpr-avps>0:265="10415"</dpr-avps>
+	<dwr-avps>0:265="10415"</dwr-avps>
+	<session-clean-up-on-cer>true</session-clean-up-on-cer>
+	<session-clean-up-on-dpr>true</session-clean-up-on-dpr>
+	<redirect-host-avp-format>DiameterURI</redirect-host-avp-format>
+	<follow-redirection>Enabled</follow-redirection>
+	<hotline-policy>hotline_policy</hotline-policy>
+	<transport-protocol>TCP</transport-protocol>
+	<security-standard>NONE</security-standard>
+	<socket-send-buffer-size>-1</socket-send-buffer-size>
+	<socket-receive-buffer-size>-1</socket-receive-buffer-size>
+	<tcp-nagle-algorithm>false</tcp-nagle-algorithm>
+	<dwr-duration-tw>6</dwr-duration-tw>
+	<init-connection-duration-tc>60</init-connection-duration-tc>
+	<retry-count>0</retry-count>
+	<dpr-on-cer-timeout>false</dpr-on-cer-timeout>
+	<minimum-tls-version>TLSv1</minimum-tls-version>
+	<maximum-tls-version>TLSv1</maximum-tls-version>
+	<server-certificate-profile>server_certificate_profile</server-certificate-profile>
+	<client-certificate-request>true</client-certificate-request>
+	<ciphersuite-list>TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA</ciphersuite-list>
+	<certificate-validation>
+		<expiry-date>true</expiry-date>
+		<unknown-ca>true</unknown-ca>
+		<revoked-certificate>true</revoked-certificate>
+		<unknown-host>true</unknown-host>
+	</certificate-validation>
+	<ha-ip-address>10.121.21.50</ha-ip-address>
+	<dhcp-ip-address>10.122.25.29</dhcp-ip-address>
+</diameter-peer-profiles>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles?name=diameter_peer_profile&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles.json?name=diameter_peer_profile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles?operation=search&name=diameter_peer_profile&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles.json?operation=search&name=diameter_peer_profile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile.json?operation=search
+
+Response :
+
+{
+	"profile-name": "diameter_peer_profile",
+	"description": "Created by admin on 01/02/2017 07:01:17 PM",
+	"exclusive-auth-application-ids": "1,5",
+	"exclusive-acct-application-ids": "1,4,5",
+	"cer-avps": "0:265=\"10415\"",
+	"dpr-avps": "0:265=\"10415\"",
+	"dwr-avps": "0:265=\"10415\"",
+	"session-clean-up-on-cer": "true",
+	"session-clean-up-on-dpr": "true",
+	"redirect-host-avp-format": "DiameterURI",
+	"follow-redirection": "Enabled",
+	"hotline-policy": "hotline_policy",
+	"transport-protocol": "TCP",
+	"security-standard": "NONE",
+	"socket-receive-buffer-size": -1,
+	"socket-send-buffer-size": -1,
+	"tcp-nagle-algorithm": "false",
+	"dwr-duration-tw": 6,
+	"init-connection-duration-tc": 60,
+	"retry-count": 0,
+	"dpr-on-cer-timeout": "false",
+	"minimum-tls-version": "TLSv1",
+	"maximum-tls-version": "TLSv1",
+	"server-certificate-profile": "server_certificate_profile",
+	"client-certificate-request": "true",
+	"ciphersuite-list": "TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA",
+	"certificate-validation": {
+		"expiry-date": "true",
+		"unknown-ca": "true",
+		"revoked-certificate": "true",
+		"unknown-host": "true"
+	},
+	"ha-ip-address": "10.121.21.50",
+	"dhcp-ip-address": "10.122.25.29"
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-peer-profiles>
+	<profile-name>diameter_peer_profile</profile-name>
+	<description>Created by admin on 01/02/2017 07:01:17 PM</description>
+	<exclusive-auth-application-ids>1,5</exclusive-auth-application-ids>
+	<exclusive-acct-application-ids>1,4,5</exclusive-acct-application-ids>
+	<cer-avps>0:265="10415"</cer-avps>
+	<dpr-avps>0:265="10415"</dpr-avps>
+	<dwr-avps>0:265="10415"</dwr-avps>
+	<session-clean-up-on-cer>true</session-clean-up-on-cer>
+	<session-clean-up-on-dpr>true</session-clean-up-on-dpr>
+	<redirect-host-avp-format>DiameterURI</redirect-host-avp-format>
+	<follow-redirection>Enabled</follow-redirection>
+	<hotline-policy>hotline_policy</hotline-policy>
+	<transport-protocol>TCP</transport-protocol>
+	<security-standard>NONE</security-standard>
+	<socket-send-buffer-size>-1</socket-send-buffer-size>
+	<socket-receive-buffer-size>-1</socket-receive-buffer-size>
+	<tcp-nagle-algorithm>false</tcp-nagle-algorithm>
+	<dwr-duration-tw>6</dwr-duration-tw>
+	<init-connection-duration-tc>60</init-connection-duration-tc>
+	<retry-count>0</retry-count>
+	<dpr-on-cer-timeout>false</dpr-on-cer-timeout>
+	<minimum-tls-version>TLSv1</minimum-tls-version>
+	<maximum-tls-version>TLSv1</maximum-tls-version>
+	<server-certificate-profile>server_certificate_profile</server-certificate-profile>
+	<client-certificate-request>true</client-certificate-request>
+	<ciphersuite-list>TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA</ciphersuite-list>
+	<certificate-validation>
+		<expiry-date>true</expiry-date>
+		<unknown-ca>true</unknown-ca>
+		<revoked-certificate>true</revoked-certificate>
+		<unknown-host>true</unknown-host>
+	</certificate-validation>
+	<ha-ip-address>10.121.21.50</ha-ip-address>
+	<dhcp-ip-address>10.122.25.29</dhcp-ip-address>
+</diameter-peer-profiles>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Profile created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"profile-name": "diameter_peer_profile",
+	"description": "Created by admin on 01/02/2017 07:01:17 PM",
+	"exclusive-auth-application-ids": "1,5",
+	"exclusive-acct-application-ids": "1,4,5",
+	"cer-avps": "0:265=\"10415\"",
+	"dpr-avps": "0:265=\"10415\"",
+	"dwr-avps": "0:265=\"10415\"",
+	"session-clean-up-on-cer": "true",
+	"session-clean-up-on-dpr": "true",
+	"redirect-host-avp-format": "DiameterURI",
+	"follow-redirection": "Enabled",
+	"hotline-policy": "hotline_policy",
+	"transport-protocol": "TCP",
+	"security-standard": "NONE",
+	"socket-receive-buffer-size": -1,
+	"socket-send-buffer-size": -1,
+	"tcp-nagle-algorithm": "false",
+	"dwr-duration-tw": 6,
+	"init-connection-duration-tc": 60,
+	"retry-count": 0,
+	"dpr-on-cer-timeout": "false",
+	"minimum-tls-version": "TLSv1",
+	"maximum-tls-version": "TLSv1",
+	"server-certificate-profile": "server_certificate_profile",
+	"client-certificate-request": "true",
+	"ciphersuite-list": "TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA",
+	"certificate-validation": {
+		"expiry-date": "true",
+		"unknown-ca": "true",
+		"revoked-certificate": "true",
+		"unknown-host": "true"
+	},
+	"ha-ip-address": "10.121.21.50",
+	"dhcp-ip-address": "10.122.25.29"
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Profile created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/bulk?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<diameter-peer-profiles>
+		<profile-name>diameter_peer_profile</profile-name>
+		<description>Created by admin on 01/02/2017 07:01:17 PM</description>
+		<exclusive-auth-application-ids>1,5</exclusive-auth-application-ids>
+		<exclusive-acct-application-ids>1,4,5</exclusive-acct-application-ids>
+		<cer-avps>0:265="10415"</cer-avps>
+		<dpr-avps>0:265="10415"</dpr-avps>
+		<dwr-avps>0:265="10415"</dwr-avps>
+		<session-clean-up-on-cer>true</session-clean-up-on-cer>
+		<session-clean-up-on-dpr>true</session-clean-up-on-dpr>
+		<redirect-host-avp-format>DiameterURI</redirect-host-avp-format>
+		<follow-redirection>Enabled</follow-redirection>
+		<hotline-policy>hotline_policy</hotline-policy>
+		<transport-protocol>TCP</transport-protocol>
+		<security-standard>NONE</security-standard>
+		<socket-send-buffer-size>-1</socket-send-buffer-size>
+		<socket-receive-buffer-size>-1</socket-receive-buffer-size>
+		<tcp-nagle-algorithm>false</tcp-nagle-algorithm>
+		<dwr-duration-tw>6</dwr-duration-tw>
+		<init-connection-duration-tc>60</init-connection-duration-tc>
+		<retry-count>0</retry-count>
+		<dpr-on-cer-timeout>false</dpr-on-cer-timeout>
+		<minimum-tls-version>TLSv1</minimum-tls-version>
+		<maximum-tls-version>TLSv1</maximum-tls-version>
+		<server-certificate-profile>server_certificate_profile</server-certificate-profile>
+		<client-certificate-request>true</client-certificate-request>
+		<ciphersuite-list>TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA</ciphersuite-list>
+		<certificate-validation>
+			<expiry-date>true</expiry-date>
+			<unknown-ca>true</unknown-ca>
+			<revoked-certificate>true</revoked-certificate>
+			<unknown-host>true</unknown-host>
+		</certificate-validation>
+		<ha-ip-address>10.121.21.50</ha-ip-address>
+		<dhcp-ip-address>10.122.25.29</dhcp-ip-address>
+	</diameter-peer-profiles>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Profile(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"list":[
+		{
+			"profile-name": "diameter_peer_profile",
+			"description": "Created by admin on 01/02/2017 07:01:17 PM",
+			"exclusive-auth-application-ids": "1,5",
+			"exclusive-acct-application-ids": "1,4,5",
+			"cer-avps": "0:265=\"10415\"",
+			"dpr-avps": "0:265=\"10415\"",
+			"dwr-avps": "0:265=\"10415\"",
+			"session-clean-up-on-cer": "true",
+			"session-clean-up-on-dpr": "true",
+			"redirect-host-avp-format": "DiameterURI",
+			"follow-redirection": "Enabled",
+			"hotline-policy": "hotline_policy",
+			"transport-protocol": "TCP",
+			"security-standard": "NONE",
+			"socket-receive-buffer-size": -1,
+			"socket-send-buffer-size": -1,
+			"tcp-nagle-algorithm": "false",
+			"dwr-duration-tw": 6,
+			"init-connection-duration-tc": 60,
+			"retry-count": 0,
+			"dpr-on-cer-timeout": "false",
+			"minimum-tls-version": "TLSv1",
+			"maximum-tls-version": "TLSv1",
+			"server-certificate-profile": "server_certificate_profile",
+			"client-certificate-request": "true",
+			"ciphersuite-list": "TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA",
+			"certificate-validation": {
+				"expiry-date": "true",
+				"unknown-ca": "true",
+				"revoked-certificate": "true",
+				"unknown-host": "true"
+			},
+			"ha-ip-address": "10.121.21.50",
+			"dhcp-ip-address": "10.122.25.29"
+		}
+  	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Profile(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles?name=diameter_peer_profile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles?operation=update&name=diameter_peer_profile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-peer-profiles>
+	<profile-name>diameter_peer_profile</profile-name>
+	<description>Created by admin on 01/02/2017 07:01:17 PM</description>
+	<exclusive-auth-application-ids>1,5</exclusive-auth-application-ids>
+	<exclusive-acct-application-ids>1,4,5</exclusive-acct-application-ids>
+	<cer-avps>0:265="10415"</cer-avps>
+	<dpr-avps>0:265="10415"</dpr-avps>
+	<dwr-avps>0:265="10415"</dwr-avps>
+	<session-clean-up-on-cer>false</session-clean-up-on-cer>
+	<session-clean-up-on-dpr>true</session-clean-up-on-dpr>
+	<redirect-host-avp-format>NONE</redirect-host-avp-format>
+	<follow-redirection>Disabled</follow-redirection>
+	<hotline-policy>hotline_policy</hotline-policy>
+	<transport-protocol>TCP</transport-protocol>
+	<security-standard>RFC 3588 Dynamic</security-standard>
+	<socket-send-buffer-size>5</socket-send-buffer-size>
+	<socket-receive-buffer-size>5</socket-receive-buffer-size>
+	<tcp-nagle-algorithm>false</tcp-nagle-algorithm>
+	<dwr-duration-tw>16</dwr-duration-tw>
+	<init-connection-duration-tc>6</init-connection-duration-tc>
+	<retry-count>2</retry-count>
+	<dpr-on-cer-timeout>false</dpr-on-cer-timeout>
+	<minimum-tls-version>TLSv1</minimum-tls-version>
+	<maximum-tls-version>TLSv1</maximum-tls-version>
+	<server-certificate-profile>server_certificate_profile</server-certificate-profile>
+	<client-certificate-request>true</client-certificate-request>
+	<ciphersuite-list>TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA</ciphersuite-list>
+	<certificate-validation>
+		<expiry-date>true</expiry-date>
+		<unknown-ca>true</unknown-ca>
+		<revoked-certificate>true</revoked-certificate>
+		<unknown-host>true</unknown-host>
+	</certificate-validation>
+	<ha-ip-address>10.121.21.50</ha-ip-address>
+	<dhcp-ip-address>10.122.25.29</dhcp-ip-address>
+</diameter-peer-profiles>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Profile updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"profile-name": "diameter_peer_profile",
+	"description": "Created by admin on 01/02/2017 07:01:17 PM",
+	"exclusive-auth-application-ids": "1,5",
+	"exclusive-acct-application-ids": "1,4,5",
+	"cer-avps": "0:265=\"10415\"",
+	"dpr-avps": "0:265=\"10415\"",
+	"dwr-avps": "0:265=\"10415\"",
+	"session-clean-up-on-cer": "false",
+	"session-clean-up-on-dpr": "true",
+	"redirect-host-avp-format": "NONE",
+	"follow-redirection": "Disabled",
+	"hotline-policy": "hotline_policy",
+	"transport-protocol": "TCP",
+	"security-standard": "RFC 3588 Dynamic",
+	"socket-receive-buffer-size": 5,
+	"socket-send-buffer-size": 5,
+	"tcp-nagle-algorithm": "false",
+	"dwr-duration-tw": 16,
+	"init-connection-duration-tc": 6,
+	"retry-count": 2,
+	"dpr-on-cer-timeout": "false",
+	"minimum-tls-version": "TLSv1",
+	"maximum-tls-version": "TLSv1",
+	"server-certificate-profile": "server_certificate_profile",
+	"client-certificate-request": "true",
+	"ciphersuite-list": "TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA",
+	"certificate-validation": {
+		"expiry-date": "true",
+		"unknown-ca": "true",
+		"revoked-certificate": "true",
+		"unknown-host": "true"
+	},
+	"ha-ip-address": "10.121.21.50",
+	"dhcp-ip-address": "10.122.25.29"
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Profile updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles?name=diameter_peer_profile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles?operation=delete&name=diameter_peer_profile
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeerprofiles/diameter_peer_profile?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Profile(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

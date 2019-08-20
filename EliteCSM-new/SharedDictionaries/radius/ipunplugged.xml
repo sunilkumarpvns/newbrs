@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="5925" vendor-name="ipUnplugged">
+<attribute id="51" name="IPU-MIP-Spi" type="integer"/>
+<attribute id="52" name="IPU-MIP-Key" type="string"/>
+<attribute id="53" name="IPU-MIP-Alg-Type" type="integer"/>
+<attribute id="54" name="IPU-MIP-Alg-Mode" type="integer"/>
+<attribute id="55" name="IPU-MIP-Replay-Prot" type="integer"/>
+<attribute id="61" name="IPU-IKE-Remote-Addr" type="ipaddr"/>
+<attribute id="62" name="IPU-IKE-Local-Addr" type="ipaddr"/>
+<attribute id="63" name="IPU-IKE-Auth" type="string"/>
+<attribute id="64" name="IPU-IKE-Conf-Name" type="string"/>
+<attribute id="65" name="IPU-IKE-Cmd" type="string"/>
+</attribute-list>

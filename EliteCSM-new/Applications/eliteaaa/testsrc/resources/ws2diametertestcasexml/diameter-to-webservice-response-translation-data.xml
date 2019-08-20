@@ -1,0 +1,250 @@
+<list>
+	<case
+		behaviour="when value of RHS expression, identifier or keyword, is not found 
+						then it will not assign default value to LHS.">
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0003</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>static_value_mapping</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:31=0:1</mapping-expression>
+								<default-value>0:31=defaultValue</default-value>
+							</response-mapping>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:31=0:25</mapping-expression>
+								<default-value></default-value>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+
+		<diameter-packet cc="265" app-id="1">
+			<attribute id="0:25" value="anyValue" />
+		</diameter-packet>
+
+		<web-service-request-map>
+			<item>
+				<key>0:31</key>
+				<value>anyValue</value>
+			</item>
+		</web-service-request-map>
+
+	</case>
+
+	<case
+		behaviour="attribute value can be assigned with an assignment expression having syntax LHS=RHS,
+						LHS represents the attribute in which value of RHS will be assigned,
+						RHS can be of identifier type (without single quotes)">
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0003</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>static_value_mapping</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>0:1="*"</checked-expression>
+								<mapping-expression>0:1=0:1</mapping-expression>
+								<default-value></default-value>
+							</response-mapping>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:31=0:25</mapping-expression>
+								<default-value></default-value>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+
+		<diameter-packet cc="265" app-id="1">
+			<attribute id="0:1" value="test" />
+			<attribute id="0:25" value="elitecore" />
+		</diameter-packet>
+
+		<web-service-request-map>
+			<item>
+				<key>0:1</key>
+				<value>test</value>
+			</item>
+			<item>
+				<key>0:31</key>
+				<value>elitecore</value>
+			</item>
+		</web-service-request-map>
+
+	</case>
+
+	<case behaviour="Request Mapping is applied if check expression is satisfied">
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0003</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>static_value_mapping</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>0:18 = "*Success*"</checked-expression>
+								<mapping-expression>0:268="2001"</mapping-expression>
+							</response-mapping>
+							<response-mapping>
+								<checked-expression>NOT(0:18 = "*Success*")</checked-expression>
+								<mapping-expression>0:268= "4001" </mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+
+		<diameter-packet cc="265" app-id="1">
+			<attribute id="0:25" value="ClassValue" />
+			<attribute id="0:18" value="Authetication Success" />
+		</diameter-packet>
+
+		<web-service-request-map>
+			<item>
+				<key>0:268</key>
+				<value>2001</value>
+			</item>
+		</web-service-request-map>
+
+	</case>
+
+	<case
+		behaviour="Skips response mappings with invalid configuration. 
+						Note that it applies rest of the response mappings of selected mapping">
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0003</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>static_value_mapping</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:30</mapping-expression>
+							</response-mapping>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=0:1</mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+
+		<diameter-packet cc="265" app-id="1">
+			<attribute id="0:1" value="test" />
+			<attribute id="0:30" value="elitecore" />
+		</diameter-packet>
+
+		<web-service-request-map>
+			<item>
+				<key>0:1</key>
+				<value>test</value>
+			</item>
+		</web-service-request-map>
+	</case>
+
+	<case behaviour="Translation keywords are not supported">
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-static-value</name>
+				<to-interpreter-id>TTI0003</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>static_value_mapping</mapping-name>
+						<out-request-type />
+						<request-mappings />
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>0:1="*"</checked-expression>
+								<mapping-expression>0:89=${MATHOP-MUL,"1024"}:0:363</mapping-expression>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+
+		<diameter-packet cc="265" app-id="1">
+			<attribute id="0:1" value="test" />
+			<attribute id="0:363" value="20" />
+		</diameter-packet>
+
+		<web-service-request-map>
+			<item>
+				<key>0:89</key>
+				<value>${MATHOP-MUL,"1024"}:0:363</value>
+			</item>
+		</web-service-request-map>
+	</case>
+
+</list>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="10529" vendor-name="Gemtek">
+<attribute id="21" name="Acct-Session-Input-Octets" type="integer"/>
+<attribute id="22" name="Acct-Session-Input-Gigawords" type="integer"/>
+<attribute id="23" name="Acct-Session-Output-Octets" type="integer"/>
+<attribute id="24" name="Acct-Session-Output-Gigawords" type="integer"/>
+<attribute id="25" name="Acct-Session-Octets" type="integer"/>
+<attribute id="26" name="Acct-Session-Gigawords" type="integer"/>
+</attribute-list>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="4453" vendor-name="infonet">
+<attribute id="238" name="Infonet-Proxy" type="string"/>
+<attribute id="239" name="Infonet-Config" type="string"/>
+<attribute id="240" name="Infonet-MCS-Country" type="string"/>
+<attribute id="241" name="Infonet-MCS-Region" type="string"/>
+<attribute id="242" name="Infonet-MCS-Off-Peak" type="string"/>
+<attribute id="243" name="Infonet-MCS-Overflow" type="string"/>
+<attribute id="244" name="Infonet-MCS-Port" type="string"/>
+<attribute id="245" name="Infonet-MCS-Port-Count" type="string"/>
+<attribute id="247" name="Infonet-Account-Number" type="string"/>
+<attribute id="248" name="Infonet-Type" type="string"/>
+<attribute id="252" name="Infonet-Pool-Request" type="string"/>
+<attribute id="254" name="Infonet-Surcharge-Type" type="integer"/>
+<attribute id="255" name="Infonet-NAS-Location" type="string"/>
+<attribute id="246" name="Infonet-Random-IP-Pool" type="string"/>
+<attribute id="249" name="Infonet-Realm-Type" type="string"/>
+<attribute id="250" name="Infonet-LoginHost-Dest" type="string"/>
+<attribute id="251" name="Infonet-Tunnel-Decision-IP" type="string"/>
+</attribute-list>

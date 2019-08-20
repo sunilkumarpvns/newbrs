@@ -1,0 +1,64 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+ 
+ 	 <field name="labelOne">
+ 		<field-validator type="requiredstring" short-circuit="true">
+ 			<message>${getText("error.required.field", {getText("ratefileformat.labelOne")})}</message>
+ 		</field-validator>	
+ 	</field>
+ 	
+ 	<field name="labelTwo">
+ 		<field-validator type="requiredstring" short-circuit="true">
+ 			<message>${getText("error.required.field", {getText("ratefileformat.labelTwo")})}</message>
+ 		</field-validator>	
+ 	</field>
+ 	
+ 	<field name="slab">
+ 		<field-validator type="requiredstring" short-circuit="true">
+ 			<message>${getText("error.required.field", {getText("ratefileformat.slab")})}</message>
+ 		</field-validator>	
+ 	</field>
+ 	
+ 	<field name="pulse">
+ 		<field-validator type="requiredstring" short-circuit="true">
+ 			<message>${getText("error.required.field", {getText("ratefileformat.pulse")})}</message>
+ 		</field-validator>	
+ 	</field>
+ 	
+ 	<field name="rate">
+ 		<field-validator type="requiredstring" short-circuit="true">
+ 			<message>${getText("error.required.field", {getText("ratefileformat.rate")})}</message>
+ 		</field-validator>	
+ 	</field>
+ 	
+ 	<field name="tierType">
+ 		<field-validator type="requiredstring" short-circuit="true">
+ 			<message>${getText("error.required.field", {getText("ratefileformat.tierType")})}</message>
+ 		</field-validator>	
+ 	</field>
+ 	
+ 	<field name="fromDate">
+ 		<field-validator type="requiredstring" short-circuit="true">
+ 			<message>${getText("error.required.field", {getText("ratefileformat.fromDate")})}</message>
+ 		</field-validator>	
+ 	</field>
+ 	
+ 	<field name="filter">
+ 		<field-validator type="requiredstring" short-circuit="true">
+ 			<message>${getText("error.required.field", {getText("ratefileformat.filter")})}</message>
+ 		</field-validator>	
+ 	</field>
+ 	
+ 	<field name="startRow">
+ 		<field-validator type="requiredstring" short-circuit="true">
+ 			<message>${getText("error.required.field", {getText("ratefileformat.startRow")})}</message>
+ 		</field-validator>	
+ 	</field>
+ 	
+ 	<field name="sheetName">
+ 		<field-validator type="requiredstring" short-circuit="true">
+ 			<message>${getText("error.required.field", {getText("ratefileformat.sheetName")})}</message>
+ 		</field-validator>	
+ 	</field>
+ </validators>

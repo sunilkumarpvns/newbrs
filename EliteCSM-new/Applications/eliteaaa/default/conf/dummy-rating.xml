@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dummy-rating>
+
+	<session-timeout>10000</session-timeout>
+			
+	<!-- Prepaid attributes -->
+	<!-- charging type can be: duration/volume -->
+	<charging-type>volume</charging-type>
+	<quota-id>1</quota-id>
+	
+	<!-- quota is SECONDS for duration (e.g. 10000) and OCTETS (e.g. 1024 or 1234.5) for volume -->
+	<quota>100</quota>
+	
+	<!-- Threshold is the value in percentage of quota, i.e. threshold=80 means, value of threshold will be 80% of the quota -->
+	<threshold>90</threshold>
+	<iterations>2</iterations>
+	<!-- Termination action possible values
+	 
+		1 = Terminate
+	    2 = Request more quota
+		3 = Redirect/Filter
+		
+	 -->
+	<termination-action>1</termination-action>
+	
+	<!-- 
+		When authorize only request is received with PPAQ->Update-Reason >= 4, it is considered as terminate request.
+		Posible actions to be taken:
+			0 - Send no quota
+			1 - Send previous quota
+	 -->
+	<action-on-terminate-request>0</action-on-terminate-request>
+	
+	<!-- to define packet flows -->
+	<qos>
+		<qos-id>2</qos-id>
+		<global-service-class-name>abc</global-service-class-name>
+		<service-class-name></service-class-name>
+		<schedule-type></schedule-type>
+		<traffic-priority>7</traffic-priority>
+		<max-traffic-rate></max-traffic-rate>
+		<min-traffic-rate>1000</min-traffic-rate>
+		<max-traffic-burst>500</max-traffic-burst>
+		<tolerated-jitter>100</tolerated-jitter>
+		<max-latency>100</max-latency>
+		<reduced-resource-code>2</reduced-resource-code>
+		<media-flow-type>1</media-flow-type>
+		<unsolicited-grant-interval>100</unsolicited-grant-interval>
+		<sdu-size>500</sdu-size>
+		<unsolicited-polling-interval>10</unsolicited-polling-interval>
+		<media-flow-description></media-flow-description>
+	</qos>
+	<packet-flow-descriptor>
+		<pdfid>1</pdfid>
+		<sdfid>2</sdfid>
+		<service-profile-id></service-profile-id>
+		<direction></direction>
+		<activation-trigger>1</activation-trigger>
+		<transport-type>2</transport-type>
+		<uplink-qos-id>2</uplink-qos-id>
+		<downlink-qos-id>2</downlink-qos-id>
+		<uplink-classifier>abc</uplink-classifier>
+		<downlink-classifier>xyz</downlink-classifier>
+	</packet-flow-descriptor>
+	
+</dummy-rating>

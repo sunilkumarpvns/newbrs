@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <form-beans>
+       <form-bean name="searchCircleMRPMappingForm" type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.form.SearchCircleMRPMappingForm"/>
+       <form-bean name="searchSubscriberForm" type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.form.SearchSubscriberForm" />
+    </form-beans>
+    
+    <action-mappings>
+    
+      	 <action path="/searchCircleMRPMapping"
+		  		scope="request"
+		  		type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.SearchCircleMRPMappingAction"
+		  		name="searchCircleMRPMappingForm"
+		  		validate="false">
+		  		<forward name="searchCircleMRPMapping" path="/jsp/telcordia/searchCircleMRPMapping.jsp"/>
+		  		<forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			<forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	  	 </action>
+	  	 
+	  	  <action path="/initCreateCircleMRPMapping"
+	  	         scope="request"
+	  	         type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.InitCreateCircleMRPMappingAction"
+	  	         name="searchCircleMRPMappingForm"
+	  	         validate="false">
+	     		<forward name="initCreateCircleMRPMapping" path="/jsp/telcordia/CreateCircleMRPMapping.jsp"></forward>
+	     		<forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			<forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	     </action>
+	     
+	     <action path="/createCircleMRPMapping"
+	  	         scope="request"
+	  	         type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.CreateCircleMRPMappingAction"
+	  	         name="searchCircleMRPMappingForm"
+	  	         validate="false">
+	  	        <forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			<forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	     </action>
+	     <action path="/initEditCircleMRPMapping"
+	  	         scope="request"
+	  	         type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.InitEditCircleMRPMappingAction"
+	  	         name="searchCircleMRPMappingForm"
+	  	         validate="false">
+	  	         <forward name="initEditCircleMRPMapping" path="/jsp/telcordia/EditCircleMRPMapping.jsp"/>
+	  	         <forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			 <forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	     </action>
+	  	 <action path="/editCircleMRPMapping"
+		  		scope="request"
+		  		type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.EditCircleMRPMappingAction"
+		  		name="searchCircleMRPMappingForm"
+		  		validate="false">
+		  		<forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			<forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	  	 </action>
+	  	  
+	  	 <action path="/deleteCircleMRPMapping"
+		      type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.DeleteCircleMRPMappingAction"
+		      name="searchCircleMRPMappingForm"
+		      scope="request"
+		      validate="false">
+		      <forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      		  <forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	     </action>
+	     
+	     <action path="/searchSubscriber"
+  			        type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.SearchSubscriberAction"
+			        name="searchSubscriberForm"
+			        scope="request"
+			        validate="false">
+	      		    <forward name="searchSubscriber" path="/jsp/telcordia/SearchSubscriberContainer.jsp"/>
+	      		 <forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			 <forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	     </action>
+	  	 
+	      <action path="/viewChildSubscriberInfo"
+		  		scope="request"
+		  		type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.ViewChildSubscriberInfoAction"
+		  		name="searchSubscriberForm"
+		  		validate="false">
+		  		<forward name="viewChildSubscriberInfo" path="/jsp/telcordia/ViewChildSubscriberInfoContainer.jsp"/>
+		  		<forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			<forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	  	 </action>
+	  	 
+	  	   <action path="/viewParentSubscriberInfo"
+		  		scope="request"
+		  		type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.ViewParentSubscriberInfoAction"
+		  		name="searchSubscriberForm"
+		  		validate="false">
+		  		<forward name="viewParentSubscriberInfo" path="/jsp/telcordia/ViewParentSubscriberInfoContainer.jsp"/>
+				<forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			<forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	  	 </action>
+	  	
+	  	 <action path="/initCreateSubscriber"
+	  	         scope="request"
+	  	         type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.InitCreateSubscriberAction"
+	  	         name="searchSubscriberForm"
+	  	         validate="false">
+	     		<forward name="initCreateSubscriber" path="/jsp/telcordia/CreateSubscriberContainer.jsp"></forward>
+	     		<forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			<forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	     </action>
+	     <action path="/createSubscriber"
+	  	         scope="request"
+	  	         type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.CreateSubscriberAction"
+	  	         name="searchSubscriberForm"
+	  	         validate="false">
+				<forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			<forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	     </action>
+	      <action path="/initEditSubscriber"
+	  	         scope="request"
+	  	         type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.InitEditSubscriberAction"
+	  	         name="searchSubscriberForm"
+	  	         validate="false">
+	  	   		<forward name="initEditSubscriber" path="/jsp/telcordia/EditSubscriberContainer.jsp"></forward>
+				<forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			<forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	     </action>
+	     
+	     <action path="/EditSubscriber"
+	  	         scope="request"
+	  	         type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.EditSubscriberAction"
+	  	         name="searchSubscriberForm"
+	  	         validate="false">
+	  	         <forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			 <forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	     </action>
+	      <action path="/deleteSubscriber"
+	  	         scope="request"
+	  	         type="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.action.DeleteSubscriberAction"
+	  	         name="searchSubscriberForm"
+	  	         validate="false">
+	  	         <forward name="success" path="/jsp/telcordia/SuccessResponsePage.jsp" />
+      			 <forward name="failure" path="/jsp/telcordia/FailureResponsePage.jsp" />
+	     </action>
+	</action-mappings>
+	<message-resources key="circlemrpmapping" parameter="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.properties.CircleMRPMapping" />
+	<message-resources key="searchSubscriber" parameter="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.properties.SearchSubscriber" />
+	<message-resources key="telcordiaMessageResources" parameter="com.telcordia.cvas.rcs.ex.schemas.esbnsnamespace.v1_0.properties.TelcordiaResultMessageResources" />
+	
+</struts-config>
+
+

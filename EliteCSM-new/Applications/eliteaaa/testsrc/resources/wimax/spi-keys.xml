@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spi-group-list>
+<spi-group>
+	<ha-ip-address-list>0.0.0.0</ha-ip-address-list>
+	<spi-key-pair-list>		
+		<spi-key-pair>
+	        <spi>273</spi> <!--273 (Decimal) = 111 (Hex) -->
+	        <key>elitecore</key>        
+		</spi-key-pair>
+	</spi-key-pair-list>
+</spi-group>
+</spi-group-list>

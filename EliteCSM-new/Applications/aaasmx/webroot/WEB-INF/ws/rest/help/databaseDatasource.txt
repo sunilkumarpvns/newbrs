@@ -1,0 +1,295 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource?name=DefaultDatabaseDatasource&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource.xml?name=DefaultDatabaseDatasource
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource?operation=search&name=DefaultDatabaseDatasource&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource.xml?operation=search&name=DefaultDatabaseDatasource
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource.xml?operation=search
+
+Response     :
+
+<database-datasource>
+	<name>DefaultDatabaseDatasource</name>
+    <connection-url>jdbc:oracle:thin:@//192.168.2.124:1521/csmdb</connection-url>
+    <username>admin</username>
+    <timeout>1000</timeout>
+    <status-check-duration>120</status-check-duration>
+    <minimum-pool-size>2</minimum-pool-size>
+    <maximum-pool-size>10</maximum-pool-size>  
+</database-datasource>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource?name=DefaultDatabaseDatasource&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource.json?name=DefaultDatabaseDatasource
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource?operation=search&name=DefaultDatabaseDatasource&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource.json?operation=search&name=DefaultDatabaseDatasource
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource.json?operation=search
+
+Response     :
+
+{
+  "name": "DefaultDatabaseDatasource",
+  "connection-url": "jdbc:oracle:thin:@//192.168.2.124:1521/csmdb",
+  "username": "admin",
+  "timeout": 1000,
+  "status-check-duration": 120,
+  "minimum-pool-size": 2,
+  "maximum-pool-size": 10
+}
+
+***********************************************************************
+					CREATE OPERATION(SINGLE CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<database-datasource>
+    <name>DefaultDatabaseDatasource</name>
+    <connection-url>jdbc:oracle:thin:@//127.0.0.1:1521/eliteaaa</connection-url>
+    <username>eliteaaa</username>
+    <password>eliteaaa</password>
+    <timeout>1000</timeout>
+    <status-check-duration>120</status-check-duration>
+    <minimum-pool-size>2</minimum-pool-size>
+    <maximum-pool-size>10</maximum-pool-size>
+</database-datasource>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Database Datasource created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "DefaultDatabaseDatasource",
+  "connection-url": "jdbc:oracle:thin:@//127.0.0.1:1521/eliteaaa",
+  "username": "eliteaaa",
+  "password":"eliteaaa",
+  "timeout": 1000,
+  "status-check-duration": 120,
+  "minimum-pool-size": 2,
+  "maximum-pool-size": 10
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Database Datasource created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION(BULK OPERATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<database-datasource>
+		<name>DefaultDatabaseDatasource</name>
+		<connection-url>jdbc:oracle:thin:@//127.0.0.1:1521/eliteaaa</connection-url>
+		<username>eliteaaa</username>
+		<password>eliteaaa</password>
+		<timeout>1000</timeout>
+		<status-check-duration>120</status-check-duration>
+		<minimum-pool-size>2</minimum-pool-size>
+		<maximum-pool-size>10</maximum-pool-size>
+   </database-datasource>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Database Datasource(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{  
+   "list":[  
+      {  
+         "name":"DefaultDatabaseDatasource",
+         "connection-url":"jdbc:oracle:thin:@//127.0.0.1:1521/eliteaaa",
+         "username":"eliteaaa",
+         "password":"eliteaaa",
+         "timeout":1000,
+         "status-check-duration":120,
+         "minimum-pool-size":2,
+         "maximum-pool-size":10
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Database Datasource(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource?name=DefaultDatabaseDatasource
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource?operation=update&name=DefaultDatabaseDatasource
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<database-datasource>
+	<name>DefaultDatabaseDatasource</name>
+    <connection-url>jdbc:oracle:thin:@//192.168.2.124:1521/csmdb</connection-url>
+    <username>admin</username>
+	<password>admin</password>
+    <timeout>1000</timeout>
+	<status-check-duration>120</status-check-duration>
+    <minimum-pool-size>2</minimum-pool-size>
+    <maximum-pool-size>10</maximum-pool-size>
+</database-datasource>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Database Datasource updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+	"name": "DefaultDatabaseDatasource",
+	"connection-url": "jdbc:oracle:thin:@//192.168.2.124:1521/csmdb",
+	"username": "admin",
+	"password": "admin",
+	"timeout": 1000,
+	"status-check-duration": 120,
+	"minimum-pool-size": 2,
+	"maximum-pool-size": 10
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Database Datasource updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource?name=DefaultDatabaseDatasource
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource?operation=delete&name=DefaultDatabaseDatasource
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Database Datasource(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+#Notes :
+ 
+1) For multiple delete use comma separated values
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

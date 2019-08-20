@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.radius.policies.accesspolicy.data.AccessPolicyDetailData" table="TBLMACCESSPOLICYDETAIL">
+		<composite-id>
+			<key-property name="accessPolicyId" column="ACCESSPOLICYID" type="StringType"/>
+			<key-property name="serialNumber" column="SERIALNUMBER" type="long"/>
+		</composite-id>
+		
+		<property name="startWeekDay" type="CharType">
+			<column name="STARTDAY" sql-type="CHAR(3)" not-null="true"/>
+		</property>
+		
+		<property name="endWeekDay" type="CharType" >
+			<column name="ENDDAY" sql-type="CHAR(3)" not-null="true"/>
+		</property>
+		
+		<property name="startTime" type="java.sql.Timestamp" column="STARTTIME" not-null="true">
+		</property>
+		
+		<property name="stopTime" type="java.sql.Timestamp" column="STOPTIME" not-null="true">
+		</property>
+		
+		<property name="accessStatus" type="CharType">
+			<column name="ACCESSSTATUS" sql-type="CHAR(1)" not-null="true"/>
+		</property>	
+	</class>
+</hibernate-mapping>
+          

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session-manager>
+	<tablename>tblmsessionmanager</tablename>
+	<datasource>TestingDB</datasource>
+	<sequence-name>SEQMSESSIONMANAGER</sequence-name>
+	<start-time-field>starttime</start-time-field>
+	<last-update-time-field>updatetime</last-update-time-field>
+	<db-query-timeout-sec>1000</db-query-timeout-sec>
+	<delimeter>,</delimeter>
+	<batch-parameters>
+		<enable>false</enable>
+		<size>10</size>
+		<interval-sec>1</interval-sec>
+		<query-timeout-sec>10</query-timeout-sec>
+		<insert-batched>true</insert-batched>
+		<update-batched>true</update-batched>
+		<delete-batched>true</delete-batched>
+	</batch-parameters>
+	<session-data-mapping>
+		<field-mapping-list>
+			<name>list1</name>
+			<field-mappings>
+				<field-mapping>
+					<db-field-name>param1</db-field-name>
+					<referring-attribute>0:1</referring-attribute>
+					<data-type>0</data-type>
+					<default-value>hello1</default-value>
+				</field-mapping>
+				<field-mapping>
+					<db-field-name>param2</db-field-name>
+					<referring-attribute>0:2</referring-attribute>
+					<data-type>0</data-type>
+					<default-value>hello2</default-value>
+				</field-mapping>
+				<field-mapping>
+					<db-field-name>param3</db-field-name>
+					<referring-attribute>$REQ(0:280)</referring-attribute>
+					<data-type>0</data-type>
+					<default-value>hello3</default-value>
+				</field-mapping>
+			</field-mappings>
+		</field-mapping-list>
+	</session-data-mapping>
+	<scenarios>
+		<scenario>
+			<name>test_case_scenario</name>
+			<expression>0:1="malav"</expression>
+			<field-mapping-list-name>list1</field-mapping-list-name>
+			<criteria>param1</criteria>
+		</scenario>
+	</scenarios>
+	<override-operations>
+		<override-operation>
+			<name>action 1</name>
+			<expression>0:1="x"</expression>
+			<override-action>INSERT</override-action>
+		</override-operation>
+	</override-operations>
+	<failure-action>IGNORE</failure-action>
+	
+</session-manager>

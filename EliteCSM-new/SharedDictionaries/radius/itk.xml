@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="1195" vendor-name="ITK">
+<attribute id="100" name="ITK-Auth-Serv-IP" type="ipaddr"/>
+<attribute id="101" name="ITK-Auth-Serv-Prot" type="integer"/>
+<attribute id="102" name="ITK-Provider-id" type="integer"/>
+<attribute id="103" name="ITK-Usergroup" type="integer"/>
+<attribute id="104" name="ITK-Banner" type="string"/>
+<attribute id="105" name="ITK-Username-Prompt" type="string"/>
+<attribute id="106" name="ITK-Password-Prompt" type="string"/>
+<attribute id="107" name="ITK-Welcome-Message" type="string"/>
+<attribute id="108" name="ITK-Prompt" type="string"/>
+<attribute id="109" name="ITK-IP-Pool" type="integer"/>
+<attribute id="110" name="ITK-Tunnel-IP" type="ipaddr"/>
+<attribute id="111" name="ITK-Tunnel-Prot" type="integer"/>
+<attribute id="112" name="ITK-Acct-Serv-IP" type="ipaddr"/>
+<attribute id="113" name="ITK-Acct-Serv-Prot" type="integer"/>
+<attribute id="114" name="ITK-Filter-Rule" type="string"/>
+<attribute id="115" name="ITK-Channel-Binding" type="integer"/>
+<attribute id="116" name="ITK-Start-Delay" type="integer"/>
+<attribute id="117" name="ITK-NAS-Name" type="string"/>
+<attribute id="118" name="ITK-ISDN-Prot" type="integer"/>
+<attribute id="119" name="ITK-PPP-Auth-Type" type="integer"/>
+<attribute id="120" name="ITK-Dialout-Type" type="integer"/>
+<attribute id="121" name="ITK-Ftp-Auth-IP" type="ipaddr"/>
+<attribute id="122" name="ITK-Users-Default-Entry" type="string"/>
+<attribute id="123" name="ITK-Users-Default-Pw" type="string"/>
+<attribute id="124" name="ITK-Auth-Req-Type" type="string"/>
+<attribute id="125" name="ITK-Modem-Pool-id" type="integer"/>
+<attribute id="126" name="ITK-Modem-Init-String" type="string"/>
+<attribute id="127" name="ITK-PPP-Client-Server-Mode" type="integer"/>
+<attribute id="128" name="ITK-PPP-Compression-Prot" type="string"/>
+<attribute id="129" name="ITK-Username" type="string"/>
+<attribute id="130" name="ITK-Dest-No" type="string"/>
+<attribute id="131" name="ITK-DDI" type="string"/>
+</attribute-list>

@@ -1,0 +1,120 @@
+.menu,
+.menu ul,
+.menu li,
+.menu a {
+   
+}
+ 
+.menu {
+    height: 25px;
+    width: 100%;
+    margin-left:0;
+}
+ 
+.menu li {
+    position: relative;
+    list-style: none;
+    float: left;
+    display: block;
+    height: 30px;
+    color:black !important;
+}
+	
+.menu li a {
+    display: block;
+    padding: 0 14px;
+    margin: 6px 0;
+    line-height: 18px;
+    text-decoration: none;
+    color: #f3f3f3;
+}
+
+ 
+.menu li:hover > a { color: black;}
+
+.menu ul {
+    position: absolute;
+    left: auto;
+  	color:black;
+    width: 147px;
+    z-index:200000;
+    margin-left:0;
+	font-size: 12px;
+	top: 25px;
+    padding-left: 0px;
+    background-color: white;
+}
+ 
+.menu li:hover > ul { opacity: 1; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);font-family: Verdana,Arial,Helvetica,sans-serif;border: 1px solid rgb(221, 221, 221);border-style-top:none; color:black; }
+ 
+.menu ul li {
+    height: 0;
+    left:0;
+    overflow: hidden;
+    padding: 0;
+    margin-left: 0;
+ color:black;
+    
+}
+ 
+.menu li:hover > ul li {
+    height: 25px;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
+
+
+.menu ul li a {
+    margin: 0;
+    border: none;
+    color: black;
+    font-weight:normal;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 10px;
+}
+ 
+.menu ul li:last-child a { border: none; }
+
+.menu a.documents { background: url(../images/open-in-new-window.png) no-repeat 2px center;background-size:16px 16px; }
+.menu a.refresh { background: url(../images/Refresh_Submenu.png) no-repeat 2px center;background-size:16px 16px;}
+.menu a.slideshow { background: url(../images/slideshow_SubMenu.png) no-repeat 2px center;background-size:16px 16px; }
+.menu a.close { background: url(../images/close.png) no-repeat 2px center;background-size:16px 16px; }
+.menu a.createDashboard{background: url(../images/add-dashboard.png) no-repeat 2px center;background-size:16px 16px;}
+.menu a.manageDashboard{background: url(../images/configuration.png) no-repeat 2px center;background-size:16px 16px;}
+.menu a.editlayout{background: url(../images/layout.png)no-repeat 2px center;background-size:16px 16px;}
+.menu a.addWidget{background: url(../images/add-widget.png)no-repeat 2px center;background-size:16px 16px;}
+.activemenu{
+	color:red;
+	/* background: none repeat scroll 0% 0% rgb(250, 250, 250);  */
+    margin-bottom: -1px;
+    position: relative;
+    border-radius: 3px 0px 0px;
+	font-weight: bolder;
+	text-decoration: none;
+	font-family: Arial;
+	line-height: 19px;
+	cursor: move;
+}
+
+ .ui-widget-header {
+    border: 1px solid rgb(66, 151, 215);
+    padding: 0.1px 0.1em 0.1px 0.5em;
+    font-family: Arial;
+    line-height: 19px;
+    cursor: move;
+    background: url("../images/ui-bg_gloss-wave_55_5c9ccc_500x100.png") repeat-x scroll 50% 50% rgb(92, 156, 204);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.ui-widget-header-subwidget {
+    height: 20px;
+}
+ .invisible-menu {
+opacity: 0.35;background-image: none;font-weight: normal;margin: 0.4em 0px 0.2em;line-height: 1.5;cursor: default !important;
+}
+.nestedRow:hover{
+background-color:#58ACFA;
+}

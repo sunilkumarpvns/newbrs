@@ -1,0 +1,345 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy?name=Authorization_policy&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy.xml?name=Authorization_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy?operation=search&name=Authorization_policy&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy.xml?operation=search&name=Authorization_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy.xml?operation=search
+
+Response     :
+
+<authorization-policy>
+    <name>Authorization_policy</name>
+    <description>Created by admin on 12/05/2016 01:30:43 PM</description>
+    <status>ACTIVE</status>
+    <check-item-expression>0:4="10.10.10.10"</check-item-expression>
+    <reject-item-expression>0:31="12.12.12.12"</reject-item-expression>
+    <reply-item-expression>0:18="Hotline"</reply-item-expression>
+    <time-base-policy>
+        <month-of-year>1</month-of-year>
+        <date-of-month>3</date-of-month>
+        <day-of-week>4</day-of-week>
+        <time-duration>12</time-duration>
+    </time-base-policy>
+</authorization-policy>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy?name=Authorization_policy&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy.json?name=Authorization_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy?operation=search&name=Authorization_policy&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy.json?operation=search&name=Authorization_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy.json?operation=search
+
+Response     :
+
+{
+   "name":"Authorization_policy",
+   "description":"Created by admin on 12/05/2016 01:30:43 PM",
+   "status":"ACTIVE",
+   "check-item-expression":"0:4=\"10.10.10.10\"",
+   "reject-item-expression":"0:31=\"12.12.12.12\"",
+   "reply-item-expression":"0:18=\"Hotline\"",
+   "time-base-policy":[
+      {
+         "month-of-year":"1",
+         "date-of-month":"3",
+         "day-of-week":"4",
+         "time-duration":"12"
+      }
+   ]
+}
+
+***********************************************************************
+                    CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy?operation=create
+
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<authorization-policy>
+    <name>Authorization_policy</name>
+    <description>Created by admin on 12/05/2016 01:30:43 PM</description>
+    <status>ACTIVE</status>
+    <check-item-expression>0:4="10.10.10.10"</check-item-expression>
+    <reject-item-expression>0:31="12.12.12.12"</reject-item-expression>
+    <reply-item-expression>0:18="Hotline"</reply-item-expression>
+    <time-base-policy>
+        <month-of-year>1</month-of-year>
+        <date-of-month>3</date-of-month>
+        <day-of-week>4</day-of-week>
+        <time-duration>12</time-duration>
+    </time-base-policy>
+</authorization-policy>
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Authorization Policy created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "name":"Authorization_policy",
+   "description":"Created by admin on 12/05/2016 01:30:43 PM",
+   "status":"ACTIVE",
+   "check-item-expression":"0:4=\"10.10.10.10\"",
+   "reject-item-expression":"0:31=\"12.12.12.12\"",
+   "reply-item-expression":"0:18=\"Hotline\"",
+   "time-base-policy":[
+      {
+         "month-of-year":"1",
+         "date-of-month":"3",
+         "day-of-week":"4",
+         "time-duration":"12"
+      }
+   ]
+}
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Authorization Policy created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+    <authorization-policy>
+        <name>Authorization_policy</name>
+        <description>Created by admin on 12/05/2016 01:30:43 PM</description>
+        <status>ACTIVE</status>
+        <check-item-expression>0:4="10.10.10.10"</check-item-expression>
+        <reject-item-expression>0:31="12.12.12.12"</reject-item-expression>
+        <reply-item-expression>0:18="Hotline"</reply-item-expression>
+        <time-base-policy>
+            <month-of-year>1</month-of-year>
+            <date-of-month>3</date-of-month>
+            <day-of-week>4</day-of-week>
+            <time-duration>12</time-duration>
+        </time-base-policy>
+    </authorization-policy>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Authorization Policy(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"Authorization_policy",
+         "description":"Created by admin on 12/05/2016 01:30:43 PM",
+         "status":"ACTIVE",
+         "check-item-expression":"0:4=\"10.10.10.10\"",
+         "reject-item-expression":"0:31=\"12.12.12.12\"",
+         "reply-item-expression":"0:18=\"Hotline\"",
+         "time-base-policy":[
+            {
+               "month-of-year":"1",
+               "date-of-month":"3",
+               "day-of-week":"4",
+               "time-duration":"12"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Authorization Policy(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy?name=Authorization_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy?operation=update&name=Authorization_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<authorization-policy>
+    <name>Authorization_policy</name>
+    <description>Created by admin on 12/05/2016 01:30:43 PM</description>
+    <status>ACTIVE</status>
+    <check-item-expression>0:4="10.10.10.10"</check-item-expression>
+    <reject-item-expression>0:31="12.12.12.12"</reject-item-expression>
+    <reply-item-expression>0:18="Hotline"</reply-item-expression>
+    <time-base-policy>
+        <month-of-year>1</month-of-year>
+        <date-of-month>3</date-of-month>
+        <day-of-week>4</day-of-week>
+        <time-duration>12</time-duration>
+    </time-base-policy>
+</authorization-policy>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Authorization Policy updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+   "name":"Authorization_policy",
+   "description":"Created by admin on 12/05/2016 01:30:43 PM",
+   "status":"ACTIVE",
+   "check-item-expression":"0:4=\"10.10.10.10\"",
+   "reject-item-expression":"0:31=\"12.12.12.12\"",
+   "reply-item-expression":"0:18=\"Hotline\"",
+   "time-base-policy":[
+      {
+         "month-of-year":"1",
+         "date-of-month":"3",
+         "day-of-week":"4",
+         "time-duration":"12"
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Authorization Policy updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy?name=Authorization_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy?operation=delete&name=Authorization_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/authorizationpolicy/Authorization_policy?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Authorization Policy(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************
+						Additional Details(Properties as per SM)
+***********************************************************************
+# Value of status field can be :
+ 	1) ACTIVE
+ 	2) INACTIVE

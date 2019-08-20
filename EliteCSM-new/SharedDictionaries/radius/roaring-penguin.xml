@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="10055" vendor-name="Roaring-Penguin">
+<attribute id="1" name="RP-Upstream-Speed-Limit" type="integer"/>
+<attribute id="2" name="RP-Downstream-Speed-Limit" type="integer"/>
+<attribute id="3" name="RP-HURL" type="string"/>
+<attribute id="4" name="RP-MOTM" type="string"/>
+<attribute id="5" name="RP-Max-Sessions-Per-User" type="integer"/>
+</attribute-list>

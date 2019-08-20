@@ -1,0 +1,503 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter?name=diameterUniversalPlugin&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter.xml?name=diameterUniversalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter?operation=search&name=diameterUniversalPlugin&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter.xml?operation=search&name=diameterUniversalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin.xml?operation=search
+
+Response     :
+
+<diameter-universal-plugin-detail>
+    <name>universalDiameterPlugin</name>
+    <description>Created by admin on 02/27/2017 02:18:57 PM</description>
+    <status>ACTIVE</status>
+    <universal-in-diameter-policies>
+        <policy-data name="inPluginPolicy">
+            <action>Stop</action>
+            <enabled>true</enabled>
+            <parameter-list>
+                <parameter>
+                    <active>NO</active>
+                    <packet-type>Answer</packet-type>
+                    <attr-id></attr-id>
+                    <attribute-value></attribute-value>
+                    <parameter-usage>Check Item</parameter-usage>
+                </parameter>
+            </parameter-list>
+        </policy-data>
+    </universal-in-diameter-policies>
+    <universal-out-diameter-policies>
+        <policy-data name="outPluginPolicy">
+            <action>none</action>
+            <enabled>true</enabled>
+            <parameter-list>
+                <parameter>
+                    <active>YES</active>
+                    <packet-type>Request</packet-type>
+                    <attr-id></attr-id>
+                    <attribute-value></attribute-value>
+                    <parameter-usage>Update Item</parameter-usage>
+                </parameter>
+            </parameter-list>
+        </policy-data>
+    </universal-out-diameter-policies>
+</diameter-universal-plugin-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter?name=diameterUniversalPlugin&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter.json?name=diameterUniversalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter?operation=search&name=diameterUniversalPlugin&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter.json?operation=search&name=diameterUniversalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin.json?operation=search
+
+Response     :
+
+{
+  "name": "universalDiameterPlugin",
+  "description": "Created by admin on 02/27/2017 02:18:57 PM",
+  "status": "ACTIVE",
+  "universal-in-diameter-policies": [
+    {
+      "action": "Stop",
+      "name": "inPluginPolicy",
+      "enabled": "true",
+      "parameter-list": [
+        {
+          "active": "NO",
+          "packet-type": "Answer",
+          "attr-id": "",
+          "attribute-value": "",
+          "parameter-usage": "Check Item"
+        }
+      ]
+    }
+  ],
+  "universal-out-diameter-policies": [
+    {
+      "action": "none",
+      "name": "outPluginPolicy",
+      "enabled": "true",
+      "parameter-list": [
+        {
+          "active": "YES",
+          "packet-type": "Request",
+          "attr-id": "",
+          "attribute-value": "",
+          "parameter-usage": "Update Item"
+        }
+      ]
+    }
+  ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-universal-plugin-detail>
+    <name>universalDiameterPlugin</name>
+    <description>Created by admin on 02/27/2017 02:18:57 PM</description>
+    <status>ACTIVE</status>
+    <universal-in-diameter-policies>
+        <policy-data name="inPluginPolicy">
+            <action>Stop</action>
+            <enabled>true</enabled>
+            <parameter-list>
+                <parameter>
+                    <active>NO</active>
+                    <packet-type>Answer</packet-type>
+                    <attr-id></attr-id>
+                    <attribute-value></attribute-value>
+                    <parameter-usage>Check Item</parameter-usage>
+                </parameter>
+            </parameter-list>
+        </policy-data>
+    </universal-in-diameter-policies>
+    <universal-out-diameter-policies>
+        <policy-data name="outPluginPolicy">
+            <action>none</action>
+            <enabled>true</enabled>
+            <parameter-list>
+                <parameter>
+                    <active>YES</active>
+                    <packet-type>Request</packet-type>
+                    <attr-id></attr-id>
+                    <attribute-value></attribute-value>
+                    <parameter-usage>Update Item</parameter-usage>
+                </parameter>
+            </parameter-list>
+        </policy-data>
+    </universal-out-diameter-policies>
+</diameter-universal-plugin-detail>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Diameter Plugin created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "universalDiameterPlugin",
+  "description": "Created by admin on 02/27/2017 02:18:57 PM",
+  "status": "ACTIVE",
+  "universal-in-diameter-policies": [
+    {
+      "action": "Stop",
+      "name": "inPluginPolicy",
+      "enabled": "true",
+      "parameter-list": [
+        {
+          "active": "NO",
+          "packet-type": "Answer",
+          "attr-id": "",
+          "attribute-value": "",
+          "parameter-usage": "Check Item"
+        }
+      ]
+    }
+  ],
+  "universal-out-diameter-policies": [
+    {
+      "action": "none",
+      "name": "outPluginPolicy",
+      "enabled": "true",
+      "parameter-list": [
+        {
+          "active": "YES",
+          "packet-type": "Request",
+          "attr-id": "",
+          "attribute-value": "",
+          "parameter-usage": "Update Item"
+        }
+      ]
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Diameter Plugin created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+   <diameter-universal-plugin-detail>
+      <name>universalDiameterPlugin</name>
+      <description>Created by admin on 02/27/2017 02:18:57 PM</description>
+      <status>ACTIVE</status>
+      <universal-in-diameter-policies>
+         <policy-data name="inPluginPolicy">
+            <action>Stop</action>
+            <enabled>true</enabled>
+            <parameter-list>
+               <parameter>
+                  <active>NO</active>
+                  <packet-type>Answer</packet-type>
+                  <attr-id />
+                  <attribute-value />
+                  <parameter-usage>Check Item</parameter-usage>
+               </parameter>
+            </parameter-list>
+         </policy-data>
+      </universal-in-diameter-policies>
+      <universal-out-diameter-policies>
+         <policy-data name="outPluginPolicy">
+            <action>none</action>
+            <enabled>true</enabled>
+            <parameter-list>
+               <parameter>
+                  <active>YES</active>
+                  <packet-type>Request</packet-type>
+                  <attr-id />
+                  <attribute-value />
+                  <parameter-usage>Update Item</parameter-usage>
+               </parameter>
+            </parameter-list>
+         </policy-data>
+      </universal-out-diameter-policies>
+   </diameter-universal-plugin-detail>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Diameter Plugins created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"universalDiameterPlugin",
+         "description":"Created by admin on 02/27/2017 02:18:57 PM",
+         "status":"ACTIVE",
+         "universal-in-diameter-policies":[
+            {
+               "action":"Stop",
+               "name":"inPluginPolicy",
+               "enabled":"true",
+               "parameter-list":[
+                  {
+                     "active":"NO",
+                     "packet-type":"Answer",
+                     "attr-id":"",
+                     "attribute-value":"",
+                     "parameter-usage":"Check Item"
+                  }
+               ]
+            }
+         ],
+         "universal-out-diameter-policies":[
+            {
+               "action":"none",
+               "name":"outPluginPolicy",
+               "enabled":"true",
+               "parameter-list":[
+                  {
+                     "active":"YES",
+                     "packet-type":"Request",
+                     "attr-id":"",
+                     "attribute-value":"",
+                     "parameter-usage":"Update Item"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Diameter Plugins created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter?name=diameterUniversalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter?operation=update&name=diameterUniversalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<diameter-universal-plugin-detail>
+    <name>universalDiameterPlugin</name>
+    <description>Created by admin on 02/27/2017 02:18:57 PM</description>
+    <status>ACTIVE</status>
+    <universal-in-diameter-policies>
+        <policy-data name="inPluginPolicy">
+            <action>Stop</action>
+            <enabled>true</enabled>
+            <parameter-list>
+                <parameter>
+                    <active>NO</active>
+                    <packet-type>Answer</packet-type>
+                    <attr-id>0:31</attr-id>
+                    <attribute-value>"10.121.21.21"</attribute-value>
+                    <parameter-usage>Check Item</parameter-usage>
+                </parameter>
+            </parameter-list>
+        </policy-data>
+    </universal-in-diameter-policies>
+    <universal-out-diameter-policies>
+        <policy-data name="outPluginPolicy">
+            <action>none</action>
+            <enabled>true</enabled>
+            <parameter-list>
+                <parameter>
+                    <active>YES</active>
+                    <packet-type>Request</packet-type>
+                    <attr-id>0:25</attr-id>
+                    <attribute-value>"elitecore"</attribute-value>
+                    <parameter-usage>Update Item</parameter-usage>
+                </parameter>
+            </parameter-list>
+        </policy-data>
+    </universal-out-diameter-policies>
+</diameter-universal-plugin-detail>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Diameter Plugin updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "name": "universalDiameterPlugin",
+  "description": "Created by admin on 02/27/2017 02:18:57 PM",
+  "status": "ACTIVE",
+  "universal-in-diameter-policies": [
+    {
+      "action": "Stop",
+      "name": "inPluginPolicy",
+      "enabled": "true",
+      "parameter-list": [
+        {
+          "active": "NO",
+          "packet-type": "Answer",
+          "attr-id": "",
+          "attribute-value": "",
+          "parameter-usage": "Check Item"
+        }
+      ]
+    }
+  ],
+  "universal-out-diameter-policies": [
+    {
+      "action": "none",
+      "name": "outPluginPolicy",
+      "enabled": "true",
+      "parameter-list": [
+        {
+          "active": "YES",
+          "packet-type": "Request",
+          "attr-id": "",
+          "attribute-value": "",
+          "parameter-usage": "Update Item"
+        }
+      ]
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Diameter Plugin updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter?name=diameterUniversalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter?operation=delete&name=diameterUniversalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/diameter/diameterUniversalPlugin?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Diameter Plugins deleted successfully</response-message>
+    </response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+***********************************************************************

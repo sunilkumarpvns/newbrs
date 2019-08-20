@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <form-beans>
+      <form-bean name="groupDataForm" type="com.elitecore.netvertexsm.web.group.form.GroupDataForm"/>
+    </form-beans>
+  
+    <action-mappings>
+      
+     <action parameter="method" name="groupDataForm"
+			path="/groupManagement" scope="request" type="com.elitecore.netvertexsm.web.group.GroupManagementAction">
+			<forward name="searchGroup" path="/jsp/group/SearchGroupData.jsp" />
+			<forward name="createGroup" path="/jsp/group/CreateGroupData.jsp" />
+			 <forward name="viewGroup" path="/jsp/group/ViewGroupDataContainer.jsp" />
+			<forward name="editGroup" path="/jsp/group/EditGroupDataContainer.jsp" />
+	 </action>
+    
+    </action-mappings>
+  
+    <message-resources key="groupDataMgmtResources" parameter="com.elitecore.netvertexsm.web.group.GroupDataMgmtResources" />
+  
+</struts-config>
+

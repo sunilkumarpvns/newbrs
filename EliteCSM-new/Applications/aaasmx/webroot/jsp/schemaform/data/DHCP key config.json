@@ -1,0 +1,45 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Keys",
+  "properties":{
+      "dhcp-rk-threshold-time":{
+          "title":"DHCP RK Threshold Time",
+          "type":"string",
+          "default":"600"
+      },
+      "dhcp-keys-cleanup-interval":{
+          "title":"DHCP Keys Cleanup Interval",
+          "type":"string",
+          "default":"86400"
+      },
+      "dhcp-keys-cleanup-enabled":{
+          "title":"DHCP Keys Cleanup Enabled",
+          "type":"string"
+      }
+  }
+  
+},
+   "form":[
+  {
+      "key":"dhcp-rk-threshold-time"
+  },
+  {
+      "key":"dhcp-keys-cleanup-interval"
+  },
+  {
+      "key":"dhcp-keys-cleanup-enabled",
+      "type":"select",
+      "titleMap":{
+          "True":"True",
+          "False":"False"       
+      }
+  }
+  
+],
+"model":{
+  "dhcp-rk-threshold-time": "6000",
+  "dhcp-keys-cleanup-interval": "8700",
+  "dhcp-keys-cleanup-enabled": "true"
+}
+}

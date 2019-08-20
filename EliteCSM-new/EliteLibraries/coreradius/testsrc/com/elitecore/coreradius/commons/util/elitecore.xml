@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="21067" vendor-name="elitecore">
+	<attribute id="0" name="24Online-AVPair" type="string"/>
+	<attribute id="1" name="Tekelec-AVPair" type="string"/>
+	<attribute id="2" name="Cyberoam-AVPair" type="string"/>
+	<attribute id="3" name="IP-Pool-AVPair" type="string"/>
+	<attribute id="4" name="Rating-AVPair" type="string"/>
+	
+	<!-- 
+		Resource-Manager-AVPair possible values 
+		CustomerType=Prepaid
+		Status=Success 
+		Status=Failure 
+		Default-Sesssion-Timeout=172800
+		PrepaidSessionId=781
+	 -->
+	<attribute id="5" name="Resource-Manager-AVPair" type="string"/>
+	
+</attribute-list>

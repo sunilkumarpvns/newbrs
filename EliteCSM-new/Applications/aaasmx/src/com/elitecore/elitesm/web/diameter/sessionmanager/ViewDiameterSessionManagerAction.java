@@ -1,0 +1,75 @@
+package com.elitecore.elitesm.web.diameter.sessionmanager;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
+
+import com.elitecore.elitesm.blmanager.datasource.DatabaseDSBLManager;
+import com.elitecore.elitesm.blmanager.diameter.routingconf.DiameterRoutingConfBLManager;
+import com.elitecore.elitesm.blmanager.diameter.sessionmanager.DiameterSessionManagerBLManager;
+import com.elitecore.elitesm.datamanager.core.exceptions.auhorization.ActionNotPermitedException;
+import com.elitecore.elitesm.datamanager.core.system.staff.data.IStaffData;
+import com.elitecore.elitesm.datamanager.datasource.database.data.IDatabaseDSData;
+import com.elitecore.elitesm.datamanager.diameter.routingconf.data.DiameterRoutingConfData;
+import com.elitecore.elitesm.datamanager.diameter.sessionmanager.data.DiameterSessionManagerData;
+import com.elitecore.elitesm.util.constants.ConfigConstant;
+import com.elitecore.elitesm.util.exception.EliteExceptionUtils;
+import com.elitecore.elitesm.util.logger.Logger;
+import com.elitecore.elitesm.web.core.base.BaseWebAction;
+import com.elitecore.elitesm.web.core.system.login.forms.SystemLoginForm;
+import com.elitecore.elitesm.web.diameter.routingconfig.forms.DiameterRoutingConfForm;
+import com.elitecore.elitesm.web.diameter.sessionmanager.form.ViewDiameterSessionManagerForm;
+
+public class ViewDiameterSessionManagerAction extends BaseWebAction {
+	private static final String FAILURE_FORWARD = "failure";               
+	private static final String MODULE ="ViewDiameterSessionManagerAction";
+	private static final String VIEWDIAMETERSESSIONMANAGER = "viewDiameterSessionManger"; 
+	private static final String ACTION_ALIAS = ConfigConstant.VIEW_DIAMETER_SESSION_MANAGER;
+
+	public ActionForward execute(ActionMapping mapping,ActionForm form,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		Logger.logInfo(MODULE,"Enter execute method of "+getClass().getName());		
+		try {	
+			checkActionPermission(request,ACTION_ALIAS);
+			Logger.logInfo(MODULE, "Entered execute method of " + getClass().getName()); 
+			ViewDiameterSessionManagerForm viewDiameterSessionManagerForm = (ViewDiameterSessionManagerForm)form;
+			IStaffData staffData = getStaffObject(((SystemLoginForm)request.getSession().getAttribute("radiusLoginForm")));
+			
+			DiameterSessionManagerBLManager diameterSessionManagerBLManager = new DiameterSessionManagerBLManager();
+			DiameterSessionManagerData diameterSessionManagerData = diameterSessionManagerBLManager.getDiameterSessionManagerDataById(viewDiameterSessionManagerForm.getSessionManagerId());
+			
+			DatabaseDSBLManager databaseDSBLManager = new DatabaseDSBLManager();
+			IDatabaseDSData databaseDSData=databaseDSBLManager.getDatabaseDSDataById(diameterSessionManagerData.getDatabaseDatasourceId());
+			List<IDatabaseDSData> databaseDsDataList = databaseDSBLManager.getDatabaseDSList();
+			
+			viewDiameterSessionManagerForm.setLstDatasource(databaseDsDataList);
+			request.setAttribute("diameterSessionManagerData",diameterSessionManagerData);
+			request.setAttribute("databaseDsDataList",databaseDsDataList);
+			request.setAttribute("dataSourceName",databaseDSData.getName());
+			doAuditing(staffData, ACTION_ALIAS);
+			return mapping.findForward(VIEWDIAMETERSESSIONMANAGER);             
+		}catch (ActionNotPermitedException e) {
+			Logger.logError(MODULE,"Error :-" + e.getMessage());
+			printPermitedActionAlias(request);
+			ActionMessages messages = new ActionMessages();
+			messages.add("information", new ActionMessage("general.user.restricted"));
+			saveErrors(request, messages);
+			return mapping.findForward(INVALID_ACCESS_FORWARD);
+		}catch (Exception e) {
+			Logger.logError(MODULE, "Error during Data Manager operation , reason : " + e.getMessage());
+			Object errorElements[] = EliteExceptionUtils.getFullStackTraceAsArray(e);
+			request.setAttribute("errorDetails", errorElements);
+			ActionMessage message = new ActionMessage("diameter.routingconf.view.failure");
+			ActionMessages messages = new ActionMessages();
+			messages.add("information", message);
+			saveErrors(request, messages);
+		}                    
+		return mapping.findForward(FAILURE_FORWARD); 
+	}
+}

@@ -1,0 +1,124 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+ 
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa/AAA_Server?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa?name=AAA_Server&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa/AAA_Server.xml
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa/AAA_Server?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa?name=AAA_Server&operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa?name=AAA_Server&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa/AAA_Server.xml?operation=search
+
+Response     :
+
+<vsa-in-class-attribute>
+    <enabled>false</enabled>
+    <class-attribute-id>0:25</class-attribute-id>
+    <separator>,</separator>
+    <attributes-from-request-packet>0:1</attributes-from-request-packet>
+    <attributes-from-response-packet>0:25</attributes-from-response-packet>
+</vsa-in-class-attribute>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa/AAA_Server?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa?name=AAA_Server&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa/AAA_Server.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa/AAA_Server?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa?name=AAA_Server&operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa?name=AAA_Server&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa/AAA_Server.json?operation=search
+
+Response     :
+
+{
+  "enabled": "false",
+  "class-attribute-id": "0:25",
+  "separator": ",",
+  "attributes-from-request-packet": "0:1",
+  "attributes-from-response-packet": "0:25"
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#EliteCSM Server
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa/AAA_Server
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa/AAA_Server?operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/vsa?name=AAA_Server&operation=update
+
+
+Content Type : application/xml
+
+Body     :
+
+<vsa-in-class-attribute>
+    <enabled>true</enabled>
+    <class-attribute-id>0:25</class-attribute-id>
+    <separator>_</separator>
+    <attributes-from-request-packet>0:1</attributes-from-request-packet>
+    <attributes-from-response-packet>0:4</attributes-from-response-packet>
+</vsa-in-class-attribute>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>VSA In Class Attribute Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "enabled": "false",
+  "class-attribute-id": "0:25",
+  "separator": ":",
+  "attributes-from-request-packet": "0:25",
+  "attributes-from-response-packet": "0:10"
+}
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>VSA In Class Attribute Configuration updated successfully</response-message>
+    </response>
+</response-detail>

@@ -1,0 +1,16 @@
+[submodule "Applications/eliteaaa/default/dictionary"]
+	path = Applications/eliteaaa/default/dictionary
+	url = http://gitlab.sterlitetech-software.com/EliteCSM/SharedDictionaries.git
+
+[submodule "Applications/eliterm/default/dictionary"]
+	path = Applications/eliterm/default/dictionary
+	url = http://gitlab.sterlitetech-software.com/EliteCSM/SharedDictionaries.git
+[submodule "Applications/eliteaaa/dictionary"]
+	path = Applications/eliteaaa/dictionary
+	url = http://gitlab.sterlitetech-software.com/EliteCSM/SharedDictionaries.git
+[submodule "Applications/eliterm/dictionary"]
+	path = Applications/eliterm/dictionary
+	url = http://gitlab.sterlitetech-software.com/EliteCSM/SharedDictionaries.git
+[submodule "Testing/tlsclient/dictionary"]
+	path = Testing/tlsclient/dictionary
+	url = http://gitlab.sterlitetech-software.com/EliteCSM/SharedDictionaries.git

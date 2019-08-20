@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+  
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="current_session_context_class">thread</property>
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+		<property name="show_sql">false</property>
+		<property name="format_sql">false</property>
+		<property name="use_sql_comments">false</property>
+		<property name="hibernate.jdbc.use_get_generated_keys">false</property>
+		<property name="hibernate.enable_lazy_load_no_trans">true</property>
+
+		<!-- Resource mapping -->
+		<mapping package="com.elitecore.nvsmx.policydesigner.model" />
+
+		<mapping class="com.elitecore.corenetvertex.sm.acl.StaffProfilePictureData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.PkgData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.PkgGroupOrderData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.quota.QuotaProfileData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.quota.QuotaProfileDetailData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.qos.QosProfileData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.qos.QosProfileDetailData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.qos.DeviceProfileData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.qos.TimePeriodData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.pccrule.PCCRuleData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.ratinggroup.RatingGroupData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.ratinggroup.RatingGroupDataExt"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.dataservicetype.ServiceDataFlowData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.dataservicetype.DataServiceTypeData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.dataservicetype.DataServiceTypeDataExt"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.dataservicetype.DefaultServiceDataFlowData"/>
+		<mapping class="com.elitecore.nvsmx.policydesigner.model.subscriber.CountryData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.dataservicetype.DefaultServiceDataFlowExt"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.notification.UsageNotificationData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.notification.QuotaNotificationData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.notification.NotificationTemplateData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.EmergencyPkgDataExt"/>
+		
+
+		<!-- PD Classes-->
+		<!-- Data Service Type and Rating Group -->
+		<mapping class="com.elitecore.corenetvertex.pd.dataservicetype.DataServiceTypeData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.dataservicetype.DefaultServiceDataFlowData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.ratinggroup.RatingGroupData"/>
+
+
+
+		<mapping class="com.elitecore.corenetvertex.sm.systemparameter.SystemParameterData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.systemparameter.PasswordPolicyConfigData"/>
+		
+			<!-- IMS PACAKGE RELATED MAPPINGS -->
+		<mapping class="com.elitecore.corenetvertex.pkg.ims.IMSPkgData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.ims.IMSPkgServiceData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.ims.IMSPkgPCCAttributeData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.ims.MediaTypeData"/>
+
+		<!-- SY QUOATA PROFILE RELATED MAPPINGS -->
+		<mapping class="com.elitecore.corenetvertex.pkg.syquota.SyQuotaProfileData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.syquota.SyQuotaProfileDetailData"/>
+
+
+		<!-- Session Instance -->
+		<mapping class="com.elitecore.nvsmx.commons.model.sessionmanager.NetServerInstanceData"/>
+		<mapping class="com.elitecore.nvsmx.remotecommunications.data.ServerInstanceGroupData"/>
+		<mapping class="com.elitecore.nvsmx.remotecommunications.data.ServerInstanceGroupRelData"/>
+
+		<!-- Charging Rule Base Name -->
+		<mapping class="com.elitecore.corenetvertex.pkg.chargingrulebasename.ChargingRuleBaseNameData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.chargingrulebasename.ChargingRuleDataServiceTypeData"/>
+
+		<!--PD context information-->
+		<mapping class="com.elitecore.corenetvertex.systeminformation.PDContextInformation"/>
+
+		<!--RnC BASED  QUOTA PROFILE -->
+		<mapping class="com.elitecore.corenetvertex.pkg.rnc.RncProfileData"/>
+		<mapping class="com.elitecore.corenetvertex.pkg.rnc.RncProfileDetailData"/>
+
+		<mapping class="com.elitecore.corenetvertex.sm.audit.AuditData"/>
+
+		<mapping class="com.elitecore.corenetvertex.sm.acl.StaffData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.acl.GroupData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.acl.StaffGroupRoleRelData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.acl.RoleData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.acl.RoleModuleActionData"/>
+
+		<mapping class="com.elitecore.corenetvertex.database.DatabaseData"/>
+		<mapping class="com.elitecore.corenetvertex.ldap.LdapData"/>
+		<mapping class="com.elitecore.corenetvertex.ldap.LdapBaseDn"/>
+
+		<mapping class="com.elitecore.corenetvertex.sm.serverinstance.ServerInstanceData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.servergroup.ServerGroupData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.servergroup.ServerGroupServerInstanceRelData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.serverprofile.ServerProfileData"/>
+
+		<!-- gateway configuration -->
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.DiameterGatewayData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.RadiusGatewayData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.DiameterGatewayProfileData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.RadiusGatewayProfileData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.PCCRuleMappingData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.PacketMappingData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.AttributeMappingData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.DiameterGwProfilePCCRuleMappingData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.RadiusGwProfilePCCRuleMappingData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.DiameterGwProfilePacketMapData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.RadiusGwProfilePacketMapData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.VendorData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.GroovyScriptData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.ServiceGuidingData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.DiameterGatewayData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.gateway.RadiusGatewayData"/>
+
+		<!--Session Configuration-->
+		<mapping class="com.elitecore.corenetvertex.sm.session.SessionConfigurationData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.session.SessionConfigurationFieldMappingData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.device.DeviceData"/>
+
+		<!--Sp Interface-->
+		<mapping class="com.elitecore.corenetvertex.sm.spinterface.SpInterfaceData" />
+		<mapping class="com.elitecore.corenetvertex.sm.spinterface.DbSpInterfaceData" />
+		<mapping class="com.elitecore.corenetvertex.sm.spinterface.LdapSpInterfaceData" />
+		<mapping class="com.elitecore.corenetvertex.sm.spinterface.SpInterfaceFieldMappingData" />
+
+		<!--spr Configuration-->
+		<mapping class="com.elitecore.corenetvertex.sm.spr.SprData" />
+
+		<!--DDF-->
+		<mapping class="com.elitecore.corenetvertex.sm.ddf.DdfData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.ddf.DdfSprRelData"/>
+		
+		<!-- Roaming -->
+		<mapping class="com.elitecore.corenetvertex.sm.routing.network.NetworkData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.routing.network.BrandData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.routing.network.OperatorData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.routing.network.CountryData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.routing.mccmncgroup.MccMncGroupData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.routing.mccmncroutingtable.RoutingTableData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.routing.mccmncroutingtable.RoutingTableGatewayRelData"/>
+
+		<!--Driver Management-->
+		<mapping class="com.elitecore.corenetvertex.sm.driver.DriverData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.driver.csv.CsvDriverData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.driver.csv.CsvDriverFieldMappingData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.driver.csv.CsvDriverStripMappingData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.driver.dbcdr.DbCdrDriverData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.driver.dbcdr.DbCdrDriverFieldMappingData"/>
+
+		<!--Alert Listener Configuration Data-->
+		<mapping class="com.elitecore.corenetvertex.sm.alerts.AlertListenerData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.alerts.AlertListenerRelData"/>
+
+		<!--Location Configuration-->
+		<mapping class="com.elitecore.corenetvertex.sm.location.region.RegionData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.location.city.CityData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.location.area.AreaData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.location.area.LacInformationData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.location.geography.GeographyData"/>
+
+		<!--License-->
+		<mapping class="com.elitecore.nvsmx.sm.model.license.NVLicenseData"/>
+		<mapping class="com.elitecore.nvsmx.sm.model.license.SMLicenseData"/>
+
+		<mapping class="com.elitecore.corenetvertex.sm.pccservicepolicy.PccServicePolicyData"/>
+
+		<mapping class="com.elitecore.corenetvertex.pd.lob.LobData"/>
+		
+		<!--File Location-->
+		<mapping class="com.elitecore.corenetvertex.sm.filelocation.FileLocationData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.filelocation.FileOutputConfigurationData"/>
+		<mapping class="com.elitecore.corenetvertex.sm.filelocation.ColumnMappingData"/>
+		
+		<!-- Partner Rnc Admin Menu  -->
+		<mapping class="com.elitecore.corenetvertex.pd.service.ServiceData"/>
+
+		<!-- Dictionary Attributes -->
+		<mapping class="com.elitecore.corenetvertex.sm.dictonary.VendorInformation"/>
+		<mapping class="com.elitecore.corenetvertex.sm.dictonary.AttributeData"/>
+
+		<!-- Offline RnC service -->
+		<mapping class="com.elitecore.corenetvertex.sm.serverprofile.OfflineRncServerProfileData"/>
+
+		<!-- Partner Group -->
+		<mapping class="com.elitecore.corenetvertex.pd.partnergroup.PartnerGroupData"/>
+
+		<!-- Calendar -->
+		<mapping class="com.elitecore.corenetvertex.pd.calender.CalenderData"/>
+	    <mapping class="com.elitecore.corenetvertex.pd.calender.CalenderDetails"/>
+	    <!-- Partner Menu -->
+	    <mapping class="com.elitecore.corenetvertex.pd.partner.PartnerData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.account.AccountData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.prefixes.PrefixesData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.account.AccountPrefixMasterRelationData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.account.PrefixListMasterData"/>
+
+		<!-- Guiding Configuration -->
+		<mapping class="com.elitecore.corenetvertex.pd.guiding.GuidingData" />
+
+		<!-- Rate Card  -->
+		<mapping class="com.elitecore.corenetvertex.pd.ratecard.RateCardData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.ratecard.NonMonetaryRateCardData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.ratecard.MonetaryRateCardData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.ratecard.MonetaryRateCardVersion"/>
+		<mapping class="com.elitecore.corenetvertex.pd.ratecard.MonetaryRateCardVersionDetail"/>
+
+		<!--Product Offer-->
+		<mapping class="com.elitecore.corenetvertex.pd.productoffer.ProductOfferData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.productoffer.ProductOfferServicePkgRelData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.productoffer.ProductOfferAutoSubscriptionRelData"/>
+
+		<!--Product SpecificationData-->
+		<mapping class="com.elitecore.corenetvertex.pd.productoffer.ProductSpecData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.productoffer.ProductSpecServicePkgRelData"/>
+
+		<!-- BOD Configuration -->
+		<mapping class="com.elitecore.corenetvertex.pd.bod.BoDData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.bod.BoDQosMultiplierData"/>
+		<mapping class="com.elitecore.corenetvertex.pd.bod.BoDServiceMultiplierData"/>
+
+		<!--Slice Configuration-->
+		<mapping class="com.elitecore.corenetvertex.pd.sliceconfig.SliceConfigData" />
+
+		<!-- Rate Card Group  -->
+		<mapping class="com.elitecore.corenetvertex.pd.ratecardgroup.RateCardGroupData" />
+		<mapping class="com.elitecore.corenetvertex.pd.ratecardgroup.TimeSlotRelationData" />
+
+		<!-- Rnc Package -->
+		<mapping class="com.elitecore.corenetvertex.pd.rncpackage.RncPackageData" />
+		<mapping class="com.elitecore.corenetvertex.pd.rncpackage.notification.RncNotificationData" />
+		
+		<mapping class="com.elitecore.corenetvertex.sm.acl.LdapAuthConfigurationData" />
+		<mapping class="com.elitecore.corenetvertex.sm.acl.LdapAuthConfigurationFieldMappingData" />
+
+		<!--Data Rate Card Data-->
+		<mapping class="com.elitecore.corenetvertex.pkg.ratecard.DataRateCardData" />
+		<mapping class="com.elitecore.corenetvertex.pkg.ratecard.DataRateCardVersionRelationData" />
+		<mapping class="com.elitecore.corenetvertex.pkg.ratecard.DataRateCardVersionDetailData" />
+
+		<!--Monetary Recharge Plan Data-->
+		<mapping class="com.elitecore.corenetvertex.pd.monetaryrechargeplan.MonetaryRechargePlanData" />
+
+		<!--Revenue Detail Data-->
+		<mapping class="com.elitecore.corenetvertex.pd.revenuedetail.RevenueDetailData" />
+
+	</session-factory>
+</hibernate-configuration>

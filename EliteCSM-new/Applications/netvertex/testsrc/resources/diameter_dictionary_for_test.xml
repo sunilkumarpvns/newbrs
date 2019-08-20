@@ -1,0 +1,22 @@
+<attribute-list vendorid="0" applicationid="0" application-name="base" vendor-name="base">
+	<attribute id="264" name="Origin-Host" mandatory="yes" protected="yes"  encryption="no" type="DiameterIdentity"/>
+    <attribute id="296" name="Origin-Realm" mandatory="yes" protected="yes"  encryption="no" type="DiameterIdentity"/>
+   	<attribute id="263" name="Session-Id" mandatory="yes" protected="yes"   encryption="yes" type="UTF8String"/>
+   	<attribute id="257" name="Host-IP-Address" mandatory="yes" protected="yes"  encryption="no" type="IPAddress"/>   <!--IPAddress -->
+   	
+   	
+   	<!-- For Grouped AVP Test  -->
+   	<attribute id="280" name="Proxy-Host" mandatory="no" protected="no"  encryption="no" type="DiameterIdentity"/>
+    <attribute id="284" name="Proxy-Info" mandatory="no" protected="no"  encryption="no" type="Grouped">
+      <grouped>
+	<required>
+	  <attributerule vendor-id="0" id="280" name="Proxy-Host" maximum="1" minimum="1"/>
+	  <attributerule vendor-id="0" id="33" name="Proxy-State" maximum="*" minimum="1"/>
+        </required>
+	<optional>
+	  <attributerule vendor-id="*" id="*" name="attribute" maximum="*" minimum="1"/>
+        </optional>
+      </grouped>
+    </attribute>
+    <attribute id="33"  name="Proxy-State"  mandatory="yes" protected="no"  encryption="no" type="OctetString"/>
+</attribute-list>

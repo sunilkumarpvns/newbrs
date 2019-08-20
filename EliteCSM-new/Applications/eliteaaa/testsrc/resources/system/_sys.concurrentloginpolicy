@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<concurrent-login-policies>
+    <concurrent-policy>
+        <id>20</id>
+        <maximum-login>1</maximum-login>
+        <name>con_login_policy</name>
+        <policy-mode>SMS0149</policy-mode>
+        <policy-type>SMS0138</policy-type>
+        <service-wise-login-list/>
+    </concurrent-policy>
+    <concurrent-policy>
+        <id>40</id>
+        <maximum-login>1</maximum-login>
+        <name>con_login_grp_policy</name>
+        <policy-mode>SMS0149</policy-mode>
+        <policy-type>SMS0139</policy-type>
+        <service-wise-login-list/>
+    </concurrent-policy>
+</concurrent-login-policies>

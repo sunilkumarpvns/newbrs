@@ -1,0 +1,116 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("ldap.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("ldap.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("ldap.name")})}</message>
+        </field-validator>		
+	</field>
+
+	<field name="address">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("ldap.address")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="queryTimeout">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("ldap.querytimeout")})}</message>
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">65535</param>
+			<message>${getText("error.numeric.range", {getText("ldap.querytimeout")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="sizeLimit">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("ldap.sizelimit")})}</message>
+		</field-validator>
+		<field-validator type="long">
+			<param name="min">0</param>
+			<param name="max">2147483647</param>
+			<message>${getText("error.numeric.range",{getText("ldap.sizelimit")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="administrator">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("ldap.administrator")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="password">
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">150</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("database.password")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="userDnPrefix">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("ldap.userdnprefix")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="maximumPool">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("ldap.maximumpool")})}</message>
+		</field-validator>
+        <field-validator type="int">
+            <param name="min">1</param>
+            <param name="max">500</param>
+            <message>${getText("error.numeric.range", {getText("ldap.maximumpool")})}</message>
+        </field-validator>
+	</field>
+
+	<field name="minimumPool">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("ldap.minimumpool")})}</message>
+		</field-validator>
+        <field-validator type="int">
+            <param name="min">1</param>
+            <param name="max">500</param>
+            <message>${getText("error.numeric.range", {getText("ldap.minimumpool")})}</message>
+        </field-validator>
+	</field>
+
+	<field name="statusCheckDuration">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("ldap.statuscheckduration")})}</message>
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">65535</param>
+			<message>${getText("error.numeric.range", {getText("ldap.statuscheckduration")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="version">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("ldap.version")})}</message>
+		</field-validator>
+
+		<field-validator type="fieldexpression" short-circuit="true">
+			<param name="expression"><![CDATA[version!='' && version != null && version == 2 || version == 3]]></param>
+			<message>${getText("invalid.field.value")}</message>
+		</field-validator>
+	</field>
+
+</validators>

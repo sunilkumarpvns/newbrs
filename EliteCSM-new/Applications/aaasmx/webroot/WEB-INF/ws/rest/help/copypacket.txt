@@ -1,0 +1,829 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket?name=Copy_Packet_Configuration&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket.xml?name=Copy_Packet_Configuration
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket?operation=search&name=Copy_Packet_Configuration&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket.xml?operation=search&name=Copy_Packet_Configuration
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration.xml?operation=search
+
+Response     :
+
+<copy-packet-config>
+    <name>Copy_Packet_Configuration</name>
+    <description>Created by admin on 01/03/2017 06:28:05 PM</description>
+    <script>scripfilename.groovy</script>
+    <from-translation-type>DIAMETER</from-translation-type>
+    <to-translation-type>DIAMETER</to-translation-type>
+    <mappings>
+        <mapping>
+            <mapping-name>Mapping1</mapping-name>
+            <in-expression>0:416="3"</in-expression>
+            <dummy-response>true</dummy-response>
+            <default-mapping>true</default-mapping>
+        </mapping>
+        <mapping>
+            <mapping-name>Mapping2</mapping-name>
+            <in-expression>0:416="2"</in-expression>
+            <dummy-response>false</dummy-response>
+            <default-mapping>true</default-mapping>
+        </mapping>
+        <mapping>
+            <mapping-name>Mapping3</mapping-name>
+            <in-expression>0:416="1"</in-expression>
+            <dummy-response>false</dummy-response>
+            <default-mapping>false</default-mapping>
+            <request-parameters>
+                <request-parameter>
+                    <operation>ADD</operation>
+                    <check-expression>*</check-expression>
+                    <destination-expression>0:89</destination-expression>
+                    <source-expression>${MULTIMODE}:0:443</source-expression>
+                </request-parameter>
+            </request-parameters>
+            <response-parameters>
+                <response-parameter>
+                    <operation>ADD</operation>
+                    <check-expression>*</check-expression>
+                    <destination-expression>10415:628.10415:630</destination-expression>
+                    <default-value>45678</default-value>
+                </response-parameter>
+            </response-parameters>
+        </mapping>
+    </mappings>
+    <default-mapping>
+        <request-parameters>
+            <request-parameter>
+                <operation>ADD</operation>
+                <check-expression>*</check-expression>
+                <destination-expression>0:416</destination-expression>
+                <source-expression>0:416</source-expression>
+                <value-mapping>2=UPDATE_REQUEST </value-mapping>
+            </request-parameter>
+        </request-parameters>
+        <response-parameters>
+            <response-parameter>
+                <operation>UPDATE</operation>
+                <check-expression>0:268="3001"</check-expression>
+                <destination-expression>ErrorFlag</destination-expression>
+                <source-expression>"1"</source-expression>
+            </response-parameter>
+        </response-parameters>
+    </default-mapping>
+    <dummy-response-parameters>
+        <dummy-response-parameter>
+            <out-field>0:268</out-field>
+            <value>2001</value>
+        </dummy-response-parameter>
+        <dummy-response-parameter>
+            <out-field>0:263</out-field>
+            <value>1000</value>
+        </dummy-response-parameter>
+    </dummy-response-parameters>
+</copy-packet-config>
+
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket?name=Copy_Packet_Configuration&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket.json?name=Copy_Packet_Configuration
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket?operation=search&name=Copy_Packet_Configuration&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket.json?operation=search&name=Copy_Packet_Configuration
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration.json?operation=search
+
+Response     :
+
+{
+   "name":"Copy_Packet_Configuration",
+   "description":"Created by admin on 01/03/2017 06:28:05 PM",
+   "script":"scripfilename.groovy",
+   "from-translation-type":"DIAMETER",
+   "to-translation-type":"DIAMETER",
+   "mappings":[
+      {
+         "mapping-name":"Mapping1",
+         "in-expression":"0:416=\"3\"",
+         "dummy-response":"true",
+         "default-mapping":"true"
+      },
+      {
+         "mapping-name":"Mapping2",
+         "in-expression":"0:416=\"2\"",
+         "dummy-response":"false",
+         "default-mapping":"true"
+      },
+      {
+         "mapping-name":"Mapping3",
+         "in-expression":"0:416=\"1\"",
+         "dummy-response":"false",
+         "default-mapping":"false",
+         "request-parameters":[
+            {
+               "operation":"ADD",
+               "check-expression":"*",
+               "destination-expression":"0:89",
+               "source-expression":"${MULTIMODE}:0:443"
+            }
+         ],
+         "response-parameters":[
+            {
+               "operation":"ADD",
+               "check-expression":"*",
+               "destination-expression":"10415:628.10415:630",
+               "default-value":"45678"
+            }
+         ]
+      }
+   ],
+   "default-mapping":{
+      "request-parameters":[
+         {
+            "operation":"ADD",
+            "check-expression":"*",
+            "destination-expression":"0:416",
+            "source-expression":"0:416",
+            "value-mapping":"2=UPDATE_REQUEST "
+         }
+      ],
+      "response-parameters":[
+         {
+            "operation":"UPDATE",
+            "check-expression":"0:268=\"3001\"",
+            "destination-expression":"ErrorFlag",
+            "source-expression":"\"1\""
+         }
+      ]
+   },
+   "dummy-response-parameters":[
+      {
+         "out-field":"0:268",
+         "value":"2001"
+      },
+      {
+         "out-field":"0:263",
+         "value":"1000"
+      }
+   ]
+}
+
+***********************************************************************
+                    CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<copy-packet-config>
+    <name>Copy_Packet_Configuration</name>
+    <description>Created by admin on 01/03/2017 06:28:05 PM</description>
+    <script>scripfilename.groovy</script>
+    <from-translation-type>DIAMETER</from-translation-type>
+    <to-translation-type>DIAMETER</to-translation-type>
+    <mappings>
+        <mapping>
+            <mapping-name>Mapping1</mapping-name>
+            <in-expression>0:416="3"</in-expression>
+            <dummy-response>true</dummy-response>
+            <default-mapping>true</default-mapping>
+        </mapping>
+        <mapping>
+            <mapping-name>Mapping2</mapping-name>
+            <in-expression>0:416="2"</in-expression>
+            <dummy-response>false</dummy-response>
+            <default-mapping>true</default-mapping>
+        </mapping>
+        <mapping>
+            <mapping-name>Mapping3</mapping-name>
+            <in-expression>0:416="1"</in-expression>
+            <dummy-response>false</dummy-response>
+            <default-mapping>false</default-mapping>
+            <request-parameters>
+                <request-parameter>
+                    <operation>ADD</operation>
+                    <check-expression>*</check-expression>
+                    <destination-expression>0:89</destination-expression>
+                    <source-expression>${MULTIMODE}:0:443</source-expression>
+                </request-parameter>
+            </request-parameters>
+            <response-parameters>
+                <response-parameter>
+                    <operation>ADD</operation>
+                    <check-expression>*</check-expression>
+                    <destination-expression>10415:628.10415:630</destination-expression>
+                    <default-value>45678</default-value>
+                </response-parameter>
+            </response-parameters>
+        </mapping>
+    </mappings>
+    <default-mapping>
+        <request-parameters>
+            <request-parameter>
+                <operation>ADD</operation>
+                <check-expression>*</check-expression>
+                <destination-expression>0:416</destination-expression>
+                <source-expression>0:416</source-expression>
+                <value-mapping>2=UPDATE_REQUEST </value-mapping>
+            </request-parameter>
+        </request-parameters>
+        <response-parameters>
+            <response-parameter>
+                <operation>UPDATE</operation>
+                <check-expression>0:268="3001"</check-expression>
+                <destination-expression>ErrorFlag</destination-expression>
+                <source-expression>"1"</source-expression>
+            </response-parameter>
+        </response-parameters>
+    </default-mapping>
+    <dummy-response-parameters>
+        <dummy-response-parameter>
+            <out-field>0:268</out-field>
+            <value>2001</value>
+        </dummy-response-parameter>
+        <dummy-response-parameter>
+            <out-field>0:263</out-field>
+            <value>1000</value>
+        </dummy-response-parameter>
+    </dummy-response-parameters>
+</copy-packet-config>
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Copy Packet configuration created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "name":"Copy_Packet_Configuration",
+   "description":"Created by admin on 01/03/2017 06:28:05 PM",
+   "script":"scripfilename.groovy",
+   "from-translation-type":"DIAMETER",
+   "to-translation-type":"DIAMETER",
+   "mappings":[
+      {
+         "mapping-name":"Mapping1",
+         "in-expression":"0:416=\"3\"",
+         "dummy-response":"true",
+         "default-mapping":"true"
+      },
+      {
+         "mapping-name":"Mapping2",
+         "in-expression":"0:416=\"2\"",
+         "dummy-response":"false",
+         "default-mapping":"true"
+      },
+      {
+         "mapping-name":"Mapping3",
+         "in-expression":"0:416=\"1\"",
+         "dummy-response":"false",
+         "default-mapping":"false",
+         "request-parameters":[
+            {
+               "operation":"ADD",
+               "check-expression":"*",
+               "destination-expression":"0:89",
+               "source-expression":"${MULTIMODE}:0:443"
+            }
+         ],
+         "response-parameters":[
+            {
+               "operation":"ADD",
+               "check-expression":"*",
+               "destination-expression":"10415:628.10415:630",
+               "default-value":"45678"
+            }
+         ]
+      }
+   ],
+   "default-mapping":{
+      "request-parameters":[
+         {
+            "operation":"ADD",
+            "check-expression":"*",
+            "destination-expression":"0:416",
+            "source-expression":"0:416",
+            "value-mapping":"2=UPDATE_REQUEST "
+         }
+      ],
+      "response-parameters":[
+         {
+            "operation":"UPDATE",
+            "check-expression":"0:268=\"3001\"",
+            "destination-expression":"ErrorFlag",
+            "source-expression":"\"1\""
+         }
+      ]
+   },
+   "dummy-response-parameters":[
+      {
+         "out-field":"0:268",
+         "value":"2001"
+      },
+      {
+         "out-field":"0:263",
+         "value":"1000"
+      }
+   ]
+}
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Copy Packet configuration created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+    <copy-packet-config>
+        <name>Copy_Packet_Configuration</name>
+        <description>Created by admin on 01/03/2017 06:28:05 PM</description>
+        <script>scripfilename.groovy</script>
+        <from-translation-type>DIAMETER</from-translation-type>
+        <to-translation-type>DIAMETER</to-translation-type>
+        <mappings>
+            <mapping>
+                <mapping-name>Mapping1</mapping-name>
+                <in-expression>0:416="3"</in-expression>
+                <dummy-response>true</dummy-response>
+                <default-mapping>true</default-mapping>
+            </mapping>
+            <mapping>
+                <mapping-name>Mapping2</mapping-name>
+                <in-expression>0:416="2"</in-expression>
+                <dummy-response>false</dummy-response>
+                <default-mapping>true</default-mapping>
+            </mapping>
+            <mapping>
+                <mapping-name>Mapping3</mapping-name>
+                <in-expression>0:416="1"</in-expression>
+                <dummy-response>false</dummy-response>
+                <default-mapping>false</default-mapping>
+                <request-parameters>
+                    <request-parameter>
+                        <operation>ADD</operation>
+                        <check-expression>*</check-expression>
+                        <destination-expression>0:89</destination-expression>
+                        <source-expression>${MULTIMODE}:0:443</source-expression>
+                    </request-parameter>
+                </request-parameters>
+                <response-parameters>
+                    <response-parameter>
+                        <operation>ADD</operation>
+                        <check-expression>*</check-expression>
+                        <destination-expression>10415:628.10415:630</destination-expression>
+                        <default-value>45678</default-value>
+                    </response-parameter>
+                </response-parameters>
+            </mapping>
+        </mappings>
+        <default-mapping>
+            <request-parameters>
+                <request-parameter>
+                    <operation>ADD</operation>
+                    <check-expression>*</check-expression>
+                    <destination-expression>0:416</destination-expression>
+                    <source-expression>0:416</source-expression>
+                    <value-mapping>2=UPDATE_REQUEST </value-mapping>
+                </request-parameter>
+            </request-parameters>
+            <response-parameters>
+                <response-parameter>
+                    <operation>UPDATE</operation>
+                    <check-expression>0:268="3001"</check-expression>
+                    <destination-expression>ErrorFlag</destination-expression>
+                    <source-expression>"1"</source-expression>
+                </response-parameter>
+            </response-parameters>
+        </default-mapping>
+        <dummy-response-parameters>
+            <dummy-response-parameter>
+                <out-field>0:268</out-field>
+                <value>2001</value>
+            </dummy-response-parameter>
+            <dummy-response-parameter>
+                <out-field>0:263</out-field>
+                <value>1000</value>
+            </dummy-response-parameter>
+        </dummy-response-parameters>
+    </copy-packet-config>
+</list>
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Copy Packet configuration(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"Copy_Packet_Configuration",
+         "description":"Created by admin on 01/03/2017 06:28:05 PM",
+         "script":"scripfilename.groovy",
+         "from-translation-type":"DIAMETER",
+         "to-translation-type":"DIAMETER",
+         "mappings":[
+            {
+               "mapping-name":"Mapping1",
+               "in-expression":"0:416=\"3\"",
+               "dummy-response":"true",
+               "default-mapping":"true"
+            },
+            {
+               "mapping-name":"Mapping2",
+               "in-expression":"0:416=\"2\"",
+               "dummy-response":"false",
+               "default-mapping":"true"
+            },
+            {
+               "mapping-name":"Mapping3",
+               "in-expression":"0:416=\"1\"",
+               "dummy-response":"false",
+               "default-mapping":"false",
+               "request-parameters":[
+                  {
+                     "operation":"ADD",
+                     "check-expression":"*",
+                     "destination-expression":"0:89",
+                     "source-expression":"${MULTIMODE}:0:443"
+                  }
+               ],
+               "response-parameters":[
+                  {
+                     "operation":"ADD",
+                     "check-expression":"*",
+                     "destination-expression":"10415:628.10415:630",
+                     "default-value":"45678"
+                  }
+               ]
+            }
+         ],
+         "default-mapping":{
+            "request-parameters":[
+               {
+                  "operation":"ADD",
+                  "check-expression":"*",
+                  "destination-expression":"0:416",
+                  "source-expression":"0:416",
+                  "value-mapping":"2=UPDATE_REQUEST "
+               }
+            ],
+            "response-parameters":[
+               {
+                  "operation":"UPDATE",
+                  "check-expression":"0:268=\"3001\"",
+                  "destination-expression":"ErrorFlag",
+                  "source-expression":"\"1\""
+               }
+            ]
+         },
+         "dummy-response-parameters":[
+            {
+               "out-field":"0:268",
+               "value":"2001"
+            },
+            {
+               "out-field":"0:263",
+               "value":"1000"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Copy Packet configuration(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket?name=Copy_Packet_Configuration
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket?operation=update&name=Copy_Packet_Configuration
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<copy-packet-config>
+    <name>Copy_Packet_Configuration</name>
+    <description>Created by admin on 01/03/2017 06:28:05 PM</description>
+    <script>scripfilename.groovy</script>
+    <from-translation-type>DIAMETER</from-translation-type>
+    <to-translation-type>DIAMETER</to-translation-type>
+    <mappings>
+        <mapping>
+            <mapping-name>Mapping1</mapping-name>
+            <in-expression>0:416="3"</in-expression>
+            <dummy-response>true</dummy-response>
+            <default-mapping>true</default-mapping>
+        </mapping>
+        <mapping>
+            <mapping-name>Mapping2</mapping-name>
+            <in-expression>0:416="2"</in-expression>
+            <dummy-response>false</dummy-response>
+            <default-mapping>true</default-mapping>
+        </mapping>
+        <mapping>
+            <mapping-name>Mapping3</mapping-name>
+            <in-expression>0:416="1"</in-expression>
+            <dummy-response>false</dummy-response>
+            <default-mapping>false</default-mapping>
+            <request-parameters>
+                <request-parameter>
+                    <operation>ADD</operation>
+                    <check-expression>*</check-expression>
+                    <destination-expression>0:89</destination-expression>
+                    <source-expression>${MULTIMODE}:0:443</source-expression>
+                </request-parameter>
+            </request-parameters>
+            <response-parameters>
+                <response-parameter>
+                    <operation>ADD</operation>
+                    <check-expression>*</check-expression>
+                    <destination-expression>10415:628.10415:630</destination-expression>
+                    <default-value>45678</default-value>
+                </response-parameter>
+            </response-parameters>
+        </mapping>
+    </mappings>
+    <default-mapping>
+        <request-parameters>
+            <request-parameter>
+                <operation>ADD</operation>
+                <check-expression>*</check-expression>
+                <destination-expression>0:416</destination-expression>
+                <source-expression>0:416</source-expression>
+                <value-mapping>2=UPDATE_REQUEST </value-mapping>
+            </request-parameter>
+        </request-parameters>
+        <response-parameters>
+            <response-parameter>
+                <operation>UPDATE</operation>
+                <check-expression>0:268="3001"</check-expression>
+                <destination-expression>ErrorFlag</destination-expression>
+                <source-expression>"1"</source-expression>
+            </response-parameter>
+        </response-parameters>
+    </default-mapping>
+    <dummy-response-parameters>
+        <dummy-response-parameter>
+            <out-field>0:268</out-field>
+            <value>2001</value>
+        </dummy-response-parameter>
+        <dummy-response-parameter>
+            <out-field>0:263</out-field>
+            <value>1000</value>
+        </dummy-response-parameter>
+    </dummy-response-parameters>
+</copy-packet-config>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Copy Packet configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+   "name":"Copy_Packet_Configuration",
+   "description":"Created by admin on 01/03/2017 06:28:05 PM",
+   "script":"scripfilename.groovy",
+   "from-translation-type":"DIAMETER",
+   "to-translation-type":"DIAMETER",
+   "mappings":[
+      {
+         "mapping-name":"Mapping1",
+         "in-expression":"0:416=\"3\"",
+         "dummy-response":"true",
+         "default-mapping":"true"
+      },
+      {
+         "mapping-name":"Mapping2",
+         "in-expression":"0:416=\"2\"",
+         "dummy-response":"false",
+         "default-mapping":"true"
+      },
+      {
+         "mapping-name":"Mapping3",
+         "in-expression":"0:416=\"1\"",
+         "dummy-response":"false",
+         "default-mapping":"false",
+         "request-parameters":[
+            {
+               "operation":"ADD",
+               "check-expression":"*",
+               "destination-expression":"0:89",
+               "source-expression":"${MULTIMODE}:0:443"
+            }
+         ],
+         "response-parameters":[
+            {
+               "operation":"ADD",
+               "check-expression":"*",
+               "destination-expression":"10415:628.10415:630",
+               "default-value":"45678"
+            }
+         ]
+      }
+   ],
+   "default-mapping":{
+      "request-parameters":[
+         {
+            "operation":"ADD",
+            "check-expression":"*",
+            "destination-expression":"0:416",
+            "source-expression":"0:416",
+            "value-mapping":"2=UPDATE_REQUEST "
+         }
+      ],
+      "response-parameters":[
+         {
+            "operation":"UPDATE",
+            "check-expression":"0:268=\"3001\"",
+            "destination-expression":"ErrorFlag",
+            "source-expression":"\"1\""
+         }
+      ]
+   },
+   "dummy-response-parameters":[
+      {
+         "out-field":"0:268",
+         "value":"2001"
+      },
+      {
+         "out-field":"0:263",
+         "value":"1000"
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Copy Packet configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket?name=Copy_Packet_Configuration
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket?operation=delete&name=Copy_Packet_Configuration
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/copypacket/Copy_Packet_Configuration?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Copy Packet configuration(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************
+						Additional Details(Properties as per SM)
+***********************************************************************
+# From translation type can be any of :
+ 	1) DIAMETER
+ 	2) RADIUS
+ 
+# To translation type can be any of :
+	1) DIAMETER
+ 	2) RADIUS
+	
+# Possible combination of translation type of Translation mapping as per following:
+	
+		From Translation Type	To Translation Type
+		
+	1.  RADIUS						RADIUS
+	2.	DIAMETER					DIAMETER
+	
+# Value of default-mapping can be:
+	1) true
+	2) false
+
+# Value of dummy-response can be:
+	1) true
+	2) false	 	
+
+# Value of operation field can be:
+	1) ADD
+	2) UPDATE
+	3) UPGRADE
+	4) DEL
+	5) MOVE
+	

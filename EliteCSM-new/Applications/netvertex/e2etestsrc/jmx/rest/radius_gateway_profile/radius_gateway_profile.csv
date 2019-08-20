@@ -1,0 +1,13 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_ptog_packet_mapping_for_radius,POST : Create PCC to Gateway Packet Mappinig : 201,sm/packetmapping/radius-packet-mapping.json,POST,create_ptog_packet_mapping.json,,,201,radius-packet-mapping
+2,create_gtop_packet_mapping_for_radius,POST : Create Gateway to PCC Packet Mappinig : 201,sm/packetmapping/radius-packet-mapping.json,POST,create_gtop_packet_mapping.json,,,201,radius-packet-mapping
+3,create_pccrule_mapping_for_radius,POST : Create PCC Rule Mappinig : 201,sm/pccrulemapping/radius-pcc-rule-mapping.json,POST,create_pcc_rule_radius_gateway_profile.json,,,201,radius-pcc-rule-mapping
+4,create_radius_gateway_profile,POST : Create Gateway Profile Rest_Radius_Gateway_Profile : 201,sm/gatewayprofile/radius-gateway-profile.json,POST,create_radius_gateway_profile.json,,28833,201,radius-gateway-profile
+5,get_created_radius_gateway_profile,GET : rest_radius_gateway_profile should be displayed : 200,sm/gatewayprofile/radius-gateway-profile/rest_r_gateway_profile_11111111.json,GET,,,28834,200,radius-gateway-profile
+6,update_radius_gateway_profile,PUT : Update rest_radius_gateway_profile to updated_rest_radius_gateway_profile : 200,sm/gatewayprofile/radius-gateway-profile/rest_r_gateway_profile_11111111.json,PUT,update_radius_gateway_profile.json,,28835,200,radius-gateway-profile
+7,get_updated_radius_gateway_profile,GET : updated_rest_radius_gateway_profile should be displayed : 200,sm/gatewayprofile/radius-gateway-profile/rest_r_gateway_profile_11111111.json,GET,,,28836,200,radius-gateway-profile
+8,delete_radius_gateway_profile,DELETE : Delete updated_rest_radius_gateway_profile : 200,sm/gatewayprofile/radius-gateway-profile/rest_r_gateway_profile_11111111.json,DELETE,,,28837,200,radius-gateway-profile
+9,get_deleted_radius_gateway_profile,GET : updated_rest_radius_gateway_profile should not be displayed : 404,sm/gatewayprofile/radius-gateway-profile/rest_r_gateway_profile_11111111.json,GET,,"{""actionErrors"":[""Gateway Profile Not Found with id: rest_r_gateway_profile_11111111""]}",28838,404,radius-gateway-profile
+10,delete_pccrule_mapping_radius,DELETE : Delete PCC Rule Mapping : 200,sm/pccrulemapping/radius-pcc-rule-mapping/rest_pccrule_map_radius_11111111.json,DELETE,,,,200,
+11,delete_ptog_packet_mapping_radius,DELETE : Delete PCC to Gateway Packet Mapping : 200,sm/packetmapping/radius-packet-mapping/rest_ptog_r_packet_map_11111111.json,DELETE,,,,200,
+12,delete_gtop_packet_mapping_radius,DELETE : Delete Gateway to PCC Mapping : 200,sm/packetmapping/radius-packet-mapping/rest_gtop_r_packet_map_11111111.json,DELETE,,,,200,

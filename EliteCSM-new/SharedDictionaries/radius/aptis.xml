@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>                                                  
+ <!--                                                                                    
+	$Id: dictionary.aptis,v 1.2 2003/01/23 21:01:20 aland Exp $                     
+-->                                                                                       
+<attribute-list vendorid="2637" vendor-name="Aptis">                                    
+	<attribute id="1" name="CVX-Identification" type ="string"/>                    
+        <attribute id="2" name="CVX-VPOP-ID" type ="integer"/>                          
+        <attribute id="3" name="CVX-SS7-Session-ID-Type" type ="integer"/>              
+        <attribute id="4" name="CVX-Radius-Redirect" type ="integer"/>                  
+        <attribute id="5" name="CVX-IPSVC-AZNLVL" type ="integer"/>                     
+        <attribute id="6" name="CVX-IPSVC-Mask" type ="integer"/>                       
+        <attribute id="7" name="CVX-Multilink-Match-Info" type ="integer"/>             
+        <attribute id="8" name="CVX-Multilink-Group-Number" type ="integer"/>           
+        <attribute id="9" name="CVX-PPP-Log-Mask" type ="integer"/>                     
+        <attribute id="10" name="CVX-Modem-Begin-Modulation" type ="string"/>           
+        <attribute id="11" name="CVX-Modem-End-Modulation" type ="string"/>             
+        <attribute id="12" name="CVX-Modem-Error-Correction" type ="string"/>           
+        <attribute id="13" name="CVX-Modem-Data-Compression" type ="string"/>           
+        <attribute id="14" name="CVX-Modem-Tx-Packets" type ="integer"/>                
+        <attribute id="15" name="CVX-Modem-ReTx-Packets" type ="integer"/>              
+        <attribute id="16" name="CVX-Modem-SNR" type ="integer"/>                       
+        <attribute id="17" name="CVX-Modem-Local-Retrains" type ="integer"/>            
+        <attribute id="18" name="CVX-Modem-Remote-Retrains" type ="integer"/>           
+        <attribute id="19" name="CVX-Modem-Local-Rate-Negs" type ="integer"/>           
+        <attribute id="20" name="CVX-Modem-Remote-Rate-Negs" type ="integer"/>          
+        <attribute id="21" name="CVX-Modem-Begin-Recv-Line-Lvl" type ="integer"/>       
+        <attribute id="22" name="CVX-Modem-End-Recv-Line-Lvl" type ="integer"/>         
+        <attribute id="135" name="CVX-Primary-DNS" type ="ipaddr"/>                     
+        <attribute id="136" name="CVX-Secondary-DNS" type ="ipaddr"/>                   
+        <attribute id="137" name="CVX-Client-Assign-DNS" type ="integer"/>              
+        <attribute id="152" name="CVX-Multicast-Rate-Limit" type ="integer"/>           
+        <attribute id="155" name="CVX-Multicast-Client" type ="integer"/>               
+        <attribute id="195" name="CVX-Disconnect-Cause" type ="integer"/>               
+        <attribute id="197" name="CVX-Data-Rate" type ="integer"/>                      
+        <attribute id="198" name="CVX-PreSession-Time" type ="integer"/>                
+        <attribute id="218" name="CVX-Assign-IP-Pool" type ="integer"/>                 
+        <attribute id="235" name="CVX-Maximum-Channels" type ="integer"/>               
+        <attribute id="242" name="CVX-Data-Filter" type ="string"/>                     
+        <attribute id="244" name="CVX-Idle-Limit" type ="integer"/>                     
+        <attribute id="253" name="CVX-PPP-Address" type ="ipaddr "/>                    
+        <attribute id="255" name="CVX-Xmit-Rate" type ="integer"/>                      
+</attribute-list>                                                                       

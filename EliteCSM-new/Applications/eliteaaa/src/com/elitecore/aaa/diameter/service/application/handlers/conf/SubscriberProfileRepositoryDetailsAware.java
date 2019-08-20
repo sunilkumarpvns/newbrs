@@ -1,0 +1,8 @@
+package com.elitecore.aaa.diameter.service.application.handlers.conf;
+
+import com.elitecore.aaa.diameter.subscriber.DiameterSubscriberProfileRepositoryDetails;
+
+public interface SubscriberProfileRepositoryDetailsAware {
+	DiameterSubscriberProfileRepositoryDetails getSubscriberProfileRepositoryDetails();
+	void setSubscriberProfileRepositoryDetails(DiameterSubscriberProfileRepositoryDetails sprDetails);
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    <field name="name">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">100</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length")}</message>
+        </field-validator>
+
+         <field-validator type="regex">
+            <param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+            <message>${getText("invalid.name")}</message>
+        </field-validator>
+    </field>
+    <field name="fileName">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("file.alert.filename")})}</message>
+        </field-validator>
+    </field>
+    <field name="maxRollingUnit">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^\d*(\.*\d)*?$]]></param>
+            <message>${getText("error.required.numeric", {getText("file.alert.max.rollingunit")})}</message>
+        </field-validator>
+        <field-validator type="long" short-circuit="true">
+                <param name="min">1</param>
+                <param name="max">500</param>
+                <message>Must be between ${min} and ${max}</message>
+            </field-validator>
+    </field>
+
+    <field name="rollingUnit">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[((rollingType==1) && (rollingUnit!='' && rollingUnit!=null && rollingUnit>=3 && rollingUnits<=5)) || ((rollingType==2 && rollingUnit!='' && rollingUnit!=null))]]></param>
+            <message>${getText("invalid.field.value")}</message>
+        </field-validator>
+
+        <field-validator type="long" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">1024</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+</validators>

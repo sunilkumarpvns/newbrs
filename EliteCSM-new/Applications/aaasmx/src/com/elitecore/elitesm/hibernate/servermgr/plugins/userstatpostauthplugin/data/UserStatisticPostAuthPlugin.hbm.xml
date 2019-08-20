@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.plugins.usrstatpostauthplugin.data.UserStatPostAuthPluginData" table="TBLMUSERSTATPOSTAUTHPLUGIN">
+
+		<id name="pluginId" column="PLUGINID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+
+		<property name="pluginData" type="byte[]" column="PLUGINDATA" not-null="false" />
+			
+		<property name="pluginInstanceId" type="StringType">
+			<column name="PLUGININSTANCEID" sql-type="VARCHAR(36)" not-null="true" />
+		</property>
+
+	</class>
+
+</hibernate-mapping> 

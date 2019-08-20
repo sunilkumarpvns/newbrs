@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_diameter_packet,POST : Create Diameter Packet Mappinig rest_diameter_aarequest : 201,sm/packetmapping/diameter-packet-mapping.json,POST,create_diameter_packet_mapping.json,,28889,201,diameter-packet-mapping
+2,get_created_diameter_packet,GET : rest_diameter_aarequest should be displayed : 200,sm/packetmapping/diameter-packet-mapping/rest_dia_packet_mapping_11111111.json,GET,,,28890,200,diameter-packet-mapping
+3,update_diameter_packet,PUT :  Update rest_diameter_aarequest to updated_rest_diameter_asresponse : 200,sm/packetmapping/diameter-packet-mapping/rest_dia_packet_mapping_11111111.json,PUT,update_diameter_packet_mapping.json,,28891,200,diameter-packet-mapping
+4,get_created_diameter_packet,GET : updated_rest_diameter_asresponse should be displayed : 200,sm/packetmapping/diameter-packet-mapping/rest_dia_packet_mapping_11111111.json,GET,,,28892,200,diameter-packet-mapping
+5,delete_diameter_packet,DELETE : Delete updated_rest_diameter_asresponse : 200,sm/packetmapping/diameter-packet-mapping/rest_dia_packet_mapping_11111111.json,DELETE,,,28893,200,diameter-packet-mapping
+6,get_created_diameter_packet,GET : updated_rest_diameter_asresponse should not be displayed : 404,sm/packetmapping/diameter-packet-mapping/rest_dia_packet_mapping_11111111.json,GET,,"{""actionErrors"":[""Packet Mapping Not Found with id: rest_dia_packet_mapping_11111111""]}",28894,404,diameter-packet-mapping

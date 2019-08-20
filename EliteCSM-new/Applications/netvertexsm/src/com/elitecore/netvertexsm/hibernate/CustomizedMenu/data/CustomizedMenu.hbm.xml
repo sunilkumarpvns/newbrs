@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.elitecore.netvertexsm.datamanager.customizedmenu.CustomizedMenuData" table="TBLMCUSTOMIZEDMENU" >
+	 
+	 <id name="customizedMenuId" column="CUSTOMIZEDMENUID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"> 
+			</generator>
+	 </id>
+	 
+     <property name="title" type="string">
+          <column name="TITLE" sql-type="VARCHAR2(255)" not-null="true"/>
+     </property>
+     
+     <property name="url" type="string">
+          <column name="URL" sql-type="VARCHAR2(255)" not-null="false"/>
+     </property>
+     
+     <property name="openMethod" type="string">
+          <column name="OPENMETHOD" sql-type="VARCHAR2(32)" not-null="false"/>
+     </property>
+ 
+ 	 <property name="parameters" type="string">
+		 <column name="PARAMS" sql-type="VARCHAR2(255)" not-null="false"/>
+     </property>	
+     
+      <property name="parentID" type="long">
+          <column name="PARENTID" sql-type="NUMBER(5)" not-null="false"/>
+      </property>
+      
+      <property name="order" type="long">
+          <column name="ORDERNO" sql-type="NUMBER(2)" not-null="false"/>
+      </property>
+      <property name="isContainer" type="string">
+          <column name="ISCONTAINER" sql-type="VARCHAR(3)" not-null="false"/>
+      </property>
+     
+	</class>
+
+</hibernate-mapping>

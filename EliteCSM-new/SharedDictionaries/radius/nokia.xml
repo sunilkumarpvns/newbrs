@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="94" vendor-name="Nokia">
+<attribute id="1" name="Nokia-AVPair" type="string"/>
+<attribute id="2" name="Nokia-User-Profile" type="string"/>
+<!--Original Line : ATTRIBUTE	Nokia-Service-Name			3	octets	# magic format-->
+<attribute id="3" name="Nokia-Service-Name" type="octets"/>
+<!--Original Line : ATTRIBUTE	Nokia-Service-id			4	octets	# magic format-->
+<attribute id="4" name="Nokia-Service-id" type="octets"/>
+<!--Original Line : ATTRIBUTE	Nokia-Service-Username			5	octets	# magic format-->
+<attribute id="5" name="Nokia-Service-Username" type="octets"/>
+<!--Original Line : ATTRIBUTE	Nokia-Service-Password			6	octets	# magic format-->
+<attribute id="6" name="Nokia-Service-Password" type="octets"/>
+<attribute id="7" name="Nokia-Service-Primary-Indicator" type="octets"/>
+<!--Original Line : ATTRIBUTE	Nokia-Service-Charging-Type		8	octets # magic format-->
+<attribute id="8" name="Nokia-Service-Charging-Type" type="octets"/>
+<!--Original Line : ATTRIBUTE	Nokia-Service-Encrypted-Password	9	octets # magic format-->
+<attribute id="9" name="Nokia-Service-Encrypted-Password" type="octets"/>
+<attribute id="10" name="Nokia-Session-Access-Method" type="octets"/>
+<attribute id="11" name="Nokia-Session-Charging-Type" type="octets"/>
+<attribute id="12" name="Nokia-OCS-id1" type="integer"/>
+<attribute id="13" name="Nokia-OCS-id2" type="integer"/>
+<attribute id="14" name="Nokia-TREC-Index" type="integer"/>
+<attribute id="15" name="Nokia-Requested-APN" type="string"/>
+</attribute-list>

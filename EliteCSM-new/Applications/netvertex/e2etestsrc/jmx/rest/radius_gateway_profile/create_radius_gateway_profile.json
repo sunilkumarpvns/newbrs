@@ -1,0 +1,43 @@
+{
+  "id": "rest_r_gateway_profile_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Rest_Radius_Gateway_Profile",
+  "description": "Created by Rest Automation",
+  "gatewayType": "ACCESS_GATEWAY",
+  "vendorId": "9",
+  "firmware": "firmware",
+  "usageReportingType": "NON_CUMULATIVE",
+  "revalidationMode": "ClientInitiated",
+  "timeout": 1000,
+  "maxRequestTimeout": 100,
+  "statusCheckDuration": 120,
+  "retryCount": 10,
+  "icmpPingEnabled": false,
+  "supportedVendorList": "Cisco - 9",
+  "sendAccountingResponse": true,
+  "interimInterval": 60,
+  "groovyScriptDatas": [],
+  "radiusGwProfilePCCRuleMappings": [
+    {
+      "orderNumber": 1,
+      "pccRuleMappingId": "rest_pccrule_map_radius_11111111",
+      "condition": null
+    }
+  ],
+  "pccToGWPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_gtop_r_packet_map_11111111",
+      "condition": null
+    }
+  ],
+  "gwToPCCPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_ptog_r_packet_map_11111111",
+      "condition": null
+    }
+  ],
+  "groupNames": "DefaultGroup"
+}

@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+	<class name="com.elitecore.elitesm.datamanager.diameter.routingconf.data.DiameterRoutingConfData" table="TBLMROUTINGCONFIG">
+		<id name="routingConfigId" column="ROUTINGCONFIGID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="name" type="StringType"> 
+			<column name="NAME" sql-type="VARCHAR(128)" not-null="true" /> 
+		</property>
+
+		<property name="description" type="StringType"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR(512)" not-null="false" /> 
+		</property>
+		
+		<property name="realmName" type="StringType"> 
+			<column name="DESTREALM" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property>
+		
+		<property name="appIds" type="StringType"> 
+			<column name="APPIDS" sql-type="VARCHAR(128)" not-null="false" /> 
+		</property>
+		
+		<property name="originHost" type="StringType"> 
+			<column name="ORIGINHOST" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property>
+		
+		<property name="originRealm" type="StringType"> 
+			<column name="ORIGINREALM" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property>
+		
+		<property name="ruleset" type="StringType"> 
+			<column name="RULESET" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<property name="transMapConfId" type="StringType"> 
+			<column name="TRANSMAPCONFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="copyPacketMapId" type="StringType"> 
+			<column name="COPYPACKETMAPCONFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="routingAction" type="java.lang.Long"> 
+			<column name="ROUTINGACTION" sql-type="NUMERIC(1)" not-null="false" /> 
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Long"> 
+			<column name="ORDERNUMBER" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="createDate" type="java.sql.Timestamp"> 
+			<column name="CREATEDATE" sql-type="TIMESTAMP(6)(11)" not-null="true" /> 
+		</property>
+
+		<property name="createdByStaffId" type="StringType"> 
+			<column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp"> 
+			<column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP(6)(11)" not-null="true" /> 
+		</property>
+
+
+		<property name="lastModifiedByStaffId" type="StringType"> 
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="routingTableId" type="StringType"> 
+			<column name="ROUTINGTABLEID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<!-- <property name="protocolFailureAction" type="java.lang.Long"> 
+			<column name="PROTOCOLFAILUREACTION" sql-type="NUMERIC" not-null="false" /> 
+		</property>
+		
+		<property name="protocolFailureArguments" type="string"> 
+			<column name="PROTOCOLFAILUREARGUMENTS" sql-type="VARCHAR2(256)" not-null="false" /> 
+		</property>
+		
+		<property name="transientFailureAction" type="java.lang.Long"> 
+			<column name="TRANSIENTFAILUREACTION" sql-type="NUMERIC" not-null="false" /> 
+		</property>
+		
+		<property name="transientFailureArguments" type="string"> 
+			<column name="TRANSIENTFAILUREARGUMENTS" sql-type="VARCHAR2(256)" not-null="false" /> 
+		</property>
+		
+		<property name="permanentFailureAction" type="java.lang.Long"> 
+			<column name="PERMANENTFAILUREACTION" sql-type="NUMERIC" not-null="false" /> 
+		</property>
+		
+		<property name="permanentFailureArguments" type="string"> 
+			<column name="PERMANENTFAILUREARGUMENTS" sql-type="VARCHAR2(256)" not-null="false" /> 
+		</property>
+		
+		<property name="timeOutAction" type="java.lang.Long"> 
+			<column name="TIMEOUTACTION" sql-type="NUMERIC" not-null="false" /> 
+		</property>
+		
+		<property name="timeOutArguments" type="string"> 
+			<column name="TIMEOUTARGUMENTS" sql-type="VARCHAR2(256)" not-null="false" /> 
+		</property> -->
+		
+		<property name="transactionTimeout" type="java.lang.Long"> 
+			<column name="TRANSACTIONTIMEOUT" sql-type="NUMBER(10)" not-null="false" />
+		</property>
+		
+		<property name="imsiBasedRoutingTableId" type="StringType"> 
+			<column name="IMSIBASEDROUTINGTABLEID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="msisdnBasedRoutingTableId" type="StringType"> 
+			<column name="MSISDNBASEDROUTINGTABLEID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="subsciberMode" type="StringType"> 
+			<column name="SUBSCRIBERMODE" sql-type="VARCHAR(12)" not-null="false" /> 
+		</property>
+		
+		<property name="statefulRouting" type="java.lang.Long"> 
+			<column name="STATEFULROUTING" sql-type="NUMBER(2)" not-null="false" /> 
+		</property>
+		
+		<property name="attachedRedirection" type="StringType"> 
+			<column name="ATTACHEDREDIRECTION" sql-type="VARCHAR(8)" not-null="false" /> 
+		</property>
+		
+		<many-to-one name="translationMappingConfData" fetch="join"  insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.TranslationMappingConfData" column="TRANSMAPCONFID" ></many-to-one>
+		<many-to-one name="copyPacketMappingConfData" fetch="join" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.copypacket.data.CopyPacketTranslationConfData" column="COPYPACKETMAPCONFID"></many-to-one>
+	
+		<set name="diameterPeerGroupDataSet" lazy="false" inverse="false" order-by="orderNumber">
+			<key column="ROUTINGCONFIGID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.diameter.routingconf.data.DiameterPeerGroupData" />
+	  	</set>
+	  	
+	  	<many-to-one name="diameterRoutingTableData" fetch="join" insert="false" update="false" class="com.elitecore.elitesm.datamanager.diameter.routingconf.data.DiameterRoutingTableData" column="ROUTINGTABLEID" />
+	  	
+	  	<many-to-one name="imsiBasedRoutingTableData" fetch="join" insert="false" update="false" class="com.elitecore.elitesm.datamanager.diameter.imsibasedroutingtable.data.IMSIBasedRoutingTableData" column="IMSIBASEDROUTINGTABLEID" />
+	 
+	 	<many-to-one name="msisdnBasedRoutingTableData" fetch="join" insert="false" update="false" class="com.elitecore.elitesm.datamanager.diameter.msisdnbasedroutingtable.data.MSISDNBasedRoutingTableData" column="MSISDNBASEDROUTINGTABLEID" />
+	 
+	  	<set name="diameterRoutingConfigFailureParamSet" lazy="false"  order-by="orderNumber">
+	  		<key column="ROUTINGCONFIGID"></key>
+	  		<one-to-many class="com.elitecore.elitesm.datamanager.diameter.routingconf.data.DiameterRoutingConfigFailureParam" />
+	  	</set>
+	  	
+	  	 <property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false" />
+	     </property>
+</class>            
+	            
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="4735" vendor-name="PPPProsoft">
+<attribute id="0" name="Prosoft-Home-Agent-Address" type="ipaddr"/>
+<attribute id="1" name="Prosoft-Default-Gateway" type="ipaddr"/>
+<attribute id="2" name="Prosoft-Primary-DNS" type="ipaddr"/>
+<attribute id="3" name="Prosoft-Secondary-DNS" type="ipaddr"/>
+<attribute id="4" name="Prosoft-Security-Parameter-Index" type="integer"/>
+<attribute id="5" name="Prosoft-Security-Key" type="string"/>
+<attribute id="7" name="Prosoft-MAC-Address" type="string"/>
+<attribute id="8" name="Prosoft-Authentication-Reason" type="integer"/>
+<attribute id="9" name="Prosoft-ATM-Interface" type="integer"/>
+<attribute id="10" name="Prosoft-ATM-VPI" type="integer"/>
+<attribute id="11" name="Prosoft-ATM-VCI" type="integer"/>
+<attribute id="12" name="Prosoft-RSC-identifier" type="string"/>
+<attribute id="13" name="Prosoft-NPM-identifier" type="string"/>
+<attribute id="14" name="Prosoft-NPM-IP" type="string"/>
+<attribute id="15" name="Prosoft-Sector-id" type="string"/>
+<attribute id="16" name="Prosoft-Auth-Role" type="integer">
+	<supported-values>
+		<value id="0" name="Read-Status"/>
+		<value id="1" name="Read-Config"/>
+		<value id="2" name="Read-Write"/>
+		<value id="3" name="Admin"/>
+		<value id="4" name="Super-user"/>
+	</supported-values>
+</attribute>
+</attribute-list>

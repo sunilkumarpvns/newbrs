@@ -1,0 +1,465 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "EliteAAAServer",
+		"properties": {
+			"server-name": {
+				"title": "Server Name",
+				"type": "string"
+			},
+			"domain-name": {
+				"title": "Domain Name",
+				"type": "string"
+			},
+			"service-list": {
+				"type": "object",
+				"properties": {
+					"service": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"service-id": {
+									"title": "Service Identifier",
+									"type": "string"
+								},
+								"enabled": {
+									"title": "Enabled",
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			},
+			"aaa-db-datasource": {
+				"type": "object",
+				"properties": {
+					"connection-url": {
+						"title": "Connection URL",
+						"type": "string",
+						"default": "jdbc:oracle:thin:@//192.168.2.130:1521/csmdb"
+					},
+					"user-name": {
+						"title": "User Name",
+						"type": "string"
+					},
+					"password": {
+						"title": "Password",
+						"type": "string"
+					}
+				}
+			},
+			"logging": {
+				"type": "object",
+				"properties": {
+					"log-level": {
+						"title": "Log Level",
+						"type": "string"
+					},
+					"rolling-type": {
+						"title": "Rolling Type",
+						"type": "string"
+					},
+					"rolling-unit": {
+						"title": "Rolling Unit",
+						"type": "string",
+						"default": "5"
+					},
+					"max-rolled-unit": {
+						"title": "Max Rolled Unit",
+						"type": "string",
+						"default": "10"
+					},
+					"compress-rolled-unit": {
+						"title": "Compress Rolled Unit",
+						"type": "string"
+					},
+					"syslog": {
+						"type": "object",
+						"properties": {
+							"address": {
+								"title": "Address",
+								"type": "string"
+							},
+							"facility": {
+								"title": "Facility",
+								"type": "string"
+							}
+						}
+					}
+				}
+			},
+			"snmp-address": {
+				"title": "SNMP Address",
+				"type": "string"
+			},
+			"snmp-community": {
+				"title": "SNMP Community",
+				"type": "string"
+			},
+			"internal-schedular-thread-size": {
+				"title": "Internal Schedular Thread Size",
+				"type": "string"
+			},
+			"filter-response-attributes": {
+				"title": "Filter Response Attributes",
+				"type": "string"
+			},
+			"alert-listeners": {
+				"type": "object",
+				"properties": {
+					"alert-listener": {
+						"title": "Alert Listener",
+						"type": "string"
+					}
+				}
+			},
+			"web-service-config": {
+				"type": "object",
+				"properties": {
+					"web-service-enabled": {
+						"title": "Web Service Enabled",
+						"type": "string"
+					},
+					"service-address": {
+						"title": "Service Address",
+						"type": "string"
+					},
+					"https-service-address": {
+						"title": "Https Service Address",
+						"type": "string"
+					},
+					"server-certificate-id": {
+						"title": "Server Certificate Profile",
+						"type": "string"
+					},
+					"max-session": {
+						"title": "Max Session",
+						"type": "string"
+					},
+					"thread-pool-size": {
+						"title": "Thread Pool Size",
+						"type": "string"
+					}
+				}
+			},
+			"rfc-4282-nai": {
+				"type": "object",
+				"properties": {
+					"enabled": {
+						"title": "Enabled",
+						"type": "string"
+					},
+					"realm-names": {
+						"title": "Realm Names",
+						"type": "string"
+					}
+				}
+			},
+			"kpi-service-config": {
+				"type": "object",
+				"properties": {
+					"datasource-name": {
+						"title": "Datasource Name",
+						"type": "string"
+					},
+					"batch-size": {
+						"title": "Batch Size",
+						"type": "string",
+						"default": "200"
+					},
+					"batch-interval": {
+						"title": "Batch Interval",
+						"type": "string",
+						"default": "60"
+					},
+					"kpi-query-interval": {
+						"title": "KPI Query interval",
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "server-name"
+		},
+		{
+			"key": "domain-name"
+		},
+		{
+			"key": "service-list",
+			"items": [
+				{
+					"key": "service-list.service",
+					"items": [
+						{
+							"key": "service-list.service[].service-id"
+						},
+						{
+							"key": "service-list.service[].enabled",
+							"type": "select",
+							"titleMap": {
+								"True": "True",
+								"False": "False"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "aaa-db-datasource",
+			"items": [
+				{
+					"key": "aaa-db-datasource.connection-url"
+				},
+				{
+					"key": "aaa-db-datasource.user-name"
+				},
+				{
+					"key": "aaa-db-datasource.password"
+				}
+			]
+		},
+		{
+			"key": "logging",
+			"items": [
+				{
+					"key": "logging.log-level",
+					"type": "select",
+					"titleMap": {
+						"OFF": "OFF",
+						"WARM": "WARM",
+						"ERROR": "ERROR",
+						"INFO": "INFO",
+						"FATAL": "FATAL",
+						"DEBUG": "DEBUG",
+						"TRACE": "TRACE",
+						"All": "All"
+					}
+				},
+				{
+					"key": "logging.rolling-type",
+					"type": "select",
+					"titleMap": {
+						"Size-Based": "Size-Based",
+						"Time-Based": "Time-Based"
+					}
+				},
+				{
+					"key": "logging.rolling-unit"
+				},
+				{
+					"key": "logging.max-rolled-unit"
+				},
+				{
+					"key": "logging.compress-rolled-unit",
+					"type": "select",
+					"titleMap": {
+						"True": "True",
+						"False": "False"
+					}
+				},
+				{
+					"key": "logging.syslog",
+					"items": [
+						{
+							"key": "logging.syslog.address"
+						},
+						{
+							"key": "logging.syslog.facility",
+							"type": "select",
+							"titleMap": {
+								"None": "None",
+								"AUTH": "AUTH",
+								"KERN": "KERN",
+								"USER": "USER",
+								"MAIL": "MAIL",
+								"DAEMON": "DAEMON",
+								"SYSLOG": "SYSLOG",
+								"LPR": "LPR",
+								"NEWS": "NEWS",
+								"UUCP": "UUCP",
+								"CRON": "CRON",
+								"AUTHPRIV": "AUTHPRIV",
+								"FTP": "FTP",
+								"LOCAL0": "LOCAL0",
+								"LOCAL1": "LOCAL1",
+								"LOCAL2": "LOCAL2",
+								"LOCAL3": "LOCAL3",
+								"LOCAL4": "LOCAL4",
+								"LOCAL5": "LOCAL5",
+								"LOCAL6": "LOCAL6",
+								"LOCAL7": "LOCAL7"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "snmp-address"
+		},
+		{
+			"key": "snmp-community"
+		},
+		{
+			"key": "internal-schedular-thread-size"
+		},
+		{
+			"key": "filter-response-attributes"
+		},
+		{
+			"key": "alert-listeners",
+			"add": "Add",
+			"items": [
+				{
+					"key": "alert-listeners.alert-listener"
+				}
+			]
+		},
+		{
+			"key": "web-service-config",
+			"items": [
+				{
+					"key": "web-service-config.web-service-enabled",
+					"type": "select",
+					"titleMap": {
+						"True": "True",
+						"False": "False"
+					}
+				},
+				{
+					"key": "web-service-config.service-address"
+				},
+				{
+					"key": "web-service-config.https-service-address"
+				},
+				{
+					"key": "web-service-config.server-certificate-id"
+				},
+				{
+					"key": "web-service-config.max-session"
+				},
+				{
+					"key": "web-service-config.thread-pool-size"
+				}
+			]
+		},
+		{
+			"key": "rfc-4282-nai",
+			"items": [
+				{
+					"key": "rfc-4282-nai.enabled",
+					"type": "select",
+					"titleMap": {
+						"True": "True",
+						"False": "False"
+					}
+				},
+				{
+					"key": "rfc-4282-nai.realm-names"
+				}
+			]
+		},
+		{
+			"key": "kpi-service-config",
+			"items": [
+				{
+					"key": "kpi-service-config.datasource-name"
+				},
+				{
+					"key": "kpi-service-config.batch-size"
+				},
+				{
+					"key": "kpi-service-config.batch-interval"
+				},
+				{
+					"key": "kpi-service-config.kpi-query-interval"
+				}
+			]
+		}
+	],
+	"model": {
+		"server-name": "eliteaaa",
+		"domain-name": "elitecore.com",
+		"service-list": {
+			"service": [
+				{
+					"service-id": "3GPP_AAA_SERVER",
+					"enabled": "true"
+				},
+				{
+					"service-id": "RAD_AUTH",
+					"enabled": "true"
+				},
+				{
+					"service-id": "RAD_ACCT",
+					"enabled": "false"
+				},
+				{
+					"service-id": "RAD_DYNAUTH",
+					"enabled": "true"
+				},
+				{
+					"service-id": "DIA_EAP",
+					"enabled": "false"
+				},
+				{
+					"service-id": "DIA_NAS",
+					"enabled": "true"
+				},
+				{
+					"service-id": "DIA_CC",
+					"enabled": "true"
+				}
+			]
+		},
+		"aaa-db-datasource": {
+			"connection-url": "jdbc:oracle:thin:@//192.168.2.168:1521/csmdb",
+			"user-name": "ELITEAAA",
+			"password": "ELITEAAA"
+		},
+		"logging": {
+			"log-level": "DEBUG",
+			"rolling-type": "Time-Based",
+			"rolling-unit": "5",
+			"max-rolled-unit": "10",
+			"compress-rolled-unit": "false",
+			"syslog": {
+				"address": "10.121.21.96",
+				"facility": "USER"
+			}
+		},
+		"snmp-address": "0.0.0.0:1161",
+		"snmp-community": "public",
+		"internal-schedular-thread-size": "10",
+		"filter-response-attributes": "0:1",
+		"alert-listeners": {
+			"alert-listener": [
+				"-NONE-"
+			]
+		},
+		"web-service-config": {
+			"web-service-enabled": "true",
+			"service-address": "10.121.96.121",
+			"https-service-address": "10.121.96.124",
+			"server-certificate-id": "Elitecore_server_cert",
+			"max-session": "100",
+			"thread-pool-size": "100"
+		},
+		"rfc-4282-nai": {
+			"enabled": "true",
+			"realm-names": "elitecore.com"
+		},
+		"kpi-service-config": {
+			"datasource-name": "-NONE-",
+			"batch-size": "200",
+			"batch-interval": "60",
+			"kpi-query-interval": "10"
+		}
+	}
+}

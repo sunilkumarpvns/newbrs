@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <form-beans>
+      <form-bean name="areaManagementForm" type="com.elitecore.netvertexsm.web.locationconfig.area.form.AreaMgmtForm"/>
+      <form-bean name="cityManagementForm" type="com.elitecore.netvertexsm.web.locationconfig.city.form.CityMgmtForm"/>
+      <form-bean name="regionManagementForm" type="com.elitecore.netvertexsm.web.locationconfig.region.form.RegionMgmtForm"/>
+    </form-beans>
+  
+    <action-mappings>      
+     <action parameter="method" name="areaManagementForm"
+			path="/areaManagement" scope="request" type="com.elitecore.netvertexsm.web.locationconfig.area.AreaMgmtAction">
+			<forward name="searchAreaPage" path="/jsp/locationconfig/area/SearchArea.jsp" />
+			<forward name="createAreaPage" path="/jsp/locationconfig/area/CreateArea.jsp" />
+			<forward name="viewAreaPage" path="/jsp/locationconfig/area/ViewAreaContainer.jsp" />
+			<forward name="editAreaPage" path="/jsp/locationconfig/area/EditAreaContainer.jsp" />
+	 </action>
+	 
+	 
+	  <action parameter="method" name="cityManagementForm"
+			path="/cityManagement" scope="request" type="com.elitecore.netvertexsm.web.locationconfig.city.CityMgmtAction">
+			<forward name="searchCityPage" path="/jsp/locationconfig/city/SearchCity.jsp" />
+			<forward name="createCityPage" path="/jsp/locationconfig/city/CreateCity.jsp" />
+			<forward name="viewCityPage" path="/jsp/locationconfig/city/ViewCityContainer.jsp" />
+			<forward name="editCityPage" path="/jsp/locationconfig/city/EditCityContainer.jsp" />
+	 </action>
+	 
+	   <action parameter="method" name="regionManagementForm"
+			path="/regionManagement" scope="request" type="com.elitecore.netvertexsm.web.locationconfig.region.RegionMgmtAction">
+			<forward name="searchRegionPage" path="/jsp/locationconfig/region/SearchRegion.jsp" />
+			<forward name="createRegionPage" path="/jsp/locationconfig/region/CreateRegion.jsp" />
+			<forward name="viewRegionPage" path="/jsp/locationconfig/region/ViewRegionContainer.jsp" />
+			<forward name="editRegionPage" path="/jsp/locationconfig/region/EditRegionContainer.jsp" />
+	 </action>
+	 
+	 	       
+    </action-mappings>
+  
+    <message-resources key="locationMasterResources" parameter="com.elitecore.netvertexsm.web.locationconfig.LocationConfigResources" />
+  
+</struts-config>

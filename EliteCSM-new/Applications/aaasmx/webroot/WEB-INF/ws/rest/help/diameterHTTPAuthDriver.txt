@@ -1,0 +1,752 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth?name=diameterHttpAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth.xml?name=diameterHttpAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth?operation=search&name=diameterHttpAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth.xml?operation=search&name=diameterHttpAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+<driver-instance>
+    <name>diameterHttpAuthDriver</name>
+    <description>Created by admin on 01/23/2017 06:25:21 PM</description>
+    <http-auth-driver>
+        <http-url>www.elitecore.com</http-url>
+        <status-check-duration>120</status-check-duration>
+        <maximum-query-timeout-count>200</maximum-query-timeout-count>
+        <expiry-date-formats>MM/dd/yyyy</expiry-date-formats>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <http-response-mappings>
+            <http-response-mapping>
+                <logical-name>User Name</logical-name>
+                <response-parameter-index>1</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>CUI</logical-name>
+                <response-parameter-index>2</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>User Password</logical-name>
+                <response-parameter-index>3</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Password Check</logical-name>
+                <response-parameter-index>4</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Encryption Type</logical-name>
+                <response-parameter-index>5</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Customer Status</logical-name>
+                <response-parameter-index>6</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <response-parameter-index>7</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <response-parameter-index>8</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <response-parameter-index>9</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <response-parameter-index>10</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <response-parameter-index>11</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <response-parameter-index>12</response-parameter-index>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </http-response-mapping>
+        </http-response-mappings>
+    </http-auth-driver>
+</driver-instance>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth?name=diameterHttpAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth.json?name=diameterHttpAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth?operation=search&name=diameterHttpAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth.json?operation=search&name=diameterHttpAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+  "name": "diameterHttpAuthDriver",
+  "description": "Created by admin on 01/23/2017 06:25:21 PM",
+  "http-auth-driver": [
+    {
+      "http-url": "www.elitecore.com",
+      "status-check-duration": 120,
+      "maximum-query-timeout-count": 200,
+      "expiry-date-formats": "MM/dd/yyyy",
+      "user-identity-attributes": "0:1",
+      "http-response-mappings": [
+        {
+          "logical-name": "User Name",
+          "response-parameter-index": 1
+        },
+        {
+          "logical-name": "CUI",
+          "response-parameter-index": 2
+        },
+        {
+          "logical-name": "User Password",
+          "response-parameter-index": 3
+        },
+        {
+          "logical-name": "Password Check",
+          "response-parameter-index": 4
+        },
+        {
+          "logical-name": "Encryption Type",
+          "response-parameter-index": 5
+        },
+        {
+          "logical-name": "Customer Status",
+          "response-parameter-index": 6
+        },
+        {
+          "logical-name": "Calling Station ID",
+          "response-parameter-index": 7
+        },
+        {
+          "logical-name": "Authorization Policy",
+          "response-parameter-index": 8
+        },
+        {
+          "logical-name": "Customer Check Items",
+          "response-parameter-index": 9
+        },
+        {
+          "logical-name": "Customer Reply Items",
+          "response-parameter-index": 10
+        },
+        {
+          "logical-name": "Expiry Date",
+          "response-parameter-index": 11
+        },
+        {
+          "logical-name": "Credit Limit",
+          "response-parameter-index": 12,
+          "default-value": "Active",
+          "value-mapping": "1=Active,0=inActive"
+        }
+      ]
+    }
+  ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Note : - for inserting Default Value and Value Mapping in DB Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+Body :
+<driver-instance>
+    <name>diameterHttpAuthDriver</name>
+    <description>Created by admin on 01/23/2017 06:25:21 PM</description>
+    <http-auth-driver>
+        <http-url>www.elitecore.com</http-url>
+        <status-check-duration>120</status-check-duration>
+        <maximum-query-timeout-count>200</maximum-query-timeout-count>
+        <expiry-date-formats>MM/dd/yyyy</expiry-date-formats>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <http-response-mappings>
+            <http-response-mapping>
+                <logical-name>User Name</logical-name>
+                <response-parameter-index>1</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>CUI</logical-name>
+                <response-parameter-index>2</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>User Password</logical-name>
+                <response-parameter-index>3</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Password Check</logical-name>
+                <response-parameter-index>4</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Encryption Type</logical-name>
+                <response-parameter-index>5</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Customer Status</logical-name>
+                <response-parameter-index>6</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <response-parameter-index>7</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <response-parameter-index>8</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <response-parameter-index>9</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <response-parameter-index>10</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <response-parameter-index>11</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <response-parameter-index>12</response-parameter-index>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </http-response-mapping>
+        </http-response-mappings>
+    </http-auth-driver>
+</driver-instance>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HTTP Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note : - for inserting Default Value and Value Mapping in DB Field Mapping use below format.
+
+		"default-value": "Active",
+        "value-mapping": "1=Active,0=inActive"
+
+Body :
+{
+  "name": "diameterHttpAuthDriver",
+  "description": "Created by admin on 01/23/2017 06:25:21 PM",
+  "http-auth-driver": [
+    {
+      "http-url": "www.elitecore.com",
+      "status-check-duration": 120,
+      "maximum-query-timeout-count": 200,
+      "expiry-date-formats": "MM/dd/yyyy",
+      "user-identity-attributes": "0:1",
+      "http-response-mappings": [
+        {
+          "logical-name": "User Name",
+          "response-parameter-index": 1
+        },
+        {
+          "logical-name": "CUI",
+          "response-parameter-index": 2
+        },
+        {
+          "logical-name": "User Password",
+          "response-parameter-index": 3
+        },
+        {
+          "logical-name": "Password Check",
+          "response-parameter-index": 4
+        },
+        {
+          "logical-name": "Encryption Type",
+          "response-parameter-index": 5
+        },
+        {
+          "logical-name": "Customer Status",
+          "response-parameter-index": 6
+        },
+        {
+          "logical-name": "Calling Station ID",
+          "response-parameter-index": 7
+        },
+        {
+          "logical-name": "Authorization Policy",
+          "response-parameter-index": 8
+        },
+        {
+          "logical-name": "Customer Check Items",
+          "response-parameter-index": 9
+        },
+        {
+          "logical-name": "Customer Reply Items",
+          "response-parameter-index": 10
+        },
+        {
+          "logical-name": "Expiry Date",
+          "response-parameter-index": 11
+        },
+        {
+          "logical-name": "Credit Limit",
+          "response-parameter-index": 12,
+          "default-value": "Active",
+          "value-mapping": "1=Active,0=inActive"
+        }
+      ]
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HTTP Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Note : - for inserting Default Value and Value Mapping in DB Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+        
+Body :
+<list>
+   <driver-instance>
+      <name>diameterHttpAuthDriver</name>
+      <description>Created by admin on 01/23/2017 06:25:21 PM</description>
+      <http-auth-driver>
+         <http-url>www.elitecore.com</http-url>
+         <status-check-duration>120</status-check-duration>
+         <maximum-query-timeout-count>200</maximum-query-timeout-count>
+         <expiry-date-formats>MM/dd/yyyy</expiry-date-formats>
+         <user-identity-attributes>0:1</user-identity-attributes>
+         <http-response-mappings>
+            <http-response-mapping>
+               <logical-name>User Name</logical-name>
+               <response-parameter-index>1</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+               <logical-name>CUI</logical-name>
+               <response-parameter-index>2</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+               <logical-name>User Password</logical-name>
+               <response-parameter-index>3</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+               <logical-name>Password Check</logical-name>
+               <response-parameter-index>4</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+               <logical-name>Encryption Type</logical-name>
+               <response-parameter-index>5</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+               <logical-name>Customer Status</logical-name>
+               <response-parameter-index>6</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+               <logical-name>Calling Station ID</logical-name>
+               <response-parameter-index>7</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+               <logical-name>Authorization Policy</logical-name>
+               <response-parameter-index>8</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+               <logical-name>Customer Check Items</logical-name>
+               <response-parameter-index>9</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+               <logical-name>Customer Reply Items</logical-name>
+               <response-parameter-index>10</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+               <logical-name>Expiry Date</logical-name>
+               <response-parameter-index>11</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+               <logical-name>Credit Limit</logical-name>
+               <response-parameter-index>12</response-parameter-index>
+               <default-value>Active</default-value>
+               <value-mapping>1=Active,0=inActive</value-mapping>
+            </http-response-mapping>
+         </http-response-mappings>
+      </http-auth-driver>
+   </driver-instance>
+</list>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HTTP Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note : - for inserting Default Value and Value Mapping in DB Field Mapping use below format.
+
+		"default-value": "Active",
+        "value-mapping": "1=Active,0=inActive"
+
+Body :
+{
+   "list":[
+      {
+         "name":"diameterHttpAuthDriver",
+         "description":"Created by admin on 01/23/2017 06:25:21 PM",
+         "http-auth-driver":[
+            {
+               "http-url":"www.elitecore.com",
+               "status-check-duration":120,
+               "maximum-query-timeout-count":200,
+               "expiry-date-formats":"MM/dd/yyyy",
+               "user-identity-attributes":"0:1",
+               "http-response-mappings":[
+                  {
+                     "logical-name":"User Name",
+                     "response-parameter-index":1
+                  },
+                  {
+                     "logical-name":"CUI",
+                     "response-parameter-index":2
+                  },
+                  {
+                     "logical-name":"User Password",
+                     "response-parameter-index":3
+                  },
+                  {
+                     "logical-name":"Password Check",
+                     "response-parameter-index":4
+                  },
+                  {
+                     "logical-name":"Encryption Type",
+                     "response-parameter-index":5
+                  },
+                  {
+                     "logical-name":"Customer Status",
+                     "response-parameter-index":6
+                  },
+                  {
+                     "logical-name":"Calling Station ID",
+                     "response-parameter-index":7
+                  },
+                  {
+                     "logical-name":"Authorization Policy",
+                     "response-parameter-index":8
+                  },
+                  {
+                     "logical-name":"Customer Check Items",
+                     "response-parameter-index":9
+                  },
+                  {
+                     "logical-name":"Customer Reply Items",
+                     "response-parameter-index":10
+                  },
+                  {
+                     "logical-name":"Expiry Date",
+                     "response-parameter-index":11
+                  },
+                  {
+                     "logical-name":"Credit Limit",
+                     "response-parameter-index":12,
+                     "default-value":"Active",
+                     "value-mapping":"1=Active,0=inActive"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HTTP Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth?name=diameterHttpAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth?operation=update&name=diameterHttpAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Note : - for updating Default Value and Value Mapping in DB Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+        
+
+Body     :
+<driver-instance>
+    <name>diameterHttpAuthDriver</name>
+    <description>Created by admin on 01/23/2017 06:25:21 PM</description>
+    <http-auth-driver>
+        <http-url>www.elitecore.com</http-url>
+        <status-check-duration>120</status-check-duration>
+        <maximum-query-timeout-count>200</maximum-query-timeout-count>
+        <expiry-date-formats>MM/dd/yyyy</expiry-date-formats>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <http-response-mappings>
+            <http-response-mapping>
+                <logical-name>User Name</logical-name>
+                <response-parameter-index>1</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>CUI</logical-name>
+                <response-parameter-index>2</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>User Password</logical-name>
+                <response-parameter-index>3</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Password Check</logical-name>
+                <response-parameter-index>4</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Encryption Type</logical-name>
+                <response-parameter-index>5</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Customer Status</logical-name>
+                <response-parameter-index>6</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <response-parameter-index>7</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <response-parameter-index>8</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <response-parameter-index>9</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <response-parameter-index>10</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <response-parameter-index>11</response-parameter-index>
+            </http-response-mapping>
+            <http-response-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <response-parameter-index>12</response-parameter-index>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </http-response-mapping>
+        </http-response-mappings>
+    </http-auth-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HTTP Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Note : - for updating Default Value and Value Mapping in DB Field Mapping use below format.
+
+			"default-value": "Active",
+            "value-mapping": "1=Active,0=inActive"
+
+Body     :
+{
+  "name": "diameterHttpAuthDriver",
+  "description": "Created by admin on 01/23/2017 06:25:21 PM",
+  "http-auth-driver": [
+    {
+      "http-url": "www.elitecore.com",
+      "status-check-duration": 120,
+      "maximum-query-timeout-count": 200,
+      "expiry-date-formats": "MM/dd/yyyy",
+      "user-identity-attributes": "0:1",
+      "http-response-mappings": [
+        {
+          "logical-name": "User Name",
+          "response-parameter-index": 1
+        },
+        {
+          "logical-name": "CUI",
+          "response-parameter-index": 2
+        },
+        {
+          "logical-name": "User Password",
+          "response-parameter-index": 3
+        },
+        {
+          "logical-name": "Password Check",
+          "response-parameter-index": 4
+        },
+        {
+          "logical-name": "Encryption Type",
+          "response-parameter-index": 5
+        },
+        {
+          "logical-name": "Customer Status",
+          "response-parameter-index": 6
+        },
+        {
+          "logical-name": "Calling Station ID",
+          "response-parameter-index": 7
+        },
+        {
+          "logical-name": "Authorization Policy",
+          "response-parameter-index": 8
+        },
+        {
+          "logical-name": "Customer Check Items",
+          "response-parameter-index": 9
+        },
+        {
+          "logical-name": "Customer Reply Items",
+          "response-parameter-index": 10
+        },
+        {
+          "logical-name": "Expiry Date",
+          "response-parameter-index": 11
+        },
+        {
+          "logical-name": "Credit Limit",
+          "response-parameter-index": 12,
+          "default-value": "Active",
+          "value-mapping": "1=Active,0=inActive"
+        }
+      ]
+    }
+  ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HTTP Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth?name=diameterHttpAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth?operation=delete&name=diameterHttpAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/httpauth/diameterHttpAuthDriver?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Http Auth Driver(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

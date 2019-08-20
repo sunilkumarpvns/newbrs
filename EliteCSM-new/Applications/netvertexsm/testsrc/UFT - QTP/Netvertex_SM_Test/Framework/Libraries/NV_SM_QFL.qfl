@@ -1,0 +1,577 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Function Repository1(vSheetName)
+	Call InvokeDesktopApplication("C:\Program Files (x86)\Internet Explorer\iexplore.exe")
+
+	Call StartApplication_Basic("http://192.168.1.160:8090/netvertex_6471")
+
+	Set Obj = Browser("00-Server Manager Login").Page("SM Main Login").WebEdit("TXT_userName")
+	Call InsertText(Obj,Datatable("userName",vSheetName))
+
+	Set Obj = Browser("00-Server Manager Login").Page("SM Main Login").WebEdit("TXT_password")
+	Call InsertText(Obj,Datatable("password",vSheetName))
+
+	Set Obj = Browser("00-Server Manager Login").Page("SM Main Login").Image("BTN_go")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("00-SM Instance").Frame("00-Home Page Instance Create").WebButton("BTN_Create")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("00-SM Instance").Frame("01-Instance Create").WebEdit("TXT_Instance_Name")
+	Call InsertText(Obj,"Netvertex_Server_Ravindra")
+
+	Set Obj = Browser("01-Server Manager").Page("00-SM Instance").Frame("01-Instance Create").WebEdit("TXT_AdminInterface_IP")
+	Call InsertText(Obj,"192.168.1.160")
+
+	Set Obj = Browser("01-Server Manager").Page("00-SM Instance").Frame("01-Instance Create").WebEdit("TXT_AdminInterface_Port")
+	Call InsertText(Obj,"33454")
+
+	Set Obj = Browser("01-Server Manager").Page("00-SM Instance").Frame("01-Instance Create").WebButton("BTN_Next")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("00-SM Instance").Frame("02-Instance Service Selection").WebCheckBox("Instance_Select_All_Services")
+	Call SetOn_Off(Obj,"ON")
+
+	Set Obj = Browser("01-Server Manager").Page("00-SM Instance").Frame("02-Instance Service Selection").WebButton("BTN_Instance_Created")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("00-SM Instance").Frame("02-Instance Service Selection").WebButton("BTN_Instance_Created_OK")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("00-SM Instance").Frame("03-Instance Create Netvertex Server").Link("Netvertex_Server_Ravindra")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("00-SM Instance").Frame("04-Instance Update").Link("Update Configuration")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").Image("IMG_Edit")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebList("PCRF_Services")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebList("BoD_Services")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebList("Promotional_Offer")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebList("Notification_Services")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_DB_URL")
+	Call InsertText(Obj,"jdbc:oracle:thin:@192.168.1.160:1521:aaadb")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_DB_UserName")
+	Call InsertText(Obj,"netvertex_fresh_646")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_DB_Password")
+	Call InsertText(Obj,"netvertex_fresh_646")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_DB_MinimumPoolSize")
+	Call InsertText(Obj,"2")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_DB_MaximumPoolSize")
+	Call InsertText(Obj,"20")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebList("LogLevel")
+	Call SelectList(Obj,"7-ALL")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebList("RollingType")
+	Call SelectList(Obj,"Time-Based")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_RollingUnit")
+	Call InsertText(Obj,"5")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_MaxRolledUnit")
+	Call InsertText(Obj,"1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebList("LIST_Compress_Rolled_Unit")
+	Call SelectList(Obj,"False")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_SubstituteServerConnectionURL")
+	Call InsertText(Obj,"192.168.1.160:3868")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_SubstituteServerWeight")
+	Call InsertText(Obj,"1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_SNMP_Address")
+	Call InsertText(Obj,"192.168.1.160:1161")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_HTTP_Port")
+	Call InsertText(Obj,"8082")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebList("DynaSPR_DB_Server")
+	Call SelectList(Obj,"DefaultDatabaseDatasource")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Page("01-UsageMeteringManager").Frame("01-UsageMeteringUpdate").WebEdit("TXT_BatchSize")
+	Call InsertText(Obj,"500")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Page("01-UsageMeteringManager").Frame("01-UsageMeteringUpdate").WebEdit("TXT_BatchUpdateInterval(Sec)")
+	Call InsertText(Obj,"1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Page("01-UsageMeteringManager").Frame("01-UsageMeteringUpdate").WebEdit("TXT_BatchQueryTimeout(Sec)")
+	Call InsertText(Obj,"1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_GroovyScriptName")
+	Call InsertText(Obj,"Test")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("00-NetvertexServer").WebEdit("TXT_GroovyScriptArgument")
+	Call InsertText(Obj,"ABC")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebButton("BTN_Update")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebButton("BTN_OK")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").Image("UsageMeteringEdit")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebEdit("TXT_Session Level Monitoring Key")
+	Call InsertText(Obj,"TEST")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_SubscriberLevelDailyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_SubscriberLevelWeeklyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_SubscriberLeveMonthlyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_SubscriberLevelSessionAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_SubscriberLevelBillingCycle")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_ServiceLevelDailyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_ServiceLevelWeeklyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_ServiceLevelMonthlyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_ServiceLevelSessionUsage")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_PCC_LevelDailyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_PCC_LevelWeeklyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_PCC_LevelMonthlyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_PCC_LevelSessionAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_PackageLevelDailyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_PackageLevelWeeklyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_PackageLevelMonthlyAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_PackageLevelSessionAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_PackageLevelBillingAggregation")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_PrimaryDataSource")
+	Call SelectList(Obj,"DefaultDatabaseDatasource")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_SecondryDataSource")
+	Call SelectList(Obj,"-NONE-")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebList("List_BatchUpdateEnabled")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebEdit("TXT_BatchSize")
+	Call InsertText(Obj,"500")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebEdit("TXT_BatchUpdateInterval(Sec)")
+	Call InsertText(Obj,"1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebEdit("TXT_BatchQueryTimeout(Sec)")
+	Call InsertText(Obj,"1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebButton("BTN_Update")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("01-UsageMetering").WebButton("BTN_OK")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").Image("IMG_Edit_DiameterStack")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebList("List_DiameterListenerEnable")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_DiameterAddress")
+	Call InsertText(Obj,"192.168.1.160:33868")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_SocketReceiveBufferSize")
+	Call InsertText(Obj,"-1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_SocketSendBufferSize")
+	Call InsertText(Obj,"-1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_QueueSize")
+	Call InsertText(Obj,"10000")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_MinimumThread")
+	Call InsertText(Obj,"1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_MaximumThread")
+	Call InsertText(Obj,"5")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_MainThreadPriority")
+	Call InsertText(Obj,"7")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_WorkerThreadPriority")
+	Call InsertText(Obj,"7")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_KeepAliveTime")
+	Call InsertText(Obj,"3000")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_OriginHost")
+	Call InsertText(Obj,"netvertex.elitecore.com")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_OriginRealm")
+	Call InsertText(Obj,"elitecore.com")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXt_DWInterval")
+	Call InsertText(Obj,"60")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebList("LIST_DuplicateRequestCheckEnabled")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_DuplicateRequestPurgeInterval")
+	Call InsertText(Obj,"15")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_SessionCleanupInterval-TS(Sec)")
+	Call InsertText(Obj,"86400")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebEdit("TXT_SessionTimeout(Sec)")
+	Call InsertText(Obj,"86400")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebList("LIST_Gateway")
+	Call SelectList(Obj,"-ALL-")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebButton("BTN_Update")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("02-DiameterStack").WebButton("BTN_OK")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").Image("IMG_Edit_RADIUS_Listener")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebList("LIST_RADIUS_ListenerEnabled")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebEdit("TXT_RADIUS_Address")
+	Call InsertText(Obj,"192.168.1.160:3813")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebEdit("TXT_SocketReceiveBufferSize")
+	Call InsertText(Obj,"-1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebEdit("TXT_SocketSendBufferSize")
+	Call InsertText(Obj,"-1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebEdit("TXT_QueueSize")
+	Call InsertText(Obj,"10000")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebEdit("TXT_MinimumThread")
+	Call InsertText(Obj,"1")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebEdit("TXT_MaximumThread")
+	Call InsertText(Obj,"5")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebEdit("TXT_MainThreadPriority")
+	Call InsertText(Obj,"7")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebEdit("TXT_WorkerThreadPriority")
+	Call InsertText(Obj,"7")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebList("LIST_DuplicateRequestCheckEnabled")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebEdit("TXT_DuplicateRequestPurgeInterval")
+	Call InsertText(Obj,"15")
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebButton("BTN_Update")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("01-Server Manager").Frame("03_RADIUS_Listener").WebButton("BTN_OK")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Main Services").Link("Link Configured Services")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Main Services").Link("Link PCRF Service")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").Link("Link Update Service Configuration")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").Image("IMG_Edit")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebEdit("TXT_Queue Size")
+	Call InsertText(Obj,"10000")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebEdit("TXT_Minimum Thread")
+	Call InsertText(Obj,"1")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebEdit("TXT_Maximum Thread")
+	Call InsertText(Obj,"5")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebEdit("TXT_Worker Thread Priority")
+	Call InsertText(Obj,"7")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebList("LIST_Service Logger Enabled")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebList("LIST_Log Level")
+	Call SelectList(Obj,"3-INFO")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebList("LIST_Rolling Type")
+	Call SelectList(Obj,"Time-Based")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebEdit("TXT_Rolling Unit")
+	Call InsertText(Obj,"Daily")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebEdit("TXT_Max Rolled Unit")
+	Call InsertText(Obj,"1")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebList("LIST_Compress Rolled Unit")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebButton("BTN_Update")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").WebButton("BTN_OK")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("PCRF Services").Link("Link View Server Instance")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").Link("Link Configured Services")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").Link("BoD Service")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").Link("Link Update Service Configuration")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").Image("IMG_Edit")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").WebEdit("TXT_Initial Delay(sec)")
+	Call InsertText(Obj,"30")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").WebEdit("TXT_Service Execution Period(sec)")
+	Call InsertText(Obj,"60")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").WebEdit("TXT_Max Parallel Execution")
+	Call InsertText(Obj,"10")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").WebList("LIST_Service Logger Enabled")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").WebList("LIST_Log Level")
+	Call SelectList(Obj,"3-INFO")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").WebList("LIST_Rolling Type")
+	Call SelectList(Obj,"Time-Based")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").WebEdit("TXT_Rolling Unit")
+	Call InsertText(Obj,"5")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").WebEdit("TXT_Max Rolled Unit")
+	Call InsertText(Obj,"10")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").WebList("LIST_Compress Rolled Unit")
+	Call SelectList(Obj,"False")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").WebButton("BTN_Update")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").WebButton("BTN_OK")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").Link("View Server Instance")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("BoD Services").Link("Link Configured Services")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").Link("LINK_Promotional Service")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").Link("LINK_Update Service Configuration")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").Image("IMG_Edit")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebEdit("TXT_Initial Delay(sec)")
+	Call InsertText(Obj,"60")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebEdit("TXT_Service Execution Period(sec)")
+	Call InsertText(Obj,"30")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebEdit("TXT_Max Parallel Execution")
+	Call InsertText(Obj,"5")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebList("LIST_Service Logger Enabled")
+	Call SelectList(Obj,"False")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebList("LIST_Log Level")
+	Call SelectList(Obj,"3-INFO")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebList("LIST_Rolling Type")
+	Call SelectList(Obj,"TimeBased")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebEdit("TXT_Rolling Unit")
+	Call InsertText(Obj,"5")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebEdit("TXT_Max Rolled Unit")
+	Call InsertText(Obj,"10")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebList("LIST_Compress Rolled Unit")
+	Call SelectList(Obj,"False")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebList("LIST_Driver Id")
+	Call SelectList(Obj,"spr_driver")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebButton("BTN_Update")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").WebButton("BTN_OK")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").Link("Link_View Server Instance")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Promotional Offer").Link("Link Configured Services")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").Link("Link Notification Service")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").Link("Link_Update Service Configuration")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").Image("IMG_Edit")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_Initial Delay(sec)")
+	Call InsertText(Obj,"60")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_Service Execution Period(sec)")
+	Call InsertText(Obj,"30")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_Max Parallel Execution")
+	Call InsertText(Obj,"5")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_Batch Size")
+	Call InsertText(Obj,"10")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebList("LIST_Service Logger Enabled")
+	Call SelectList(Obj,"False")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebList("LIST_Log Level")
+	Call SelectList(Obj,"3-INFO")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebList("LIST_Rolling Type")
+	Call SelectList(Obj,"Time-Based")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_Rolling Unit")
+	Call InsertText(Obj,"5")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_Max Rolled Unit")
+	Call InsertText(Obj,"10")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebList("LIST_Compress Rolled Unit")
+	Call SelectList(Obj,"False")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebList("LIST_Email_Enabled")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_ Mail Host")
+	Call InsertText(Obj,"newwebmail.elitecore.com")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_Email_User Name")
+	Call InsertText(Obj,"ravindra.mekhiya")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_HTTP_Password")
+	Call InsertText(Obj,"admin")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_From Address")
+	Call InsertText(Obj,"ravindra.mekhiya@elitecore.com")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebList("LIST_SMS_Enabled")
+	Call SelectList(Obj,"True")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebList("LIST_Sms Protocol")
+	Call SelectList(Obj,"HTTP")
+
+	Call PerformKeyStrokes("{TAB}")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_HTTP_Service Url")
+	Call InsertText(Obj,"abc")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_Sender")
+	Call InsertText(Obj,"elitecore")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_HTTP_UserName")
+	Call InsertText(Obj,"ravindra")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebEdit("TXT_HTTP_Password")
+	Call InsertText(Obj,"ravindra")
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebButton("BTN_Update")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").WebButton("BTN_OK")
+	Call PerformClick(Obj)
+
+	Set Obj = Browser("01-Server Manager").Page("02-Configured Services").Frame("Notification Service").Link("LINK_View Server Instance")
+	Call PerformClick(Obj)
+
+End Function

@@ -1,0 +1,507 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth?name=diameterHSSAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth.xml?name=diameterHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth?operation=search&name=diameterHSSAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth.xml?operation=search&name=diameterHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+<driver-instance>
+    <name>diameterHSSAuthDriver</name>
+    <description>Created by admin on 01/28/2017 04:31:40 PM</description>
+    <hss-auth-driver>
+        <tgpp-application-id>16777265</tgpp-application-id>
+        <command-code>303</command-code>
+        <request-timeout>3000</request-timeout>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <no-of-triplets>1</no-of-triplets>
+        <additional-attributes>s</additional-attributes>
+        <hss-peer-configuration>
+            <diameter-peer>
+                <peer-name>diameterPeer</peer-name>
+                <weightage>2</weightage>
+            </diameter-peer>
+        </hss-peer-configuration>
+        <hss-driver-field-mappings>
+            <hss-driver-field-mapping>
+                <logical-name>User Name</logical-name>
+                <attribute-ids>0:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>IMSI</logical-name>
+                <attribute-ids>10415:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>MSISDN</logical-name>
+                <attribute-ids>10415:701</attribute-ids>
+            </hss-driver-field-mapping>
+        </hss-driver-field-mappings>
+    </hss-auth-driver>
+</driver-instance>
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth?name=diameterHSSAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth.json?name=diameterHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth?operation=search&name=diameterHSSAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth.json?operation=search&name=diameterHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+  "name": "diameterHSSAuthDriver",
+  "description": "Created by admin on 01/28/2017 04:31:40 PM",
+  "hss-auth-driver": [
+    {
+      "tgpp-application-id": "16777265",
+      "command-code": 303,
+      "request-timeout": 3000,
+      "user-identity-attributes": "0:1",
+      "no-of-triplets": 1,
+      "additional-attributes": "s",
+      "hss-peer-configuration": [
+        {
+          "peer-name": "diameterPeer",
+          "weightage": 2
+        }
+      ],
+      "hss-driver-field-mappings": [
+        {
+          "logical-name": "User Name",
+          "attribute-ids": "0:1"
+        },
+        {
+          "logical-name": "IMSI",
+          "attribute-ids": "10415:1"
+        },
+        {
+          "logical-name": "MSISDN",
+          "attribute-ids": "10415:701"
+        }
+      ]
+    }
+  ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth?operation=create
+
+Note : - for inserting Default Value and Value Mapping in Diameter HSS Driver Field Mappings use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<driver-instance>
+    <name>diameterHSSAuthDriver</name>
+    <description>Created by admin on 01/28/2017 04:31:40 PM</description>
+    <hss-auth-driver>
+        <tgpp-application-id>16777265</tgpp-application-id>
+        <command-code>303</command-code>
+        <request-timeout>3000</request-timeout>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <no-of-triplets>1</no-of-triplets>
+        <additional-attributes>s</additional-attributes>
+        <hss-peer-configuration>
+            <diameter-peer>
+                <peer-name>diameterPeer</peer-name>
+                <weightage>2</weightage>
+            </diameter-peer>
+        </hss-peer-configuration>
+        <hss-driver-field-mappings>
+            <hss-driver-field-mapping>
+                <logical-name>User Name</logical-name>
+                <attribute-ids>0:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>IMSI</logical-name>
+                <attribute-ids>10415:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>MSISDN</logical-name>
+                <attribute-ids>10415:701</attribute-ids>
+            </hss-driver-field-mapping>
+        </hss-driver-field-mappings>
+    </hss-auth-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HSS Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+
+Note : - for inserting Default Value and Value Mapping in Diameter HSS Driver Field Mappings use below format.
+
+	"default-value":"Active",
+    "value-mapping":"1=Active,0=inActive"
+	
+Content Type : application/json
+
+Body :
+{
+  "name": "diameterHSSAuthDriver",
+  "description": "Created by admin on 01/28/2017 04:31:40 PM",
+  "hss-auth-driver": [
+    {
+      "tgpp-application-id": "16777265",
+      "command-code": 303,
+      "request-timeout": 3000,
+      "user-identity-attributes": "0:1",
+      "no-of-triplets": 1,
+      "additional-attributes": "s",
+      "hss-peer-configuration": [
+        {
+          "peer-name": "diameterPeer",
+          "weightage": 2
+        }
+      ],
+      "hss-driver-field-mappings": [
+        {
+          "logical-name": "User Name",
+          "attribute-ids": "0:1"
+        },
+        {
+          "logical-name": "IMSI",
+          "attribute-ids": "10415:1"
+        },
+        {
+          "logical-name": "MSISDN",
+          "attribute-ids": "10415:701"
+        }
+      ]
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HSS Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/bulk?operation=create
+
+Note : - for inserting Default Value and Value Mapping in Diameter HSS Driver Field Mappings use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<list>
+   <driver-instance>
+      <name>diameterHSSAuthDriver</name>
+      <description>Created by admin on 01/28/2017 04:31:40 PM</description>
+      <hss-auth-driver>
+         <tgpp-application-id>16777265</tgpp-application-id>
+         <command-code>303</command-code>
+         <request-timeout>3000</request-timeout>
+         <user-identity-attributes>0:1</user-identity-attributes>
+         <no-of-triplets>1</no-of-triplets>
+         <additional-attributes>s</additional-attributes>
+         <hss-peer-configuration>
+            <diameter-peer>
+               <peer-name>diameterPeer</peer-name>
+               <weightage>2</weightage>
+            </diameter-peer>
+         </hss-peer-configuration>
+         <hss-driver-field-mappings>
+            <hss-driver-field-mapping>
+               <logical-name>User Name</logical-name>
+               <attribute-ids>0:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+               <logical-name>IMSI</logical-name>
+               <attribute-ids>10415:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+               <logical-name>MSISDN</logical-name>
+               <attribute-ids>10415:701</attribute-ids>
+            </hss-driver-field-mapping>
+         </hss-driver-field-mappings>
+      </hss-auth-driver>
+   </driver-instance>
+</list>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HSS Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Note : - for inserting Default Value and Value Mapping in Diameter HSS Driver Field Mappings use below format.
+
+	"default-value":"Active",
+    "value-mapping":"1=Active,0=inActive"
+
+
+Content Type : application/json
+
+Body :
+{
+   "list":[
+      {
+         "name":"diameterHSSAuthDriver",
+         "description":"Created by admin on 01/28/2017 04:31:40 PM",
+         "hss-auth-driver":[
+            {
+               "tgpp-application-id":"16777265",
+               "command-code":303,
+               "request-timeout":3000,
+               "user-identity-attributes":"0:1",
+               "no-of-triplets":1,
+               "additional-attributes":"s",
+               "hss-peer-configuration":[
+                  {
+                     "peer-name":"diameterPeer",
+                     "weightage":2
+                  }
+               ],
+               "hss-driver-field-mappings":[
+                  {
+                     "logical-name":"User Name",
+                     "attribute-ids":"0:1"
+                  },
+                  {
+                     "logical-name":"IMSI",
+                     "attribute-ids":"10415:1"
+                  },
+                  {
+                     "logical-name":"MSISDN",
+                     "attribute-ids":"10415:701"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+} 
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HSS Auth Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth?name=diameterHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth?operation=update&name=diameterHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver?operation=update
+
+Note : - for updating Default Value and Value Mapping in Diameter HSS Driver Field Mappings use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+<driver-instance>
+    <name>diameterHSSAuthDriver</name>
+    <description>Created by admin on 01/28/2017 04:31:40 PM</description>
+    <hss-auth-driver>
+        <tgpp-application-id>16777265</tgpp-application-id>
+        <command-code>303</command-code>
+        <request-timeout>3000</request-timeout>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <no-of-triplets>1</no-of-triplets>
+        <additional-attributes>s</additional-attributes>
+        <hss-peer-configuration>
+            <diameter-peer>
+                <peer-name>diameterPeer</peer-name>
+                <weightage>2</weightage>
+            </diameter-peer>
+        </hss-peer-configuration>
+        <hss-driver-field-mappings>
+            <hss-driver-field-mapping>
+                <logical-name>User Name</logical-name>
+                <attribute-ids>0:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>IMSI</logical-name>
+                <attribute-ids>10415:1</attribute-ids>
+            </hss-driver-field-mapping>
+            <hss-driver-field-mapping>
+                <logical-name>MSISDN</logical-name>
+                <attribute-ids>10415:701</attribute-ids>
+            </hss-driver-field-mapping>
+        </hss-driver-field-mappings>
+    </hss-auth-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HSS Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Note : - for updating Default Value and Value Mapping in Diameter HSS Driver Field Mappings use below format.
+
+	"default-value":"Active",
+    "value-mapping":"1=Active,0=inActive"
+
+
+Content Type : application/json
+
+Body     :
+{
+  "name": "diameterHSSAuthDriver",
+  "description": "Created by admin on 01/28/2017 04:31:40 PM",
+  "hss-auth-driver": [
+    {
+      "tgpp-application-id": "16777265",
+      "command-code": 303,
+      "request-timeout": 3000,
+      "user-identity-attributes": "0:1",
+      "no-of-triplets": 1,
+      "additional-attributes": "s",
+      "hss-peer-configuration": [
+        {
+          "peer-name": "diameterPeer",
+          "weightage": 2
+        }
+      ],
+      "hss-driver-field-mappings": [
+        {
+          "logical-name": "User Name",
+          "attribute-ids": "0:1"
+        },
+        {
+          "logical-name": "IMSI",
+          "attribute-ids": "10415:1"
+        },
+        {
+          "logical-name": "MSISDN",
+          "attribute-ids": "10415:701"
+        }
+      ]
+    }
+  ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HSS Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth?name=diameterHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth?operation=delete&name=diameterHSSAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/hssauth/diameterHSSAuthDriver?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter HSS Auth Driver(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

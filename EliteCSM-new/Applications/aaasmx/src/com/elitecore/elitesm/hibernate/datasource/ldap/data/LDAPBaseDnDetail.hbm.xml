@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class  name="com.elitecore.elitesm.datamanager.datasource.ldap.data.LDAPBaseDnDetailData" table="TBLMLDAPBASEDNDETAIL">
+
+		<id name="baseDnDetailId" column="BASEDNDETAILID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="searchBaseDn" type="StringType"> 
+			<column name="SEARCHBASEDN" sql-type="VARCHAR(300)" not-null="false" /> 
+		</property>
+
+		<property name="ldapDsId" type="StringType"> 
+			<column name="LDAPDSID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer">
+			<column name="ORDERNUMBER" sql-type="NUMERIC(20)" not-null="false"></column>
+		</property>
+		
+	</class>
+</hibernate-mapping>	
+          

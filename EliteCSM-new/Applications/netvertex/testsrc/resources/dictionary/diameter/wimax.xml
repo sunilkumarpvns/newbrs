@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="24757" applicationid="0" application-name="base" vendor-name="wimax">
+	<attribute id="301" name="WiMAX-Release" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+	<attribute id="302" name="Accounting-Capabilities" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="304" name="Idle-Mode-Notification-Capabilities" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<!--  344 deprecated -->
+	<attribute id="345" name="Authorized-Network-Services" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="346" name="ASN-Network-Service-Capabilities" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="347" name="VCSN-Network-Service-Capabilities" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="348" name="Visited-Authorized-Network-Services" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="395" name="Mobility-Access-Capabilities" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="396" name="ROHC-Support" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="397" name="Release-Supported" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="398" name="Version-Negotiation-Flag" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+
+	<attribute id="1" name="Wimax-Capability" mandatory="no" type="Grouped" protected="no"  encryption="no">
+		<grouped>
+			<optional>
+	  			<attributerule vendor-id="24757" id="301" name="WiMAX-Release" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="302" name="Accounting-Capabilities" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="304" name="Idle-Mode-Notification-Capabilities" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="345" name="Authorized-Network-Services" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="346" name="ASN-Network-Service-Capabilities" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="347" name="VCSN-Network-Service-Capabilities" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="348" name="Visited-Authorized-Network-Services" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="395" name="Mobility-Access-Capabilities" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="396" name="ROHC-Support" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="397" name="Release-Supported" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="398" name="Version-Negotiation-Flag" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	</attribute> 
+	<attribute id="89" name="Chargeable-User-Identity" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<!--<attribute id="31" name="Calling-Station-Id" mandatory="no" protected="no"  encryption="no" type="UTF8String"/> -->
+	<!-- Operator name is defined in the IETF draft draft-ietf-geopriv-radius-lo-23 -->
+	<attribute id="235" name="Operator-Name" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	
+	<attribute id="4" name="WiMAX-Session-Id" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="3" name="GMT-Time-Zone-Offset" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="46" name="BS-ID" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="45" name="NAP-ID" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="57" name="NSP-ID" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="79" name="Visited-Framed-IP-Address" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="80" name="Visited-Framed-IPv6-Prefix" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="81" name="Visited-Framed-Interface-Id" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="64" name="vHA-IP-MIP4" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="65" name="vHA-IP-MIP6" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="73" name="vDHCPv4-Server" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="74" name="vDHCPv6-Server" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="87" name="vDHCP-Server-Parameters" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="73" name="vDHCPv4-Server" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="74" name="vDHCPv6-Server" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="40" name="DHCP-RK" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="41" name="DHCP-RK-Key-ID" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="42" name="DHCP-RK-Lifetime" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	
+	</attribute>
+	
+	<attribute id="88" name="BS-Location" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+	<attribute id="28" name="Packet-Flow-Descriptor" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<!-- DEPRECATED IN WIMAX 1.5 -->	
+	</attribute>
+	
+	<attribute id="305" name="ServiceProfileID" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="307" name="Activation-Trigger" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="308" name="Transport-Type" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="1" name="IPv4-CS" />
+			<value id="2" name="IPv6-CS" />
+			<value id="3" name="Ethernet" />
+		</supported-values>
+	</attribute>
+	<attribute id="309" name="UplinkQoSID" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="310" name="DownlinkQoSID" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="349" name="Paging-Preference" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="350" name="VLANTagProcessingRuleID" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	
+	<attribute id="84" name="Packet-Flow-Descriptor-V2" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="26" name="PDFID" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="27" name="SDFID" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="305" name="ServiceProfileID" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="306" name="Direction" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="307" name="Activation-Trigger" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="308" name="Transport-Type" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="309" name="UplinkQoSID" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="310" name="DownlinkQoSID" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="311" name="IP-Classifier" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="349" name="Paging-Preference" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="350" name="Unsolicited-Grant-Interval" maximum="1" minimum="1"/>
+	  			
+        	</optional>
+		</grouped>
+	
+	</attribute>
+	
+	
+	<attribute id="458" name="wimax-DSCP" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="29" name="QoS-Descriptor" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="312" name="QoS-ID" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="314" name="Service-Class-Name" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="315" name="Schedule-Type" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="316" name="Traffic-Priority" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="317" name="Maximum-Sustained-Traffic-Rate" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="318" name="Minimum-Reserved-Traffic-Rate" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="319" name="Maximum-Traffic-Burst" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="320" name="Tolerated-Jitter" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="323" name="Media-Flow-Type" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="322" name="Reduced-Resources-Code" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="325" name="Unsolicited-Grant-Interval" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="326" name="SDU-Size" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="327" name="Unsolicited-Polling-Interval" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="324" name="Media-Flow-Description-In-SDP-Format" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="412" name="Transmission-Policy" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="458" name="wimax-DSCP" maximum="1" minimum="1"/>
+	  			
+        	</optional>
+		</grouped>
+	
+	</attribute>
+	
+	<attribute id="52" name="DNS" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="90" name="MS-Authenticated" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="NO_DEVICE_AUTHENTICATION" />
+			<value id="1" name="SUCCESSFUL_DEVICE_MAC_AUTHENTICATION" />
+		</supported-values>
+	</attribute>
+	
+	<attribute id="78" name="PMIP-Authenticated-Network-Identity" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+	<attribute id="79" name="Visited-Framed-IP-Address" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="6" name="hHA-IP-MIP4" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="7" name="hHA-IP-MIP6" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="328" name="MN-HA-MIP4-MSA" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="337" name="SA-SPI" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="338" name="SA-KEY" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	</attribute>
+	
+	<attribute id="329" name="MN-vHA-MIP4-MSA" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="337" name="SA-SPI" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="338" name="SA-KEY" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	
+	</attribute>
+	
+	<attribute id="330" name="FA-RK-MSA" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="337" name="SA-SPI" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="338" name="SA-KEY" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	
+	</attribute>
+	
+	<attribute id="331" name="HA-RK-MSA" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="337" name="SA-SPI" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="338" name="SA-KEY" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="339" name="SA-Lifetime" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	
+	</attribute>
+	
+	<attribute id="332" name="vHA-RK-MSA" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="337" name="SA-SPI" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="338" name="SA-KEY" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="339" name="SA-Lifetime" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	
+	</attribute>
+	
+	<attribute id="8" name="hDHCPv4-Server" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="73" name="vDHCPv4-Server" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="9" name="hDHCPv6-Server" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="74" name="vDHCPv6-Server" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+		
+	<attribute id="334" name="vDHCP-RK-SA" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="337" name="SA-SPI" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="338" name="SA-KEY" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="339" name="SA-Lifetime" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	</attribute>
+	
+	<attribute id="342" name="DHCPv6-RK-SA" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="337" name="SA-SPI" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="338" name="SA-KEY" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="339" name="SA-Lifetime" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	</attribute>
+	
+	<attribute id="343" name="vDHCPv6-RK-SA" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="337" name="SA-SPI" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="338" name="SA-KEY" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="339" name="SA-Lifetime" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	
+	</attribute>
+	
+	<attribute id="86" name="hDHCP-Server-Parameters" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="8" name="hDHCPv4-Server" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="9" name="hDHCPv6-Server" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="40" name="DHCP-RK" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="41" name="DHCP-RK-Key-ID" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="42" name="DHCP-RK-Lifetime" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	
+	</attribute>
+	
+	<attribute id="40" name="DHCP-RK" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="42" name="DHCP-RK-Lifetime" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="87" name="vDHCP-Server-Parameters" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="73" name="vDHCPv4-Server" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="74" name="vDHCPv6-Server" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="40" name="DHCP-RK" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="41" name="DHCP-RK-Key-ID" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="42" name="DHCP-RK-Lifetime" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	
+	</attribute>
+	
+	<attribute id="53" name="Hotline-Profile-ID" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+	
+	<attribute id="336" name="Redirect-URL" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+	<attribute id="54" name="HTTP-Redirection-Rule" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="335" name="Redirection-Action" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="336" name="Redirect-URL" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="311" name="IP-Classifier" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	
+	</attribute>
+	
+	<attribute id="56" name="Hotline-Session-Timer" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="24" name="Hotline-Indication" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+	
+	<attribute id="89" name="Mobility-Access-Classifier" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="1" name="Fixed" />
+			<value id="2" name="Nomadic" />
+			<value id="3" name="Mobile" />
+		</supported-values>
+	</attribute>
+	
+	<attribute id="139" name="Certified-MS-Feature-List-For-GW" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="459" name="Certified-For-MCBCS" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="460" name="Certified-For-LBS" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="461" name="Certified-Compression" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	</attribute>
+	
+	<attribute id="140" name="Certified-MS-Feature-List-For-BS" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="462" name="Certified-Scan-Capability" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="463" name="Certified-Security-Capability" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="464" name="Certified-ARQ-Capability" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	</attribute>
+	
+	<attribute id="459" name="Certified-For-MCBCS" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="460" name="Certified-For-LBS" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="461" name="Certified-Compression" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="462" name="Certified-Scan-Capability" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="463" name="Certified-Security-Capability" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="464" name="Certified-ARQ-Capability" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	
+	<attribute id="335" name="Redirection-Action" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="PASS" />
+			<value id="1" name="REDIRECT" />
+			<value id="2" name="FLUSH" />
+		</supported-values>
+	</attribute>
+	<attribute id="340" name="Redirect-Address" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="341" name="Redirect-Port" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="311" name="IP-Classifier" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="55" name="IP-Redirection-Rule" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="335" name="Redirection-Action" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="340" name="Redirect-Address" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="341" name="Redirect-Port" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="311" name="IP-Classifier" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	</attribute>
+	
+	<attribute id="56" name="Hotline-Session-Timer" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="24" name="Hotline-Indication" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+	<attribute id="4" name="WiMAX-Session-Id" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="11" name="MN-HA-MIP4-SPI" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="18" name="RRQ-HA-IP" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	<attribute id="16" name="HA-RK-SPI" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	
+	<attribute id="19" name="RRQ-MN-HA-KEY" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="25" name="Class" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	
+	
+	<attribute id="333" name="MIP-Mobile-Node-Address" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	
+	<attribute id="41" name="DHCP-RK-Key-ID" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="43" name="DHCPMSG-Server–IP" mandatory="no" protected="no"  encryption="no" type="IPAddress"/>
+	
+	
+	<attribute id="337" name="SA-SPI" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="338" name="SA-KEY" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="339" name="SA-Lifetime" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="333" name="DCHP-RK-SA" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+	  			<attributerule vendor-id="24757" id="337" name="SA-SPI" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="338" name="SA-KEY" maximum="1" minimum="1"/>
+	  			<attributerule vendor-id="24757" id="339" name="SA-Lifetime" maximum="1" minimum="1"/>
+        	</optional>
+		</grouped>
+	</attribute>
+	
+	<attribute id="21" name="Session-Continue" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+	   		<value id="1" name="TRUE" />
+	   		<value id="0" name="FALSE" />
+        </supported-values>
+	</attribute>
+	
+	<attribute id="22" name="Beginning-of-Session" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+	   		<value id="1" name="TRUE" />
+	   		<value id="0" name="FALSE" />
+        </supported-values>
+	</attribute>
+	
+	<attribute id="23" name="Network-Technology" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+	   		<value id="1" name="Simple IPv6" />
+	   		<value id="0" name="Simple IPv4" />
+	   		<value id="2" name="PMIP4" />
+	   		<value id="3" name="CMIP4" />
+	   		<value id="4" name="CMIP6" />
+	   		<value id="5" name="Ethernet-CS" />
+	   		<value id="6" name="Simple ETH" />
+	   		<value id="7" name="MIP based ETH" />
+        </supported-values>
+	
+	</attribute>
+	
+	<attribute id="303" name="Hotlining-Capabilities" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="25" name="Prepaid-Indicator" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+	   		<value id="1" name="Offline" />
+	   		<value id="0" name="Online" />
+        </supported-values>
+	</attribute>
+	
+	<attribute id="44" name="Idle-Mode-Transition" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+	   		<value id="1" name="Idle Mode" />
+	   		<value id="0" name="Active Mode" />
+        </supported-values>
+		
+	</attribute>
+	
+	<attribute id="59" name="Count-Type" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="1" name="Compressed counts" />
+	   		<value id="0" name="Uncompressed counts" />
+		</supported-values>
+	</attribute>
+	
+	<attribute id="27" name="SDFID" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="26" name="PDFID" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="47" name="Location" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="39" name="Active-Time" mandatory="no" protected="no"  encryption="no" type="Unsigned64"/>
+	<attribute id="31" name="Control-Packets-In" mandatory="no" protected="no"  encryption="no" type="Unsigned64"/>
+	<attribute id="33" name="Control-Packets-Out" mandatory="no" protected="no"  encryption="no" type="Unsigned64"/>
+	<attribute id="32" name="Control-Octets-In" mandatory="no" protected="no"  encryption="no" type="Unsigned64"/>
+	<attribute id="34" name="Control-Octets-Out" mandatory="no" protected="no"  encryption="no" type="Unsigned64"/>
+	<attribute id="34" name="Control-Octets-Out" mandatory="no" protected="no"  encryption="no" type="Unsigned64"/>
+	<attribute id="50" name="Uplink-Flow-Description" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="62" name="Downlink-Flow-Description" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	
+	<attribute id="30" name="Uplink-Granted-QoS" mandatory="no" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<optional>
+			<attributerule vendor-id="24757" id="312" name="QoS-ID" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="313" name="Global-Service-Class-Name" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="314" name="Service-Class-Name" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="315" name="Schedule-Type" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="316" name="Traffic-Priority" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="317" name="Maximum-Sustained-Traffic-Rate" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="318" name="Minimum-Reserved-Traffic-Rate" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="319" name="Maximum-Traffic-Burst" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="320" name="Tolerated-Jitter" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="321" name="Maximum-Latency" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="322" name="Reduced-Resources-Code" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="323" name="Media-Flow-Type" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="327" name="Unsolicited-Polling-Interval" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="324" name="Media-Flow-Description-In-SDP-Format" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="412" name="Transmission-Policy" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="325" name="Unsolicited-Grant-Interval" maximum="1" minimum="1"/>
+			<attributerule vendor-id="24757" id="326" name="SDU-Size" maximum="1" minimum="1"/>
+		</optional>
+	</grouped>
+	
+	</attribute>
+	
+	<attribute id="63" name="Downlink-Granted-QoS" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<attributerule vendor-id="24757" id="312" name="QoS-ID" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="313" name="Global-Service-Class-Name" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="314" name="Service-Class-Name" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="315" name="Schedule-Type" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="316" name="Traffic-Priority" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="317" name="Maximum-Sustained-Traffic-Rate" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="318" name="Minimum-Reserved-Traffic-Rate" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="319" name="Maximum-Traffic-Burst" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="320" name="Tolerated-Jitter" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="321" name="Maximum-Latency" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="322" name="Reduced-Resources-Code" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="323" name="Media-Flow-Type" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="327" name="Unsolicited-Polling-Interval" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="324" name="Media-Flow-Description-In-SDP-Format" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="412" name="Transmission-Policy" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="325" name="Unsolicited-Grant-Interval" maximum="1" minimum="1"/>
+				<attributerule vendor-id="24757" id="326" name="SDU-Size" maximum="1" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+	
+	<attribute id="312" name="QoS-ID" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="313" name="Global-Service-Class-Name" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+	<attribute id="314" name="Service-Class-Name" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+	
+	<attribute id="315" name="Schedule-Type" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="2" name="Best Effort" />
+			<value id="3" name="nrtPS" />
+			<value id="4" name="rtPS" />
+			<value id="5" name="Extended rtPS" />
+			<value id="6" name="UGS" />
+		</supported-values>
+	</attribute>
+	
+	<attribute id="316" name="Traffic-Priority" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="317" name="Maximum-Sustained-Traffic-Rate" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="318" name="Minimum-Reserved-Traffic-Rate" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="319" name="Maximum-Traffic-Burst" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="320" name="Tolerated-Jitter" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="321" name="Maximum-Latency" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="319" name="Maximum-Traffic-Burst" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	
+	<attribute id="322" name="Reduced-Resources-Code" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	
+	<attribute id="323" name="Media-Flow-Type" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="Reserved" />
+			<value id="1" name="Voice over IP" />
+			<value id="2" name="Robust Browser" />
+			<value id="3" name="Secure Browser/ VPN" />
+			<value id="4" name="Streaming video on demand" />
+			<value id="5" name="Streaming live TV" />
+			<value id="6" name="Music and Photo Download" />
+			<value id="7" name="Multi-player gaming" />
+			<value id="8" name="Location-based services" />
+			<value id="9" name="Text and Audio Books with Graphics" />
+			<value id="10" name="Video Conversation" />
+			<value id="11" name="Message" />
+			<value id="12" name="Control" />
+			<value id="13" name="Data" />
+		</supported-values>
+	</attribute>
+	
+	<attribute id="325" name="Unsolicited-Grant-Interval" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="326" name="SDU-Size" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="327" name="Unsolicited-Polling-Interval" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+
+	<attribute id="324" name="Media-Flow-Description-In-SDP-Format" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="412" name="Transmission-Policy" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	
+	<attribute id="1264" name="wimax-Trigger" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	
+	<attribute id="870" name="Trigger-Type" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+		
+	<attribute id="1226" name="Unit-Quota-Threshold" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="869" name="wimax-Volume-Quota-Threshold" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	
+	<attribute id="306" name="Direction" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="IN" />
+			<value id="1" name="OUT" />
+			<value id="2" name="BOTH" />
+		</supported-values>
+	</attribute>
+	
+	<attribute id="413" name="Interim-Cause" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="1" name="INTERIM_INTERVAL" />
+			<value id="2" name="IDLE_MODE_TRANSITION" />
+		</supported-values>
+	</attribute>
+	
+	<attribute id="1022" name="wimax-Access-Network-Charging-Identifier-Gx" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				
+			</optional>
+		</grouped>
+	</attribute>
+	
+	<attribute id="416" name="R3-OC-Session-Continue" mandatory="no" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="FALSE" />
+			<value id="1" name="TRUE" />
+		</supported-values>
+	</attribute>
+	
+	<attribute id="406" name="Old-Session-Id" mandatory="no" protected="no"  encryption="no" type="UTF8String"/>
+	
+	
+	
+	<attribute id="409" name="WiMAX-Information" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+				<!-- <attributerule vendor-id="0" id="44" name="Acct-Session-Id" maximum="1" minimum="1" /> -->
+				<!-- <attributerule vendor-id="0" id="50" name="Acct-Multi-Session-Id" maximum="1" minimum="1" /> -->
+				<attributerule vendor-id="0" id="41" name="Acct-Delay-Time" maximum="1" minimum="1" />
+				<attributerule vendor-id="0" id="32" name="NAS-Identifier" maximum="1" minimum="1" />
+				<attributerule vendor-id="0" id="61" name="NAS-Port-Type" maximum="1" minimum="1" />
+				<!-- <attributerule vendor-id="0" id="25" name="Class" maximum="1" minimum="1" />
+				 <attributerule vendor-id="0" id="295" name="Termination-Cause" maximum="1" minimum="1" />
+				 <attributerule vendor-id="0" id="42" name="Acct-Input-Octets" maximum="1" minimum="1" />
+				<attributerule vendor-id="0" id="43" name="Acct-Output-Octets" maximum="1" minimum="1" />
+				<attributerule vendor-id="0" id="47" name="Acct-Input-Packets" maximum="1" minimum="1" />
+				<attributerule vendor-id="0" id="48" name="Acct-Output-Packets" maximum="1" minimum="1" /> -->
+				<attributerule vendor-id="0" id="51" name="Acct-Link-Count" maximum="1" minimum="1" />
+				<attributerule vendor-id="0" id="46" name="Acct-Session-Time" maximum="1" minimum="1" />
+				<!-- <attributerule vendor-id="0" id="31" name="Calling-Station-Id" maximum="1" minimum="1" /> -->
+				<attributerule vendor-id="0" id="8" name="Framed-IP-Address" maximum="1" minimum="1" />
+				<!-- <attributerule vendor-id="0" id="97" name="Framed-IPv6-Prefix" maximum="1" minimum="1" /> -->
+				<!-- <attributerule vendor-id="0" id="96" name="Framed-Interface-Id" maximum="1" minimum="1" /> -->
+				<!-- <attributerule vendor-id="0" id="89" name="CUI" maximum="1" minimum="1" /> -->
+				<attributerule vendor-id="24757" id="21" name="Session-Continue" maximum="1" minimum="1" />
+				<!-- <attributerule vendor-id="24757" id="22" name="Beginning-Of-Session" maximum="1" minimum="1" /> -->
+				<attributerule vendor-id="24757" id="24" name="Hotline-Indication" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="303" name="Hotlining-Capabilities" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="25" name="Prepaid-Indicator" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="44" name="Idle-Mode-Transition" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="59" name="Count-Type" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="6" name="hHA-IP-MIP4" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="7" name="hHA-IP-MIP6" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="45" name="NAP-ID" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="57" name="NSP-ID" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="46" name="BS-ID" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="47" name="Location" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="3" name="GMT-Time-Zone-Offset" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="39" name="Active-Time" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="31" name="Control-Packets-In" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="33" name="Control-Packets-Out" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="32" name="Control-Octets-In" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="34" name="Control-Octets-Out" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="50" name="Uplink-Flow-Description" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="62" name="Downlink-Flow-Description" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="30" name="Uplink-Granted-QoS" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="63" name="Downlink-Granted-QoS" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="79" name="Visited-Framed-IP-Address" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="80" name="Visited-Framed-IPv6-Prefix" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="81" name="Visited-Framed-Interface-Id" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="306" name="Direction" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="413" name="Interim-Cause" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="416" name="R3-OC-Session-Continue" maximum="1" minimum="1" />
+				<attributerule vendor-id="24757" id="406" name="Old-Session-Id" maximum="1" minimum="1" />
+				
+			</optional>
+		</grouped>
+	
+	</attribute>
+	
+	<attribute id="350" name="VLANTagProcessingRuleID" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="389" name="C-VLAN-Priority-Setting" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="390" name="VLAN-ID-Assignment" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="391" name="C-VLAN-ID" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="392" name="S-VLAN-ID" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="393" name="C-VID-To-S-VID-Mapping" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+	<attribute id="394" name="Local-Config-Info" mandatory="no" protected="no"  encryption="no" type="OctetString"/>
+	<attribute id="211" name="VLANTagProcessing-Descriptor" mandatory="no" protected="no"  encryption="no" type="Grouped">
+		<grouped>
+			<optional>
+	  			<attributerule vendor-id="24757" id="350" name="VLANTagProcessingRuleID" maximum="1" minimum="1" />
+	  			<attributerule vendor-id="24757" id="389" name="C-VLAN-Priority-Setting" maximum="1" minimum="1" />
+	  			<attributerule vendor-id="24757" id="390" name="VLAN-ID-Assignment" maximum="1" minimum="1" />
+	  			<attributerule vendor-id="24757" id="391" name="C-VLAN-ID" maximum="1" minimum="1" />
+	  			<attributerule vendor-id="24757" id="392" name="S-VLAN-ID" maximum="1" minimum="1" />
+	  			<attributerule vendor-id="24757" id="393" name="C-VID-To-S-VID-Mapping" maximum="1" minimum="1" />
+	  			<attributerule vendor-id="24757" id="394" name="Local-Config-Info" maximum="1" minimum="1" />
+        	</optional>
+		</grouped>
+	</attribute>
+	
+	
+	<!-- THESE WILL BE INCLUDED IN THE DIAMETER MIP APPLICATION 
+		<attribute id="" name="Service-Selection" mandatory="no" protected="no"  encryption="no" type=""/>
+		<attribute id="337" name="MIP-Feature-Vector" mandatory="no" protected="no"  encryption="no" type="Unsigned32"/>
+		<attribute id="" name="MIP6-Feature-Vector" mandatory="no" protected="no"  encryption="no" type="Unsigned64"/>
+		 -->
+	
+</attribute-list>

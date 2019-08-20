@@ -1,0 +1,844 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "EAP Configuration",
+		"properties": {
+			"name": {
+				"title": "Name",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"session-cleanup-interval": {
+				"title": "Session Cleanup Interval (Sec.)",
+				"type": "integer",
+				"default": 300
+			},
+			"session-duration-for-cleanup": {
+				"title": "Session Duration for Cleanup (Sec.)",
+				"type": "integer",
+				"default": 300
+			},
+			"session-timeout": {
+				"title": "Session Timeout (Sec.)",
+				"type": "integer",
+				"default": 3000
+			},
+			"msk-revalidation-time": {
+				"title": "MSK Revalidation Time (Sec.)",
+				"type": "integer"
+			},
+			"treat-invalid-packet-as-fatal": {
+				"title": "Treat Invalid Packet as fatal",
+				"type": "string"
+			},
+			"default-negotiation-method": {
+				"title": "Default Negotiation Method",
+				"type": "string"
+			},
+			"notification-success": {
+				"title": "Notification Success",
+				"type": "string"
+			},
+			"notification-failure": {
+				"title": "Notification Failure",
+				"type": "string"
+			},
+			"max-eap-packet-size": {
+				"title": "Max EAP Packet Size",
+				"type": "integer",
+				"default": 1024
+			},
+			"enable-auth-methods": {
+				"title": "Enabled Auth Methods",
+				"type": "string"
+			},
+			"tls-configuration": {
+				"type": "object",
+				"properties": {
+					"min-tls-version": {
+						"title": "Minimum TLS Version",
+						"type": "string"
+					},
+					"max-tls-version": {
+						"title": "Maximum TLS Version",
+						"type": "string"
+					},
+					"server-certificate-profile": {
+						"title": "Server Certificate Profile",
+						"type": "string"
+					},
+					"tls-certificate-request": {
+						"title": "TLS Certificate Request",
+						"type": "string"
+					},
+					"ciphersuites": {
+						"title": "CipherSuite",
+						"type": "string"
+					},
+					"certificate-validations": {
+						"type": "object",
+						"properties": {
+							"expiry-date": {
+								"title": "Expiry Date",
+								"type": "string"
+							},
+							"revoked-certificate": {
+								"title": "Revoked Certificate",
+								"type": "string"
+							},
+							"missing-client-certificate": {
+								"title": "Missing Client Certificate",
+								"type": "string"
+							},
+							"mac-validation": {
+								"title": "MAC Validation",
+								"type": "string"
+							}
+						}
+					},
+					"session-resumption-limit": {
+						"title": "Session Resumption Limit",
+						"type": "integer",
+						"default": 2
+					},
+					"session-resumption-duration": {
+						"title": "Session Resumption Duration",
+						"type": "integer",
+						"default": 5000
+					},
+					"certificate-types": {
+						"title": "Certificate Type",
+						"type": "string",
+						"default": "DSS,DSS-DH,RSA,RSA-DH"
+					},
+					"vendor-specific-certificates": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"vendor-identifier": {
+									"title": "Vendor Identifier",
+									"type": "string",
+									"default": "000000*"
+								},
+								"server-certificate-profile": {
+									"title": "Server Certificate Profile",
+									"type": "string"
+								}
+							}
+						}
+					},
+					"ttls-configuration": {
+						"type": "object",
+						"properties": {
+							"ttls-certificate-request": {
+								"title": "TTLS Certificate Request",
+								"type": "string"
+							},
+							"ttls-negotiation-method": {
+								"title": "TTLS Negotiation Method",
+								"type": "string"
+							}
+						}
+					},
+					"peap-configuration": {
+						"type": "object",
+						"properties": {
+							"peap-certificate-request": {
+								"title": "PEAP Certificate Request",
+								"type": "string"
+							},
+							"peap-version": {
+								"title": "PEAP Version",
+								"type": "string"
+							},
+							"peap-negotiation-method": {
+								"title": "PEAP Negotiation Method",
+								"type": "string"
+							}
+						}
+					}
+				}
+			},
+			"sim-configuration": {
+				"type": "object",
+				"properties": {
+					"pseudonym-method": {
+						"title": "Pseudonym Method",
+						"type": "string"
+					},
+					"pseudonym-encoding": {
+						"title": "Pseudonym Encoding",
+						"type": "string"
+					},
+					"pseudonym-prefix": {
+						"title": "Pseudonym Prefix",
+						"type": "string"
+					},
+					"pseudonym-root-nai": {
+						"title": "Root NAI",
+						"type": "string"
+					},
+					"pseudonym-aaa-identity-in-root-nai": {
+						"title": "AAA Identity In Root NAI",
+						"type": "string"
+					},
+					"fast-reauth-method": {
+						"title": "FastReAuth Method",
+						"type": "string"
+					},
+					"fast-reauth-encoding": {
+						"title": "FastReAuth Encoding",
+						"type": "string"
+					},
+					"fast-reauth-prefix": {
+						"title": "FastReAuth Prefix",
+						"type": "string"
+					},
+					"fast-reauth-root-nai": {
+						"title": "Root NAI",
+						"type": "string"
+					},
+					"fast-reauth-aaa-identity-in-root-nai": {
+						"title": "AAA Identity In Root NAI",
+						"type": "string"
+					}
+				}
+			},
+			"aka-configuration": {
+				"type": "object",
+				"properties": {
+					"pseudonym-method": {
+						"title": "Pseudonym Method",
+						"type": "string"
+					},
+					"pseudonym-encoding": {
+						"title": "Pseudonym Encoding",
+						"type": "string"
+					},
+					"pseudonym-prefix": {
+						"title": "Pseudonym Prefix",
+						"type": "string"
+					},
+					"pseudonym-root-nai": {
+						"title": "Root NAI",
+						"type": "string"
+					},
+					"pseudonym-aaa-identity-in-root-nai": {
+						"title": "AAA Identity In Root NAI",
+						"type": "string"
+					},
+					"fast-reauth-method": {
+						"title": "FastReAuth Method",
+						"type": "string"
+					},
+					"fast-reauth-encoding": {
+						"title": "FastReAuth Encoding",
+						"type": "string"
+					},
+					"fast-reauth-prefix": {
+						"title": "FastReAuth Prefix",
+						"type": "string"
+					},
+					"fast-reauth-root-nai": {
+						"title": "Root NAI",
+						"type": "string"
+					},
+					"fast-reauth-aaa-identity-in-root-nai": {
+						"title": "AAA Identity In Root NAI",
+						"type": "string"
+					}
+				}
+			},
+			"aka-prime-configuration": {
+				"type": "object",
+				"properties": {
+					"pseudonym-method": {
+						"title": "Pseudonym Method",
+						"type": "string"
+					},
+					"pseudonym-encoding": {
+						"title": "Pseudonym Encoding",
+						"type": "string"
+					},
+					"pseudonym-prefix": {
+						"title": "Pseudonym Prefix",
+						"type": "string"
+					},
+					"pseudonym-root-nai": {
+						"title": "Root NAI",
+						"type": "string"
+					},
+					"pseudonym-aaa-identity-in-root-nai": {
+						"title": "AAA Identity In Root NAI",
+						"type": "string"
+					},
+					"fast-reauth-method": {
+						"title": "FastReAuth Method",
+						"type": "string"
+					},
+					"fast-reauth-encoding": {
+						"title": "FastReAuth Encoding",
+						"type": "string"
+					},
+					"fast-reauth-prefix": {
+						"title": "FastReAuth Prefix",
+						"type": "string"
+					},
+					"fast-reauth-root-nai": {
+						"title": "Root NAI",
+						"type": "string"
+					},
+					"fast-reauth-aaa-identity-in-root-nai": {
+						"title": "AAA Identity In Root NAI",
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "description"
+		},
+		{
+			"key": "session-cleanup-interval"
+		},
+		{
+			"key": "session-duration-for-cleanup"
+		},
+		{
+			"key": "session-timeout"
+		},
+		{
+			"key": "msk-revalidation-time"
+		},
+		{
+			"key": "treat-invalid-packet-as-fatal",
+			"type": "select",
+			"titleMap": {
+				"True": "True",
+				"False": "False"
+			}
+		},
+		{
+			"key": "default-negotiation-method",
+			"type": "select",
+			"titleMap": {
+				"MD5-CHALLENGE": "MD5-CHALLENGE",
+				"GTC": "GTC",
+				"TLS": "TLS",
+				"TTLS": "TTLS",
+				"PEAP": "PEAP",
+				"SIM": "SIM",
+				"AKA": "AKA",
+				"AKA'": "AKA'",
+				"MS-CHAPv2": "MS-CHAPv2"
+			}
+		},
+		{
+			"key": "notification-success",
+			"type": "select",
+			"titleMap": {
+				"True": "True",
+				"False": "False"
+			}
+		},
+		{
+			"key": "notification-failure",
+			"type": "select",
+			"titleMap": {
+				"True": "True",
+				"False": "False"
+			}
+		},
+		{
+			"key": "max-eap-packet-size"
+		},
+		{
+			"key": "tls-configuration",
+			"items": [
+				{
+					"key": "tls-configuration.min-tls-version",
+					"type": "select",
+					"titleMap": {
+						"TLSv1": "TLSv1",
+						"TLSv1.1": "TLSv1.1",
+						"TLSv1.2": "TLSv1.2"
+					}
+				},
+				{
+					"key": "tls-configuration.max-tls-version",
+					"type": "select",
+					"titleMap": {
+						"TLSv1": "TLSv1",
+						"TLSv1.1": "TLSv1.1",
+						"TLSv1.2": "TLSv1.2"
+					}
+				},
+				{
+					"key": "tls-configuration.server-certificate-profile"
+				},
+				{
+					"key": "tls-configuration.tls-certificate-request",
+					"type": "select",
+					"titleMap": {
+						"True": "True",
+						"False": "False"
+					}
+				},
+				{
+					"key": "tls-configuration.ciphersuites",
+					"type": "textarea"
+				},
+				{
+					"key": "tls-configuration.certificate-validations",
+					"items": [
+						{
+							"key": "tls-configuration.certificate-validations.expiry-date",
+							"type": "radios",
+							"titleMap": [
+								{
+									"value": "True",
+									"name": "True"
+								},
+								{
+									"value": "False",
+									"name": "False"
+								}
+							]
+						},
+						{
+							"key": "tls-configuration.certificate-validations.revoked-certificate",
+							"type": "radios",
+							"titleMap": [
+								{
+									"value": "True",
+									"name": "True"
+								},
+								{
+									"value": "False",
+									"name": "False"
+								}
+							]
+						},
+						{
+							"key": "tls-configuration.certificate-validations.missing-client-certificate",
+							"type": "radios",
+							"titleMap": [
+								{
+									"value": "True",
+									"name": "True"
+								},
+								{
+									"value": "False",
+									"name": "False"
+								}
+							]
+						},
+						{
+							"key": "tls-configuration.certificate-validations.mac-validation",
+							"type": "radios",
+							"titleMap": [
+								{
+									"value": "True",
+									"name": "True"
+								},
+								{
+									"value": "False",
+									"name": "False"
+								}
+							]
+						}
+					]
+				},
+				{
+					"key": "tls-configuration.session-resumption-limit"
+				},
+				{
+					"key": "tls-configuration.session-resumption-duration"
+				},
+				{
+					"key": "tls-configuration.certificate-types"
+				},
+				{
+					"key": "tls-configuration.vendor-specific-certificates",
+					"add": "Add",
+					"items": [
+						{
+							"key": "tls-configuration.vendor-specific-certificates[].vendor-identifier"
+						},
+						{
+							"key": "tls-configuration.vendor-specific-certificates[].server-certificate-profile"
+						}
+					]
+				},
+				{
+					"key": "tls-configuration.ttls-configuration",
+					"items": [
+						{
+							"key": "tls-configuration.ttls-configuration.ttls-certificate-request",
+							"type": "select",
+							"titleMap": {
+								"True": "True",
+								"False": "False"
+							}
+						},
+						{
+							"key": "tls-configuration.ttls-configuration.ttls-negotiation-method",
+							"type": "select",
+							"titleMap": {
+								"EAP-MD5": "EAP-MD5",
+								"EAP-GTC": "EAP-GTC",
+								"EAP-MsCHAPV2": "EAP-MsCHAPV2"
+							}
+						}
+					]
+				},
+				{
+					"key": "tls-configuration.peap-configuration",
+					"items": [
+						{
+							"key": "tls-configuration.peap-configuration.peap-certificate-request",
+							"type": "select",
+							"titleMap": {
+								"True": "True",
+								"False": "False"
+							}
+						},
+						{
+							"key": "tls-configuration.peap-configuration.peap-version",
+							"type": "select",
+							"titleMap": {
+								"0": "0",
+								"1": "1"
+							}
+						},
+						{
+							"key": "tls-configuration.peap-configuration.peap-negotiation-method",
+							"type": "select",
+							"titleMap": {
+								"EAP-MD5": "EAP-MD5",
+								"EAP-GTC": "EAP-GTC",
+								"EAP-MsCHAPV2": "EAP-MsCHAPV2"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "sim-configuration",
+			"items": [
+				{
+					"key": "sim-configuration.pseudonym-method",
+					"type": "select",
+					"titleMap": {
+						"0": "0",
+						"BASE16": "BASE16",
+						"BASE32": "BASE32",
+						"BASE64": "BASE64",
+						"ELITECRYPT": "ELITECRYPT",
+						"BASIC_ALPHA_1": "BASIC_ALPHA_1"
+					}
+				},
+				{
+					"key": "sim-configuration.pseudonym-encoding",
+					"type": "select",
+					"titleMap": {
+						"Enable": "Enable",
+						"Disable": "Disable"
+					}
+				},
+				{
+					"key": "sim-configuration.pseudonym-prefix"
+				},
+				{
+					"key": "sim-configuration.pseudonym-root-nai",
+					"type": "select",
+					"titleMap": {
+						"Disable": "Disable",
+						"Enable": "Enable"
+					}
+				},
+				{
+					"key": "sim-configuration.pseudonym-aaa-identity-in-root-nai"
+				},
+				{
+					"key": "sim-configuration.fast-reauth-method",
+					"type": "select",
+					"titleMap": {
+						"0": "0",
+						"BASE16": "BASE16",
+						"BASE32": "BASE32",
+						"BASE64": "BASE64",
+						"ELITECRYPT": "ELITECRYPT",
+						"BASIC_ALPHA_1": "BASIC_ALPHA_1"
+					}
+				},
+				{
+					"key": "sim-configuration.fast-reauth-encoding",
+					"type": "select",
+					"titleMAp": {
+						"Enable": "Enable",
+						"Disable": "Disable"
+					}
+				},
+				{
+					"key": "sim-configuration.fast-reauth-prefix"
+				},
+				{
+					"key": "sim-configuration.fast-reauth-root-nai",
+					"type": "select",
+					"titleMap": {
+						"Disable": "Disable",
+						"Enable": "Enable"
+					}
+				},
+				{
+					"key": "sim-configuration.fast-reauth-aaa-identity-in-root-nai"
+				}
+			]
+		},
+		{
+			"key": "aka-configuration",
+			"items": [
+				{
+					"key": "aka-configuration.pseudonym-method",
+					"type": "select",
+					"titleMap": {
+						"0": "0",
+						"BASE16": "BASE16",
+						"BASE32": "BASE32",
+						"BASE64": "BASE64",
+						"ELITECRYPT": "ELITECRYPT",
+						"BASIC_ALPHA_1": "BASIC_ALPHA_1"
+					}
+				},
+				{
+					"key": "aka-configuration.pseudonym-encoding",
+					"type": "select",
+					"titleMap": {
+						"Enable": "Enable",
+						"Disable": "Disable"
+					}
+				},
+				{
+					"key": "aka-configuration.pseudonym-prefix"
+				},
+				{
+					"key": "aka-configuration.pseudonym-root-nai",
+					"type": "select",
+					"titleMap": {
+						"Disable": "Disable",
+						"Enable": "Enable"
+					}
+				},
+				{
+					"key": "aka-configuration.pseudonym-aaa-identity-in-root-nai"
+				},
+				{
+					"key": "aka-configuration.fast-reauth-method",
+					"type": "select",
+					"titleMap": {
+						"0": "0",
+						"BASE16": "BASE16",
+						"BASE32": "BASE32",
+						"BASE64": "BASE64",
+						"ELITECRYPT": "ELITECRYPT",
+						"BASIC_ALPHA_1": "BASIC_ALPHA_1"
+					}
+				},
+				{
+					"key": "aka-configuration.fast-reauth-encoding",
+					"type": "select",
+					"titleMAp": {
+						"Enable": "Enable",
+						"Disable": "Disable"
+					}
+				},
+				{
+					"key": "aka-configuration.fast-reauth-prefix"
+				},
+				{
+					"key": "aka-configuration.fast-reauth-root-nai",
+					"type": "select",
+					"titleMap": {
+						"Disable": "Disable",
+						"Enable": "Enable"
+					}
+				},
+				{
+					"key": "aka-configuration.fast-reauth-aaa-identity-in-root-nai"
+				}
+			]
+		},
+		{
+			"key": "aka-prime-configuration",
+			"items": [
+				{
+					"key": "aka-prime-configuration.pseudonym-method",
+					"title": "Pseudonym Method",
+					"type": "select",
+					"titleMap": {
+						"0": "0",
+						"BASE16": "BASE16",
+						"BASE32": "BASE32",
+						"BASE64": "BASE64",
+						"ELITECRYPT": "ELITECRYPT",
+						"BASIC_ALPHA_1": "BASIC_ALPHA_1"
+					}
+				},
+				{
+					"key": "aka-prime-configuration.pseudonym-encoding",
+					"title": "Pseudonym Encoding",
+					"type": "select",
+					"titleMap": {
+						"Enable": "Enable",
+						"Disable": "Disable"
+					}
+				},
+				{
+					"key": "aka-prime-configuration.pseudonym-prefix",
+					"title": "Pseudonym Prefix"
+				},
+				{
+					"key": "aka-prime-configuration.pseudonym-root-nai",
+					"title": "Root NAI",
+					"type": "select",
+					"titleMap": {
+						"Disable": "Disable",
+						"Enable": "Enable"
+					}
+				},
+				{
+					"key": "aka-prime-configuration.pseudonym-aaa-identity-in-root-nai",
+					"title": "AAA Identity In Root NAI"
+				},
+				{
+					"key": "aka-prime-configuration.fast-reauth-method",
+					"title": "FastReAuth Method",
+					"type": "select",
+					"titleMap": {
+						"0": "0",
+						"BASE16": "BASE16",
+						"BASE32": "BASE32",
+						"BASE64": "BASE64",
+						"ELITECRYPT": "ELITECRYPT",
+						"BASIC_ALPHA_1": "BASIC_ALPHA_1"
+					}
+				},
+				{
+					"key": "aka-prime-configuration.fast-reauth-encoding",
+					"title": "FastReAuth Encoding",
+					"type": "select",
+					"titleMAp": {
+						"Enable": "Enable",
+						"Disable": "Disable"
+					}
+				},
+				{
+					"key": "aka-prime-configuration.fast-reauth-prefix",
+					"title": "FastReAuth Prefix"
+				},
+				{
+					"key": "aka-prime-configuration.fast-reauth-root-nai",
+					"title": "Root NAI",
+					"type": "select",
+					"titleMap": {
+						"Disable": "Disable",
+						"Enable": "Enable"
+					}
+				},
+				{
+					"key": "aka-prime-configuration.fast-reauth-aaa-identity-in-root-nai",
+					"title": "AAA Identity In Root NAI"
+				}
+			]
+		}
+	],
+	"model": {
+		"name": "eap1",
+		"description": "Created by admin on 12/26/2016 03:17:44 PM",
+		"default-negotiation-method": "MD5-CHALLENGE",
+		"enable-auth-methods": "TLS,TTLS,MD5,PEAP,SIM,AKA,GTC,MS-CHAPv2,AKA'",
+		"treat-invalid-packet-as-fatal": "true",
+		"max-eap-packet-size": 1024,
+		"notification-success": "false",
+		"notification-failure": "false",
+		"session-cleanup-interval": 300,
+		"session-duration-for-cleanup": 300,
+		"session-timeout": 3000,
+		"msk-revalidation-time": 1024,
+		"tls-configuration": {
+			"min-tls-version": "TLSv1",
+			"max-tls-version": "TLSv1.1",
+			"tls-certificate-request": "false",
+			"server-certificate-profile": "Elitecore_server_cert",
+			"certificate-types": "DSS,DSS-DH,RSA,RSA-DH",
+			"ciphersuites": "TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_256_CBC_SHA,TLS_DH_anon_WITH_AES_256_CBC_SHA",
+			"vendor-specific-certificates": [
+				{
+					"vendor-identifier": "000000*",
+					"server-certificate-profile": "Elitecore_server_cert"
+				},
+				{
+					"vendor-identifier": "0000001*"
+				}
+			],
+			"certificate-validations": {
+				"expiry-date": "true",
+				"revoked-certificate": "false",
+				"missing-client-certificate": "true",
+				"mac-validation": "false"
+			},
+			"session-resumption-duration": 5000,
+			"session-resumption-limit": 2,
+			"ttls-configuration": {
+				"ttls-negotiation-method": "EAP-MD5",
+				"ttls-certificate-request": "false"
+			},
+			"peap-configuration": {
+				"peap-version": "0",
+				"peap-certificate-request": "true",
+				"peap-negotiation-method": "EAP-MsCHAPv2"
+			}
+		},
+		"sim-configuration": {
+			"pseudonym-method": "BASE32",
+			"pseudonym-encoding": "ENABLE",
+			"pseudonym-prefix": "1999",
+			"pseudonym-root-nai": "DISABLE",
+			"fast-reauth-method": "BASE32",
+			"fast-reauth-encoding": "ENABLE",
+			"fast-reauth-prefix": "1888",
+			"fast-reauth-root-nai": "DISABLE"
+		},
+		"aka-configuration": {
+			"pseudonym-method": "BASE32",
+			"pseudonym-encoding": "ENABLE",
+			"pseudonym-prefix": "0999",
+			"pseudonym-root-nai": "DISABLE",
+			"fast-reauth-method": "BASE32",
+			"fast-reauth-encoding": "ENABLE",
+			"fast-reauth-prefix": "0888",
+			"fast-reauth-root-nai": "DISABLE"
+		},
+		"aka-prime-configuration": {
+			"pseudonym-method": "BASE32",
+			"pseudonym-encoding": "ENABLE",
+			"pseudonym-prefix": "6999",
+			"pseudonym-root-nai": "DISABLE",
+			"fast-reauth-method": "BASE32",
+			"fast-reauth-encoding": "ENABLE",
+			"fast-reauth-prefix": "6888",
+			"fast-reauth-root-nai": "DISABLE"
+		}
+	}
+}

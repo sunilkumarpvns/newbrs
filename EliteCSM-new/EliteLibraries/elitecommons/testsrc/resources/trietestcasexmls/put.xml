@@ -1,0 +1,49 @@
+<cases>
+
+	<case name="fill-tree-this-will-add-a-leaf-node-at-the-end-of-existing-branch" value="C"
+		keys="abc">
+		<expected>
+			<node key="a">
+				<node key="b" value="B">
+					<node key="c" value="C" />
+				</node>
+			</node>
+		</expected>
+		<existing>
+			<branch key="ab" value="B" />
+		</existing>
+	</case>
+	
+	<case name="fill-tree-this-will-add-a-leaf-node-in-between-existing-branch" value="D"
+		keys="abd">
+		<expected>
+			<node key="a">
+				<node key="b">
+					<node key="c" value="C" />
+					<node key="d" value="D" />
+				</node>
+			</node>
+		</expected>
+		<existing>
+			<branch key="abc" value="C" />
+		</existing>
+	</case>
+	
+	<case name="fill-tree-this-will-add-separate-branch" value="Z"
+		keys="xyz">
+		<expected>
+			<node key="a">
+				<node key="b" value="B" />
+			</node>
+			<node key="x">
+				<node key="y">
+					<node key="z" value="Z" />
+				</node>
+			</node>
+		</expected>
+		<existing>
+			<branch key="ab" value="B" />
+		</existing>
+	</case>
+
+</cases>

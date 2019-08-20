@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!--                                                                     
+	WISPr.                                                  
+-->  
+<attribute-list vendorid="14122" vendor-name="WISPr">
+	<attribute id="1" name="Location-ID" type="string"/>
+	<attribute id="2" name="Location-Name" type="string"/>			
+	<attribute id="3" name="Logoff-URL" type="string"/>
+	<attribute id="4" name="Redirection-URL" type="string"/>
+	<attribute id="5" name="Bandwidth-Min-Up" type="integer"/>
+	<attribute id="6" name="Bandwidth-Min-Down" type="integer"/>
+	<attribute id="7" name="Bandwidth-Max-Up" type="integer"/>
+	<attribute id="8" name="Bandwidth-Max-Down" type="integer"/>
+	<attribute id="9" name="Session-Terminate-Time" type="string"/>
+	<attribute id="10" name="Session-Terminate-End-Of-Day" type="integer"/>
+	<attribute id="11" name="Billing-Class-Of-Service" type="string"/>
+</attribute-list>
+
+

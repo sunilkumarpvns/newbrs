@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.core.system.staff.data.StaffGroupRelData" table="TBLMSTAFFGROUPREL">
+		<composite-id>
+			<key-property name="staffId" column="STAFFID" type="StringType"></key-property>
+			<key-property name="groupId" column="GROUPID" type="StringType"></key-property>
+		</composite-id>
+		
+<!-- 		<many-to-one name="staffData" class="com.elitecore.elitesm.datamanager.core.system.staff.data.StaffData" column="STAFFID" insert="false" update="false" not-null="true" lazy="false"/> 
+		<many-to-one name="groupData" class="com.elitecore.elitesm.datamanager.core.system.accessgroup.data.GroupData" column="groupId"  insert="false" update="false" not-null="true" lazy="false"/>  -->
+	</class>		
+</hibernate-mapping>          

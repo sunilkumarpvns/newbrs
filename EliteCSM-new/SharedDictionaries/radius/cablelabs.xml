@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="4491" vendor-name="CableLabs">
+<attribute id="0" name="CableLabs-Reserved" type="octets"/>
+<attribute id="1" name="CableLabs-Event-Message" type="octets">
+	<supported-values>
+		<value id="0" name="Reserved"/>
+		<value id="1" name="Signaling-Start"/>
+		<value id="2" name="Signaling-Stop"/>
+		<value id="3" name="Database-Query"/>
+		<value id="4" name="Intelligent-Peripheral-Usage-Start"/>
+		<value id="5" name="Intelligent-Peripheral-Usage-Stop"/>
+		<value id="6" name="Service-Instance"/>
+		<value id="7" name="QoS-Reserve"/>
+		<value id="8" name="QoS-Release"/>
+		<value id="9" name="Service-Activation"/>
+		<value id="10" name="Service-Deactivation"/>
+		<value id="11" name="Media-Report"/>
+		<value id="12" name="Signal-Instance"/>
+		<value id="13" name="Interconnect-Signaling-Start"/>
+		<value id="14" name="Interconnect-Signaling-Stop"/>
+		<value id="15" name="Call-Answer"/>
+		<value id="16" name="Call-Disconnect"/>
+		<value id="17" name="Time-Change"/>
+		<value id="19" name="QoS-Commit"/>
+		<value id="20" name="Media-Alive"/>
+		<value id="31" name="Policy-Request"/>
+		<value id="32" name="Policy-Delete"/>
+		<value id="33" name="Policy-Update"/>
+	</supported-values>
+</attribute>
+<attribute id="3" name="CableLabs-MTA-Endpoint-Name" type="string"/>
+<attribute id="4" name="CableLabs-Calling-Party-Number" type="string"/>
+<attribute id="5" name="CableLabs-Called-Party-Number" type="string"/>
+<attribute id="6" name="CableLabs-Database-id" type="string"/>
+<attribute id="7" name="CableLabs-Query-Type" type="integer">
+	<supported-values>
+		<value id="0" name="Reserved"/>
+		<value id="1" name="Toll-Free-Number-Looukp"/>
+		<value id="2" name="LNP-Number-Lookup"/>
+		<value id="3" name="Calling-Name-Delivery-Lookup"/>
+	</supported-values>
+</attribute>
+<attribute id="9" name="CableLabs-Returned-Number" type="string"/>
+<attribute id="11" name="CableLabs-Call-Termination-Cause" type="octets"/>
+<attribute id="13" name="CableLabs-Related-Call-Billing-Crl-id" type="octets"/>
+<attribute id="14" name="CableLabs-First-Call-Calling-Party-Num" type="string"/>
+<attribute id="15" name="CableLabs-Second-Call-Calling-Party-Num" type="string"/>
+<attribute id="16" name="CableLabs-Charge-Number" type="string"/>
+<attribute id="17" name="CableLabs-Forwarded-Number" type="string"/>
+<attribute id="18" name="CableLabs-Service-Name" type="string"/>
+<attribute id="20" name="CableLabs-Intl-Code" type="string"/>
+<attribute id="21" name="CableLabs-Dial-Around-Code" type="string"/>
+<attribute id="22" name="CableLabs-Location-Routing-Number" type="string"/>
+<attribute id="23" name="CableLabs-Carrier-identification-Code" type="string"/>
+<attribute id="24" name="CableLabs-Trunk-Group-id" type="octets"/>
+<attribute id="25" name="CableLabs-Routing-Number" type="string"/>
+<attribute id="26" name="CableLabs-MTA-UDP-Portnum" type="integer"/>
+<attribute id="29" name="CableLabs-Channel-State" type="integer">
+	<supported-values>
+		<value id="0" name="Reserved"/>
+		<value id="1" name="Open"/>
+		<value id="2" name="Change"/>
+		<value id="3" name="Close"/>
+	</supported-values>
+</attribute>
+<attribute id="30" name="CableLabs-SF-id" type="integer"/>
+<attribute id="31" name="CableLabs-Error-Description" type="string"/>
+<attribute id="32" name="CableLabs-QoS-Descriptor" type="octets"/>
+<attribute id="37" name="CableLabs-Direction-indicator" type="integer">
+	<supported-values>
+		<value id="0" name="Undefined"/>
+		<value id="1" name="Originating"/>
+		<value id="2" name="Terminating"/>
+	</supported-values>
+</attribute>
+<attribute id="38" name="CableLabs-Time-Adjustment" type="octets"/>
+<attribute id="39" name="CableLabs-SDP-Upstream" type="string"/>
+<attribute id="40" name="CableLabs-SDP-Downstream" type="string"/>
+<attribute id="41" name="CableLabs-User-Input" type="string"/>
+<attribute id="42" name="CableLabs-Translation-Input" type="string"/>
+<attribute id="43" name="CableLabs-Redirected-From-Info" type="octets"/>
+<attribute id="44" name="CableLabs-Electronic-Surveillance-Ind" type="octets"/>
+<attribute id="45" name="CableLabs-Redirected-From-Party-Number" type="string"/>
+<attribute id="46" name="CableLabs-Redirected-To-Party-Number" type="string"/>
+<attribute id="47" name="CableLabs-El-Surveillance-DF-Security" type="octets"/>
+<attribute id="48" name="CableLabs-CCC-id" type="octets"/>
+<attribute id="49" name="CableLabs-Financial-Entity-id" type="string"/>
+<attribute id="50" name="CableLabs-Flow-Direction" type="integer">
+	<supported-values>
+		<value id="0" name="Reserved"/>
+		<value id="1" name="Upstream"/>
+		<value id="2" name="Downstream"/>
+	</supported-values>
+</attribute>
+<attribute id="51" name="CableLabs-Signal-Type" type="integer">
+	<supported-values>
+		<value id="0" name="Reserved"/>
+		<value id="1" name="Network-Signal"/>
+		<value id="2" name="Subject-Signal"/>
+	</supported-values>
+</attribute>
+<attribute id="52" name="CableLabs-Alerting-Signal" type="integer">
+	<supported-values>
+		<value id="0" name="Reserved-0"/>
+		<value id="1" name="Ringing"/>
+		<value id="2" name="Distinctive-Ringing-2"/>
+		<value id="3" name="Distinctive-Ringing-3"/>
+		<value id="4" name="Distinctive-Ringing-4"/>
+		<value id="5" name="Ringsplash"/>
+		<value id="6" name="Call-Waiting-Tone-1"/>
+		<value id="7" name="Call-Waiting-Tone-2"/>
+		<value id="8" name="Call-Waiting-Tone-3"/>
+		<value id="9" name="Call-Waiting-Tone-4"/>
+		<value id="10" name="Reserved-10"/>
+		<value id="11" name="Distinctive-Ringing-0"/>
+		<value id="12" name="Distinctive-Ringing-1"/>
+		<value id="13" name="Distinctive-Ringing-5"/>
+		<value id="14" name="Distinctive-Ringing-6"/>
+		<value id="15" name="Distinctive-Ringing-7"/>
+	</supported-values>
+</attribute>
+<attribute id="53" name="CableLabs-Subject-Audible-Signal" type="integer"/>
+<attribute id="54" name="CableLabs-Terminal-Display-Info" type="octets"/>
+<attribute id="55" name="CableLabs-Switch-Hook-Flash" type="string"/>
+<attribute id="56" name="CableLabs-Dialed-Digits" type="string"/>
+<attribute id="57" name="CableLabs-Misc-Signaling-Information" type="string"/>
+<attribute id="61" name="CableLabs-AM-Opaque-Data" type="integer">
+	<supported-values>
+		<value id="0" name="Reserved-0"/>
+		<value id="1" name="Dial-Tone"/>
+		<value id="2" name="Stutter-Dial-Tone"/>
+		<value id="3" name="Ring-Back-Tone"/>
+		<value id="4" name="Reorder-Tone"/>
+		<value id="5" name="Busy-Tone"/>
+		<value id="6" name="Confirmation-Tone"/>
+		<value id="7" name="Reserved-7"/>
+		<value id="8" name="Message-Waiting-Indicator"/>
+		<value id="9" name="Off-hook-Warning-Tone"/>
+	</supported-values>
+</attribute>
+<attribute id="62" name="CableLabs-Subscriber-id" type="integer"/>
+<attribute id="63" name="CableLabs-Volume-Usage-Limit" type="integer"/>
+<attribute id="64" name="CableLabs-Gate-Usage-Info" type="integer"/>
+<attribute id="65" name="CableLabs-Element-Requesting-QoS" type="integer">
+	<supported-values>
+		<value id="0" name="Client"/>
+		<value id="1" name="Policy-Server"/>
+		<value id="2" name="Embedded-Client"/>
+	</supported-values>
+</attribute>
+<attribute id="66" name="CableLabs-QoS-Release-Reason" type="integer">
+	<supported-values>
+		<value id="1" name="Gate-Closed-By-PS"/>
+		<value id="2" name="Inactivity-Resource-Recovery-Timer-Expiration"/>
+		<value id="3" name="CM-Failure"/>
+		<value id="4" name="Pre-Empted"/>
+		<value id="5" name="RSVP-PathTear-request"/>
+		<value id="6" name="CM-Request"/>
+		<value id="7" name="Admitted-Timer-Expiration"/>
+		<value id="127" name="Other"/>
+	</supported-values>
+</attribute>
+<attribute id="67" name="CableLabs-Policy-Denied-Reason" type="integer">
+	<supported-values>
+		<value id="1" name="Policy-Server-Admission-Control-Failure"/>
+		<value id="2" name="Insufficient-Resources"/>
+		<value id="3" name="Unknown-Subscriber"/>
+		<value id="4" name="Unauthorized-AMid"/>
+		<value id="5" name="Undefined-Service-Class-Name"/>
+		<value id="6" name="Incompatible-Envelope"/>
+		<value id="127" name="Other"/>
+	</supported-values>
+</attribute>
+<attribute id="68" name="CableLabs-Policy-Deleted-Reason" type="integer">
+	<supported-values>
+		<value id="1" name="Application-Manager-Request"/>
+		<value id="2" name="CMTS-Decistion"/>
+		<value id="127" name="Other"/>
+	</supported-values>
+</attribute>
+<attribute id="69" name="CableLabs-Policy-Update-Reason" type="integer">
+	<supported-values>
+		<value id="1" name="Traffic-Profile"/>
+		<value id="2" name="Classifier"/>
+		<value id="3" name="Volume-Limit"/>
+		<value id="4" name="Time-Limit"/>
+		<value id="5" name="Opaque-Data"/>
+		<value id="6" name="Multiple-Updates"/>
+		<value id="127" name="Other"/>
+	</supported-values>
+</attribute>
+<attribute id="70" name="CableLabs-Policy-Decision-Status" type="integer">
+	<supported-values>
+		<value id="1" name="Policy-Approved"/>
+		<value id="2" name="Policy-Denied"/>
+	</supported-values>
+</attribute>
+<attribute id="71" name="CableLabs-Application-Manager-id" type="integer"/>
+<attribute id="72" name="CableLabs-Time-Usage-Limit" type="integer"/>
+<attribute id="73" name="CableLabs-Gate-Time-Info" type="integer"/>
+<attribute id="74" name="CableLabs-IPv6-Subscriber-id" type="ipv6addr"/>
+<attribute id="75" name="CableLabs-User-id" type="string"/>
+<attribute id="80" name="CableLabs-Account-Code" type="string"/>
+<attribute id="81" name="CableLabs-Authorization-Code" type="string"/>
+<attribute id="82" name="CableLabs-Jurisdiction-Info-Parameter" type="string"/>
+<attribute id="83" name="CableLabs-Called-Party-NP-Source" type="integer"/>
+<attribute id="84" name="CableLabs-Calling-Party-NP-Source" type="integer"/>
+<attribute id="85" name="CableLabs-Ported-In-Calling-Number" type="integer"/>
+<attribute id="86" name="CableLabs-Ported-In-Called-Number" type="integer"/>
+<attribute id="87" name="CableLabs-Billing-Type" type="integer"/>
+<attribute id="88" name="CableLabs-Signaled-To-Number" type="string"/>
+<attribute id="89" name="CableLabs-Signaled-From-Number" type="string"/>
+<attribute id="90" name="CableLabs-Communicating-Party" type="octets"/>
+<attribute id="91" name="CableLabs-Joined-Party" type="octets"/>
+<attribute id="92" name="CableLabs-Removed-Party" type="octets"/>
+<attribute id="93" name="CableLabs-RTCP-Data" type="string"/>
+<attribute id="94" name="CableLabs-Local-XR-Block" type="string"/>
+<attribute id="95" name="CableLabs-Remote-XR-Block" type="string"/>
+<attribute id="96" name="Surveillance-Stop-Type" type="integer"/>
+<attribute id="97" name="Surveillance-Stop-Destination" type="integer"/>
+<attribute id="98" name="Related_ICid" type="string"/>
+</attribute-list>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+        <form-beans>
+                <form-bean name="serverInstanceGroupForm" type="com.elitecore.netvertexsm.web.servergroup.form.ServerInstanceGroupForm"/>
+        </form-beans>
+
+        <action-mappings>
+
+                <action parameter="method" name="serverInstanceGroupForm"
+                        path="/serverGroupManagement" scope="request" type="com.elitecore.netvertexsm.web.servergroup.ServerGroupManagementAction">
+                        <forward name="searchServerGroup" path="/jsp/servergroup/SearchServerGroup.jsp" />
+                        <forward name="createServerGroup" path="/jsp/servergroup/CreateServerGroup.jsp" />
+                        <forward name="viewServerGroup" path="/jsp/servergroup/ViewServerGroup.jsp" />
+                        <forward name="editServerGroup" path="/jsp/servergroup/EditServerGroup.jsp" />
+                </action>
+
+        </action-mappings>
+
+        <message-resources key="serverGroupDataMgmtResources" parameter="com.elitecore.netvertexsm.web.servergroup.ServerGroupResource" />
+
+</struts-config>
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.alert.data.AlertListenerRelData" table="TBLMALERTLISTENERREL">
+		<composite-id>
+			<key-property name="instanceId" column="INSTANCEID" type="long"></key-property>
+			<key-property name="typeId" column="ALERTTYPEID" type="string"></key-property>
+			<key-property name="floodControl" column="FLOODCONTROL" type="string"></key-property>
+		</composite-id>
+		
+		<many-to-one name="alertListenerData" class="com.elitecore.netvertexsm.datamanager.servermgr.alert.data.AlertListenerData" column="INSTANCEID" insert="false" update="false" not-null="true" lazy="false"/>  
+	</class>		
+</hibernate-mapping>          

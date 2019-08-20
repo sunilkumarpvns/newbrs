@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result-code-mapping>
+    <result-code-list>
+        <result-code>
+            <application>
+                <diameter-result-code>2002</diameter-result-code>
+                <experimental-result-code>4005</experimental-result-code>
+                <vendor-id>22</vendor-id>
+                <id>1667</id>
+            </application>
+            <pcrf-key>PCRFKEY</pcrf-key>
+            <diameter-result-code>2001</diameter-result-code>
+        </result-code>
+        <result-code>
+            <application>
+                <diameter-result-code>2002</diameter-result-code>
+                <experimental-result-code>4005</experimental-result-code>
+                <vendor-id>22</vendor-id>
+                <id>1667</id>
+            </application>
+            <pcrf-key>PCRFKEY</pcrf-key>
+            <diameter-result-code>2001</diameter-result-code>
+        </result-code>
+    </result-code-list>
+</result-code-mapping>

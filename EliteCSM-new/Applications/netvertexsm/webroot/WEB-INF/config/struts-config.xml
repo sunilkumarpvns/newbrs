@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <data-sources />
+
+    <form-beans>
+      <form-bean name="systemLoginForm" type="com.elitecore.netvertexsm.web.core.system.login.forms.SystemLoginForm" />
+      
+      <form-bean name="searchStaffForm" type="com.elitecore.netvertexsm.web.core.system.staff.forms.SearchStaffForm"/>
+      <form-bean name="changePasswordForm" type="com.elitecore.netvertexsm.web.core.system.login.forms.ChangePasswordForm"/>      
+      <form-bean name="miscStaffForm" type="com.elitecore.netvertexsm.web.core.system.staff.forms.MiscStaffForm"/>
+	  <form-bean name="createStaffForm" type="com.elitecore.netvertexsm.web.core.system.staff.forms.CreateStaffForm"/>
+      <form-bean name="viewStaffForm" type="com.elitecore.netvertexsm.web.core.system.staff.forms.ViewStaffForm"/>
+      <form-bean name="updateStaffBasicDetailForm" type="com.elitecore.netvertexsm.web.core.system.staff.forms.UpdateStaffBasicDetailForm"/>
+      <form-bean name="updateAccessGroupForm" type="com.elitecore.netvertexsm.web.core.system.accessgroup.forms.UpdateAccessGroupForm"/>
+      <form-bean name="changeUserNameForm" type="com.elitecore.netvertexsm.web.core.system.staff.forms.UpdateStaffUserNameForm"/>
+      <form-bean name="changeStaffPasswordForm" type="com.elitecore.netvertexsm.web.core.system.staff.forms.UpdateStaffPasswordForm"/>
+      <form-bean name="changeStaffStatusForm" type="com.elitecore.netvertexsm.web.core.system.staff.forms.UpdateStaffStatusForm"/>
+      <form-bean name="viewStaffAdvanceDetailForm" type="com.elitecore.netvertexsm.web.core.system.staff.forms.ViewStaffAdvanceDetailForm"/>
+      <form-bean name="updateSystemParameterForm" type="com.elitecore.netvertexsm.web.core.system.systemparameter.forms.UpdateSystemParameterForm"/>
+      <form-bean name="viewSystemParameterForm" type="com.elitecore.netvertexsm.web.core.system.systemparameter.forms.ViewSystemParameterForm" />      
+      <form-bean name="createAccessGroupForm" type="com.elitecore.netvertexsm.web.core.system.accessgroup.forms.CreateAccessGroupForm"></form-bean>
+      <form-bean name="listAccessGroupForm" type="com.elitecore.netvertexsm.web.core.system.accessgroup.forms.ListAccessGroupForm"></form-bean>
+      <form-bean name="miscListAccessGroupForm" type="com.elitecore.netvertexsm.web.core.system.accessgroup.forms.MiscListAccessGroupForm"></form-bean>
+      <form-bean name="viewAccessGroupForm" type="com.elitecore.netvertexsm.web.core.system.accessgroup.forms.ViewAccessGroupForm"></form-bean>  
+      <form-bean name="licenseForm" type="com.elitecore.netvertexsm.web.core.system.license.forms.LicenseForm"></form-bean>
+      <form-bean name="helpForm" type="com.elitecore.netvertexsm.web.core.system.help.forms.HelpForm"></form-bean>    
+      <form-bean name="staffAuditForm" type="com.elitecore.netvertexsm.web.core.system.staff.forms.StaffAuditForm"/>  
+      <form-bean name="staffAuditForm" type="com.elitecore.netvertexsm.web.core.system.staff.forms.StaffAuditForm"/>           
+      
+      
+      
+    </form-beans>
+  
+    <global-exceptions />
+  
+    <global-forwards >
+      <forward name="success" path="/jsp/core/response/SuccessResponsePage.jsp" />
+      <forward name="failure" path="/jsp/core/response/FailureResponsePage.jsp" />
+      <forward name="statusreport" path="/jsp/core/response/SuccessWithStatusReport.jsp" />
+      <forward name="popupfailure" path="/jsp/core/response/PopupFailureResponsePage.jsp" /> 
+      <forward name="popupsuccess" path="/jsp/core/response/PopupSuccessResponsePage.jsp" />
+      <forward name="SystemLoginAction" path="com.elitecore.netvertexsm.web.core.system.login.SystemLoginAction" />                 
+    </global-forwards>
+
+    <action-mappings>
+    
+        
+        <action parameter="method" 
+	        path="/validate"
+		    type="com.elitecore.netvertexsm.web.core.util.ValidateConditionAction"
+		    scope="request"
+		    validate="false">
+		    
+	    </action>
+      <action path="/login" 
+         type="com.elitecore.netvertexsm.web.core.system.login.SystemLoginAction"
+         name="systemLoginForm"
+         validate="false">
+         <forward name="loginHome" path="/jsp/core/system/login/LoginHome.jsp" />  
+         <forward name="loginFailed" path="/Login.jsp" />        
+      </action>
+      
+      <action
+      		parameter="method" 
+      		path="/ssoLogin" 
+         	type="com.elitecore.netvertexsm.web.core.system.login.SSOLoginAction"
+         	scope="request"
+         	validate="false">
+         	
+         	<forward name="loginHome" path="/jsp/core/system/login/LoginHome.jsp" />  
+         	<forward name="loginFailed" path="/Login.jsp" />        
+      </action>
+      
+      <action path="/passwordExpired" 
+         type="com.elitecore.netvertexsm.web.core.system.login.PasswordExpiredAction"
+         name="systemLoginForm"
+         validate="false">
+   
+         <forward name="loginFailed" path="/Login.jsp" />    
+         <forward name="changePassword" path="/jsp/core/system/login/PasswordExpired.jsp" />    
+      </action>        
+
+      <action path="/logout" 
+         type="com.elitecore.netvertexsm.web.core.system.logout.SystemLogoutAction"
+         validate="false">
+         <forward name="logout" path="/Login.jsp" />        
+      </action>
+        
+<!--		 	  Staff related mapping				-->      
+      
+      <action path="/initSearchStaff"
+		 type="com.elitecore.netvertexsm.web.core.system.staff.InitSearchStaffAction"
+		 name="searchStaffForm"
+		 scope="request"
+		 validate="true">
+		 <forward name="initSearchStaff" path="/jsp/core/system/staff/SearchStaff.jsp"/>
+	  </action>
+	  
+	  <action path="/searchStaff"	
+	  	 type="com.elitecore.netvertexsm.web.core.system.staff.SearchStaffAction"
+	  	 scope="request"
+	  	 name="searchStaffForm"
+	  	 validate="true"
+	  	 input="/jsp/radius/staff/SearchStaff.jsp">
+	  	 <forward name="searchStaffList" path="/jsp/core/system/staff/SearchStaff.jsp"/>
+	  </action>
+	  
+	  <action path="/initCreateStaff"
+	  	  type="com.elitecore.netvertexsm.web.core.system.staff.InitCreateStaffAction"
+	  	  name="createStaffForm"
+	  	  scope="request"
+	  	  validate="false">
+	  	  <forward name="initCreateStaff" path="/jsp/core/system/staff/CreateStaff.jsp"/>
+	  </action>
+	  
+	  <action path="/createStaff"
+	  	 type="com.elitecore.netvertexsm.web.core.system.staff.CreateStaffAction"
+		 name="createStaffForm"
+		 scope="request"
+		 validate="false">
+	  	 <forward name="createStaff" path="/jsp/core/system/staff/CreateStaff.jsp"/>
+		 <forward name="searchStaffList" path="/initSearchStaff.do?"/>
+	  </action>
+	  
+	  <action path="/viewStaff"
+		 type="com.elitecore.netvertexsm.web.core.system.staff.ViewStaffAction"
+		 name="viewStaffForm"
+		 scope="request"
+		 validate="false">
+		 <forward name="viewStaffDetail" path="/jsp/core/system/staff/StaffContainer.jsp"/>
+	  </action>
+	 
+	 <action path="/profilePicture"
+		 type="com.elitecore.netvertexsm.web.core.system.staff.ProfilePictureAction"
+		 name="viewStaffForm"
+		 scope="request"
+		 validate="false">
+	  </action>
+	
+	  <action path="/viewStaffAdvanceDetail"
+	 	 type="com.elitecore.netvertexsm.web.core.system.staff.ViewStaffAdvanceDetailAction"
+	 	 name="viewStaffAdvanceDetailForm"
+	 	 scope="request"
+	 	 validate="false">
+	 	 <forward name="viewStaffAdvanceDetail" path="/jsp/core/system/staff/ViewStaffContainer.jsp"/>
+	  </action>
+	
+	  <action path="/updateStaff"
+		 type="com.elitecore.netvertexsm.web.core.system.staff.UpdateStaffBasicDetailAction"
+		 name="updateStaffBasicDetailForm"
+		 scope="request"
+	 	 validate="false">
+		 <forward name="updateStaffBasicDetail" path="/jsp/core/system/staff/UpdateStaffContainer.jsp"/>
+		 <forward name="viewStaffDetail" path="/viewStaff.do?"/>
+	  </action>
+	  
+	  <action path="/updateAccessGroup"
+	  	 type="com.elitecore.netvertexsm.web.core.system.staff.UpdateAccessGroupAction"
+	  	 name="updateAccessGroupForm"
+	  	 scope="request"
+	  	 validate="false">
+	  	 <forward name="updateAccessGroup" path="/jsp/core/system/staff/UpdateAccessGroupContainer.jsp"/>
+	  	 <forward name="viewStaffDetail" path="/viewStaff.do?"/>
+	  </action>
+	
+	  <action path="/miscStaff"
+	     scope="request"
+	     type="com.elitecore.netvertexsm.web.core.system.staff.MiscStaffAction"
+	     name="miscStaffForm"
+	     validate="false">
+	     <forward name="searchStaffList" path="/searchStaff.do"	/>
+	  </action>
+	
+	  <action path="/changeUserName"
+		type="com.elitecore.netvertexsm.web.core.system.staff.UpdateStaffUserNameAction"
+		name="changeUserNameForm"
+		scope="request"
+		validate="false">
+		<forward name="changeUserName" path="/jsp/core/system/staff/UpdateUserNameContainer.jsp"/>
+		<forward name="viewStaffDetail" path="/viewStaff.do?"/>
+	  </action>
+	
+	  <action path="/changeStaffPassword"
+		type="com.elitecore.netvertexsm.web.core.system.staff.UpdateStaffPasswordAction"
+		name="changeStaffPasswordForm"
+		scope="request"
+		validate="false">
+		<forward name="changeStaffPassword" path="/jsp/core/system/staff/UpdatePasswordContainer.jsp"/>
+		<forward name="viewStaffDetail" path="/viewStaff.do?"/>
+	  </action>
+	
+	  <action path="/changeStaffStatus"
+		type="com.elitecore.netvertexsm.web.core.system.staff.UpdateStaffStatusAction"
+		name="changeStaffStatusForm"
+		scope="request"
+		validate="false">
+		<forward name="changeStaffStatus" path="/jsp/core/system/staff/UpdateStatusContainer.jsp"/>
+		<forward name="viewStaffDetail" path="/viewStaff.do?"/>
+	  </action>
+	  
+      <action path="/initChangePassword"
+      	 type="com.elitecore.netvertexsm.web.core.system.login.InitChangePasswordAction"
+      	 name="changePasswordForm"      	 
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="changePassword" path="/jsp/core/system/login/ChangePassword.jsp"/>
+      </action>  
+
+      <action path="/changePassword"
+      	 type="com.elitecore.netvertexsm.web.core.system.login.ChangePasswordAction"
+      	 name="changePasswordForm"      	 
+      	 scope="request"
+      	 validate="false">
+      	 <forward name="changePassword" path="/jsp/core/system/login/ChangePassword.jsp"/>
+      </action>  
+   	  	  
+	  <action path="/viewSystemParameter"
+	     scope="request"
+	     type="com.elitecore.netvertexsm.web.core.system.systemparameter.ViewSystemParameterAction"
+	     name="viewSystemParameterForm"
+	     validate="false">
+	     <forward name="viewSystemParameter" path="/jsp/core/system/systemparameter/ViewSystemParameter.jsp"	/>
+	  </action>
+	 	 
+	  <action path="/updateSystemParameter"
+	     scope="request"
+	     type="com.elitecore.netvertexsm.web.core.system.systemparameter.UpdateSystemParameterAction"
+	     name="updateSystemParameterForm"
+	     validate="false">
+	     <forward name="updateSystemParameter" path="/jsp/core/system/systemparameter/UpdateSystemParameter.jsp"	/>
+	  </action>
+	  
+	
+	  <action path="/initCreateAccessGroup"
+	  	scope="request"
+	  	type="com.elitecore.netvertexsm.web.core.system.accessgroup.InitCreateAccessGroupAction"
+	  	name="createAccessGroupForm"
+	  	validate="false">
+	  	<forward name="initCreateAccessGroup" path="/jsp/core/system/accessgroup/CreateAccessGroup.jsp"/>
+	  </action>
+	  
+	  <action path="/createAccessGroup"
+	  	scope="request"
+	  	type="com.elitecore.netvertexsm.web.core.system.accessgroup.CreateAccessGroupAction"
+	  	name="createAccessGroupForm"
+	  	validate="false">
+	  	<forward name="createAccessGroup" path="/jsp/core/system/accessgroup/CreateAccessGroup.jsp"/>
+	  </action>
+	  
+	  <action path="/listAccessGroup"
+	  	scope="request"
+	  	type="com.elitecore.netvertexsm.web.core.system.accessgroup.ListAccessGroupAction"
+	  	name="listAccessGroupForm"
+	  	validate="false">
+	  	<forward name="listAccessGroup" path="/jsp/core/system/accessgroup/ListAccessGroup.jsp"/>
+	  </action>
+	  
+	  <action path="/miscListAccessGroup"
+	    scope="request"
+	    type="com.elitecore.netvertexsm.web.core.system.accessgroup.MiscListAccessGroupAction"
+	    name="miscListAccessGroupForm"
+	    validate="false">
+	    <forward name="miscListAccessGroup" path="/listAccessGroup.do"></forward>
+	  </action>
+	  
+	  <action path="/viewAccessGroup"
+	    scope="request"
+	    type="com.elitecore.netvertexsm.web.core.system.accessgroup.ViewAccessGroupAction"
+	    name="viewAccessGroupForm"
+	    validate="false">
+	    <forward name="viewAccessGroup" path="/jsp/core/system/accessgroup/ViewAccessGroup.jsp"/>
+	  </action>
+	  
+	  <action path="/editAccessGroup"
+	    scope="request"
+	    type="com.elitecore.netvertexsm.web.core.system.accessgroup.EditAccessGroupAction"
+	    name="viewAccessGroupForm"
+	    validate="false">
+		<forward name="editAccessGroup" path="/jsp/core/system/accessgroup/EditAccessGroup.jsp"/>
+		<forward name="viewAccessGroup" path="/viewAccessGroup.do?"></forward>
+	  </action>
+	  
+	 <action path="/initLicense"
+	    scope="request"
+	    type="com.elitecore.netvertexsm.web.core.system.license.InitLicenseAction"
+	    name="licenseForm"
+	    validate="false">
+	    <forward name="viewLicensePage" path="/jsp/core/system/license/License.jsp"/>
+	  </action>
+	  
+	  <action path="/initHelp"
+	    scope="request"
+	    type="com.elitecore.netvertexsm.web.core.system.help.InitHelpAction"
+	    name="helpForm"
+	    validate="false">
+	    <forward name="viewHelpPage" path="/jsp/core/system/help/Help.jsp"/>
+	  </action>
+	  
+	  <action path="/invalidateSession" 
+         type="com.elitecore.netvertexsm.web.core.system.login.InvalidateSessionAction"
+         validate="false">
+         <forward name="SessionExpired" path="/Login.jsp" />        
+      </action>
+	    
+	  <action path="/initStaffAudit"
+		 type="com.elitecore.netvertexsm.web.core.system.staff.InitStaffAuditAction"
+		 name="staffAuditForm"
+		 scope="request"
+		 validate="true">
+		 <forward name="initStaffAudit" path="/jsp/core/system/staff/StaffAudit.jsp"/>
+	  </action>  
+	  
+	  <action path="/auditDetails"
+		 type="com.elitecore.netvertexsm.web.systemaudit.AuditDetailsAction"
+		 name="staffAuditForm"
+		 scope="request"
+		 validate="true">
+		 <forward name="AuditDetails" path="/jsp/core/system/staff/StaffAudit.jsp"/>
+	  </action>
+	  
+  	  
+      </action-mappings>
+  
+    <message-resources parameter="com.elitecore.netvertexsm.web.ApplicationResources"/>    
+    <message-resources key="resultMessageResources" parameter="com.elitecore.netvertexsm.web.ResultMessageResources" />    
+    <message-resources key="alertMessageResources" parameter="com.elitecore.netvertexsm.web.AlertMessageResources" />        
+    <message-resources key="descriptionResources" parameter="com.elitecore.netvertexsm.web.description" />
+  
+</struts-config>
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+		
+		<class name="com.elitecore.elitesm.datamanager.servermgr.copypacket.data.CopyPacketTranslationMapDetailData" table="TBLMCOPYPACKETINSTANCEDETAIL">
+		
+			<id name="copyPacketMapDetailId" column="COPYPACKETMAPDETAILID" type="StringType">
+				<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+			</id>
+			
+			<property name="checkExpression" type="StringType"> 
+				<column name="CHECKEXPRESSION" sql-type="VARCHAR(2000)" not-null="false"/> 
+			</property>
+			<property name="destinationExpression" type="StringType"> 
+				<column name="DESTINATIONEXPRESSION" sql-type="VARCHAR(3000)" not-null="true" /> 
+			</property>
+			<property name="sourceExpression" type="StringType"> 
+				<column name="SOURCEEXPRESSION" sql-type="VARCHAR(3000)"   not-null="false"/> 
+			</property>
+			<property name="operation" type="StringType"> 
+				<column name="OPERATION" sql-type="VARCHAR(10)"   not-null="true"/> 
+			</property>
+			<property name="valueMapping" type="StringType"> 
+				<column name="VALUEMAPPING" sql-type="VARCHAR(2000)" not-null="false"/> 
+			</property>
+			<property name="defaultValue" type="StringType"> 
+				<column name="DEFAULTVALUE" sql-type="VARCHAR(2000)" not-null="false"/> 
+			</property>
+			<property name="mappingTypeId" type="CharType"> 
+				<column name="MAPPINGTYPEID" sql-type="CHAR(7)" not-null="true"/> 
+			</property>
+			<property name="orderNumber" type="java.lang.Long"> 
+				<column name="ORDERNO" sql-type="NUMERIC(20)" not-null="false" /> 
+			</property>
+			<property name="copyPacketMappingId" type="StringType"> 
+				<column name="INSTANCEID" sql-type="VARCHAR(36)" not-null="true" /> 
+			</property>
+					
+		</class>
+
+</hibernate-mapping> 
+
+	

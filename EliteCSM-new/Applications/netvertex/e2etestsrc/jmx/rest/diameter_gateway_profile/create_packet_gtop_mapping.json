@@ -1,0 +1,18 @@
+{
+  "id": "rest_gtop_packet_mapping_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Rest_CCRequest",
+  "description": "Gateway to PCC Packet Mapping for Diameter Gateway Profile",
+  "commProtocol": "DIAMETER",
+  "packetType": "CREDIT_CONTROL_REQUEST",
+  "type": "GATEWAY_TO_PCC",
+  "attributeMappingData": {
+    "mappings": [
+      "{\"pid\":\"0\",\"policykey\":\"CS.IMSI\",\"attribute\":\"10415:1\",\"defaultvalue\":\"401401\",\"valuemapping\":\"M\"}"
+    ],
+    "orderNumber": null
+  },
+  "applicationType": null,
+  "groupNames": "DefaultGroup"
+}

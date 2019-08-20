@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<struts>
+
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.action.excludePattern" value="/services.*,/rest.*"/>
+	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.mapper.action.prefix.enabled" value="true"/>
+	<constant name="struts.multipart.maxSize" value="100000000" />
+
+	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false" />
+	<constant name="struts.convention.action.mapAllMatches" value="true"/>
+	<constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.PrefixBasedActionMapper"/>
+	<constant name="struts.mapper.prefixMapping" value="/sm:rest,/pd:rest,/integration:rest,:struts"/>
+
+	<bean type="com.opensymphony.xwork2.ActionProxyFactory" name="customProxyFactory" class="com.elitecore.nvsmx.system.CustomActionProxyFactory" />
+	<constant name="struts.actionProxyFactory" value="customProxyFactory"/>
+
+	<constant name="struts.convention.action.suffix" value="CTRL"/>
+
+	<package name="pagination" namespace="/searchTable" extends="json-default">
+		<interceptors>
+			<interceptor name="transaction" class="com.elitecore.nvsmx.system.interceptor.TransactionInterceptor" />
+		</interceptors>
+		<action name="*/*/*/*" class="com.elitecore.nvsmx.{1}.controller.{2}.{3}SearchCTRL" method="{4}" >
+			<!-- exclude Params is used to avoid json fetching all the children elements of the passed object -->
+			<interceptor-ref name="basicStack"></interceptor-ref>
+			<interceptor-ref name="transaction"/>
+			<result name="subtablesuccess">/view/{1}/{2}/{4}.jsp</result>
+			<result type="json" name="success"></result>
+			<result type="json" name="subscriberSearchSuccess">
+				<param name="excludeProperties">dataList\[\d+\]\.quotaProfiles,dataList\[\d+\]\.qosProfiles,dataList\[\d+\]\.monetaryBalance,dataList\[\d+\]\.nonMonetaryBalance,dataList\[\d+\].rnCNonMonetaryBalance,dataList\[\d+\]\.currentUsage</param>
+			</result>
+			<result type="json" name="pkgsuccess">
+				<param name="excludeProperties">addOn\[\d+\]\.addOnStatus,rowDataaddOns\[\d+\]\.addOn,dataList\[\d+\]\.quotaProfiles,dataList\[\d+\]\.qosProfiles</param>
+			</result>
+			<result type="json" name="searchAddOnSuccess">
+				<param name="excludeProperties">dataList\[\d+\]\.addOn.quotaProfiles,dataList\[\d+\]\.addOn.qosProfiles</param>
+			</result>
+		</action>
+	</package>
+	<package name="genericSearch" namespace="/genericSearch" extends="tiles-default,json-default">
+		<result-types>
+			<result-type name="eliteJson" class="com.elitecore.nvsmx.policydesigner.controller.util.EliteJsonResult">
+			</result-type>
+		</result-types>
+		<interceptors>
+			<interceptor name="transaction" class="com.elitecore.nvsmx.system.interceptor.TransactionInterceptor" />
+			<interceptor name="authentication" class="com.elitecore.nvsmx.system.interceptor.AuthenticationInterceptor" />
+			<interceptor name="authorization" class="com.elitecore.nvsmx.system.interceptor.AuthorizationInterceptor" />
+		</interceptors>
+		<action name="*/*/*/*" class="com.elitecore.nvsmx.{1}.controller.{2}.{3}CTRL" method="{4}" >
+
+			<interceptor-ref name="basicStack">
+				<param name="prepare.excludeMethods">search,searchData,getSearchResult,delete,list,setSearchCriteria</param>
+			</interceptor-ref>
+			<interceptor-ref name="store">
+				<param name="operationMode">AUTOMATIC</param>
+			</interceptor-ref>
+			<interceptor-ref name="transaction"/>
+			<interceptor-ref name="authentication" />
+			<interceptor-ref name="authorization">
+				<param name="excludeMethods">setSearchCriteria,searchData</param>
+			</interceptor-ref>
+			<result name="SearchSuccess" type="eliteJson">
+				<!-- ignoreHierarchy param is used to access parent property in json -->
+				<param name="ignoreHierarchy">false</param>
+				<!-- modelProperties Params is custom property which is used to pass dynamic includeProperites -->
+				<param name="modelProperties">${includeSearchProperties}</param>
+			</result>
+			<result name="list" type="tiles">_${jspUrl}</result>
+			<result name="profilePicture"   type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+	</package>
+	<package name="ajaxActions" namespace="/ajax" extends="tiles-default,json-default">
+		<action name="pkgReload/*" class="com.elitecore.nvsmx.policydesigner.controller.util.PkgDataReloadCTRL" method="{1}" >
+			<result type="json">
+				<param name="includeProperties">
+					imsLivePackages\[\d+\]\.id,imsLivePackages\[\d+\]\.name,imsLivePackages\[\d+\]\.type,imsLivePackages\[\d+\]\.packageMode,
+					imsPackages\[\d+\]\.id,imsPackages\[\d+\]\.name,imsPackages\[\d+\]\.type,imsPackages\[\d+\]\.packageMode,
+					livePackages\[\d+\]\.id,livePackages\[\d+\]\.name,livePackages\[\d+\]\.type,livePackages\[\d+\]\.packageMode,
+					dataPackages\[\d+\]\.id,dataPackages\[\d+\]\.name,dataPackages\[\d+\]\.type,dataPackages\[\d+\]\.currency,dataPackages\[\d+\]\.packageMode,
+					rncPackages\[\d+\]\.id,rncPackages\[\d+\]\.name,rncPackages\[\d+\]\.pkgType,rncPackages\[\d+\]\.currency,rncPackages\[\d+\]\.packageMode,
+					rncLivePackages\[\d+\]\.id,rncLivePackages\[\d+\]\.name,rncLivePackages\[\d+\]\.pkgType,rncLivePackages\[\d+\]\.packageMode,
+					liveAddOns\[\d+\]\.id,liveAddOns\[\d+\]\.name,liveAddOns\[\d+\]\.type,liveAddOns\[\d+\]\.packageMode,liveAddOns\[\d+\]\.description,
+					liveAddOns\[\d+\]\.price,liveAddOns\[\d+\]\.currency,liveAddOns\[\d+\].validity,liveAddOns\[\d+\].validityPeriodUnit,
+					allAddOns\[\d+\]\.id,allAddOns\[\d+\]\.name,allAddOns\[\d+\]\.type,allAddOns\[\d+\]\.packageMode,allAddOns\[\d+\]\.description,allAddOns\[\d+\]\.price,allAddOns\[\d+\]\.currency,allAddOns\[\d+\].validity,allAddOns\[\d+\].validityPeriodUnit,
+					allTopUps\[\d+\]\.id,allTopUps\[\d+\]\.name,allTopUps\[\d+\]\.topUpType,allTopUps\[\d+\]\.packageType,allTopUps\[\d+\]\.packageMode,allTopUps\[\d+\]\.description,allTopUps\[\d+\]\.price,allTopUps\[\d+\]\.currency,allTopUps\[\d+\].validityPeriod,allTopUps\[\d+\].validity,allTopUps\[\d+\].validityPeriodUnit,
+					liveTopUps\[\d+\]\.id,liveTopUps\[\d+\]\.name,liveTopUps\[\d+\]\.topUpType,liveTopUps\[\d+\]\.packageType,liveTopUps\[\d+\]\.packageMode,liveTopUps\[\d+\]\.description,liveTopUps\[\d+\]\.price,liveTopUps\[\d+\]\.currency,liveTopUps\[\d+\].validityPeriod,liveTopUps\[\d+\].validity,liveTopUps\[\d+\].validityPeriodUnit,
+					productOffers\[\d+\]\.id,productOffers\[\d+\]\.name,productOffers\[\d+\]\.type,productOffers\[\d+\]\.currency,productOffers\[\d+\]\.packageMode,productOfferAddOns\[\d+\]\.id,productOfferAddOns\[\d+\]\.name,productOfferAddOns\[\d+\]\.type,productOfferAddOns\[\d+\]\.currency,productOfferAddOns\[\d+\]\.packageMode,productOfferAddOns\[\d+\]\.description,productOfferAddOns\[\d+\]\.subscriptionPrice,productOfferAddOns\[\d+\]\.subscriptionCurrency,productOfferAddOns\[\d+\].validityPeriod,productOfferAddOns\[\d+\].validityPeriodUnit,
+					liveProductOffers\[\d+\]\.id,liveProductOffers\[\d+\]\.name,liveProductOffers\[\d+\]\.type,liveProductOffers\[\d+\]\.currency,liveProductOffers\[\d+\]\.packageMode,liveProductOffersAddons\[\d+\]\.id,liveProductOffersAddons\[\d+\]\.name,liveProductOffersAddons\[\d+\]\.type,liveProductOffersAddons\[\d+\]\.currency,liveProductOffersAddons\[\d+\]\.packageMode,liveProductOffersAddons\[\d+\]\.description,liveProductOffersAddons\[\d+\]\.subscriptionPrice,liveProductOffersAddons\[\d+\]\.subscriptionCurrency,liveProductOffersAddons\[\d+\].validityPeriod,liveProductOffersAddons\[\d+\].validityPeriodUnit,
+					allBodData\[\d+\]\.id,allBodData\[\d+\]\.name,allBodData\[\d+\]\.packageMode,allBodData\[\d+\]\.description,allBodData\[\d+\].validityPeriod,allBodData\[\d+\].validity,allBodData\[\d+\].validityPeriodUnit,
+					liveBodData\[\d+\]\.id,liveBodData\[\d+\]\.name,liveBodData\[\d+\]\.packageMode,liveBodData\[\d+\]\.description,liveBodData\[\d+\].validityPeriod,liveBodData\[\d+\].validity,liveBodData\[\d+\].validityPeriodUnit,
+				</param>
+			</result>
+			<result name="reloadPolicy" type="tiles">commons/reload/Reload_Policy</result>
+		</action>
+	</package>
+
+
+	<package name="validationPkg" namespace="/validate" extends="json-default">
+		<interceptors>
+			<interceptor name="transaction" class="com.elitecore.nvsmx.system.interceptor.TransactionInterceptor" />
+		</interceptors>
+		<action name="*/*/*/*" class="com.elitecore.nvsmx.{1}.controller.{2}.{3}CTRL" method="{4}">
+			<interceptor-ref name="basicStack"></interceptor-ref>
+			<interceptor-ref name="transaction"/>
+			<result type="json">
+				<param name="root">validationMessage</param>
+			</result>
+		</action>
+
+	</package>
+
+	<package name="nvsmx" extends="tiles-default">
+
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+
+		<interceptors>
+			<interceptor name="DiagnosticContext"
+						 class="com.elitecore.nvsmx.system.interceptor.DiagnosticContextInterceptor" />
+
+			<interceptor name="transaction"
+						 class="com.elitecore.nvsmx.system.interceptor.TransactionInterceptor" />
+			<interceptor name="authentication"
+						 class="com.elitecore.nvsmx.system.interceptor.AuthenticationInterceptor" />
+			<interceptor name="authorization"
+						 class="com.elitecore.nvsmx.system.interceptor.AuthorizationInterceptor" />
+
+			<interceptor name="verifyDBConn"
+						 class="com.elitecore.nvsmx.system.interceptor.VerifyDBConnectionInterceptor" />
+			<interceptor name="verifyLoginDBConn"
+						 class="com.elitecore.nvsmx.system.interceptor.VerifyLoginDBConnectionInterceptor" />
+			<interceptor name="validConfiguration" class="com.elitecore.nvsmx.system.interceptor.VerifyValidConfigurationInterceptor"/>
+
+
+			<interceptor-stack name="nvsmxStack">
+				<interceptor-ref name="DiagnosticContext" >
+					<param name="excludeMethods">execute</param>
+				</interceptor-ref>
+
+				<interceptor-ref name="verifyLoginDBConn">
+					<param name="includeMethods">initLogin,login,logout</param>
+				</interceptor-ref>
+				<interceptor-ref name="verifyDBConn">
+					<param name="excludeMethods">initLogin,login,logout</param>
+				</interceptor-ref>
+				<interceptor-ref name="transaction">
+					<param name="excludeMethods">findAll,captchaRedirect,removeSesionAttribute,importData</param>
+				</interceptor-ref>
+
+				<interceptor-ref name="authentication" >
+					<param name="excludeMethods">configureDatabaseSetUp,initConfigureDatabaseSetUp,initLogin,login,logout,initForgotPassword,forgotPassword,initResetPassword,resetPassword,captchaRedirect,ssoLogin,redirectToChangePasswordPage,changePassword</param>
+				</interceptor-ref>
+				<interceptor-ref name="authorization" />
+				<interceptor-ref name="validConfiguration">
+					<param name="excludeMethods">configureDatabaseSetUp,initConfigureDatabaseSetUp,initLogin,login,logout,initForgotPassword,forgotPassword,initResetPassword,resetPassword,captchaRedirect,ssoLogin,redirectToChangePasswordPage,changePassword</param>
+				</interceptor-ref>
+
+				<interceptor-ref name="token">
+					<param name="includeMethods">configureDatabaseSetUp,login,forgotPassword,unsubscribeAddOn,verifyPassword,create,subscribeAddOn</param>
+				</interceptor-ref>
+				<interceptor-ref name="store">
+					<param name="operationMode">AUTOMATIC</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack">
+					<param name="validation.excludeMethods">
+						init,initCreate,search,initUpdate,delete,list,view,searchDeletedSubscriber,
+						initLogin,logout,initForgotPassword,
+						initDatabaseSetup,databaseSetupSuccess,
+						validate,initResetPassword,searchCriteria,setSearchCriteria,
+						detail,addOnInfo,viewQuotaProfileDetail,viewQosProfileData,chartData,
+						subscribeAddOn,unsubscribeAddOn,initCreateHSQDetail,createQosDetailInformation,
+						getDefaultServiceFlow,captchaRedirect,initUpdateHSQDetail,updateQosDetailInformation,
+						deleteFupLevels,markedForDeletion,addTestSubscriber,searchTestSubscriber,
+						testSubscriberSearchCriteria,removeTestSubscriber,removeTestSubscribers,viewDeletedProfile,
+						purgeSubscriber,purgeSubscribers,purgeAll,restoreSubscriber,restoreSubscribers,
+						updateStatus,updateMode,ssoLogin,welcome,viewDetail,restoreAll,addApplicableQosProfiles,
+						refreshSystemParameter,attachPccRule,
+						export,exportAll,importPkg,importData,importDataServiceType,importImsPkg,importPCCRule,importEmergencyPkg,redirectToChangePasswordPage,resetPassword,
+						manageOrderPromotionalPackages,manageOrder,attachChargingRuleBaseName,removeChargingRuleBaseName,importRatingGroup,importChargingRuleBaseName,deleteUsageNotification
+					</param>
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+					<param name="workflow.excludeMethods">view,searchTestSubscriber,searchDeletedSubscriber,redirectToChangePasswordPage,initResetPassword</param>
+					<param name="prepare.excludeMethods">search,searchData,getSearchResult,delete,list,setSearchCriteria,
+						importData,importPCCRule,importChargingRuleBaseName,export,exportAll,getDefaultServiceFlow
+					</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="exception" 	type="tiles">commons/general/UnhandledException</result>
+			<result name="error" 	 	type="tiles">commons/general/Error</result>
+			<result name="unauthorize" 	type="tiles">commons/general/Unauthorize</result>
+			<result name="success" 	 	type="tiles">commons/general/Success</result>
+			<result name="progressbar" 	type="tiles">commons/general/ProgressBar</result>
+			<result name="profilePicture"   type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+			<result name="actionChainUrl"  	type="chain">${actionChainUrl}</result>
+			<result name="redirectAction" 	type="redirect">${actionChainUrl}</result>
+			<result name="redirectToParent" type="redirect">${actionChainUrl}?${parentIdKey}=${parentIdValue}</result>
+			<result name="RedirectError" 	type="redirect">${actionChainUrl}?${parentIdKey}=${parentIdValue}</result>
+			<result name="dispatchView">${actionChainUrl}</result>
+			<result name="dispatchToParent">../../../${actionChainUrl}</result>
+			<result name="dispatchError">${actionChainUrl}</result>
+			<result name="create"       	type="tiles">{1}/{2}/{3}_Create</result>
+			<result name="update"        	type="tiles">{1}/{2}/{3}_Update</result>
+			<result name="view" 			type="tiles">{1}/{2}/{3}_View</result>
+			<result name="detail" 			type="tiles">{1}/{2}/{3}_ViewDetail</result>
+			<result name="createdetail"     type="tiles">{1}/{2}/{3}_CreateDetail</result>
+			<result name="updatedetail"     type="tiles">{1}/{2}/{3}_UpdateDetail</result>
+			<result name="ssoLogin"         type="redirect">commons/login/Login/initLogin</result>
+
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Throwable"></exception-mapping>
+			<exception-mapping result="exception" exception="java.lang.RuntimeException"></exception-mapping>
+		</global-exception-mappings>
+
+		<action name="captcha/*/*/*/*" class="com.elitecore.nvsmx.commons.controller.captcha.CaptchaCTRL">
+			<result name="success" type="chain">{1}/{2}/{3}/{4}</result>
+			<result name="input" type="chain" >commons/captcha/Captcha/captchaRedirect</result>
+		</action>
+
+		<action name="verifyPassword/*/*/*/*" class="com.elitecore.nvsmx.commons.controller.staff.PasswordVerificationCTRL" method="verifyPassword">
+			<interceptor-ref name="store">
+				<param name="operationMode">AUTOMATIC</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">
+					verifyPassword
+				</param>
+			</interceptor-ref>
+			<result name="success" type="redirect">{1}/{2}/{3}/{4}</result>
+		</action>
+
+		<action name="subTable/*/*/*/*" class="com.elitecore.nvsmx.{1}.controller.{2}.{3}CTRL" method="{4}">
+			<interceptor-ref name="transaction">
+				<param name="excludeMethods">initLogin,logout,findAll</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">
+					view,detail,viewQuotaProfileDetail,viewQosProfileData,viewDetail,getDefaultServiceFlow
+				</param>
+			</interceptor-ref>
+			<result name="view" 			type="tiles">{1}/{2}/{3}_View</result>
+			<result name="detail" 			type="tiles">{1}/{2}/{3}_ViewDetail</result>
+			<result name="login"            type="tiles">commons/login/Login</result>
+			<result name="logout"           type="tiles">{1}/{2}/{3}</result>
+			<result name="quotaProfileDetailView">/view/{1}/{2}/{3}View.jsp</result>
+			<result name="qosProfileDetailView">/view/{1}/{2}/{3}View.jsp</result>
+			<result name="subtableurl" >/view/{1}/{2}/{3}ViewSubDetail.jsp</result>
+
+		</action>
+
+		<action name="*/*/*/*" class="com.elitecore.nvsmx.{1}.controller.{2}.{3}CTRL" method="{4}">
+
+			<interceptor-ref name="nvsmxStack" />
+			<result name="invalid.token" 	type="tiles">commons/login/Login</result>
+			<result name="audit" 			type="tiles">commons/general/ViewAudit</result>
+			<result name="list" 			type="tiles">{1}/{2}/{3}_Search</result>
+			<result name="listDeleted" 		type="tiles">{1}/{2}/{3}_Deleted_Search</result>
+			<result name="welcome" 			type="tiles">Welcome</result>
+			<result name="compulsaryChange" type="tiles">commons/login/ChangePassword</result>
+			<result name="manualChange"     type="tiles">{1}/{2}/{3}_</result>
+			<result name="login"            type="tiles">commons/login/Login</result>
+			<result name="dbsetup"          type="tiles">{1}/{2}/${actionChainUrl}</result>
+			<result name="logout"           type="tiles">{1}/{2}/{3}</result>
+			<result name="forgotPassword"   type="tiles">{1}/forgotPassword/ForgotPassword</result>
+			<result name="resetPassword"    type="tiles">{1}/{2}/ResetPassword_</result>
+			<result name="addOnInfo">/view/{1}/{2}/AddOnInfo.jsp</result>
+			<result name="quotaProfileDetailView">/view/{1}/{2}/{3}View.jsp</result>
+			<result name="qosProfileDetailView">/view/{1}/{2}/{3}View.jsp</result>
+			<result name="auditDataDetail">/view/commons/general/ViewAuditDetail.jsp</result>
+			<result name="subtableurl" >/view/{1}/{2}/{3}ViewSubDetail.jsp</result>
+			<result name="viewDeleteAddOn"  type="chain">policydesigner/subscriber/Subscriber/view</result>
+			<result name="searchTestSubscriber" type="tiles">{1}/{2}/TestSubscriber_Search</result>
+			<result name="importPackage" type="tiles">/{1}/{2}/_PackageImport</result>
+			<result name="importServiceData" type="tiles">/{1}/{2}/_DataServiceTypeImport</result>
+			<result name="importRatingGroup" type="tiles">/{1}/{2}/_RatingGroupImport</result>
+			<result name="importImsPackage" type="tiles">/{1}/{2}/_ImsPackageImport</result>
+			<result name="importStatusReport" type="tiles">/{1}/_ImportStatusReport</result>
+			<result name="importEmergencyPackage" type="tiles">/{1}/{2}/_EmergencyPackageImport</result>
+			<result name="importChargingRuleBaseName" type="tiles">/{1}/{2}/_ChargingRuleBaseNameImport</result>
+			<result name="ajax_success_jsp">/WEB-INF/content/sm/mccmncgroup/NetWorkList.jsp</result>
+			<result name="ajax_pkgdata_jsp">/view/policydesigner/pkg/datapackage-dialog-utility.jsp</result>
+
+		</action>
+
+	</package>
+
+	<package name="excludeValidationPkg" namespace="/excludeValidation" extends="nvsmx" >
+		<action name="*/*/*/*" class="com.elitecore.nvsmx.{1}.controller.{2}.{3}CTRL" method="{4}">
+			<interceptor-ref name="nvsmxStack" >
+				<param name="defaultStack.validation.excludeMethods">
+					manageOrderQosProfiles,manageOrder,view,manageOrderEmergencyPackages,search,manageOrderPromotionalPackages
+				</param>
+
+			</interceptor-ref>
+			<interceptor-ref name="store">
+				<param name="operationMode">AUTOMATIC</param>
+			</interceptor-ref>
+			<!--<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">
+				 	manageOrderQosProfiles,manageOrder,view,manageOrderEmergencyPackages,search,manageOrderPromotionalPackages
+				</param>
+				<param name="workflow.excludeMethods">search</param>
+ 			</interceptor-ref>-->
+			<result name="manageOrder" 		type="tiles">{1}/{2}/{3}_ManageOrder</result>
+			<result name="view" 			type="tiles">{1}/{2}/{3}_View</result>
+			<result name="list" 			type="tiles">{1}/{2}/{3}_Search</result>
+		</action>
+	</package>
+
+	<include file="struts-emergencypkg-config.xml"/>
+	<include file="struts-promotionalpkg-config.xml"/>
+	<include file="struts-globalpccrule-config.xml"/>
+	<include file="struts-rest-config.xml" />
+</struts>

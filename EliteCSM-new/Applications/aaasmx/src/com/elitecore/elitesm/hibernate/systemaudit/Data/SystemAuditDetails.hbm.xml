@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.systemaudit.Data.SystemAuditDetails" table="TBLTSYSTEMAUDITDETAILS" >          
+		
+		<id name="auditDetailId" column="AUDITDETAILID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		
+		<property name="systemAuditId" type="StringType">
+          <column name="SYSTEMAUDITID" sql-type="VARCHAR(36)" />
+    	</property>
+    	
+	    <property name="history" type="byte[]" column="HISTORY" />
+	          
+	</class>
+</hibernate-mapping>

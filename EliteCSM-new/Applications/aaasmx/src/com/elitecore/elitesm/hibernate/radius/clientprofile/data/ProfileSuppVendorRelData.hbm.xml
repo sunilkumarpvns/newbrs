@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.radius.clientprofile.data.ProfileSuppVendorRelData" table="TBLMPROFILESUPPVENDORREL">
+		<composite-id>
+			<key-property name="profileId" column="PROFILEID" type="StringType" ></key-property>
+			<key-property name="vendorInstanceId" column="VENDORINSTANCEID" type="StringType" ></key-property>
+		</composite-id>
+		
+	</class>		
+</hibernate-mapping>  
+
+          

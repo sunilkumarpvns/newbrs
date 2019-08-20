@@ -1,0 +1,9 @@
+<radius-packet code="4" aliase="Accounting-Request">
+	<attribute id="40" alias="Acct-Status-Type" value="1" />
+	<attribute id="4" alias="Acct-Status-Type" value="0.0.0.0" />
+	<attribute id="44" alias="Acc-session-id" value="123"/>
+
+	<attribute> //not closed
+	<extra tags>
+	
+</radius-packet>

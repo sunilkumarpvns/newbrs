@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="969" vendor-name="NTUA">
+<attribute id="10" name="UserLogon-Uid" type="integer"/>
+<attribute id="11" name="UserLogon-Gid" type="integer"/>
+<attribute id="12" name="UserLogon-HomeDir" type="string"/>
+<attribute id="13" name="UserLogon-Type" type="integer">
+	<supported-values>
+		<value id="1" name="FTP"/>
+		<value id="2" name="WEB"/>
+		<value id="3" name="POP"/>
+		<value id="4" name="IMAP"/>
+		<value id="5" name="Windows-Logon"/>
+		<value id="6" name="Unix-Logon"/>
+		<value id="7" name="SMTP-Auth"/>
+		<value id="200" name="Other"/>
+	</supported-values>
+</attribute>
+<attribute id="14" name="UserLogon-QuotaBytes" type="integer"/>
+<attribute id="15" name="UserLogon-QuotaFiles" type="integer"/>
+<attribute id="16" name="UserLogon-Shell" type="string"/>
+<attribute id="17" name="UserLogon-Restriction" type="integer">
+	<supported-values>
+		<value id="1" name="Anonymous-User"/>
+		<value id="2" name="Admin-User"/>
+	</supported-values>
+</attribute>
+<attribute id="18" name="UserLogon-GroupNames" type="string"/>
+<attribute id="19" name="UserLogon-DriveNames" type="string"/>
+<attribute id="20" name="UserLogon-UserDescription" type="string"/>
+<attribute id="21" name="UserLogon-UserFullName" type="string"/>
+<attribute id="22" name="UserLogon-UserDomain" type="string"/>
+<attribute id="23" name="UserLogon-LogonTask" type="string"/>
+<attribute id="24" name="UserLogon-LogoffTask" type="string"/>
+<attribute id="25" name="UserLogon-Expiration" type="string"/>
+<attribute id="26" name="UserLogon-UserProfile" type="string"/>
+<attribute id="50" name="UserLogon-Acct-TerminateCause" type="string"/>
+</attribute-list>

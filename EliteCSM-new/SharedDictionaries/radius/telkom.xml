@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="1431" vendor-name="Telkom">
+<attribute id="1" name="Telkom-Access-Type" type="string"/>
+<attribute id="2" name="Telkom-Service-Type" type="string"/>
+</attribute-list>

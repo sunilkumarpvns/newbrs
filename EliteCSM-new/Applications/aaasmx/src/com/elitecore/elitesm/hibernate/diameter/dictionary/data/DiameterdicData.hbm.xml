@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	 <class name="com.elitecore.elitesm.datamanager.diameter.dictionary.data.DiameterdicData" table="TBLMDIAMETERDICTIONARY">
+	 	<id name="dictionaryId" column="DICTIONARYID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		<property name="vendorName" type="StringType">
+          <column name="VENDORNAME" sql-type="VARCHAR(50)" not-null="true"/>
+        </property>
+		
+		<property name="applicationName" type="StringType">
+          <column name="APPLICATIONNAME" sql-type="VARCHAR(50)" not-null="true"/>
+        </property>
+		
+		
+		<property name="description" type="StringType">
+          <column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"/>
+        </property>
+		
+		<property name="modalNumber" type="StringType">
+          <column name="MODALNUMBER" sql-type="VARCHAR(20)" not-null="true"/>
+        </property>
+		
+		<property name="editable" type="CharType">
+          <column name="EDITABLE" sql-type="CHAR(1)" not-null="true"/>
+        </property>
+		
+		<property name="systemGenerated" type="StringType">
+          <column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+        </property>
+		
+		<property name="dictionaryNumber" type="java.lang.Long">
+          <column name="DICTIONARYNUMBER" sql-type="NUMERIC(20)" not-null="true"/>
+        </property>
+		
+		<property name="commonStatusId" type="CharType">
+          <column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="true"/>
+        </property>
+		
+		<property name="vendorId" type="java.lang.Long">
+          <column name="VENDORID" sql-type="NUMBER(20)" not-null="false"/>
+        </property>
+		
+		<property name="applicationId" type="java.lang.Long">
+          <column name="APPLICATIONID" sql-type="NUMBER(20)" not-null="false"/>
+        </property>
+		
+		<property name="lastModifiedDate" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" not-null="false">
+       </property>
+      
+       <property name="lastModifiedByStaffId" type="StringType">
+          <column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="false"/>
+       </property>
+	     
+	   <property name="createDate" type="java.sql.Timestamp" column="CREATEDATE" not-null="true" >
+      </property>
+      
+      <property name="createdByStaffId" type="StringType">
+          <column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"/>
+      </property>
+      
+      <property name="statusChangedDate" type="java.sql.Timestamp" column="STATUSCHANGEDDATE" not-null="false">
+      </property>	
+		
+	  <set name="diameterdicParamDetailSet"  lazy="false" inverse="true" order-by="vendorParameterId">
+      	<key column="dictionaryId" ></key>
+      	<one-to-many class="com.elitecore.elitesm.datamanager.diameter.dictionary.data.DiameterdicParamDetailData" />
+      </set>
+		
+		
+	 </class>	
+    
+</hibernate-mapping>

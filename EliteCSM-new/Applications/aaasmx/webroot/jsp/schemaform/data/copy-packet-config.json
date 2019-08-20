@@ -1,0 +1,508 @@
+{
+	"schema": {
+  "type":"object",
+  "title":" Copy Packet Mapping Config",
+  "properties":{
+      "name":{
+          "title":"Name",
+          "type":"string"
+      },
+      "description":{
+          "title":"Description",
+          "type":"string"
+      },
+      "script":{
+          "title":"Script",
+          "type":"string"
+      },
+      "from-translation-type":{
+          "title":"Translation Type From",
+          "type":"string"
+      },
+      "to-translation-type":{
+          "title":"Translation Type To",
+          "type":"string"
+      },
+      "mappings":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "mapping-name":{
+                      "title":"Mapping Name",
+                      "type":"string"
+                  },
+                  "in-expression":{
+                      "title":"In Expression(Diameter)",
+                      "type":"string"
+                  },
+                  "dummy-response":{
+                      "title":"Dummy Response",
+                      "type":"string"
+                  },
+                  "default-mapping":{
+                      "title":"Default Mapping",
+                      "type":"string"
+                  },
+                  
+                  "request-parameters":{
+                      "type":"array",
+                      "items":{
+                          "type":"object",
+                          "properties":{
+                              "operation":{
+                                  "title":"Operation",
+                                  "type":"string"
+                              },
+                              "check-expression":{
+                                  "title":"Check Expression",
+                                  "type":"string"
+                              },
+                              "destination-expression":{
+                                  "title":"Destination Expression",
+                                  "type":"string"
+                              },
+                              "source-expression":{
+                                  "title":"Source Expression",
+                                  "type":"string"
+                              },
+                              "default-value":{
+                                  "title":"Default Value",
+                                  "type":"string"
+                              },
+                              "value-mapping":{
+                                  "title":"Value Mappings",
+                                  "type":"string"
+                              }
+                          }
+                      }
+                  },
+                  
+                  "response-parameters":{
+                      "type":"array",
+                      "items":{
+                          "type":"object",
+                          "properties":{
+                              "operation":{
+                                  "title":"Operation",
+                                  "type":"string"
+                              },
+                              "check-expression":{
+                                  "title":"Check Expression",
+                                  "type":"string"
+                              },
+                              "destination-expression":{
+                                  "title":"Destination Expression",
+                                  "type":"string"
+                              },
+                              "source-expression":{
+                                  "title":"Source Expression",
+                                  "type":"string"
+                              },
+                              "default-value":{
+                                  "title":"Default Value",
+                                  "type":"string"
+                              },
+                              "value-mapping":{
+                                  "title":"Value Mapping",
+                                  "type":"string"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      
+      "dummy-response-parameters":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "out-field":{
+                      "title":"Out Field",
+                      "type":"string"
+                  },
+                  "value":{
+                      "title":"Value",
+                      "type":"string"
+                  }
+              }
+          }
+      },
+      
+      
+      "default-mapping":{
+        "type":"object",
+        "properties":{
+            "request-parameters":{
+                "type":"array",
+                "items":{
+                    "type":"object",
+                    "properties":{
+                        "operation":{
+                                  "title":"Operation",
+                                  "type":"string"
+                              },
+                              "check-expression":{
+                                  "title":"Check Expression",
+                                  "type":"string"
+                              },
+                              "destination-expression":{
+                                  "title":"Destination Expression",
+                                  "type":"string"
+                              },
+                              "source-expression":{
+                                  "title":"Source Expression",
+                                  "type":"string"
+                              },
+                              "default-value":{
+                                  "title":"Default Value",
+                                  "type":"string"
+                              },
+                              "value-mapping":{
+                                  "title":"Value Mapping",
+                                  "type":"string"
+                              }
+                    }
+                }
+            },
+            
+            "response-parameters":{
+                "type":"array",
+                "items":{
+                    "type":"object",
+                    "properties":{
+                        "operation":{
+                                  "title":"Operation",
+                                  "type":"string"
+                              },
+                              "check-expression":{
+                                  "title":"Check Expression",
+                                  "type":"string"
+                              },
+                              "destination-expression":{
+                                  "title":"Destination Expression",
+                                  "type":"string"
+                              },
+                              "source-expression":{
+                                  "title":"Source Expression",
+                                  "type":"string"
+                              },
+                              "default-value":{
+                                  "title":"Default Value",
+                                  "type":"string"
+                              },
+                              "value-mapping":{
+                                  "title":"Value Mapping",
+                                  "type":"string"
+                              }
+                    }
+                }
+            }
+        }
+        
+      }
+  }
+},
+	"form": [
+    {
+        "key":"name"
+    },
+    {
+        "key":"description"
+    },
+    {
+        "key":"script"
+    },
+    {
+        "key":"from-translation-type",
+        "type":"select",
+        "titleMap":{
+            "Diameter":"Diameter",
+            "Radius":"Radius"
+        }
+    },
+    {
+        "key":"to-translation-type",
+        "type":"select",
+        "titleMap":{
+            "Diameter":"Diameter",
+            "Radius":"Radius"
+        }
+    },
+    {
+        "key":"mappings",
+        "add":"Add Mappings",
+        "items":[
+            {
+                "key":"mappings[].mapping-name"
+            },
+            {
+                "key":"mappings[].in-expression"
+            },
+            {
+                "key":"mappings[].dummy-response",
+                "type":"radios",
+                "titleMap":[{
+                    "value":"true",
+                    "name":"true"
+                },
+                {
+                    "value":"false",
+                    "name":"false"
+                }
+                ]
+            },
+            {
+                "key":"mappings[].default-mapping",
+                "type":"radios",
+                "titleMap":[
+                    {
+                        "value":"true",
+                        "name":"true"
+                    },
+                    {
+                        "value":"false",
+                        "name":"false"
+                    }
+                    ]
+            },
+            {
+                "key":"mappings[].request-parameters",
+                "add":"Add Mappings",
+                "items":[
+                    {
+                        "key":"mappings[].request-parameters[].operation",
+                        "type":"select",
+                        "titleMap":{
+                            "ADD":"ADD",
+                            "UPDATE":"UPDATE",
+                            "UPGRADE":"UPGRADE",
+                            "DEL":"DEL",
+                            "MOVE":"MOVE"
+                        }
+                    },
+                    {
+                        "key":"mappings[].request-parameters[].check-expression"
+                    },
+                    {
+                        "key":"mappings[].request-parameters[].destination-expression"
+                    },
+                    {
+                        "key":"mappings[].request-parameters[].source-expression"
+                    },
+                    {
+                        "key":"mappings[].request-parameters[].default-value",
+                        "title":"Default Value"
+                    },
+                    {
+                        "key":"mappings[].request-parameters[].value-mapping"
+                    }
+                    ]
+            },
+            {
+                "key":"mappings[].response-parameters",
+                "add":"Add Mapping",
+                "items":[
+                    {
+                        "key":"mappings[].response-parameters[].operation",
+                        "type":"select",
+                        "titleMap":{
+                            "ADD":"ADD",
+                            "UPDATE":"UPDATE",
+                            "UPGRADE":"UPGRADE",
+                            "DEL":"DEL",
+                            "MOVE":"MOVE"
+                        }
+                    },
+                    {
+                        "key":"mappings[].response-parameters[].check-expression"
+                    },
+                    {
+                        "key":"mappings[].response-parameters[].destination-expression"
+                    },
+                    {
+                        "key":"mappings[].response-parameters[].source-expression"
+                    },
+                    {
+                        "key":"mappings[].response-parameters[].default-value",
+                        "title":"Default Value"
+                    },
+                    {
+                        "key":"mappings[].response-parameters[].value-mapping"
+                    }
+                    ]
+            }
+            
+           ]
+    },
+	{
+                "key":"dummy-response-parameters",
+                "add":"Add Mappings",
+                "items":[
+                    {
+                        "key":"dummy-response-parameters[].out-field"
+                    },
+                    {
+                        "key":"dummy-response-parameters[].value"
+                    }
+                    ]
+    },
+    
+    {
+        "key":"default-mapping",
+        "items":[
+            {
+                "key":"default-mapping.request-parameters",
+                "items":[
+                    {
+                        "key":"default-mapping.request-parameters[].operation",
+                        "title":"Operation",
+                        "type":"select",
+                        "titleMap":{
+                            "ADD":"ADD",
+                            "UPDATE":"UPDATE",
+                            "UPGRADE":"UPGRADE",
+                            "DEL":"DEL",
+                            "MOVE":"MOVE"
+                        }
+                    },
+                    {
+                         "key":"default-mapping.request-parameters[].check-expression",
+                        "title":"Check Expression"
+                    },
+                    {
+                         "key":"default-mapping.request-parameters[].destination-expression",
+                        "title":"Destination Expression"
+                    },
+                    {
+                         "key":"default-mapping.request-parameters[].source-expression",
+                        "title":"Source Expression"
+                    },
+                    {
+                        "key":"default-mapping.request-parameters[].default-value",
+                        "title":"Default Value"
+                    },
+                    {
+                         "key":"default-mapping.request-parameters[].value-mapping",
+                        "title":"Value Mappings "
+                    }
+                    
+                    
+                    ]
+            },
+            {
+                "key":"default-mapping.response-parameters",
+                "items":[
+                    
+                    {
+                        "key":"default-mapping.response-parameters[].operation",
+                        "title":"Operation",
+                        "type":"select",
+                        "titleMap":{
+                            "ADD":"ADD",
+                            "UPDATE":"UPDATE",
+                            "UPGRADE":"UPGRADE",
+                            "DEL":"DEL",
+                            "MOVE":"MOVE"
+                        }
+                    },
+                    {
+                         "key":"default-mapping.response-parameters[].check-expression",
+                        "title":"Check Expression"
+                    },
+                    {
+                         "key":"default-mapping.response-parameters[].destination-expression",
+                        "title":"Destination Expression"
+                    },
+                    {
+                         "key":"default-mapping.response-parameters[].source-expression",
+                        "title":"Source Expression"
+                    },
+                    {
+                        "key":"default-mapping.response-parameters[].default-value",
+                        "title":"Default Value"
+                    },
+                    {
+                         "key":"default-mapping.response-parameters[].value-mapping",
+                        "title":"Value Mappings "
+                    }
+                    ]
+            }
+            ]
+    }
+],
+	"model": {
+   "name":"Copy_Packet_Configuration",
+   "description":"Created by admin on 01/03/2017 06:28:05 PM",
+   "script":"scripfilename.groovy",
+   "from-translation-type":"DIAMETER",
+   "to-translation-type":"DIAMETER",
+   "mappings":[
+      {
+         "mapping-name":"Mapping1",
+         "in-expression":"0:416=\"1\"",
+         "dummy-response":"false",
+         "default-mapping":"false",
+         "request-parameters":[
+            {
+               "operation":"ADD",
+               "check-expression":"*",
+               "destination-expression":"0:89",
+               "source-expression":"${MULTIMODE}:0:443"
+            }
+         ],
+         "response-parameters":[
+            {
+               "operation":"ADD",
+               "check-expression":"*",
+               "destination-expression":"10415:628.10415:630",
+               "default-value":"45678"
+            }
+         ]
+      },
+      {
+         "mapping-name":"Default_Mapping",
+         "in-expression":"0:416=\"2\"",
+         "dummy-response":"false",
+         "default-mapping":"true"
+      },
+      {
+         "mapping-name":"Dummy_Mapping",
+         "in-expression":"0:416=\"3\"",
+         "dummy-response":"true",
+         "default-mapping":"true"
+      }
+   ],
+   "dummy-response-parameters":[
+      {
+         "value":"2001",
+         "out-field":"0:268"
+      },
+      {
+         "value":"1000",
+         "out-field":"0:263"
+      }
+   ],
+   "default-mapping":{
+      "request-parameters":[
+         {
+            "operation":"ADD",
+            "check-expression":"*",
+            "destination-expression":"0:416",
+            "source-expression":"0:416",
+            "value-mapping":"2=UPDATE_REQUEST "
+         }
+      ],
+      "response-parameters":[
+         {
+            "operation":"UPDATE",
+            "check-expression":"0:268=\"3001\"",
+            "destination-expression":"ErrorFlag",
+            "source-expression":"\"1\""
+         }
+      ]
+   }
+}
+}

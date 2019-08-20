@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.data.NetServerTypeData" table="TBLMNETSERVERTYPE">
+		<id name="netServerTypeId" column="NETSERVERTYPEID" type="string">
+		</id>
+		<property name="name" type="string">
+			<column name="NAME" sql-type="VARCHAR2(60)" not-null="true"></column>
+		</property>
+		<property name="alias" type="string">
+			<column name="ALIAS" sql-type="VARCHAR2(60)" not-null="true"></column>
+		</property>
+		<property name="description" type="string">
+			<column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="true"></column>
+		</property>
+		<property name="systemGenerated" type="string">
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"></column>
+		</property>
+        <property name="version" type="string">
+            <column name="VERSION" sql-type="VARCHAR2(25)" not-null="true"></column>
+        </property>
+        <property name="startupScriptName" type="string">
+            <column name="STARTUPSCRIPTNAME" sql-type="VARCHAR2(60)" not-null="true"></column>
+        </property>
+	</class>
+</hibernate-mapping>

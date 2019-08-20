@@ -1,0 +1,64 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Diameter Charging Driver",
+  "properties":{
+      "name":{
+          "title":"Instance Name",
+          "type":"string"
+      },
+      "description":{
+          "title":"Description",
+          "type":"string"
+      },
+      "diameter-charging-driver":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "disconnect-url":{
+                      "title":"Disconnect URL",
+                      "type":"string"
+                  },
+                  "translation-mapping-configuration":{
+                      "title":"Translation Mapping Configuration",
+                      "type":"string"
+                  }
+              
+              }
+          }
+      }
+  }
+  
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"diameter-charging-driver",
+      "items":[
+          {
+              "key":"diameter-charging-driver[].disconnect-url"
+          },
+          {
+              "key":"diameter-charging-driver[].translation-mapping-configuration"
+          }
+            ]
+  }
+  
+],
+"model":{
+    "name": "diameterChargingDriver",
+    "description": "Created by admin on 02/21/2017 10:04:42 AM",
+    "diameter-charging-driver": [
+        {
+            "translation-mapping-configuration": "diameterChargingTranslationMapping",
+            "disconnect-url": "www.example.com"
+        }
+    ]
+}
+}

@@ -1,0 +1,183 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable.xml?operation=search
+
+Response :
+
+<priority-table>
+	<priority-entry>
+		<application-id>16777220</application-id>
+		<command-code>272</command-code>
+		<ip-address>10.106.1.158</ip-address>
+		<diameter-session>New</diameter-session>
+		<priority>Medium</priority>
+	</priority-entry>
+</priority-table>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable.json?operation=search
+
+Response :
+
+{
+	"priority-entry": [
+		{
+			"application-id": "16777220",
+			"command-code": "272",
+			"ip-address": "10.106.1.158",
+			"diameter-session": "New",
+			"priority": "Medium"
+		}
+	]
+}
+
+***********************************************************************
+					CREATE OPERATION
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<priority-table>
+	<priority-entry>
+		<application-id>16777220</application-id>
+		<command-code>272</command-code>
+		<ip-address>10.106.1.158</ip-address>
+		<diameter-session>New</diameter-session>
+		<priority>Medium</priority>
+	</priority-entry>
+</priority-table>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Priority Table updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"priority-entry": [
+		{
+			"application-id": "16777220",
+			"command-code": "272",
+			"ip-address": "10.106.1.158",
+			"diameter-session": "New",
+			"priority": "Medium"
+		}
+	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Priority Table updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/prioritytable?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<priority-table>
+	<priority-entry>
+		<application-id>16777216</application-id>
+		<command-code>271</command-code>
+		<ip-address>10.106.1.89</ip-address>
+		<diameter-session>Existing</diameter-session>
+		<priority>Low</priority>
+	</priority-entry>
+</priority-table>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Priority Table updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"priority-entry": [
+		{
+			"application-id": "16777216",
+			"command-code": "271",
+			"ip-address": "10.106.1.89",
+			"diameter-session": "Existing",
+			"priority": "Low"
+		}
+	]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Priority Table updated successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) To enable debug, add debug=true in query parameter
+
+***********************************************************************

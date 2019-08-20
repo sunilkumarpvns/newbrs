@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+        <form-beans>
+
+
+   <form-bean name="createDriverInstanceForm" type="com.elitecore.netvertexsm.web.servermgr.drivers.form.CreateDriverInstanceForm"/>
+           <form-bean name="searchDriverInstanceForm" type="com.elitecore.netvertexsm.web.servermgr.drivers.form.SearchDriverInstanceForm"/>
+           <form-bean name="miscDriverInstanceForm" type="com.elitecore.netvertexsm.web.servermgr.drivers.form.MiscDriverInstanceForm"/>
+			<form-bean name="searchDriverInstanceForm" type="com.elitecore.netvertexsm.web.servermgr.drivers.form.SearchDriverInstanceForm" />
+           <form-bean name="viewDriverInstanceForm" type="com.elitecore.netvertexsm.web.servermgr.drivers.form.ViewDriverInstanceForm" />
+           <form-bean name="editDriverInstanceForm" type="com.elitecore.netvertexsm.web.servermgr.drivers.form.EditDriverInstanceForm" />
+           
+           <form-bean name="csvDriverForm" type="com.elitecore.netvertexsm.web.servermgr.drivers.csvdriver.form.CSVDriverForm" />
+		   <form-bean name="dbCDRDriverForm" type="com.elitecore.netvertexsm.web.servermgr.drivers.dbcdrdriver.form.DBCDRDriverForm" />	
+		
+		
+           <!--SPInterface Driver Management -->
+           <form-bean name="createSPInterfaceForm" type="com.elitecore.netvertexsm.web.servermgr.spinterface.form.CreateSPInterfaceForm"/>
+           <form-bean name="searchSPInterfaceForm" type="com.elitecore.netvertexsm.web.servermgr.spinterface.form.SearchSPInterfaceForm"/>
+           <form-bean name="miscSPInterfaceForm" type="com.elitecore.netvertexsm.web.servermgr.spinterface.form.MiscSPInterfaceForm"/>
+			<!-- <form-bean name="searchSPInterfaceForm" type="com.elitecore.netvertexsm.web.servermgr.spinterface.form.SearchSPInterfaceForm" /> -->
+           <form-bean name="viewSPInterfaceForm" type="com.elitecore.netvertexsm.web.servermgr.spinterface.form.ViewSPInterfaceForm" />
+           <form-bean name="editSPInterfaceForm" type="com.elitecore.netvertexsm.web.servermgr.spinterface.form.EditSPInterfaceForm" />
+		
+		   <!-- LDAP SP Interface -->
+           <form-bean name="searchLDAPSPInterfaceForm" type="com.elitecore.netvertexsm.web.servermgr.spinterface.ldapinterface.form.SearchLDAPSPInterfaceForm" />
+           <form-bean name="ldapSPInterfaceForm" type="com.elitecore.netvertexsm.web.servermgr.spinterface.ldapinterface.form.LDAPSPInterfaceForm" />
+           
+           <!-- DB SP Interface -->
+           <form-bean name="searchDBSPInterfaceForm" type="com.elitecore.netvertexsm.web.servermgr.spinterface.dbinterface.form.SearchDBSPInterfaceForm" />
+           <form-bean name="dbSPInterfaceForm" type="com.elitecore.netvertexsm.web.servermgr.spinterface.dbinterface.form.DBSPInterfaceForm" />
+           
+
+        </form-beans>
+
+            <action-mappings>
+            
+            
+                <action path="/initCreateDriverInstance"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.InitCreateDriverAction"
+                        name="createDriverInstanceForm" scope="request" validate="false">
+                        <forward name="initCreateDriver" path="/jsp/servermgr/drivers/CreateDriverInstance.jsp" />
+                </action>
+
+                <action path="/createDriverInstance"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.CreateDriverAction"
+                        name="createDriverInstanceForm" scope="request" validate="false">
+                        <forward name="initCreateCSVDriver" path="/initCreateCSVDriver.do" />
+                        <forward name="initCreateDBCDRDriver" path="/initCreateDBCDRDriver.do" />
+                </action>
+                
+                
+                <action path="/initSearchDriverInstance"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.InitSearchDriverAction"
+                        name="searchDriverInstanceForm" scope="request" validate="false">
+                        <forward name="initSearchDriver"
+                                path="/jsp/servermgr/drivers/SearchDriverInstance.jsp" />
+                </action>
+
+                <action path="/searchDriverInstance"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.SearchDriverAction"
+                        name="searchDriverInstanceForm" scope="request" validate="false">
+                        <forward name="searchDriverList" path="/jsp/servermgr/drivers/SearchDriverInstance.jsp" />
+                </action>
+
+				<action path="/viewDriverInstance"
+						 type="com.elitecore.netvertexsm.web.servermgr.drivers.ViewDriverInstanceAction"
+						 name="viewDriverInstanceForm"
+						 scope="request"
+						 validate="false">
+						 <forward name="viewCSVDriverInstance" path="/jsp/servermgr/drivers/csvdriver/ViewCSVDriverContainer.jsp"/>
+						 <forward name="viewDBCDRDriverInstance" path="/jsp/servermgr/drivers/dbcdrdriver/ViewDBCDRDriverContainer.jsp"/>
+			 	</action>
+		
+			   	<action path="/initEditDriverInstance"
+				  		scope="request"
+				  		type="com.elitecore.netvertexsm.web.servermgr.drivers.InitEditDriverInstanceAction"
+				  		name="editDriverInstanceForm"
+				  		validate="false">
+				  		<forward name="initEditCSVDriver" path="/initEditCSVDriver.do"/>
+				  		<forward name="initEditDBCDRDriver" path="/initEditDBCDRDriver.do" />
+			  	</action>
+			  
+			  
+			    <action path="/miscDriverInstance"
+			            type="com.elitecore.netvertexsm.web.servermgr.drivers.MiscDriverInstanceAction"
+			      		name="miscDriverInstanceForm" 
+			      		scope="request" 
+			      		validate="false">
+			            <forward name="searchPackageList" path="/initSearchDriverInstance.do" />
+		      	</action>
+		      	
+		   		<action path="/initEditDriverBasicDetails"
+				  		scope="request"
+				  		type="com.elitecore.netvertexsm.web.servermgr.drivers.InitEditDriverBasicDetailsAction"
+				  		name="editDriverInstanceForm"
+				  		validate="false">
+				  		<forward name="editDriverBasicDetail" path="/jsp/servermgr/drivers/EditDriverBasicDetailsContainer.jsp" />
+			  	</action>
+			  	
+			  	<action path="/editDriverBasicDetails"
+				  		scope="request"
+				  		type="com.elitecore.netvertexsm.web.servermgr.drivers.EditDriverBasicDetailsAction"
+				  		name="editDriverInstanceForm"
+				  		validate="false">
+			  	</action>
+			  	
+			    <action path="/initCreateCSVDriver"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.csvdriver.InitCreateCSVDriverAction"
+                        name="csvDriverForm" scope="request" validate="false">
+                        <forward name="createCSVDriver"    path="/jsp/servermgr/drivers/csvdriver/CreateCSVDriver.jsp" />
+                </action>
+                
+ 				<action path="/createCSVDriver"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.csvdriver.CreateCSVDriverAction"
+                        name="csvDriverForm" scope="request" validate="false">
+                </action>
+                
+                <action path="/initEditCSVDriver"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.csvdriver.InitEditCSVDriverAction"
+                        name="csvDriverForm" scope="request" validate="false">
+                        <forward name="editCSVDriver"    path="/jsp/servermgr/drivers/csvdriver/EditCSVDriverContainer.jsp" />
+                </action>
+			  
+			    <action path="/editCSVDriver"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.csvdriver.EditCSVDriverAction"
+                        name="csvDriverForm" scope="request" validate="false">
+                </action>
+			    			    
+			    <!--  DB CDR Driver Managment -->
+			    <action path="/initCreateDBCDRDriver"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.dbcdrdriver.InitCreateDBCDRDriverAction"
+                        name="dbCDRDriverForm" scope="request" validate="false">
+                        <forward name="createDBCDRDriver" path="/jsp/servermgr/drivers/dbcdrdriver/CreateDBCDRDriver.jsp" />
+                </action>
+                
+ 				<action path="/createDBCDRDriver"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.dbcdrdriver.CreateDBCDRDriverAction"
+                        name="dbCDRDriverForm" scope="request" validate="false">
+                </action>
+                
+                <action path="/initEditDBCDRDriver"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.dbcdrdriver.InitEditDBCDRDriverAction"
+                        name="dbCDRDriverForm" scope="request" validate="false">
+                        <forward name="editDBCDRDriver" path="/jsp/servermgr/drivers/dbcdrdriver/EditDBCDRDriverContainer.jsp" />
+                </action>
+			  
+			    <action path="/editDBCDRDriver"
+                        type="com.elitecore.netvertexsm.web.servermgr.drivers.dbcdrdriver.EditDBCDRDriverAction"
+                        name="dbCDRDriverForm" scope="request" validate="false">
+                </action>
+			  	<!--  DB CDR Driver Managment -->
+			    
+            	<!--  SPInterface Driver Managment -->
+                 <action path="/initCreateSPInterface"
+                        type="com.elitecore.netvertexsm.web.servermgr.spinterface.InitCreateSPInterfaceAction"
+                        name="createSPInterfaceForm" scope="request" validate="false">
+                        <forward name="initCreateSPInterface" path="/jsp/servermgr/spinterface/CreateSPInterface.jsp" />
+                </action>
+
+                <action path="/createSPInterface"
+                        type="com.elitecore.netvertexsm.web.servermgr.spinterface.CreateSPInterfaceAction"
+                        name="createSPInterfaceForm" scope="request" validate="false">
+                        <forward name="initCreateLDAPSPInterface" path="/initCreateLDAPSPInterface.do" />
+                        <forward name="initCreateDBSPInterface" path="/initCreateDBSPInterface.do" />
+                </action>
+                
+                <action path="/initCreateLDAPSPInterface"
+                        type="com.elitecore.netvertexsm.web.servermgr.spinterface.ldapinterface.InitCreateLDAPSPInterfaceAction"
+                        name="ldapSPInterfaceForm" scope="request" validate="false">
+                        <forward name="createLDAPSPInterface" path="/jsp/servermgr/spinterface/ldapinterface/CreateLDAPSPInterface.jsp" />
+                </action>
+
+				<action path="/initCreateDBSPInterface"
+                        type="com.elitecore.netvertexsm.web.servermgr.spinterface.dbinterface.InitCreateDBSPInterfaceAction"
+                        name="dbSPInterfaceForm" scope="request" validate="false">
+                        <forward name="createDBSPInterface" path="/jsp/servermgr/spinterface/dbinterface/CreateDBSPInterface.jsp" />
+                </action>
+
+                <action path="/createDBSPInterface"
+                        type="com.elitecore.netvertexsm.web.servermgr.spinterface.dbinterface.CreateDBSPInterfaceAction"
+                        name="dbSPInterfaceForm" scope="request" validate="false">
+                </action>
+                
+                <action path="/createLDAPSPInterface"
+                        type="com.elitecore.netvertexsm.web.servermgr.spinterface.ldapinterface.CreateLDAPSPInterfaceAction"
+                        name="ldapSPInterfaceForm" scope="request" validate="false">
+                </action>
+                
+                <action path="/initSearchSPInterface"
+                        type="com.elitecore.netvertexsm.web.servermgr.spinterface.InitSearchSPInterfaceAction"
+                        name="searchSPInterfaceForm" scope="request" validate="false">
+                        <forward name="initSearchSPInterface" path="/jsp/servermgr/spinterface/SearchSPInterface.jsp" />
+                </action>
+
+                <action path="/searchSPInterface"
+                        type="com.elitecore.netvertexsm.web.servermgr.spinterface.SearchSPInterfaceAction"
+                        name="searchSPInterfaceForm" scope="request" validate="false">
+                        <forward name="searchSPInterfacePage" path="/jsp/servermgr/spinterface/SearchSPInterface.jsp" />
+                </action>
+
+			    <action path="/miscSPInterface"
+			            type="com.elitecore.netvertexsm.web.servermgr.spinterface.MiscSPInterfaceAction"
+			      		name="miscSPInterfaceForm" 
+			      		scope="request" 
+			      		validate="false">
+			            <forward name="searchSPInterfaceList" path="/initSearchSPInterface.do" />
+		      	</action>
+		      	
+				<action path="/viewSPInterface"
+						 type="com.elitecore.netvertexsm.web.servermgr.spinterface.ViewSPInterfaceAction"
+						 name="viewSPInterfaceForm"
+						 scope="request"
+						 validate="false">
+						 <forward name="viewDBSPInterface" path="/jsp/servermgr/spinterface/dbinterface/ViewDBSPInterfaceContainer.jsp"/>
+						 <forward name="viewLDAPSPInterface" path="/jsp/servermgr/spinterface/ldapinterface/ViewLDAPSPInterfaceContainer.jsp"/>
+			 	</action>
+		
+		
+			   	<action path="/initEditSPInterface"
+				  		scope="request"
+				  		type="com.elitecore.netvertexsm.web.servermgr.spinterface.InitEditSPInterfaceAction"
+				  		name="editSPInterfaceForm"
+				  		validate="false">
+				  		<forward name="initEditDBDriver" path="/initEditDBSPInterface.do" />
+				  		<forward name="initEditLDAPDriver" path="/initEditLDAPSPInterface.do" />
+			  	</action>
+		
+		
+			  	<action path="/initEditDBSPInterface"
+				 		scope="request"
+				  		type="com.elitecore.netvertexsm.web.servermgr.spinterface.dbinterface.InitEditDBSPInterfaceAction"
+				  		name="dbSPInterfaceForm"
+				  		validate="false">
+				  		<forward name="editDBSPInterface" path="/jsp/servermgr/spinterface/dbinterface/EditDBSPInterfaceContainer.jsp" />
+			  	</action>
+			  	
+		  		<action path="/editDBSPInterface"
+				 		scope="request"
+				  		type="com.elitecore.netvertexsm.web.servermgr.spinterface.dbinterface.EditDBSPInterfaceAction"
+				  		name="dbSPInterfaceForm"
+				  		validate="false">
+			  	</action>
+			  	
+			  	
+			  	<action path="/initEditLDAPSPInterface"
+				 		scope="request"
+				  		type="com.elitecore.netvertexsm.web.servermgr.spinterface.ldapinterface.InitEditLDAPSPInterfaceAction"
+				  		name="ldapSPInterfaceForm"
+				  		validate="false">
+				  		<forward name="editLDAPSPInterface" path="/jsp/servermgr/spinterface/ldapinterface/EditLDAPSPInterfaceContainer.jsp" />
+			  	</action>
+			  	
+			  	<action path="/editLDAPSPInterface"
+				 		scope="request"
+				  		type="com.elitecore.netvertexsm.web.servermgr.spinterface.ldapinterface.EditLDAPSPInterfaceAction"
+				  		name="ldapSPInterfaceForm"
+				  		validate="false">
+			  	</action>
+			  	
+
+                <action path="/miscDatabaseDS" scope="request"
+                        type="com.elitecore.netvertexsm.web.datasource.database.MiscDatabaseDSAction"
+                        name="miscDatabaseDSForm" validate="false">
+                        <forward name="databaseDSSearchList" path="/initSearchLDAPSPInterface.do" />
+                </action>
+
+            
+
+<!--                 <action path="/searchDBSPInterface"
+                        type="com.elitecore.netvertexsm.web.servermgr.driver.dbinterface.SearchDBSPInterfaceAction"
+                        name="searchDBSPInterfaceForm" scope="request" validate="false">
+                        <forward name="searchDBDriverList"
+                                path="/jsp/servermgr/spinterface/dbinterface/SearchDBSPInterface.jsp" />
+                </action> -->
+
+                <action path="/miscDatabaseDS" scope="request"
+                        type="com.elitecore.netvertexsm.web.datasource.database.MiscDatabaseDSAction"
+                        name="miscDatabaseDSForm" validate="false">
+                        <forward name="databaseDSSearchList" path="/initSearchLDAPSPInterface.do" />
+                </action>
+
+
+
+
+		
+        </action-mappings>
+
+        <message-resources key="driverResources" parameter="com.elitecore.netvertexsm.web.servermgr.drivers.driverResources" />
+
+
+</struts-config>

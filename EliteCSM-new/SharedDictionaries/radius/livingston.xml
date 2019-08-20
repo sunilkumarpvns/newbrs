@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="307" vendor-name="Livingston">
+<attribute id="2" name="LE-Terminate-Detail" type="string"/>
+<attribute id="3" name="LE-Advice-of-Charge" type="string"/>
+<attribute id="4" name="LE-Connect-Detail" type="string"/>
+<attribute id="6" name="LE-IP-Pool" type="string"/>
+<attribute id="7" name="LE-IP-Gateway" type="ipaddr"/>
+<attribute id="8" name="LE-Modem-Info" type="string"/>
+<attribute id="9" name="LE-IPSec-Log-Options" type="integer">
+	<supported-values>
+		<value id="1" name="SA-Success-On"/>
+		<value id="2" name="SA-Failure-On"/>
+		<value id="3" name="Console-On"/>
+		<value id="4" name="Syslog-On"/>
+		<value id="5" name="SA-Success-Off"/>
+		<value id="6" name="SA-Failure-Off"/>
+		<value id="7" name="Console-Off"/>
+		<value id="8" name="Syslog-Off"/>
+	</supported-values>
+</attribute>
+<attribute id="10" name="LE-IPSec-Deny-Action" type="integer">
+	<supported-values>
+		<value id="1" name="Drop"/>
+		<value id="2" name="ICMP-Reject"/>
+		<value id="3" name="Pass-Through"/>
+	</supported-values>
+</attribute>
+<attribute id="11" name="LE-IPSec-Active-Profile" type="string"/>
+<attribute id="12" name="LE-IPSec-Outsource-Profile" type="string"/>
+<attribute id="13" name="LE-IPSec-Passive-Profile" type="string"/>
+<attribute id="14" name="LE-NAT-TCP-Session-Timeout" type="integer"/>
+<attribute id="15" name="LE-NAT-Other-Session-Timeout" type="integer"/>
+<attribute id="16" name="LE-NAT-Log-Options" type="integer">
+	<supported-values>
+		<value id="1" name="Session-Success-On"/>
+		<value id="2" name="Session-Failure-On"/>
+		<value id="3" name="Console-On"/>
+		<value id="4" name="Syslog-On"/>
+		<value id="5" name="Success-Off"/>
+		<value id="6" name="Failure-Off"/>
+		<value id="7" name="Console-Off"/>
+		<value id="8" name="Syslog-Off"/>
+	</supported-values>
+</attribute>
+<attribute id="17" name="LE-NAT-Sess-Dir-Fail-Action" type="integer">
+	<supported-values>
+		<value id="1" name="Drop"/>
+		<value id="2" name="ICMP-Reject"/>
+		<value id="3" name="Pass-Through"/>
+	</supported-values>
+</attribute>
+<attribute id="18" name="LE-NAT-Inmap" type="string"/>
+<attribute id="19" name="LE-NAT-Outmap" type="string"/>
+<attribute id="20" name="LE-NAT-Outsource-Inmap" type="string"/>
+<attribute id="21" name="LE-NAT-Outsource-Outmap" type="string"/>
+<attribute id="22" name="LE-Admin-Group" type="string"/>
+<attribute id="23" name="LE-Multicast-Client" type="integer">
+	<supported-values>
+		<value id="1" name="On"/>
+	</supported-values>
+</attribute>
+</attribute-list>

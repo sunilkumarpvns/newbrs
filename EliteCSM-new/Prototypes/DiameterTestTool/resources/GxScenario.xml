@@ -1,0 +1,73 @@
+<scenario>
+
+ 	<tcp action="connect" ip="10.106.1.33" port="3868" /> 
+	
+<!-- 	<tcp action="connect" ip="10.106.1.155" port="3868" /> -->
+	
+<!-- 	<tcp action="connect" ip="192.168.2.130" port="3868" /> -->
+
+	<echo message = "Connected. Sending CER."/>
+	<send>
+		<onFailuer kill=""></onFailuer>
+		<packet cc="257" app-id="0" request="true" h2h="180" e2e="316">
+			<attribute id="0:264" alias="Origin-Host" value="gx1.elitecore.com" />
+			<attribute id="0:296" alias="Origin-Realm" value="elitecore.com" />
+			<attribute id="0:269" alias="Product-name" value="test" />
+			<attribute id="0:266" alias="Vendor" value="21067" />
+			<attribute id="0:257" alias="Host-IP" value="10.106.1.38" />
+			<attribute id="0:258" alias="Auth-Application-Id" value="1" />
+			<attribute id="0:260" alias="Vendor-Specific-Application-Id">
+				<attribute id="0:266" alias="Vendor-Id" value="10415" />
+				<attribute id="0:258" alias="Auth-Application-Id" value="16777238" />
+			</attribute>
+			<attribute id="0:260" alias="Vendor-Specific-Application-Id">
+				<attribute id="0:266" alias="Vendor-Id" value="10415" />
+				<attribute id="0:258" alias="Auth-Application-Id" value="16777238" />
+			</attribute>
+			<attribute id="0:299" alias="Inband-Security-Id" value="0" />
+		</packet>
+
+		<receive-response time-out="500000">
+			<onFailuer kill=""></onFailuer>
+		</receive-response>
+	</send>
+
+	<loop count="10">
+		<receive-request time-out="1000" cc="265" app-id="1">
+			
+			<send>
+				<packet cc="265" app-id="1" request="false" h2h="11" e2e="331">
+					<attribute id="0:264" alias="Origin-Host" value="gx1.elitecore.com" />
+					<attribute id="0:296" alias="Origin-Realm" value="elitecore.com" />
+					<attribute id="0:269" alias="Product-name" value="test" />
+					<attribute id="0:266" alias="Vendor" value="21067" />
+					<attribute id="0:257" alias="Host-IP" value="10.106.1.38" />
+					<attribute id="0:258" alias="Auth-Application-Id" value="1" />
+					<attribute id="0:263" alias="Session-Id" value="Gx_Group.1000" />
+					<attribute id="0:268" alias="Result-Code" value="2001" />
+					<attribute id="0:25" alias="Class" value="greetings_from_gx1" />
+				</packet>
+			</send>
+		</receive-request>
+
+		<wait cosoleResponse="ok" />
+
+		<send>
+			<packet cc="258" app-id="1" request="true" h2h="1432" e2e="3765">
+				<attribute id="0:264" alias="Origin-Host" value="gx1.elitecore.com" />
+				<attribute id="0:296" alias="Origin-Realm" value="elitecore.com" />
+				<attribute id="0:269" alias="Product-name" value="test" />
+				<attribute id="0:266" alias="Vendor" value="21067" />
+				<attribute id="0:257" alias="Host-IP" value="10.106.1.101" />
+				<attribute id="0:258" alias="Auth-Application-Id" value="1" />
+				<attribute id="0:263" alias="Session-Id" value="Gx_Group.1000" />
+				<attribute id="0:268" alias="Auth-Application-Id" value="2001" />
+				<attribute id="0:25" alias="Class" value="greetings_from_gx1" />
+				<attribute id="0:1" alias="Username" value="eliteaaa"/>
+			</packet>
+			
+			<receive-response time-out="10000"></receive-response>
+		</send>
+		
+	</loop>
+</scenario>

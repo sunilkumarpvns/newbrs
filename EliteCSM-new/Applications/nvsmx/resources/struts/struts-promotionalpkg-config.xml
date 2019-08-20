@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<!--TO DO need to modify this file after ACL restructure-->
+
+<struts>
+
+        <package name="promotional" extends="nvsmx" >
+
+                <action name="promotional/*/*/*/*/*" class="com.elitecore.nvsmx.{1}.controller.{2}.{3}CTRL" method="{5}">
+                          <!--here we skipping 4th wild card as it will be use to identify ACL module-->
+                        <interceptor-ref name="nvsmxStack" />
+                        <result name="list" 	type="tiles">{1}/promotional/{4}_Search</result>
+                        <result name="manageOrder" 	type="tiles">{1}/promotional/{4}_ManageOrder</result>
+                        <result name="manageOrder" 	type="tiles">{1}/promotional/{4}_ManageOrder</result>
+                        <result name="importPackage" type="tiles">{1}/promotional/{4}_Import</result>
+                        <result name="importStatusReport" type="tiles">/{1}/_ImportStatusReport</result>
+                        <result name="dispatchToParent">../../../../../${actionChainUrl}</result>
+                </action>
+
+</package>
+</struts>

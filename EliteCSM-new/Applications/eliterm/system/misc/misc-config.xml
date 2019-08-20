@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<miscellaneous-data>
+	<param name="eap-sim-no-of-triplets" value="3"/>
+	<param name="eap-sim-triplet-datasource" value="0"/>
+	<param name="eap-aka-triplet-datasource" value="0"/>
+	<param name="diameter.rfc.validation" value="true"/>
+	<param name="sql.transaction.batch" value="true"/>
+	<param name="sql.transaction.nowait" value="true"/>
+	<param name="websnmp.port" value="8082"/>
+	<param name="policy.oldreplyitem" value="false"/>
+	<param name="alert.repeatedmessagereduction.interval.sec" value="10"/>
+	<param name="http.connections" value="50"/>
+</miscellaneous-data>
+

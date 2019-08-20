@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.wsconfig.data.WSAttrFieldMapData" table="TBLWSATTRFIELDMAP">
+
+		<id name="attrFieldMapId" column="ATTRFIELDMAPID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+    
+		<property name="wsConfigId" type="StringType"> 
+			<column name="WSCONFIGID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+
+		<property name="attribute" type="StringType"> 
+			<column name="ATTRIBUTE" sql-type="VARCHAR(60)" not-null="false" /> 
+		</property>
+
+		<property name="fieldName" type="StringType"> 
+			<column name="FIELDNAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false" />
+
+</class>            
+	            
+</hibernate-mapping>

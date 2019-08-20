@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <form-beans>
+       <form-bean name="initcreateDatabaseDSForm" type="com.elitecore.netvertexsm.web.datasource.database.form.InitCreateDatabaseDSForm"/>
+       <form-bean name="createDatabaseDSForm" type="com.elitecore.netvertexsm.web.datasource.database.form.CreateDatabaseDSForm"/>
+       <form-bean name="initsearchDatabaseDSForm" type="com.elitecore.netvertexsm.web.datasource.database.form.SearchDatabaseDSForm"/>
+       <form-bean name="searchDatabaseDSForm" type="com.elitecore.netvertexsm.web.datasource.database.form.SearchDatabaseDSForm"/>
+       <form-bean name="miscDatabaseDSForm" type="com.elitecore.netvertexsm.web.datasource.database.form.MiscDatabaseDSForm"/>
+       <form-bean name="viewDatabaseDSForm" type="com.elitecore.netvertexsm.web.datasource.database.form.ViewDatabaseDSForm"/>
+       <form-bean name="updateDatabaseDSDetailForm" type="com.elitecore.netvertexsm.web.datasource.database.form.UpdateDatabaseDSDetailForm"/>
+       <form-bean name="createLDAPDS" type="com.elitecore.netvertexsm.web.datasource.ldap.form.CreateLDAPDatasourceForm"/>
+       <form-bean name="searchLDAPDS" type="com.elitecore.netvertexsm.web.datasource.ldap.form.SearchLDAPDatasourceForm"/>
+       <form-bean name="updateLDAPDS" type="com.elitecore.netvertexsm.web.datasource.ldap.form.UpdateLDAPDatasourceForm"/>
+       
+       <form-bean name="searchEsiRadiusForm" type="com.elitecore.netvertexsm.web.datasource.esiradius.form.SearchEsiRadiusForm"/>
+       <form-bean name="createEsiRadiusForm" type="com.elitecore.netvertexsm.web.datasource.esiradius.form.CreateEsiRadiusForm"/>
+       
+    </form-beans>
+    
+    <global-forwards >
+      <forward name="success" path="/jsp/core/response/SuccessResponsePage.jsp" />
+      <forward name="failure" path="/jsp/core/response/FailureResponsePage.jsp" />
+      <forward name="popupfailure" path="/jsp/core/response/PopupFailureResponsePage.jsp" /> 
+      <forward name="popupsuccess" path="/jsp/core/response/PopupSuccessResponsePage.jsp" />
+                 
+    </global-forwards>
+          
+    
+    
+    <action-mappings>
+    	
+    	<action path="/initSearchEsiRadius" 
+           type="com.elitecore.netvertexsm.web.datasource.esiradius.InitSearchEsiRadiusAction"
+           name="searchEsiRadiusForm"
+           scope="request"
+           validate="false">
+           <forward name="initSearchEsiRadius" path="/jsp/datasource/esiradius/SearchEsiRadius.jsp"/>               
+        </action>
+        
+        <action path="/searchEsiRadius" 
+           type="com.elitecore.netvertexsm.web.datasource.esiradius.SearchEsiRadiusAction"
+           name="searchEsiRadiusForm"
+           scope="request"
+           validate="false">
+           <forward name="searchEsiRadius" path="/jsp/datasource/esiradius/SearchEsiRadius.jsp"/>               
+        </action>
+        
+        <action path="/initCreateEsiRadius" 
+           type="com.elitecore.netvertexsm.web.datasource.esiradius.InitCreateEsiRadiusAction"
+           name="createEsiRadiusForm"
+           scope="request"
+           validate="false">
+           <forward name="initCreateEsiRadius" path="/jsp/datasource/esiradius/CreateEsiRadius.jsp"/>        
+       	</action>
+       	
+       	<action path="/createEsiRadius" 
+           type="com.elitecore.netvertexsm.web.datasource.esiradius.CreateEsiRadiusAction"
+           name="createEsiRadiusForm"
+           scope="request"
+           validate="false">
+           <forward name="failure" path="/jsp/core/response/FailureResponsePage.jsp"/>   
+        </action>
+        
+
+
+
+    	
+    
+      <action path="/initCreateDatabaseDS" 
+         type="com.elitecore.netvertexsm.web.datasource.database.InitCreateDatabaseDSAction"
+         name="createDatabaseDSForm"
+         scope="request"
+         validate="false">
+         <forward name="createDatabaseDB" path="/jsp/datasource/database/CreateDatabaseDS.jsp" />        
+       
+       </action>
+       <action path="/initSearchDatabaseDS" 
+         type="com.elitecore.netvertexsm.web.datasource.database.InitSearchDatabaseDSAction"
+         name="searchDatabaseDSForm"
+         scope="request"
+         validate="false">
+         <forward name="initsearchDatabaseDS" path="/jsp/datasource/database/SearchDatabaseDS.jsp" />        
+       
+       </action>
+       
+       
+       <action path="/createDatabaseDS" 
+         type="com.elitecore.netvertexsm.web.datasource.database.CreateDatabaseDSAction"
+         name="createDatabaseDSForm"
+         scope="request"
+         validate="false">
+        <forward name="failure" path="/jsp/core/response/FailureResponsePage.jsp" />   
+       </action>
+       
+       <action path="/searchDatabaseDS"
+	        type="com.elitecore.netvertexsm.web.datasource.database.SearchDatabaseDSAction"
+	        scope="request"
+	        name="searchDatabaseDSForm"
+	        validate="true"
+	        input="/jsp/datasource/database/SearchDatabaseDS.jsp">
+            <forward name="databaseDSList" path="/jsp/datasource/database/SearchDatabaseDS.jsp"/>
+        </action>
+       <action path="/miscDatabaseDS"
+          scope="request"
+          type="com.elitecore.netvertexsm.web.datasource.database.MiscDatabaseDSAction"
+          name="miscDatabaseDSForm"
+          validate="false">
+            <forward name="databaseDSSearchList" path="/searchDatabaseDS.do"/>
+        </action> 
+        <action path="/updateDatabaseDS"
+		 type="com.elitecore.netvertexsm.web.datasource.database.UpdateDatabaseDSDetailAction"
+		 name="updateDatabaseDSDetailForm"
+		 scope="request"
+	 	 validate="false">
+		 <forward name="updateDatabaseDSDetail" path="/jsp/datasource/database/UpdateDatabaseDSContainer.jsp"/>
+		 <forward name="initSearchDatabaseDSDetail" path="/initSearchDatabaseDS.do"/>
+	  </action>
+	  <action path="/viewDatabaseDS"
+		 type="com.elitecore.netvertexsm.web.datasource.database.ViewDatabaseDSAction"
+		 name="viewDatabaseDSForm"
+		 scope="request"
+		 validate="false">
+		 <forward name="viewDatabaseDSDetail" path="/jsp/datasource/database/ViewDatabaseDSContainer.jsp"/>
+	  </action>                                                               
+        
+        
+        <action path="/initCreateLDAPDS"
+		 			type="com.elitecore.netvertexsm.web.datasource.ldap.InitCreateLDAPDSAction"
+					name="createLDAPDS"
+					scope="request"
+		 			validate="false">
+		 			<forward name="CreateLDAPDS" path="/jsp/datasource/ldap/CreateLDAPDS.jsp"/>
+			</action> 			
+			<action path="/createLDAPDS"
+	  	 			type="com.elitecore.netvertexsm.web.datasource.ldap.CreateLDAPDSAction"
+		 			name="createLDAPDS"
+		 			scope="request"
+		 			validate="false">
+		 			<forward name="createLDAPDS" path="/jsp/datasource/ldap/CreateLDAPDS.jsp"/>
+	  		</action>
+	  		<action path="/initSearchLDAPDS"
+		 			type="com.elitecore.netvertexsm.web.datasource.ldap.InitSearchLDAPDSAction"
+					name="searchLDAPDS"
+					scope="request"
+		 			validate="false">
+		 			<forward name="SearchLDAPDS" path="/jsp/datasource/ldap/SearchLDAPDS.jsp"/>
+			</action> 
+	  		<action path="/searchLDAPDS"
+	  	 			type="com.elitecore.netvertexsm.web.datasource.ldap.SearchLDAPDSAction"
+		 			name="searchLDAPDS"
+		 			scope="request"
+		 			validate="false">
+	  	 			<forward name="searchSuccess" path="/jsp/datasource/ldap/SearchLDAPDS.jsp"/>		 
+	  		</action>
+	  		<action path="/initupdateLDAPDS"
+	  	 			type="com.elitecore.netvertexsm.web.datasource.ldap.InitUpdateLDAPDSAction"
+		 			name="updateLDAPDS"
+		 			scope="request"
+		 			validate="false">
+	  	 			<forward name="InitUpdateLDAPDS" path="/jsp/datasource/ldap/UpdateLDAPDSContainer.jsp"/>		 
+	  		</action>
+	  		<action path="/update"
+	  	 			type="com.elitecore.netvertexsm.web.datasource.ldap.UpdateLDAPDSAction"
+		 			name="updateLDAPDS"
+		 			scope="request"
+		 			validate="false">
+	  	 			<forward name="UpdateLDAPDS" path="/jsp/datasource/ldap/ViewLDAPDSContainer.jsp"/>	  	 			
+	  		</action>
+	  		<action path="/viewLDAPDS"
+	  	 			type="com.elitecore.netvertexsm.web.datasource.ldap.InitUpdateLDAPDSAction"
+		 			name="updateLDAPDS"
+		 			scope="request"
+		 			validate="false">
+	  	 			<forward name="InitUpdateLDAPDS" path="/jsp/datasource/ldap/ViewLDAPDSContainer.jsp"/>		 
+	  		</action>
+	  		<action path="/updateLDAPDS"
+	  	 			type="com.elitecore.netvertexsm.web.datasource.ldap.InitUpdateLDAPDSAction"
+		 			name="updateLDAPDS"
+		 			scope="request"
+		 			validate="false">
+	  	 			<forward name="InitUpdateLDAPDS" path="/jsp/datasource/ldap/UpdateLDAPDS.jsp"/>		 
+	  		</action>
+        
+       
+       
+    </action-mappings>
+           
+	<message-resources key="datasourceResources" parameter="com.elitecore.netvertexsm.web.datasource.datasourceResources" />
+	
+</struts-config>
+
+

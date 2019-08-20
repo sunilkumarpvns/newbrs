@@ -1,0 +1,392 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating?name=diameterCrestelRating&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating.xml?name=diameterCrestelRating
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating?operation=search&name=diameterCrestelRating&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating.xml?operation=search&name=diameterCrestelRating
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+<driver-instance>
+    <name>diameterCrestelRating</name>
+    <description>Created by admin on 02/10/2017 12:11:50 PM</description>
+    <crestel-rating-driver>
+        <translation-mapping-configuration>diameterCrestelRatingTranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+        <jndi-properties>
+            <jndi-property>
+                <property>java.naming.factory.initial</property>
+                <value>org.jnp.interfaces.NamingContextFactory</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.factory.url.pkgs</property>
+                <value>org.jboss.naming:org.jnp.interfaces</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.provider.url</property>
+                <value>127.0.0.1:4099</value>
+            </jndi-property>
+        </jndi-properties>
+    </crestel-rating-driver>
+</driver-instance>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating?name=diameterCrestelRating&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating.json?name=diameterCrestelRating
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating?operation=search&name=diameterCrestelRating&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating.json?operation=search&name=diameterCrestelRating
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+    "name": "diameterCrestelRating",
+    "description": "Created by admin on 02/10/2017 12:11:50 PM",
+    "crestel-rating-driver": [
+        {
+            "translation-mapping-configuration": "diameterCrestelRatingTranslationMapping",
+            "number-of-instance": 5,
+            "jndi-properties": [
+                {
+                    "property": "java.naming.factory.initial",
+                    "value": "org.jnp.interfaces.NamingContextFactory"
+                },
+                {
+                    "property": "java.naming.factory.url.pkgs",
+                    "value": "org.jboss.naming:org.jnp.interfaces"
+                },
+                {
+                    "property": "java.naming.provider.url",
+                    "value": "127.0.0.1:4099"
+                }
+            ]
+        }
+    ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<driver-instance>
+    <name>diameterCrestelRating</name>
+    <description>Created by admin on 02/10/2017 12:11:50 PM</description>
+    <crestel-rating-driver>
+        <translation-mapping-configuration>diameterCrestelRatingTranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+        <jndi-properties>
+            <jndi-property>
+                <property>java.naming.factory.initial</property>
+                <value>org.jnp.interfaces.NamingContextFactory</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.factory.url.pkgs</property>
+                <value>org.jboss.naming:org.jnp.interfaces</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.provider.url</property>
+                <value>127.0.0.1:4099</value>
+            </jndi-property>
+        </jndi-properties>
+    </crestel-rating-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Rating Translation Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+{
+    "name": "diameterCrestelRating",
+    "description": "Created by admin on 02/10/2017 12:11:50 PM",
+    "crestel-rating-driver": [
+        {
+            "translation-mapping-configuration": "diameterCrestelRatingTranslationMapping",
+            "number-of-instance": 5,
+            "jndi-properties": [
+                {
+                    "property": "java.naming.factory.initial",
+                    "value": "org.jnp.interfaces.NamingContextFactory"
+                },
+                {
+                    "property": "java.naming.factory.url.pkgs",
+                    "value": "org.jboss.naming:org.jnp.interfaces"
+                },
+                {
+                    "property": "java.naming.provider.url",
+                    "value": "127.0.0.1:4099"
+                }
+            ]
+        }
+    ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Rating Translation Driver created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<list>
+   <driver-instance>
+    <name>diameterCrestelRating</name>
+    <description>Created by admin on 02/10/2017 12:11:50 PM</description>
+    <crestel-rating-driver>
+        <translation-mapping-configuration>diameterCrestelRatingTranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+       		 <jndi-properties>
+	            <jndi-property>
+	                <property>java.naming.factory.initial</property>
+	                <value>org.jnp.interfaces.NamingContextFactory</value>
+	            </jndi-property>
+	            <jndi-property>
+	                <property>java.naming.factory.url.pkgs</property>
+	                <value>org.jboss.naming:org.jnp.interfaces</value>
+	            </jndi-property>
+	            <jndi-property>
+	                <property>java.naming.provider.url</property>
+	                <value>127.0.0.1:4099</value>
+	            </jndi-property>
+	        </jndi-properties>
+	    </crestel-rating-driver>
+	</driver-instance>
+</list>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Rating Translation Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+{
+   "list":[
+      {
+         "name":"diameterCrestelRatingscc",
+         "description":"Created by admin on 02/10/2017 12:11:50 PM",
+         "crestel-rating-driver":[
+            {
+               "translation-mapping-configuration":"diameterCrestelRatingTranslationMapping",
+               "number-of-instance":5,
+               "jndi-properties":[
+                  {
+                     "property":"java.naming.factory.initial",
+                     "value":"org.jnp.interfaces.NamingContextFactory"
+                  },
+                  {
+                     "property":"java.naming.factory.url.pkgs",
+                     "value":"org.jboss.naming:org.jnp.interfaces"
+                  },
+                  {
+                     "property":"java.naming.provider.url",
+                     "value":"127.0.0.1:4099"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Rating Translation Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating?name=diameterCrestelRating
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating?operation=update&name=diameterCrestelRating
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+<driver-instance>
+    <name>diameterCrestelRating</name>
+    <description>Created by admin on 02/10/2017 12:11:50 PM</description>
+    <crestel-rating-driver>
+        <translation-mapping-configuration>diameterCrestelRatingTranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+        <jndi-properties>
+            <jndi-property>
+                <property>java.naming.factory.initial</property>
+                <value>org.jnp.interfaces.NamingContextFactory</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.factory.url.pkgs</property>
+                <value>org.jboss.naming:org.jnp.interfaces</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.provider.url</property>
+                <value>127.0.0.1:4099</value>
+            </jndi-property>
+        </jndi-properties>
+    </crestel-rating-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Rating Translation Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+{
+    "name": "diameterCrestelRating",
+    "description": "Created by admin on 02/10/2017 12:11:50 PM",
+    "crestel-rating-driver": [
+        {
+            "translation-mapping-configuration": "diameterCrestelRatingTranslationMapping",
+            "number-of-instance": 5,
+            "jndi-properties": [
+                {
+                    "property": "java.naming.factory.initial",
+                    "value": "org.jnp.interfaces.NamingContextFactory"
+                },
+                {
+                    "property": "java.naming.factory.url.pkgs",
+                    "value": "org.jboss.naming:org.jnp.interfaces"
+                },
+                {
+                    "property": "java.naming.provider.url",
+                    "value": "127.0.0.1:4099"
+                }
+            ]
+        }
+    ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Rating Translation Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating?name=diameterCrestelRating
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating?operation=delete&name=diameterCrestelRating
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/basediameter/crestelrating/diameterCrestelRating?operation=delete
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel Rating Translation Driver(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

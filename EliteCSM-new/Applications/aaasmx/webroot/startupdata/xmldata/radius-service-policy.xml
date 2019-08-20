@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<radius-policy>
+    <name>def_RadiusServicePolicy</name>
+    <description>This service policy is created by EliteAAA Default configuration Setup. It will allow authentication and accounting with session management</description>
+    <status>ACTIVE</status>
+    <supported-messages>
+        <accounting-message>true</accounting-message>
+        <authentication-message>true</authentication-message>
+    </supported-messages>
+    <authentication-ruleset>0:1="*"</authentication-ruleset>
+    <accounting-ruleset>0:1="*"</accounting-ruleset>
+    <user-identity>0:1</user-identity>
+    <validate-packet>false</validate-packet>
+    <default-auth-response-behavior>DROP</default-auth-response-behavior>
+    <default-acct-response-behavior>RESPONSE</default-acct-response-behavior>
+    <auth-response-attributes></auth-response-attributes>
+    <acct-response-attributes></acct-response-attributes>
+    <session-manager>def_SessionManager</session-manager>
+    <chargeable-user-identity>
+        <cui>NONE</cui>
+        <expression></expression>
+        <authentication-attributes></authentication-attributes>
+        <accounting-attributes></accounting-attributes>
+    </chargeable-user-identity>
+    <authentication-policy>
+        <pre-plugins-list/>
+        <authentication-handler>
+            <enabled>true</enabled>
+            <handler-name>Authentication Handler</handler-name>
+            <supported-methods>
+                <method>PAP</method>
+                <method>CHAP</method>
+            </supported-methods>
+            <eap-config></eap-config>
+            <digest-config></digest-config>
+            <user-name>Request</user-name>
+            <username-expression></username-expression>
+            <user-name-response-attribute></user-name-response-attribute>
+        </authentication-handler>
+        <authorization-handler>
+            <enabled>true</enabled>
+            <handler-name>Authorization Handler</handler-name>
+            <wimax>false</wimax>
+            <three-gpp>false</three-gpp>
+            <default-session-timeout>600</default-session-timeout>
+            <radius-policy>
+                <accept-on-policy-not-found>false</accept-on-policy-not-found>
+                <reject-on-check-item-not-found>false</reject-on-check-item-not-found>
+                <reject-on-reject-item-not-found>false</reject-on-reject-item-not-found>
+            </radius-policy>
+            <grace-policy></grace-policy>
+        </authorization-handler>
+        <user-profile-repository>
+            <enabled>true</enabled>
+            <handler-name>Profile Lookup Handler</handler-name>
+            <update-identity>
+                <strip-identity>None</strip-identity>
+                <separator></separator>
+                <case>No Change</case>
+            </update-identity>
+            <profile-drivers>
+                <primary-group>
+                    <primary-driver>
+                        <driver-instace-id>def_RadiusDBAuthDriver</driver-instace-id>
+                        <weightage>1</weightage>
+                    </primary-driver>
+                </primary-group>
+                <secondary-group/>
+                <additional-group/>
+                <driver-script></driver-script>
+            </profile-drivers>
+            <anonymous-identity></anonymous-identity>
+        </user-profile-repository>
+        <concurrency-handler>
+            <enabled>true</enabled>
+            <handler-name>Concurrency Handler</handler-name>
+            <ruleset>0:1="*"</ruleset>
+            <session-manager>def_SessionManager</session-manager>
+        </concurrency-handler>
+        <post-plugins-list/>
+        <post-response-handler>
+            <enabled>true</enabled>
+            <plugin-handler>
+                <enabled>true</enabled>
+                <handler-name>Plugin Handler</handler-name>
+                <plugin-entry onResponse="true">
+                    <ruleset>0:1="*"</ruleset>
+                    <plugin-name>def_RadiusTransactionLogger</plugin-name>
+                    <plugin-argument>LOG</plugin-argument>
+                </plugin-entry>
+            </plugin-handler>
+        </post-response-handler>
+    </authentication-policy>
+    <accounting-policy>
+        <pre-plugins-list/>
+        <cdr-generation>
+            <enabled>true</enabled>
+            <handler-name>CDR Handler</handler-name>
+            <cdr-handler-entry wait="false">
+                <ruleset>0:1="*"</ruleset>
+                <cdr-drivers>
+                    <primary-group>
+                        <primary-driver>
+                            <driver-instace-id>def_RadiusClassicCSVDriver</driver-instace-id>
+                        </primary-driver>
+                    </primary-group>
+                    <secondary-group>
+                        <secondary-driver>
+                            <secondary-driver-id></secondary-driver-id>
+                        </secondary-driver>
+                    </secondary-group>
+                    <additional-group/>
+                    <driver-script></driver-script>
+                </cdr-drivers>
+            </cdr-handler-entry>
+        </cdr-generation>
+        <post-plugins-list/>
+        <post-response-handler>
+            <enabled>true</enabled>
+        </post-response-handler>
+    </accounting-policy>
+</radius-policy>

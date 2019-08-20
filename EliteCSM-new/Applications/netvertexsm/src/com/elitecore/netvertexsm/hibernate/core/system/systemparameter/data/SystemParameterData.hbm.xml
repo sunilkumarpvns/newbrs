@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.systemparameter.data.SystemParameterData" table="TBLMSYSTEMPARAMETER" >          
+	 
+	 <id name="parameterId" column="PARAMETERID" type="long" >
+	 	<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+		</generator>
+     </id>
+     
+     <property name="name" type="string">
+          <column name="NAME" sql-type="VARCHAR2(50)" not-null="true"/>
+     </property>
+     
+     <property name="alias" type="string">
+          <column name="ALIAS" sql-type="VARCHAR2(50)" not-null="true"/>
+     </property>
+     
+     <property name="value" type="string">
+          <column name="VALUE" sql-type="VARCHAR2(255)" not-null="false"/>
+     </property>
+
+     <property name="systemGenerated" type="string">
+          <column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+     </property>
+     
+     <property name="description" type="string">
+          <column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="false"/>
+     </property>
+     
+	 <set name="parameterDetail" lazy="false" cascade="all,delete-orphan" inverse="true">
+			<key column="parameterId"></key>
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.core.system.systemparameter.data.SystemParameterValuePoolData"/>
+	 </set>   
+     </class>
+    
+</hibernate-mapping>

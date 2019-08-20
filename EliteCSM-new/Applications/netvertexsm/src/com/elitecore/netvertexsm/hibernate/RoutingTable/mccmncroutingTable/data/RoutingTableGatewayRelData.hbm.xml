@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	
+<hibernate-mapping>
+
+ <class name="com.elitecore.netvertexsm.datamanager.RoutingTable.mccmncroutingtable.data.RoutingTableGatewayRelData" table="TBLMROUTINGENTRYGATEWAYREL">
+
+  	 	<composite-id>
+			<key-property name="routingTableId" column="ROUTINGID" type="java.lang.Long"/>
+			<key-property name="gatewayId" column="GATEWAYID" type="java.lang.Long"/>
+		</composite-id>
+		 <property name="weightage" type="java.lang.Long">
+	          <column name="WEIGHTAGE" sql-type="NUMERIC" not-null="true"/>
+	    </property>
+     	 
+		
+		<many-to-one name="gatewayData" column="GATEWAYID" lazy="false" insert="false" update="false" 
+     	  	class="com.elitecore.netvertexsm.datamanager.gateway.gateway.data.GatewayData" not-null="true">
+     	</many-to-one>  
+		
+  </class>
+</hibernate-mapping>

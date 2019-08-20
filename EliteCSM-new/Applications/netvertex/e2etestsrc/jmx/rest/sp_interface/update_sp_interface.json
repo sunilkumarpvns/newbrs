@@ -1,0 +1,30 @@
+{
+  "id": "rest_sp_interface_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "rest_sp_interface",
+  "description": "Update by REST Automation",
+  "spInterfaceType": "DB_SP_INTERFACE",
+  "dbSpInterfaceData": {
+    "tableName": "TBLM_SPRS",
+    "identityField": "SPRIDS",
+    "maxQueryTimeoutCount": 10001,
+    "spInterfaceFieldMappingDatas": [
+      {
+        "logicalName": "SUBSCRIBER_IDENTITY",
+        "fieldName": "SUBSCRIBERIDENTITY"
+      },
+      {
+        "logicalName": "USERNAME",
+        "fieldName": "USERNAME"
+      },
+      {
+	"logicalName": "PRODUCT_OFFER",
+        "fieldName": "PRODUCT_OFFER"
+      }
+    ],
+    "databaseId": "rest_datasource_sp_11111111"
+  },
+  "ldapSpInterfaceData": null,
+  "groupNames": "DefaultGroup"
+}

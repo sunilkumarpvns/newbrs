@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.diameter.sessionmanager.data.ScenarioMappingData" table="TBLMDIASESSIONSCENARIOMAP">
+
+		<id name="scenarioId" column="SCENARIOID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="ruleset" type="StringType"> 
+			<column name="RULESET" sql-type="VARCHAR(2000)"  not-null="false"/>
+		</property>
+		
+		<property name="mappingName" type="StringType"> 
+			<column name="MAPPINGNAME" sql-type="VARCHAR(64)"  not-null="false"/> 
+		</property>
+		
+		<property name="criteria" type="StringType"> 
+			<column name="CRITERIA" sql-type="VARCHAR(255)"  not-null="false"/> 
+		</property>
+		
+		<property name="sessionManagerId" type="StringType">
+		  <column name="SESSIONMANAGERID" sql-type="VARCHAR(36)" not-null="true"/>
+		</property>
+		
+		<property name="name" type="StringType">
+		  <column name="NAME" sql-type="VARCHAR(50)" not-null="false"/>
+		</property>
+		
+		<property name="description" type="StringType">
+		  <column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"/>
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer">
+			<column name="ORDERNUMBER" sql-type="NUMERIC(20)" not-null="false"></column>
+		</property>
+		
+</class>            
+	            
+</hibernate-mapping>

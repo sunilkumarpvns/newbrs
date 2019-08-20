@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+
+	<tlibversion>1.5</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>nv</shortname>
+	<uri>http://www.elitecore.com/nvsmx/tags</uri>
+	<info>Customized Datatable</info>
+	
+	<tag>
+		<name>dataTable</name>
+		<tagclass>com.elitecore.nvsmx.system.view.DataTableTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>Datatable Tag</info>
+		<attribute>
+			<name>cssClass</name>
+		</attribute>
+		<attribute>
+			<name>id</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>width</name>
+		</attribute>							
+		<attribute>
+			<name>style</name>
+		</attribute>
+		<attribute>
+			<name>beanType</name>
+		</attribute>						
+		<attribute>
+			<name>dataListName</name>
+		</attribute>						
+		<attribute>
+			<name>pages</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>rows</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>actionUrl</name>			
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+				
+		<attribute>
+			<name>showPagination</name>
+		</attribute>
+		<attribute>
+			<name>showFilter</name>
+		</attribute>
+
+		<attribute>
+			<name>emptyTable</name>
+		</attribute>
+		
+ 		<attribute>
+			<name>showInfo</name>
+		</attribute>
+		
+		<attribute>
+			<name>subTableUrl</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>list</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>caption</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>captionStyle</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>captionCssClass</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+	</tag>
+	
+	<tag>
+		<name>dataTableColumn</name>
+		<tagclass>com.elitecore.nvsmx.system.view.DataTableColumnTag</tagclass>
+		<bodycontent>jsp</bodycontent>
+		<info>DataTableColumn Tag</info>
+		<attribute>
+			<name>cssClass</name>
+		</attribute>
+		<attribute>
+			<name>tdCssClass</name>
+		</attribute>		
+		<attribute>
+			<name>id</name>
+		</attribute>
+		<attribute>
+			<name>width</name>
+		</attribute>		
+		<attribute>
+			<name>title</name>
+            <rtexprvalue>true</rtexprvalue>
+		</attribute>	
+		<attribute>
+			<name>style</name>
+		</attribute>
+		<attribute>
+			<name>tdStyle</name>
+		</attribute>
+		<attribute>
+			<name>beanProperty</name>
+		</attribute>		
+		<attribute>
+			<name>sortable</name>
+		</attribute>				
+		<attribute>
+			<name>icon</name>
+		</attribute>
+		<attribute>
+			<name>hiddenElement</name>
+		</attribute>
+		<attribute>
+			<name>hrefurl</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>type</name>
+		</attribute>	
+		<attribute>
+			<name>format</name>
+		</attribute>		
+		<attribute>
+			<name>disableWhen</name>
+		</attribute>
+		<attribute>
+			<name>renderFunction</name>
+		</attribute>
+	</tag>
+	
+ </taglib>
+

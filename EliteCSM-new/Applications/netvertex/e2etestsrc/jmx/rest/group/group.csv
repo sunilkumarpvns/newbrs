@@ -1,0 +1,6 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_group,POST : Create Group rest_group : 201,sm/group/group.json,POST,create_group.json,,28159,201,group
+2,get_created_group,GET : rest_group should be displayed : 200,sm/group/group/rest_group_11111111.json,GET,,,28160,200,group
+3,update_group,PUT : Update rest_group and change to updated_rest_group : 200,sm/group/group/rest_group_11111111.json,PUT,update_group.json,,28161,200,group
+4,get_updated_group,GET : updated_rest_group should be displayed : 200,sm/group/group/rest_group_11111111.json,GET,,,28162,200,group
+5,delete_group,DELETE : Delete updated_rest_group : 405,sm/group/group/rest_group_11111111.json,DELETE,,"{""actionErrors"":[""Method Not Allowed""]}",28163,405,group

@@ -1,0 +1,231 @@
+{
+  "id": "rest_file_alert_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "updated_rest_file_alert",
+  "type": "FILE",
+  "fileName": "updated_rest_file_alert",
+  "rollingType": 1,
+  "rollingUnit": 3,
+  "maxRollingUnit": 500,
+  "compRollingUnit": false,
+  "trapServer": null,
+  "trapVersion": null,
+  "community": null,
+  "advanceTrap": null,
+  "snmpRequestType": null,
+  "timeOut": null,
+  "retryCount": null,
+  "alertListenerRelDataList": [
+    {
+      "type": "NETVERTEX_PCRF_ALERTS",
+      "floodControl": false
+    },
+    {
+      "type": "SERVER",
+      "floodControl": false
+    },
+    {
+      "type": "SERVERUP",
+      "floodControl": false
+    },
+    {
+      "type": "SERVERDOWN",
+      "floodControl": false
+    },
+    {
+      "type": "LICENSE_EXPIRED",
+      "floodControl": false
+    },
+    {
+      
+      "type": "LICENSE_REQUEST_FAILED",
+      "floodControl": false
+    },
+    {
+      
+      "type": "LICENSE_EXCEEDED",
+      "floodControl": false
+    },
+    {
+      
+      "type": "SERVICES",
+      "floodControl": false
+    },
+    {
+      
+      "type": "PCRF",
+      "floodControl": false
+    },
+    {
+      
+      "type": "PCRF_STARTUP_FAILED",
+      "floodControl": false
+    },
+    {
+      
+      "type": "SPRUP",
+      "floodControl": false
+    },
+    {
+      
+      "type": "SPRDOWN",
+      "floodControl": false
+    },
+    {
+      
+      "type": "QUERY_TIME_OUT",
+      "floodControl": false
+    },
+    {
+      
+      "type": "SERVICE_POLICY_INIT_FAILS",
+      "floodControl": false
+    },
+    {
+      
+      "type": "UNKNOWN_USER",
+      "floodControl": false
+    },
+    {
+      
+      "type": "NOTIFICATION",
+      "floodControl": false
+    },
+    {
+      
+      "type": "NOTIFICATION_STARTUP_FAILED",
+      "floodControl": false
+    },
+    {
+      
+      "type": "EMAIL_SENDING_FAILED",
+      "floodControl": false
+    },
+    {
+      
+      "type": "SMS_SENDING_FAILED",
+      "floodControl": false
+    },
+    {
+      
+      "type": "GATEWAYS",
+      "floodControl": false
+    },
+    {
+      
+      "type": "RADIUS",
+      "floodControl": false
+    },
+    {
+      
+      "type": "RADIUS_GATEWAY_ALIVE",
+      "floodControl": false
+    },
+    {
+      
+      "type": "RADIUS_GATEWAY_DEAD",
+      "floodControl": false
+    },
+    {
+      "type": "DIAMETER",
+      "floodControl": false
+    },
+    {
+      "type": "DIAMETER_STACK_UP",
+      "floodControl": false
+    },
+    {
+      "type": "DIAMETER_STACK_DOWN",
+      "floodControl": false
+    },
+    {
+      "type": "DIAMETER_PEER_UP",
+      "floodControl": false
+    },
+    {
+      "type": "DIAMETER_PEER_DOWN",
+      "floodControl": false
+    },
+    {
+      "type": "DIAMETER_HIGH_RESPONSE_TIME",
+      "floodControl": false
+    },
+    {
+      "type": "DIAMETER_PEER_HIGH_RESPONSE_TIME",
+      "floodControl": false
+    },
+    {
+      "type": "DIAMETER_PEER_CONNECTION_REJECTED",
+      "floodControl": false
+    },
+    {
+      "type": "DIAMETER_CC_STATISTICS_NOT_FOUND",
+      "floodControl": false
+    },
+    {
+      "type": "DIAMETER_BASE_STATISTICS_NOT_FOUND",
+      "floodControl": false
+    },
+    {
+      "type": "FILE",
+      "floodControl": false
+    },
+    {
+      "type": "FILE_GATEWAY_DISK_SPACE_RESOLVED",
+      "floodControl": false
+    },
+    {
+      "type": "FILE_GATEWAY_NO_SPACE_LEFT_ON_DEVICE",
+      "floodControl": false
+    },
+    {
+      "type": "FILE_GATEWAY_PARSING_ERROR",
+      "floodControl": false
+    },
+    {
+      "type": "FILE_GATEWAY_NO_FILE_RECEIVED",
+      "floodControl": false
+    },
+    {
+      "type": "FILE_GATEWAY_MAX_FILES_LIMIT_REACHED",
+      "floodControl": false
+    },
+    {
+      "type": "PACKAGES",
+      "floodControl": false
+    },
+    {
+      "type": "DATA_PACKAGES_CACHING_FAILS",
+      "floodControl": false
+    },
+    {
+      "type": "IMS_PACKAGES_CACHING_FAILS",
+      "floodControl": false
+    },
+    {
+      "type": "DATABASE",
+      "floodControl": false
+    },
+    {
+      "type": "DATABASE_CONNECTION_NOT_AVAILABLE",
+      "floodControl": false
+    },
+    {
+   
+      "type": "HIGH_QUERY_RESPONSE_TIME",
+      "floodControl": false
+    },
+    {
+     
+      "type": "DATASOURCE_UP",
+      "floodControl": false
+    },
+    {
+      
+      "type": "DATASOURCE_DOWN",
+      "floodControl": false
+    }
+  ],
+  "groupNames": "DefaultGroup"
+}

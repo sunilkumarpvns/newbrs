@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+	<data-sources />
+
+
+	<form-beans>
+
+
+
+		<form-bean name="viewTableList"
+			type="com.elitecore.elitecodegen.controller.form.DbResourceForm" />
+
+
+		<form-bean name="viewTableDetail"
+			type="com.elitecore.elitecodegen.controller.form.DbResourceForm" />
+
+
+		<form-bean name="genrateDataClass"
+			type="com.elitecore.elitecodegen.controller.form.GenrateDataClassForm" />
+
+		<form-bean name="dispatchGenrate"
+			type="com.elitecore.elitecodegen.controller.form.GenrateDataClassForm" />
+
+		<form-bean name="NavigateDataClassGen"
+			type="com.elitecore.elitecodegen.controller.form.NavigateDataClassForm" />
+
+
+		<form-bean name="viewPackageDetail"
+			type="com.elitecore.elitecodegen.controller.form.NavigateDataClassForm" />
+
+		<form-bean name="packageGenration"
+			type="com.elitecore.elitecodegen.controller.form.PackageGenarationForm" />
+
+
+
+	</form-beans>
+
+	<global-exceptions />
+	
+	<global-forwards>
+
+	<forward name="failure" path="/jsp/Welcome.jsp?" />
+
+	</global-forwards>
+
+	<action-mappings>
+
+		<action path="/viewTableList" input="/jsp/Welcome.jsp"
+			name="viewTableList" scope="request"
+			type="com.elitecore.elitecodegen.controller.actions.ViewTableListAction"
+			validate="false">
+			<forward name="success" path="/jsp/viewTableList.jsp" />
+			<forward name="failure" path="/jsp/Welcome.jsp" />
+		</action>
+
+
+		<action attribute="viewTableDetail" name="viewTableDetail"
+			path="/viewTableDetail" scope="request"
+			type="com.elitecore.elitecodegen.controller.actions.ViewTableAction"
+			validate="false">
+			<forward name="next" path="/jsp/viewTable.jsp" />
+		</action>
+
+
+		<action name="viewPackageDetail" path="/viewPackageDetail"
+			scope="request" input="/jsp/viewTable.jsp"
+			type="com.elitecore.elitecodegen.controller.actions.ViewPackageDetailAction"
+			validate="false">
+			<forward name="next" path="/jsp/packageDetail.jsp" />
+		</action>
+
+
+		<action attribute="genrateDataClass" name="genrateDataClass"
+			path="/genrateDataClass"
+			type="com.elitecore.elitecodegen.controller.actions.InitDataClassGenAction"
+			validate="false">
+			<forward name="genrateDataClass"
+				path="/jsp/genrateDataClass.jsp" />
+		</action>
+
+
+		<action attribute="dispatchGenrate"
+			input="/jsp/viewTableList.jsp" name="dispatchGenrate"
+			parameter="method" path="/dispatchGenration"
+			type="com.elitecore.elitecodegen.controller.actions.DispatchGenrateAction"
+			validate="false">
+			<forward name="viewTableDetail" path="/viewTableDetail.do" />
+			<forward name="genrateDataClass"
+				path="/genrateDataClass.do" />
+		</action>
+
+		<action attribute="NavigateDataClassGen"
+			name="NavigateDataClassGen" path="/navigateDataClassGen"
+			scope="request"
+			type="com.elitecore.elitecodegen.controller.actions.NavigateDataClassAction">
+			<forward name="genrateDataSource"
+				path="/genrateDataSource.do" />
+			<forward name="genrateDataClass"
+				path="/jsp/genrateDataClass.jsp" />
+		</action>
+
+
+		<action path="/genrateDataSource"
+			type="com.elitecore.elitecodegen.controller.actions.DataClassGenrationAction">
+			<forward name="success" path="/createZip.do" />
+		</action>
+
+
+		<action path="/createZip" scope="session"
+			type="com.elitecore.elitecodegen.controller.actions.CreateZipAction">
+		</action>
+
+		<action attribute="packageGenration"
+			input="/jsp/packageDetail.jsp" name="packageGenration"
+			path="/packageGenrationAcion" scope="request" validate="true"
+			type="com.elitecore.elitecodegen.controller.actions.PackageGenrationAction">
+			<forward name="createZip" path="/createZip.do" />
+
+		</action>
+
+	</action-mappings>
+
+	<message-resources
+		parameter="com.elitecore.elitecodegen.properties.ApplicationResources" />
+
+
+
+</struts-config>
+

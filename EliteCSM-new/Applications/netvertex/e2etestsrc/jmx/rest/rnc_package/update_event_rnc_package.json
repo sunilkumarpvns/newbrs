@@ -1,0 +1,12 @@
+{
+ 	"id": "rest_event_rnc_package_11111111",
+        "status": "ACTIVE",
+        "groups": "GROUP_1",
+        "name": "updated_rest_event_rnc_package",
+        "description": "Updated by rest automation",
+        "type": "BASE",
+        "mode": "TEST",
+        "groupNames": "DefaultGroup",
+        "chargingType":"EVENT",
+		"currency": "INR"
+}

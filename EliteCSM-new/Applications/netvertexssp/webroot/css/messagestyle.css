@@ -1,0 +1,57 @@
+@CHARSET "ISO-8859-1";
+.successfont {
+	font: 18px Calibri, Arial, sans-serif;
+	color: green;
+	font-weight: bold;
+}
+
+.errorfont {
+	font: 16px Calibri, Arial, sans-serif;
+	color: red;
+	font-weight: bold;
+}
+
+.alertfont {
+	font: 14px Calibri, Arial, sans-serif;
+	color: blue;
+	vertical-align: middle;
+	padding-top:5px;
+	font-weight: normal;
+}
+
+.submitbutton {
+
+}
+
+fieldset
+{
+border: 1px solid black;
+padding: 20px;
+padding-top: 5px;
+border-style: solid;
+height: 100%;
+}
+
+legend
+{
+	vertical-align:top;
+	border: 1px solid rgb(23, 39, 52); 
+	background-image: url(../images/menu_bkgd1.jpg);
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFFFFF;
+	padding: 5px 8px;
+/*color: #fff;
+background: #ffa20c;
+border: 1px solid #781351;
+padding: 2px 6px
+         */
+} 
+
+
+.successmsgbox{
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-image: url('../images/thankyou-img.jpg');
+}

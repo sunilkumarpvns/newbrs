@@ -1,0 +1,36 @@
+#  
+#  This sample makefile is only a guide.
+#
+%.o: %.c
+	$(CC) $(CFLAGS) $(C64FLAGS) -c $< -o $@
+
+
+CC              = gcc
+C64FLAGS        = -m64
+#C64FLAGS	= -xtarget=generic -xarch=v9
+CFLAGS		= $(INCLUDE) $(DEFINES) $(DEBUG)
+DEBUG           = -g -Wall
+DEFINES		= -D_REENTRANT -DC7_Q
+INCLUDE		= -I. -I$(OMNI_HOME)/include -I../common
+LDFLAGS		= -R$(OMNI_HOME)/library -L$(OMNI_HOME)/library
+FLAGS_64BIT = -m64
+LDFLAGS 	+= -mt $(FLAGS_64BIT)
+
+LOCALLIB          = -ltcap -lgmap2 -lFt -lapi -lsccp -loos -lscos -lswrmm -ldgms -lpthread -lsocket -lrt -lm
+
+SRCS_GMAPHLR	= gmapHLR.c 
+OBJS_GMAPHLR = $(SRCS_GMAPHLR:%.c=%.o)
+
+all:: gmapHLR
+gmapHLR:  $(OBJS_GMAPHLR)
+	$(RM) gmapHLR
+	$(CC) $(LDFLAGS) -o gmapHLR  $(OBJS_GMAPHLR) $(LOCALLIB)
+
+clean::
+	$(RM) gmapHLR
+	$(RM) $(OBJS_GMAPHLR)
+
+realclean::
+	$(RM) gmapHLR
+	$(RM) $(OBJS_GMAPHLR)
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+
+<hibernate-mapping>
+
+    
+    <class name="com.elitecore.elitesm.datamanager.servicepolicy.dynauth.data.DynAuthNasClientsData" table="TBLMDYNAUTHPOLICYNASCLIENTS" >        
+        
+        <id name="dynaAuthNasId" type="StringType" column="DYNAAUTHNASID">            
+            <generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">				
+			</generator>
+        </id>
+        
+        <property name="dynAuthPolicyId" type="StringType">
+            <column name="DYNAUTHPOLICYID" sql-type="VARCHAR(36)" not-null="true" />
+        </property>
+        
+        <property name="ruleset" type="StringType">
+            <column name="RULESET" sql-type="VARCHAR(2000)" not-null="false"  />
+        </property>
+        <property name="translationMapConfigId" type="StringType">
+            <column name="TRANSLATIONMAPCONFIGID" sql-type="VARCHAR(36)" not-null="false"  />
+        </property>
+        
+           <property name="copyPacketMapConfigId" type="StringType">
+            <column name="COPYPACKETMAPCONFID" sql-type="VARCHAR(36)" not-null="false"  />
+        </property>
+        <property name="script" type="StringType">
+            <column name="SCRIPT" sql-type="VARCHAR(255)" not-null="false" />
+        </property>
+      	
+      	<property name="orderNumber" type="java.lang.Long">
+      		<column name="ORDERNUMBER" sql-type="NUMBER(10)" not-null="true" />
+      	</property>
+      
+	    <set name="dynaAuthNasClientDetailsData" lazy="false" inverse="false" cascade="delete" fetch="select" order-by="nasClientDetailId">
+			<key column="DYNAAUTHNASID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.dynauth.data.DynAuthNasClientDetailData" />
+		</set> 
+		
+	   	<many-to-one name="translationMappingConfData" class="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.TranslationMappingConfData" column="TRANSLATIONMAPCONFIGID" insert="false" update="false" not-null="true" lazy="false"/>  
+    	<many-to-one name="copyPacketTranslationConfData" class="com.elitecore.elitesm.datamanager.servermgr.copypacket.data.CopyPacketTranslationConfData" column="COPYPACKETMAPCONFID" insert="false" update="false" not-null="true" lazy="false"/>  
+  
+    </class>
+    
+</hibernate-mapping>

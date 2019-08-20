@@ -1,0 +1,81 @@
+@CHARSET "UTF-8";
+
+.form-background-color {
+background-color: #015198;
+}
+
+.form-heading {
+display: inline;
+font-size: 20px;
+color: white;
+}
+
+.copyrightdiv {
+text-align: right !important;
+color: #FFF;
+padding-top: 2px;
+float: right;
+}
+
+.heading{
+margin-left: 40%;
+margin-top: 1%;
+display: block;
+font-size: 20px;
+color: white;
+margin-bottom: 0px
+}
+
+.margin-top-05 { margin-top: 0.5em; }
+.margin-top-10 { margin-top: 1.0em; }
+.margin-top-15 { margin-top: 1.5em; }
+.margin-top-20 { margin-top: 2.0em; }
+.margin-top-25 { margin-top: 2.5em; }
+.margin-top-30 { margin-top: 3.0em; }
+
+.btn-toolbar .btn {
+    margin-bottom: 0px; 
+}
+
+.panel.col-md-6 {
+  padding-bottom: 20px;
+}
+
+.body-font{
+	font-size: 14px;
+}
+
+.status-panel{
+	font-size: 14px;
+	padding-top: 5px;
+}
+
+.gry-color{
+	color: grey;
+}
+
+.panel-alert{
+	margin-top: 10%;
+	display: none;
+	font-size: 13px;
+	margin-bottom: 0px;
+}
+
+.logo-headline{
+	background-color: black;
+	height: 10px;
+}
+
+.disp-and-margin{
+	display: none;
+	margin-bottom: 5px;
+}
+.header-black-div{
+	background-color: black;
+	height: 10px;
+}
+
+.alert-label-panel{
+	display:none;
+	margin-bottom: 2px;
+}

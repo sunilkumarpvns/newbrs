@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_device,POST : Create Device 11111111 : 201,sm/device/device.json,POST,create_device.json,,26321,201,device
+2,get_created_device,GET : Device 11111111 should be displayed : 200,sm/device/device/rest_tac_11111111.json,GET,,,26322,200,device
+3,update_device,PUT : Upate Device 11111111 and set tac 22222222 : 200,sm/device/device/rest_tac_11111111.json,PUT,update_device.json,,26323,200,device
+4,get_updated_device,GET : Updated Device 22222222 should be displayed : 200,sm/device/device/rest_tac_11111111.json,GET,,,26324,200,device
+5,delete_device,DELETE : Delete Device 22222222 : 200,sm/device/device/rest_tac_11111111.json,DELETE,,,26325,200,device
+6,get_deleted_device,GET : Device 22222222 should not be displayed : 404,sm/device/device/rest_tac_11111111.json,GET,,"{""actionErrors"":[""Device Not Found with id: rest_tac_11111111""]}",28789,404,device

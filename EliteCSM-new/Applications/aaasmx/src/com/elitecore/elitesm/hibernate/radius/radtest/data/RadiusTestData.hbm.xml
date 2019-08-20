@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.radius.radtest.data.RadiusTestData" table="TBLMRADIUSTEST">
+
+		<id name="ntradId" column="NTRADID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="name" type="StringType"> 
+			<column name="NAME" sql-type="VARCHAR(60)" not-null="true" /> 
+		</property>
+
+		<property name="adminHost" type="StringType"> 
+			<column name="ADMINHOST" sql-type="VARCHAR(255)" not-null="true" /> 
+		</property>
+
+		<property name="adminPort" type="int"> 
+			<column name="ADMINPORT" sql-type="NUMERIC(5)" not-null="true" /> 
+		</property>
+
+		<property name="reTimeOut" type="int"> 
+			<column name="RETIMEOUT" sql-type="NUMERIC(15)" not-null="false" /> 
+		</property>
+
+		<property name="retries" type="int"> 
+			<column name="RETRIES" sql-type="NUMERIC(5)" not-null="false" /> 
+		</property>
+
+		<property name="scecretKey" type="StringType"> 
+			<column name="SCECRETKEY" sql-type="VARCHAR(255)" not-null="true" /> 
+		</property>
+
+		<property name="userName" type="StringType"> 
+			<column name="USERNAME" sql-type="VARCHAR(60)" not-null="true" /> 
+		</property>
+
+		<property name="userPassword" type="StringType"> 
+			<column name="USERPASSWORD" sql-type="VARCHAR(60)" not-null="true" /> 
+		</property>
+
+		<property name="isChap" type="StringType"> 
+			<column name="ISCHAP" sql-type="VARCHAR(1)" not-null="false" /> 
+		</property>
+
+		<property name="requestType" type="int"> 
+			<column name="REQUESTTYPE" sql-type="NUMERIC(15)" not-null="true" /> 
+		</property>
+		
+		<property name="hostAddress" type="StringType"> 
+			<column name="HOSTADDRESS" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+		
+      	<set name="radParamRel" lazy="false" inverse="false" order-by="orderNumber">
+			<key column="ntradId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.radius.radtest.data.RadiusTestParamData"/>
+	  	</set>
+	  	  
+</class>            
+</hibernate-mapping>

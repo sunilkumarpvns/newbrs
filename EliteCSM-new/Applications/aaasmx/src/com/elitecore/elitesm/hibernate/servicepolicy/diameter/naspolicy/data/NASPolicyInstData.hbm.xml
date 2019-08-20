@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+                                                                                                                     
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.diameter.naspolicy.data.NASPolicyInstData" table="TBLMNASPOLICY">
+		<id name="nasPolicyId" column="NASPOLICYID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+		<property name="name" type="StringType" column="NAME" not-null="true"/> 
+		<property name="description" type="StringType" column="DESCRIPTION" not-null="false"/> 
+		<property name="status" type="CharType" column="STATUS" not-null="true"/>
+		<property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false"/>
+		<property name="ruleSet" type="StringType" column="RULESET" not-null="true"/>
+		<property name="requestType" type="java.lang.Integer" column="REQUESTTYPE" not-null="true"/>
+		<property name="rejectOnCheckItemNotFound" type="StringType" column="REJECTONCHECKITEMNOTFOUND" not-null="true"/>
+		<property name="rejectOnRejectItemNotFound" type="StringType" column="REJECTONREJECTITEMNOTFOUND" not-null="true"/>
+		<property name="actionOnPolicyNotFound" type="StringType" column="ACTIONONPOLICYNOTFOUND" not-null="true"/>
+		<property name="caseSensitiveUserIdentity" type="java.lang.Integer" column="CASESENSITIVEUID" not-null="false"/>
+		<property name="multipleUserIdentity" type="StringType" column="MULTIPLEUID" not-null="false"/>
+		<property name="stripUserIdentity" type="StringType" column="STRIPUSERIDENTITY" not-null="false"/>
+		<property name="realmPattern" type="StringType" column="REALMPATTERN" not-null="false"/>
+		<property name="realmSeparator" type="CharType" column="REALMSEPARATOR" not-null="false"/>
+		<property name="trimUserIdentity" type="StringType" column="TRIMUSERIDENTITY" not-null="false"/>
+		<property name="trimPassword" type="StringType" column="TRIMPASSWORD" not-null="false"/>
+		<property name="userName" type="StringType" column="USERNAME" not-null="false"/>
+		<property name="userNameResonseAttributes" type="StringType" column="USERNAMERESPONSEATTRIBUTES" not-null="false"/>
+		<property name="authScript" type="StringType" column="AUTHDRIVERSCRIPT" />
+		<property name="acctScript" type="StringType" column="ACCTDRIVERSCRIPT" />
+		<property name="auditUId" type="StringType" column="AUDIT_UID" not-null="false"/>
+		<property name="anonymousProfileIdentity" type="StringType" column="ANONYMOUSIDENTITY" not-null="false"/>
+		<property name="gracePolicy" type="StringType" column="GRACEPOLICY" not-null="false"/>
+		<property name="wimax" type="StringType" column="WIMAX" not-null="false"/>
+		<property name="sessionManagement" type="StringType" column="SESSIONMANAGEMENT" not-null="false"/>
+		<property name="diameterConcurrency" type="StringType" column="DIACONCONFIGID" not-null="false"></property>
+		<property name="additionalDiameterConcurrency" type="StringType" column="ADDIDIACONCONFIGID" not-null="false"></property>
+		<property name="defaultSessionTimeout" type="java.lang.Long" column="DEFAULTSESSIONTIMEOUT" not-null="false"></property>
+		<property name="cui" type="StringType" column="CUI" not-null="false"/>
+		<property name="cuiResponseAttributes" type="StringType" column="CUIRESPONSEATTRIBUTES" not-null="false"/>
+		<property name="advancedCuiExpression" type="StringType" column="ADVANCEDCUIEXPRESSION" not-null="false"></property>
+		<property name="defaultResponseBehaviourArgument" type="StringType" column="DEFAULTRESPONSEBEHAVIORPARAM" not-null="false"/>
+		<property name="defaultResponseBehaviour" type="StringType" column="DEFAULTRESPONSEBEHAVIORTYPE" not-null="false"/>
+		
+		<bag name="nasPolicyAuthMethodRelList" lazy="false" inverse="false">
+        	<key column="nasPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.naspolicy.data.NASPolicyAuthMethodRelData" />
+        </bag>
+        
+        <bag name="nasPolicyAuthDriverRelList" lazy="false" inverse="false">
+        	<key column="nasPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.naspolicy.data.NASPolicyAuthDriverRelData" />
+        </bag>
+        
+         <bag name="nasPolicyAcctDriverRelList" lazy="false" inverse="false">
+        	<key column="nasPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.naspolicy.data.NASPolicyAcctDriverRelData" />
+         </bag>
+         
+		 <bag name="nasPolicyAdditionalDriverRelDataList" lazy="false" inverse="false" >
+        	<key column="nasPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.naspolicy.data.NASPolicyAdditionalDriverRelData" />
+         </bag>
+         
+          <set name="nasResponseAttributesSet" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+  			<key column="NASPOLICYID"></key>
+  			<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.naspolicy.data.NASResponseAttributes" />
+		 </set>
+		 
+		 <bag name="nasPolicyAuthPluginConfigList" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+		 	<key column="NASPOLICYID"></key>
+  			<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.naspolicy.data.NASPolicyAuthPluginConfig" />
+		 </bag>
+		 
+		 <bag name="nasPolicyAcctPluginConfigList" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+		 	<key column="NASPOLICYID"></key>
+  			<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.naspolicy.data.NASPolicyAcctPluginConfig" />
+		 </bag>
+	
+	</class>            
+	            
+</hibernate-mapping>

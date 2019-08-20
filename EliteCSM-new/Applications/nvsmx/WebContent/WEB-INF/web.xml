@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>nvsmx/</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+<servlet>
+		<description>Apache CXF Endpoint</description>
+		<display-name>cxf</display-name>
+		<servlet-name>cxf</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+  <servlet-mapping>
+		<servlet-name>cxf</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+
+	<servlet>
+		<description>Apache CXF Endpoint For Rest</description>
+		<display-name>cxfrest</display-name>
+		<servlet-name>cxfrest</servlet-name>
+		<servlet-class>
+			org.apache.cxf.transport.servlet.CXFServlet
+		</servlet-class>
+		<init-param>
+			<param-name>config-location</param-name>
+			<param-value>/WEB-INF/restservice.xml</param-value>
+		</init-param>
+
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>cxfrest</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+
+
+	<filter>
+		<filter-name>keyCloak</filter-name>
+		<filter-class>com.elitecore.nvsmx.system.filter.KeyCloakFilter</filter-class>
+		<init-param>
+			<param-name>keycloak.config.skipPattern</param-name>
+			<param-value>^/(login|initLogin|captchaRedirect|rest|services/*).*</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>keyCloak</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+
+	<filter>
+		<filter-name>PortalSecurityFilter</filter-name>
+		<filter-class>com.elitecore.nvsmx.system.filter.PortalSecurityFilter</filter-class>
+		<!-- To prevent Click Jacking  -->
+		<init-param>
+			<param-name>X-Frame-Options</param-name>
+			<param-value>SAMEORIGIN</param-value>
+		</init-param>
+
+		<!--to prevent Cross-Site Scripting (XSS) attacks-->
+		<init-param>
+			<param-name>X-XSS-Protection</param-name>
+			<param-value>1; mode=block</param-value>
+		</init-param>
+
+		<!-- to prevent MIME-type sniffing -->
+		<init-param>
+			<param-name>X-Content-Type-Options</param-name>
+			<param-value>nosniff</param-value>
+		</init-param>
+
+		<!-- to protect websites against protocol downgrade attacks and cookie hijacking -->
+		<init-param>
+			<param-name>Strict-Transport-Security</param-name>
+			<param-value>max-age=63072000; includeSubDomains</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>PortalSecurityFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>AuthenticationFilter</filter-name>
+		<filter-class>com.elitecore.nvsmx.system.filter.RestAuthenticationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AuthenticationFilter</filter-name>
+		<url-pattern>/sm/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>AuthenticationFilter</filter-name>
+		<url-pattern>/pd/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>IntegrationAuthenticationFilter</filter-name>
+		<filter-class>com.elitecore.nvsmx.system.filter.IntegrationAuthenticationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>IntegrationAuthenticationFilter</filter-name>
+		<url-pattern>/integration/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+
+	<listener>
+    	<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+	</listener>
+	
+	<listener>
+        <listener-class>com.elitecore.nvsmx.system.listeners.NVSMXContextInitializer</listener-class>
+   </listener>
+	
+	
+	
+	<context-param>
+  	 <param-name> org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG </param-name>
+   	 <param-value>/WEB-INF/tiles.xml</param-value>
+   </context-param>
+
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+  
+   
+	<!--
+	Commented because we are using tiles
+	 <jsp-config>
+		<jsp-property-group>
+			<url-pattern>/*/*/*.jsp</url-pattern>
+			<include-prelude>/view/commons/Header.jsp</include-prelude>
+			<include-coda>/view/commons/Footer.jsp</include-coda>
+		</jsp-property-group>
+	</jsp-config>
+ -->
+</web-app>

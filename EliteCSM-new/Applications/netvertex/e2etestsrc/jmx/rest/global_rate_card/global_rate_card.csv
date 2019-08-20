@@ -1,0 +1,5 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_global_rate_card,POST : Create Global Rate Card : 201,pd/globalratecard/global-rate-card.json,POST,create_global_rate_card.json,,84872,201,globalratecard
+2,get_created_global_rate_card,GET : Global Rate Card should be displayed : 200,pd/globalratecard/global-rate-card/1Rs_session_based_global_rate_card.json,GET,,,84873,200,globalratecard
+3,update_created_global_rate_card,PUT : Update Global Rate Card Created : 200,pd/globalratecard/global-rate-card/1Rs_session_based_global_rate_card.json,PUT,update_global_rate_card.json,,86125,200,globalratecard
+3,delete_created_global_rate_card,DELETE : Delete Global Rate Card Updated : 200,pd/globalratecard/global-rate-card/1Rs_session_based_global_rate_card.json,DELETE,,,86126,200,globalratecard

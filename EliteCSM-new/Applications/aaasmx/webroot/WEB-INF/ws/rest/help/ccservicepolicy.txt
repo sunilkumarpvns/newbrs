@@ -1,0 +1,550 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy?name=service-policy-name&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy.xml?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy?operation=search&name=service-policy-name&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy.xml?operation=search&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name.xml?operation=search
+
+<credit-control-policy>
+    <command-code-wise-response-attributes>
+        <command-code-wise-response-attribute>
+            <command-code>265</command-code>
+            <response-attribute>0:1=static</response-attribute>
+        </command-code-wise-response-attribute>
+    </command-code-wise-response-attributes>
+    <default-response-behaviour-argument>5010</default-response-behaviour-argument>
+    <default-response-behaviour>REJECT</default-response-behaviour>
+    <description>Created by admin on 11/07/2016 06:43:21 PM</description>
+    <driver-details>
+        <driver-detail>
+            <name>CC-DRV</name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </driver-details>
+    <name>ccd</name>
+    <post-plugins>
+        <post-plugin>
+            <plugin-argument>def</plugin-argument>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+        </post-plugin>
+    </post-plugins>
+    <pre-plugins>
+        <pre-plugin>
+            <plugin-argument>abc</plugin-argument>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+        </pre-plugin>
+    </pre-plugins>
+    <ruleset>0:1="eliteaaa"</ruleset>
+    <driver-script>script</driver-script>
+    <session-management>false</session-management>
+    <status>ACTIVE</status>
+</credit-control-policy>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy?name=service-policy-name&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy.json?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy?operation=search&name=service-policy-name&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy.json?operation=search&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name.json?operation=search
+
+{
+  "name": "ccd",
+  "description": "Created by admin on 11/07/2016 06:43:21 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"eliteaaa\"",
+  "driver-script": "script",
+  "driver-details": [
+    {
+      "weightage": 1,
+      "name": "CC-DRV"
+    }
+  ],
+  "command-code-wise-response-attributes": [
+    {
+      "command-code": "265",
+      "response-attribute": "0:1=static"
+    }
+  ],
+  "session-management": "false",
+  "pre-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI",
+      "plugin-argument": "abc"
+    }
+  ],
+  "post-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI-TEST",
+      "plugin-argument": "def"
+    }
+  ],
+  "default-response-behaviour": "REJECT",
+  "default-response-behaviour-argument": "5010"
+}
+
+
+***********************************************************************
+                    CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy?operation=create
+
+
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<credit-control-policy>
+    <command-code-wise-response-attributes>
+        <command-code-wise-response-attribute>
+            <command-code>265</command-code>
+            <response-attribute>0:1=static</response-attribute>
+        </command-code-wise-response-attribute>
+    </command-code-wise-response-attributes>
+    <default-response-behaviour-argument>5010</default-response-behaviour-argument>
+    <default-response-behaviour>REJECT</default-response-behaviour>
+    <description>Created by admin on 11/07/2016 06:43:21 PM</description>
+    <driver-details>
+        <driver-detail>
+            <name>CC-DRV</name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </driver-details>
+    <name>ccd</name>
+    <post-plugins>
+        <post-plugin>
+            <plugin-argument>def</plugin-argument>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+        </post-plugin>
+    </post-plugins>
+    <pre-plugins>
+        <pre-plugin>
+            <plugin-argument>abc</plugin-argument>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+        </pre-plugin>
+    </pre-plugins>
+    <ruleset>0:1="eliteaaa"</ruleset>
+    <driver-script>script</driver-script>
+    <session-management>false</session-management>
+    <status>ACTIVE</status>
+</credit-control-policy>
+
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Credit Control Service Policy created successfully.</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "ccd",
+  "description": "Created by admin on 11/07/2016 06:43:21 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"eliteaaa\"",
+  "driver-script": "script",
+  "driver-details": [
+    {
+      "weightage": 1,
+      "name": "CC-DRV"
+    }
+  ],
+  "command-code-wise-response-attributes": [
+    {
+      "command-code": "265",
+      "response-attribute": "0:1=static"
+    }
+  ],
+  "session-management": "false",
+  "pre-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI",
+      "plugin-argument": "abc"
+    }
+  ],
+  "post-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI-TEST",
+      "plugin-argument": "def"
+    }
+  ],
+  "default-response-behaviour": "REJECT",
+  "default-response-behaviour-argument": "5010"
+}
+
+***********************************************************************
+                    CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/bulk?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<list>
+    <credit-control-policy>
+        <command-code-wise-response-attributes>
+            <command-code-wise-response-attribute>
+                <command-code>265</command-code>
+                <response-attribute>0:1=static</response-attribute>
+            </command-code-wise-response-attribute>
+        </command-code-wise-response-attributes>
+        <default-response-behaviour-argument>5010</default-response-behaviour-argument>
+        <default-response-behaviour>REJECT</default-response-behaviour>
+        <description>Created by admin on 11/07/2016 06:43:21 PM</description>
+        <driver-details>
+            <driver-detail>
+                <name>CC-DRV</name>
+                <weightage>1</weightage>
+            </driver-detail>
+        </driver-details>
+        <name>ccd</name>
+        <post-plugins>
+            <post-plugin>
+                <plugin-argument>def</plugin-argument>
+                <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+            </post-plugin>
+        </post-plugins>
+        <pre-plugins>
+            <pre-plugin>
+                <plugin-argument>abc</plugin-argument>
+                <plugin-name>DIAMETER-UNI</plugin-name>
+            </pre-plugin>
+        </pre-plugins>
+        <ruleset>0:1="eliteaaa"</ruleset>
+        <driver-script>script</driver-script>
+        <session-management>false</session-management>
+        <status>ACTIVE</status>
+    </credit-control-policy>
+    <credit-control-policy>
+        <command-code-wise-response-attributes>
+            <command-code-wise-response-attribute>
+                <command-code>265</command-code>
+                <response-attribute>0:1=static</response-attribute>
+            </command-code-wise-response-attribute>
+        </command-code-wise-response-attributes>
+        <default-response-behaviour-argument>5010</default-response-behaviour-argument>
+        <default-response-behaviour>REJECT</default-response-behaviour>
+        <description>Created by admin on 11/07/2016 06:43:21 PM</description>
+        <driver-details>
+            <driver-detail>
+                <name>CC-DRV</name>
+                <weightage>1</weightage>
+            </driver-detail>
+        </driver-details>
+        <name>ccd</name>
+        <post-plugins>
+            <post-plugin>
+                <plugin-argument>def</plugin-argument>
+                <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+            </post-plugin>
+        </post-plugins>
+        <pre-plugins>
+            <pre-plugin>
+                <plugin-argument>abc</plugin-argument>
+                <plugin-name>DIAMETER-UNI</plugin-name>
+            </pre-plugin>
+        </pre-plugins>
+        <ruleset>0:1="eliteaaa"</ruleset>
+        <driver-script>script</driver-script>
+        <session-management>false</session-management>
+        <status>ACTIVE</status>
+    </credit-control-policy>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Credit Control Service Policies created successfully.</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "list": [
+    {
+      "name": "ccd",
+      "description": "Created by admin on 11/07/2016 06:43:21 PM",
+      "status": "ACTIVE",
+      "ruleset": "0:1=\"eliteaaa\"",
+      "driver-script": "script",
+      "driver-details": [
+        {
+          "weightage": 1,
+          "name": "CC-DRV"
+        }
+      ],
+      "command-code-wise-response-attributes": [
+        {
+          "command-code": "265",
+          "response-attribute": "0:1=static"
+        }
+      ],
+      "session-management": "false",
+      "pre-plugins": [
+        {
+          "plugin-name": "DIAMETER-UNI",
+          "plugin-argument": "abc"
+        }
+      ],
+      "post-plugins": [
+        {
+          "plugin-name": "DIAMETER-UNI-TEST",
+          "plugin-argument": "def"
+        }
+      ],
+      "default-response-behaviour": "REJECT",
+      "default-response-behaviour-argument": "5010"
+    },
+    {
+      "name": "ccd",
+      "description": "Created by admin on 11/07/2016 06:43:21 PM",
+      "status": "ACTIVE",
+      "ruleset": "0:1=\"eliteaaa\"",
+      "driver-script": "script",
+      "driver-details": [
+        {
+          "weightage": 1,
+          "name": "CC-DRV"
+        }
+      ],
+      "command-code-wise-response-attributes": [
+        {
+          "command-code": "265",
+          "response-attribute": "0:1=static"
+        }
+      ],
+      "session-management": "false",
+      "pre-plugins": [
+        {
+          "plugin-name": "DIAMETER-UNI",
+          "plugin-argument": "abc"
+        }
+      ],
+      "post-plugins": [
+        {
+          "plugin-name": "DIAMETER-UNI-TEST",
+          "plugin-argument": "def"
+        }
+      ],
+      "default-response-behaviour": "REJECT",
+      "default-response-behaviour-argument": "5010"
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Credit Control Service Policies created successfully.</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy?operation=update&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<credit-control-policy>
+    <command-code-wise-response-attributes>
+        <command-code-wise-response-attribute>
+            <command-code>265</command-code>
+            <response-attribute>0:1=static</response-attribute>
+        </command-code-wise-response-attribute>
+    </command-code-wise-response-attributes>
+    <default-response-behaviour-argument>5010</default-response-behaviour-argument>
+    <default-response-behaviour>REJECT</default-response-behaviour>
+    <description>Created by admin on 11/07/2016 06:43:21 PM</description>
+    <driver-details>
+        <driver-detail>
+            <name>CC-DRV</name>
+            <weightage>1</weightage>
+        </driver-detail>
+    </driver-details>
+    <name>ccd</name>
+    <post-plugins>
+        <post-plugin>
+            <plugin-argument>def</plugin-argument>
+            <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+        </post-plugin>
+    </post-plugins>
+    <pre-plugins>
+        <pre-plugin>
+            <plugin-argument>abc</plugin-argument>
+            <plugin-name>DIAMETER-UNI</plugin-name>
+        </pre-plugin>
+    </pre-plugins>
+    <ruleset>0:1="eliteaaa"</ruleset>
+    <driver-script>script</driver-script>
+    <session-management>false</session-management>
+    <status>ACTIVE</status>
+</credit-control-policy>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Credit Control Service Policy updated successfully.</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+{
+  "name": "ccd",
+  "description": "Created by admin on 11/07/2016 06:43:21 PM",
+  "status": "ACTIVE",
+  "ruleset": "0:1=\"eliteaaa\"",
+  "driver-script": "script",
+  "driver-details": [
+    {
+      "weightage": 1,
+      "name": "CC-DRV"
+    }
+  ],
+  "command-code-wise-response-attributes": [
+    {
+      "command-code": "265",
+      "response-attribute": "0:1=static"
+    }
+  ],
+  "session-management": "false",
+  "pre-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI",
+      "plugin-argument": "abc"
+    }
+  ],
+  "post-plugins": [
+    {
+      "plugin-name": "DIAMETER-UNI-TEST",
+      "plugin-argument": "def"
+    }
+  ],
+  "default-response-behaviour": "REJECT",
+  "default-response-behaviour-argument": "5010"
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Credit Control Service Policy updated successfully.</response-message>
+	</response>
+</response-detail>
+		
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy?operation=delete&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/ccservicepolicy/service-policy-name?operation=delete
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius Service Policy/Policies deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

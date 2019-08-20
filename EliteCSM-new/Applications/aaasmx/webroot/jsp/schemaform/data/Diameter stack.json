@@ -1,0 +1,719 @@
+{
+	"schema": {
+  "type":"object",
+  "title":"Diameter Stack",
+  "properties":{
+      "diameter-stack-enable": {
+			"title": "Diameter Stack Enable",
+			"type": "string"
+		},
+		"service-address": {
+			"title": "Service Address",
+			"type": "string",
+			"default": "0.0.0.0:3868"
+		},
+		"socket-receive-buffer-size": {
+			"title": "Socket Receive Buffer Size",
+			"type": "string",
+			"default": "-1"
+		},
+			"socket-send-buffer-size": {
+			"title": "Socket Send Buffer Size",
+			"type": "string",
+			"default": "-1"
+		},
+		"queue-size": {
+			"title": "Queue Size",
+			"type": "string",
+			"default": "30000"
+		},
+		"minimum-thread": {
+			"title": "Minimum Thread",
+			"type": "string",
+			"default": "10"
+		},
+		"maximum-thread": {
+			"title": "Maximum Thread",
+			"type": "string",
+			"default": "10"
+		},
+		"main-thread-priority": {
+		"title": "Main Thread Priority",
+		"type": "string",
+		"default": "7"
+		},
+		"worker-thread-priority": {
+			"title": "Worker Thread Priority",
+			"type": "string",
+			"default": "7"
+		},
+		"own-diameter-URI": {
+			"title": "Own Diameter URI",
+			"type": "string",
+			"default": "aaa://localhost:3868"
+		},
+		"routing-table": {
+			"title": "Routing Table",
+			"type": "string",
+			"default":"-NONE-"
+		},
+			"session-manager-id": {
+			"title": "Session Manager",
+			"type": "string"
+		},
+			"security-standard": {
+			"title": "Security Standard",
+			"type": "string"
+		},
+		"duplicate-request-check-enable": {
+			"title": "Duplicate Request Check Enable",
+			"type": "string"
+		},
+		"duplicate-request-purge-interval": {
+			"title": "Duplicate Request Purge Interval",
+			"type": "string"
+		},
+			"diameter-session-cleanup": {
+			"type": "object",
+			"properties": {
+				"session-cleanup-interval": {
+					"title": "Session Cleanup Interval",
+					"type": "string",
+					"default": "86400"
+				},
+				"session-timeout": {
+					"title": "Session Timeout",
+					"type": "string",
+					"default": "86400"
+				}
+			}
+		},
+			"security-parameters": {
+			"type": "object",
+			"properties": {
+				"min-tls-version": {
+					"title": "Minimum TLS Version",
+					"type": "string"
+				},
+				"max-tls-version": {
+					"title": "Maximum TLS Version",
+					"type": "string"
+				},
+				"handshake-timeout": {
+					"title": "Handshake Timeout",
+					"type": "string"
+				},
+				"server-certificate-id": {
+					"title": "Server Certificate Profile",
+					"type": "string"
+				},
+				"client-certificate-request": {
+					"title": "Client Certificate Request",
+					"type": "string"
+				},
+				"enabled-cipher-suites": {
+					"title": "CipherSuit List",
+					"type": "string"
+				},
+				"certificate-validation": {
+					"type": "object",
+					"properties": {
+						"validate-certificate-expiry": {
+							"title": "Expiry Date",
+							"type": "string"
+						},
+						"validate-certificate-ca": {
+							"title": "Unknown CA",
+							"type": "string"
+						},
+						"validate-certificate-revocation": {
+							"title": "Revoked Certificate",
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+				"logging": {
+			"type": "object",
+			"properties": {
+				"service-logger-enabled": {
+					"title": "Service Logger Enabled",
+					"type": "string"
+				},
+				"log-level": {
+					"title": "Log Level",
+					"type": "string"
+				},
+				"rolling-type": {
+					"title": "Rolling Type",
+					"type": "string"
+				},
+				"rolling-unit": {
+					"title": "Rolling Unit",
+					"type": "string",
+					"default": "5"
+				},
+				"max-rolled-unit": {
+					"title": "Max Rolled Unit",
+					"type": "string",
+					"default": "10"
+				},
+				"compress-rolled-unit": {
+					"title": "Compress Rolled Unit",
+					"type": "string"
+				},
+				"location": {
+					"title": "Location",
+					"type": "string",
+					"default": "logs"
+				},
+				"syslog": {
+					"type": "object",
+					"properties": {
+						"address": {
+							"title": "Address",
+							"type": "string"
+						},
+						"facility": {
+							"title": "Facility",
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		
+		"peer-list":{
+		    "type":"object",
+		    "properties":{
+		        "name":{
+		            "type":"array",
+		            "items":{
+		                "title":"Peer List",
+		                "type":"string"
+		            }
+		        }
+		    }
+		},
+			"plugin-list": {
+			"type": "object",
+			"properties": {
+				"in-plugins": {
+					"type": "object",
+					"properties": {
+						"plugin-entry": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"plugin-name": {
+										"title": "Plugin Name",
+										"type": "string"
+									},
+									"argument": {
+										"title": "Argument",
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				},
+				"out-plugins": {
+					"type": "object",
+					"properties": {
+						"plugin-entry": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"plugin-name": {
+										"title": "Plugin Name",
+										"type": "string"
+									},
+									"argument": {
+										"title": "Argument",
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+			
+			"rfc-5729-nai": {
+			"type": "object",
+			"properties": {
+				"enabled": {
+					"title": "Enabled",
+					"type": "String"
+				},
+				"realm-names": {
+					"title": "Realm Names",
+					"type": "string"
+				}
+			}
+		},
+		
+			"diameter-webservice": {
+			"type": "object",
+			"properties": {
+				"diameter-re-auth": {
+					"type": "object",
+					"properties": {
+						"ws-mapping-name": {
+							"title": "Ws Mapping Name",
+							"type": "string",
+							"default":"-NONE-"
+						}
+					}
+				},
+				"diameter-abort-session": {
+					"type": "object",
+					"properties": {
+						"ws-mapping-name": {
+							"title": "Ws Mapping Name",
+							"type": "string",
+							"default":"-NONE-"
+						}
+					}
+				},
+				"diameter-generic-request": {
+					"type": "object",
+					"properties": {
+						"ws-mapping-name": {
+							"title": "Ws Mapping Name",
+							"type": "string",
+							"default":"-NONE-"
+						}
+					}
+				}
+			}
+		}
+      
+  }
+		
+  },
+	"form": [
+  {
+      "key":"diameter-stack-enable",
+      "type":"select",
+      "titleMap":{
+          "True":"True",
+          "False":"False"
+      }
+  },
+  {
+      "key":"service-address"
+  },
+  {
+      "key":"socket-receive-buffer-size"
+  },
+  {
+      "key":"socket-send-buffer-size"
+  },
+  {
+      "key":"queue-size"
+  },
+  {
+      "key":"minimum-thread"
+  },
+  {
+      "key":"maximum-thread"
+  },
+  {
+      "key":"main-thread-priority"
+  },
+  {
+      "key":"worker-thread-priority"
+  },
+  {
+      "key":"own-diameter-URI"
+  },
+  {
+      "key":"routing-table"
+  },
+  {
+      "key":"session-manager-id"
+  },
+  {
+      "key":"security-standard",
+      "type":"select",
+      "titleMap":{
+          "RFC 6733":"RFC 6733",
+          "RFC 3588 Dynamic":"RFC 3588 Dynamic",
+          "RFC 3588 TLS":"RFC 3588 TLS",
+          "NONE":"NONE"
+      }
+  },
+  {
+      "key":"duplicate-request-check-enable",
+      "type":"select",
+      "titleMap":{
+          "True":"True",
+          "False":"False"
+      }
+  },
+  {
+      "key":"duplicate-request-purge-interval"
+  },
+  {
+      "key":"diameter-session-cleanup",
+      "items":[
+          {
+              "key":"diameter-session-cleanup.session-cleanup-interval"
+          },
+          {
+              "key":"diameter-session-cleanup.session-timeout"
+          }
+          ]
+  },
+  {
+      "key":"security-parameters",
+      "items":[
+          {
+              "key":"security-parameters.min-tls-version",
+              "type":"select",
+              "titleMap":{
+                  "TLSv1":"TLSv1",
+                  "TLSv1.1":"TLSv1.1",
+                  "TLSV1.2":"TLSv1.2"
+              }
+          },
+          {
+              "key":"security-parameters.max-tls-version",
+              "type":"select",
+              "titleMap":{
+                  "TLSv1":"TLSv1",
+                  "TLSv1.1":"TLSv1.1",
+                  "TLSV1.2":"TLSv1.2"
+              }
+          },
+          {
+              "key":"security-parameters.handshake-timeout"
+          },
+          {
+              "key":"security-parameters.server-certificate-id"
+          },
+          {
+              "key":"security-parameters.client-certificate-request",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                  "False":"False"
+              }
+          },
+          {
+              "key":"security-parameters.enabled-cipher-suites",
+              "type":"textarea"
+          },
+          {
+              "key":"security-parameters.certificate-validation",
+              "items":[
+                  {
+                      "key":"security-parameters.certificate-validation.validate-certificate-expiry",
+                      "type":"select",
+                      "titleMap":{
+                          "True":"True",
+                          "False":"False"
+                      }
+                  },
+                  {
+                      "key":"security-parameters.certificate-validation.validate-certificate-ca",
+                      "type":"select",
+                      "titleMap":{
+                          "True":"True",
+                          "False":"False"
+                      }
+                  },
+                  {
+                      "key":"security-parameters.certificate-validation.validate-certificate-revocation",
+                      "type":"select",
+                      "titleMap":{
+                          "True":"True",
+                          "False":"False"
+                      }
+                  }
+                  ]
+          }
+          ]
+  },
+  {
+      "key":"logging",
+      "items":[
+          {
+              "key":"logging.service-logger-enabled",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                  "False":"False"
+              }
+          },
+          {
+              "key":"logging.log-level",
+              "type":"select",
+              "titleMap":{
+                  "OFF": "OFF",
+					"WARM": "WARM",
+					"ERROR": "ERROR",
+					"INFO": "INFO",
+					"FATAL": "FATAL",
+					"DEBUG": "DEBUG",
+					"TRACE": "TRACE",
+					"All": "All"
+                  
+              }
+          },
+          {
+              "key":"logging.rolling-type",
+              "type":"select",
+              "titleMap":{
+                  "Size-Based": "Size-Based",
+			       "Time-Based": "Time-Based"
+			  }
+          },
+          {
+              "key":"logging.rolling-unit"
+          },
+          {
+              "key":"logging.max-rolled-unit"
+          },
+          {
+              "key":"logging.compress-rolled-unit",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                  "False":"False"
+              }
+          },
+          {
+              "key":"logging.location"
+          },
+          {
+              "key":"logging.syslog",
+              "items":[
+                  {
+                      "key":"logging.syslog.address"
+                  },
+                  {
+                      "key":"logging.syslog.facility",
+                      "type":"select",
+                      "titleMap":{
+                          "AUTH": "AUTH",
+									"KERN": "KERN",
+									"USER": "USER",
+									"MAIL": "MAIL",
+									"DAEMON": "DAEMON",
+									"SYSLOG": "SYSLOG",
+									"LPR": "LPR",
+									"NEWS": "NEWS",
+									"UUCP": "UUCP",
+									"CRON": "CORN",
+									"AUTHPRIV": "AUTHPRIV",
+									"FTP": "FTP",
+									"LOCAL0": "LOCAL0",
+									"LOCAL1": "LOCAL1",
+									"LOCAL2": "LOCAL2",
+									"LOCAL3": "LOCAL3",
+									"LOCAL4": "LOCAL4",
+									"LOCAL5": "LOCAL5",
+									"LOCAL6": "LOCAL6",
+									"LOCAL7": "LOCAL7"
+                      }
+                  }
+                  ]
+          }
+          ]
+  },
+  {
+      "key":"peer-list",
+      "add":"Add",
+      "items":[
+          {
+              "key":"peer-list.name"
+          }
+          ]
+  },
+   {
+      "key":"plugin-list",
+      "items":[
+          {
+              "key":"plugin-list.in-plugins",
+              "add":"Add",
+              "title":"In Plugins",
+              "items":[
+                  {
+                      "key":"plugin-list.in-plugins.plugin-entry",
+                      "title":"Plugin Entry",
+                      "items":[
+                          {
+                              "key":"plugin-list.in-plugins.plugin-entry[].plugin-name",
+                              "title":"Plugin Name"
+                          },
+                          {
+                              "key":"plugin-list.in-plugins.plugin-entry[].argument",
+                              "title":"Argument"
+                          }
+                          ]
+                  }
+                  ]
+          },
+          {
+              "key":"plugin-list.out-plugins",
+              "items":[
+                  {
+                      "key":"plugin-list.out-plugins.plugin-entry",
+                      "items":[
+                          {
+                              "key":"plugin-list.out-plugins.plugin-entry[].plugin-name",
+                              "title":"Plugin Name"
+                          },
+                          {
+                              "key":"plugin-list.out-plugins.plugin-entry[].argument",
+                              "title":"Argument"
+                          }
+                          ]
+                  }
+                  
+                  ]
+          }
+          ]
+  },
+  {
+      "key":"rfc-5729-nai",
+      "items":[
+          {
+              "key":"rfc-5729-nai.enabled",
+              "title":"Enabled",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                  "False":"False"
+              }
+          },
+          {
+              "key":"rfc-5729-nai.realm-names"
+          }
+          ]
+  },
+  
+  {
+      "key":"diameter-webservice",
+      "items":[
+          {
+              "key":"diameter-webservice.diameter-re-auth",
+              "items":[
+                  {
+                      "key":"diameter-webservice.diameter-re-auth.ws-mapping-name"
+                  }
+                  ]
+          },
+          {
+              "key":"diameter-webservice.diameter-abort-session",
+              "items":[
+                  {
+                      "key":"diameter-webservice.diameter-abort-session.ws-mapping-name"
+                  }
+                  ]
+          },
+          {
+              "key":"diameter-webservice.diameter-generic-request",
+              "items":[
+                  {
+                      "key":"diameter-webservice.diameter-generic-request.ws-mapping-name"
+                  }
+                  ]
+          }
+          ]
+  }
+  
+],
+	"model": {  
+   "diameter-stack-enable":"true",
+   "service-address":"0.0.0.0:3868",
+   "socket-receive-buffer-size":"3267",
+   "socket-send-buffer-size":"267",
+   "queue-size":"30000",
+   "minimum-thread":"50",
+   "maximum-thread":"100",
+   "main-thread-priority":"7",
+   "worker-thread-priority":"7",
+   "own-diameter-URI":"aaa://localhost:3868",
+   "routing-table":"-NONE-",
+   "session-manager-id":"-NONE-",
+   "security-standard":"RFC 6733",
+   "duplicate-request-check-enable":"false",
+   "duplicate-request-purge-interval":"15",
+   "diameter-session-cleanup":{  
+      "session-cleanup-interval":"86400",
+      "session-timeout":"86400"
+   },
+   "security-parameters":{  
+      "max-tls-version":"TLSv1",
+      "min-tls-version":"TLSv1",
+      "handshake-timeout":"3000",
+      "server-certificate-id":"NONE",
+      "client-certificate-request":"true",
+      "enabled-cipher-suites":"TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_DES_CBC_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_RC4_128_MD5",
+      "certificate-validation":{  
+         "validate-certificate-expiry":"true",
+         "validate-certificate-ca":"true",
+         "validate-certificate-revocation":"true"
+      }
+   },
+   "logging":{  
+      "service-logger-enabled":"false",
+      "log-level":"DEBUG",
+      "rolling-type":"Time-Based",
+      "rolling-unit":"5",
+      "max-rolled-unit":"10",
+      "compress-rolled-unit":"false",
+      "location":"logs",
+      "syslog":{  
+         "address":"",
+         "facility":"SYSLOG"
+      }
+   },
+   "peer-list":{  
+      "name":[  
+         "-ALL-"
+      ]
+   },
+   "plugin-list":{  
+      "in-plugins":{  
+         "plugin-entry":[  
+            {  
+               "plugin-name":"-NONE-",
+               "argument":""
+            }
+         ]
+      },
+      "out-plugins":{  
+         "plugin-entry":[  
+            {  
+               "plugin-name":"-NONE-",
+               "argument":""
+            }
+         ]
+      }
+   },
+   "rfc-5729-nai":{  
+      "enabled":"false",
+      "realm-names":""
+   },
+   "diameter-webservice":{  
+      "diameter-re-auth":{  
+         "ws-mapping-name":"-NONE-"
+      },
+      "diameter-abort-session":{  
+         "ws-mapping-name":"-NONE-"
+      },
+      "diameter-generic-request":{  
+         "ws-mapping-name":"-NONE-"
+      }
+   }
+}
+}

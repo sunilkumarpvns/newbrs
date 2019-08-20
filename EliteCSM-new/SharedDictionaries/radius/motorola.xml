@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="161" vendor-name="Motorola">
+  <attribute id="10" name="Motorola-WiMAX-MIP-MN-HOME-ADDRESS" type="ipaddr"/>
+  <attribute id="11" name="Motorola-WiMAX-MIP-KEY" type="string"/>
+  <attribute id="12" name="Motorola-WiMAX-MIP-SPI" type="integer"/>
+  <attribute id="13" name="Motorola-WiMAX-MN-HA" type="ipaddr"/>
+  <attribute id="20" name="Motorola-WiMAX-DNS-Server-IP-Address" type="octets"/>
+  <attribute id="22" name="Motorola-WiMAX-User-NAI" type="string"/>
+  <attribute id="30" name="Motorola-WiMAX-Network-Domain-Name" type="string"/>
+  <attribute id="31" name="Motorola-WiMAX-EMS-Address" type="ipaddr"/>
+  <attribute id="32" name="Motorola-WiMAX-Provisioning-Server" type="string"/>
+  <attribute id="34" name="Motorola-WiMAX-NTP-Server" type="octets"/>
+  <attribute id="35" name="Motorola-WiMAX-HO-SVC-CLASS" type="octets"/>
+  <attribute id="50" name="Motorola-WiMAX-Home-BTS" type="octets"/>
+  <attribute id="60" name="Motorola-WiMAX-Maximum-Total-Bandwidth" type="octets"/>
+  <attribute id="61" name="Motorola-WiMAX-Maximum-Commit-Bandwidth" type="octets"/>
+  <attribute id="63" name="Motorola-WiMAX-Convergence-Sublayer" type="octets"/>
+  <attribute id="64" name="Motorola-WiMAX-Service-Flows" type="string"/>
+  <attribute id="65" name="Motorola-WiMAX-VLAN-ID" type="octets"/>
+
+  <attribute id="224" name="Motorola-Canopy-Shared-Secret" type="string"/>
+  <attribute id="225" name="Motorola-Canopy-SULDR" type="string"/>
+  <attribute id="226" name="Motorola-Canopy-SDLDR" type="string"/>
+  <attribute id="227" name="Motorola-Canopy-ULBA" type="string"/>
+  <attribute id="228" name="Motorola-Canopy-DLBA" type="string"/>
+  <attribute id="229" name="Motorola-Canopy-Enable" type="string"/>
+  <attribute id="230" name="Motorola-Canopy-LPSULDR" type="string"/>
+  <attribute id="231" name="Motorola-Canopy-LPSDLDR" type="string"/>
+  <attribute id="232" name="Motorola-Canopy-HPCENABLE" type="string"/>
+  <attribute id="233" name="Motorola-Canopy-HPSULDR" type="string"/>
+  <attribute id="234" name="Motorola-Canopy-HPSDLDR" type="string"/>
+  <attribute id="235" name="Motorola-Canopy-HIGHERBW" type="string"/>
+  <attribute id="236" name="Motorola-Canopy-CIRENABLE" type="string"/>
+</attribute-list>

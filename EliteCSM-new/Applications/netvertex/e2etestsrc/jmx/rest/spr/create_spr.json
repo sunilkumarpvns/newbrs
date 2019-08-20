@@ -1,0 +1,12 @@
+{
+  "id": "rest_spr_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "rest_spr",
+  "description": "Created by REST Automation",
+  "alternateIdField": "SUBSCRIBER_IDENTITY",
+  "batchSize": 100,
+  "databaseId": "rest_datasource_spr_11111111",
+  "spInterfaceId": null,
+  "groupNames": "DefaultGroup"
+}

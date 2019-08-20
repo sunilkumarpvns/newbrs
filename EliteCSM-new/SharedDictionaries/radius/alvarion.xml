@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="12394" vendor-name="Alvarion">
+	<attribute id="1" name="R3-IF-Descriptor" type="grouped">
+		<attribute id="1" name="R3-IF-Name" type="string"/>
+		<attribute id="2" name="R3-IF-ID" type="integer"/>
+		<attribute id="3" name="PDFID" type="short"/>
+		<attribute id="4" name="IPv4-addr" type="ipaddr"/>
+		<attribute id="5" name="IPv4-netmask" type="octets"/>
+		<attribute id="6" name="DGW-IPv4-addr" type="ipaddr"/>
+		<attribute id="7" name="IPv4-Addr-Range-Start" type="ipaddr"/>
+		<attribute id="8" name="IPv4-Addr-Range-End" type="ipaddr"/>
+		<attribute id="9" name="Static-IP-Addr-Indicator" type="byte"/>
+	</attribute>
+	
+	<attribute id="2" name="DHCP Option" type="grouped">
+		<attribute id="1" name="Ref-R3-IF-Name" type="string"/>
+		<attribute id="2" name="DHCP Option Container" type="octets"/>
+	</attribute>
+</attribute-list>

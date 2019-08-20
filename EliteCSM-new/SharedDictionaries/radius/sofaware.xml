@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="6983" vendor-name="SofaWare">
+<attribute id="1" name="SofaWare-Admin" type="string"/>
+<attribute id="2" name="SofaWare-VPN" type="string"/>
+<attribute id="3" name="SofaWare-Hotspot" type="string"/>
+<attribute id="4" name="SofaWare-UFP" type="string"/>
+</attribute-list>

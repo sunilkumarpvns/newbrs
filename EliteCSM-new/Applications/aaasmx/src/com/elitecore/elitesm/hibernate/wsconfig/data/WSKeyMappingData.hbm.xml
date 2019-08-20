@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.wsconfig.data.WSKeyMappingData" table="TBLMWSKEYMAPPING">
+
+		<id name="wsKeyMappingId" column="WSKEYMAPPINGID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="wsKey" type="StringType"> 
+			<column name="WSKEY" sql-type="VARCHAR(60)" not-null="false" /> 
+		</property>
+		<property name="dbField" type="StringType"> 
+			<column name="dbfield" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="wsConfigId" type="StringType"> 
+			<column name="WSCONFIGID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="request" type="StringType">
+			<column name="REQUEST" sql-type="VARCHAR(32)" not-null="false" />
+		</property>
+		
+		<property name="response" type="StringType">
+			<column name="RESPONSE" sql-type="VARCHAR(32)" not-null="false" />
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer">
+			<column name="ORDERNUMBER" sql-type="NUMERIC(20)" not-null="false" />
+		</property>
+		
+	    
+	</class>
+	
+</hibernate-mapping> 
+
+
+	

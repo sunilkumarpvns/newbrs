@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="3561" applicationid="0" application-name="DSL" vendor-name="DSL">
+
+	<attribute id="1" name="Agent-Circuit-Id" mandatory="yes" protected="yes" encryption="no" type="UTF8String" />
+	
+	<attribute id="2" name="Agent-Remote-Id" mandatory="yes" protected="yes" encryption="no" type="UTF8String" />
+
+	<attribute id="129" name="Actual-Data-Rate-Upstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+
+	<attribute id="130" name="Actual-Data-Rate-Downstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+
+	<attribute id="131" name="Minimum-Data-Rate-Upstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	
+	<attribute id="132" name="Minimum-Data-Rate-Downstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+
+	<attribute id="133" name="Attainable-Data-Rate-Upstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+
+	<attribute id="134" name="Attainable-Data-Rate-Downstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+
+	<attribute id="135" name="Maximum-Data-Rate-Upstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+
+	<attribute id="136" name="Maximum-Data-Rate-Downstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+
+	<attribute id="137" name="Minimum-Data-Rate-Upstream-Low-Power" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	
+	<attribute id="138" name="Minimum-Data-Rate-Downstream-Low-Power" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+
+	<attribute id="139" name="Maximum-Interleaving-Delay-Upstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	
+	<attribute id="140" name="Actual-Interleaving-Delay-Upstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	
+	<attribute id="141" name="Maximum-Interleaving-Delay-Downstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+
+	<attribute id="142" name="Actual-Interleaving-Delay-Downstream" mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+
+	<attribute id="144" name="Access-Loop-Encapsulation" mandatory="yes" protected="yes" encryption="no" type="Unsigned32"/>		
+	
+	<attribute id="254" name="IWF-Session" mandatory="yes" protected="yes" encryption="no" type="UTF8String"/>
+	
+</attribute-list>

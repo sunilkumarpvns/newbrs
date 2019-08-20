@@ -1,0 +1,23 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+    
+<validators>
+    
+	<field name="url">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.valueRequired", {getText("database.set.up.connection.url")})}</message>
+		</field-validator>
+	</field>
+	
+	<field name="userName">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.valueRequired", {getText("database.set.up.user.name")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="password">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.valueRequired", {getText("database.set.up.password")})}</message>
+		</field-validator>
+	</field>
+
+</validators>

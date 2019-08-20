@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="562" vendor-name="Nortel">
+<attribute id="166" name="Nortel-Privilege-Level" type="integer">
+	<supported-values>
+		<value id="0" name="VoiceMailAdmin"/>
+		<value id="1" name="ContactCenter"/>
+		<value id="2" name="SBAInstaller"/>
+		<value id="3" name="SBASystemCoord"/>
+		<value id="4" name="SBASystemCoordBasic"/>
+		<value id="5" name="SBABasic"/>
+		<value id="6" name="Security"/>
+		<value id="7" name="CTEApp"/>
+		<value id="8" name="SBA-IPSetRegistration"/>
+		<value id="9" name="Application-BCMMonitor"/>
+		<value id="10" name="CDRApp"/>
+		<value id="11" name="ModemLogin"/>
+		<value id="12" name="GuestLogin"/>
+		<value id="13" name="AdminDownload"/>
+		<value id="14" name="ExclusiveAccess"/>
+		<value id="15" name="Admin"/>
+		<value id="16" name="DataAdmin"/>
+		<value id="17" name="RemoteAccess"/>
+		<value id="18" name="Guest"/>
+		<value id="19" name="VoiceAdmin"/>
+		<value id="20" name="BackupOperator"/>
+		<value id="21" name="RemoteMonitoring"/>
+		<value id="22" name="SoftwareUpgrade"/>
+		<value id="24" name="AlarmViewer"/>
+		<value id="26" name="OperationalLogs"/>
+		<value id="27" name="DiagnosticLogs"/>
+		<value id="28" name="ApplicationIVR"/>
+		<value id="30" name="ISDN-Dial-in"/>
+		<value id="32" name="WAN-Dial-in"/>
+		<value id="36" name="System-SerialPort"/>
+	</supported-values>
+</attribute>
+<attribute id="200" name="Passport-Command-Scope" type="integer"/>
+<attribute id="201" name="Passport-Command-Impact" type="integer"/>
+<attribute id="202" name="Passport-Customer-identifier" type="integer"/>
+<attribute id="203" name="Passport-Allowed-Access" type="integer"/>
+<attribute id="204" name="Passport-AllowedOut-Access" type="integer"/>
+<attribute id="205" name="Passport-Login-Directory" type="string"/>
+<attribute id="206" name="Passport-Timeout-Protocol" type="integer"/>
+<attribute id="207" name="Passport-Role" type="string"/>
+</attribute-list>

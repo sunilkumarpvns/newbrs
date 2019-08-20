@@ -1,0 +1,15 @@
+<elite-rm-trap-alert-listners>
+
+	<elite-rm-trap-alert-listner>
+		<name></name>   
+		<target-system-list>
+			<target>
+				<community>public</community>
+				<ip>127.0.0.1</ip>
+				<port>162</port>
+				<trap-version>2</trap-version>
+			</target>						
+		</target-system-list>
+	</elite-rm-trap-alert-listner>
+	
+</elite-rm-trap-alert-listners>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.acct.data.AcctPolicyRMParamsData" table="TBLMACCTPOLICYRMPARAMS">
+		<composite-id>
+			<key-property name="acctPolicyId" column="ACCTPOLICYID" type="StringType"></key-property>
+			<key-property name="esiTypeId" column="ESITYPEID" type="StringType"></key-property>
+		</composite-id>
+		<property name="acceptOnTimeout" type="StringType" >
+			<column name="ACCEPTONTIMEOUT" not-null="true" sql-type="VARCHAR(5)"></column>
+		</property>
+		<property name="communicationEnabled" type="StringType" >
+			<column name="COMMUNICATIONENABLED" not-null="true" sql-type="VARCHAR(5)"></column>
+		</property>
+		<property name="ruleSet" type="StringType" >
+			<column name="RULESET" not-null="false" sql-type="VARCHAR(2000)"></column>
+		</property>
+		<property name="translationMapConfigId" type="StringType" >
+			<column name="TRANSLATIONMAPCONFIGID"  sql-type="VARCHAR(36)"></column>
+		</property>
+		<property name="script" type="StringType" >
+			<column name="SCRIPT" not-null="false" sql-type="VARCHAR(255)"></column>
+		</property>
+		<many-to-one name="translationMappingConfData" lazy="false" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.TranslationMappingConfData" column="translationMapConfigId"/>
+	</class>		
+</hibernate-mapping>   

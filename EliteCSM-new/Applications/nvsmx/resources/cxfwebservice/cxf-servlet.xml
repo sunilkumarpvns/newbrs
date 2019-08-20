@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:soap="http://cxf.apache.org/bindings/soap"
+	xmlns:cxf="http://cxf.apache.org/core"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://cxf.apache.org/bindings/soap 
+	http://cxf.apache.org/schemas/configuration/soap.xsd 
+	http://cxf.apache.org/jaxws 
+	http://cxf.apache.org/schemas/jaxws.xsd
+	http://cxf.apache.org/core
+	http://cxf.apache.org/schemas/core.xsd">
+	
+	<bean id="MyInterceptor" class="com.elitecore.nvsmx.ws.interceptor.WebServiceRequestInterceptor"/>
+	
+	<cxf:bus>
+        <cxf:inInterceptors>
+            <ref bean="MyInterceptor"/>
+        </cxf:inInterceptors>
+    </cxf:bus>
+	
+	<jaxws:endpoint xmlns:tns="http://subscriberProvisioningWS.ws.nvsmx.elitecore.com/"
+		id="SubscriberProvisioningWS"
+		implementor="com.elitecore.nvsmx.ws.subscriberprovisioning.SubscriberProvisioningWS"
+		endpointName="tns:SubscriberProvisioningWS"
+		serviceName="tns:SubscriberProvisioningService"
+		address="/SubscriberProvisioningService" >
+		
+		<jaxws:binding> 
+			<soap:soapBinding version="1.2"/> 
+		</jaxws:binding> 
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	
+	<jaxws:endpoint xmlns:tns="http://subscriptionWS.ws.nvsmx.elitecore.com/"
+		id="SubscriptionWS"
+		implementor="com.elitecore.nvsmx.ws.subscription.SubscriptionWS"
+		endpointName="tns:SubscriptionWS"
+		serviceName="tns:SubscriptionService"
+		address="/SubscriptionService" >
+		
+		<jaxws:binding> 
+			<soap:soapBinding version="1.2"/> 
+		</jaxws:binding> 
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	
+	<jaxws:endpoint xmlns:tns="http://SessionManagementWS.ws.nvsmx.elitecore.com/"
+		id="SessionManagementWS"
+		implementor="com.elitecore.nvsmx.ws.sessionmanagement.SessionManagementWS"
+		endpointName="tns:SessionManagementWS"
+		serviceName="tns:SessionManagementService"
+		address="/SessionManagementService" >
+		
+		<jaxws:binding> 
+			<soap:soapBinding version="1.2"/> 
+		</jaxws:binding> 
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+
+	<jaxws:endpoint xmlns:tns="http://PackageManagementWS.ws.nvsmx.elitecore.com/"
+					id="PackageManagementWS"
+					implementor="com.elitecore.nvsmx.ws.packagemanagement.PackageManagementWS"
+					endpointName="tns:PackageManagementWS"
+					serviceName="tns:PackageManagementService"
+					address="/PackageManagementService" >
+
+		<jaxws:binding>
+			<soap:soapBinding version="1.2"/>
+		</jaxws:binding>
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	
+</beans>

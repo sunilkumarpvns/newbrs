@@ -1,0 +1,7 @@
+<packet cc="272" app-id="16777238" request="true">
+		<attribute id="0:264" value="origin-host" />
+		<attribute id="0:296" value="origin-realm" />
+		<attribute id="0:263" value="123" />
+		<attribute id="21067:65540" value="1" />
+		<attribute id="21067:65541" value="2" />
+</packet>

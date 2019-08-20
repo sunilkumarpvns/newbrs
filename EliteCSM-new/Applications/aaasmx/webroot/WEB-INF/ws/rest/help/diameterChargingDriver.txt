@@ -1,0 +1,282 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging?name=diameterChargingDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging.xml?name=diameterChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging?operation=search&name=diameterChargingDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging.xml?operation=search&name=diameterChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+<driver-instance>
+    <name>diameterChargingDriver</name>
+    <description>Created by admin on 02/21/2017 10:04:42 AM</description>
+    <diameter-charging-driver>
+        <disconnect-url>www.example.com</disconnect-url>
+        <translation-mapping-configuration>diameterChargingTranslationMapping</translation-mapping-configuration>
+    </diameter-charging-driver>
+</driver-instance>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging?name=diameterChargingDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging.json?name=diameterChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging?operation=search&name=diameterChargingDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging.json?operation=search&name=diameterChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+    "name": "diameterChargingDriver",
+    "description": "Created by admin on 02/21/2017 10:04:42 AM",
+    "diameter-charging-driver": [
+        {
+            "translation-mapping-configuration": "diameterChargingTranslationMapping",
+            "disconnect-url": "www.example.com"
+        }
+    ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<driver-instance>
+    <name>diameterChargingDriver</name>
+    <description>Created by admin on 02/21/2017 10:04:42 AM</description>
+    <diameter-charging-driver>
+        <disconnect-url>www.example.com</disconnect-url>
+        <translation-mapping-configuration>diameterChargingTranslationMapping</translation-mapping-configuration>
+    </diameter-charging-driver>
+</driver-instance>
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Charging Driver created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+{
+    "name": "diameterChargingDriver",
+    "description": "Created by admin on 02/21/2017 10:04:42 AM",
+    "diameter-charging-driver": [
+        {
+            "translation-mapping-configuration": "diameterChargingTranslationMapping",
+            "disconnect-url": "www.example.com"
+        }
+    ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Charging Driver created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<list>
+    <driver-instance>
+    <name>diameterChargingDriver</name>
+    <description>Created by admin on 02/21/2017 10:04:42 AM</description>
+	    <diameter-charging-driver>
+	        <disconnect-url>www.example.com</disconnect-url>
+	        <translation-mapping-configuration>diameterChargingTranslationMapping</translation-mapping-configuration>
+	    </diameter-charging-driver>
+	</driver-instance>
+</list>
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Charging Driver(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+{
+   "list":[
+      {
+	    "name": "diameterChargingDriver",
+	    "description": "Created by admin on 02/21/2017 10:04:42 AM",
+	    "diameter-charging-driver": [
+	        {
+	            "translation-mapping-configuration": "diameterChargingTranslationMapping",
+	            "disconnect-url": "www.example.com"
+	        }
+	      ]
+	  }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Charging Driver(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging?name=diameterChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging?operation=update&name=diameterChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+<driver-instance>
+    <name>diameterChargingDriver</name>
+    <description>Created by admin on 02/21/2017 10:04:42 AM</description>
+    <diameter-charging-driver>
+        <disconnect-url>www.example.com</disconnect-url>
+        <translation-mapping-configuration>diameterChargingTranslationMapping</translation-mapping-configuration>
+    </diameter-charging-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Charging Driver updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+{
+	    "name": "diameterChargingDriver",
+	    "description": "Created by admin on 02/21/2017 10:04:42 AM",
+	    "diameter-charging-driver": [
+	        {
+	            "translation-mapping-configuration": "diameterChargingTranslationMapping",
+	            "disconnect-url": "www.example.com"
+	        }
+	     ]
+  }
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Charging Driver updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging?name=diameterChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging?operation=delete&name=diameterChargingDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/diametercharging/diameterChargingDriver?operation=delete
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Charging Driver(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

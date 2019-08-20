@@ -1,0 +1,1764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="429" vendor-name="USR">
+<attribute id="72" name="USR-DTE-Data-idle-Timout" type="integer"/>
+<attribute id="94" name="USR-Default-DTE-Data-Rate" type="integer">
+	<supported-values>
+		<value id="1" name="110-BPS"/>
+		<value id="2" name="300-BPS"/>
+		<value id="3" name="600-BPS"/>
+		<value id="4" name="1200-BPS"/>
+		<value id="5" name="2400-BPS"/>
+		<value id="6" name="4800-BPS"/>
+		<value id="7" name="7200-BPS"/>
+		<value id="8" name="9600-BPS"/>
+		<value id="9" name="12K-BPS"/>
+		<value id="10" name="14.4K-BPS"/>
+		<value id="11" name="16.8-BPS"/>
+		<value id="12" name="19.2K-BPS"/>
+		<value id="13" name="38.4K-BPS"/>
+		<value id="14" name="75-BPS"/>
+		<value id="15" name="450-BPS"/>
+		<value id="16" name="UNKNOWN-BPS"/>
+		<value id="17" name="57.6K-BPS"/>
+		<value id="18" name="21.6K-BPS"/>
+		<value id="19" name="24K-BPS"/>
+		<value id="20" name="26K-BPS"/>
+		<value id="21" name="28K-BPS"/>
+		<value id="22" name="115K-BPS"/>
+	</supported-values>
+</attribute>
+<attribute id="102" name="USR-Last-Number-Dialed-Out" type="string"/>
+<attribute id="103" name="USR-Sync-Async-Mode" type="integer">
+	<supported-values>
+		<value id="1" name="Asynchronous"/>
+		<value id="2" name="Synchronous"/>
+	</supported-values>
+</attribute>
+<attribute id="104" name="USR-Originate-Answer-Mode" type="integer">
+	<supported-values>
+		<value id="1" name="Originate_in_Originate_Mode"/>
+		<value id="2" name="Originate_in_Answer_Mode"/>
+		<value id="3" name="Answer_in_Originate_Mode"/>
+		<value id="4" name="Answer_in_Answer_Mode"/>
+	</supported-values>
+</attribute>
+<attribute id="105" name="USR-Failure-to-Connect-Reason" type="integer">
+	<supported-values>
+		<value id="1" name="dtrDrop"/>
+		<value id="2" name="escapeSequence"/>
+		<value id="3" name="athCommand"/>
+		<value id="4" name="carrierLoss"/>
+		<value id="5" name="inactivityTimout"/>
+		<value id="6" name="mnpIncompatible"/>
+		<value id="7" name="undefined"/>
+		<value id="8" name="remotePassword"/>
+		<value id="9" name="linkPassword"/>
+		<value id="10" name="retransmitLimit"/>
+		<value id="11" name="linkDisconnectMsgRec"/>
+		<value id="12" name="noLoopCurrent"/>
+		<value id="13" name="invalidSpeed"/>
+		<value id="14" name="unableToRetrain"/>
+		<value id="15" name="managementCommand"/>
+		<value id="16" name="noDialTone"/>
+		<value id="17" name="keyAbort"/>
+		<value id="18" name="lineBusy"/>
+		<value id="19" name="noAnswer"/>
+		<value id="20" name="voice"/>
+		<value id="21" name="noAnswerTone"/>
+		<value id="22" name="noCarrier"/>
+		<value id="23" name="undetermined"/>
+		<value id="24" name="v42SabmeTimeout"/>
+		<value id="25" name="v42BreakTimeout"/>
+		<value id="26" name="v42DisconnectCmd"/>
+		<value id="27" name="v42idExchangeFail"/>
+		<value id="28" name="v42BadSetup"/>
+		<value id="29" name="v42InvalidCodeWord"/>
+		<value id="30" name="v42StringToLong"/>
+		<value id="31" name="v42InvalidCommand"/>
+		<value id="32" name="none"/>
+		<value id="33" name="v32Cleardown"/>
+		<value id="34" name="dialSecurity"/>
+		<value id="35" name="remoteAccessDenied"/>
+		<value id="36" name="loopLoss"/>
+		<value id="37" name="ds0Teardown"/>
+		<value id="38" name="promptNotEnabled"/>
+		<value id="39" name="noPromptingInSync"/>
+		<value id="40" name="nonArqMode"/>
+		<value id="41" name="modeIncompatible"/>
+		<value id="42" name="noPromptInNonARQ"/>
+		<value id="43" name="dialBackLink"/>
+		<value id="44" name="linkAbort"/>
+		<value id="45" name="autopassFailed"/>
+		<value id="46" name="pbGenericError"/>
+		<value id="47" name="pbLinkErrTxPreAck"/>
+		<value id="48" name="pbLinkErrTxTardyACK"/>
+		<value id="49" name="pbTransmitBusTimeout"/>
+		<value id="50" name="pbReceiveBusTimeout"/>
+		<value id="51" name="pbLinkErrTxTAL"/>
+		<value id="52" name="pbLinkErrRxTAL"/>
+		<value id="53" name="pbTransmitMasterTimeout"/>
+		<value id="54" name="pbClockMissing"/>
+		<value id="55" name="pbReceivedLsWhileLinkUp"/>
+		<value id="56" name="pbOutOfSequenceFrame"/>
+		<value id="57" name="pbBadFrame"/>
+		<value id="58" name="pbAckWaitTimeout"/>
+		<value id="59" name="pbReceivedAckSeqErr"/>
+		<value id="60" name="pbReceiveOvrflwRNRFail"/>
+		<value id="61" name="pbReceiveMsgBufOvrflw"/>
+		<value id="62" name="rcvdGatewayDiscCmd"/>
+		<value id="63" name="tokenPassingTimeout"/>
+		<value id="64" name="dspInterruptTimeout"/>
+		<value id="65" name="mnpProtocolViolation"/>
+		<value id="66" name="class2FaxHangupCmd"/>
+		<value id="67" name="hstSpeedSwitchTimeout"/>
+		<value id="68" name="tooManyUnacked"/>
+		<value id="69" name="timerExpired"/>
+		<value id="70" name="t1Glare"/>
+		<value id="71" name="pridialoutRqTimeout"/>
+		<value id="72" name="abortAnlgDstOvrIsdn"/>
+		<value id="73" name="normalUserCallClear"/>
+		<value id="74" name="normalUnspecified"/>
+		<value id="75" name="bearerIncompatibility"/>
+		<value id="76" name="protocolErrorEvent"/>
+		<value id="77" name="abnormalDisconnect"/>
+		<value id="78" name="invalidCauseValue"/>
+		<value id="79" name="resourceUnavailable"/>
+		<value id="80" name="remoteHungUpDuringTraining"/>
+		<value id="81" name="trainingTimeout"/>
+		<value id="82" name="incomingModemNotAvailable"/>
+		<value id="83" name="incomingInvalidBearerCap"/>
+		<value id="84" name="incomingInvalidChannelid"/>
+		<value id="85" name="incomingInvalidProgInd"/>
+		<value id="86" name="incomingInvalidCallingPty"/>
+		<value id="87" name="incomingInvalidCalledPty"/>
+		<value id="88" name="incomingCallBlock"/>
+		<value id="89" name="incomingLoopStNoRingOff"/>
+		<value id="90" name="outgoingTelcoDisconnect"/>
+		<value id="91" name="outgoingEMWinkTimeout"/>
+		<value id="92" name="outgoingEMWinkTooShort"/>
+		<value id="93" name="outgoingNoChannelAvail"/>
+		<value id="94" name="dspReboot"/>
+		<value id="95" name="noDSPRespToKA"/>
+		<value id="96" name="noDSPRespToDisc"/>
+		<value id="97" name="dspTailPtrInvalid"/>
+		<value id="98" name="dspHeadPtrInvalid"/>
+	</supported-values>
+</attribute>
+
+<attribute id="106" name="USR-Initial-Tx-Link-Data-Rate" type="integer">
+	<supported-values>
+		<value id="1" name="110-BPS"/>
+		<value id="2" name="300-BPS"/>
+		<value id="3" name="600-BPS"/>
+		<value id="4" name="1200-BPS"/>
+		<value id="5" name="2400-BPS"/>
+		<value id="6" name="4800-BPS"/>
+		<value id="7" name="7200-BPS"/>
+		<value id="8" name="9600-BPS"/>
+		<value id="9" name="12000-BPS"/>
+		<value id="10" name="14400-BPS"/>
+		<value id="11" name="16800-BPS"/>
+		<value id="12" name="19200-BPS"/>
+		<value id="13" name="38400-BPS"/>
+		<value id="14" name="75-BPS"/>
+		<value id="15" name="450-BPS"/>
+		<value id="16" name="UNKNOWN-BPS"/>
+		<value id="17" name="57600-BPS"/>
+		<value id="18" name="21600-BPS"/>
+		<value id="19" name="24000-BPS"/>
+		<value id="20" name="26400-BPS"/>
+		<value id="21" name="28800-BPS"/>
+		<value id="22" name="115200-BPS"/>
+		<value id="23" name="31200-BPS"/>
+		<value id="24" name="33600-BPS"/>
+		<value id="25" name="25333-BPS"/>
+		<value id="26" name="26666-BPS"/>
+		<value id="27" name="28000-BPS"/>
+		<value id="28" name="29333-BPS"/>
+		<value id="29" name="30666-BPS"/>
+		<value id="30" name="32000-BPS"/>
+		<value id="31" name="33333-BPS"/>
+		<value id="32" name="34666-BPS"/>
+		<value id="33" name="36000-BPS"/>
+		<value id="34" name="37333-BPS"/>
+		<value id="35" name="38666-BPS"/>
+		<value id="36" name="40000-BPS"/>
+		<value id="37" name="41333-BPS"/>
+		<value id="38" name="42666-BPS"/>
+		<value id="39" name="44000-BPS"/>
+		<value id="40" name="45333-BPS"/>
+		<value id="41" name="46666-BPS"/>
+		<value id="42" name="48000-BPS"/>
+		<value id="43" name="49333-BPS"/>
+		<value id="44" name="50666-BPS"/>
+		<value id="45" name="52000-BPS"/>
+		<value id="46" name="53333-BPS"/>
+		<value id="47" name="54666-BPS"/>
+		<value id="48" name="56000-BPS"/>
+		<value id="49" name="57333-BPS"/>
+		<value id="50" name="58666-BPS"/>
+		<value id="51" name="60000-BPS"/>
+		<value id="52" name="61333-BPS"/>
+		<value id="53" name="62666-BPS"/>
+		<value id="54" name="64000-BPS"/>
+	</supported-values>
+</attribute>
+<attribute id="107" name="USR-Final-Tx-Link-Data-Rate" type="integer">
+	<supported-values>
+		<value id="1" name="110-BPS"/>
+		<value id="2" name="300-BPS"/>
+		<value id="3" name="600-BPS"/>
+		<value id="4" name="1200-BPS"/>
+		<value id="5" name="2400-BPS"/>
+		<value id="6" name="4800-BPS"/>
+		<value id="7" name="7200-BPS"/>
+		<value id="8" name="9600-BPS"/>
+		<value id="9" name="12000-BPS"/>
+		<value id="10" name="14400-BPS"/>
+		<value id="11" name="16800-BPS"/>
+		<value id="12" name="19200-BPS"/>
+		<value id="13" name="38400-BPS"/>
+		<value id="14" name="75-BPS"/>
+		<value id="15" name="450-BPS"/>
+		<value id="16" name="UNKNOWN-BPS"/>
+		<value id="17" name="57600-BPS"/>
+		<value id="18" name="21600-BPS"/>
+		<value id="19" name="24000-BPS"/>
+		<value id="20" name="26400-BPS"/>
+		<value id="21" name="28800-BPS"/>
+		<value id="22" name="115200-BPS"/>
+		<value id="23" name="31200-BPS"/>
+		<value id="24" name="33600-BPS"/>
+		<value id="25" name="25333-BPS"/>
+		<value id="26" name="26666-BPS"/>
+		<value id="27" name="28000-BPS"/>
+		<value id="28" name="29333-BPS"/>
+		<value id="29" name="30666-BPS"/>
+		<value id="30" name="32000-BPS"/>
+		<value id="31" name="33333-BPS"/>
+		<value id="32" name="34666-BPS"/>
+		<value id="33" name="36000-BPS"/>
+		<value id="34" name="37333-BPS"/>
+		<value id="35" name="38666-BPS"/>
+		<value id="36" name="40000-BPS"/>
+		<value id="37" name="41333-BPS"/>
+		<value id="38" name="42666-BPS"/>
+		<value id="39" name="44000-BPS"/>
+		<value id="40" name="45333-BPS"/>
+		<value id="41" name="46666-BPS"/>
+		<value id="42" name="48000-BPS"/>
+		<value id="43" name="49333-BPS"/>
+		<value id="44" name="50666-BPS"/>
+		<value id="45" name="52000-BPS"/>
+		<value id="46" name="53333-BPS"/>
+		<value id="47" name="54666-BPS"/>
+		<value id="48" name="56000-BPS"/>
+		<value id="49" name="57333-BPS"/>
+		<value id="50" name="58666-BPS"/>
+		<value id="51" name="60000-BPS"/>
+		<value id="52" name="61333-BPS"/>
+		<value id="53" name="62666-BPS"/>
+		<value id="54" name="64000-BPS"/>
+	</supported-values>
+</attribute>
+
+<attribute id="108" name="USR-Modulation-Type" type="integer">
+	<supported-values>
+		<value id="1" name="usRoboticsHST"/>
+		<value id="2" name="ccittV32"/>
+		<value id="3" name="ccittV22bis"/>
+		<value id="4" name="bell103"/>
+		<value id="5" name="ccittV21"/>
+		<value id="6" name="bell212"/>
+		<value id="7" name="ccittV32bis"/>
+		<value id="8" name="ccittV23"/>
+		<value id="9" name="negotiationFailed"/>
+		<value id="10" name="bell208b"/>
+		<value id="11" name="v21FaxClass1"/>
+		<value id="12" name="v27FaxClass1"/>
+		<value id="13" name="v29FaxClass1"/>
+		<value id="14" name="v17FaxClass1"/>
+		<value id="15" name="v21FaxClass2"/>
+		<value id="16" name="v27FaxClass2"/>
+		<value id="17" name="v29FaxClass2"/>
+		<value id="18" name="v17FaxClass2"/>
+		<value id="19" name="v32Terbo"/>
+		<value id="20" name="v34"/>
+		<value id="21" name="vFC"/>
+		<value id="22" name="v34plus"/>
+		<value id="23" name="x2"/>
+		<value id="24" name="v110"/>
+		<value id="25" name="v120"/>
+		<value id="26" name="x75"/>
+		<value id="27" name="asyncSyncPPP"/>
+		<value id="28" name="clearChannel"/>
+		<value id="29" name="x2client"/>
+		<value id="30" name="x2symmetric"/>
+		<value id="31" name="piafs"/>
+		<value id="32" name="x2version2"/>
+		<value id="33" name="v90Analog"/>
+		<value id="34" name="v90Digital"/>
+		<value id="35" name="v90AllDigital"/>
+	</supported-values>
+</attribute>
+<attribute id="111" name="USR-Equalization-Type" type="integer">
+	<supported-values>
+		<value id="1" name="Long"/>
+		<value id="2" name="Short"/>
+	</supported-values>
+</attribute>
+<attribute id="112" name="USR-Fallback-Enabled" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="113" name="USR-Characters-Sent" type="integer"/>
+<attribute id="114" name="USR-Characters-Received" type="integer"/>
+<attribute id="117" name="USR-Blocks-Sent" type="integer"/>
+<attribute id="118" name="USR-Blocks-Received" type="integer"/>
+<attribute id="119" name="USR-Blocks-Resent" type="integer"/>
+<attribute id="120" name="USR-Retrains-Requested" type="integer"/>
+<attribute id="121" name="USR-Retrains-Granted" type="integer"/>
+<attribute id="122" name="USR-Line-Reversals" type="integer"/>
+<attribute id="123" name="USR-Number-Of-Characters-Lost" type="integer"/>
+<attribute id="124" name="USR-Back-Channel-Data-Rate" type="integer">
+	<supported-values>
+		<value id="1" name="450BPS"/>
+		<value id="2" name="300BPS"/>
+		<value id="3" name="None"/>
+	</supported-values>
+</attribute>
+
+<attribute id="125" name="USR-Number-of-Blers" type="integer"/>
+<attribute id="126" name="USR-Number-of-Link-Timeouts" type="integer"/>
+<attribute id="127" name="USR-Number-of-Fallbacks" type="integer"/>
+<attribute id="128" name="USR-Number-of-Upshifts" type="integer"/>
+<attribute id="129" name="USR-Number-of-Link-NAKs" type="integer"/>
+
+<attribute id="126" name="Multi-Link-Flag" type="integer">
+	<supported-values>
+		<value id="1" name="True"/>
+		<value id="0" name="False"/>
+	</supported-values>
+</attribute>
+
+<attribute id="153" name="USR-Simplified-MNP-Levels" type="integer">
+	<supported-values>
+		<value id="1" name="none"/>
+		<value id="2" name="mnpLevel3"/>
+		<value id="3" name="mnpLevel4"/>
+		<value id="4" name="ccittV42"/>
+		<value id="5" name="usRoboticsHST"/>
+		<value id="6" name="synchronousNone"/>
+		<value id="7" name="mnpLevel2"/>
+		<value id="8" name="mnp10"/>
+		<value id="9" name="v42Etc"/>
+		<value id="10" name="mnp10Etc"/>
+		<value id="11" name="lapmEtc"/>
+		<value id="12" name="v42Etc2"/>
+		<value id="13" name="v42SRej"/>
+		<value id="14" name="piafs"/>
+	</supported-values>
+</attribute>
+
+<attribute id="155" name="USR-Connect-Term-Reason" type="integer">
+	<supported-values>
+		<value id="1" name="dtrDrop"/>
+		<value id="2" name="escapeSequence"/>
+		<value id="3" name="athCommand"/>
+		<value id="4" name="carrierLoss"/>
+		<value id="5" name="inactivityTimout"/>
+		<value id="6" name="mnpIncompatible"/>
+		<value id="7" name="undefined"/>
+		<value id="8" name="remotePassword"/>
+		<value id="9" name="linkPassword"/>
+		<value id="10" name="retransmitLimit"/>
+		<value id="11" name="linkDisconnectMsgReceived"/>
+		<value id="12" name="noLoopCurrent"/>
+		<value id="13" name="invalidSpeed"/>
+		<value id="14" name="unableToRetrain"/>
+		<value id="15" name="managementCommand"/>
+		<value id="16" name="noDialTone"/>
+		<value id="17" name="keyAbort"/>
+		<value id="18" name="lineBusy"/>
+		<value id="19" name="noAnswer"/>
+		<value id="20" name="voice"/>
+		<value id="21" name="noAnswerTone"/>
+		<value id="22" name="noCarrier"/>
+		<value id="23" name="undetermined"/>
+		<value id="24" name="v42SabmeTimeout"/>
+		<value id="25" name="v42BreakTimeout"/>
+		<value id="26" name="v42DisconnectCmd"/>
+		<value id="27" name="v42idExchangeFail"/>
+		<value id="28" name="v42BadSetup"/>
+		<value id="29" name="v42InvalidCodeWord"/>
+		<value id="30" name="v42StringToLong"/>
+		<value id="31" name="v42InvalidCommand"/>
+		<value id="32" name="none"/>
+		<value id="33" name="v32Cleardown"/>
+		<value id="34" name="dialSecurity"/>
+		<value id="35" name="remoteAccessDenied"/>
+		<value id="36" name="loopLoss"/>
+		<value id="37" name="ds0Teardown"/>
+		<value id="38" name="promptNotEnabled"/>
+		<value id="39" name="noPromptingInSync"/>
+		<value id="40" name="nonArqMode"/>
+		<value id="41" name="modeIncompatible"/>
+		<value id="42" name="noPromptInNonARQ"/>
+		<value id="43" name="dialBackLink"/>
+		<value id="44" name="linkAbort"/>
+		<value id="45" name="autopassFailed"/>
+		<value id="46" name="pbGenericError"/>
+		<value id="47" name="pbLinkErrTxPreAck"/>
+		<value id="48" name="pbLinkErrTxTardyACK"/>
+		<value id="49" name="pbTransmitBusTimeout"/>
+		<value id="50" name="pbReceiveBusTimeout"/>
+		<value id="51" name="pbLinkErrTxTAL"/>
+		<value id="52" name="pbLinkErrRxTAL"/>
+		<value id="53" name="pbTransmitMasterTimeout"/>
+		<value id="54" name="pbClockMissing"/>
+		<value id="55" name="pbReceivedLsWhileLinkUp"/>
+		<value id="56" name="pbOutOfSequenceFrame"/>
+		<value id="57" name="pbBadFrame"/>
+		<value id="58" name="pbAckWaitTimeout"/>
+		<value id="59" name="pbReceivedAckSeqErr"/>
+		<value id="60" name="pbReceiveOvrflwRNRFail"/>
+		<value id="61" name="pbReceiveMsgBufOvrflw"/>
+		<value id="62" name="rcvdGatewayDiscCmd"/>
+		<value id="63" name="tokenPassingTimeout"/>
+		<value id="64" name="dspInterruptTimeout"/>
+		<value id="65" name="mnpProtocolViolation"/>
+		<value id="66" name="class2FaxHangupCmd"/>
+		<value id="67" name="hstSpeedSwitchTimeout"/>
+		<value id="68" name="tooManyUnacked"/>
+		<value id="69" name="timerExpired"/>
+		<value id="70" name="t1Glare"/>
+		<value id="71" name="pridialoutRqTimeout"/>
+		<value id="72" name="abortAnlgDstOvrIsdn"/>
+		<value id="73" name="normalUserCallClear"/>
+		<value id="74" name="normalUnspecified"/>
+		<value id="75" name="bearerIncompatibility"/>
+		<value id="76" name="protocolErrorEvent"/>
+		<value id="77" name="abnormalDisconnect"/>
+		<value id="78" name="invalidCauseValue"/>
+		<value id="79" name="resourceUnavailable"/>
+		<value id="80" name="remoteHungUpDuringTraining"/>
+		<value id="81" name="trainingTimeout"/>
+		<value id="82" name="incomingModemNotAvailable"/>
+		<value id="83" name="incomingInvalidBearerCap"/>
+		<value id="84" name="incomingInvalidChannelid"/>
+		<value id="85" name="incomingInvalidProgInd"/>
+		<value id="86" name="incomingInvalidCallingPty"/>
+		<value id="87" name="incomingInvalidCalledPty"/>
+		<value id="88" name="incomingCallBlock"/>
+		<value id="89" name="incomingLoopStNoRingOff"/>
+		<value id="90" name="outgoingTelcoDisconnect"/>
+		<value id="91" name="outgoingEMWinkTimeout"/>
+		<value id="92" name="outgoingEMWinkTooShort"/>
+		<value id="93" name="outgoingNoChannelAvail"/>
+		<value id="94" name="dspReboot"/>
+		<value id="95" name="noDSPRespToKA"/>
+		<value id="96" name="noDSPRespToDisc"/>
+		<value id="97" name="dspTailPtrInvalid"/>
+		<value id="98" name="dspHeadPtrInvalid"/>
+	</supported-values>
+</attribute>
+<attribute id="190" name="USR-DTR-False-Timeout" type="integer"/>
+<attribute id="191" name="USR-Fallback-Limit" type="integer"/>
+<attribute id="192" name="USR-Block-Error-Count-Limit" type="integer"/>
+<attribute id="199" name="USR-Simplified-V42bis-Usage" type="integer">
+	<supported-values>
+		<value id="1" name="none"/>
+		<value id="2" name="ccittV42bis"/>
+		<value id="3" name="mnpLevel5"/>
+	</supported-values>
+</attribute>
+
+<attribute id="218" name="USR-DTR-True-Timeout" type="integer"/>
+
+<attribute id="232" name="USR-Last-Number-Dialed-In-DNIS" type="string"/>
+<attribute id="233" name="USR-Last-Callers-Number-ANI" type="string"/>
+<attribute id="250" name="Char-Noecho" type="integer"/>
+
+<!-- The Following AVPs will use in Diameter Protocol-->
+<!--
+<attribute id="387" name="USR-CDMA-Call-Reference-Number" type="integer"/>
+
+
+<attribute id="388" name="USR-Mbi_Ct_PRI_Card_Slot" type="integer"/>
+<attribute id="389" name="USR-Mbi_Ct_TDM_Time_Slot" type="integer"/>
+<attribute id="390" name="USR-Mbi_Ct_PRI_Card_Span_Line" type="integer"/>
+<attribute id="391" name="USR-Mbi_Ct_BChannel_Used" type="integer"/>
+<attribute id="461" name="USR-RMMIE-Status" type="integer">
+	<supported-values>
+		<value id="1" name="notEnabledInLocalModem"/>
+		<value id="2" name="notDetectedInRemoteModem"/>
+		<value id="3" name="ok"/>
+	</supported-values>
+</attribute>
+
+<attribute id="462" name="USR-RMMIE-Num-Of-Updates" type="integer"/>
+<attribute id="479" name="USR-RMMIE-Manufacturer-id" type="integer"/>
+<attribute id="480" name="USR-RMMIE-Product-Code" type="string"/>
+<attribute id="481" name="USR-RMMIE-Serial-Number" type="string"/>
+<attribute id="482" name="USR-RMMIE-Firmware-Version" type="string"/>
+<attribute id="483" name="USR-RMMIE-Firmware-Build-Date" type="string"/>
+<attribute id="1012" name="USR-IWF-IP-Address" type="ipaddr"/>
+
+<attribute id="2190" name="USR-Mobile-IP-Address" type="ipaddr"/>
+<attribute id="2192" name="USR-Called-Party-Number" type="string"/>
+<attribute id="2191" name="USR-Calling-Party-Number" type="string"/>
+<attribute id="2193" name="USR-Call-Type" type="integer"/>
+<attribute id="2194" name="USR-ESN" type="string"/>
+<attribute id="2195" name="USR-IWF-Call-identifier" type="integer"/>
+<attribute id="2196" name="USR-IMSI" type="string"/>
+<attribute id="2197" name="USR-Service-Option" type="integer"/>
+<attribute id="2198" name="USR-Disconnect-Cause-Indicator" type="integer"/>
+<attribute id="2199" name="USR-Mobile-NumBytes-Txed" type="integer"/>
+<attribute id="2200" name="USR-Mobile-NumBytes-Rxed" type="integer"/>
+<attribute id="2201" name="USR-Num-Fax-Pages-Processed" type="integer"/>
+<attribute id="2202" name="USR-Compression-Type" type="integer"/>
+<attribute id="2203" name="USR-Call-Error-Code" type="integer"/>
+<attribute id="2204" name="USR-Modem-Setup-Time" type="integer"/>
+<attribute id="2205" name="USR-Call-Connecting-Time" type="integer"/>
+<attribute id="2206" name="USR-Connect-Time" type="integer"/>
+<attribute id="2304" name="USR-RMMIE-Last-Update-Time" type="integer"/>
+<attribute id="2306" name="USR-RMMIE-Rcv-Tot-PwrLvl" type="integer"/>
+<attribute id="2307" name="USR-RMMIE-Rcv-PwrLvl-3300Hz" type="integer"/>
+<attribute id="2308" name="USR-RMMIE-Rcv-PwrLvl-3750Hz" type="integer"/>
+<attribute id="2309" name="USR-RMMIE-PwrLvl-NearEcho-Canc" type="integer"/>
+<attribute id="2310" name="USR-RMMIE-PwrLvl-FarEcho-Canc" type="integer"/>
+<attribute id="2311" name="USR-RMMIE-PwrLvl-Noise-Lvl" type="integer"/>
+<attribute id="2312" name="USR-RMMIE-PwrLvl-Xmit-Lvl" type="integer"/>
+<attribute id="2292" name="USR-QNC1-Service-Destination" type="ipaddr"/>
+
+<attribute id="2305" name="USR-RMMIE-Last-Update-Event" type="integer">
+	<supported-values>
+		<value id="1" name="none"/>
+		<value id="2" name="initialConnection"/>
+		<value id="3" name="retrain"/>
+		<value id="4" name="speedShift"/>
+		<value id="5" name="plannedDisconnect"/>
+	</supported-values>
+</attribute>
+<attribute id="2313" name="USR-RMMIE-x2-Status" type="integer">
+	<supported-values>
+		<value id="1" name="notOperational"/>
+		<value id="2" name="operational"/>
+		<value id="3" name="x2Disabled"/>
+		<value id="4" name="v8Disabled"/>
+		<value id="5" name="remote3200Disabled"/>
+		<value id="6" name="invalidSpeedSetting"/>
+		<value id="7" name="v8NotDetected"/>
+		<value id="8" name="x2NotDetected"/>
+		<value id="9" name="incompatibleVersion"/>
+		<value id="10" name="incompatibleModes"/>
+		<value id="11" name="local3200Disabled"/>
+		<value id="12" name="excessHighFrequencyAtten"/>
+		<value id="13" name="connectNotSupport3200"/>
+		<value id="14" name="retrainBeforeConnection"/>
+	</supported-values>
+</attribute>
+<attribute id="2314" name="USR-RMMIE-Planned-Disconnect" type="integer">
+	<supported-values>
+		<value id="1" name="none"/>
+		<value id="2" name="dteNotReady"/>
+		<value id="3" name="dteInterfaceError"/>
+		<value id="4" name="dteRequest"/>
+		<value id="5" name="escapeToOnlineCommandMode"/>
+		<value id="6" name="athCommand"/>
+		<value id="7" name="inactivityTimeout"/>
+		<value id="8" name="arqProtocolError"/>
+		<value id="9" name="arqProtocolRetransmitLim"/>
+		<value id="10" name="invalidComprDataCodeword"/>
+		<value id="11" name="invalidComprDataStringLen"/>
+		<value id="12" name="invalidComprDataCommand"/>
+	</supported-values>
+</attribute>
+
+<attribute id="32768" name="CW-Version-id" type="integer"/>
+<attribute id="32769" name="CW-Account-id" type="string"/>
+<attribute id="32770" name="CW-Acct-Type" type="integer">
+	<supported-values>
+		<value id="0" name="COMS-UNKNOWN-ACCT-TYPE"/>
+		<value id="1" name="COMS-PREPAid-ACCT"/>
+		<value id="2" name="COMS-NEW-ACCT"/>
+		<value id="3" name="COMS-SUSPENDED-ACCT"/>
+		<value id="4" name="COMS-ADMINISTRATIVE-ACCT"/>
+	</supported-values>
+</attribute>
+<attribute id="32771" name="CW-Acct-identification-Code" type="integer"/>
+<attribute id="32772" name="CW-Service-Type" type="integer"/>
+<attribute id="32773" name="CW-Rate-Plan-id" type="integer"/>
+<attribute id="32774" name="CW-Source-identifier" type="integer">
+	<supported-values>
+		<value id="0" name="COMS-UNKNOWN-SOURCE"/>
+		<value id="257" name="COMS-INGRESS-OPEN"/>
+		<value id="258" name="COMS-EGRESS-OPEN"/>
+		<value id="259" name="COMS-GTKPR-GEN-INGR-OPEN"/>
+		<value id="260" name="COMS-GTKPR-GEN-EGR-OPEN"/>
+		<value id="513" name="COMS-INGRESS-CLOSE"/>
+		<value id="514" name="COMS-EGRESS-CLOSE"/>
+		<value id="515" name="COMS-GTKPR-GEN-INGR-CLOSE"/>
+		<value id="516" name="COMS-GTKPR-GEN-EGR-CLOSE"/>
+	</supported-values>
+</attribute>
+<attribute id="32775" name="CW-Session-id" type="string"/>
+<attribute id="32776" name="CW-Num-Call-Attempt-Session" type="integer"/>
+<attribute id="32777" name="CW-Session-Sequence-Num" type="integer"/>
+<attribute id="32778" name="CW-Session-Sequence-End" type="integer">
+	<supported-values>
+		<value id="0" name="NOT-THE-LAST-CALL"/>
+		<value id="1" name="LAST-CALL"/>
+	</supported-values>
+</attribute>
+<attribute id="32779" name="CW-Authentication-Fail-Cnt" type="integer"/>
+<attribute id="32780" name="CW-Clg-Party-E164-Type" type="integer">
+	<supported-values>
+		<value id="1" name="comsUnknown"/>
+		<value id="2" name="comsInternationalNumber"/>
+		<value id="3" name="comsNationalNumber"/>
+		<value id="4" name="comsNetworkSpecificNumber"/>
+		<value id="5" name="comsSubscriberNumber"/>
+		<value id="6" name="comsAbbreviatedNumber"/>
+		<value id="7" name="comsReserved"/>
+	</supported-values>
+</attribute>
+<attribute id="32781" name="CW-Clg-Party-E164-Number" type="string"/>
+<attribute id="32782" name="CW-Clg-Party-Trans-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="TCP"/>
+		<value id="2" name="UDP"/>
+		<value id="3" name="SCTP"/>
+	</supported-values>
+</attribute>
+<attribute id="32783" name="CW-Clg-Party-Trans-Port" type="integer"/>
+<attribute id="32784" name="CW-Clg-Party-Trans-IP" type="ipaddr"/>
+<attribute id="32785" name="CW-Clg-Party-Trans-DNS" type="string"/>
+<attribute id="32786" name="CW-Cld-Party-E164-Type" type="integer">
+	<supported-values>
+		<value id="1" name="comsUnknown"/>
+		<value id="2" name="comsInternationalNumber"/>
+		<value id="3" name="comsNationalNumber"/>
+		<value id="4" name="comsNetworkSpecificNumber"/>
+		<value id="5" name="comsSubscriberNumber"/>
+		<value id="6" name="comsAbbreviatedNumber"/>
+		<value id="7" name="comsReserved"/>
+	</supported-values>
+</attribute>
+<attribute id="32787" name="CW-Cld-Party-E164-Number" type="string"/>
+<attribute id="32788" name="CW-Cld-Party-Trans-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="TCP"/>
+		<value id="2" name="UDP"/>
+		<value id="3" name="SCTP"/>
+	</supported-values>
+</attribute>
+<attribute id="32789" name="CW-Cld-Party-Trans-Port" type="integer"/>
+<attribute id="32790" name="CW-Cld-Party-Trans-IP" type="ipaddr"/>
+<attribute id="32791" name="CW-Cld-Party-Trans-DNS" type="string"/>
+<attribute id="32792" name="CW-Orig-Line-identifier" type="integer"/>
+<attribute id="32793" name="CW-PSTN-Interface-Number" type="integer"/>
+<attribute id="32794" name="CW-Ingr-Gway-E164-Type" type="integer">
+	<supported-values>
+		<value id="1" name="comsUnknown"/>
+		<value id="2" name="comsInternationalNumber"/>
+		<value id="3" name="comsNationalNumber"/>
+		<value id="4" name="comsNetworkSpecificNumber"/>
+		<value id="5" name="comsSubscriberNumber"/>
+		<value id="6" name="comsAbbreviatedNumber"/>
+		<value id="7" name="comsReserved"/>
+	</supported-values>
+</attribute>
+<attribute id="32795" name="CW-Ingr-Gway-E164-Number" type="string"/>
+<attribute id="32796" name="CW-Ingr-Gway-Trans-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="TCP"/>
+		<value id="2" name="UDP"/>
+		<value id="3" name="SCTP"/>
+	</supported-values>
+</attribute>
+<attribute id="32797" name="CW-Ingr-Gway-Trans-Port" type="integer"/>
+<attribute id="32798" name="CW-Ingr-Gway-Trans-IP" type="ipaddr"/>
+<attribute id="32799" name="CW-Ingr-Gway-Trans-DNS" type="string"/>
+<attribute id="32800" name="CW-Egr-Gway-Trans-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="TCP"/>
+		<value id="2" name="UDP"/>
+		<value id="3" name="SCTP"/>
+	</supported-values>
+</attribute>
+<attribute id="32801" name="CW-Egr-Gway-Trans-Port" type="integer"/>
+<attribute id="32802" name="CW-Egr-Gway-Trans-IP" type="ipaddr"/>
+<attribute id="32803" name="CW-Egr-Gway-Trans-DNS" type="string"/>
+<attribute id="32804" name="CW-Ingr-Gtkpr-Trans-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="TCP"/>
+		<value id="2" name="UDP"/>
+		<value id="3" name="SCTP"/>
+	</supported-values>
+</attribute>
+<attribute id="32805" name="CW-Ingr-Gtkpr-Trans-Port" type="integer"/>
+<attribute id="32806" name="CW-Ingr-Gtkpr-Trans-IP" type="ipaddr"/>
+<attribute id="32807" name="CW-Ingr-Gtkpr-Trans-DNS" type="string"/>
+<attribute id="32808" name="CW-Egr-Gtkpr-Trans-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="TCP"/>
+		<value id="2" name="UDP"/>
+		<value id="3" name="SCTP"/>
+	</supported-values>
+</attribute>
+<attribute id="32809" name="CW-Egr-Gtkpr-Trans-Port" type="integer"/>
+<attribute id="32810" name="CW-Egr-Gtkpr-Trans-IP" type="ipaddr"/>
+<attribute id="32811" name="CW-Egr-Gtkpr-Trans-DNS" type="string"/>
+<attribute id="32812" name="CW-Call-identifier" type="string"/>
+<attribute id="32813" name="CW-Call-Type" type="integer">
+	<supported-values>
+		<value id="0" name="COMS-UNKNOWN-CALLTYPE"/>
+		<value id="1" name="COMS-PHONE-TO-PHONE"/>
+		<value id="2" name="COMS-PHONE-TO-PC"/>
+		<value id="3" name="COMS-PC-TO-PHONE"/>
+		<value id="4" name="COMS-PC-TO-PC"/>
+	</supported-values>
+</attribute>
+<attribute id="32814" name="CW-Call-Start-Ingr-GW-Sec" type="string"/>
+<attribute id="32815" name="CW-Call-Start-Ingr-GW-Msec" type="integer"/>
+<attribute id="32816" name="CW-Call-Start-Time-Ans-Sec" type="string"/>
+<attribute id="32817" name="CW-Call-Start-Time-Ans-Msec" type="integer"/>
+<attribute id="32818" name="CW-Call-End-Time-Sec" type="string"/>
+<attribute id="32819" name="CW-Call-End-Time-Msec" type="integer"/>
+<attribute id="32820" name="CW-Call-Durn-Connect-Disc" type="integer"/>
+<attribute id="32821" name="CW-Codec-Type" type="integer">
+	<supported-values>
+		<value id="0" name="COMS-UNDEFINED-CODEC"/>
+		<value id="1" name="COMS-G723-1"/>
+		<value id="2" name="COMS-G729-A"/>
+		<value id="3" name="COMS-G710-ALaw"/>
+		<value id="4" name="COMS-G711-MuLaw"/>
+		<value id="255" name="COMS-FAX-MODULATION"/>
+	</supported-values>
+</attribute>
+<attribute id="32822" name="CW-Call-Termination-Cause" type="integer">
+	<supported-values>
+		<value id="0" name="CAUSE-UNKNOWN"/>
+		<value id="1" name="CAUSE-CLD-PARTY-TERMINATE"/>
+		<value id="2" name="CAUSE-CLG-PARTY-TERMINATE"/>
+		<value id="3" name="CAUSE-ACCT-BAL-DEPLETED"/>
+		<value id="4" name="CAUSE-NO-EGR-PORTS-AVAIL"/>
+		<value id="5" name="CAUSE-H225-UNABLE-TO-CON"/>
+		<value id="6" name="CAUSE-H245-UNABLE-TO-CON"/>
+		<value id="7" name="CAUSE-INGR-FACILITY-DISC"/>
+		<value id="8" name="CAUSE-EGR-FACILITY-DISC"/>
+		<value id="9" name="CAUSE-DIR-SERVER-DOWN"/>
+		<value id="10" name="CAUSE-RATING-SERVER-DOWN"/>
+		<value id="11" name="CAUSE-GATEWAY-SHUTDOWN"/>
+		<value id="12" name="CAUSE-GTKPR-TERMINATE"/>
+		<value id="13" name="CAUSE-GTKPR-SHUTDOWN-GTWAY"/>
+		<value id="14" name="CAUSE-BUSY"/>
+		<value id="15" name="CAUSE-ABANDON"/>
+		<value id="16" name="CAUSE-INVALid-LOGIN-LIMIT"/>
+		<value id="17" name="CAUSE-NOACCTNUMBER-ENTRY"/>
+		<value id="18" name="CAUSE-SUSPENDED-ACCT-LOGIN"/>
+		<value id="19" name="CAUSE-AUTHENT-SERVER-DOWN"/>
+		<value id="20" name="CAUSE-GATEKEEPER-TIMEOUT"/>
+		<value id="21" name="CAUSE-GATEWAY-NO-RESOURCES"/>
+		<value id="22" name="CAUSE-ACCT-INUSE"/>
+		<value id="23" name="CAUSE-DEBIT-ACCT-BAL-ZERO"/>
+		<value id="24" name="CAUSE-DEBIT-ACCTBAL-INSUFF"/>
+		<value id="25" name="CAUSE-INVALid-DESTNUMBER-THRESH"/>
+		<value id="26" name="CAUSE-NO-DESTNUMBER-ENTRY"/>
+		<value id="27" name="CAUSE-SEQUENCE-DIALING-THRESH"/>
+	</supported-values>
+</attribute>
+<attribute id="32823" name="CW-Audio-Packets-Sent" type="integer"/>
+<attribute id="32824" name="CW-Audio-Packets-Received" type="integer"/>
+<attribute id="32825" name="CW-Audio-Packets-Lost" type="integer"/>
+<attribute id="32826" name="CW-Audio-Packets-In-Frame" type="integer"/>
+<attribute id="32827" name="CW-Audio-Bytes-In-Frame" type="integer"/>
+<attribute id="32828" name="CW-Audio-Signal-In-Packet" type="integer"/>
+<attribute id="32829" name="CW-Port-id-For-Call" type="integer"/>
+<attribute id="32830" name="CW-Slot-id-For-Call" type="integer"/>
+<attribute id="32831" name="CW-Acct-Balance-Start-Curr" type="integer"/>
+<attribute id="32832" name="CW-Acct-Balance-Start-Amt" type="integer"/>
+<attribute id="32833" name="CW-Acct-Balance-Start-Dec" type="integer"/>
+<attribute id="32834" name="CW-Acct-Balance-Decr-Curr" type="integer"/>
+<attribute id="32835" name="CW-LRQ-Token" type="string"/>
+<attribute id="32836" name="CW-ARQ-Token" type="string"/>
+<attribute id="32837" name="CW-Token-Status" type="integer"/>
+<attribute id="32838" name="CW-SS7-Destn-Ptcode-Type" type="integer"/>
+<attribute id="32839" name="CW-SS7-Destn-Ptcode-Address" type="integer"/>
+<attribute id="32840" name="CW-SS7-Orig-Ptcode-Type" type="integer"/>
+<attribute id="32841" name="CW-SS7-Orig-Ptcode-Address" type="integer"/>
+<attribute id="32842" name="CW-SS7-CIC" type="integer"/>
+<attribute id="32843" name="CW-MGC-id" type="integer"/>
+<attribute id="32844" name="CW-MG-id" type="integer"/>
+<attribute id="32845" name="CW-Signaling-Protocol" type="integer">
+	<supported-values>
+		<value id="0" name="SIG-UNKNOWN"/>
+		<value id="1" name="SIG-SIP"/>
+		<value id="2" name="SIG-H323"/>
+	</supported-values>
+</attribute>
+<attribute id="32846" name="CW-Protocol-Transport" type="integer">
+	<supported-values>
+		<value id="1" name="TCP"/>
+		<value id="2" name="UDP"/>
+		<value id="3" name="SCTP"/>
+	</supported-values>
+</attribute>
+<attribute id="32847" name="CW-Local-Sig-Trans-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="TCP"/>
+		<value id="2" name="UDP"/>
+		<value id="3" name="SCTP"/>
+	</supported-values>
+</attribute>
+<attribute id="32848" name="CW-Local-Sig-Trans-Port" type="integer"/>
+<attribute id="32849" name="CW-Local-Sig-Trans-IP" type="ipaddr"/>
+<attribute id="32850" name="CW-Local-Sig-Trans-DNS" type="string"/>
+<attribute id="32851" name="CW-Remote-Sig-Trans-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="TCP"/>
+		<value id="2" name="UDP"/>
+		<value id="3" name="SCTP"/>
+	</supported-values>
+</attribute>
+<attribute id="32852" name="CW-Remote-Sig-Trans-Port" type="integer"/>
+<attribute id="32853" name="CW-Remote-Sig-Trans-IP" type="ipaddr"/>
+<attribute id="32854" name="CW-Remote-Sig-Trans-DNS" type="string"/>
+<attribute id="32855" name="CW-Local-MG-RTP-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="TCP"/>
+		<value id="2" name="UDP"/>
+		<value id="3" name="SCTP"/>
+	</supported-values>
+</attribute>
+<attribute id="32856" name="CW-Local-MG-RTP-Port" type="integer"/>
+<attribute id="32857" name="CW-Local-MG-RTP-IP" type="ipaddr"/>
+<attribute id="32858" name="CW-Local-MG-RTP-DNS" type="string"/>
+<attribute id="32859" name="CW-Remote-MG-RTP-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="TCP"/>
+		<value id="2" name="UDP"/>
+		<value id="3" name="SCTP"/>
+	</supported-values>
+</attribute>
+<attribute id="32860" name="CW-Remote-MG-RTP-Port" type="integer"/>
+<attribute id="32861" name="CW-Remote-MG-RTP-IP" type="ipaddr"/>
+<attribute id="32862" name="CW-Remote-MG-RTP-DNS" type="string"/>
+<attribute id="32863" name="CW-Call-Model" type="integer"/>
+<attribute id="32864" name="CW-Call-Plan-id" type="integer"/>
+<attribute id="32865" name="CW-Trans-Cld-Party-E164-Type" type="integer">
+	<supported-values>
+		<value id="1" name="Unknown"/>
+		<value id="2" name="International-Number"/>
+		<value id="3" name="National-Number"/>
+		<value id="4" name="Network-Specific-Number"/>
+		<value id="5" name="Subscriber-Number"/>
+		<value id="6" name="Abbreviated-Number"/>
+		<value id="7" name="Reserved"/>
+	</supported-values>
+</attribute>
+<attribute id="32866" name="CW-Trans-Cld-Party-E164-Num" type="string"/>
+<attribute id="32867" name="CW-OSP-Source-Device" type="string"/>
+<attribute id="36864" name="USR-PW_USR_IFilter_IP" type="string"/>
+<attribute id="36865" name="USR-PW_USR_IFilter_IPX" type="string"/>
+<attribute id="36867" name="USR-PW_USR_OFilter_IP" type="string"/>
+<attribute id="36868" name="USR-PW_USR_OFilter_IPX" type="string"/>
+<attribute id="36869" name="USR-PW_USR_OFilter_SAP" type="string"/>
+<attribute id="36870" name="USR-PW_VPN_id" type="string"/>
+<attribute id="36871" name="USR-PW_VPN_Name" type="string"/>
+<attribute id="36872" name="USR-PW_VPN_Neighbor" type="ipaddr"/>
+<attribute id="36873" name="USR-PW_Framed_Routing_V2" type="string">
+	<supported-values>
+		<value id="0" name="Off"/>
+		<value id="1" name="On"/>
+	</supported-values>
+</attribute>
+<attribute id="36874" name="USR-PW_VPN_Gateway" type="string"/>
+<attribute id="36875" name="USR-PW_Tunnel_Authentication" type="string"/>
+<attribute id="36876" name="USR-PW_Index" type="string"/>
+<attribute id="36877" name="USR-PW_Cutoff" type="string"/>
+<attribute id="36878" name="USR-PW_Packet" type="string"/>
+<attribute id="36879" name="USR-Primary_DNS_Server" type="ipaddr"/>
+<attribute id="36880" name="USR-Secondary_DNS_Server" type="ipaddr"/>
+<attribute id="36881" name="USR-Primary_NBNS_Server" type="ipaddr"/>
+<attribute id="36882" name="USR-Secondary_NBNS_Server" type="ipaddr"/>
+<attribute id="36883" name="USR-Syslog-Tap" type="integer">
+	<supported-values>
+		<value id="0" name="Off"/>
+		<value id="1" name="On-Raw"/>
+		<value id="2" name="On-Framed"/>
+		<value id="4294967295" name="Unknown"/>
+	</supported-values>
+</attribute>
+<attribute id="36889" name="USR-Chassis-Call-Slot" type="integer"/>
+<attribute id="36890" name="USR-Chassis-Call-Span" type="integer"/>
+<attribute id="36891" name="USR-Chassis-Call-Channel" type="integer"/>
+<attribute id="36892" name="USR-Keypress-Timeout" type="integer"/>
+<attribute id="36893" name="USR-Unauthenticated-Time" type="integer"/>
+<attribute id="36899" name="USR-Connect-Speed" type="integer">
+	<supported-values>
+		<value id="1" name="NONE"/>
+		<value id="2" name="300-BPS"/>
+		<value id="3" name="1200-BPS"/>
+		<value id="4" name="2400-BPS"/>
+		<value id="5" name="4800-BPS"/>
+		<value id="6" name="7200-BPS"/>
+		<value id="7" name="9600-BPS"/>
+		<value id="8" name="12000-BPS"/>
+		<value id="9" name="14400-BPS"/>
+		<value id="10" name="16800-BPS"/>
+		<value id="11" name="19200-BPS"/>
+		<value id="12" name="21600-BPS"/>
+		<value id="13" name="28800-BPS"/>
+		<value id="14" name="38400-BPS"/>
+		<value id="15" name="57600-BPS"/>
+		<value id="16" name="115200-BPS"/>
+		<value id="17" name="288000-BPS"/>
+		<value id="18" name="75-1200-BPS"/>
+		<value id="19" name="1200-75-BPS"/>
+		<value id="20" name="24000-BPS"/>
+		<value id="21" name="26400-BPS"/>
+		<value id="22" name="31200-BPS"/>
+		<value id="23" name="33600-BPS"/>
+		<value id="24" name="33333-BPS"/>
+		<value id="25" name="37333-BPS"/>
+		<value id="26" name="41333-BPS"/>
+		<value id="27" name="42666-BPS"/>
+		<value id="28" name="44000-BPS"/>
+		<value id="29" name="45333-BPS"/>
+		<value id="30" name="46666-BPS"/>
+		<value id="31" name="48000-BPS"/>
+		<value id="32" name="49333-BPS"/>
+		<value id="33" name="50666-BPS"/>
+		<value id="34" name="52000-BPS"/>
+		<value id="35" name="53333-BPS"/>
+		<value id="36" name="54666-BPS"/>
+		<value id="37" name="56000-BPS"/>
+		<value id="38" name="57333-BPS"/>
+		<value id="39" name="64000-BPS"/>
+		<value id="40" name="25333-BPS"/>
+		<value id="41" name="26666-BPS"/>
+		<value id="42" name="28000-BPS"/>
+		<value id="43" name="29333-BPS"/>
+		<value id="44" name="30666-BPS"/>
+		<value id="45" name="32000-BPS"/>
+		<value id="46" name="34666-BPS"/>
+		<value id="47" name="36000-BPS"/>
+		<value id="48" name="38666-BPS"/>
+		<value id="49" name="40000-BPS"/>
+		<value id="50" name="58666-BPS"/>
+		<value id="51" name="60000-BPS"/>
+		<value id="52" name="61333-BPS"/>
+		<value id="53" name="62666-BPS"/>
+	</supported-values>
+</attribute>
+<attribute id="36900" name="USR-Framed_IP_Address_Pool_Name" type="string"/>
+<attribute id="36901" name="USR-MP-EDO" type="string"/>
+<attribute id="38912" name="USR-Bearer-Capabilities" type="integer"/>
+<attribute id="38913" name="USR-Speed-Of-Connection" type="integer">
+	<supported-values>
+		<value id="0" name="Auto"/>
+		<value id="1" name="56"/>
+		<value id="2" name="64"/>
+		<value id="3" name="Voice"/>
+	</supported-values>
+</attribute>
+<attribute id="38914" name="USR-Max-Channels" type="integer"/>
+<attribute id="38915" name="USR-Channel-Expansion" type="integer"/>
+<attribute id="38916" name="USR-Channel-Decrement" type="integer"/>
+<attribute id="38917" name="USR-Expansion-Algorithm" type="integer">
+	<supported-values>
+		<value id="1" name="Constant"/>
+		<value id="2" name="Linear"/>
+	</supported-values>
+</attribute>
+<attribute id="38918" name="USR-Compression-Algorithm" type="integer">
+	<supported-values>
+		<value id="0" name="None"/>
+		<value id="1" name="Stac"/>
+		<value id="2" name="Ascend"/>
+		<value id="3" name="Microsoft"/>
+		<value id="4" name="Auto"/>
+	</supported-values>
+</attribute>
+<attribute id="38919" name="USR-Receive-Acc-Map" type="integer"/>
+<attribute id="38920" name="USR-Transmit-Acc-Map" type="integer"/>
+<attribute id="38922" name="USR-Compression-Reset-Mode" type="integer">
+	<supported-values>
+		<value id="0" name="Auto"/>
+		<value id="1" name="Reset-Every-Packet"/>
+		<value id="2" name="Reset-On-Error"/>
+	</supported-values>
+</attribute>
+<attribute id="38923" name="USR-Min-Compression-Size" type="integer"/>
+<attribute id="38924" name="USR-IP" type="integer">
+	<supported-values>
+		<value id="0" name="none"/>
+		<value id="1" name="send"/>
+		<value id="2" name="listen"/>
+		<value id="3" name="respond"/>
+		<value id="4" name="all"/>
+		<value id="1" name="enabled"/>
+		<value id="2" name="disabled"/>
+		<value id="1" name="enabled"/>
+		<value id="2" name="disabled"/>
+		<value id="0x0" name="SendDefault"/>
+		<value id="0x2" name="SendRoutes"/>
+		<value id="0x4" name="SendSubnets"/>
+		<value id="0x8" name="AcceptDefault"/>
+		<value id="0x10" name="SplitHorizon"/>
+		<value id="0x20" name="PoisonReserve"/>
+		<value id="0x40" name="FlashUpdate"/>
+		<value id="0x80" name="SimpleAuth"/>
+		<value id="0x100" name="V1Send"/>
+		<value id="0x200" name="V1Receive"/>
+		<value id="0x400" name="V2Receive"/>
+		<value id="0x80000000" name="Silent"/>
+	</supported-values>
+</attribute>
+<attribute id="38925" name="USR-IPX" type="integer">
+	<supported-values>
+		<value id="0" name="none"/>
+		<value id="1" name="send"/>
+		<value id="2" name="listen"/>
+		<value id="3" name="respond"/>
+		<value id="4" name="all"/>
+		<value id="1" name="enabled"/>
+		<value id="2" name="disabled"/>
+	</supported-values>
+</attribute>
+<attribute id="38926" name="USR-Filter-Zones" type="integer">
+	<supported-values>
+		<value id="1" name="enabled"/>
+		<value id="2" name="disabled"/>
+	</supported-values>
+</attribute>
+<attribute id="38927" name="USR-Appletalk" type="integer">
+	<supported-values>
+		<value id="1" name="enabled"/>
+		<value id="2" name="disabled"/>
+	</supported-values>
+</attribute>
+<attribute id="38928" name="USR-Bridging" type="integer">
+	<supported-values>
+		<value id="1" name="enabled"/>
+		<value id="2" name="disabled"/>
+	</supported-values>
+</attribute>
+<attribute id="38929" name="USR-Spoofing" type="integer">
+	<supported-values>
+		<value id="1" name="enabled"/>
+		<value id="2" name="disabled"/>
+	</supported-values>
+</attribute>
+<attribute id="38930" name="USR-Host-Type" type="integer"/>
+<attribute id="38931" name="USR-Send-Name" type="string"/>
+<attribute id="38932" name="USR-Send-Password" type="string"/>
+<attribute id="38933" name="USR-Start-Time" type="integer"/>
+<attribute id="38934" name="USR-End-Time" type="integer"/>
+<attribute id="38935" name="USR-Send-Script1" type="string"/>
+<attribute id="38936" name="USR-Reply-Script1" type="string"/>
+<attribute id="38937" name="USR-Send-Script2" type="string"/>
+<attribute id="38938" name="USR-Reply-Script2" type="string"/>
+<attribute id="38939" name="USR-Send-Script3" type="string"/>
+<attribute id="38940" name="USR-Reply-Script3" type="string"/>
+<attribute id="38941" name="USR-Send-Script4" type="string"/>
+<attribute id="38942" name="USR-Reply-Script4" type="string"/>
+<attribute id="38943" name="USR-Send-Script5" type="string"/>
+<attribute id="38944" name="USR-Reply-Script5" type="string"/>
+<attribute id="38945" name="USR-Send-Script6" type="string"/>
+<attribute id="38946" name="USR-Reply-Script6" type="string"/>
+<attribute id="38947" name="USR-Terminal-Type" type="string"/>
+<attribute id="38948" name="USR-Appletalk-Network-Range" type="integer"/>
+<attribute id="38949" name="USR-Local-IP-Address" type="string"/>
+<attribute id="38950" name="USR-Routing-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="Rip1"/>
+		<value id="2" name="Rip2"/>
+	</supported-values>
+</attribute>
+<attribute id="38951" name="USR-Modem-Group" type="integer"/>
+<attribute id="38978" name="USR-Modem-Training-Time" type="integer"/>
+<attribute id="38979" name="USR-Interface-Index" type="integer"/>
+<attribute id="38959" name="USR-MP-MRRU" type="integer"/>
+<attribute id="36866" name="USR-SAP-Filter-In" type="string"/>
+<attribute id="36884" name="USR-MIC" type="string"/>
+<attribute id="36887" name="USR-Log-Filter-Packets" type="string"/>
+<attribute id="36894" name="USR-VPN-Encrypter" type="integer"/>
+<attribute id="36896" name="USR-Re-Chap-Timeout" type="integer"/>
+<attribute id="39016" name="USR-Tunnel-Switch-Endpoint" type="string"/>
+<attribute id="39024" name="USR-IP-SAA-Filter" type="integer"/>
+<attribute id="2339" name="Initial-Modulation-Type" type="integer">
+	<supported-values>
+		<value id="1" name="usRoboticsHST"/>
+		<value id="2" name="ccittV32"/>
+		<value id="3" name="ccittV22bis"/>
+		<value id="4" name="bell103"/>
+		<value id="5" name="ccittV21"/>
+		<value id="6" name="bell212"/>
+		<value id="7" name="ccittV32bis"/>
+		<value id="8" name="ccittV23"/>
+		<value id="9" name="negotiationFailed"/>
+		<value id="10" name="bell208b"/>
+		<value id="11" name="v21FaxClass1"/>
+		<value id="12" name="v27FaxClass1"/>
+		<value id="13" name="v29FaxClass1"/>
+		<value id="14" name="v17FaxClass1"/>
+		<value id="15" name="v21FaxClass2"/>
+		<value id="16" name="v27FaxClass2"/>
+		<value id="17" name="v29FaxClass2"/>
+		<value id="18" name="v17FaxClass2"/>
+		<value id="19" name="v32Terbo"/>
+		<value id="20" name="v34"/>
+		<value id="21" name="vFC"/>
+		<value id="22" name="v34plus"/>
+		<value id="23" name="x2"/>
+		<value id="24" name="v110"/>
+		<value id="25" name="v120"/>
+		<value id="26" name="x75"/>
+		<value id="27" name="asyncSyncPPP"/>
+		<value id="28" name="clearChannel"/>
+		<value id="29" name="x2client"/>
+		<value id="30" name="x2symmetric"/>
+		<value id="31" name="piafs"/>
+		<value id="32" name="x2version2"/>
+		<value id="33" name="v90Analogue"/>
+		<value id="34" name="v90Digital"/>
+		<value id="35" name="v90AllDigital"/>
+	</supported-values>
+</attribute>
+<attribute id="38998" name="USR-VTS-Session-Key" type="string"/>
+<attribute id="38999" name="USR-Orig-NAS-Type" type="string"/>
+<attribute id="39000" name="USR-Call-Arrival-Time" type="integer"/>
+<attribute id="39001" name="USR-Call-End-Time" type="integer"/>
+<attribute id="39019" name="USR-Tunnel-Auth-Hostname" type="string"/>
+<attribute id="39020" name="USR-Acct-Reason-Code" type="integer"/>
+<attribute id="39049" name="USR-Supports-Tags" type="integer"/>
+<attribute id="39051" name="USR-HARC-Disconnect-Code" type="integer">
+	<supported-values>
+		<value id="0" name="No-Error"/>
+		<value id="1" name="No-Carrier"/>
+		<value id="2" name="No-DSR"/>
+		<value id="3" name="Timeout"/>
+		<value id="4" name="Reset"/>
+		<value id="5" name="Call-Drop-Req"/>
+		<value id="6" name="idle-Timeout"/>
+		<value id="7" name="Session-Timeout"/>
+		<value id="8" name="User-Req-Drop"/>
+		<value id="9" name="Host-Req-Drop"/>
+		<value id="10" name="Service-Interruption"/>
+		<value id="11" name="Service-Unavailable"/>
+		<value id="12" name="User-Input-Error"/>
+		<value id="13" name="NAS-Drop-For-Callback"/>
+		<value id="14" name="NAS-Drop-Misc-Non-Error"/>
+		<value id="15" name="NAS-Internal-Error"/>
+		<value id="16" name="Line-Busy"/>
+		<value id="19" name="Tunnel-Term-Unreach"/>
+		<value id="20" name="Tunnel-Refused"/>
+		<value id="21" name="Tunnel-Auth-Failed"/>
+		<value id="22" name="Tunnel-Session-Timeout"/>
+		<value id="23" name="Tunnel-Timeout"/>
+		<value id="25" name="Radius-Res-Reclaim"/>
+		<value id="26" name="DNIS-Auth-Failed"/>
+		<value id="27" name="PAP-Auth-Failure"/>
+		<value id="28" name="CHAP-Auth-Failure"/>
+		<value id="29" name="PPP-LCP-Failed"/>
+		<value id="30" name="PPP-NCP-Failed"/>
+		<value id="31" name="Radius-Timeout"/>
+	</supported-values>
+</attribute>
+<attribute id="36895" name="USR-VPN-GW-Location-id" type="string"/>
+<attribute id="36897" name="USR-CCP-Algorithm" type="integer">
+	<supported-values>
+		<value id="1" name="NONE"/>
+		<value id="2" name="Stac"/>
+		<value id="3" name="MS"/>
+		<value id="4" name="Any"/>
+	</supported-values>
+</attribute>
+<attribute id="36898" name="USR-ACCM-Type" type="integer"/>
+<attribute id="36902" name="USR-Local-Framed-IP-Addr" type="ipaddr"/>
+<attribute id="38952" name="USR-IPX-Routing" type="integer">
+	<supported-values>
+		<value id="0" name="none"/>
+		<value id="1" name="send"/>
+		<value id="2" name="listen"/>
+		<value id="3" name="respond"/>
+		<value id="4" name="all"/>
+	</supported-values>
+</attribute>
+<attribute id="38953" name="USR-IPX-WAN" type="integer">
+	<supported-values>
+		<value id="1" name="enabled"/>
+		<value id="2" name="disabled"/>
+	</supported-values>
+</attribute>
+<attribute id="38954" name="USR-IP-RIP-Policies" type="integer">
+	<supported-values>
+		<value id="0x0" name="SendDefault"/>
+		<value id="0x2" name="SendRoutes"/>
+		<value id="0x4" name="SendSubnets"/>
+		<value id="0x8" name="AcceptDefault"/>
+		<value id="0x10" name="SplitHorizon"/>
+		<value id="0x20" name="PoisonReserve"/>
+		<value id="0x40" name="FlashUpdate"/>
+		<value id="0x80" name="SimpleAuth"/>
+		<value id="0x100" name="V1Send"/>
+		<value id="0x200" name="V1Receive"/>
+		<value id="0x400" name="V2Receive"/>
+		<value id="0x80000000" name="Silent"/>
+	</supported-values>
+</attribute>
+<attribute id="38955" name="USR-IP-RIP-Simple-Auth-Password" type="string"/>
+<attribute id="38956" name="USR-IP-RIP-Input-Filter" type="string"/>
+<attribute id="38957" name="USR-IP-Call-Input-Filter" type="string"/>
+<attribute id="38958" name="USR-IPX-RIP-Input-Filter" type="string"/>
+<attribute id="38960" name="USR-IPX-Call-Input-Filter" type="string"/>
+<attribute id="38961" name="USR-AT-Input-Filter" type="string"/>
+<attribute id="38962" name="USR-AT-RTMP-Input-Filter" type="string"/>
+<attribute id="38963" name="USR-AT-Zip-Input-Filter" type="string"/>
+<attribute id="38964" name="USR-AT-Call-Input-Filter" type="string"/>
+<attribute id="38965" name="USR-ET-Bridge-Input-Filter" type="string"/>
+<attribute id="38966" name="USR-IP-RIP-Output-Filter" type="string"/>
+<attribute id="38967" name="USR-IP-Call-Output-Filter" type="string"/>
+<attribute id="38968" name="USR-IPX-RIP-Output-Filter" type="string"/>
+<attribute id="38969" name="USR-IPX-Call-Output-Filter" type="string"/>
+<attribute id="38970" name="USR-AT-Output-Filter" type="string"/>
+<attribute id="38971" name="USR-AT-RTMP-Output-Filter" type="string"/>
+<attribute id="38972" name="USR-AT-Zip-Output-Filter" type="string"/>
+<attribute id="38973" name="USR-AT-Call-Output-Filter" type="string"/>
+<attribute id="38974" name="USR-ET-Bridge-Output-Filter" type="string"/>
+<attribute id="38975" name="USR-ET-Bridge-Call-Output-Filte" type="string"/>
+<attribute id="38976" name="USR-IP-Default-Route-Option" type="integer">
+	<supported-values>
+		<value id="1" name="enabled"/>
+		<value id="2" name="disabled"/>
+	</supported-values>
+</attribute>
+<attribute id="38977" name="USR-MP-EDO-HIPER" type="string"/>
+<attribute id="38980" name="USR-Tunnel-Security" type="integer">
+	<supported-values>
+		<value id="0" name="None"/>
+		<value id="1" name="Control-Only"/>
+		<value id="2" name="Data-Only"/>
+		<value id="3" name="Both-Data-and-Control"/>
+	</supported-values>
+</attribute>
+<attribute id="38981" name="USR-Port-Tap" type="integer"/>
+<attribute id="38982" name="USR-Port-Tap-Format" type="integer"/>
+<attribute id="38983" name="USR-Port-Tap-Output" type="integer"/>
+<attribute id="38984" name="USR-Port-Tap-Facility" type="integer"/>
+<attribute id="38985" name="USR-Port-Tap-Priority" type="integer"/>
+<attribute id="38986" name="USR-Port-Tap-Address" type="ipaddr"/>
+<attribute id="38987" name="USR-MobileIP-Home-Agent-Address" type="ipaddr"/>
+<attribute id="38988" name="USR-Tunneled-MLPP" type="integer"/>
+<attribute id="38989" name="USR-Multicast-Proxy" type="integer"/>
+<attribute id="38990" name="USR-Multicast-Receive" type="integer"/>
+<attribute id="38992" name="USR-Multicast-Forwarding" type="integer"/>
+<attribute id="38993" name="USR-IGMP-Query-Interval" type="integer"/>
+<attribute id="38994" name="USR-IGMP-Maximum-Response-Time" type="integer"/>
+<attribute id="38995" name="USR-IGMP-Robustness" type="integer"/>
+<attribute id="38996" name="USR-IGMP-Version" type="integer"/>
+<attribute id="39018" name="USR-Callback-Type" type="integer">
+	<supported-values>
+		<value id="1" name="Normal"/>
+		<value id="2" name="ANI"/>
+		<value id="3" name="Static"/>
+		<value id="4" name="Dynamic"/>
+	</supported-values>
+</attribute>
+<attribute id="61441" name="USR-Request-Type" type="integer">
+	<supported-values>
+		<value id="1" name="Access-Request"/>
+		<value id="2" name="Access-Accept"/>
+		<value id="3" name="Access-Reject"/>
+		<value id="4" name="Accounting-Request"/>
+		<value id="5" name="Accounting-Response"/>
+		<value id="7" name="Access-Password-Change"/>
+		<value id="8" name="Access-Password-Ack"/>
+		<value id="9" name="Access-Password-Reject"/>
+		<value id="11" name="Access-Challenge"/>
+		<value id="12" name="Status-Server"/>
+		<value id="13" name="Status-Client"/>
+		<value id="21" name="Resource-Free-Request"/>
+		<value id="22" name="Resource-Free-Response"/>
+		<value id="23" name="Resource-Query-Request"/>
+		<value id="24" name="Resource-Query-Response"/>
+		<value id="25" name="Disconnect-User"/>
+		<value id="26" name="NAS-Reboot-Request"/>
+		<value id="27" name="NAS-Reboot-Response"/>
+		<value id="253" name="Tacacs-Message"/>
+		<value id="255" name="Reserved"/>
+	</supported-values>
+</attribute>
+<attribute id="48722" name="USR-Call-Arrival-in-GMT" type="date"/>
+<attribute id="48721" name="USR-Call-Connect-in-GMT" type="date"/>
+<attribute id="48720" name="USR-Call-Terminate-in-GMT" type="date"/>
+<attribute id="48719" name="USR-idS0-Call-Type" type="integer"/>
+<attribute id="48765" name="USR-Call-Reference-Number" type="integer"/>
+
+<attribute id="36903" name="USR-Framed-IPX-Route" type="ipaddr"/>
+<attribute id="36904" name="USR-MPIP-Tunnel-Originator" type="ipaddr"/>
+<attribute id="38997" name="USR-IGMP-Routing" type="integer"/>
+<attribute id="39008" name="USR-Rad-Multicast-Routing-Ttl" type="integer"/>
+<attribute id="39009" name="USR-Rad-Multicast-Routing-RtLim" type="integer"/>
+<attribute id="39010" name="USR-Rad-Multicast-Routing-Proto" type="integer"/>
+<attribute id="39011" name="USR-Rad-Multicast-Routing-Bound" type="string"/>
+<attribute id="39012" name="USR-Rad-Dvmrp-Metric" type="integer"/>
+<attribute id="39013" name="USR-Chat-Script-Name" type="string"/>
+<attribute id="39014" name="USR-CUSR-hat-Script-Rules" type="string"/>
+<attribute id="39015" name="USR-Rad-Location-Type" type="integer"/>
+<attribute id="39017" name="USR-OSPF-Addressless-Index" type="integer"/>
+<attribute id="39021" name="USR-QoS-Queuing-Mehtod" type="integer"/>
+<attribute id="39022" name="USR-PQ-Default-Priority" type="integer"/>
+<attribute id="39025" name="USR-FQ-Default-Priority" type="integer"/>
+<attribute id="39026" name="USR-IPP-Enable" type="integer"/>
+<attribute id="39027" name="USR-Pre-Shared-MN-Key" type="string"/>
+<attribute id="39028" name="USR-MIP-NAI" type="integer"/>
+<attribute id="39029" name="USR-DNIS-ReAuthentication" type="integer"/>
+<attribute id="39030" name="USR-Agent" type="integer">
+	<supported-values>
+		<value id="1" name="FA"/>
+		<value id="2" name="HA"/>
+	</supported-values>
+</attribute>
+<attribute id="39031" name="USR-PQ-Parameters" type="integer"/>
+<attribute id="39032" name="USR-Dvmrp-Prune-Lifetime" type="integer"/>
+<attribute id="39033" name="USR-Special-Xon-Xoff-Flow" type="integer"/>
+<attribute id="39034" name="USR-Dvmrp-Advertised-Metric" type="integer"/>
+<attribute id="39035" name="USR-Dvmrp-Retransmit-Prunes" type="integer"/>
+<attribute id="39036" name="USR-Dvmrp-Non-Pruners" type="integer"/>
+<attribute id="39037" name="USR-Dvmrp-Route-Transit" type="integer"/>
+<attribute id="39038" name="USR-Dvmrp-Input-Filter" type="string"/>
+<attribute id="39040" name="USR-Dvmrp-Output-Filter" type="string"/>
+<attribute id="39041" name="USR-Policy-Access" type="integer"/>
+<attribute id="39042" name="USR-Policy-Configuration" type="integer"/>
+<attribute id="39043" name="USR-Policy-Filename" type="string"/>
+<attribute id="39044" name="USR-Policy-Type" type="integer"/>
+<attribute id="39045" name="USR-Mobile-Session-id" type="integer"/>
+<attribute id="39046" name="USR-Mobile-Accounting-Type" type="integer"/>
+<attribute id="39047" name="USR-Mobile-Service-Option" type="integer"/>
+<attribute id="39048" name="USR-Wallclock-Timestamp" type="integer"/>
+<attribute id="39050" name="USR-Dvmrp-Initial-Flooding" type="integer"/>
+<attribute id="39053" name="USR-CDMA-PktData-Network-id" type="integer"/>
+<attribute id="39054" name="USR-Auth-Next-Server-Address" type="ipaddr"/>
+<attribute id="39055" name="USR-User-PPP-AODI-Type" type="integer"/>
+<attribute id="39056" name="USR-MLPPP-Fragmentation-Threshld" type="integer"/>
+<attribute id="39057" name="USR-Unnumbered-Local-IP-Address" type="ipaddr"/>
+<attribute id="39058" name="USR-Traffic-Threshold" type="integer"/>
+<attribute id="39059" name="USR-Keep-Alive-Interval" type="integer"/>
+<attribute id="39060" name="USR-Tunnel-Challenge-Outgoing" type="integer"/>
+<attribute id="39061" name="USR-X25-Trunk-Profile" type="string"/>
+<attribute id="39062" name="USR-X25-Acct-Input-Segment-Count" type="integer"/>
+<attribute id="39063" name="USR-X25-Acct-Output-Segment-Coun" type="integer"/>
+<attribute id="39064" name="USR-X25-Acct-Segment-Size" type="integer"/>
+<attribute id="39065" name="USR-X25-Acct-Termination-Code" type="integer"/>
+<attribute id="39066" name="USR-X25-SVC-Logical-Channel-Numb" type="integer"/>
+<attribute id="39067" name="USR-Nailed-B-Channel-Indicator" type="integer"/>
+<attribute id="39068" name="USR-X25-SVC-Call-Attributes" type="integer"/>
+<attribute id="39069" name="USR-Init-Reg-Server-Addr" type="ipaddr"/>
+<attribute id="39070" name="USR-Re-Reg-Server-Addr" type="ipaddr"/>
+<attribute id="39071" name="USR-Bytes-TX-Remain" type="integer"/>
+<attribute id="39072" name="USR-Bytes-RX-Remain" type="integer"/>
+<attribute id="39073" name="USR-Session-Time-Remain" type="integer"/>
+<attribute id="39074" name="USR-Pre-Paid-Enabled" type="integer"/>
+<attribute id="39075" name="USR-Reg-Server-Prov-Timeout" type="integer"/>
+<attribute id="39076" name="USR-Redirect" type="integer"/>
+<attribute id="39077" name="USR-VLAN-Tag" type="integer"/>
+<attribute id="39078" name="USR-Rad-IP-Pool-Definition" type="string"/>
+<attribute id="39079" name="USR-Rad-NMC-Call-Progress-Status" type="integer"/>
+<attribute id="39080" name="USR-Rad-NMC-Blocks_RX" type="integer"/>
+<attribute id="48952" name="USR-Channel" type="integer"/>
+<attribute id="49086" name="USR-Event-id" type="integer">
+	<supported-values>
+		<value id="6" name="Module-Inserted"/>
+		<value id="7" name="Module-Removed"/>
+		<value id="8" name="PSU-Voltage-Alarm"/>
+		<value id="9" name="PSU-Failed"/>
+		<value id="10" name="HUB-Temp-Out-of-Range"/>
+		<value id="11" name="Fan-Failed"/>
+		<value id="12" name="Watchdog-Timeout"/>
+		<value id="13" name="Mgmt-Bus-Failure"/>
+		<value id="14" name="In-Connection-Est"/>
+		<value id="15" name="Out-Connection-Est"/>
+		<value id="16" name="In-Connection-Term"/>
+		<value id="17" name="Out-Connection-Term"/>
+		<value id="18" name="Connection-Failed"/>
+		<value id="19" name="Connection-Timeout"/>
+		<value id="20" name="DTE-Transmit-idle"/>
+		<value id="21" name="DTR-True"/>
+		<value id="22" name="DTR-False"/>
+		<value id="23" name="Block-Error-at-Threshold"/>
+		<value id="24" name="Fallbacks-at-Threshold"/>
+		<value id="25" name="No-Dial-Tone-Detected"/>
+		<value id="26" name="No-Loop-Current-Detected"/>
+		<value id="27" name="Yellow-Alarm"/>
+		<value id="28" name="Red-Alarm"/>
+		<value id="29" name="Loss-Of-Signal"/>
+		<value id="30" name="Rcv-Alrm-Ind-Signal"/>
+		<value id="31" name="Timing-Source-Switch"/>
+		<value id="32" name="Modem-Reset-by-DTE"/>
+		<value id="33" name="Modem-Ring-No-Answer"/>
+		<value id="34" name="DTE-Ring-No-Answer"/>
+		<value id="35" name="Pkt-Bus-Session-Active"/>
+		<value id="36" name="Pkt-Bus-Session-Congestion"/>
+		<value id="37" name="Pkt-Bus-Session-Lost"/>
+		<value id="38" name="Pkt-Bus-Session-Inactive"/>
+		<value id="39" name="User-Interface-Reset"/>
+		<value id="40" name="Gateway-Port-Out-of-Service"/>
+		<value id="41" name="Gateway-Port-Link-Active"/>
+		<value id="42" name="Dial-Out-Login-Failure"/>
+		<value id="43" name="Dial-In-Login-Failure"/>
+		<value id="44" name="Dial-Out-Restricted-Number"/>
+		<value id="45" name="Dial-Back-Restricted-Number"/>
+		<value id="46" name="User-Blacklisted"/>
+		<value id="47" name="Attempted-Login-Blacklisted"/>
+		<value id="48" name="Response-Attempt-Limit-Exceeded"/>
+		<value id="49" name="Login-Attempt-Limit-Exceeded"/>
+		<value id="50" name="Dial-Out-Call-Duration"/>
+		<value id="51" name="Dial-In-Call-Duration"/>
+		<value id="52" name="Pkt-Bus-Session-Err-Status"/>
+		<value id="53" name="NMC-AutoRespnse-Trap"/>
+		<value id="54" name="Acct-Server-Contact-Loss"/>
+		<value id="55" name="Yellow-Alarm-Clear"/>
+		<value id="56" name="Red-Alarm-Clear"/>
+		<value id="57" name="Loss-Of-Signal-Clear"/>
+		<value id="58" name="Rcv-Alrm-Ind-Signal-Clear"/>
+		<value id="59" name="Incoming-Connection-Established"/>
+		<value id="60" name="Outgoing-Connection-Established"/>
+		<value id="61" name="Incoming-Connection-Terminated"/>
+		<value id="62" name="Outgoing-Connection-Terminated"/>
+		<value id="63" name="Connection-Attempt-Failure"/>
+		<value id="64" name="Continuous-CRC-Alarm"/>
+		<value id="65" name="Continuous-CRC-Alarm-Clear"/>
+		<value id="66" name="Physical-State-Change"/>
+		<value id="71" name="Gateway-Network-Failed"/>
+		<value id="72" name="Gateway-Network-Restored"/>
+		<value id="73" name="Packet-Bus-Clock-Lost"/>
+		<value id="74" name="Packet-Bus-Clock-Restored"/>
+		<value id="75" name="D-Channel-In-Service"/>
+		<value id="76" name="D-Channel-Out-of-Service"/>
+		<value id="77" name="DS0s-In-Service"/>
+		<value id="78" name="DS0s-Out-of-Service"/>
+		<value id="79" name="T1/T1PRI/E1PRI-Call-Event"/>
+		<value id="80" name="Psu-Incompatible"/>
+		<value id="81" name="T1,T1-E1/PRI-Call-Arrive-Event"/>
+		<value id="82" name="T1,T1-E1/PRI-Call-Connect-Event"/>
+		<value id="83" name="T1,T1-E1/PRI-Call-Termina-Event"/>
+		<value id="84" name="T1,T1-E1/PRI-Call-Failed-Event"/>
+		<value id="85" name="DNS-Contact-Lost"/>
+		<value id="86" name="NTP-Contact-Lost"/>
+		<value id="87" name="NTP-Contact-Restored"/>
+		<value id="88" name="IPGW-Link-Up"/>
+		<value id="89" name="IPGW-Link-Down"/>
+		<value id="90" name="NTP-Contact-Degraded"/>
+		<value id="91" name="In-Connection-Failed"/>
+		<value id="92" name="Out-Connection-Failed"/>
+		<value id="93" name="Application-ProcessorReset"/>
+		<value id="94" name="DSP-Reset"/>
+		<value id="95" name="Changed-to-Maint-Srvs-State"/>
+		<value id="96" name="Loop-Back-cleared-on-channel"/>
+		<value id="97" name="Loop-Back-on-channel"/>
+		<value id="98" name="Telco-Abnormal-Response"/>
+		<value id="99" name="DNS-Contact-Restored"/>
+		<value id="100" name="DNS-Contact-Degraded"/>
+		<value id="101" name="RADIUS-Accounting-Restored"/>
+		<value id="102" name="RADIUS-Accounting-Group-Restore"/>
+		<value id="103" name="RADIUS-Accounting-Group-Degrade"/>
+		<value id="104" name="RADIUS-Accounting-Group-NonOper"/>
+		<value id="119" name="T1/T1-E1/PRI-InCall-Fail-Event"/>
+		<value id="120" name="T1/T1-E1/PRI-OutCall-Fail-Event"/>
+		<value id="121" name="RMMIE-Retrain-Event"/>
+		<value id="122" name="RMMIE-Speed-Shift-Event"/>
+		<value id="191" name="CDMA-Call-Start"/>
+		<value id="192" name="CDMA-Call-End"/>
+	</supported-values>
+</attribute>
+<attribute id="48943" name="USR-Event-Date-Time" type="date"/>
+<attribute id="48143" name="USR-Call-Start-Date-Time" type="date"/>
+<attribute id="48941" name="USR-Initial-Rx-Link-Data-Rate" type="integer">
+	<supported-values>
+		<value id="1" name="110-BPS"/>
+		<value id="2" name="300-BPS"/>
+		<value id="3" name="600-BPS"/>
+		<value id="4" name="1200-BPS"/>
+		<value id="5" name="2400-BPS"/>
+		<value id="6" name="4800-BPS"/>
+		<value id="7" name="7200-BPS"/>
+		<value id="8" name="9600-BPS"/>
+		<value id="9" name="12000-BPS"/>
+		<value id="10" name="14400-BPS"/>
+		<value id="11" name="16800-BPS"/>
+		<value id="12" name="19200-BPS"/>
+		<value id="13" name="38400-BPS"/>
+		<value id="14" name="75-BPS"/>
+		<value id="15" name="450-BPS"/>
+		<value id="16" name="UNKNOWN-BPS"/>
+		<value id="17" name="57600-BPS"/>
+		<value id="18" name="21600-BPS"/>
+		<value id="19" name="24000-BPS"/>
+		<value id="20" name="26400-BPS"/>
+		<value id="21" name="28800-BPS"/>
+		<value id="22" name="115200-BPS"/>
+		<value id="23" name="31200-BPS"/>
+		<value id="24" name="33600-BPS"/>
+		<value id="25" name="25333-BPS"/>
+		<value id="26" name="26666-BPS"/>
+		<value id="27" name="28000-BPS"/>
+		<value id="28" name="29333-BPS"/>
+		<value id="29" name="30666-BPS"/>
+		<value id="30" name="32000-BPS"/>
+		<value id="31" name="33333-BPS"/>
+		<value id="32" name="34666-BPS"/>
+		<value id="33" name="36000-BPS"/>
+		<value id="34" name="37333-BPS"/>
+		<value id="35" name="38666-BPS"/>
+		<value id="36" name="40000-BPS"/>
+		<value id="37" name="41333-BPS"/>
+		<value id="38" name="42666-BPS"/>
+		<value id="39" name="44000-BPS"/>
+		<value id="40" name="45333-BPS"/>
+		<value id="41" name="46666-BPS"/>
+		<value id="42" name="48000-BPS"/>
+		<value id="43" name="49333-BPS"/>
+		<value id="44" name="50666-BPS"/>
+		<value id="45" name="52000-BPS"/>
+		<value id="46" name="53333-BPS"/>
+		<value id="47" name="54666-BPS"/>
+		<value id="48" name="56000-BPS"/>
+		<value id="49" name="57333-BPS"/>
+		<value id="50" name="58666-BPS"/>
+		<value id="51" name="60000-BPS"/>
+		<value id="52" name="61333-BPS"/>
+		<value id="53" name="62666-BPS"/>
+		<value id="54" name="64000-BPS"/>
+	</supported-values>
+</attribute>
+<attribute id="48940" name="USR-Final-Rx-Link-Data-Rate" type="integer">
+	<supported-values>
+		<value id="1" name="110-BPS"/>
+		<value id="2" name="300-BPS"/>
+		<value id="3" name="600-BPS"/>
+		<value id="4" name="1200-BPS"/>
+		<value id="5" name="2400-BPS"/>
+		<value id="6" name="4800-BPS"/>
+		<value id="7" name="7200-BPS"/>
+		<value id="8" name="9600-BPS"/>
+		<value id="9" name="12000-BPS"/>
+		<value id="10" name="14400-BPS"/>
+		<value id="11" name="16800-BPS"/>
+		<value id="12" name="19200-BPS"/>
+		<value id="13" name="38400-BPS"/>
+		<value id="14" name="75-BPS"/>
+		<value id="15" name="450-BPS"/>
+		<value id="16" name="UNKNOWN-BPS"/>
+		<value id="17" name="57600-BPS"/>
+		<value id="18" name="21600-BPS"/>
+		<value id="19" name="24000-BPS"/>
+		<value id="20" name="26400-BPS"/>
+		<value id="21" name="28800-BPS"/>
+		<value id="22" name="115200-BPS"/>
+		<value id="23" name="31200-BPS"/>
+		<value id="24" name="33600-BPS"/>
+		<value id="25" name="25333-BPS"/>
+		<value id="26" name="26666-BPS"/>
+		<value id="27" name="28000-BPS"/>
+		<value id="28" name="29333-BPS"/>
+		<value id="29" name="30666-BPS"/>
+		<value id="30" name="32000-BPS"/>
+		<value id="31" name="33333-BPS"/>
+		<value id="32" name="34666-BPS"/>
+		<value id="33" name="36000-BPS"/>
+		<value id="34" name="37333-BPS"/>
+		<value id="35" name="38666-BPS"/>
+		<value id="36" name="40000-BPS"/>
+		<value id="37" name="41333-BPS"/>
+		<value id="38" name="42666-BPS"/>
+		<value id="39" name="44000-BPS"/>
+		<value id="40" name="45333-BPS"/>
+		<value id="41" name="46666-BPS"/>
+		<value id="42" name="48000-BPS"/>
+		<value id="43" name="49333-BPS"/>
+		<value id="44" name="50666-BPS"/>
+		<value id="45" name="52000-BPS"/>
+		<value id="46" name="53333-BPS"/>
+		<value id="47" name="54666-BPS"/>
+		<value id="48" name="56000-BPS"/>
+		<value id="49" name="57333-BPS"/>
+		<value id="50" name="58666-BPS"/>
+		<value id="51" name="60000-BPS"/>
+		<value id="52" name="61333-BPS"/>
+		<value id="53" name="62666-BPS"/>
+		<value id="54" name="64000-BPS"/>
+	</supported-values>
+</attribute>
+<attribute id="48945" name="USR-Chassis-Temperature" type="integer"/>
+<attribute id="48772" name="USR-Chassis-Temp-Threshold" type="integer"/>
+<attribute id="48946" name="USR-Actual-Voltage" type="integer"/>
+<attribute id="48947" name="USR-Expected-Voltage" type="integer"/>
+<attribute id="48948" name="USR-Power-Supply-Number" type="integer"/>
+<attribute id="48773" name="USR-Card-Type" type="integer">
+	<supported-values>
+		<value id="1" name="SlotEmpty"/>
+		<value id="2" name="SlotUnknown"/>
+		<value id="3" name="NetwMgtCard"/>
+		<value id="4" name="DualT1NAC"/>
+		<value id="5" name="DualModemNAC"/>
+		<value id="6" name="QuadModemNAC"/>
+		<value id="7" name="TrGatewayNAC"/>
+		<value id="8" name="X25GatewayNAC"/>
+		<value id="9" name="DualV34ModemNAC"/>
+		<value id="10" name="QuadV32DigitalModemNAC"/>
+		<value id="11" name="QuadV32AnalogModemNAC"/>
+		<value id="12" name="QuadV32DigAnlModemNAC"/>
+		<value id="13" name="QuadV34DigModemNAC"/>
+		<value id="14" name="QuadV34AnlModemNAC"/>
+		<value id="15" name="QuadV34DigAnlModemNAC"/>
+		<value id="16" name="SingleT1NAC"/>
+		<value id="17" name="EthernetGatewayNAC"/>
+		<value id="18" name="AccessServer"/>
+		<value id="19" name="486TrGatewayNAC"/>
+		<value id="20" name="486EthernetGatewayNAC"/>
+		<value id="22" name="DualRS232NAC"/>
+		<value id="23" name="486X25GatewayNAC"/>
+		<value id="25" name="ApplicationServerNAC"/>
+		<value id="26" name="ISDNGatewayNAC"/>
+		<value id="27" name="ISDNpriT1NAC"/>
+		<value id="28" name="ClkedNetMgtCard"/>
+		<value id="29" name="ModemPoolManagementNAC"/>
+		<value id="30" name="ModemPoolNetserverNAC"/>
+		<value id="31" name="ModemPoolV34ModemNAC"/>
+		<value id="32" name="ModemPoolISDNNAC"/>
+		<value id="33" name="NTServerNAC"/>
+		<value id="34" name="QuadV34DigitalG2NAC"/>
+		<value id="35" name="QuadV34AnalogG2NAC"/>
+		<value id="36" name="QuadV34DigAnlgG2NAC"/>
+		<value id="37" name="NETServerFrameRelayNAC"/>
+		<value id="38" name="NETServerTokenRingNAC"/>
+		<value id="39" name="X2524ChannelNAC"/>
+		<value id="42" name="WirelessGatewayNac"/>
+		<value id="44" name="EnhancedAccessServer"/>
+		<value id="45" name="EnhancedISDNGatewayNAC"/>
+		<value id="1001" name="DualT1NIC"/>
+		<value id="1002" name="DualAlogMdmNIC"/>
+		<value id="1003" name="QuadDgtlMdmNIC"/>
+		<value id="1004" name="QuadAlogDgtlMdmNIC"/>
+		<value id="1005" name="TokenRingNIC"/>
+		<value id="1006" name="SingleT1NIC"/>
+		<value id="1007" name="EthernetNIC"/>
+		<value id="1008" name="ShortHaulDualT1NIC"/>
+		<value id="1009" name="DualAlogMgdIntlMdmNIC"/>
+		<value id="1010" name="X25NIC"/>
+		<value id="1011" name="QuadAlogNonMgdMdmNIC"/>
+		<value id="1012" name="QuadAlogMgdIntlMdmNIC"/>
+		<value id="1013" name="QuadAlogNonMgdIntlMdmNIC"/>
+		<value id="1014" name="QuadLsdLiMgdMdmNIC"/>
+		<value id="1015" name="QuadLsdLiNonMgdMdmNIC"/>
+		<value id="1016" name="QuadLsdLiMgdIntlMdmNIC"/>
+		<value id="1017" name="QuadLsdLiNonMgdIntlMdmNIC"/>
+		<value id="1018" name="HSEthernetWithV35NIC"/>
+		<value id="1019" name="HSEthernetWithoutV35NIC"/>
+		<value id="1020" name="DualHighSpeedV35NIC"/>
+		<value id="1021" name="QuadV35RS232LowSpeedNIC"/>
+		<value id="1022" name="DualE1NIC"/>
+		<value id="1023" name="ShortHaulDualE1NIC"/>
+		<value id="1025" name="BellcoreLongHaulDualT1NIC"/>
+		<value id="1026" name="BellcoreShrtHaulDualT1NIC"/>
+		<value id="1027" name="SCSIEdgeServerNIC"/>
+	</supported-values>
+</attribute>
+<attribute id="48953" name="USR-Chassis-Slot" type="integer"/>
+<attribute id="48862" name="USR-Security-Login-Limit" type="integer"/>
+<attribute id="48890" name="USR-Security-Resp-Limit" type="integer"/>
+<attribute id="48919" name="USR-DTE-Ring-No-Answer-Limit" type="integer"/>
+<attribute id="48759" name="USR-Physical-State" type="integer"/>
+<attribute id="48916" name="USR-Packet-Bus-Session" type="integer"/>
+
+<attribute id="48733" name="USR-Channel-Connected-To" type="integer"/>
+<attribute id="48734" name="USR-Slot-Connected-To" type="integer"/>
+<attribute id="48735" name="USR-Device-Connected-To" type="integer">
+	<supported-values>
+		<value id="1" name="None"/>
+		<value id="2" name="isdnGateway"/>
+		<value id="3" name="quadModem"/>
+	</supported-values>
+</attribute>
+<attribute id="48736" name="USR-NFAS-id" type="integer"/>
+<attribute id="48737" name="USR-Q931-Call-Reference-Value" type="integer"/>
+<attribute id="48738" name="USR-Call-Event-Code" type="integer">
+	<supported-values>
+		<value id="1" name="notSupported"/>
+		<value id="2" name="setup"/>
+		<value id="3" name="usrSetup"/>
+		<value id="4" name="telcoDisconnect"/>
+		<value id="5" name="usrDisconnect"/>
+		<value id="6" name="noFreeModem"/>
+		<value id="7" name="modemsNotAllowed"/>
+		<value id="8" name="modemsRejectCall"/>
+		<value id="9" name="modemSetupTimeout"/>
+		<value id="10" name="noFreeIGW"/>
+		<value id="11" name="igwRejectCall"/>
+		<value id="12" name="igwSetupTimeout"/>
+		<value id="13" name="noFreeTdmts"/>
+		<value id="14" name="bcReject"/>
+		<value id="15" name="ieReject"/>
+		<value id="16" name="chidReject"/>
+		<value id="17" name="progReject"/>
+		<value id="18" name="callingPartyReject"/>
+		<value id="19" name="calledPartyReject"/>
+		<value id="20" name="blocked"/>
+		<value id="21" name="analogBlocked"/>
+		<value id="22" name="digitalBlocked"/>
+		<value id="23" name="outOfService"/>
+		<value id="24" name="busy"/>
+		<value id="25" name="congestion"/>
+		<value id="26" name="protocolError"/>
+		<value id="27" name="noFreeBchannel"/>
+		<value id="28" name="inOutCallCollision"/>
+		<value id="29" name="inCallArrival"/>
+		<value id="30" name="outCallArrival"/>
+		<value id="31" name="inCallConnect"/>
+		<value id="32" name="outCallConnect"/>
+	</supported-values>
+</attribute>
+<attribute id="48739" name="USR-DS0" type="integer"/>
+<attribute id="48740" name="USR-DS0s" type="string"/>
+<attribute id="48742" name="USR-Gateway-IP-Address" type="ipaddr"/>
+
+<attribute id="49127" name="USR-Connect-Time-Limit" type="integer"/>
+<attribute id="49126" name="USR-Number-of-Rings-Limit" type="integer"/>
+
+<attribute id="49142" name="USR-Call-End-Date-Time" type="date"/>
+
+<attribute id="61442" name="USR-NAS-Type" type="integer">
+	<supported-values>
+		<value id="0" name="3Com-NMC"/>
+		<value id="1" name="3Com-NETServer"/>
+		<value id="2" name="3Com-HiPerArc"/>
+		<value id="3" name="TACACS+-Server"/>
+		<value id="4" name="3Com-SA-Server"/>
+		<value id="5" name="Ascend"/>
+		<value id="6" name="Generic-RADIUS"/>
+		<value id="7" name="3Com-NETBuilder-II"/>
+	</supported-values>
+</attribute>
+<attribute id="61443" name="USR-Auth-Mode" type="integer">
+	<supported-values>
+		<value id="0" name="Auth-3Com"/>
+		<value id="1" name="Auth-Ace"/>
+		<value id="2" name="Auth-Safeword"/>
+		<value id="3" name="Auth-UNIX-PW"/>
+		<value id="4" name="Auth-Defender"/>
+		<value id="5" name="Auth-TACACSP"/>
+		<value id="6" name="Auth-Netware"/>
+		<value id="7" name="Auth-Skey"/>
+		<value id="8" name="Auth-EAP-Proxy"/>
+		<value id="9" name="Auth-UNIX-Crypt"/>
+	</supported-values>
+</attribute>
+<attribute id="61440" name="USR-Server-Time" type="date"/>
+-->
+</attribute-list>

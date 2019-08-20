@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+		<class  name="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.TranslationMappingConfData" table="TBLMTRANSLATIONMAPPINGCONF">
+
+		<id name="translationMapConfigId" column="TRANSMAPCONFID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id> 
+
+		<property name="name" type="StringType"> 
+			<column name="NAME" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+
+		<property name="description" type="StringType"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR(300)" not-null="false" /> 
+		</property>
+		
+		
+		<property name="dummyResponse" type="StringType"> 
+			<column name="DUMMYRESPONSE" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+	
+
+		<property name="toType" type="CharType"> 
+			<column name="TOTYPE" sql-type="CHAR(7)" not-null="false" /> 
+		</property>
+
+		<property name="fromType" type="CharType"> 
+			<column name="FROMTYPE" sql-type="CHAR(7)" not-null="false" /> 
+		</property>
+		
+		<property name="baseTranslationMapConfigId" type="StringType"> 
+			<column name="BASETRANSMAPCONFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="script" type="StringType" column="SCRIPT" />
+		
+		<property name="auditUid" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	     </property>
+		
+		<many-to-one name="translatorTypeTo" fetch="join"  insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.TranslatorTypeData" column="TOTYPE" ></many-to-one>
+		<many-to-one name="translatorTypeFrom" fetch="join"  insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.TranslatorTypeData" column="FROMTYPE" ></many-to-one>
+	</class>
+
+</hibernate-mapping> 
+
+	
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="7064" vendor-name="UTStarcom">
+<attribute id="140" name="UTStarcom-VLAN-id" type="integer"/>
+<attribute id="142" name="UTStarcom-CommittedBandwidth" type="integer"/>
+<attribute id="143" name="UTStarcom-MaxBandwidth" type="integer"/>
+<attribute id="145" name="UTStarcom-Priority" type="integer"/>
+<attribute id="147" name="UTStarcom-Error-Reason" type="integer"/>
+<attribute id="152" name="UTStarcom-PrimaryDNS" type="integer"/>
+<attribute id="153" name="UTStarcom-SecondaryDNS" type="integer"/>
+<attribute id="161" name="UTStarcom-MaxBurstSize" type="integer"/>
+<attribute id="162" name="UTStarcom-MaxDelay" type="integer"/>
+<attribute id="163" name="UTStarcom-MaxJitter" type="integer"/>
+<attribute id="165" name="UTStarcom-Deviceid" type="string"/>
+<attribute id="166" name="UTStarcom-Module-id" type="integer"/>
+<attribute id="167" name="UTStarcom-Port-No" type="integer"/>
+<attribute id="168" name="UTStarcom-Logical-Port-No" type="integer"/>
+<attribute id="169" name="UTStarcom-UNI-MAX-MAC" type="integer"/>
+<attribute id="170" name="UTStarcom-Default-Gateway" type="integer"/>
+<attribute id="171" name="UTStarcom-CLI-Access-Level" type="integer"/>
+<attribute id="180" name="UTStarcom-Act-Input-Octets" type="string"/>
+<attribute id="181" name="UTStarcom-Act-Output-Octets" type="string"/>
+<attribute id="182" name="UTStarcom-Act-Input-Frames" type="string"/>
+<attribute id="183" name="UTStarcom-Act-Output-Frames" type="string"/>
+<attribute id="184" name="UTStarcom-Onu-MC-Filter-Enable" type="integer"/>
+<attribute id="185" name="UTStarcom-UNI-Auto-Negotiation" type="integer"/>
+<attribute id="186" name="UTStarcom-UNI-Speed" type="integer"/>
+<attribute id="187" name="UTStarcom-UNI-Duplex" type="integer"/>
+<attribute id="188" name="UTStarcom-ONU-Admin_status" type="integer"/>
+<attribute id="189" name="UTStarcom-ONU-FW-SC-Upgrade" type="integer"/>
+</attribute-list>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- ************* DIAMETER EAP APPLICATION ************* -->
+  <!--<application id="5" name="EAP"  uri="http://www.rfc-editor.org/rfc/rfc4072.txt";>-->
+   <attribute-list vendorid="0" applicationid="5" application-name="EAP" vendor-name="base"> 
+    <!-- ***************** DIAMETER EAP APPLICATION AVPS ************** -->
+    <attribute id="102"   name="EAP-Key-Name"  mandatory="no" protected="no" encryption="no" type="OctetString"/>
+    <attribute id="462"  name="EAP-Payload"  mandatory="yes" protected="no" encryption="no" type="OctetString"/>
+    <attribute id="463"  name="EAP-Reissued-Payload"  mandatory="no" protected="no" encryption="yes" type="OctetString"/>
+    <attribute id="464"  name="EAP-Master-Session-Key"  mandatory="no" protected="no" encryption="yes" type="OctetString"/>
+    <attribute id="465"  name="Accounting-EAP-Auth-Method"  mandatory="no" protected="no" encryption="yes" type="Unsigned64"/>
+  	<!-- ***************** END ************** -->      
+ </attribute-list> 
+ 
+ 

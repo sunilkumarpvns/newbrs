@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>	
+<attribute-list vendorid="11344" vendor-name="FreeRADIUS">
+	<attribute id="1" name="FreeRADIUS-Proxied-To" type="ipaddr"/>
+</attribute-list>

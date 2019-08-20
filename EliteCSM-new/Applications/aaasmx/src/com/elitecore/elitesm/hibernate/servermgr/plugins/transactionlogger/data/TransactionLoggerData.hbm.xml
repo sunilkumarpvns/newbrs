@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.servermgr.plugins.transactionlogger.data.TransactionLoggerData" table="TBLMTRANSACTIONLOGGER">
+
+		<id name="pluginId" column="PLUGINID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+        
+		<property name="pluginInstanceId" type="StringType"> 
+			<column name="PLUGININSTANCEID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="timeBoundry" type="java.lang.Long">
+            <column name="TIMEBOUNDRY" sql-type="NUMBER(6)" not-null="false" />
+        </property>
+		
+		<property name="logFile" type="StringType"> 
+			<column name="LOGFILE" sql-type="VARCHAR(255)" not-null="false" /> 
+			</property>
+		
+		<property name="range" type="StringType">
+			<column name="RANGE" sql-type="VARCHAR(40)" not-null="false" />
+		</property>
+		
+		<property name="pattern" type="StringType">
+			<column name="PATTERN" sql-type="VARCHAR(16)"/>
+		</property>
+		
+		<property name="globalization" type="StringType">
+			<column name="GLOBALIZATION" sql-type="VARCHAR(8)"/>
+		</property>         
+			
+		<set name="formatMappingDataSet" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+			<key column="PLUGINID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.plugins.transactionlogger.data.FormatMappingData" />
+	  	</set>	
+	
+	</class>
+
+</hibernate-mapping> 

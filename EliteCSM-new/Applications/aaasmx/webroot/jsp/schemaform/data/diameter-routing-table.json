@@ -1,0 +1,305 @@
+{
+	"schema": {
+   "type":"object",
+   "title":"Diameter Routing Table",
+   "properties":{
+      "routing-table-name":{
+         "title":"Routing Table Name",
+         "type":"string"
+      },
+      "overload-action":{
+         "title":"Overload Action",
+         "type":"string"
+      },
+      "result-code":{
+         "title":"Result Code",
+         "type":"integer",
+         "default":0
+      },
+      "diameter-routing-entries":{
+         "type":"array",
+         "items":{
+            "type":"object",
+            "properties":{
+               "name":{
+                  "title":"Name",
+                  "type":"string"
+               },
+               "description":{
+                  "title":"Description",
+                  "type":"string"
+               },
+               "routing-table-name":{
+                  "title":"Routing Table Name",
+                  "type":"string"
+               },
+               "destination-realm":{
+                  "title":"Destination Realm",
+                  "type":"string"
+               },
+               "application-ids":{
+                  "title":"Application IDs",
+                  "type":"string"
+               },
+               "origin-host":{
+                  "title":"Origin Host",
+                  "type":"string"
+               },
+               "origin-realm":{
+                  "title":"Origin Realm",
+                  "type":"string"
+               },
+               "ruleset":{
+                  "title":"RuleSet",
+                  "type":"string"
+               },
+               "translation-mapping":{
+                  "title":"Translation Mapping",
+                  "type":"string"
+               },
+               "routing-action":{
+                  "title":"Routing Action",
+                  "type":"string"
+               },
+               "stateful-routing":{
+                  "title":"Stateful Routing",
+                  "type":"string"
+               },
+               "attached-redirection":{
+                  "title":"Attached Redirection",
+                  "type":"string"
+               },
+               "transaction-timeout":{
+                  "title":"Transaction Time Out",
+                  "type":"integer",
+                  "default":3000
+               },
+               "subscriber-routing-1":{
+                  "title":"Subscriber Routing 1",
+                  "type":"string"
+               },
+               "subscriber-routing-2":{
+                  "title":"Subscriber Routing 2",
+                  "type":"string"
+               },
+                "failure-actions":{
+                    "type":"array",
+                    "items":{
+                        "type":"object",
+                        "properties":{
+                            "error-code":{
+                                "title":"Error Code",
+                                "type":"string"
+                            },
+                            "failure-action":{
+                                "title":"Failure Action",
+                                "type":"string"
+                            },
+                            "failure-argument":{
+                                "title":"Failure Argument",
+                                "type":"string"
+                            }
+                        }
+                    }
+                },
+               "peer-group":{
+                   "type":"array",
+                   "items":{
+                        "type":"object",
+                        "properties":{
+                            "rule-set":{
+                               "title":"Ruleset",
+                               "type":"string"
+                            },
+                            "peer":{
+                               "type":"array",
+                               "items":{
+                                   "type" : "object",
+                                   "properties" : {
+                                       "peer":{
+                                           "title":"Peer",
+                                           "type" :"string"
+                                       },
+                                       "load-factor":{
+                                           "title":"LoadFactor",
+                                           "type" : "string"
+                                       }
+                                   }
+                               }
+                            }
+                        }
+                   }
+                }
+            }
+         }
+      }
+   }
+},
+	"form": [
+   {
+      "key":"routing-table-name"
+   },
+   {
+      "key":"overload-action"
+   },
+   {
+      "key":"result-code"
+   },
+   {
+      "key":"diameter-routing-entries",
+      "items":[
+         {
+            "key":"diameter-routing-entries[].name"
+         },
+         {
+            "key":"diameter-routing-entries[].description"
+         },
+         {
+            "key":"diameter-routing-entries[].routing-table-name"
+         },
+         {
+            "key":"diameter-routing-entries[].destination-realm"
+         },
+         {
+            "key":"diameter-routing-entries[].application-ids"
+         },
+         {
+            "key":"diameter-routing-entries[].origin-host"
+         },
+         {
+            "key":"diameter-routing-entries[].origin-realm"
+         },
+         {
+            "key":"diameter-routing-entries[].ruleset"
+         },
+         {
+            "key":"diameter-routing-entries[].translation-mapping"
+         },
+         {
+            "key":"diameter-routing-entries[].routing-action",
+            "type":"select",
+            "titleMap":{
+               "Local":"Local",
+               "Relay":"Relay",
+               "Proxy":"Proxy",
+               "Redirect":"Redirect",
+               "Virtual":"Virtual"
+            }
+         },
+         {
+            "key":"diameter-routing-entries[].stateful-routing",
+            "type":"select",
+            "titleMap":{
+               "Enabled":"Enabled",
+               "Disabled":"Disabled"
+            }
+         },
+         {
+            "key":"diameter-routing-entries[].attached-redirection",
+            "type":"select",
+            "titleMap":{
+               "Enabled":"Enabled",
+               "Disabled":"Disabled"
+            }
+         },
+         {
+            "key":"diameter-routing-entries[].transaction-timeout"
+         },
+         {
+            "key":"diameter-routing-entries[].subscriber-routing-1"
+         },
+         {
+            "key":"diameter-routing-entries[].subscriber-routing-2"
+         },
+         {
+             "key":"diameter-routing-entries[].failure-actions",
+             "add":"Add Failover Button",
+             "items":[
+                 {
+                     "key":"diameter-routing-entries[].failure-actions[].error-code"
+                 },
+                 {
+                     "key":"diameter-routing-entries[].failure-actions[].failure-action",
+                     "type":"select",
+                     "titleMap":{
+                         "Drop":"Drop",
+                         "Failover":"Failover",
+                         "Redirect":"Redirect",
+                         "Passthrough":"Passthrough",
+                         "Translate":"Translate",
+                         "Record":"Record"
+                     }
+                 },
+                 {
+                     "key":"diameter-routing-entries[].failure-actions[].failure-argument"
+                 }
+                 ]
+         },
+        {
+            "key":"diameter-routing-entries[].peer-group",
+            "add":"Add Peer Group",
+            "items":[
+               {
+                  "key":"diameter-routing-entries[].peer-group[].ruleset",
+                  "title":"RuleSet"
+               },
+               {
+                  "key":"diameter-routing-entries[].peer-group[].peer",
+                  "items":[
+                        {
+                            "key":"diameter-routing-entries[].peer-group[].peer[].peer"
+                        },
+                        {
+                            "key":"diameter-routing-entries[].peer-group[].peer[].load-factor"
+                        }
+                    ]
+                 
+               }
+            ]
+         }
+      ]
+   }
+],
+	"model": {
+		"routing-table-name": "diameter_routing_table",
+		"overload-action": "DROP",
+		"result-code": 0,
+		"diameter-routing-entries": [
+			{
+				"name": "diameter_routing_entry",
+				"description": "Created by admin on 01/27/2017 11:46:22 AM",
+				"routing-table-name": "diameter_routing_table",
+				"destination-realm": "elitecore.com",
+				"application-ids": "1",
+				"origin-host": "10.125.21.62",
+				"origin-realm": "elitecore.com",
+				"ruleset": " 0:1=\"*\"",
+				"translation-mapping": "translation_mapping",
+				"routing-action": "Relay",
+				"stateful-routing": "Enabled",
+				"attached-redirection": "Disabled",
+				"transaction-timeout": 3000,
+				"subscriber-routing-1": "imsi",
+				"subscriber-routing-2": "msisdn",
+				"failure-actions": [
+					{
+						"error-code": "5002",
+						"failure-action": "Record",
+						"failure-argument": "0.0.0.0"
+					}
+				],
+				"peer-group": [
+					{
+						"ruleset": "0:263=\"*\"",
+						"peer": [
+							{
+								"peer": "peer1",
+								"load-factor": 1
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

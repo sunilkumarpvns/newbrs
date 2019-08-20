@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+        <package name="globalpccrule" extends="nvsmx" >
+                <action name="globalpccrule/*/*/*/*/*" class="com.elitecore.nvsmx.{1}.controller.{2}.{3}CTRL" method="{5}">
+                        <interceptor-ref name="nvsmxStack" />
+                        <result name="list" 			type="tiles">{1}/{2}/{3}_Search</result>
+                        <result name="importPCCRule" type="tiles">/{1}/{2}/_PccRuleImport</result>
+                        <result name="importStatusReport" type="tiles">/{1}/_ImportStatusReport</result>
+                        <result name="dispatchToParent">../../../../../${actionChainUrl}</result><!--overriding mapping for global pcc rule mapping -->
+                </action>
+        </package>
+
+</struts>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+                                                                                                                     
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.diameter.eappolicy.data.EAPResponseAttributes" table="TBLMEAPPOLICYRESPATTRREL">
+		<id name="respAttrId" column="RESPATTRID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+		<property name="eapPolicyId" type="StringType" column="EAPPOLICYID" not-null="false"/> 
+		<property name="commandCodes" type="StringType" column="COMMANDCODES" not-null="false"/> 
+		<property name="responseAttributes" type="StringType" column="RESPONSEATTRIBUTES" not-null="false"/> 
+		<property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false"/> 
+		
+	</class>            
+ 
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.data.NetServerInstanceConfMapData" table="TBLMNETSERVERINSTANCECONFMAP">
+		<composite-id>
+			<key-property name="netServerId"  column="NETSERVERID" type="long"/>
+			<key-property name="configInstanceId" column="CONFIGINSTANCEID" type="long"/>
+		</composite-id>
+		<many-to-one name="netConfigurationInstance" class="com.elitecore.netvertexsm.datamanager.servermgr.data.NetConfigurationInstanceData" column="CONFIGINSTANCEID" insert="false" update="false" not-null="true" lazy="false"/>
+	</class>
+</hibernate-mapping>          

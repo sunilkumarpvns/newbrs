@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.drivers.mapgatewaydriver.data.MappingGatewayAuthDriverData" table="TBLMMAPGWAUTHDRIVER">
+
+		<id name="mapGWAuthid" column="MAPGWAUTHID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		<!-- <property name="dbScanTime" type="long"> <column name="dbscantime" 
+			sql-type="NUMBER(10)" not-null="false" /> </property> -->
+		<property name="localHostId" type="StringType">
+			<column name="localhostid" sql-type="VARCHAR(200)" not-null="false" />
+		</property>
+
+		<property name="localHostPort" type="java.lang.Integer">
+			<column name="localhostport" sql-type="NUMBER(5)" not-null="true" />
+		</property>
+
+		<property name="localHostIp" type="StringType">
+			<column name="localhostip" sql-type="VARCHAR(200)" not-null="false" />
+		</property>
+
+		<property name="remoteHostId" type="StringType">
+			<column name="remotehostid" sql-type="VARCHAR(200)" not-null="false" />
+		</property>
+
+		<property name="remoteHostPort" type="java.lang.Integer">
+			<column name="remotehostport" sql-type="NUMBER(5)" not-null="true" />
+		</property>
+
+		<property name="remoteHostIp" type="StringType">
+			<column name="remotehostip" sql-type="VARCHAR(200)" not-null="false" />
+		</property>
+
+		<property name="maxQueryTimeoutCount" type="java.lang.Long">
+			<column name="MAXQUERYTIMEOUTCOUNT" sql-type="NUMBER(5)" not-null="true" />
+		</property>
+
+		<property name="driverInstanceId" type="StringType">
+			<column name="DRIVERINSTANCEID" sql-type="VARCHAR(36)" not-null="true" />
+		</property>
+
+		<property name="mapGwConnPoolSize" type="java.lang.Integer">
+			<column name="MAPGWCONNPOOLSIZE" sql-type="NUMBER(5)"
+				not-null="true" />
+		</property>
+
+		<property name="requestTimeout" type="java.lang.Integer">
+			<column name="REQUESTTIMEOUT" sql-type="NUMBER(10)" not-null="true" />
+		</property>
+
+		<property name="statusCheckDuration" type="java.lang.Integer">
+			<column name="STATUSCHECKDURATION" sql-type="NUMBER(5)" not-null="true" />
+		</property>
+
+		<property name="userIdentityAttributes" type="StringType">
+			<column name="USERIDENTITYATTRIBUTES" sql-type="VARCHAR(256)" not-null="false" />
+		</property>
+
+		<property name="sendAuthInfo" type="StringType">
+			<column name="SENDAUTHINFO" sql-type="VARCHAR(10)"></column>
+		</property>
+
+		<property name="numberOfTriplets" type="StringType">
+			<column name="NUMBEROFTRIPLETS" sql-type="VARCHAR(5)"></column>
+		</property>
+
+		<bag name="gatewayFieldList" lazy="false" inverse="false" cascade="delete" fetch="join" order-by="orderNumber">
+			<key column="MAPGWAUTHID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.mapgatewaydriver.data.GatewayFieldMapData" />
+		</bag>
+	</class>
+
+</hibernate-mapping> 

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>	
+
+<attribute-list vendorid="9" vendor-name="Cisco">
+
+<!--  Standard attribute -->
+	<attribute id="1" name="Cisco-AVPair" type="string"/>
+	<attribute id="2" name="Cisco-NAS-Port" type="string"/>  
+<!--  Voice over IP attributes. -->	
+	<attribute id="3 " name="Cisco-Fax-Account-Id-Origin" type="string"/>
+	<attribute id="4 " name="Cisco-Fax-Msg-Id" type="string"/>
+	<attribute id="5 " name="Cisco-Fax-Pages" type="string"/>
+	<attribute id="6 " name="Cisco-Fax-Coverpage-Flag" type="string"/>
+	<attribute id="7 " name="Cisco-Fax-Modem-Time" type="string"/>
+	<attribute id="8 " name="Cisco-Fax-Connect-Speed" type="string"/>
+	<attribute id="9 " name="Cisco-Fax-Recipient-Count" type="string"/>
+	<attribute id="10" name="Cisco-Fax-Process-Abort-Flag" type="string"/>
+	<attribute id="11" name="Cisco-Fax-Dsn-Address" type="string"/>
+	<attribute id="12" name="Cisco-Fax-Dsn-Flag" type="string"/>
+	<attribute id="13" name="Cisco-Fax-Mdn-Address" type="string"/>
+	<attribute id="14" name="Cisco-Fax-Mdn-Flag" type="string"/>
+	<attribute id="15" name="Cisco-Fax-Auth-Status " type="string"/>
+	<attribute id="16" name="Cisco-Email-Server-Address" type="string"/>
+	<attribute id="17" name="Cisco-Email-Server-Ack-Flag" type="string"/>
+	<attribute id="18" name="Cisco-Gateway-Id" type="string"/>
+	<attribute id="19" name="Cisco-Call-Type" type="string"/>
+	<attribute id="20" name="Cisco-Port-Used" type="string"/>
+	<attribute id="21" name="Cisco-Abort-Cause" type="string"/>
+	<attribute id="23" name="h323-remote-address" type="string"/>
+	<attribute id="24" name="h323-conf-id" type="string"/>
+	<attribute id="25" name="h323-setup-time" type="string"/>
+	<attribute id="26" name="h323-call-origin" type="string"/>
+	<attribute id="27" name="h323-call-type" type="string"/>
+	<attribute id="28" name="h323-connect-time" type="string"/>
+	<attribute id="29" name="h323-disconnect-time" type="string"/>
+	<attribute id="30" name="h323-disconnect-cause" type="string"/>
+	<attribute id="31" name="h323-voice-quality" type="string"/>
+	<attribute id="33" name="h323-gw-id" type="string"/>
+	<attribute id="35" name="h323-incoming-conf-id" type="string"/>
+	<attribute id="101" name="h323-credit-amount" type="string"/>
+	<attribute id="102" name="h323-credit-time" type="string"/>
+	<attribute id="103" name="h323-return-code" type="string"/>
+	<attribute id="104" name="h323-prompt-id" type="string"/>
+	<attribute id="105" name="h323-time-and-day" type="string"/>
+	<attribute id="106" name="h323-redirect-number" type="string"/>
+	<attribute id="107" name="h323-preferred-lang" type="string"/>
+	<attribute id="108" name="h323-redirect-ip-address" type="string"/>
+	<attribute id="109" name="h323-billing-model" type="string"/>
+	<attribute id="110" name="h323-currency" type="string"/>
+	<attribute id="111" name="subscriber" type="string"/>
+	<attribute id="112" name="gw-rxd-cdn" type="string"/>
+	<attribute id="113" name="gw-final-xlated-cdn" type="string"/>
+<!-- SIP Attributes -->	
+	<attribute id="141" name="call-id" type="string"/>
+	<attribute id="142" name="session-protocol" type="string"/>
+	<attribute id="143" name="method" type="string"/>
+	<attribute id="144" name="prev-hop-via" type="string"/>
+	<attribute id="145" name="prev-hop-ip" type="string"/>
+	<attribute id="146" name="incoming-req-uri" type="string"/>
+	<attribute id="147" name="outgoing-req-uri" type="string"/>
+	<attribute id="148" name="next-hop-ip" type="string"/>
+	<attribute id="149" name="next-hop-dn" type="string"/>
+	<attribute id="150" name="sip-hdr" type="string"/>
+	
+<!--	Extra attributes sent by the Cisco, if you configure  
+	"radius-server vsa accounting" (requires IOS11.2+).   -->
+	
+	<attribute id="187" name="Cisco-Multilink-ID" type="integer"/>
+	<attribute id="188" name="Cisco-Num-In-Multilink" type="integer"/>
+	<attribute id="190" name="Cisco-Pre-Input-Octets" type="integer"/>
+	<attribute id="191" name="Cisco-Pre-Output-Octets" type="integer"/>
+	<attribute id="192" name="Cisco-Pre-Input-Packets" type="integer"/>
+	<attribute id="193" name="Cisco-Pre-Output-Packets" type="integer"/>
+	<attribute id="194" name="Cisco-Maximum-Time" type="integer"/>
+	<attribute id="195" name="Cisco-Disconnect-Cause" type="integer">
+		<supported-values>
+			<value id="2" name="Unknown"/>
+			<value id="4" name="CLID-Authentication-Failure"/>
+			<value id="10" name="No-Carrier"/>
+			<value id="11" name="Lost-Carrier"/>
+			<value id="12" name="No-Detected-Result-Codes"/>
+			<value id="20" name="User-Ends-Session"/>
+			<value id="21" name="Idle-Timeout"/>
+			<value id="22" name="Exit-Telnet-Session"/>
+			<value id="23" name="No-Remote-IP-Addr"/>
+			<value id="24" name="Exit-Raw-TCP"/>
+			<value id="25" name="Password-Fail"/>
+			<value id="26" name="Raw-TCP-Disabled"/>
+			<value id="27" name="Control-C-Detected"/>
+			<value id="28" name="EXEC-Program-Destroyed"/>
+			<value id="40" name="Timeout-PPP-LCP"/>
+			<value id="41" name="Failed-PPP-LCP-Negotiation"/>
+			<value id="42" name="Failed-PPP-PAP-Auth-Fail"/>
+			<value id="43" name="Failed-PPP-CHAP-Auth"/>
+			<value id="44" name="Failed-PPP-Remote-Auth"/>
+			<value id="45" name="PPP-Remote-Terminate"/>
+			<value id="46" name="PPP-Closed-Event"/>
+			<value id="100" name="Session-Timeout"/>
+			<value id="101" name="Session-Failed-Security"/>
+			<value id="102" name="Session-End-Callback"/>
+			<value id="120" name="Invalid-Protocol"/>
+		</supported-values>
+	</attribute>
+	<attribute id="197" name="Cisco-Data-Rate" type="integer"/>
+	<attribute id="198" name="Cisco-PreSession-Time" type="integer"/>
+	<attribute id="208" name="Cisco-PW-Lifetime" type="integer"/>
+	<attribute id="209" name="Cisco-IP-Direct" type="integer"/>
+	<attribute id="210" name="Cisco-PPP-VJ-Slot-Comp" type="integer"/>
+	<attribute id="211" name="h323-Class" type="string"/>  
+	<attribute id="212" name="Cisco-PPP-Async-Map" type="integer"/>
+	<attribute id="217" name="Cisco-IP-Pool-Definition" type="string"/>
+	<attribute id="218" name="Cisco-Assign-IP-Pool" type="integer"/>
+	<attribute id="228" name="Cisco-Route-IP" type="integer"/>
+	<attribute id="233" name="Cisco-Link-Compression" type="integer"/>
+	<attribute id="234" name="Cisco-Target-Util" type="integer"/>
+	<attribute id="235" name="Cisco-Maximum-Channels" type="integer"/>
+	<attribute id="242" name="Cisco-Data-Filter" type="integer"/>
+	<attribute id="243" name="Cisco-Call-Filter" type="integer"/>
+	<attribute id="244" name="Cisco-Idle-Limit" type="integer"/>
+	<attribute id="249" name="Cisco-Password" type="octets" encrypt-standard="9"/>
+	<attribute id="250" name="Cisco-Account-Info" type="string"/>
+	<attribute id="251" name="Cisco-Service-Info" type="string"/>
+	<attribute id="252" name="Cisco-Command-Code" type="CiscoCommandCode"/>
+	<attribute id="253" name="Cisco-Control-Info" type="string"/>
+	<attribute id="255" name="Cisco-Xmit-Rate" type="integer"/>
+</attribute-list>

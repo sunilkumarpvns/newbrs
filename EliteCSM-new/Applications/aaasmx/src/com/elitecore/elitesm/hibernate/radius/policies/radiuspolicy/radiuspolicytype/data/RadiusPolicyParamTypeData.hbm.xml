@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.radius.policies.radiuspolicy.radiuspolicytype.data.RadiusPolicyParamTypeData" table="TBLMRADIUSPOLICYPARAMTYPE" >
+		
+		<id name="radiusPolicyParamTypeId" column="RADIUSPOLICYPARAMTYPEID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		
+		<property name="parameterUsage" type="CharType">
+			<column name="PARAMETERUSAGE" sql-type="CHAR(8)" not-null="true"/>
+		</property>
+		
+		<property name="name" type="StringType">
+			<column name="NAME" sql-type="VARCHAR(25)" not-null="true"/>
+		</property>
+
+		<property name="description" type="StringType">
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="true"/>
+		</property>
+
+		<property name="orderBy" type="int">
+			<column name="ORDERBY" sql-type="NUMBER(50)" not-null="true"/>
+		</property>
+		
+		<set name="operatorParamTypeMap" lazy="false">
+			<key column="radiusPolicyParamTypeId" ></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.radius.policies.radiuspolicy.data.OperatorParamTypeMapData" />
+		</set>
+		
+	</class>
+</hibernate-mapping>          

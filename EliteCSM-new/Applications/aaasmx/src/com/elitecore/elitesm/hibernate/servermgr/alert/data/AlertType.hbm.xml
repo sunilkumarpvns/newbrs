@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	
+	<class name="com.elitecore.elitesm.datamanager.servermgr.alert.data.AlertTypeData" table="TBLSALERTTYPE" >          
+		<id name="alertTypeId" type="CharType" column="ALERTTYPEID"></id>
+		<property name="parentId" type="CharType" column="PARENTID" not-null="false"/>
+		<property name="name" type="StringType" column="NAME" not-null="true"/>
+		<property name="alias" type="StringType" column="ALIAS" not-null="true"/>
+		<property name="enabled" type="CharType" column="ENABLED" not-null="true"/>
+		<property name="type" type="CharType" column="TYPE" not-null="true"/>
+		
+		<set name="nestedChildDetailList" cascade="all" table="AlertTypeData" lazy="false" inverse="true">
+      	<key column="PARENTID"></key>
+      	<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.alert.data.AlertTypeData"/>
+      	</set>
+	</class>
+
+</hibernate-mapping>

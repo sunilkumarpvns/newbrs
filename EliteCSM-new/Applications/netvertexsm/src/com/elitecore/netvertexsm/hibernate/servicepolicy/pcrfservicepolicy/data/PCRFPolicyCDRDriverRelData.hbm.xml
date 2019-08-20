@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.servicepolicy.pcrfservicepolicy.data">
+
+  <class name="com.elitecore.netvertexsm.datamanager.servicepolicy.pcrfservicepolicy.data.PCRFPolicyCDRDriverRelData" table="TBLMPCRFPOLICYCDRDRIVERREL">
+  
+  	 	<composite-id>
+			<key-property name="pcrfPolicyId" column="PCRFPOLICYID" type="java.lang.Long"/>
+			<key-property name="driverInstanceId" column="DRIVERINSTANCEID" type="java.lang.Long"/>
+		</composite-id>
+		
+		<property name="weightage" type="java.lang.Long" column="WEIGHTAGE" not-null="true"/>
+		
+		<many-to-one name="driverInstanceData" column="DRIVERINSTANCEID" lazy="false" insert="false" update="false" 
+     	  class="com.elitecore.netvertexsm.datamanager.servermgr.drivers.data.DriverInstanceData" not-null="true">
+     	</many-to-one>  
+		
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <formset>
+
+        <form name="diameterPeerForm">
+            <field
+                property="peerProfileId"
+                depends="selectionRequired">
+                <arg bundle="diameterResources"  key="diameterpeer.profilename" />
+            </field>  
+        </form>
+        <form name="diameterPeerProfileForm">
+            <field
+                property="profileName"
+                depends="required">
+                    <arg bundle="diameterResources" key="diameterpeerprofile.name"/>
+            </field>
+            <field property="description" depends="textareaMaxlength">
+		       <arg0 key="general.description"/>
+		       <arg1 name="textareaMaxlength" key="${var:maxlength}" resource="false"/> 
+		       <var>
+		          <var-name>maxlength</var-name>
+		          <var-value>255</var-value>
+		       </var>
+		    </field>
+		    <field property="dwrDuration" depends="mask">
+		        <arg bundle="diameterResources" key="diameterpeerprofile.dwrduration"/>
+		        <var>
+					<var-name>mask</var-name>
+					<var-value>${isNumber}</var-value>
+			    </var>
+		    </field>
+		    <field property="initConnectionDuration" depends="mask">
+		        <arg bundle="diameterResources" key="diameterpeerprofile.initconnection"/>
+		        <var>
+					<var-name>mask</var-name>
+					<var-value>${isNumber}</var-value>
+			    </var>
+		    </field>
+		    <field property="retryCount" depends="mask">
+		        <arg bundle="diameterResources" key="diameterpeerprofile.retrycount"/>
+		        <var>
+					<var-name>mask</var-name>
+					<var-value>${isNumber}</var-value>
+			    </var>
+		    </field>
+		    <field property="cerAvps" depends="textareaMaxlength">
+		       <arg0 bundle="diameterResources" key="diameterpeerprofile.ceravps" />
+		       <arg1 name="textareaMaxlength" key="${var:maxlength}" resource="false"/>
+		       <var>
+		          <var-name>maxlength</var-name>
+		          <var-value>2000</var-value>
+		       </var>
+		    </field>
+		    <field property="dprAvps" depends="textareaMaxlength">
+		       <arg0 bundle="diameterResources" key="diameterpeerprofile.dpravps" />
+		       <arg1 name="textareaMaxlength" key="${var:maxlength}" resource="false"/>
+		       <var>
+		          <var-name>maxlength</var-name>
+		          <var-value>2000</var-value>
+		       </var>
+		    </field>
+		     <field property="dwrAvps" depends="textareaMaxlength">
+		       <arg0 bundle="diameterResources" key="diameterpeerprofile.dwravps" />
+		       <arg1 name="textareaMaxlength" key="${var:maxlength}" resource="false"/>
+		       <var>
+		          <var-name>maxlength</var-name>
+		          <var-value>2000</var-value>
+		       </var>
+		    </field>
+        </form>
+        <form name="diameterRoutingTableForm">
+            <field
+                property="routingTableName"
+                depends="required">
+                    <arg bundle="diameterResources" key="routingconf.tablename"/>
+            </field>
+       </form>
+       <form name="diameterRoutingConfForm">
+            <field
+                property="name"
+                depends="required">
+                    <arg key="general.name"/>
+            </field>
+            <field
+                property="realmName"
+                depends="required">
+                    <arg bundle="diameterResources" key="routingconf.realmname"/>
+            </field>
+            <field
+                property="appIds"
+                depends="required">
+                    <arg bundle="diameterResources" key="routingconf.appids"/>
+            </field>
+            <field property="ruleset" depends="textareaMaxlength">
+		       <arg0 bundle="diameterResources" key="routingconf.ruleset" />
+		       <arg1 name="textareaMaxlength" key="${var:maxlength}" resource="false"/>
+		       <var>
+		          <var-name>maxlength</var-name>
+		          <var-value>2000</var-value>
+		       </var>
+		    </field>
+            <field
+                property="routingTableId"
+                depends="required">
+                    <arg bundle="diameterResources" key="routingconf.tablename"/>
+            </field>
+            <field
+                property="transactionTimeout"
+                depends="required,mask">
+                 <arg bundle="diameterResources" key="routingconf.transactiontimeout"/>
+                 <var>
+				  <var-name>mask</var-name>
+				  <var-value>${isNumber}</var-value>
+			    </var>
+            </field>
+       </form>
+    </formset>
+
+</form-validation>

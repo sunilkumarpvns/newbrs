@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Flat UI Free 101 Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Loading Bootstrap -->
+<link href="/css/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- Loading Flat UI -->
+<link href="/css/flat-ui.css" rel="stylesheet">
+<link href="/main.css?v=1" rel="stylesheet">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" />
+
+<link rel="shortcut icon" href="img/favicon.ico">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+<!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script src="/app.js?v=1"></script>
+</head>
+<body>
+	<div class="container" style="text-align: center">
+		<h2>Database Setup!</h2>
+	</div>
+
+
+
+	<!-- /.container -->
+	<div class="container">
+		<div class="row demo-row">
+			<form class="form-inline">
+				<div class="col-xs-3 form-group">
+					<button id="connect" class="btn btn-block btn-lg btn-primary"
+						type="submit">Create</button>
+				</div>
+			</form>
+
+			<div class="col-xs-3">
+				<button id="drop" class="btn btn-block btn-lg btn-danger"
+					type="submit">Drop</button>
+			</div>
+		</div>
+
+		<i class="fa fa-database fa-5x"></i>
+
+		<div class="progress" style="margin-top: 30px;">
+			<div class="progress-bar" style="width: 0%;"></div>
+		</div>
+	</div>
+
+	<div id="main-content" class="container">
+		<div class="update" data-toggle="collapse"
+			data-target="#update-details">
+			<span class="update-value"></span>
+		</div>
+		<div id="update-details" class="update-details" style="height: 0px;">
+
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
+	<script src="/js/vendor/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/js/vendor/video.js"></script>
+	<script src="/js/flat-ui.min.js"></script>
+
+</body>
+</html>

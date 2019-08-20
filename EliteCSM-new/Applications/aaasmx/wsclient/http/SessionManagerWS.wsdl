@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.elitesm.elitecore.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.elitesm.elitecore.com" xmlns:intf="http://ws.elitesm.elitecore.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.elitesm.elitecore.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <element name="findByServiceType">
+    <complexType>
+     <sequence>
+      <element name="serviceType" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findByServiceTypeResponse">
+    <complexType>
+     <sequence>
+      <element name="findByServiceTypeReturn" type="apachesoap:Map"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findByFramedIPAddress">
+    <complexType>
+     <sequence>
+      <element name="ipAddress" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findByFramedIPAddressResponse">
+    <complexType>
+     <sequence>
+      <element name="findByFramedIPAddressReturn" type="apachesoap:Map"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findByUserName">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findByUserNameResponse">
+    <complexType>
+     <sequence>
+      <element name="findByUserNameReturn" type="apachesoap:Map"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findByAttribute">
+    <complexType>
+     <sequence>
+      <element name="attribute" type="xsd:string"/>
+      <element name="value" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findByAttributeResponse">
+    <complexType>
+     <sequence>
+      <element name="findByAttributeReturn" type="apachesoap:Map"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="mapItem">
+    <sequence>
+     <element name="key" nillable="true" type="xsd:anyType"/>
+     <element name="value" nillable="true" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <complexType name="Map">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="apachesoap:mapItem"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="findByUserNameRequest">
+
+      <wsdl:part element="impl:findByUserName" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findByAttributeResponse">
+
+      <wsdl:part element="impl:findByAttributeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findByFramedIPAddressRequest">
+
+      <wsdl:part element="impl:findByFramedIPAddress" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findByServiceTypeRequest">
+
+      <wsdl:part element="impl:findByServiceType" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findByUserNameResponse">
+
+      <wsdl:part element="impl:findByUserNameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findByServiceTypeResponse">
+
+      <wsdl:part element="impl:findByServiceTypeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findByFramedIPAddressResponse">
+
+      <wsdl:part element="impl:findByFramedIPAddressResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findByAttributeRequest">
+
+      <wsdl:part element="impl:findByAttribute" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SessionManagerWS">
+
+      <wsdl:operation name="findByServiceType">
+
+         <wsdl:input message="impl:findByServiceTypeRequest" name="findByServiceTypeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findByServiceTypeResponse" name="findByServiceTypeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findByFramedIPAddress">
+
+         <wsdl:input message="impl:findByFramedIPAddressRequest" name="findByFramedIPAddressRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findByFramedIPAddressResponse" name="findByFramedIPAddressResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findByUserName">
+
+         <wsdl:input message="impl:findByUserNameRequest" name="findByUserNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findByUserNameResponse" name="findByUserNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findByAttribute">
+
+         <wsdl:input message="impl:findByAttributeRequest" name="findByAttributeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findByAttributeResponse" name="findByAttributeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SessionManagerWSSoapBinding" type="impl:SessionManagerWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="findByServiceType">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findByServiceTypeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findByServiceTypeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findByFramedIPAddress">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findByFramedIPAddressRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findByFramedIPAddressResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findByUserName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findByUserNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findByUserNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findByAttribute">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findByAttributeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findByAttributeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SessionManagerWSService">
+
+      <wsdl:port binding="impl:SessionManagerWSSoapBinding" name="SessionManagerWS">
+
+         <wsdlsoap:address location="http://localhost:8080/aaasmx/services/SessionManagerWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

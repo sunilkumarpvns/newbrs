@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.systemparameter.data.SystemParameterValuePoolData" table="TBLMSYSTEMPARAMETERVALUEPOOL" >          
+	    <id name="parampoolId" type="string">
+          <column name="PARAMPOOLID" sql-type="VARCHAR2(8)" not-null="true"/>
+        </id>
+     
+   	    <property name="parameterId" type="string">
+          <column name="PARAMETERID" sql-type="NUMBER(20)" not-null="true"/>
+        </property>
+     
+     	<property name="name" type="string">
+          <column name="NAME" sql-type="VARCHAR2(100)" not-null="true"/>
+        </property>
+     
+     	<property name="value" type="string">
+          <column name="VALUE" sql-type="VARCHAR2(100)" not-null="true"/>
+        </property>
+    </class>
+    
+</hibernate-mapping>          

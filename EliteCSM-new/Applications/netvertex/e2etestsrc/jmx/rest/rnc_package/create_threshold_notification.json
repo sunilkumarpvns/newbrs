@@ -1,0 +1,11 @@
+{
+	"id":"rest_rnc_notification_11111111",
+	"status":"ACTIVE",
+	"groups":"GROUP_1",
+	"threshold":20,
+	"rateCardId":"rest_non_monetary_rate_card_11111111",
+	"rncPackageId":"rest_rnc_package_11111111",
+	"emailTemplateId":"email-template-id-11111111",
+	"smsTemplateId":null,
+	"groupNames":null
+}

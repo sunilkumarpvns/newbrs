@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="4329" applicationid="0" application-name="SIEMENS" vendor-name="SIEMENS"> 
+<attribute id="1004101" name="Siemens-Information" mandatory="yes" protected="yes"  encryption="no" type="Grouped">
+		<grouped>
+			<required>				
+			</required>				
+			<optional>				
+				<attributerule vendor-id="4329" id="1001103" name="Siemens-3GPP-Charging-ID" type="OctetString" maximum="1" minimum="0"/>			
+				<attributerule vendor-id="4329" id="1001102" name="Siemens-Accounting-Session-ID" type="UTF8String" maximum="1" minimum="0"/>
+				<attributerule vendor-id="4329" id="1004102" name="Siemens-Access-Information" type="UTF8String" maximum="1" minimum="0"/>
+				<attributerule vendor-id="4329" id="1004103" name="Siemens-Original-Called-Party-Address" type="UTF8String" maximum="1" minimum="0"/>
+				<attributerule vendor-id="4329" id="1004105" name="Siemens-Service-Information" type="Grouped" maximum="1" minimum="0"/>
+			</optional>
+		</grouped>
+		</attribute>
+<attribute id="1001103" name="Siemens-3GPP-Charging-ID" mandatory="yes" protected="yes"  encryption="no" type="OctetString"/>
+<attribute id="1001102" name="Siemens-Accounting-Session-ID" mandatory="yes" protected="yes"  encryption="no" type="UTF8String"/>
+<attribute id="1004102" name="Siemens-Access-Information" mandatory="yes" protected="yes"  encryption="no" type="UTF8String"/>
+<attribute id="1004103" name="Siemens-Original-Called-Party-Address" mandatory="yes" protected="yes"  encryption="no" type="UTF8String"/>			
+<attribute id="1004105" name="Siemens-Service-Information" mandatory="yes" protected="yes"  encryption="no" type="Grouped">
+		<grouped>
+		<required>				
+		</required>				
+		<optional>				
+		<!--	<attributerule name="Siemens-Closed-User-Group-Identification" type="UTF8String" maximum="1" minimum="0"/>			
+				<attributerule name="Siemens-Call-Forwarding-Indication" type="UTF8String" maximum="1" minimum="0"/>
+		-->		
+		</optional>
+		</grouped>
+	</attribute>
+
+			
+</attribute-list>

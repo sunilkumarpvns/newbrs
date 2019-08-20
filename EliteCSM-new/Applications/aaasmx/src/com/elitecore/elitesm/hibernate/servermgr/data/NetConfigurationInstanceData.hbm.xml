@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servermgr.data.NetConfigurationInstanceData" table="TBLMNETCONFIGURATIONINSTANCE">
+		
+		<id name="configInstanceId" column="CONFIGINSTANCEID" type="StringType">	
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		
+		<property name="configId" type="CharType">
+			<column name="CONFIGID" sql-type="CHAR(7)" not-null="true"></column>
+		</property>
+	</class>
+</hibernate-mapping>          

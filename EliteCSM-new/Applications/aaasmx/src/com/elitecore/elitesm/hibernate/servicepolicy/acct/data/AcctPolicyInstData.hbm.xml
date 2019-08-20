@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.acct.data.AcctPolicyInstData" table="TBLMACCTSERVICEPOLICY">
+		<id name="acctPolicyId" column="ACCTPOLICYID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+		<property name="name" type="StringType" column="NAME" not-null="true"/> 
+		<property name="description" type="StringType" column="DESCRIPTION" not-null="false"/>
+		<property name="multipleUserIdentity" type="StringType" column="MULTIPLEUID" not-null="false"/> 
+		<property name="status" type="CharType" column="STATUS" not-null="true"/>
+		<property name="orderNumber" type="java.lang.Long" column="ORDERNUMBER" not-null="false"/>
+		<property name="ruleSet" type="StringType" column="RULESET" not-null="true"/>
+		<property name="responseAttributes" type="StringType" column="RESPONSEATTRIBUTES" not-null="false"/>
+		<property name="cuiAttribute" type="StringType" column="CUIATTRIBUTE" not-null="false"/>
+		<property name="acctMethod" type="StringType" column="ACCTMETHOD" not-null="false"/>
+		<property name="validateAcctPacket" type="StringType" column="VALIDATEACCTPACKET" not-null="false"/>
+		<property name="prePlugins" type="StringType" column="PREPLUGINS" not-null="false"/>
+		<property name="postPlugins" type="StringType" column="POSTPLUGINS" not-null="false"/>
+		<property name="proxyTranslationMapConfigId" type="StringType" column="PROXYTRANSLATIONMAPCONFIGID"  />
+		<property name="proxyScript" type="StringType" column="PROXYSCRIPT" />
+		<property name="driverScript" type="StringType" column="DRIVERSCRIPT" />
+		<property name="auditUId" type="StringType" column="AUDIT_UID" not-null="false"/>
+	</class>            
+	            
+ 
+</hibernate-mapping>

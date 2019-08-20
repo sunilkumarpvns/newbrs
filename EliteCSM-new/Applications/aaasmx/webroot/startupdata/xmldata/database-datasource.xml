@@ -1,0 +1,10 @@
+<database-datasource>
+    <connection-url>jdbc:oracle:thin:@//127.0.0.1:1521/eliteaaa</connection-url>
+    <maximum-pool-size>10</maximum-pool-size>
+    <minimum-pool-size>2</minimum-pool-size>
+    <name>def_DatabaseDatasource</name>
+    <status-check-duration>120</status-check-duration>
+    <timeout>1000</timeout>
+    <username>eliteaaa</username>
+    <password>eliteaaa</password>
+</database-datasource>

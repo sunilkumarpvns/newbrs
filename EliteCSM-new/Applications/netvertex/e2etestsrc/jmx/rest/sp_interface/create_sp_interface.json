@@ -1,0 +1,26 @@
+{
+  "id": "rest_sp_interface_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "rest_sp_interface",
+  "description": "Created by REST Automatioon",
+  "spInterfaceType": "DB_SP_INTERFACE",
+  "dbSpInterfaceData": {
+    "tableName": "TBLM_SPR",
+    "identityField": "SPRID",
+    "maxQueryTimeoutCount": 10000,
+    "spInterfaceFieldMappingDatas": [
+      {
+        "logicalName": "SUBSCRIBER_IDENTITY",
+        "fieldName": "SUBSCRIBERIDENTITY"
+      },
+      {
+        "logicalName": "PRODUCT_OFFER",
+        "fieldName": "PRODUCT_OFFER"
+      }
+    ],
+    "databaseId": "rest_datasource_sp_11111111"
+  },
+  "ldapSpInterfaceData": null,
+  "groupNames": "DefaultGroup"
+}

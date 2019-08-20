@@ -1,0 +1,100 @@
+<project name="Elite Server Framework" default="compile-src" basedir=".">
+
+    <property name="src" location="src"/>
+    <property name="test.src" location="testsrc"/>
+    <property name="build.classes" location="classes"/>
+    <property name="unittest.report.folder" location="testreport/unittest"/>
+	<property name="pmd.report.folder" location="pmdreport/core"/>
+    
+    <path id="pmd.classpath">
+      <fileset dir="lib/">
+        <include name="**/*.jar" />
+      </fileset>
+    </path>
+
+	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.classpath"/>
+	
+	<target name="jdk-version">
+	  <available property="jdk1.5+" classname="java.lang.Readable"/>
+	</target>
+	
+    <target name="prepare" depends="jdk-version">
+    	<fail unless="jdk1.5+">
+		  jdk1.5+ is required for this build, please set JAVA_HOME to point to jdk1.5+ installation folder.
+    	</fail>
+        <mkdir dir="${build.classes}"/>
+    	<mkdir dir="${unittest.report.folder}"/>
+    	<mkdir dir="${pmd.report.folder}"/>
+    </target>
+    
+    <target name="compile-src" depends="prepare" >
+        <echo message="Compiling source..."/>
+        <javac sourcepath=""
+            srcdir="${src}"
+            debug="on"
+            debuglevel="lines,vars,source"
+            destdir="${build.classes}"
+            includes="**/*.java">
+          <classpath>
+            <fileset dir="lib/">
+                <include name="**/*.jar"/>
+                <include name="**/*.zip"/>
+            </fileset>
+            <pathelement path="${build.classes}"/>
+          </classpath>
+        </javac>
+
+        <echo message="Compiling unit test source"/>
+        <javac sourcepath=""
+            srcdir="${test.src}"
+            debug="on"
+            debuglevel="lines,vars,source"
+            destdir="${build.classes}"
+            includes="**/*.java">
+          <classpath>
+            <fileset dir="lib/">
+                <include name="**/*.jar"/>
+            </fileset>
+            <pathelement path="${build.classes}"/>
+          </classpath>
+        </javac>
+    </target>
+    
+    <target name="unit-test" depends="compile-src" >
+      <junit printsummary="yes" haltonfailure="yes" haltonerror="yes">
+        <classpath>
+          <fileset dir="lib">
+            <include name="*.jar"/>
+          </fileset>
+          <fileset dir="lib/third-party">
+            <include name="*.jar"/>
+          </fileset>
+          <pathelement location="${build.classes}"/>
+        </classpath>
+        <formatter type="xml"/>
+        
+        <test name="com.elitecore.test.commons.scheduler.cron.SchedulingPatternTest" todir="${unittest.report.folder}" filtertrace="yes"/>
+        
+      </junit>
+    </target>
+	
+	
+	<target name="pmd" depends="unit-test">
+		<pmd rulesetfiles="rulesets/basic.xml,rulesets/braces.xml,rulesets/clone.xml,rulesets/codesize.xml,rulesets/controversial.xml,rulesets/coupling.xml,rulesets/design.xml,rulesets/finalizers.xml,rulesets/junit.xml,rulesets/optimizations.xml,rulesets/strings.xml">
+	        <formatter type="xml" toFile="${pmd.report.folder}/pmd_report.xml"/>
+	        <fileset dir="${src}">
+	            <include name="**/*.java"/>
+	        </fileset>
+	    </pmd>
+	</target>
+	
+    <target name="clean">
+        <delete includeEmptyDirs="true" quiet="true">
+          <fileset dir="${build.classes}"/>
+        </delete>
+        <delete includeEmptyDirs="true" quiet="true">
+          <fileset dir="${unittest.report.folder}"/>
+        </delete>
+    </target>
+    
+</project>

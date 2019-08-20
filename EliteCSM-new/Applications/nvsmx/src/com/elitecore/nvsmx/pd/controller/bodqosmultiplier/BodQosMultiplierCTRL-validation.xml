@@ -1,0 +1,18 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="multiplier" >
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("bod.qos.multiplier")})}</message>
+		</field-validator>
+		<field-validator type="double">
+	        <param name="minInclusive">1.00</param>
+	        <param name="maxInclusive">10.00</param>
+	        <message>${getText("error.double.range", {getText("bod.qos.multiplier")})}</message>
+   	 	</field-validator>
+   	 	<field-validator type="decimal">
+	        <param name="allowDecimal">2</param>
+	        <message>${getText("error.decimal.exceed", {getText("bod.qos.multiplier")})}</message>
+   	 	</field-validator>
+	</field>
+</validators>

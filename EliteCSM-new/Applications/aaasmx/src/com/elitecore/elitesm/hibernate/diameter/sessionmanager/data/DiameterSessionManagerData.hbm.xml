@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.diameter.sessionmanager.data.DiameterSessionManagerData" table="TBLMDIAMETERSESSIONMANAGER">
+
+		<id name="sessionManagerId" column="SESSIONMANAGERID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		 <property name="name" type="StringType"> 
+			<column name="NAME" sql-type="VARCHAR(64)"  not-null="true" unique="true" /> 
+		</property>
+
+		<property name="description" type="StringType"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+		
+		<property name="databaseDatasourceId" type="StringType">
+		  <column name="DATABASEDSID" sql-type="VARCHAR(36)" not-null="false"/>
+		</property>
+
+		<property name="tableName" type="StringType"> 
+			<column name="TABLENAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="sequenceName" type="StringType">
+		  <column name="SEQUENCENAME" sql-type="VARCHAR(30)" not-null="false"/>
+		</property>
+		
+		<property name="startTimeField" type="StringType">
+		  <column name="STARTTIMEFIELD" sql-type="VARCHAR(30)" not-null="false"/>
+		</property>
+		
+		<property name="lastUpdatedTimeField" type="StringType">
+		  <column name="LASTUPDATETIMEFIELD" sql-type="VARCHAR(30)" not-null="false"/>
+		</property>
+		
+		<property name="dbQueryTimeout" type="java.lang.Integer">
+		  <column name="DBQUERYTIMEOUT" sql-type="NUMBER(5)" not-null="false"/>
+		</property>
+		
+		<property name="delimeter" type="StringType">
+		  <column name="DELIMETER" sql-type="VARCHAR(5)" not-null="false"/>
+		</property>
+		
+		<property name="dbFailureAction" type="StringType">
+		  <column name="DBFAILUREACTION" sql-type="VARCHAR(10)" not-null="false"/>
+		</property>
+		
+		<property name="batchEnabled" type="StringType">
+		  <column name="BATCHENABLED" sql-type="VARCHAR(8)" not-null="false"/>
+		</property>
+		
+		<property name="batchSize" type="java.lang.Integer">
+		  <column name="BATCHSIZE" sql-type="NUMBER(5)" not-null="false"/>
+		</property>
+		
+		<property name="batchInterval" type="java.lang.Integer">
+		  <column name="BATCHINTERVAL" sql-type="NUMBER(4)" not-null="false"/>
+		</property>
+		
+		<property name="batchQueryTimeout" type="java.lang.Integer">
+		  <column name="BATCHQUERYTIMEOUT " sql-type="NUMBER(3)" not-null="false"/>
+		</property>
+		
+		<property name="batchedInsert" type="StringType">
+		  <column name="BATCHEDINSERT" sql-type="VARCHAR(5)" not-null="false"/>
+		</property>
+		
+		<property name="batchedUpdate" type="StringType">
+		  <column name="BATCHEDUPDATE" sql-type="VARCHAR(5)" not-null="false"/>
+		</property>
+		
+		<property name="batchedDelete" type="StringType">
+		  <column name="BATCHEDDELETE" sql-type="VARCHAR(5)" not-null="false"/>
+		</property>
+		
+		<property name="auditUId" type="StringType" >
+	      <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false" />
+	    </property> 
+	    
+	    <property name="viewableColumns" type="StringType">
+	    	<column name="VIEWABLECOLUMNS" sql-type="VARCHAR(300)" not-null="false"></column>
+	    </property>
+	    
+	    <set name="diameterSessionManagerMappingData" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+  			<key column="SESSIONMANAGERID"></key>
+  			<one-to-many class="com.elitecore.elitesm.datamanager.diameter.sessionmanager.data.DiameterSessionManagerMappingData" />
+		</set>
+		
+		<set name="scenarioMappingDataSet" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+  			<key column="SESSIONMANAGERID"></key>
+  			<one-to-many class="com.elitecore.elitesm.datamanager.diameter.sessionmanager.data.ScenarioMappingData" />
+		</set>
+		
+		<set name="sessionOverideActionDataSet" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+  			<key column="SESSIONMANAGERID"></key>
+  			<one-to-many class="com.elitecore.elitesm.datamanager.diameter.sessionmanager.data.SessionOverideActionData" />
+		</set>
+</class>            
+	            
+</hibernate-mapping>

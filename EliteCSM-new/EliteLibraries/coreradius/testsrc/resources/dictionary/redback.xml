@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="2352" vendor-name="REDBACK">
+	<attribute id="1" name="RB-Client-DNS-Primary" type="ipaddr"/>
+	<attribute id="2" name="RB-Client-DNS-Secondary" type="ipaddr"/>
+	<attribute id="3" name="RB-DHCP-Max-Leases" type="integer"/>
+	<attribute id="4" name="RB-Context-Name" type="string"/>
+	<attribute id="5" name="RB-Bridge-Group" type="string"/>
+	<attribute id="6" name="RB-BG-Aging-Time" type="string"/>
+	<attribute id="7" name="RB-BG-Path-Cost" type="string"/>
+	<attribute id="8" name="RB-BG-Span-Dis" type="string"/>
+	<attribute id="9" name="RB-BG-Trans-BPDU" type="string"/>
+	<attribute id="10" name="RB-Rate-Limit-Rate" type="integer"/>
+	<attribute id="11" name="RB-Rate-Limit-Burst" type="integer"/>
+	<attribute id="12" name="RB-Police-Rate" type="integer"/>
+	<attribute id="13" name="RB-Police-Burst" type="integer"/>
+	<attribute id="14" name="RB-Source-Validation" type="integer">
+		<supported-values>
+			<value id="1" name="Enabled"/>
+			<value id="2" name="Disabled"/>
+		</supported-values>
+	</attribute>
+	<attribute id="15" name="RB-Tunnel-Domain" type="integer">
+		<supported-values>
+			<value id="1" name="Enabled"/>
+			<value id="2" name="Disabled"/>
+		</supported-values>
+	</attribute>
+	<attribute id="16" name="RB-Tunnel-Local-Name" type="string"/>
+	<attribute id="17" name="RB-Tunnel-Remote-Name" type="string"/>
+	<attribute id="18" name="RB-Tunnel-Function" type="integer">
+		<supported-values>
+			<value id="1" name="LAC-Only"/>
+			<value id="2" name="LNS-Only"/>
+			<value id="3" name="LAC-LNS"/>
+		</supported-values>
+	</attribute>
+	<attribute id="19" name="RB-Tunnel-Flow-Control" type="integer"/>
+	<attribute id="20" name="RB-Tunnel-Static" type="integer"/>
+	<attribute id="21" name="RB-Tunnel-Max-Sessions " type="integer"/>
+	<attribute id="22" name="RB-Tunnel-Max-Tunnels" type="integer"/>
+	<attribute id="23" name="RB-Tunnel-Session-Auth" type="integer">
+		<supported-values>
+			<value id="1" name="CHAP"/>
+			<value id="2" name="PAP"/>
+			<value id="3" name="CHAP-PAP"/>
+			<value id="5" name="AAA_PPP_CHAP_WAIT_PAP" /> 
+			<value id="7" name="AAA_PPP_PAP_CHAP"   />    
+			<value id="8" name="AAA_PPP_PAP_CHAP_WAIT" /> 
+			<!-- 
+			<value id="1" name="AAA_PPP_PAP"  />          
+			<value id="2" name="AAA_PPP_CHAP"  />         
+			<value id="3" name="AAA_PPP_CHAP_WAIT" />     
+			<value id="4" name="AAA_PPP_CHAP_PAP"  />     
+			<value id="5" name="AAA_PPP_CHAP_WAIT_PAP" /> 
+			<value id="7" name="AAA_PPP_PAP_CHAP"   />    
+			<value id="8" name="AAA_PPP_PAP_CHAP_WAIT" /> 
+			 -->
+		</supported-values>
+	</attribute>
+	<attribute id="24" name="RB-Tunnel-Window" type="integer"/>
+	<attribute id="25" name="RB-Tunnel-Retransmit" type="integer"/>
+	<attribute id="26" name="RB-Tunnel-Cmd-Timeout" type="integer"/>
+	<attribute id="27" name="RB-PPPoE-URL" type="string"/>
+	<attribute id="28" name="RB-PPPoE-MOTM" type="string"/>
+	<attribute id="29" name="RB-Tunnel-Group" type="integer">
+		<supported-values>
+			<value id="1" name="Enabled"/>
+			<value id="2" name="Disabled"/>
+		</supported-values>
+	</attribute>
+	<attribute id="30" name="RB-Tunnel-Context" type="string"/>
+	<attribute id="31" name="RB-Tunnel-Algorithm" type="integer">
+		<supported-values>
+			<value id="1" name="First"/>
+			<value id="2" name="Load-Balance"/>
+		</supported-values>
+	</attribute>
+	<attribute id="32" name="RB-Tunnel-Deadtime" type="integer"/>
+	<attribute id="33" name="RB-Mcast-Send" type="integer">
+		<supported-values>
+			<value id="1" name="NO-SEND"/>
+			<value id="2" name="SEND"/>
+			<value id="3" name="UNSOLICITED-SEND"/>
+		</supported-values>
+	</attribute>
+	<attribute id="34 " name="RB-Mcast-Receive" type="integer">
+		<supported-values>
+			<value id="1" name="NO-RECEIVE"/>
+			<value id="2" name="RECEIVE"/>
+		</supported-values>
+	</attribute>
+	<attribute id="35" name="RB-Mcast-MaxGroups" type="integer"/>
+	<attribute id="36" name="RB-Ip-Address-Pool-Name" type="string"/>
+	<attribute id="37" name="RB-Tunnel-DNIS" type="integer">
+		<supported-values>
+			<value id="1" name="DNIS"/>
+			<value id="2" name="DNIS-Only"/>
+			<value id="4" name="DNIS-Generate"/>
+		</supported-values>
+	</attribute>
+	<attribute id="38" name="RB-Medium-Type" type="integer">
+		<supported-values>
+			<value id="11" name="DSL"/>
+			<value id="12" name="Cable"/>
+			<value id="13" name="Wireless"/>
+			<value id="14" name="Satelite"/>
+		</supported-values>
+	</attribute>
+	<attribute id="39" name="RB-PVC-Encapsulation-Type" type="integer">
+		<supported-values>
+			<value id="1" name="AAA-ENCAPS-ATM-RAW"/>
+			<value id="2" name="AAA-ENCAPS-ATM-ROUTE1483"/>
+			<value id="3" name="AAA-ENCAPS-ATM-AUTO1483"/>
+			<value id="4" name="AAA-ENCAPS-ATM-MULTI"/>
+			<value id="5" name="AAA-ENCAPS-ATM-BRIDGE1483"/>
+			<value id="6" name="AAA-ENCAPS-ATM-PPP"/>
+			<value id="7" name="AAA-ENCAPS-ATM-PPP-SERIAL"/>
+			<value id="8" name="AAA-ENCAPS-ATM-PPP-NLPID"/>
+			<value id="9" name="AAA-ENCAPS-ATM-PPP-AUTO"/>
+			<value id="10" name="AAA-ENCAPS-ATM-PPPOE"/>
+			<value id="11" name="AAA-ENCAPS-ATM-L2TP"/>
+			<value id="12" name="AAA-ENCAPS-ATM-PPP-LLC"/>
+			<value id="13" name="AAA-ENCAPS-FRAME-AUTO1490"/>
+			<value id="14" name="AAA-ENCAPS-FRAME-MULTI"/>
+			<value id="15" name="AAA-ENCAPS-FRAME-BRIDGE1490"/>
+			<value id="16" name="AAA-ENCAPS-FRAME-PPP"/>
+			<value id="17" name="AAA-ENCAPS-FRAME-PPP-AUTO"/>
+			<value id="18" name="AAA-ENCAPS-FRAME-PPPOE"/>
+			<value id="19" name="AAA-ENCAPS-FRAME-ROUTE1490"/>
+			<value id="20" name="AAA-ENCAPS-FRAME-L2TP"/>
+			<value id="21" name="AAA-ENCAPS-L2TP-VC-MUXED"/>
+			<value id="22" name="AAA-ENCAPS-ETH"/>
+			<value id="23" name="AAA-ENCAPS-ETH-PPPOE"/>
+			<value id="24" name="AAA-ENCAPS-ETH-MULTI"/>
+		</supported-values>
+	</attribute>
+	<attribute id="40" name="RB-PVC-Profile-Name" type="string"/>
+	<attribute id="41" name="RB-PVC-Circuit-Padding" type="integer">
+		<supported-values>
+			<value id="1" name="AAA-CIRCUIT-PADDING"/>
+			<value id="2" name="AAA-CIRCUIT-NO-PADDING"/>
+		</supported-values>
+	</attribute>
+	<attribute id="42" name="RB-Bind-Type" type="integer">
+		<supported-values>
+			<value id="1" name="AAA-AUTH-BIND"/>
+			<value id="2" name="AAA-BYPASS-BIND"/>
+			<value id="3" name="AAA-INTERFACE-BIND"/>
+			<value id="4" name="AAA-SUBSCRIBE-BIND"/>
+			<value id="5" name="AAA-TUNNEL-BIND"/>
+			<value id="6" name="AAA-SESSION-BIND"/>
+			<value id="7" name="AAA-Q8021-BIND"/>
+			<value id="8" name="AAA-MULTI-BIND"/>
+			<value id="9" name="AAA_DHCP_BIND"/>
+			<value id="10" name="AAA_MULTI_BIND_SUB"/>
+			<value id="11" name="AAA_BRIDGE_GROUP_BIND"/>
+			<value id="12" name="AAA_VLAN_BIND"/>
+			<value id="13" name="AAA_VLAN_GROUP_BIND"/>
+			<value id="14" name="AAA_AUTO_SUBSCRIBER_BIND"/>
+		</supported-values>
+	</attribute>
+	<attribute id="43" name="RB-Bind-Auth-Protocol" type="integer">
+		<supported-values>
+			<value id="1" name="AAA-PPP-PAP"/>
+			<value id="2" name="AAA-PPP-CHAP"/>
+			<value id="3" name="AAA-PPP-CHAP-WAIT"/>
+			<value id="4" name="AAA-PPP-CHAP-PAP"/>
+			<value id="5" name="AAA-PPP-CHAP-WAIT-PAP"/>
+			<value id="7" name="AAA_PPP_PAP_CHAP"/>
+			<value id="8" name="AAA_PPP_PAP_CHAP_WAIT"/>
+		</supported-values>
+	</attribute>
+	<attribute id="44 " name="RB-Bind-Auth-Max-Sessions" type="integer"/>
+	<attribute id="45 " name="RB-Bind-Bypass-Bypass" type="string"/>
+	<attribute id="46 " name="RB-Bind-Auth-Context" type="string"/>
+	<attribute id="47 " name="RB-Bind-Auth-Service-Grp" type="string"/>
+	<attribute id="48 " name="RB-Bind-Bypass-Context" type="string"/>
+	<attribute id="49 " name="RB-Bind-Int-Context" type="string"/>
+	<attribute id="50 " name="RB-Bind-Tun-Context" type="string"/>
+	<attribute id="51 " name="RB-Bind-Ses-Context" type="string"/>
+	<attribute id="52 " name="RB-Bind-Dot1q-Slot" type="integer"/>
+	<attribute id="53 " name="RB-Bind-Dot1q-Port" type="integer"/>
+	<attribute id="54 " name="RB-Bind-Dot1q-Vlan-Tag-Id" type="integer"/>
+	<attribute id="55 " name="RB-Bind-Int-Interface-Name" type="string"/>
+	<attribute id="56 " name="RB-Bind-L2TP-Tunnel-Name" type="string"/>
+	<attribute id="57 " name="RB-Bind-L2TP-Flow-Control" type="integer"/>
+	<attribute id="58 " name="RB-Bind-Sub-User-At-Context" type="string"/>
+	<attribute id="59 " name="RB-Bind-Sub-Password" type="string"/>
+	<attribute id="60 " name="RB-Ip-Host-Addr" type="string"/>
+	<attribute id="61 " name="RB-IP-TOS-Field" type="integer"/>
+	<attribute id="62 " name="RB-NAS-Real-Port" type="integer"/>
+	<attribute id="63 " name="RB-Tunnel-Session-Auth-Ctx" type="string"/>
+	<attribute id="64 " name="RB-Tunnel-Session-Auth-Service-Grp" type="string"/>
+	<attribute id="65 " name="RB-Tunnel-Rate-Limit-Rate" type="integer"/>
+	<attribute id="66 " name="RB-Tunnel-Rate-Limit-Burst" type="integer"/>
+	<attribute id="67 " name="RB-Tunnel-Police-Rate" type="integer"/>
+	<attribute id="68 " name="RB-Tunnel-Police-Burst" type="integer"/>
+	<attribute id="69 " name="RB-Tunnel-L2F-Second-Password" type="string"/>
+	<attribute id="70 " name="RB-ACL-Definition " type="string"/>
+	<attribute id="71 " name="RB-PPPoE-IP-Route" type="string"/>
+	<attribute id="72 " name="RB-TTY-Level-Max" type="integer"/>
+	<attribute id="73 " name="RB-TTY-Level-Start" type="integer"/>
+	<attribute id="74"  name="RB-Tunnel-Checksum" type="integer"/>                
+	<attribute id="75"  name="RB-Tunnel-Profile" type="string"/>    
+	<attribute id="76 " name="RB-Bind-DHCP-Context" type="string"/>
+	<attribute id="77 " name="RB-Tunnel-Mobil-Group" type="string"/>
+	<attribute id="78 " name="RB-Tunnel-Client-VPN" type="string"/>
+	<attribute id="79 " name="RB-Tunnel-Server-VPN" type="string"/>
+	<attribute id="80"  name="RB-Tunnel-Client-Rhost" type="string"/>            
+	<attribute id="81"  name="RB-Tunnel-Server-Rhost" type="string"/>            
+	<attribute id="82"  name="RB-Tunnel-Client-Int-Addr" type="ipaddr"/>         
+	<attribute id="83"  name="RB-Tunnel-Server-Int-Addr" type="ipaddr"/>  
+	<attribute id="84 " name="RB-PPP-Compression" type="integer"/>
+	<attribute id="85 " name="RB-Tunnel-Hello-Timer" type="integer"/>
+	<attribute id="86 " name="RB-Bounce-Data" type="integer"/>
+	<attribute id="87 " name="RB-Qos-Policing-Profile-Name" type="string"/>
+	<attribute id="88 " name="RB-Qos-Metering-Profile-Name" type="string"/>
+	<attribute id="89 " name="RB-Qos-Pq-Profile-Name" type="string"/>
+	<attribute id="90 " name="RB-IGMP-Service-Profile-Name" type="string"/>
+	<attribute id="91 " name="RB-Subscriber-Profile-Name" type="string"/>
+	<attribute id="92 " name="RB-Forward-Policy" type="string"/>
+	<attribute id="93 " name="RB-Remote-Port" type="string"/>
+	<attribute id="94 " name="RB-Reauth" type="string"/>
+	<attribute id="95 " name="RB-Reauth-More" type="integer"/>
+	<attribute id="96 " name="RB-Agent-Remote-Id" type="string"/>
+	<attribute id="97 " name="RB-Agent-Circuit-Id" type="string"/>
+	<attribute id="98 " name="RB-Platform-Type" type="integer">
+		<supported-values>
+			<value id="1" name="SMS"/>
+			<value id="2" name="SE-800"/>
+			<value id="3" name="SE-400"/>
+		</supported-values>
+	</attribute>
+	<attribute id="99 " name="RB-Client-NBNS-Primary" type="ipaddr"/>
+	<attribute id="100" name="RB-Client-NBNS-Secondary" type="ipaddr"/>
+	<attribute id="101" name="RB-ATM-Profile-Name" type="string"/>
+	<attribute id="102" name="RB-Bridge-Profile-Name" type="string"/>
+	<attribute id="103" name="RB-Mac-Address-Limit" type="integer"/>
+	<attribute id="104" name="RB-Interface-Name" type="string"/>
+	<attribute id="105" name="RB-NAT-Profile-Name " type="string"/>
+	<attribute id="106" name="RB-NPM-Service-Id" type="string"/>
+	<attribute id="107" name="RB-HTTP-Redirect-Profile-Name" type="string"/>
+	<attribute id="108" name="RB-Auto-Subscriber-Prefix" type="string"/>
+	<attribute id="109" name="RB-Auto-Subscriber-Context" type="string"/>
+	<attribute id="110" name="RB-Auto-Subscriber-Password" type="string"/>
+	<attribute id="111" name="RB-LAC-Name" type="string"/>
+	<!-- <attribute id="111" name="Circuit-Protocol-Encap" type="integer"/> -->
+	<attribute id="112" name="RB-OS-Version" type="string"/>
+	<attribute id="113" name="RB-Session-Traffic-Limit" type="string"/>
+	<attribute id="114" name="RB-Qos-Reference" type="string"/>
+	<attribute id="121" name="RB-Rate-Limit-Excess-Burst" type="octets"/>
+	<attribute id="122" name="RB-Police-Excess-Burst" type="octets"/>
+	<attribute id="123" name="RB-Tunnel-Rate-Limit-Excess-Burst " type="octets"/>
+	<attribute id="124" name="RB-Tunnel-Police-Excess-Burst" type="octets"/>
+	<attribute id="125" name="DHCP-Vendor-Class-Id" type="string"/>
+	<attribute id="127" name="DHCP-Vendor-Encap-Option" type="string"/>
+	<attribute id="128" name="RB-Acct-Input-Octets-64" type="integer"/>
+	<attribute id="129" name="RB-Acct-Output-Octets-64" type="integer"/>
+	<attribute id="130" name="RB-Acct-Input-Packets-64" type="integer"/>
+	<attribute id="131" name="RB-Acct-Output-Packets-64" type="integer"/>
+	<attribute id="132" name="RB-Assigned-IP-Address" type="ipaddr"/>
+	<attribute id="133" name="RB-Acct-Mcast-In-Octets-64" type="integer"/>
+	<attribute id="134" name="RB-Acct-Mcast-Out-Octets-64" type="integer"/>
+	<attribute id="135" name="RB-Acct-Mcast-In-Packets-64" type="integer"/>
+	<attribute id="136" name="RB-Acct-Mcast-Out-Packets-64" type="integer"/>
+	<attribute id="137" name="RB-LAC-Port" type="integer"/>
+	<attribute id="138" name="RB-LAC-Real-Port" type="integer"/>
+	<attribute id="139" name="RB-LAC-Port-Type" type="integer">
+		<supported-values>
+			<value id="40" name="NAS-PORT-TYPE-10BT"/>
+			<value id="41" name="NAS-PORT-TYPE-100BT"/>
+			<value id="42" name="NAS-PORT-TYPE-DS3-FR"/>
+			<value id="43" name="NAS-PORT-TYPE-DS3-ATM"/>
+			<value id="44" name="NAS-PORT-TYPE-OC3"/>
+			<value id="45" name="NAS-PORT-TYPE-HSSI"/>
+			<value id="46" name="NAS-PORT-TYPE-EIA530"/>
+			<value id="47" name="NAS-PORT-TYPE-T1"/>
+			<value id="48" name="NAS-PORT-TYPE-CHAN-T3"/>
+			<value id="49" name="NAS-PORT-TYPE-DS1-FR"/>
+			<value id="50" name="NAS-PORT-TYPE-E3-ATM"/>
+			<value id="51" name="NAS-PORT-TYPE-IMA-ATM"/>
+			<value id="52" name="NAS-PORT-TYPE-DS3-ATM-2"/>
+			<value id="53" name="NAS-PORT-TYPE-OC3-ATM-2"/>
+			<value id="54" name="NAS-PORT-TYPE-1000BSX"/>
+			<value id="55" name="NAS-PORT-TYPE-E1-FR"/>
+			<value id="56" name="NAS-PORT-TYPE-E1-ATM"/>
+			<value id="57" name="NAS-PORT-TYPE-E3-FR"/>
+			<value id="58" name="NAS-PORT-TYPE-OC3-POS"/>
+			<value id="59" name="NAS-PORT-TYPE-OC12-POS"/>
+			<value id="60" name="NAS-PORT-TYPE-PPPOE"/>
+		</supported-values>
+	</attribute>
+	<attribute id="140" name="RB-LAC-Real-Port-Type" type="integer">
+		<supported-values>
+			<value id="40" name="NAS-PORT-TYPE-10BT"/>
+			<value id="41" name="NAS-PORT-TYPE-100BT"/>
+			<value id="42" name="NAS-PORT-TYPE-DS3-FR"/>
+			<value id="43" name="NAS-PORT-TYPE-DS3-ATM"/>
+			<value id="44" name="NAS-PORT-TYPE-OC3"/>
+			<value id="45" name="NAS-PORT-TYPE-HSSI"/>
+			<value id="46" name="NAS-PORT-TYPE-EIA530"/>
+			<value id="47" name="NAS-PORT-TYPE-T1"/>
+			<value id="48" name="NAS-PORT-TYPE-CHAN-T3"/>
+			<value id="49" name="NAS-PORT-TYPE-DS1-FR"/>
+			<value id="50" name="NAS-PORT-TYPE-E3-ATM"/>
+			<value id="51" name="NAS-PORT-TYPE-IMA-ATM"/>
+			<value id="52" name="NAS-PORT-TYPE-DS3-ATM-2"/>
+			<value id="53" name="NAS-PORT-TYPE-OC3-ATM-2"/>
+			<value id="54" name="NAS-PORT-TYPE-1000BSX"/>
+			<value id="55" name="NAS-PORT-TYPE-E1-FR"/>
+			<value id="56" name="NAS-PORT-TYPE-E1-ATM"/>
+			<value id="57" name="NAS-PORT-TYPE-E3-FR"/>
+			<value id="58" name="NAS-PORT-TYPE-OC3-POS"/>
+			<value id="59" name="NAS-PORT-TYPE-OC12-POS "/>
+			<value id="60" name="NAS-PORT-TYPE-PPPOE    "/>
+		</supported-values>
+	</attribute>
+	<attribute id="141" name="RB-Acct-Dyn-Ac-Ent" type="string"/>
+	<attribute id="142" name="RB-Session-Error-Code" type="integer"/>
+	<attribute id="143" name="RB-Session-Error-Msg" type="string"/>
+	<attribute id="144" name="RB-Acct-Reason" type="integer">
+		<supported-values>
+			<value id="1" name="AAA-ACCT-SESSION-UP"/>
+			<value id="2" name="AAA-ACCT-SESSION-DOWN"/>
+			<value id="3" name="AAA-ACCT-PERIODIC"/>
+			<value id="4" name="AAA-ACCT-DYN-AC-ENT-START"/>
+			<value id="5" name="AAA-ACCT-DYN-AC-ENT-STOP"/>
+			<value id="6" name="AAA-ACCT-DYN-AC-ENT-TIMEOUT"/>
+			<value id="7" name="AAA-ACCT-SUBSCRIBER-REAUTH"/>
+			<value id="8" name="AAA-ACCT-PPP-IPCP-UP"/>
+			<value id="9" name="AAA-ACCT-PPP-MP-LINK-UP"/>
+			<value id="10" name="AAA-ACCT-DHCP-IP-ADDR-GRANTED"/>
+			<value id="11" name="AAA-ACCT-DHCP-IP-ADDR-RELEASED"/>
+			<value id="12" name="AAA-ACCT-DHCP-IP-ACL-TIMERED-ACTION"/>
+			<value id="13" name="AAA-ACCT-DHCP-IP-ACL-ACTION"/>
+		</supported-values>
+	</attribute>
+	<attribute id="145" name="RB-MAC-Address" type="string"/>
+	<attribute id="146" name="RB-Vlan-Id" type="string"/>
+	<attribute id="147" name="RB-Acct-Mcast-In-Octets" type="integer"/>
+	<attribute id="148" name="RB-Acct-Mcast-Out-Octets" type="integer"/>
+	<attribute id="149" name="RB-Acct-Mcast-In-Packets" type="integer"/>
+	<attribute id="150" name="RB-Acct-Mcast-Out-Packets" type="integer"/>
+	<attribute id="151" name="RB-Reauth-Session-Id" type="string"/>
+	<attribute id="156" name="RB-Qos-Rate-Inbound" type="string"/>
+	<attribute id="157" name="RB-Qos-Rate-Outbound" type="string"/>
+	<attribute id="158" name="RB-Route-Tag" type="integer"/>
+	<attribute id="159" name="RB-LI-Id"                           type="octets"  /> 
+	<attribute id="160" name="RB-LI-Md-Address"                   type="integer" /> 
+	<attribute id="161" name="RB-LI-Md-Port"                      type="integer" /> 
+	<attribute id="162" name="RB-LI-Action"                       type="integer" /> 
+	<attribute id="163" name="RB-LI-Profile"                      type="string"  /> 
+	<attribute id="164" name="RB-Dynamic-Policy-Filter"           type="string"  /> 
+	<attribute id="165" name="RB-HTTP-Redirect-URL"               type="string"  /> 
+	<attribute id="166" name="RB-Actual-Rate-Up"                  type="integer" /> 
+	<attribute id="167" name="RB-Actual-Rate-Down"                type="integer" /> 
+	<attribute id="168" name="RB-Min-Rate-Up"                     type="integer" /> 
+	<attribute id="169" name="RB-Min-Rate-Down"                   type="integer" /> 
+	<attribute id="170" name="RB-Attainable-Rate-Up"              type="integer" /> 
+	<attribute id="171" name="RB-Attainable-Rate-Down"            type="integer" /> 
+	<attribute id="172" name="RB-Max-Rate-Up"                     type="integer" /> 
+	<attribute id="173" name="RB-Max-Rate-Down"                   type="integer" /> 
+	<attribute id="174" name="RB-Min-Low-Power-Rate-Up"           type="integer" /> 
+	<attribute id="175" name="RB-Min-Low-Power-Rate-Down"         type="integer" /> 
+	<attribute id="176" name="RB-Max-Inter-Delay-Up"              type="integer" /> 
+	<attribute id="177" name="RB-Actual-Inter-Delay-Up"           type="integer" /> 
+	<attribute id="178" name="RB-Max-Inter-Delay-Down"            type="integer" /> 
+	<attribute id="179" name="RB-Actual-Inter-Delay-Down"         type="integer" /> 
+	<attribute id="180" name="RB-Line-State"                      type="integer" /> 
+	<attribute id="181" name="RB-L2-Encapsulation"                type="integer" /> 
+	<attribute id="182" name="RB-Transmission-System"             type="integer" /> 
+	<attribute id="183" name="RB-PPPOA-PPPOE-Inter-Work-Flag"     type="integer" /> 
+	<attribute id="184" name="RB-combined-Line-Info"              type="octets"  /> 
+	<attribute id="185" name="RB-Actual-Rate-Down-Factor"         type="integer" /> 
+	<attribute id="186" name="RB-Class-Based-Volume-limit"        type="string"  /> 
+	<attribute id="187" name="RB-Class-Based-Volume-In-Counter"   type="string"  /> 
+	<attribute id="188" name="RB-Class-Based-Volume-Out-Counter"  type="string"  /> 
+	<attribute id="189" name="RB-Flow-FAC-Profile"                type="string"  /> 
+	<attribute id="190" name="RB-Service-Name"                    type="string"  /> 
+	<attribute id="191" name="RB-Service-Options"                 type="integer" /> 
+	<attribute id="192" name="RB-Service-Parameter"               type="string"  /> 
+	<attribute id="193" name="RB-Service-Error-Cause"             type="integer" /> 
+	<attribute id="194" name="RB-Deactivate-Service-Name"         type="string"  /> 
+	<attribute id="195" name="RB-QoS-Profile-Overhead"            type="string"  /> 
+	<attribute id="196" name="RB-Dynamic-QoS-Param"               type="string"  /> 
+	<attribute id="197" name="RB-Accting-Alt-Session-Id"          type="string"  /> 
+	<attribute id="198" name="RB-Idle-Timeout-Threshold"          type="integer" /> 
+	<attribute id="199" name="RB-Double-Authentication"           type="integer" /> 
+	<attribute id="200" name="RB-Sbc-Adjacency"                   type="string"  /> 
+	<attribute id="201" name="DHCP-Field"                         type="octets"  /> 
+	<attribute id="202" name="DHCP-Option"                        type="octets"  /> 	
+</attribute-list>

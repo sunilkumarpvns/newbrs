@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <data-sources />
+
+    <form-beans>
+        <form-bean name="listDictionaryForm" type= "com.elitecore.elitesm.web.radius.dictionary.forms.ListDictionaryForm" />
+        <form-bean name="searchRadiusPolicyForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.SearchRadiusPolicyForm"/>
+        <form-bean name="miscRadiusPolicyForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.MiscRadiusPolicyForm"/>
+        <form-bean name="radiusPolicyForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.RadiusPolicyForm"/>
+        <form-bean name="addRadiusPolicyForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.AddRadiusPolicyForm"/>
+        <form-bean name="addRadiusPolicyReplyItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.AddRadiusPolicyReplyItemForm"/>
+        <form-bean name="addRadiusPolicyCheckItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.AddRadiusPolicyCheckItemForm"/>
+        <form-bean name="addRadiusPolicyRejectItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.AddRadiusPolicyRejectItemForm"/>
+        <form-bean name="addRadiusPolicyReplaceItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.AddRadiusPolicyReplaceItemForm"/>
+        <form-bean name="viewRadiusPolicyForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.ViewRadiusPolicyForm"/>
+        <form-bean name="updateRadiusPolicyBasicDetailForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.UpdateRadiusPolicyBasicDetailForm"/>
+        <form-bean name="searchAccessPolicyForm" type="com.elitecore.elitesm.web.radius.policies.accesspolicy.forms.SearchAccessPolicyForm"/>
+        <form-bean name="updateRadiusPolicyReplyItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.UpdateRadiusPolicyReplyItemForm"/>
+        <form-bean name="updateRadiusPolicyRejectItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.UpdateRadiusPolicyRejectItemForm"/>
+        <form-bean name="updateRadiusPolicyCheckItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.UpdateRadiusPolicyCheckItemForm"/>
+        <form-bean name="updateRadiusPolicyReplaceItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.UpdateRadiusPolicyReplaceItemForm"/>
+        <form-bean name="updateRadiusPolicyStatusForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.UpdateRadiusPolicyStatusForm"/>
+        <form-bean name="viewRadiusPolicyReplyItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.ViewRadiusPolicyReplyItemForm"/>
+        <form-bean name="viewRadiusPolicyReplaceItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.ViewRadiusPolicyReplaceItemForm"/>
+        <form-bean name="viewRadiusPolicyRejectItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.ViewRadiusPolicyRejectItemForm"/>
+        <form-bean name="viewRadiusPolicyCheckItemForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.ViewRadiusPolicyCheckItemForm"/>
+        <form-bean name="viewDictionaryForm" type= "com.elitecore.elitesm.web.radius.dictionary.forms.ViewDictionaryForm" />
+        <form-bean name="viewDictionaryParamForm" type= "com.elitecore.elitesm.web.radius.dictionary.forms.ViewDictionaryParamForm" />
+        <form-bean name="createDictionaryForm" type= "com.elitecore.elitesm.web.radius.dictionary.forms.CreateDictionaryForm" />
+        <form-bean name="updateDictionaryForm" type= "com.elitecore.elitesm.web.radius.dictionary.forms.UpdateDictionaryForm" />
+        <form-bean name="editAccessPolicyForm" type="com.elitecore.elitesm.web.radius.policies.accesspolicy.forms.EditAccessPolicyForm"/>
+        <form-bean name="viewAccessPolicyForm" type="com.elitecore.elitesm.web.radius.policies.accesspolicy.forms.ViewAccessPolicyForm"/>
+        <form-bean name="miscAccessPolicyForm" type="com.elitecore.elitesm.web.radius.policies.accesspolicy.forms.MiscAccessPolicyForm"/>
+
+
+
+         <form-bean name="searchRadiusPolicyDictionaryPopUpForm" type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.forms.SearchDictionaryPopUpForm"/>
+        <form-bean name="updateLDAPValuePoolForm" type="com.elitecore.elitesm.web.radius.datasource.ldap.forms.UpdateLDAPValuePoolForm"/>
+        <form-bean name="listRadiusTestForm" type="com.elitecore.elitesm.web.radius.radtest.forms.ListRadiusTestForm"/>
+        <form-bean name="createRadiusTestForm" type="com.elitecore.elitesm.web.radius.radtest.forms.CreateRadiusTestForm"/>
+        <form-bean name="viewRadiusTestForm" type="com.elitecore.elitesm.web.radius.radtest.forms.ViewRadiusTestForm"/>
+        <form-bean name="updateRadiusTestForm" type="com.elitecore.elitesm.web.radius.radtest.forms.UpdateRadiusTestForm"/>
+        <form-bean name="radiusTestPopUpForm" type="com.elitecore.elitesm.web.radius.radtest.forms.RadiusTestPopUpForm"/>
+        
+        <form-bean name="VerifyPasswordForm" type="com.elitecore.elitesm.web.radius.utilities.forms.VerifyPasswordForm"/>
+        
+        <!-- Form Bean for BW List -->
+        <form-bean name="createBWListForm" type="com.elitecore.elitesm.web.radius.bwlist.forms.CreateBWListForm"/>
+        <form-bean name="searchBWListForm" type="com.elitecore.elitesm.web.radius.bwlist.forms.SearchBWListForm"/>
+        <form-bean name="miscBWListForm" type="com.elitecore.elitesm.web.radius.bwlist.forms.MiscBWListForm"/>
+       
+       
+        <!-- client profile bean -->
+      <form-bean name="createClientProfileForm" type="com.elitecore.elitesm.web.radius.clientprofile.forms.CreateClientProfileForm"></form-bean>
+      <form-bean name="searchClientProfileForm" type="com.elitecore.elitesm.web.radius.clientprofile.forms.SearchClientProfileForm"></form-bean>
+      <form-bean name="viewClientProfileForm" type="com.elitecore.elitesm.web.radius.clientprofile.forms.ViewClientProfileForm"></form-bean>
+      <form-bean name="miscClientProfileForm" type="com.elitecore.elitesm.web.radius.clientprofile.forms.MiscClientProfileForm"></form-bean>
+      <form-bean name="updateClientProfileForm" type="com.elitecore.elitesm.web.radius.clientprofile.forms.UpdateClientProfileForm"/>
+    
+      <!-- Radius Policy Group -->
+      <form-bean name="radiusPolicyGroupForm" type="com.elitecore.elitesm.web.radius.radiuspolicygroup.forms.RadiusPolicyGroupForm"></form-bean>
+	  
+	   <!--     Radius ESI Group -->
+	   <form-bean name="radiusESIGroup" type="com.elitecore.elitesm.web.radius.radiusesigroup.form.RadiusESIGroupForm"></form-bean>
+
+      <!-- Correlated Radius -->
+      <form-bean name="correlatedRadiusForm" type="com.elitecore.elitesm.web.radius.correlatedradius.form.CorrelatedRadiusForm"></form-bean>
+    </form-beans>
+
+    <global-exceptions />
+
+    <action-mappings>
+        <action path="/listDictionary"
+          scope="request"
+          type="com.elitecore.elitesm.web.radius.dictionary.ListDictionaryAction"
+          name="listDictionaryForm"
+          validate="false">
+
+            <forward name="listDictionary" path="/jsp/radius/dictionary/ListDictionary.jsp"/>
+            <forward name="createDictionary" path="/initCreateDictionary.do"/>
+        </action>
+
+        <action path="/initCreateDictionary"
+          scope="request"
+          type="com.elitecore.elitesm.web.radius.dictionary.InitCreateDictionaryAction"
+          name="createDictionaryForm"
+          validate="false">
+
+            <forward name="createDictionary" path="/jsp/radius/dictionary/CreateDictionary.jsp"/>
+        </action>
+
+        <action path="/miscDictionary"
+          scope="request"
+          type="com.elitecore.elitesm.web.radius.dictionary.MiscDictionaryAction"
+          name="listDictionaryForm"
+          validate="false">
+
+            <forward name="listDictionary" path="/listDictionary.do"/>
+        </action>
+
+        <action path="/createRadiusPolicy"
+          type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.CreateRadiusPolicyAction"
+          name="radiusPolicyForm"
+          scope="request"
+          validate="false">
+
+            <forward name="createRadiusPolicy" path="/addRadiusPolicy.do?action=create"/>
+
+        </action>
+
+        <action path="/initCreateAccessPolicy"
+	  	  type="com.elitecore.elitesm.web.radius.policies.accesspolicy.InitCreateAccessPolicyAction"
+	  	  name="searchAccessPolicyForm"
+	  	  scope="request"
+	  	  validate="false">
+            <forward name="initCreateAccessPolicy" path="/jsp/radius/policies/accesspolicy/CreateAccessPolicy.jsp"/>
+        </action>
+
+        <action path="/createAccessPolicy"
+		  	 type="com.elitecore.elitesm.web.radius.policies.accesspolicy.CreateAccessPolicyAction"
+		  	 name="searchAccessPolicyForm"
+		  	 scope="request"
+		  	 validate="false">
+            <forward name="createAccessPolicy" path="/jsp/radius/policies/accesspolicy/CreateAccessPolicy.jsp"/>
+        </action>
+
+        <action path="/miscAccessPolicy"
+	         scope="request"
+	         type="com.elitecore.elitesm.web.radius.policies.accesspolicy.MiscAccessPolicyAction"
+	         name="miscAccessPolicyForm"
+	         validate="false">
+            <forward name="accessPolicySearchList" path="/searchAccessPolicy.do"	/>
+        </action>
+
+        <action path="/viewAccessPolicy"
+		 	type="com.elitecore.elitesm.web.radius.policies.accesspolicy.ViewAccessPolicyAction"
+		 	name="viewAccessPolicyForm"
+		 	scope="request"
+		 	validate="false">
+            <forward name="viewAccessPolicy" path="/jsp/radius/policies/accesspolicy/ViewAccessPolicy.jsp"></forward>
+        </action>
+
+
+        <action path="/editAccessPolicy"
+		 	type="com.elitecore.elitesm.web.radius.policies.accesspolicy.EditAccessPolicyAction"
+		 	name="editAccessPolicyForm"
+		 	scope="request"
+		 	validate="false">
+            <forward name="editAccessPolicy" path="/jsp/radius/policies/accesspolicy/EditAccessPolicy.jsp"></forward>
+            <forward name="downloadAccessPolicy" path="/miscAccessPolicy.do"/>
+        </action>
+
+        <action path="/searchRadiusPolicy"
+	        type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.SearchRadiusPolicyAction"
+	        scope="request"
+	        name="searchRadiusPolicyForm"
+	        validate="true"
+	        input="/jsp/radius/policies/radiuspolicy/SearchRadiusPolicy.jsp">
+            <forward name="radiusPolicySearchList" path="/jsp/radius/policies/radiuspolicy/SearchRadiusPolicy.jsp"/>
+        </action>
+
+
+        <action path="/initSearchRadiusPolicy"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.InitSearchRadiusPolicyAction"
+      	 name="searchRadiusPolicyForm"
+      	 scope="request"
+      	 validate="true"
+      	 input="/jsp/radius/policies/radiuspolicy/InitSearchRadiusPolicy.jsp">
+            <forward name="initSearchRadiusPolicy" path="/jsp/radius/policies/radiuspolicy/SearchRadiusPolicy.jsp"/>
+        </action>
+
+        <action path="/miscRadiusPolicy"
+	         scope="request"
+	         type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.MiscRadiusPolicyAction"
+	         name="miscRadiusPolicyForm"
+	         validate="false">
+            <forward name="radiusPolicySearchList" path="/searchRadiusPolicy.do"	/>
+        </action>
+
+        <action path="/initSearchAccessPolicy"
+	  	type="com.elitecore.elitesm.web.radius.policies.accesspolicy.InitSearchAccessPolicyAction"
+	  	name="searchAccessPolicyForm"
+	  	scope="request"
+	  	validate="true">
+            <forward name="initSearchAccessPolicy" path="/jsp/radius/policies/accesspolicy/SearchAccessPolicy.jsp"/>
+        </action>
+
+
+
+        <action path="/searchAccessPolicy"
+	  	 type="com.elitecore.elitesm.web.radius.policies.accesspolicy.SearchAccessPolicyAction"
+	  	 scope="request"
+	  	 name="searchAccessPolicyForm"
+	  	 validate="true"
+	  	 input="/jsp/radius/policies/accesspolicy/SearchAccessPolicy.jsp">
+            <forward name="accessPolicySearchList" path="/jsp/radius/policies/accesspolicy/SearchAccessPolicy.jsp"/>
+        </action>
+
+        <action path="/addRadiusPolicy"
+          type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.AddRadiusPolicyAction"
+          name="radiusPolicyForm"
+          scope="request"
+          validate="false"
+          input="/jsp/policies/raiduspolicy/AddRadiusPolicy.jsp">
+
+            <forward name="createRadiusPolicy" path="/jsp/radius/policies/radiuspolicy/AddRadiusPolicy.jsp"/>
+            <forward name="createRadiusPolicyReplyItem" path="/addRadiusPolicyReplyItem.do"/>
+            <forward name="createRadiusPolicyCheckItem" path="/addRadiusPolicyCheckItem.do"/>
+            <forward name="createRadiusPolicyRejectItem" path="/addRadiusPolicyRejectItem.do"/>
+            <forward name="createRadiusPolicyReplaceItem" path="/addRadiusPolicyReplaceItem.do"/>
+        </action>
+
+        <action path="/addRadiusPolicyReplyItem"
+          type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.AddRadiusPolicyReplyItemAction"
+          name="addRadiusPolicyReplyItemForm"
+          scope="request"
+          validate="false"
+          input="/jsp/policies/raiduspolicy/AddRadiusPolicy.jsp">
+          
+            <forward name="newRadiusPolicy" path="/addRadiusPolicy.do?action=previous"/>
+            <forward name="createRadiusPolicyReplyItem" path="/jsp/radius/policies/radiuspolicy/AddRadiusPolicyReplyItem.jsp"/>
+            <forward name="createRadiusPolicyCheckItem" path="/addRadiusPolicyCheckItem.do"/>
+            <forward name="createRadiusPolicyRejectItem" path="/addRadiusPolicyRejectItem.do"/>
+            <forward name="createRadiusPolicyReplaceItem" path="/addRadiusPolicyReplaceItem.do"/>
+            <forward name="createRadiusPolicy" path="/createRadiusPolicy.do"/>
+
+        </action>
+
+        <action path="/addRadiusPolicyCheckItem"
+          type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.AddRadiusPolicyCheckItemAction"
+          name="addRadiusPolicyCheckItemForm"
+          scope="request"
+          validate="false"
+          input="/jsp/policies/raiduspolicy/AddRadiusPolicy.jsp">
+
+            <forward name="newRadiusPolicy" path="/addRadiusPolicy.do?action=previous"/>
+            <forward name="createRadiusPolicyCheckItem" path="/jsp/radius/policies/radiuspolicy/AddRadiusPolicyCheckItem.jsp"/>
+            <forward name="createRadiusPolicyReplyItem" path="/addRadiusPolicyReplyItem.do"/>
+            <forward name="createRadiusPolicyRejectItem" path="/addRadiusPolicyRejectItem.do"/>
+            <forward name="createRadiusPolicyReplaceItem" path="/addRadiusPolicyReplaceItem.do"/>
+            <forward name="createRadiusPolicy" path="/createRadiusPolicy.do"/>
+        </action>
+
+        <action path="/addRadiusPolicyRejectItem"
+          type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.AddRadiusPolicyRejectItemAction"
+          name="addRadiusPolicyRejectItemForm"
+          scope="request"
+          validate="false"
+          input="/jsp/policies/raiduspolicy/AddRadiusPolicy.jsp">
+            <forward name="newRadiusPolicy" path="/addRadiusPolicy.do?action=previous"/>
+            <forward name="createRadiusPolicyReplyItem" path="/addRadiusPolicyReplyItem.do"/>
+            <forward name="createRadiusPolicyCheckItem" path="/addRadiusPolicyCheckItem.do"/>
+            <forward name="createRadiusPolicyReplaceItem" path="/addRadiusPolicyReplaceItem.do"/>
+            <forward name="createRadiusPolicyRejectItem" path="/jsp/radius/policies/radiuspolicy/AddRadiusPolicyRejectItem.jsp"/>
+
+            <forward name="createRadiusPolicy" path="/createRadiusPolicy.do"/>
+        </action>
+
+        <action path="/addRadiusPolicyReplaceItem"
+          type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.AddRadiusPolicyReplaceItemAction"
+          name="addRadiusPolicyReplaceItemForm"
+          scope="request"
+          validate="false"
+          input="/jsp/policies/raiduspolicy/AddRadiusPolicy.jsp">
+            <forward name="newRadiusPolicy" path="/addRadiusPolicy.do?action=previous"/>
+            <forward name="createRadiusPolicyReplyItem" path="/addRadiusPolicyReplyItem.do"/>
+            <forward name="createRadiusPolicyCheckItem" path="/addRadiusPolicyCheckItem.do"/>
+            <forward name="createRadiusPolicyRejectItem" path="/addRadiusPolicyRejectItem.do"/>
+            <forward name="createRadiusPolicyReplaceItem" path="/jsp/radius/policies/radiuspolicy/AddRadiusPolicyReplaceItem.jsp"/>
+            <forward name="createRadiusPolicy" path="/createRadiusPolicy.do"/>
+        </action>
+
+        <action path="/viewRadiusPolicy"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.ViewRadiusPolicyAction"
+      	 name="radiusPolicyForm"
+      	 scope="request"
+      	 validate="false">
+            <forward name="viewRadiusPolicyDetail" path="/jsp/radius/policies/radiuspolicy/RadiusPolicyContainer.jsp"/>
+        </action>
+
+        <action path="/updateRadiusPolicy"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.UpdateRadiusPolicyAction"
+      	 name="radiusPolicyForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="updateRadiusPolicy" path="/jsp/radius/policies/radiuspolicy/UpdateRadiusPolicyContainer.jsp"/>
+            <forward name="viewRadiusPolicyDetail" path="/viewRadiusPolicy.do?"/>
+        </action>
+
+        <action path="/updateRadiusPolicyReplyItem"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.UpdateRadiusPolicyReplyItemAction"
+      	 name="updateRadiusPolicyReplyItemForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="updateRadiusPolicyDetail" path="/jsp/radius/policies/radiuspolicy/RadiusPolicyContainer.jsp"/>
+            <forward name="viewRadiusPolicyDetail" path="/viewRadiusPolicy.do?"/>
+        </action>
+
+        <action path="/updateRadiusPolicyRejectItem"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.UpdateRadiusPolicyRejectItemAction"
+      	 name="updateRadiusPolicyRejectItemForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="updateRadiusPolicyDetail" path="/jsp/radius/policies/radiuspolicy/RadiusPolicyContainer.jsp"/>
+            <forward name="viewRadiusPolicyDetail" path="/viewRadiusPolicy.do?"/>
+        </action>
+
+        <action path="/updateRadiusPolicyCheckItem"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.UpdateRadiusPolicyCheckItemAction"
+      	 name="updateRadiusPolicyCheckItemForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="updateRadiusPolicyDetail" path="/jsp/radius/policies/radiuspolicy/RadiusPolicyContainer.jsp"/>
+            <forward name="viewRadiusPolicyDetail" path="/viewRadiusPolicy.do?"/>
+        </action>
+
+        <action path="/updateRadiusPolicyReplaceItem"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.UpdateRadiusPolicyReplaceItemAction"
+      	 name="updateRadiusPolicyReplaceItemForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="updateRadiusPolicyDetail" path="/jsp/radius/policies/radiuspolicy/RadiusPolicyContainer.jsp"/>
+            <forward name="viewRadiusPolicyDetail" path="/viewRadiusPolicy.do?"/>
+        </action>
+
+        <action path="/updateRadiusPolicyStatus"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.UpdateRadiusPolicyStatusAction"
+      	 name="updateRadiusPolicyStatusForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="updateRadiusPolicyDetail" path="/jsp/radius/policies/radiuspolicy/RadiusPolicyContainer.jsp"/>
+            <forward name="viewRadiusPolicyDetail" path="/viewRadiusPolicy.do?"/>
+        </action>
+
+        <action path="/viewRadiusPolicyReplyItem"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.ViewRadiusPolicyReplyItemAction"
+      	 name="viewRadiusPolicyReplyItemForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="viewRadiusPolicyItems" path="/jsp/radius/policies/radiuspolicy/RadiusPolicyContainer.jsp"/>
+            <forward name="viewRadiusPolicyDetail" path="/viewRadiusPolicy.do?"/>
+        </action>
+
+        <action path="/viewRadiusPolicyReplaceItem"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.ViewRadiusPolicyReplaceItemAction"
+      	 name="viewRadiusPolicyReplaceItemForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="viewRadiusPolicyItems" path="/jsp/radius/policies/radiuspolicy/RadiusPolicyContainer.jsp"/>
+            <forward name="viewRadiusPolicyDetail" path="/viewRadiusPolicy.do?"/>
+        </action>
+
+        <action path="/viewRadiusPolicyRejectItem"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.ViewRadiusPolicyRejectItemAction"
+      	 name="viewRadiusPolicyRejectItemForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="viewRadiusPolicyItems" path="/jsp/radius/policies/radiuspolicy/RadiusPolicyContainer.jsp"/>
+            <forward name="viewRadiusPolicyDetail" path="/viewRadiusPolicy.do?"/>
+        </action>
+
+        <action path="/viewRadiusPolicyCheckItem"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.ViewRadiusPolicyCheckItemAction"
+      	 name="viewRadiusPolicyCheckItemForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="viewRadiusPolicyItems" path="/jsp/radius/policies/radiuspolicy/RadiusPolicyContainer.jsp"/>
+            <forward name="viewRadiusPolicyDetail" path="/viewRadiusPolicy.do?"/>
+        </action>
+
+        <action path="/viewDictionary"
+      	 type="com.elitecore.elitesm.web.radius.dictionary.ViewDictionaryAction"
+      	 name="viewDictionaryForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="viewDictionary" path="/jsp/radius/dictionary/ViewDictionary.jsp"/>
+        </action>
+
+        <action path="/viewDictionaryParam"
+      	 type="com.elitecore.elitesm.web.radius.dictionary.ViewDictionaryParamAction"
+      	 name="viewDictionaryParamForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="viewDictionaryParam" path="/jsp/radius/dictionary/ViewDictionaryParam.jsp"/>
+        </action>
+
+        <action path="/createDictionary"
+      	 type="com.elitecore.elitesm.web.radius.dictionary.CreateDictionaryAction"
+      	 name="createDictionaryForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="addDictionary" path="/jsp/radius/dictionary/CreateDictionary.jsp"/>
+        </action>
+
+        <action path="/updateDictionary"
+      	 type="com.elitecore.elitesm.web.radius.dictionary.UpdateDictionaryAction"
+      	 name="updateDictionaryForm"
+      	 scope="request"
+      	 validate="false"
+      	 >
+            <forward name="updateDictionary" path="/jsp/radius/dictionary/UpdateDictionary.jsp"/>
+       </action>
+
+        <action path="/searchRadiusPolicyDictionaryPopUp"
+	   		   type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.SearchDictionaryPopUpAction"
+	   		   scope="request"
+	   		   name="searchRadiusPolicyDictionaryPopUpForm"
+	   		   validate="false">
+            <forward name="searchDictionaryPopUp" path="/jsp/radius/policies/radiuspolicy/SearchDictionaryPopUp.jsp"></forward>
+        </action>
+
+        <action path="/searchRadiusPolicyDictionaryByCriteria"
+	   		   type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.SearchDictionaryByCriteriaAction"
+	   		   scope="request"
+	   		   name="searchRadiusPolicyDictionaryPopUpForm"
+	   		   validate="false">
+            <forward name="searchDictionaryPopUp" path="/jsp/radius/policies/radiuspolicy/SearchDictionaryPopUp.jsp"></forward>
+        </action>
+
+
+
+    
+        <action path="/updateLDAPDatasourceValuePool"
+		      type="com.elitecore.elitesm.web.radius.datasource.ldap.UpdateLDAPDatasourceFieldAction"
+		      name="updateLDAPDatasourceFieldForm"
+		      scope="request"
+		      validate="false">
+            <forward name="updateLDAPDatasourceValuePool" path="/jsp/radius/datasource/ldap/UpdateLDAPDatasourceValuePoolContainer.jsp"/>
+        </action>
+
+        <action path="/updateLDAPValuePool"
+		      type="com.elitecore.elitesm.web.radius.datasource.ldap.UpdateLDAPValuePoolAction"
+		      name="updateLDAPValuePoolForm"
+		      scope="request"
+		      validate="false">
+            <forward name="updateLDAPValuePool" path="/jsp/radius/datasource/ldap/PopUpUpdateLDAPValuePool.jsp"/>
+        </action>
+
+        <action path="/initListRadiusPacket"
+		      type="com.elitecore.elitesm.web.radius.radtest.InitListRadiusTestAction"
+		      name="listRadiusTestForm"
+		      scope="request"
+		      validate="false">
+            <forward name="initListRadiusPacket" path="/jsp/radius/radtest/ListRadiusTestPacket.jsp"/>
+        </action>
+
+        <action path="/initCreateRadiusPacket"
+		      type="com.elitecore.elitesm.web.radius.radtest.InitCreateRadiusTestAction"
+		      name="createRadiusTestForm"
+		      scope="request"
+		      validate="false">
+            <forward name="createRadiusPacket" path="/jsp/radius/radtest/CreateRadiusTestPacket.jsp"/>
+        </action>
+
+        <action path="/createRadiusPacket"
+		      type="com.elitecore.elitesm.web.radius.radtest.CreateRadiusTestAction"
+		      name="createRadiusTestForm"
+		      scope="request"
+		      validate="false">
+            <forward name="createRadiusPacket" path="/jsp/radius/radtest/CreateRadiusTestPacket.jsp"/>
+        </action>
+
+        <action path="/miscRadiusPacket"
+   		   type="com.elitecore.elitesm.web.radius.radtest.MiscRadiusTestAction"
+		   name="listRadiusTestForm"
+		   scope="request"
+		   validate="false">
+            <forward name="initListRadiusPacket" path="/initListRadiusPacket.do"/>
+        </action>
+
+        <action path="/viewRadiusPacket"
+   		   type="com.elitecore.elitesm.web.radius.radtest.ViewRadiusTestAction"
+		   name="viewRadiusTestForm"
+		   scope="request"
+		   validate="false">
+            <forward name="viewRadiusPacket" path="/jsp/radius/radtest/ViewRadiusPacket.jsp"/>
+        </action>
+
+        <action path="/initUpdateRadiusPacket"
+   		   type="com.elitecore.elitesm.web.radius.radtest.InitUpdateRadiusTestAction"
+		   name="updateRadiusTestForm"
+		   scope="request"
+		   validate="false">
+            <forward name="updateRadiusPacket" path="/jsp/radius/radtest/UpdateRadiusPacket.jsp"/>
+        </action>
+
+        <action path="/updateRadiusPacket"
+   		   type="com.elitecore.elitesm.web.radius.radtest.UpdateRadiusTestAction"
+		   name="updateRadiusTestForm"
+		   scope="request"
+		   validate="false">
+            <forward name="initListRadiusPacket" path="/jsp/radius/radtest/UpdateRadiusPacket.jsp"/>
+        </action>
+
+        <action path="/sendRadiusPacket"
+   		   type="com.elitecore.elitesm.web.radius.radtest.SendRadiusTestAction"
+		   name="viewRadiusTestForm"
+		   scope="request"
+		   validate="false">
+            <forward name="responseRadiusPacket" path="/jsp/radius/radtest/SendRadiusPacket.jsp"/>
+        </action>
+
+        <action path="/radiusPacketPopUp"
+	   		   type="com.elitecore.elitesm.web.radius.radtest.RadiusTestPopUpAction"
+	   		   scope="request"
+	   		   name="radiusTestPopUpForm"
+	   		   validate="false">
+            <forward name="radiusPacketPopUp" path="/jsp/radius/radtest/RadiusPacketPopUp.jsp"/>
+        </action>
+
+        <action path="/radiusPacketPopUpByCriteria"
+	   		   type="com.elitecore.elitesm.web.radius.radtest.RadiusTestPopUpByCriteriaAction"
+	   		   scope="request"
+	   		   name="radiusTestPopUpForm"
+	   		   validate="false">
+            <forward name="radiusPacketPopUp" path="/jsp/radius/radtest/RadiusPacketPopUp.jsp"/>
+        </action>
+		 
+		 <action path="/initVerifyPassword"
+		      type="com.elitecore.elitesm.web.radius.utilities.InitVerifyPasswordAction"
+		      name="VerifyPasswordForm"
+		      scope="request"
+		      validate="false">
+            <forward name="verifyPassword" path="/jsp/radius/utilities/VerifyPassword.jsp"/>
+        </action>
+		 
+		 <action path="/verifyPassword"
+		      type="com.elitecore.elitesm.web.radius.utilities.VerifyPasswordAction"
+		      name="VerifyPasswordForm"
+		      scope="request"
+		      validate="false">
+            <forward name="initVerifyPassword" path="/initVerifyPassword.do"/>
+         </action>    
+         
+         <!-- Action Mapping for BW List -->
+         
+         <action path="/initCreateBWList"
+	      name="createBWListForm"
+	      scope="request"
+	      type="com.elitecore.elitesm.web.radius.bwlist.InitCreateBWListAction">
+	      <forward name="createBWList" path="/jsp/radius/bwlist/CreateBWList.jsp" />
+	    </action>       
+	    
+	    
+	   <action path="/createBWList"
+	      name="createBWListForm"
+	      scope="request"
+	      type="com.elitecore.elitesm.web.radius.bwlist.CreateBWListAction">
+	   </action>
+	    
+	            
+      <action path="/initSearchBWList"
+		 type="com.elitecore.elitesm.web.radius.bwlist.InitSearchBWListAction"
+		 name="searchBWListForm"
+		 scope="request"
+		 validate="true">
+		 <forward name="searchBWLst" path="/jsp/radius/bwlist/SearchBWList.jsp"/>
+	  </action>
+	  
+	  <action path="/searchBWList"	
+	  	 type="com.elitecore.elitesm.web.radius.bwlist.SearchBWListAction"
+	  	 scope="request"
+	  	 name="searchBWListForm"
+	  	 validate="true"
+	  	 input="/jsp/radius/bwlist/SearchBWList.jsp">
+	  	 <forward name="searchBlackList" path="/jsp/radius/bwlist/SearchBWList.jsp"/>
+	  </action>
+	      
+	  <action path="/miscBWList"
+	     scope="request"
+	     type="com.elitecore.elitesm.web.radius.bwlist.MiscBWListAction"
+	     name="miscBWListForm"
+	     validate="false">
+	     <forward name="searchBlacklistedList" path="/searchBWList.do"	/>
+	  </action>
+	  
+	  <action path="/initUploadBWList"
+	      name="createBWListForm"
+	      scope="request"
+	      type="com.elitecore.elitesm.web.radius.bwlist.InitUploadBWListAction">
+	      <forward name="uploadBWList" path="/jsp/radius/bwlist/UploadBWList.jsp" />
+	  </action>
+	  
+	  <action path="/updateBWList"
+	 	  name="createBWListForm"
+	      scope="request"
+	      type="com.elitecore.elitesm.web.radius.bwlist.UpdateBWListAction">
+	      <forward name="uploadBWList" path="/jsp/radius/bwlist/UpdateBWContainer.jsp" />
+	  </action>
+	  
+	  <action path="/viewBWList"
+	 	  name="createBWListForm"
+	      scope="request"
+	      type="com.elitecore.elitesm.web.radius.bwlist.ViewBWListAction">
+	      <forward name="viewBWList" path="/jsp/radius/bwlist/ViewBWContainer.jsp" />
+	  </action>
+	  
+	  <action path="/viewBWListHistory"
+	   	  name="createBWListForm"
+	      scope="request"
+	      type="com.elitecore.elitesm.web.radius.bwlist.ViewBWHistoryAction">
+	      <forward name="viewBWHistoryList" path="/jsp/radius/bwlist/ViewBWHistoryContainer.jsp" />
+	  </action>
+	  
+	  <!-- Client Profile -->
+	  
+	   <action path="/initCreateClientProfile"
+		 type="com.elitecore.elitesm.web.radius.clientprofile.InitCreateClientProfileAction"
+		 name="createClientProfileForm"
+		 scope="request"
+		 validate="true">
+		 <forward name="createClientProfile" path="/jsp/radius/clientprofile/CreateClientProfile.jsp"/>
+	  </action>
+	  
+	  <action path="/createClientProfile"
+		 type="com.elitecore.elitesm.web.radius.clientprofile.CreateClientProfileAction"
+		 name="createClientProfileForm"
+		 scope="request"
+		 validate="true">
+	  </action>
+
+	  <action path="/initSearchClientProfile"
+		 type="com.elitecore.elitesm.web.radius.clientprofile.InitSearchClientProfileAction"
+		 name="searchClientProfileForm"
+		 scope="request"
+		 validate="true">
+		 <forward name="searchClientProfile" path="/jsp/radius/clientprofile/SearchClientProfile.jsp"/>
+	  </action>
+
+	  <action path="/searchClientProfile"
+		 type="com.elitecore.elitesm.web.radius.clientprofile.SearchClientProfileAction"
+		 name="searchClientProfileForm"
+		 scope="request"
+		 validate="true">
+		 <forward name="searchClientProfileList" path="/jsp/radius/clientprofile/SearchClientProfile.jsp"/>
+     </action>
+	  
+	  <action path="/miscClientProfile"
+	     scope="request"
+	     type="com.elitecore.elitesm.web.radius.clientprofile.MiscClientProfileAction"
+	     name="miscClientProfileForm"
+	     validate="false">
+	     <forward name="searchClientProfile" path="/searchClientProfile.do"	/>
+	  </action>
+	  
+	  <action path="/viewClientProfile"
+	    scope="request"
+	    type="com.elitecore.elitesm.web.radius.clientprofile.ViewClientProfileAction"
+	    name="viewClientProfileForm"
+	    validate="true"
+	    input="/jsp/radius/clientprofile/ViewClientProfileContainer.jsp">
+	    <forward name="viewClientProfile" path="/jsp/radius/clientprofile/ViewClientProfileContainer.jsp"/>
+	  </action>
+	  
+	  <action path="/updateClientProfile"
+	   scope="request"
+	   type="com.elitecore.elitesm.web.radius.clientprofile.UpdateClientProfileAction"
+	   name="updateClientProfileForm"
+	   validate="false">
+	   <forward name="updateClientProfile" path="/jsp/radius/clientprofile/UpdateClientProfileContainer.jsp"/> 
+	  </action>
+	   
+	   <action path="/viewRadiusPolicyHistory"
+      	 type="com.elitecore.elitesm.web.radius.policies.radiuspolicy.ViewRadiusPolicyHistoryAction"
+      	 name="radiusPolicyForm"
+      	 scope="request"
+      	 validate="false">
+            <forward name="viewRadiusPolicyHistory" path="/jsp/radius/policies/radiuspolicy/ViewRadiusPolicyHistoryContainer.jsp"/>
+       </action>
+	   
+	    <action path="/viewClientProfileHistory"
+	    scope="request"
+	    type="com.elitecore.elitesm.web.radius.clientprofile.ViewClientProfileHistoryAction"
+	    name="viewClientProfileForm"
+	    validate="true">
+	    <forward name="viewClientProfileHistory" path="/jsp/radius/clientprofile/ViewClientProfileHistoryContainer.jsp"/>
+	  </action>
+            
+         <!-- Radius Policy Group -->
+         
+        <action path="/searchRadiusPolicyGroup"
+	        type="com.elitecore.elitesm.web.radius.radiuspolicygroup.SearchRadiusPolicyGroupAction"
+	        scope="request"
+	        name="radiusPolicyGroupForm"
+	        validate="true">
+            <forward name="radiusPolicySearchList" path="/jsp/radius/radiuspolicygroup/SearchRadiusPolicyGroup.jsp"/>
+        </action>
+        
+        <action path="/createRadiusPolicyGroup"
+          	type="com.elitecore.elitesm.web.radius.radiuspolicygroup.CreateRadiusPolicyGroupAction"
+          	name="radiusPolicyGroupForm"
+          	scope="request"
+          	validate="false">
+            <forward name="initCreateRadiusPolicyGroup" path="/jsp/radius/radiuspolicygroup/CreateRadiusPolicyGroup.jsp"/>
+        </action>
+        
+        <action path="/viewRadiusPolicyGroup"
+          	type="com.elitecore.elitesm.web.radius.radiuspolicygroup.ViewRadiusPolicyGroupAction"
+          	name="radiusPolicyGroupForm"
+          	scope="request"
+          	validate="false">
+            <forward name="viewRadiusPolicyGroupDetail" path="/jsp/radius/radiuspolicygroup/ViewRadiusPolicyGroupContainer.jsp"/>
+        </action>
+        
+        <action path="/updateRadiusPolicyGroup"
+       		type="com.elitecore.elitesm.web.radius.radiuspolicygroup.UpdateRadiusPolicyGroupAction"
+          	name="radiusPolicyGroupForm"
+          	scope="request"
+          	validate="false">
+            <forward name="initUpdateRadiusPolicyGroup" path="/jsp/radius/radiuspolicygroup/UpdateRadiusPolicyGroupContainer.jsp"/>
+        </action>
+        
+        <action path="/viewRadiusPolicyGroupHistory"
+	       scope="request"
+	   	   type="com.elitecore.elitesm.web.radius.radiuspolicygroup.ViewRadiusPolicyGroupHistoryAction"
+	       name="radiusPolicyGroupForm"
+	       validate="true">
+	    <forward name="viewRadiusGroupHistory" path="/jsp/radius/radiuspolicygroup/ViewRadiusPolicyGroupHistoryContainer.jsp"/>
+	  </action>
+	    <!-- Radius ESI Group -->
+ 	<action path="/searchRadiusESIGroup"
+		 type="com.elitecore.elitesm.web.radius.radiusesigroup.SearchRadiusESIGroupAction"
+		 name="radiusESIGroup"
+		 scope="request"
+		 validate="true">
+		 <forward name="searchRadiusESIGroup" path="/jsp/radius/radiusesigroup/SearchRadiusESIGroup.jsp"/>
+     </action>
+     <action path="/createRadiusESIGroup"
+		 type="com.elitecore.elitesm.web.radius.radiusesigroup.CreateRadiusESIGroupAction"
+		 name="radiusESIGroup"
+		 scope="request"
+		 validate="true">
+		 <forward name="createRadiusESIGroup" path="/jsp/radius/radiusesigroup/CreateRadiusESIGroup.jsp"/>
+     </action>
+     <action path="/updateRadiusESIGroup"
+     		type="com.elitecore.elitesm.web.radius.radiusesigroup.UpdateRadiusESIGroupAction"
+          	name="radiusESIGroup"
+          	scope="request"
+          	validate="false">
+            <forward name="updateRadiusESIGroup" path="/jsp/radius/radiusesigroup/UpdateRadiusESIGroupContainer.jsp"/>
+     </action> 
+     
+     <action path="/viewRadiusESIGroupHistory"  
+		 	type="com.elitecore.elitesm.web.radius.radiusesigroup.ViewRadiusESIGroupHistoryAction"
+		    name="radiusESIGroup"   
+		    scope="request"
+		    validate="false">
+		    <forward name="viewRadiuESIGroupHistory" path="/jsp/radius/radiusesigroup/ViewRadiusESIGroupHistoryContainer.jsp"/>
+	  </action>
+      <action path="/viewRadiusESIGroup"
+          	type="com.elitecore.elitesm.web.radius.radiusesigroup.ViewRadiusESIGroupAction"
+          	name="radiusESIGroup"
+          	scope="request"
+          	validate="false">
+            <forward name="viewRadiusESIGroup" path="/jsp/radius/radiusesigroup/ViewRadiusESIGroupContainer.jsp"/>
+     </action>
+     <action path="/searchCorrelatedRadius"
+            type="com.elitecore.elitesm.web.radius.correlatedradius.CorrelatedRadiusAction"
+            name="correlatedRadiusForm"
+            scope="request"
+            validate="false"
+            parameter="searchCorrelatedRadius">
+            <forward name="searchCorrelatedRadius" path="/jsp/radius/correlatedradius/SearchCorrelatedRadius.jsp"/>
+     </action>
+     <action path="/createCorrelatedRadius"
+            type="com.elitecore.elitesm.web.radius.correlatedradius.CorrelatedRadiusAction"
+            name="correlatedRadiusForm"
+            scope="request"
+            validate="false"
+            parameter="createCorrelatedRadius">
+            <forward name="createCorrelatedRadius" path="/jsp/radius/correlatedradius/CreateCorrelatedRadius.jsp"/>
+     </action>
+     <action path="/viewCorrelatedRadius"
+             type="com.elitecore.elitesm.web.radius.correlatedradius.CorrelatedRadiusAction"
+             name="correlatedRadiusForm"
+             scope="request"
+             validate="false"
+             parameter="viewCorrelatedRadius">
+         <forward name="viewCorrelatedRadius" path="/jsp/radius/correlatedradius/ViewCorrelatedRadiusContainer.jsp"/>
+     </action>
+     <action path="/updateCorrelatedRadius"
+             type="com.elitecore.elitesm.web.radius.correlatedradius.CorrelatedRadiusAction"
+             name="correlatedRadiusForm"
+             scope="request"
+             validate="false"
+             parameter="updateCorrelatedRadius">
+          <forward name="updateCorrelatedRadius" path="/jsp/radius/correlatedradius/UpdateCorrelatedRadiusContainer.jsp"/>
+     </action>
+     <action path="/viewCorrelatedRadiusHistory"
+             type="com.elitecore.elitesm.web.radius.correlatedradius.CorrelatedRadiusAction"
+             name="correlatedRadiusForm"
+             scope="request"
+             validate="false"
+             parameter="viewCorrelatedRadiusHistory">
+           <forward name="viewCorrelatedRadiusHistory" path="/jsp/radius/correlatedradius/ViewCorrelatedRadiusHistoryContainer.jsp"/>
+     </action>
+    </action-mappings>
+    <message-resources key="radiusResources" parameter="com.elitecore.elitesm.web.radius.RadiusResources" null="false"/>
+	
+</struts-config>
+

@@ -1,0 +1,297 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation?name=certificate_revocation&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation.xml?name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/certificate_revocation?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/certificate_revocation.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation?operation=search&name=certificate_revocation&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation.xml?operation=search&name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/certificate_revocation?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/certificate_revocation.xml?operation=search
+
+Response :
+
+<certificate-revocation>
+	<name>certificate_revocation</name>
+	<serial-number>-</serial-number>
+	<next-update>16 Dec 2009 12:03:31 </next-update>
+	<last-update>16 Nov 2009 12:03:31 </last-update>
+	<issuer>EMAILADDRESS=ca@elitecore.com, CN=Elitecore CA, OU=EliteAAA, O=Elitecore Techmnologies Ltd., L=Ahmedabad, ST=Gujarat, C=IN</issuer>
+	<signature-algorithm>MD5withRSA</signature-algorithm>
+	<certificate-revocation-details>
+		<certificate-revocation-detail>
+			<serial-number>10</serial-number>
+			<revocation-date>16 Nov 2009 12:02:18 </revocation-date>
+		</certificate-revocation-detail>
+	</certificate-revocation-details>
+</certificate-revocation>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation?name=certificate_revocation&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation.json?name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/certificate_revocation?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/certificate_revocation.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation?operation=search&name=certificate_revocation&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation.json?operation=search&name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/certificate_revocation?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/certificate_revocation.json?operation=search
+
+Response :
+
+{
+	"name": "certificate_revocation",
+	"serial-number": "-",
+	"next-update": "16 Dec 2009 12:03:31 ",
+	"last-update": "16 Nov 2009 12:03:31 ",
+	"issuer": "EMAILADDRESS=ca@elitecore.com, CN=Elitecore CA, OU=EliteAAA, O=Elitecore Techmnologies Ltd., L=Ahmedabad, ST=Gujarat, C=IN",
+	"signature-algorithm": "MD5withRSA",
+	"certificate-revocation-details": [
+		{
+			"serial-number": 10,
+			"revocation-date": "16 Nov 2009 12:02:18 "
+		}
+	]
+}
+
+For Download Certificate Revocation-
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/download?name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/download/certificate_revocation
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/download?operation=search&name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/download/certificate_revocation?operation=search
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<certificate-revocation>
+	<name>certificate_revocation</name>
+</certificate-revocation>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Certificate Revocation created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "certificate_revocation"
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Certificate Revocation created successfully</response-message>
+	</response>
+</response-detail>
+
+For Duplicate Certificate Revocation-
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/duplicate?name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/duplicate/certificate_revocation
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/duplicate?operation=create&name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/duplicate/certificate_revocation?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<certificate-revocation>
+	<name>certificate_revocation_duplicate</name>
+</certificate-revocation>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Certificate Revocation duplicated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "certificate_revocation_duplicate"
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Certificate Revocation duplicated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/bulk?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<certificate-revocation>
+		<name>certificate_revocation</name>
+	</certificate-revocation>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Certificate Revocation(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"list":[
+		{
+			"name": "certificate_revocation"
+		}
+  	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Certificate Revocation(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+For Upload Certificate Revocation-
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/upload?name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/upload/certificate_revocation
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/upload?operation=update&name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/upload/certificate_revocation?operation=update
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Certificate Revocation uploaded successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation?name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/certificate_revocation
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation?operation=delete&name=certificate_revocation
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/certificaterevocation/certificate_revocation?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Certificate Revocation(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

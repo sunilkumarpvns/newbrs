@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.servermgr.plugins.transactionlogger.data.FormatMappingData" table="TBLMFORMATMAPPINGS">
+
+		<id name="formatMappingId" column="FORMATMAPPINGID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+        
+		<property name="pluginId" type="StringType"> 
+			<column name="PLUGINID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="key" type="StringType"> 
+			<column name="KEY" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+		
+		<property name="format" type="StringType"> 
+			<column name="FORMAT" sql-type="VARCHAR(4000)" not-null="false" /> 
+		</property>
+
+		<property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false" />
+	</class>
+
+</hibernate-mapping> 

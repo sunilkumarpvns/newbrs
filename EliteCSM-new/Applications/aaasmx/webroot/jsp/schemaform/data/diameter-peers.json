@@ -1,0 +1,97 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Diameter Peer",
+  "properties":{
+      "name":{
+          "title":"Name",
+          "type":"string"
+      },
+      "host-identity":{
+          "title":"Host Identity",
+          "type":"string"
+      },
+      "realm":{
+          "title":"Realm",
+          "type":"string"
+      },
+      "remote-address":{
+          "title":"Remote Address",
+          "type":"string"
+      },
+      "local-address":{
+          "title":"Local Address",
+          "type":"string"
+      },
+      "diameter-uri-format":{
+          "title":"Diameter URI Format",
+          "type":"string"
+      },
+      "request-timeout":{
+          "title":"Request Timeout",
+          "type":"string",
+          "default":"3000"
+      },
+      "retransmission-count":{
+          "title":"Retransmission Count",
+          "type":"string",
+          "default":"0"
+      },
+      "secondary-peer":{
+          "title":"Secondary Peer",
+          "type":"string"
+      },
+      "profile-name":{
+          "title":"Profile Name",
+          "type":"string"
+      }
+  }
+  
+},
+   "form":[
+    {
+        "key":"name"
+    },
+    {
+        "key":"host-identity"
+    },
+    {
+        "key":"realm"
+    },
+    {
+        "key":"remote-address"
+    },
+    {
+        "key":"local-address"
+    },
+    {
+        "key":"diameter-uri-format"
+    },
+    {
+        "key":"request-timeout"
+    },
+    {
+        "key":"retransmission-count"
+    },
+    {
+        "key":"secondary-peer"
+    },
+    {
+        "key":"profile-name"
+    }
+  
+  
+],
+"model":{
+	"name": "peer1",
+	"host-identity": "aaa.elitecore.com",
+	"realm": "elitecore.com",
+	"remote-address": "10.121.21.55",
+	"local-address": "10.121.21.55",
+	"diameter-uri-format": "${aaa}${FQDN}${port};transport=tcp;protocol=diameter",
+	"request-timeout": "3000",
+	"retransmission-count": "0",
+	"secondary-peer": "peer2",
+	"profile-name": "diameter_peer_profile"
+}
+}

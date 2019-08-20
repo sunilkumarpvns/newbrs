@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><PROFILE alias="RADIUS" name="RADIUS">
+<MODEL alias="SERVER_MODEL" name="Server" status="E">
+<MODULE alias="SERVER" name="Server" status="E">
+<SUBMODULE alias="LIST_SERVERS" name="List Servers" status="E">
+<ACTION alias="LIST_NET_SERVER_INSTANCE_ACTION" name="List Net Server Instance Action" status="E"/>
+<ACTION alias="LIST_NET_SERVER_CONFIGURATION_ACTION" name="List Net Server Configuration Action" status="E"/>
+<ACTION alias="NET_SERVER_RESTART_ACTION" name="Net Server Restart Action" status="E"/>
+<ACTION alias="LIST_USERFILE_DATASOURCE_ACTION" name="List UserFile Datasource Action" status="E"/>
+<ACTION alias="SYNCHRONIZE_NET_SERVER_CONFIGURATION_ACTION" name="Synchrinize Net Server Configuration Action" status="E"/>
+<ACTION alias="SYNCHRONIZE_BACK_NET_SERVER_CONFIGURATION_ACTION" name="Synchrinize Back Net Server Configuration Action" status="E"/>
+<ACTION alias="VIEW_CSV_FILES_ACTION" name="View CSV Files Action" status="E"/>
+<ACTION alias="VIEW_SUPPORTED_RFC_ACTION" name="View Supported RFC Action" status="E"/>
+<ACTION alias="VIEW_LOG_REPORT_ACTION" name="View Log Report Action" status="E"/>
+<ACTION alias="VIEW_SERVER_CLIENTS_DETAIL_ACTION" name="View Server Live Clients Detail Action" status="E"/>
+<ACTION alias="VIEW_SERVER_DETAIL_ACTION" name="View Server Live Details Action" status="E"/>
+<ACTION alias="UPLOAD_LICENSE_ACTION" name="Upload License Action" status="E"/>
+<ACTION alias="DOWNLOAD_LICENSE_PUBLIC_KEY_ACTION" name="Download License Public Key Action" status="E"/>
+<ACTION alias="UPDATE_NET_SERVER_ADMIN_INTERFACE_DETAIL_ACTION" name="Update Net Server Admin Interface Detail Action" status="E"/>
+<ACTION alias="REMOVE_NET_SERVER_SERVICE_INSTANCE_ACTION" name="Remove Net Server Service Instance Action" status="E"/>
+<ACTION alias="ADD_NET_SERVER_SERVICE_INSTANCE_ACTION" name="Add Net Server Service Instance Action" status="E"/>
+<ACTION alias="UPDATE_NET_SERVER_INSTANCE_BASIC_DETAIL_ACTION" name="Update Net Server Instance Basic Detail Action" status="E"/>
+<ACTION alias="CREATE_USERFILE_DATASOURCE_ACTION" name="Create Userfile Datasource Action" status="E"/>
+<ACTION alias="UPDATE_SERVICE_BASIC_DETAIL_ACTION" name="Update Net Service Basic Detail Action" status="E"/>
+<ACTION alias="LIST_SERVICE_CONFIGURATION_ACTION" name="List Net Service Configuration Action" status="E"/>
+<ACTION alias="SYNCHRONIZE_SERVICE_CONFIGURATION_ACTION" name="Synchronize Net Service Configuration Action" status="E"/>
+<ACTION alias="SYNCHRONIZE_BACK_SERVICE_CONFIGURATION_ACTION" name="Synchronize Back Net Service Configuration Action" status="E"/>
+<ACTION alias="DELETE_SERVER_INSTANCE_ACTION" name="Delete Server Instance" status="E"/>
+<ACTION alias="CHANGE_SERVER_INSTANCE_ACTION" name="Change Server Instance" status="E"/>
+<!-- ACTION alias="VIEW_GRAPH_ACTION" name="View Graph" status="E"/-->
+<ACTION alias="UPDATE_SERVER_ACTION" name="Update Server Action" status="E"/>
+<ACTION alias="START_NET_SERVER_ACTION" name="Start Net Server Action" status="E"/>
+<ACTION alias="SIGNAL_SOFT_RESTART_ACTION" name="Signal Soft Restart Action" status="E"/>
+<ACTION alias="SIGNAL_SERVER_SHUTDOWN_ACTION" name="Signal Server Shutdown Action" status="E"/>
+<ACTION alias="SIGNAL_SERVER_RELOAD_CACHE_ACTION" name="Signal Server Reload Cache Action" status="E"/>
+<ACTION alias="SIGNAL_SERVER_RELOAD_CONFIGURATION_ACTION" name="Signal Server Reload Configuration Action" status="E"/>
+<ACTION alias="EXPORT_SERVER_ACTION" name="Export Server Action" status="E"/>
+<ACTION alias="IMPORT_SERVER_ACTION" name="Import Server Action" status="E"/>
+<ACTION alias="EXPORT_SERVICE_ACTION" name="Export Service Action" status="E"/>
+<ACTION alias="IMPORT_SERVICE_ACTION" name="Import Service Action" status="E"/>
+<ACTION alias="ADD_ATTRIBUTE_DETAIL_ACTION" name="Add Attribute Detail Action" status="E"/>
+<ACTION alias="MANAGE_LIVE_SERVER_DICTIONARIES_ACTION" name="Manage Live Server Dictionaries Action" status="E"/>
+<ACTION alias="VIEW_CONFIGURED_SERVICES_ACTION" name="View Configured Services Action" status="E"/>
+<ACTION alias="SEARCH_CDR_FILE_ACTION" name="Search CDR File Action" status="E"/>
+<ACTION alias="UPDATE_CONFIGURATION_ACTION" name="Update Configurations" status="E"/>
+<ACTION alias="VIEW_CONFIGURATION_ACTION" name="View Configurations" status="E"/>
+<ACTION alias="SYNCHRONIZE_SERVER_VERSION_ACTION" name="Synchronize Server Version Action" status="E"/>
+</SUBMODULE>
+<SUBMODULE alias="CREATE_SERVER_INSTANCE" name="Create Server Instance" status="E">
+<ACTION alias="CREATE_SERVER_INSTANCE_ACTION" name="Create Server Instance" status="E"/>
+</SUBMODULE>
+</MODULE>
+</MODEL>
+<MODEL alias="RADIUS" name="Radius" status="E">
+<MODULE alias="RADIUS_POLICY" name="Radius Policy" status="E">
+<SUBMODULE alias="CREATE_RADIUS_POLICY" name="Create Radius Policy" status="E">
+<ACTION alias="CREATE_RADIUS_POLICY_ACTION" name="Create Radius Policy" status="E"/>
+</SUBMODULE>
+<SUBMODULE alias="SEARCH_RADIUS_POLICY" name="Search Radius Policy" status="E">
+<ACTION alias="CHANGE_RADIUS_POLICY_STATUS_ACTION" name="Change Radius Policy Status" status="E"/>
+<ACTION alias="SEARCH_RADIUS_POLICY_ACTION" name="Search Radius Policy" status="E"/>
+<ACTION alias="DELETE_RADIUS_POLICY_ACTION" name="Delete Radius Policy" status="E"/>
+<ACTION alias="UPDATE_RADIUS_POLICY_BASIC_DETAILS_ACTION" name="Update Radius Policy Basic Details Action" status="E"/>
+<ACTION alias="UPDATE_RADIUS_POLICY_PARAM_DETAILS_ACTION" name="Update Radius Policy Param Details Action" status="E"/>
+<ACTION alias="UPDATE_RADIUS_POLICY_STATUS_ACTION" name="Update Radius Policy Status Action" status="E"/>
+<ACTION alias="VIEW_RADIUS_POLICY_ACTION" name="View Radius Policy" status="E"/>
+</SUBMODULE>
+</MODULE>
+<MODULE alias="ACCESS_POLICY" name="Access Policy" status="E">
+<SUBMODULE alias="CREATE_ACCESS_POLICY" name="Create Access Policy" status="E">
+<ACTION alias="CREATE_ACCESS_POLICY_ACTION" name="Create Access Policy" status="E"/>
+</SUBMODULE>
+<SUBMODULE alias="SEARCH_ACCESS_POLICY" name="Search Access Policy" status="E">
+<ACTION alias="SEARCH_ACCESS_POLICY_ACTION" name="Search Access Policy " status="A"/>
+<ACTION alias="DELETE_ACCESS_POLICY_ACTION" name="Delete Access Policy" status="E"/>
+<ACTION alias="CHANGE_ACCESS_POLICY_ACTION" name="Change Access Policy Status" status="E"/>
+<ACTION alias="UPDATE_ACCESS_POLICY_ACTION" name="Update Access Policy" status="E"/>
+<ACTION alias="VIEW_ACCESS_POLICY_ACTION" name="View Access Policy" status="D"/>
+</SUBMODULE>
+</MODULE>
+<MODULE alias="LDAP_DATASOURCE" name="Ldap Datasource" status="E">
+<SUBMODULE alias="LIST_LDAP_DATASOURCE" name="List Ldap Datasource" status="E">
+<ACTION alias="CHANGE_LDAP_DATASOURCE_STATUS_ACTION" name="Change Ldap Datasource Status" status="E"/>
+<ACTION alias="DELETE_LDAP_DATASOURCE_ACTION" name="Delete Ldap Datasource" status="E"/>
+<ACTION alias="UPDATE_LDAP_DATASOURCE_ACTION" name="Update Ldap Datasource" status="E"/>
+<ACTION alias="LIST_LDAP_DATASOURCE_SCHEMA_ACTION" name="List Ldap Datasource Schema" status="E"/>
+<ACTION alias="SEARCH_LDAP_DATASOURCE_FIELD_ACTION" name="Search Ldap Datasource Field" status="E"/>
+<ACTION alias="UPDATE_LDAP_DATASOURCE_FIELD_ACTION" name="Update Ldap Datasource Field" status="E"/>
+<ACTION alias="UPDATE_LDAP_DATASOURCE_DATA_ACTION" name="Update LDAP Datasource Data Action" status="E"/>
+<ACTION alias="VIEW_LDAP_DATASOURCE_ACTION" name="View LDAP Datasource Action" status="E"/>
+</SUBMODULE>
+<SUBMODULE alias="CREATE_LDAP_DATASOURCE" name="Create Ldap Datasoucre" status="E">
+<ACTION alias="CREATE_LDAP_DATASOURCE_ACTION_ACTION" name="Create Ldap Datasource" status="E"/>
+</SUBMODULE>
+</MODULE>
+<MODULE alias="DATABASE_DATASOURCE" name="Datebase Datasource" status="E">
+<SUBMODULE alias="CREATE_DATABASE_DATASOURCE" name="Create Database Datasource" status="E">
+<ACTION alias="CREATE_DATABASE_DATASOURCE_ACTION_ACTION" name="Create Database Datasource" status="E"/>
+</SUBMODULE>
+<SUBMODULE alias="LIST_DATABASE_DATASOURCE" name="List Database Datasource" status="E">
+<ACTION alias="CHANGE_DATABASE_DATASOURCE_STATUS_ACTION" name="Change Database Datasource Status" status="E"/>
+<ACTION alias="LIST_DATABASE_DATASOURCE_ACTION" name="List Database Datasource" status="E"/>
+<ACTION alias="DELETE_DATABASE_DATASOURCE_ACTION" name="Delete Database Datasource" status="E"/>
+<ACTION alias="UPDATE_DATABASE_DATASOURCE_ACTION" name="Update Database Datasource" status="E"/>
+<ACTION alias="CREATE_DATABASE_DATASOURCE_FIELD_ACTION" name="Create Database Datasource Field" status="E"/>
+<ACTION alias="SEARCH_DATABASE_DATASOURCE_FIELD_ACTION" name="Search Database Datasource Field" status="E"/>
+<ACTION alias="UPDATE_DATABASE_DATASOURCE_FIELD_ACTION" name="Update Database Datasource Field" status="E"/>
+<ACTION alias="VIEW_DATABASE_DATASOURCE_ACTION" name="View Database Datasource" status="E"/>
+<ACTION alias="UPDATE_DATABASE_DATASOURCE_DATA_ACTION" name="Update Database Datasource Data Action" status="E"/>
+</SUBMODULE>
+</MODULE>
+<MODULE alias="DICTIONARY_MANAGEMENT" name="Dictionary Management" status="E">
+<SUBMODULE alias="LIST_DICTIONARY" name="List Dictionary" status="E">
+<ACTION alias="CREATE_DICTIONARY_ACTION" name="Create Dictionary" status="E"/>
+<ACTION alias="LIST_DICTIONARY_ACTION" name="List Dictionary" status="E"/>
+<ACTION alias="DELETE_DICTIONARY_ACTION" name="Delete Dictionary" status="E"/>
+<ACTION alias="UPDATE_DICTIONARY_ACTION" name="Update Dictionary" status="E"/>
+<ACTION alias="CHANGE_DICTIONARY_STATUS_ACTION" name="Change Dictionary Status" status="E"/>
+<ACTION alias="VIEW_DICTIONARY_ACTION" name="View Dictionary" status="E"/>
+</SUBMODULE>
+</MODULE>
+<MODULE alias="RADIUS_TEST" name="Radius Test" status="D">
+<SUBMODULE alias="LIST_RADIUS_PACKET" name="List Radius Packet" status="D">
+<ACTION alias="LIST_RADIUS_PACKET" name="List Radius Packet" status="D"/>
+<ACTION alias="VIEW_RADIUS_PACKET" name="View Radius Packet" status="D"/>
+<ACTION alias="DELETE_RADIUS_PACKET" name="Delete Radius Packet" status="D"/>
+</SUBMODULE>
+<SUBMODULE alias="CREATE_RADIUS_PACKET" name="Create Radius Packet" status="D">
+<ACTION alias="CREATE_RADIUS_PACKET" name="Create Radius Packet" status="D"/>
+</SUBMODULE>
+</MODULE>
+<MODULE alias="UTILITIES" name="Utilities" status="D">
+<SUBMODULE alias="VERIFY_PASSWORD_ACTION" name="Password Verification" status="D">
+<ACTION alias="VERIFY_PASSWORD_ACTION" name="Password Verification" status="D"/>
+</SUBMODULE>
+</MODULE>
+</MODEL>
+<MODEL alias="RESOURCE_MANAGER" name="Resource Manager" status="D">
+<MODULE alias="CONCURRENT_POLICY" name="Concurrent Policy" status="D">
+<SUBMODULE alias="CREATE_CONCURRENT_LOGIN_POLICY" name="Create Concurrent Login Policy" status="D">
+<ACTION alias="CREATE_CONCURRENT_LOGIN_POLICY_ACTION" name="Create Concurrent Login Policy" status="D"/>
+</SUBMODULE>
+<SUBMODULE alias="SEARCH_CONCURRENT_LOGIN_POLICY" name="Search Concurrent Login Policy" status="D">
+<ACTION alias="CHANGE_CONCURRENT_LOGIN_POLICY_STATUS" name="Change Concurrent Login Policy Status" status="D"/>
+<ACTION alias="SEARCH_CONCURRENT_LOGIN_POLICY_ACTION" name="Search Concurrent Login Policy" status="D"/>
+<ACTION alias="DELETE_CONCURRENT_LOGIN_POLICY_ACTION" name="Delete Concurrent Login Policy" status="D"/>
+<ACTION alias="VIEW_CONCURRENT_LOGIN_POLICY_ACTION" name="View Concurrent Login Policy" status="D"/>
+<ACTION alias="UPDATE_CONCURRENT_LOGIN_POLICY_BASIC_DETAIL_ACTION" name="Update Concurrent Login Policy Basic Detail Action" status="D"/>
+<ACTION alias="UPDATE_CONCURRENT_LOGIN_POLICY_STATUS_ACTION" name="Update Concurrent Login Policy Status Action" status="D"/>
+<ACTION alias="UPDATE_CONCURRENT_POLICY_NAS_PORT_TYPE_ACTION" name="Update Concurrent Login Policy Nas Port Type Action" status="D"/>
+</SUBMODULE>
+</MODULE>
+<MODULE alias="IP_POOL" name="IP-Pool" status="D">
+<SUBMODULE alias="CREATE_IP_POOL" name="Create IP-Pool" status="D">
+<ACTION alias="CREATE_IP_POOL_ACTION" name="Create IP Pool" status="D"/>
+</SUBMODULE>
+<SUBMODULE alias="SEARCH_IP_POOL" name="Search IP-Pool" status="D">
+<ACTION alias="SEARCH_IP_POOL_ACTION" name="Search IP Pool" status="D"/>
+<ACTION alias="CHANGE_IP_POOL_STATUS_ACTION" name="Change IP Pool Status" status="D"/>
+<ACTION alias="DELETE_IP_POOL_ACTION" name="Delete IP Pool" status="D"/>
+<ACTION alias="VIEW_IP_POOL" name="View IP Pool" status="D"/>
+<ACTION alias="REMOVE_IP_ADDRESS_ACTION" name="Remove Ip Address Action" status="D"/>
+<ACTION alias="SEARCH_IP_ADDRESS_ACTION" name="Search Ip Address Action" status="D"/>
+<ACTION alias="UPDATE_IP_POOL_BASIC_DETAIL_ACTION" name="Update Ip Pool Basic Detail Action" status="D"/>
+<ACTION alias="UPDATE_IP_POOL_STATUS_ACTION" name="Update Ip Pool Status Action" status="D"/>
+<ACTION alias="VIEW_IP_POOL_DETAILS_ACTION" name="View Ip Pool Details Action" status="D"/>
+<ACTION alias="ADD_IP_ADDRESS_ACTION" name="Add Ip Address Action" status="D"/>
+</SUBMODULE>
+</MODULE>
+<MODULE alias="ACTIVE_SESSION_MANAGEMENT" name="Active Session Management" status="D">
+<SUBMODULE alias="SEARCH_ACTIVE_SESSION" name="Search Active Session" status="D">
+<ACTION alias="SEARCH_ACTIVE_SESSION_ACTION" name="Search Active Session" status="D"/>
+</SUBMODULE>
+</MODULE>
+</MODEL>
+<MODEL alias="MEDIATION" name="Mediation" status="D">
+<MODULE alias="PROCESSING_RULES" name="Processing Rules" status="D">
+<SUBMODULE alias="LIST_PROCESSING_RULES" name="List Processing Rules" status="D">
+<ACTION alias="LIST_PROCESSING_RULES_ACTION" name="List Processing Rules" status="D"/>
+</SUBMODULE>
+</MODULE>
+<MODULE alias="SEARCH_CDR_FILE" name="Search CDR File" status="D"/>
+</MODEL>
+<MODEL alias="SYSTEM" name="System" status="E">
+<MODULE alias="STAFF" name="Staff" status="E">
+<SUBMODULE alias="CREATE_STAFF" name="Create Staff" status="E">
+<ACTION alias="CREATE_STAFF_ACTION" name="Create Staff" status="E"/>
+</SUBMODULE>
+<SUBMODULE alias="SEARCH_STAFF" name="Search Staff" status="E">
+<ACTION alias="SEARCH_STAFF_ACTION" name="Search Staff" status="E"/>
+<ACTION alias="CHANGE_STAFF_STATUS_ACTION" name="Change Staff Status" status="E"/>
+<ACTION alias="DELETE_STAFF_ACTION" name="Delete Staff " status="E"/>
+<ACTION alias="VIEW_STAFF" name="View Staff" status="E"/>
+<ACTION alias="UPDATE_STAFF_BASIC_DETAIL_ACTION" name="Update Staff Basic Detail Action" status="E"/>
+<ACTION alias="UPDATE_STAFF_ACCESS_GROUP_ACTION" name="Update Staff Access Group Action" status="E"/>
+<ACTION alias="UPDATE_STAFF_PASSWORD_ACTION" name="Update Staff Password Action" status="E"/>
+<ACTION alias="UPDATE_STAFF_USER_NAME_ACTION" name="Update Staff User Name Action" status="E"/>
+<ACTION alias="UPDATE_STAFF_STATUS_ACTION" name="Update Staff Status Action" status="E"/>
+</SUBMODULE>
+<SUBMODULE alias="ACCESS_GROUP_MANAGEMENT" name="Access Group Management" status="E">
+<ACTION alias="CREATE_ACCESS_GROUP_ACTION" name="Create Access Group" status="E"/>
+<ACTION alias="DELETE_ACCESS_GROUP_ACTION" name="Delete Access Group" status="E"/>
+<ACTION alias="UPDATE_ACCESS_GROUP_ACTION" name="Update Access Group" status="E"/>
+<ACTION alias="VIEW_ACCESS_GROUP_ACTION" name="View Access Group Action" status="E"/>
+<ACTION alias="LIST_ACCESS_GROUP_ACTION" name="List Access Group Action" status="E"/>
+</SUBMODULE>
+<SUBMODULE alias="STAFF_AUDIT" name="Staff Audit" status="E">
+<ACTION alias="STAFF_AUDIT" name="Staff Audit" status="E"/>
+</SUBMODULE>
+</MODULE>
+<MODULE alias="SYSTEM_PARAMETER" name="System Parameter" status="E">
+<SUBMODULE alias="LIST_SYSTEM_PARAMETER" name="List System Parameter" status="E">
+<ACTION alias="UPDATE_SYSTEM_PARAMETER_ACTION" name="Update System Parameter Action" status="E"/>
+<ACTION alias="VIEW_SYSTEM_PARAMETERS_ACTION" name="View System Parameters Action" status="E"/>
+</SUBMODULE>
+</MODULE>
+</MODEL>
+</PROFILE>

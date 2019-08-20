@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Plugin Id : UNIVERSAL_PRE_AUTH_PLUGIN
+
+	Supported Packet Type Value.
+	i)   0 (default)
+	ii)  1 (Access Request packet)
+	
+	Supported policy Action :
+		i)   ACCEPT : Access-Accept response will be generated from the plugin and no further processing will be done and 
+			 no other policy configured will be applied.
+		ii)  REJECT : Access-Reject response will be generated from the plugin and no further processing will be done and
+			 no other policy configured will be applied.
+  		iii) DROP   : Accounting Response Packet will be dropped and no further processing will be done.
+  		iv)  NONE   : After this policy is applied Successfully ,other Policy configured will also be applied if present.
+  		v)   STOP   : After this policy is applied Successfully , no other policy configured will be applied.
+  	
+  	Supported Parameter Usage :
+  		i)   C : Check item 
+  		ii)  J : Reject item
+  		iii) R : Reply item
+  		iv)  F : Filter item , Attribute will be removed from the packet , if the value is * , no value checked will be done and the attribute will be removed.
+  				 prefix/suffix operation is also supported for the value check operation.
+  		v)   U : Update item , Attribute value will be either concatenated for String attribute or summation will be done for Integer attribute.
+  				 Prefix operation (value*) can be done only for String attribute .
+  		vi)  V :  Value Replace item , Attribute value will be replaced with the configured value.
+  		vii) A : Dynamically Assigning a value from Attribute in the packet to the Attribute defined in the attribute-value field.if the attribute is already present 
+  				 the value will be replaced else a new attribute will be added with the value from the attribute in the packet  
+  		 
+  	Note: Depending on the packet type specified , action will be performed on that packet specified by the packet type.
+  	For addition of response attribute via universal Pre Auth plugin, set packet type as 0. 
+-->
+
+<universal-plugin-policies>
+
+	<!-- Universal pre Auth Plugin policy details -->
+	<universal-pre-auth-policy-list>
+	    <universal-policy name="">	    	    
+	        <!-- 1)ACCEPT 2)REJECT 3)DROP 4) NONE 5)STOP-->
+	       	<action></action>
+	       	<reject-on-check-item-not-found></reject-on-check-item-not-found>	       	
+	   		<parameter-list>
+				<parameter>
+					<active></active>
+					<packet-type></packet-type>
+					<attr-id></attr-id>
+					<attribute-value></attribute-value>
+					<parameter-usage></parameter-usage>
+				</parameter>			
+			</parameter-list>	
+	    </universal-policy>	        
+	</universal-pre-auth-policy-list>
+	
+	<!-- Universal post Auth Plugin policy details -->
+	
+	<universal-post-auth-policy-list>	
+	    <universal-policy name="">	    
+	        <!-- 1)ACCEPT 2)REJECT 3)DROP 4) NONE 5)STOP-->
+	       	<action></action>
+	       	<reject-on-check-item-not-found></reject-on-check-item-not-found>	       	
+	        <parameter-list>
+				<parameter>
+	                <active></active>
+	                <packet-type></packet-type>
+	                <attr-id></attr-id>
+	                <attribute-value></attribute-value>
+	                <parameter-usage></parameter-usage>
+	            </parameter>
+	        </parameter-list>	
+	    </universal-policy>    
+	</universal-post-auth-policy-list>
+	
+		
+</universal-plugin-policies>

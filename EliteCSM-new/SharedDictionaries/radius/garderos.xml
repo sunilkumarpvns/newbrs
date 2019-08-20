@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="16108" vendor-name="Garderos">
+<attribute id="1" name="Garderos-Location-Name" type="string"/>
+<attribute id="2" name="Garderos-Service-Name" type="string"/>
+<attribute id="3" name="Garderos-MSISDN" type="string"/>
+<attribute id="4" name="Garderos-Proxy" type="string"/>
+</attribute-list>

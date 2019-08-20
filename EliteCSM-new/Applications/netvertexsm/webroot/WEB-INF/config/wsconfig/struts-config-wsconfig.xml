@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    
+    <form-beans>
+      <form-bean name="subscriberWSDatabaseConfigForm" type="com.elitecore.netvertexsm.web.wsconfig.sprmgmt.forms.SubscriberWSDatabaseConfigForm" />
+    </form-beans>
+                   
+    <action-mappings> 
+      <action path="/initSubscriberWSDatabaseConfig"  
+          type="com.elitecore.netvertexsm.web.wsconfig.sprmgmt.InitSubscriberWSDatabaseConfigAction"   
+          name="subscriberWSDatabaseConfigForm"
+          scope="request"     
+          validate="false">  
+        <forward name="updateSubscriberWSDatabaseConfig" path="/jsp/wsconfig/UpdateSubscriberWSDatabaseConfig.jsp" />
+     </action>  
+     <action path="/listNetServerInstance"
+				type="com.elitecore.netvertexsm.web.servermgr.server.ListNetServerInstanceAction"
+				scope="request"
+				name="listNetServerInstanceForm"
+				validate="false">
+				<forward name="listNetServerInstance" path="/jsp/servermgr/server/ListNetServerInstance.jsp"></forward>
+		</action>
+ 
+     <action path="/subscriberWSDatabaseConfig"  
+          type="com.elitecore.netvertexsm.web.wsconfig.sprmgmt.SubscriberWSDatabaseConfigAction"   
+          name="subscriberWSDatabaseConfigForm"
+          scope="request"
+          validate="false">  
+          <forward name="updateSubscriberWSDatabaseConfig" path="/jsp/wsconfig/UpdateSubscriberWSDatabaseConfig.jsp" />
+     </action>  
+   </action-mappings>  
+
+<message-resources key="webServiceConfigResources" parameter="com.elitecore.netvertexsm.web.wsconfig.WebServiceConfigResources" null="false"/>
+
+</struts-config> 

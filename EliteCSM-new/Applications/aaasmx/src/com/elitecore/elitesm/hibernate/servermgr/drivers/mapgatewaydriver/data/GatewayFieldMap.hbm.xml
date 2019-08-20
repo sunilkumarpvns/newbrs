@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class  name="com.elitecore.elitesm.datamanager.servermgr.drivers.mapgatewaydriver.data.GatewayFieldMapData" table="TBLMGATEWAYFIELDMAP">
+
+		<id name="profileFieldMapId" column="PROFILEFIELDMAPID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="logicalName" type="StringType"> 
+			<column name="LOGICALNAME" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="profileField" type="StringType"> 
+			<column name="PROFILEFIELD" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="mapAuthId" type="StringType"> 
+			<column name="MAPGWAUTHID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="defaultValue" type="StringType"> 
+			<column name="DEFAULTVALUE" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<property name="valueMapping" type="StringType"> 
+			<column name="VALUEMAPPING" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false" /> 
+		
+		<many-to-one name="nameValuePoolData" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.drivers.data.LogicalNameValuePoolData" column="logicalname" property-ref="value" lazy="false" fetch="join"></many-to-one>
+		<many-to-one name="profileFieldValuePoolData" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.drivers.data.ProfileFieldValuePoolData" column="PROFILEFIELD" property-ref="value" lazy="false" fetch="join"></many-to-one>    
+	</class>
+
+</hibernate-mapping> 
+
+
+	

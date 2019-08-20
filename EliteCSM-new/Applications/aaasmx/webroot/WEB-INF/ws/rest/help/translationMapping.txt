@@ -1,0 +1,854 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping?name=Translation_mapping&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping.xml?name=Translation_mapping
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping?operation=search&name=Translation_mapping&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping.xml?operation=search&name=Translation_mapping
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping.xml?operation=search
+
+Response     :
+
+<translation-mapping-config>
+    <name>Translation_mapping</name>
+    <description>Created by admin on 12/19/2016 11:51:44 AM</description>
+    <script>translation-mapping-script</script>
+    <from-translation-type>DIAMETER</from-translation-type>
+    <to-translation-type>DIAMETER</to-translation-type>
+    <base-translation-mapping>Translation_mapping_One</base-translation-mapping>
+    <mappings>
+        <mapping>
+            <mapping-name>mapping1</mapping-name>
+            <in-message>PacketType="1"</in-message>
+            <out-message>Auth-Method</out-message>
+            <dummy-response>false</dummy-response>
+            <default-mapping>false</default-mapping>
+            <request-parameters>
+                <request-parameter>
+                    <check-expression>0:4=121.23.25.56</check-expression>
+                    <mapping-expression>USERNAME=21067:125</mapping-expression>
+                    <default-value>Test</default-value>
+                    <value-mapping>mapping1=MAPPING1</value-mapping>
+                </request-parameter>
+            </request-parameters>
+            <response-parameters>
+                <response-parameter>
+                    <check-expression>0:4=121.23.25.56</check-expression>
+                    <mapping-expression>USERNAME=21067:125</mapping-expression>
+                    <default-value>Test</default-value>
+                    <value-mapping>mapping1=MAPPING1</value-mapping>
+                </response-parameter>
+            </response-parameters>
+        </mapping>
+        <mapping>
+            <mapping-name>mapping2</mapping-name>
+            <in-message>PacketType="41"</in-message>
+            <out-message>ReAuth-Method</out-message>
+            <dummy-response>true</dummy-response>
+            <default-mapping>false</default-mapping>
+        </mapping>
+        <mapping>
+            <mapping-name>mapping3</mapping-name>
+            <in-message>0:6="Authorize-Only"</in-message>
+            <out-message>Acct-Method</out-message>
+            <dummy-response>false</dummy-response>
+            <default-mapping>true</default-mapping>
+        </mapping>
+    </mappings>
+    <default-mapping>
+        <request-parameters>
+            <request-parameter>
+                <check-expression>0:4=121.21.21.21</check-expression>
+                <mapping-expression>USERNAME=21067:125</mapping-expression>
+                <default-value>req_default</default-value>
+                <value-mapping>default mapping = DEFAULT-MAPPING</value-mapping>
+            </request-parameter>
+        </request-parameters>
+        <response-parameters>
+            <response-parameter>
+                <check-expression>0:4=198.160.2.2</check-expression>
+                <mapping-expression>USERNAME=21067:125</mapping-expression>
+                <default-value>res_default</default-value>
+                <value-mapping>default mapping = DEFAULT-MAPPING</value-mapping>
+            </response-parameter>
+        </response-parameters>
+    </default-mapping>
+    <dummy-response-parameters>
+        <dummy-response-parameter>
+            <out-field>0:4</out-field>
+            <value>121.30.30.30</value>
+        </dummy-response-parameter>
+        <dummy-response-parameter>
+            <out-field>0:25</out-field>
+            <value>class</value>
+        </dummy-response-parameter>
+    </dummy-response-parameters>
+</translation-mapping-config>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping?name=Translation_mapping&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping.json?name=Translation_mapping
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping?operation=search&name=Translation_mapping&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping.json?operation=search&name=Translation_mapping
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping.json?operation=search
+
+Response     :
+
+{
+   "name":"Translation_mapping",
+   "description":"Created by admin on 12/19/2016 11:51:44 AM",
+   "script":"translation-mapping-script",
+   "from-translation-type":"DIAMETER",
+   "to-translation-type":"DIAMETER",
+   "base-translation-mapping": "Translation_mapping_One",
+   "mappings":[
+      {
+         "mapping-name":"mapping1",
+         "in-message":"PacketType=\"1\"",
+         "out-message":"Auth-Method",
+         "dummy-response":"false",
+         "default-mapping":"false",
+         "request-parameters":[
+            {
+               "check-expression":"0:4=121.23.25.56",
+               "mapping-expression":"USERNAME=21067:125",
+               "default-value":"Test",
+               "value-mapping":"mapping1=MAPPING1"
+            }
+         ],
+         "response-parameters":[
+            {
+               "check-expression":"0:4=121.23.25.56",
+               "mapping-expression":"USERNAME=21067:125",
+               "default-value":"Test",
+               "value-mapping":"mapping1=MAPPING1"
+            }
+         ]
+      },
+      {
+         "mapping-name":"mapping2",
+         "in-message":"PacketType=\"41\"",
+         "out-message":"ReAuth-Method",
+         "dummy-response":"true",
+         "default-mapping":"false"
+      },
+      {
+         "mapping-name":"mapping3",
+         "in-message":"0:6=\"Authorize-Only\"",
+         "out-message":"Acct-Method",
+         "dummy-response":"false",
+         "default-mapping":"true"
+      }
+   ],
+   "default-mapping":{
+      "request-parameters":[
+         {
+            "check-expression":"0:4=121.21.21.21",
+            "mapping-expression":"USERNAME=21067:125",
+            "default-value":"req_default",
+            "value-mapping":"default mapping = DEFAULT-MAPPING"
+         }
+      ],
+      "response-parameters":[
+         {
+            "check-expression":"0:4=198.160.2.2",
+            "mapping-expression":"USERNAME=21067:125",
+            "default-value":"res_default",
+            "value-mapping":"default mapping = DEFAULT-MAPPING"
+         }
+      ]
+   },
+   "dummy-response-parameters":[
+      {
+         "out-field":"0:4",
+         "value":"121.30.30.30"
+      },
+      {
+         "out-field":"0:25",
+         "value":"class"
+      }
+   ]
+}
+
+***********************************************************************
+                    CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<translation-mapping-config>
+    <name>Translation_mapping</name>
+    <description>Created by admin on 12/19/2016 11:51:44 AM</description>
+    <script>translation-mapping-script</script>
+    <from-translation-type>DIAMETER</from-translation-type>
+    <to-translation-type>DIAMETER</to-translation-type>
+    <base-translation-mapping>Translation_mapping_One</base-translation-mapping>
+    <mappings>
+        <mapping>
+            <mapping-name>mapping1</mapping-name>
+            <in-message>PacketType="1"</in-message>
+            <out-message>Auth-Method</out-message>
+            <dummy-response>false</dummy-response>
+            <default-mapping>false</default-mapping>
+            <request-parameters>
+                <request-parameter>
+                    <check-expression>0:4=121.23.25.56</check-expression>
+                    <mapping-expression>USERNAME=21067:125</mapping-expression>
+                    <default-value>Test</default-value>
+                    <value-mapping>mapping1=MAPPING1</value-mapping>
+                </request-parameter>
+            </request-parameters>
+            <response-parameters>
+                <response-parameter>
+                    <check-expression>0:4=121.23.25.56</check-expression>
+                    <mapping-expression>USERNAME=21067:125</mapping-expression>
+                    <default-value>Test</default-value>
+                    <value-mapping>mapping1=MAPPING1</value-mapping>
+                </response-parameter>
+            </response-parameters>
+        </mapping>
+        <mapping>
+            <mapping-name>mapping2</mapping-name>
+            <in-message>PacketType="41"</in-message>
+            <out-message>ReAuth-Method</out-message>
+            <dummy-response>true</dummy-response>
+            <default-mapping>false</default-mapping>
+        </mapping>
+        <mapping>
+            <mapping-name>mapping3</mapping-name>
+            <in-message>0:6="Authorize-Only"</in-message>
+            <out-message>Acct-Method</out-message>
+            <dummy-response>false</dummy-response>
+            <default-mapping>true</default-mapping>
+        </mapping>
+    </mappings>
+    <default-mapping>
+        <request-parameters>
+            <request-parameter>
+                <check-expression>0:4=121.21.21.21</check-expression>
+                <mapping-expression>USERNAME=21067:125</mapping-expression>
+                <default-value>req_default</default-value>
+                <value-mapping>default mapping = DEFAULT-MAPPING</value-mapping>
+            </request-parameter>
+        </request-parameters>
+        <response-parameters>
+            <response-parameter>
+                <check-expression>0:4=198.160.2.2</check-expression>
+                <mapping-expression>USERNAME=21067:125</mapping-expression>
+                <default-value>res_default</default-value>
+                <value-mapping>default mapping = DEFAULT-MAPPING</value-mapping>
+            </response-parameter>
+        </response-parameters>
+    </default-mapping>
+    <dummy-response-parameters>
+        <dummy-response-parameter>
+            <out-field>0:4</out-field>
+            <value>121.30.30.30</value>
+        </dummy-response-parameter>
+        <dummy-response-parameter>
+            <out-field>0:25</out-field>
+            <value>class</value>
+        </dummy-response-parameter>
+    </dummy-response-parameters>
+</translation-mapping-config>
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Translation Mapping created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "name":"Translation_mapping",
+   "description":"Created by admin on 12/19/2016 11:51:44 AM",
+   "script":"translation-mapping-script",
+   "from-translation-type":"DIAMETER",
+   "to-translation-type":"DIAMETER",
+   "base-translation-mapping": "Translation_mapping_One",
+   "mappings":[
+      {
+         "mapping-name":"mapping1",
+         "in-message":"PacketType=\"1\"",
+         "out-message":"Auth-Method",
+         "dummy-response":"false",
+         "default-mapping":"false",
+         "request-parameters":[
+            {
+               "check-expression":"0:4=121.23.25.56",
+               "mapping-expression":"USERNAME=21067:125",
+               "default-value":"Test",
+               "value-mapping":"mapping1=MAPPING1"
+            }
+         ],
+         "response-parameters":[
+            {
+               "check-expression":"0:4=121.23.25.56",
+               "mapping-expression":"USERNAME=21067:125",
+               "default-value":"Test",
+               "value-mapping":"mapping1=MAPPING1"
+            }
+         ]
+      },
+      {
+         "mapping-name":"mapping2",
+         "in-message":"PacketType=\"41\"",
+         "out-message":"ReAuth-Method",
+         "dummy-response":"true",
+         "default-mapping":"false"
+      },
+      {
+         "mapping-name":"mapping3",
+         "in-message":"0:6=\"Authorize-Only\"",
+         "out-message":"Acct-Method",
+         "dummy-response":"false",
+         "default-mapping":"true"
+      }
+   ],
+   "default-mapping":{
+      "request-parameters":[
+         {
+            "check-expression":"0:4=121.21.21.21",
+            "mapping-expression":"USERNAME=21067:125",
+            "default-value":"req_default",
+            "value-mapping":"default mapping = DEFAULT-MAPPING"
+         }
+      ],
+      "response-parameters":[
+         {
+            "check-expression":"0:4=198.160.2.2",
+            "mapping-expression":"USERNAME=21067:125",
+            "default-value":"res_default",
+            "value-mapping":"default mapping = DEFAULT-MAPPING"
+         }
+      ]
+   },
+   "dummy-response-parameters":[
+      {
+         "out-field":"0:4",
+         "value":"121.30.30.30"
+      },
+      {
+         "out-field":"0:25",
+         "value":"class"
+      }
+   ]
+}
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Translation Mapping created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+    <translation-mapping-config>
+        <name>Translation_mapping_Two</name>
+        <description>Created by admin on 12/19/2016 11:51:44 AM</description>
+        <script>translation-mapping-script</script>
+        <from-translation-type>DIAMETER</from-translation-type>
+        <to-translation-type>DIAMETER</to-translation-type>
+        <base-translation-mapping>Translation_mapping_one</base-translation-mapping>
+        <mappings>
+            <mapping>
+                <mapping-name>mapping1</mapping-name>
+                <in-message>PacketType="1"</in-message>
+                <out-message>Auth-Method</out-message>
+                <dummy-response>false</dummy-response>
+                <default-mapping>false</default-mapping>
+                <request-parameters>
+                    <request-parameter>
+                        <check-expression>0:4=121.23.25.56</check-expression>
+                        <mapping-expression>USERNAME=21067:125</mapping-expression>
+                        <default-value>Test</default-value>
+                        <value-mapping>mapping1=MAPPING1</value-mapping>
+                    </request-parameter>
+                </request-parameters>
+                <response-parameters>
+                    <response-parameter>
+                        <check-expression>0:4=121.23.25.56</check-expression>
+                        <mapping-expression>USERNAME=21067:125</mapping-expression>
+                        <default-value>Test</default-value>
+                        <value-mapping>mapping1=MAPPING1</value-mapping>
+                    </response-parameter>
+                </response-parameters>
+            </mapping>
+            <mapping>
+                <mapping-name>mapping2</mapping-name>
+                <in-message>PacketType="41"</in-message>
+                <out-message>ReAuth-Method</out-message>
+                <dummy-response>true</dummy-response>
+                <default-mapping>false</default-mapping>
+            </mapping>
+            <mapping>
+                <mapping-name>mapping3</mapping-name>
+                <in-message>0:6="Authorize-Only"</in-message>
+                <out-message>Acct-Method</out-message>
+                <dummy-response>false</dummy-response>
+                <default-mapping>true</default-mapping>
+            </mapping>
+        </mappings>
+        <default-mapping>
+            <request-parameters>
+                <request-parameter>
+                    <check-expression>0:4=121.21.21.21</check-expression>
+                    <mapping-expression>USERNAME=21067:125</mapping-expression>
+                    <default-value>req_default</default-value>
+                    <value-mapping>default mapping = DEFAULT-MAPPING</value-mapping>
+                </request-parameter>
+            </request-parameters>
+            <response-parameters>
+                <response-parameter>
+                    <check-expression>0:4=198.160.2.2</check-expression>
+                    <mapping-expression>USERNAME=21067:125</mapping-expression>
+                    <default-value>res_default</default-value>
+                    <value-mapping>default mapping = DEFAULT-MAPPING</value-mapping>
+                </response-parameter>
+            </response-parameters>
+        </default-mapping>
+        <dummy-response-parameters>
+            <dummy-response-parameter>
+                <out-field>0:25</out-field>
+                <value>class</value>
+            </dummy-response-parameter>
+            <dummy-response-parameter>
+                <out-field>0:4</out-field>
+                <value>121.30.30.30</value>
+            </dummy-response-parameter>
+        </dummy-response-parameters>
+    </translation-mapping-config>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Translation Mapping(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"Translation_mapping_Two",
+         "description":"Created by admin on 12/19/2016 11:51:44 AM",
+         "script":"translation-mapping-script",
+         "from-translation-type":"DIAMETER",
+         "to-translation-type":"DIAMETER",
+         "base-translation-mapping":"Translation_mapping_one",
+         "mappings":[
+            {
+               "mapping-name":"mapping1",
+               "in-message":"PacketType=\"1\"",
+               "out-message":"Auth-Method",
+               "dummy-response":"false",
+               "default-mapping":"false",
+               "request-parameters":[
+                  {
+                     "check-expression":"0:4=121.23.25.56",
+                     "mapping-expression":"USERNAME=21067:125",
+                     "default-value":"Test",
+                     "value-mapping":"mapping1=MAPPING1"
+                  }
+               ],
+               "response-parameters":[
+                  {
+                     "check-expression":"0:4=121.23.25.56",
+                     "mapping-expression":"USERNAME=21067:125",
+                     "default-value":"Test",
+                     "value-mapping":"mapping1=MAPPING1"
+                  }
+               ]
+            },
+            {
+               "mapping-name":"mapping2",
+               "in-message":"PacketType=\"41\"",
+               "out-message":"ReAuth-Method",
+               "dummy-response":"true",
+               "default-mapping":"false"
+            },
+            {
+               "mapping-name":"mapping3",
+               "in-message":"0:6=\"Authorize-Only\"",
+               "out-message":"Acct-Method",
+               "dummy-response":"false",
+               "default-mapping":"true"
+            }
+         ],
+         "default-mapping":{
+            "request-parameters":[
+               {
+                  "check-expression":"0:4=121.21.21.21",
+                  "mapping-expression":"USERNAME=21067:125",
+                  "default-value":"req_default",
+                  "value-mapping":"default mapping = DEFAULT-MAPPING"
+               }
+            ],
+            "response-parameters":[
+               {
+                  "check-expression":"0:4=198.160.2.2",
+                  "mapping-expression":"USERNAME=21067:125",
+                  "default-value":"res_default",
+                  "value-mapping":"default mapping = DEFAULT-MAPPING"
+               }
+            ]
+         },
+         "dummy-response-parameters":[
+            {
+               "out-field":"0:25",
+               "value":"class"
+            },
+            {
+               "out-field":"0:4",
+               "value":"121.30.30.30"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Translation Mapping(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping?name=Translation_mapping
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping?operation=update&name=Translation_mapping
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<translation-mapping-config>
+    <name>Translation_mapping</name>
+    <description>Created by admin on 12/19/2016 11:51:44 AM</description>
+    <script>translation-mapping-script</script>
+    <from-translation-type>DIAMETER</from-translation-type>
+    <to-translation-type>DIAMETER</to-translation-type>
+    <base-translation-mapping>Translation_mapping_One</base-translation-mapping>
+    <mappings>
+        <mapping>
+            <mapping-name>mapping1</mapping-name>
+            <in-message>PacketType="1"</in-message>
+            <out-message>Auth-Method</out-message>
+            <dummy-response>false</dummy-response>
+            <default-mapping>false</default-mapping>
+            <request-parameters>
+                <request-parameter>
+                    <check-expression>0:4=121.23.25.56</check-expression>
+                    <mapping-expression>USERNAME=21067:125</mapping-expression>
+                    <default-value>Test</default-value>
+                    <value-mapping>mapping1=MAPPING1</value-mapping>
+                </request-parameter>
+            </request-parameters>
+            <response-parameters>
+                <response-parameter>
+                    <check-expression>0:4=121.23.25.56</check-expression>
+                    <mapping-expression>USERNAME=21067:125</mapping-expression>
+                    <default-value>Test</default-value>
+                    <value-mapping>mapping1=MAPPING1</value-mapping>
+                </response-parameter>
+            </response-parameters>
+        </mapping>
+        <mapping>
+            <mapping-name>mapping2</mapping-name>
+            <in-message>PacketType="41"</in-message>
+            <out-message>ReAuth-Method</out-message>
+            <dummy-response>true</dummy-response>
+            <default-mapping>false</default-mapping>
+        </mapping>
+        <mapping>
+            <mapping-name>mapping3</mapping-name>
+            <in-message>0:6="Authorize-Only"</in-message>
+            <out-message>Acct-Method</out-message>
+            <dummy-response>false</dummy-response>
+            <default-mapping>true</default-mapping>
+        </mapping>
+    </mappings>
+    <default-mapping>
+        <request-parameters>
+            <request-parameter>
+                <check-expression>0:4=121.21.21.21</check-expression>
+                <mapping-expression>USERNAME=21067:125</mapping-expression>
+                <default-value>req_default</default-value>
+                <value-mapping>default mapping = DEFAULT-MAPPING</value-mapping>
+            </request-parameter>
+        </request-parameters>
+        <response-parameters>
+            <response-parameter>
+                <check-expression>0:4=198.160.2.2</check-expression>
+                <mapping-expression>USERNAME=21067:125</mapping-expression>
+                <default-value>res_default</default-value>
+                <value-mapping>default mapping = DEFAULT-MAPPING</value-mapping>
+            </response-parameter>
+        </response-parameters>
+    </default-mapping>
+    <dummy-response-parameters>
+        <dummy-response-parameter>
+            <out-field>0:4</out-field>
+            <value>121.30.30.30</value>
+        </dummy-response-parameter>
+        <dummy-response-parameter>
+            <out-field>0:25</out-field>
+            <value>class</value>
+        </dummy-response-parameter>
+    </dummy-response-parameters>
+</translation-mapping-config>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Translation mapping updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+   "name":"Translation_mapping",
+   "description":"Created by admin on 12/19/2016 11:51:44 AM",
+   "script":"translation-mapping-script",
+   "from-translation-type":"DIAMETER",
+   "to-translation-type":"DIAMETER",
+   "base-translation-mapping": "Translation_mapping_One",
+   "mappings":[
+      {
+         "mapping-name":"mapping1",
+         "in-message":"PacketType=\"1\"",
+         "out-message":"Auth-Method",
+         "dummy-response":"false",
+         "default-mapping":"false",
+         "request-parameters":[
+            {
+               "check-expression":"0:4=121.23.25.56",
+               "mapping-expression":"USERNAME=21067:125",
+               "default-value":"Test",
+               "value-mapping":"mapping1=MAPPING1"
+            }
+         ],
+         "response-parameters":[
+            {
+               "check-expression":"0:4=121.23.25.56",
+               "mapping-expression":"USERNAME=21067:125",
+               "default-value":"Test",
+               "value-mapping":"mapping1=MAPPING1"
+            }
+         ]
+      },
+      {
+         "mapping-name":"mapping2",
+         "in-message":"PacketType=\"41\"",
+         "out-message":"ReAuth-Method",
+         "dummy-response":"true",
+         "default-mapping":"false"
+      },
+      {
+         "mapping-name":"mapping3",
+         "in-message":"0:6=\"Authorize-Only\"",
+         "out-message":"Acct-Method",
+         "dummy-response":"false",
+         "default-mapping":"true"
+      }
+   ],
+   "default-mapping":{
+      "request-parameters":[
+         {
+            "check-expression":"0:4=121.21.21.21",
+            "mapping-expression":"USERNAME=21067:125",
+            "default-value":"req_default",
+            "value-mapping":"default mapping = DEFAULT-MAPPING"
+         }
+      ],
+      "response-parameters":[
+         {
+            "check-expression":"0:4=198.160.2.2",
+            "mapping-expression":"USERNAME=21067:125",
+            "default-value":"res_default",
+            "value-mapping":"default mapping = DEFAULT-MAPPING"
+         }
+      ]
+   },
+   "dummy-response-parameters":[
+      {
+         "out-field":"0:4",
+         "value":"121.30.30.30"
+      },
+      {
+         "out-field":"0:25",
+         "value":"class"
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Translation mapping updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping?name=Translation_mapping
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping?operation=delete&name=Translation_mapping
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/translationmapping/Translation_mapping?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Translation Mapping(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************
+						Additional Details(Properties as per SM)
+***********************************************************************
+# From translation type can be any of :
+ 	1) DIAMETER
+ 	2) WEB-SERVICE
+ 	3) RADIUS
+ 
+# To translation type can be any of :
+	1) DIAMETER
+	2) CRESTEL-RATING
+	3) CRESTEL-OCSv2
+	4) RADIUS
+	
+# Possible combination of translation type of Translation mapping as per following:
+	
+		From Translation Type	To Translation Type
+		
+	1.  RADIUS					DIAMETER
+	2.	RADIUS					CRESTEL-RATING
+	3.	RADIUS					RADIUS
+	4.	RADIUS					CRESTEL-OCSv2
+	5.  DIAMETER				DIAMETER
+	6.	DIAMETER                CRESTEL-RATING
+	7.	DIAMETER                RADIUS
+	8.  DIAMETER                CRESTEL-OCSv2
+	9.  WEB-SERVICE				DIAMETER
+		 	
+# Base Translation Mapping will be name of translation mapping of same translation type.
+
+# Value of default-mapping can be:
+	1) true
+	2) false
+
+# Value of dummy-response can be:
+	1) true
+	2) false	 	

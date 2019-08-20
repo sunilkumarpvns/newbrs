@@ -1,0 +1,228 @@
+plugins {
+    id "net.rdrei.android.buildtimetracker" version "0.11.0" apply false
+}
+
+subprojects {
+    apply plugin: 'net.rdrei.android.buildtimetracker'
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
+
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    // configuration for task test
+    tasks.withType(Test) {
+        jvmArgs = ['-Xms1024m', '-Xmx2048m']
+        ///maxParallelForks = Runtime.runtime.availableProcessors()
+	// This helps in resolving the problem of inner class tests being executed
+        exclude "**/*\$*"
+
+        testLogging {
+            // Show that tests are run in the command-line output
+            events 'SKIPPED', 'FAILED'
+            //showStandardStreams = true
+        }
+    }
+
+    buildtimetracker {
+        reporters {
+            csv {
+                output "build/times.csv"
+                append true
+                header false
+            }
+
+            summary {
+                ordered false
+                threshold 50
+                barstyle "unicode"
+            }
+
+            csvSummary {
+                csv "build/times.csv"
+            }
+        }
+    }
+
+
+    gradle.projectsEvaluated {
+        compileJava.dependsOn(injectVersionInfo)
+    }
+
+    task('injectVersionInfo').doLast {
+
+        if (project.hasProperty('release.version') == false && System.getenv('RELEASE_VERSION') == null) {
+            print "release version property not found for project ${project.name}"
+            return;
+        }
+
+        if (project.hasProperty('release.minor.version') == false && System.getenv('RELEASE_MINOR_VERSION') == null) {
+            print "release minor version property not found for project ${project.name}"
+            return;
+        }
+
+        if ((project.hasProperty('packageName') && project.hasProperty('moduleName') && project.hasProperty('filepath')) == false) {
+            return
+        }
+
+        println "property found for project ${project.name}"
+
+        def versionFile = file(project.filepath);
+
+		if (versionFile.exists() == false) {
+			return
+		}
+
+        def releaseVersion = System.getenv('RELEASE_VERSION')
+        if(releaseVersion == null) {
+            releaseVersion = project.properties['release.version']
+        }
+
+
+        def releaseMinorVersion = System.getenv('RELEASE_MINOR_VERSION')
+        if(releaseMinorVersion == null) {
+            releaseMinorVersion = project.properties['release.minor.version']
+        }
+
+
+		def releaseDate = Calendar.getInstance().time.dateTimeString;
+        def buildNumber = System.getenv('BUILD_NUMBER');
+        def commit = System.getenv('GIT_COMMIT');
+        def branch = System.getenv('GIT_BRANCH');
+
+
+        versionFile.write("package ${project.packageName};\n" +
+                "              public class Version {\n" +
+                "                  public static String getVersion() {\n" +
+                "                      return \"${releaseVersion}.${releaseMinorVersion}\";\n" +
+                "                  }\n" +
+                "                  public static String getMajorVersion() {\n" +
+                "                      return \"${releaseVersion}\";\n" +
+                "                  }\n" +
+                "                  public static String getReleaseDate() {\n" +
+                "                      return \"${releaseDate}\";\n" +
+                "                  }\n" +
+                "\n" +
+                "                  public static String getModuleName() {\n" +
+                "                      return \"${project.moduleName}\";\n" +
+                "                  }\n" +
+                "\n" +
+                "                  public static String getSVNRevision() {\n" +
+                "                      return \"${commit}\";\n" +
+                "                  }\n" +
+                "\n" +
+                "                  public static String getCommit() {\n" +
+                "                      return \"${commit}\";\n" +
+                "                  }\n" +
+                "\n" +
+                "                  public static String getBranchName() {\n" +
+                "                      return \"${branch}\";\n" +
+                "                  }\n" +
+                "\n" +
+                "                  public static String getBuildNumber() {\n" +
+                "                      return \"${buildNumber}\";\n" +
+                "                  }\n" +
+                "\n" +
+                "                  public static void main(String args[])throws Exception {\n" +
+                "                      if (args.length > 0 && args[0].equals(\"credits\")) {\n" +
+                "                          char[][] tags = {\n" +
+                "\t\t\t\t\t\t\t{69, 108, 105, 116, 101, 65, 65, 65, 32, 45, 32, 69, 108, 105, 116, 101, 99, 111, 114, 101, 32, 84, 101, 99, 104, 110, 111, 108, 111, 103, 105, 101, 115, 32, 80, 118, 116, 46, 32, 76, 116, 100, 46},\n" +
+                "\t\t\t\t\t\t\t{32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 69, 109, 112, 111, 119, 101, 114, 105, 110, 103, 32, 78, 101, 116, 119, 111, 114, 107, 115, 32, 102, 111, 114, 32, 66, 117, 115, 105, 110, 101, 115, 115}, {32},\n" +
+                "\t\t\t\t\t\t\t{77, 97, 106, 111, 114, 32, 67, 111, 110, 116, 114, 105, 98, 117, 116, 111, 114, 115},\n" +
+                "\t\t\t\t\t\t\t{83, 117, 109, 105, 116, 32, 80, 97, 110, 100, 121, 97},\n" +
+                "\t\t\t\t\t\t\t{69, 122, 104, 97, 118, 97, 32, 66, 97, 105, 106, 117},\n" +
+                "\t\t\t\t\t\t\t{83, 117, 98, 104, 97, 115, 104, 32, 80, 117, 110, 97, 110, 105},\n" +
+                "\t\t\t\t\t\t\t{68, 104, 97, 118, 97, 108, 32, 78, 97, 110, 97, 118, 97, 116, 105 }};\t\t\t  \n" +
+                "                          for(int i=0; i<4; i++) {\n" +
+                "                              System.out.println(\"  \" + new String(tags[i]));\n" +
+                "                          }\n" +
+                "                          for(int i=4; i < tags.length; i++) {\n" +
+                "                              System.out.println(\"  - \" + new String(tags[i]));\n" +
+                "                          }\n" +
+                "                      } else {\n" +
+                "                          System.out.println(\"Elitecore Technologies Ltd.\");\n" +
+                "                          System.out.println(\"Module    : \" + getModuleName());\n" +
+                "                          System.out.println(\"Version   : \" + getVersion());\n" +
+                "                          System.out.println(\"Revision  : \" + getSVNRevision());\n" +
+                "                          System.out.println(\"Date      : \" + getReleaseDate());\n" +
+                "                      }\n" +
+                "                  }\n" +
+                "              }")
+
+		println versionFile.text
+    }
+
+	repositories {
+
+        maven { url "http://192.168.2.138:10000/artifactory/libs-snapshot-local"}
+        maven { url "http://192.168.2.138:10000/artifactory/libs-release-local"}
+        maven { url "http://192.168.2.138:10000/artifactory/jcenter"}
+        mavenCentral()
+    }
+
+    dependencies {
+
+        compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
+        testCompile(group: 'pl.pragmatists', name: 'JUnitParams', version: '1.0.0-SNAPSHOT')
+        testCompile group: 'org.apache.derby', name: 'derby', version: '10.13.1.1'
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        testCompile group: 'de.bechte.junit', name: 'junit-hierarchicalcontextrunner', version: '4.12.1'
+        testCompile group: 'org.mockito', name: 'mockito-core', version: '1.10.16'
+        testCompile group: 'org.unitils', name: 'unitils-core', version: '3.4.6'
+
+    }
+}
+
+configure(subprojects.findAll { it.name != 'aaasmx' && it.name != 'nvsmx' && it.name != 'netvertexsm' }) {
+    apply plugin: 'java'
+
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src']
+
+            }
+            resources {
+                srcDirs = ['src/resources']
+            }
+        }
+
+        test {
+            java {
+                srcDir 'testsrc'
+                exclude 'resources/'
+            }
+
+            resources {
+                srcDirs = ['testsrc/resources']
+            }
+        }
+    }
+}
+
+task ('releaseNetvertex') {
+
+    dependsOn 'nvsmx:distTarForInstallation', 'nvsmx:distTarForUpgrade', 'netvertex:fullsetUpTask', 'netvertex:upgradeSetUpTask'
+}
+
+task ('buildEliteAAA') {
+
+    dependsOn 'aaasmx:distTarForInstallation', 'aaasmx:distTarForUpgrade', 'eliteaaa:fullsetUpTask', 'eliteaaa:upgradeSetUpTask'
+}
+
+
+
+
+
+
+
+
+
+

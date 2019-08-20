@@ -1,0 +1,22 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_rncp_package,POST : Create Rnc Package rest_po_rnc_package : 201,pd/rncpackage/rnc-package.json,POST,create_rnc_package_product_offer.json,,86075,201,rnc package
+2,create_non_mon_rc,POST : Create Non Monetary Rate card rest_non_monetary_rate_card : 201,pd/nonmonetaryratecard/non-monetary-rate-card.json,POST,create_non_mon_rc_po.json,,86076,201,non monetary rate card
+3,create_rate_cg,POST : Create Rate card group rest_rate_card_group : 201,pd/ratecardgroup/rate-card-group.json,POST,create_rcg_po.json,,86077,201,rate card group
+4,get_created_rncp_package,GET : rest_po_rnc_package should be displayed : 200,pd/rncpackage/rnc-package/rest_po_rnc_package_11111111.json,GET,,,86078,200,rnc package
+5,create_addon_product_offer,POST : Create Add OnProduct Offer rest_addon_product_offer : 201,pd/productoffer/product-offer.json,POST,create_addon_product_offer.json,,33562,201,product offer
+6,get_created_addon_product_offer,GET : rest_addon_product_offer should be displayed : 200,pd/productoffer/product-offer/rest_addon_product_offer_11111111.json,GET,,,33563,200,product offer
+7,create_addon_product_offer2,POST : Create Add OnProduct Offer2 rest_addon_product_offer2 : 201,pd/productoffer/product-offer.json,POST,create_addon_product_offer2.json,,86054,201,product offer
+8,get_created_addon_product_offer2,GET : rest_addon_product_offer2 should be displayed : 200,pd/productoffer/product-offer/rest_addon_product_offer_11111112.json,GET,,,86055,200,product offer
+9,reload_policy,GET : Reload Policy using Restful web service : 200,rest/restful/policy/reload/policy,GET,,,86079,200,reload
+10,create_product_offer,POST : Create Product Offer rest_product_offer : 201,pd/productoffer/product-offer.json,POST,create_product_offer.json,,33334,201,product offer
+11,reload_policy,GET : Reload Policy using Restful web service : 200,rest/restful/policy/reload/policy,GET,,,86080,200,reload
+12,create_product_offer_association,PUT : Create Product offer association : 200,pd/productoffer/product-offer/rest_product_offer_11111111/addServicePkgRelations.json,PUT,create_product_offer_association.json,,33335,200,product offer
+13,create_product_offer_auto_subscription,PUT : Create Product offer auto subscription : 200,pd/productoffer/product-offer/rest_product_offer_11111111/addAutoSubscription.json,PUT,create_product_offer_auto_subscription.json,,34321,200,product offer
+14,get_created_product_offer,GET : rest_product_offer should be displayed : 200,pd/productoffer/product-offer/rest_product_offer_11111111.json,GET,,,33336,200,product offer
+15,update_product_offer,PUT : Update Product Offer rest_product_offer to update_product_offer,pd/productoffer/product-offer/rest_product_offer_11111111.json,PUT,update_product_offer.json,,34590,200,product offer
+16,get_updated_product_offer,GET : Updated Product offer should be displayed : 200,pd/productoffer/product-offer/rest_product_offer_11111111.json,GET,,,86081,200,product offer
+17,delete_addon_product_offer,DELETE : Delete rest_addon_product_offer  : 200,pd/productoffer/product-offer/rest_addon_product_offer_11111111.json,DELETE,,,86082,200,product_offer
+18,delete_addon_product_offer2,DELETE : Delete rest_addon_product_offer2  : 200,pd/productoffer/product-offer/rest_addon_product_offer_11111112.json,DELETE,,,86062,200,product offer
+19,delete_addon_product_offer,DELETE : Delete rest_product_offer  : 200,pd/productoffer/product-offer/rest_product_offer_11111111.json,DELETE,,,34591,200,product_offer
+20,get_deleted_product_offer,GET : Deleted Product offer should not be displayed : 404,pd/productoffer/product-offer/rest_product_offer_11111111.json,GET,,"{""actionErrors"":[""Product Offer Not Found with id: rest_product_offer_11111111""]}",86083,404,product_offer
+21,delete_rnc_package,DELETE : Delete rest_po_rnc_package : 200,pd/rncpackage/rnc-package/rest_po_rnc_package_11111111.json,DELETE,,,86084,200,rnc package

@@ -1,0 +1,6 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_session,POST : Create Session Configuration : 405,sm/sessionconfiguration/session-configuration.json,POST,create_session.json,"{""actionErrors"":[""Method Not Allowed""]}",28806,405,session
+2,get_created_session,GET : Default Session Configuration should be displayed : 200,sm/sessionconfiguration/session-configuration/SESSION_CONFIG_1.json,GET,,,28807,200,session
+3,update_session,PUT : Update Session Configuration : 200,sm/sessionconfiguration/session-configuration/SESSION_CONFIG_1.json,PUT,update_session.json,,28808,200,session
+4,get_updated_session,GET : Updated Session Configuration should be displayed : 200,sm/sessionconfiguration/session-configuration/SESSION_CONFIG_1.json,GET,,,28809,200,session
+5,delete_session,DELETE : Delete Session Configuration : 405,sm/sessionconfiguration/session-configuration/SESSION_CONFIG_1.json,DELETE,,"{""actionErrors"":[""Method Not Allowed""]}",28810,405,session

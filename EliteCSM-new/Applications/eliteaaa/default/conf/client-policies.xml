@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+	<!-- 1 - ACCEPT , 0 OR ANY VALUE - REJECT -->
+	<action-on-check-item-not-found>1</action-on-check-item-not-found>
+	<action-on-reject-item-not-found>1</action-on-reject-item-not-found>
+	<action-on-policy-not-found>1</action-on-policy-not-found>
+	<policy-list>
+		<policy description="ClientPolicy" name="test">
+			<check-items></check-items>
+			<reject-items></reject-items>
+			<reply-items></reply-items>
+			<add-items></add-items>
+		</policy>
+	</policy-list>
+</policies>

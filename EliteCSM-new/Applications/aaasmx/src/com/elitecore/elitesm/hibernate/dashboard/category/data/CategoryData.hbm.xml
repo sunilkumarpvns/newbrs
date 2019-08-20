@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.dashboard.category.data.CategoryData" table="TBLMCATEGORIES">
+		<id name="categoryId" column="CATEGORYID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		<property name="categoryName" type="StringType">
+			<column name="CATEGORYNAME" sql-type="VARCHAR(64)" not-null="false" />
+		</property>
+		<property name="jsonURL" type="StringType">
+			<column name="JSONURL" sql-type="VARCHAR(100)" not-null="false" />
+		</property>
+		
+		<set name="widgetTemplateData" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+			<key column="categoryId"></key>
+			<one-to-many class="com.elitecore.elitesm.web.dashboard.json.WidgetTemplateData" />
+	  	</set>
+	</class>
+
+</hibernate-mapping>

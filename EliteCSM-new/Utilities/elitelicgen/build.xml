@@ -1,0 +1,222 @@
+<project name="Elite Radius Server" default="all" basedir=".">
+    
+    <property file="./release.properties" />
+
+    
+    <property name="release.distribution.folder" location="${basedir}/distribution/${release.version}"/>
+    <property name="release.local.source.folder" location="${local.temp.folder}/${module.name}/${release.version}"/>
+    
+    <property name="release.label" value="Release ${release.version}" />
+    
+    <property name="release.license.label" value="Release ${dependency.module.license.version}" />
+    <property name="release.license.location" value="${dependency.module.license.location}/${dependency.module.license.name}/distribution/${dependency.module.license.version}" />
+    
+    <property name="release.jar.filename" value="elitelicgen.jar" />
+    <property name="release.tar.filename" value="elitelicgen.tar" />
+    <property name="release.war.filename" value="elitelicgen.war" />
+    <property name="release.tar.gz.filename" value="elitelicgen${release.version}.tar.gz" />    
+            
+    <property name="module.release.source.classes.location" value="${release.local.source.folder}/classes" />            
+    
+    <tstamp prefix="timestamp"/>   
+    
+    <!-- This will just print out release related information to console -->
+    <target name="info" unless="info.called">
+        <echo message="" />
+        <echo message="Release Details" />
+        <echo message="Module            : ${module.name}" />
+        <echo message="Release           : ${release.version}" />
+        <property name="info.called" value="yes" />
+    </target>     
+    
+    
+    <!-- This target will delete the local folders recursively if already exists
+         to avoid any unwanted inclusion of files. Then it creates new root folder -->    
+    <target name="prepare" depends="info">
+        <echo message="Cleaning local source folder"/>
+        <delete includeEmptyDirs="true" quiet="true">
+            <fileset dir="${release.local.source.folder}"/>
+        </delete>
+          
+        <echo message="Creating local source folder"/>
+        <mkdir dir="${release.local.source.folder}"/>
+    	
+        <echo message="Cleaning local distribution folder"/>
+        <delete includeEmptyDirs="true" quiet="true">
+            <fileset dir="${release.distribution.folder}"/>
+        </delete>
+	
+        <echo message="Creating local source folder"/>
+        <mkdir dir="${release.distribution.folder}"/>
+    	
+    	<mkdir dir="${module.release.source.classes.location}"/>
+    </target>
+        
+    <!-- This target will label vss source location of the module with the release version information. -->  
+    <target name="label" depends="prepare">     	
+        <echo message="Labeling source folder.. ${module.source.location} with label ${release.label}" />
+        <vsslabel 
+            login="${source.vss.account}" 
+            ssdir="${ss.dir}"
+            serverpath="${source.vss.server}"
+            vsspath="${module.source.location}"
+            label="${release.label}"
+        />
+    </target>
+ 
+    <target name="get-source" depends="label">
+
+        <echo message="Getting the labeled copy ${release.label} to ${module.source.location}" />
+        <vssget 
+            login="${source.vss.account}" 
+            ssdir="${ss.dir}"
+            serverpath="${source.vss.server}"
+            vsspath="${module.source.location}"
+            localpath="${release.local.source.folder}"
+            label="${release.label}"
+            writable="true"
+            recursive="yes"
+            quiet="yes"
+        />
+
+        
+        <!-- Getting license -->    	
+        <vssget 
+            login="${build.vss.account}" 
+            ssdir="${ss.dir}"
+            serverpath="${build.vss.server}"
+            vsspath="${release.license.location}"
+            localpath="${release.local.source.folder}/webroot/WEB-INF/lib"
+            writable="true"
+            recursive="no"
+            quiet="yes"
+        />
+        
+    </target>    
+
+    <target name="clean">
+      	<delete includeEmptyDirs="true" quiet="true">
+        <fileset dir="${module.release.source.classes.location}"/>
+      	</delete>
+    </target>
+    
+    <target name="compile-src" >
+        <echo message="Cleaning module build" />
+        <ant target="clean" />
+       	<mkdir dir="${module.release.source.classes.location}"/>
+        <echo message="Compiling source"/>
+        <javac srcdir="${release.local.source.folder}/src"
+	            debug="on"
+	            debuglevel="lines,vars,source"
+	            destdir="${module.release.source.classes.location}"
+	            includes="**/*.java">
+			<classpath>
+				<fileset dir="${release.local.source.folder}/lib/">
+					<include name="**/*.jar"/>
+				</fileset>
+				<fileset dir="${release.local.source.folder}/webroot/WEB-INF/lib">
+					<include name="**/*.jar"/>
+				</fileset>
+				<pathelement path="${module.release.source.classes.location}"/>
+			</classpath>
+        </javac>
+    </target>
+    
+    <target name="module-build" depends="info">
+        <echo message="Building module for testing" />
+        <ant target="compile-src" />
+
+        <echo message="Cleaning module build" />
+        <ant target="clean" />
+<!--        
+        <vsscp 
+            login="${source.vss.account}" 
+            ssdir="${ss.dir}"
+             serverpath="${source.vss.server}"
+             vsspath="${module.release.source.location}"
+        />
+
+
+        <echo message="Adding version information source"/>
+        <echo file="${release.local.source.folder}/src/com/elitecore/radius/VersionInfo.java">
+            package com.elitecore.radius;public class VersionInfo { public static String getVersion(){return "${release.version}";} public static String getMajorVersion(){return "${major.release.version}";} public static String getReleaseDate(){ return "${timestamp.TODAY}";} public static String getModuleName(){ return "Elite License Generator";} 
+            public static void main(String args[])throws Exception {System.out.println("Elitecore Technologies Ltd.");System.out.println("Module       : " + getModuleName());System.out.println("Version      : " + getVersion());System.out.println("Release Date        : " + getReleaseDate());}}
+        </echo>
+
+
+    	<vssadd
+            login="${source.vss.account}" 
+            ssdir="${ss.dir}"
+            serverpath="${source.vss.server}"
+            localpath="${release.local.source.folder}"
+            writable="yes"   
+            recursive="true"
+            comment="Added by automated build process for ${release.version} release."
+        />
+-->    	
+        <echo message="Final module build" />
+        <ant target="compile-src" />
+    </target>
+    
+    <target name="distribute" depends="module-build">
+        <echo message="Building release jar ${release.jar.filename}" />   
+        
+        <mkdir dir="${release.distribution.folder}/package" />
+        
+        <jar destfile="${release.local.source.folder}/webroot/WEB-INF/lib/${release.jar.filename}" >
+            <fileset  dir="${module.release.source.classes.location}">
+                <include name="**/*.*"/>
+            </fileset>
+            <fileset  dir="${release.local.source.folder}/src">
+                <include name="**/*.properties"/>
+            </fileset>
+            <manifest>
+              <attribute name="Built-By"      value="Elitecore Technologies Ltd."/>
+              <attribute name="Created-By"    value="${local.env.USERNAME}${local.env.USER}"/>
+              <attribute name="Create-Date"   value="${timestamp.TODAY} - ${timestamp.TSTAMP}"/>
+              <attribute name="version"       value="${release.version}"/>
+              <attribute name="Main-Class"    value="com.elitecore.radius.VersionInfo"/>  
+            </manifest>
+        </jar>
+            
+        <delete includeEmptyDirs="true" quiet="true">
+            <fileset dir="${module.release.source.classes.location}"/>   	
+        </delete>
+
+		<war destfile="${release.distribution.folder}/${release.war.filename}"
+				webxml="${release.local.source.folder}/webroot/WEB-INF/web.xml" >
+			<fileset dir="${release.local.source.folder}/webroot">
+				<exclude name="WEB-INF/web.xml" />
+			    <include name="**/*"/>
+			</fileset>
+		</war>
+    	
+       	<delete includeEmptyDirs="true" quiet="true">
+           	<fileset dir="${release.distribution.folder}/package"/>   	
+	    </delete>
+<!--    	
+        <vsscp 
+            login="${build.vss.account}" 
+            ssdir="${ss.dir}"
+            serverpath="${build.vss.server}"
+            vsspath="${module.release.location}"
+        />
+      
+        <vssadd
+            login="${build.vss.account}" 
+            ssdir="${ss.dir}"
+            serverpath="${build.vss.server}"
+            localpath="${release.distribution.folder}"
+            writable="yes"   
+            recursive="true"
+            comment="Added by automated build process for ${release.version} release."
+        />
+-->        
+    </target>   
+
+    <target name="all">
+      <antcall target="get-source"/>
+      <antcall target="distribute"/>   <!-- distribute depends on module-build -->
+    </target>
+
+</project>

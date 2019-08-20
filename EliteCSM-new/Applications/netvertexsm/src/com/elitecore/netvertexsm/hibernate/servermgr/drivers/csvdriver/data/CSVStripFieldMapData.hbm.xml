@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+    <class name="com.elitecore.netvertexsm.datamanager.servermgr.drivers.csvdriver.data.CSVStripFieldMapData" table="TBLMCSVSTRIPMAPPING">
+        <id name="csvStripID" column="CSVSTRIPID" type="java.lang.Long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">				
+			</generator>
+		</id>          
+       <property name="pcrfKey" type="string">
+            <column name="PCRFKEY" sql-type="VARCHAR2(255)" not-null="false"/>
+        </property>                
+        <property name="pattern" type="java.lang.String">
+            <column name="PATTERN" sql-type="VARCHAR(8)" not-null="false"/>
+        </property>
+        <property name="separator" type="java.lang.String">
+            <column name="SEPARATOR" sql-type="VARCHAR(1)" not-null="false" />
+        </property>
+        <property name="csvDriverID" type="java.lang.Long">
+            <column name="CSVDRIVERID" sql-type="NUMBER(20)" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>          

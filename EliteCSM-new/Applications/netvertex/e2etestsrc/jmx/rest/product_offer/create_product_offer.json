@@ -1,0 +1,18 @@
+{  
+   "id":"rest_product_offer_11111111",
+   "status":"ACTIVE",
+   "groups":"GROUP_1",
+   "name":"rest_product_offer",
+   "type":"BASE",
+   "packageMode":"DESIGN",
+   "dataServicePkgId":null,
+   "validityPeriod":null,
+   "validityPeriodUnit":"DAY",
+   "subscriptionPrice":null,
+   "balance":null,
+   "currency": "INR",
+   "availabilityStartDate":null,
+   "availabilityEndDate":null,
+   "param1":null,
+   "param2":null
+}

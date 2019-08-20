@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="311" vendor-name="MicroSoft">
+
+<!-- Structure not strictly supported -->
+
+	<attribute id="1" name="CHAP-Response" type="octets"/>	
+	<attribute id="2" name="CHAP-Error" type="octets"/>
+	<attribute id="3" name="CHAP-CPW-1" type="octets"/>
+	<attribute id="4" name="CHAP-CPW-2" type="octets"/>
+	<attribute id="5" name="CHAP-LM-Enc-PW" type="octets"/>
+	<attribute id="6" name="CHAP-NT-Enc-PW" type="octets"/>
+	<attribute id="7" name="MPPE-Encryption-Policy" type="integer">
+	<supported-values>
+            <value id="1" name="Encryption-Allowed"/>
+            <value id="2" name="Encryption-Required"/>
+        </supported-values>
+	</attribute>
+	<attribute id="8" name="MPPE-Encryption-Types" type="octets"/>
+	<attribute id="9" name="RAS-Vendor" type="integer"/>
+	<attribute id="10" name="CHAP-Domain" type="octets"/>
+	<attribute id="11" name="CHAP-Challenge" type="octets"/>
+	<attribute id="12" name="CHAP-MPPE-Keys" type="octets"/>
+	<attribute id="13" name="BAP-Usage" type="integer">
+		<supported-values>
+            <value id="0" name="Not-Allowed"/>
+            <value id="1" name="Allowed"/>
+            <value id="2" name="Required"/>            
+        </supported-values>
+	</attribute>
+	<attribute id="14" name="Link-Utilization-Threshold" type="integer"/>
+	<attribute id="15" name="Link-Drop-Time-Limit" type="integer"/>
+	<attribute id="16" name="MPPE-Send-Key" type="octets" encrypt-standard="1"/>
+	<attribute id="17" name="MPPE-Recv-Key" type="octets" encrypt-standard="1"/>
+	<attribute id="18" name="RAS-Version" type="octets"/>
+	<attribute id="19" name="Old-ARAP-Password" type="octets"/>
+	<attribute id="20" name="New-ARAP-Password" type="octets"/>
+	<attribute id="21" name="ARAP-PW-Change-Reason" type="integer">
+		<supported-values>
+            <value id="1" name="Just-Change-Password"/>
+            <value id="2" name="Expired-Password"/>
+            <value id="3" name="Admin-Requires-Password-Change"/>
+            <value id="4" name="Password-Too-Short "/>         
+        </supported-values>
+	</attribute>
+	<attribute id="22" name="Filter" type="octets"/>
+	<attribute id="23" name="Acct-Auth-Type" type="integer">
+	<supported-values>
+            <value id="1" name="PAP"/>
+            <value id="2" name="CHAP"/>
+            <value id="3" name="MS-CHAP-1"/>
+            <value id="4" name="MS-CHAP-2 "/> 
+            <value id="5" name="EAP "/>         
+        </supported-values>
+	</attribute>
+	<attribute id="24" name="Acct-EAP-Type" type="integer">
+	<supported-values>
+            <value id="4" name="MD5"/>
+            <value id="5" name="OTP"/>
+            <value id="6" name="Generic-Token-Card"/>
+            <value id="13" name="TLS"/> 
+        </supported-values>
+	</attribute>
+	<attribute id="25" name="CHAP2-Response" type="octets"/>
+	<attribute id="26" name="CHAP2-Success" type="octets"/>
+	<attribute id="27" name="CHAP2-CPW" type="octets"/>
+	<attribute id="28" name="Primary-DNS-Server" type="ipaddr"/>
+	<attribute id="29" name="Secondary-DNS-Server" type="ipaddr"/>
+	<attribute id="30" name="Primary-NBNS-Server" type="ipaddr"/>
+	<attribute id="31" name="Secondary-NBNS-Server" type="ipaddr"/>
+	<attribute id="33" name="ARAP-Challenge" type="octets"/>
+	
+</attribute-list>

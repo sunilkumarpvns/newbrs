@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>aaasmx</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<filter>
+		<description>
+		</description>
+		<display-name>LoginValidatorFilter</display-name>
+		<filter-name>LoginValidatorFilter</filter-name>
+		<filter-class>com.elitecore.elitesm.web.core.util.LoginValidatorFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginValidatorFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>com.elitecore.elitesm.web.core.system.servlet.EliteServlet</servlet-class>
+			<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/config/struts-config.xml,
+			/WEB-INF/config/servermgr/struts-config-servermgr.xml,
+			/WEB-INF/config/datasource/struts-config-datasource.xml,
+			/WEB-INF/config/externalsystem/struts-config-externalsystem.xml,
+			/WEB-INF/config/servermgr/drivers/struts-config-driver.xml,
+			/WEB-INF/config/rm/struts-config-rm.xml,
+			/WEB-INF/config/radius/struts-config-radius.xml,			
+			/WEB-INF/config/servicepolicy/struts-config-servicepolicy.xml,
+			/WEB-INF/config/wsconfig/struts-config-wsconfig.xml,
+			/WEB-INF/config/diameter/struts-config-diameter.xml,
+			/WEB-INF/config/reports/struts-config-reports.xml
+			</param-value>
+		</init-param>
+		<init-param>
+	      	<param-name>debug</param-name>
+    		<param-value>3</param-value>
+    	</init-param>
+    	<init-param>
+      		<param-name>detail</param-name>
+     		 <param-value>3</param-value>
+   		 </init-param>
+    	<load-on-startup>0</load-on-startup>
+	</servlet>
+
+ <servlet>
+  	<servlet-name>DownloadFileServlet</servlet-name>
+  	<servlet-class>com.elitecore.elitesm.web.core.system.servlet.DownloadFileServlet</servlet-class>
+  </servlet>  
+  
+  <servlet>
+  	<servlet-name>Captcha</servlet-name>
+  	<servlet-class>com.elitecore.elitesm.web.core.system.login.forms.Captcha</servlet-class>
+  	<init-param> 
+		<description>passing height</description> 
+		<param-name>height</param-name> 
+		<param-value>30</param-value> 
+	</init-param> 
+	<init-param> 
+		<description>passing height</description> 
+		<param-name>width</param-name> 
+		<param-value>120</param-value> 
+	</init-param> 
+  </servlet>  
+
+ <servlet>
+    <display-name>Apache-Axis Servlet</display-name>
+    <servlet-name>AxisServlet</servlet-name>
+    <servlet-class>org.apache.axis.transport.http.AxisServlet</servlet-class>
+ </servlet>
+ 
+ <servlet>
+    <display-name>Axis Admin Servlet</display-name>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>org.apache.axis.transport.http.AdminServlet</servlet-class>
+    <load-on-startup>100</load-on-startup>
+ </servlet>  
+
+ <servlet>
+	<display-name>Schema-Form Servlet</display-name>
+	<servlet-name>SchemaFormServlet</servlet-name>
+	<servlet-class>com.elitecore.elitesm.web.schemaform.SchemaFormServlet</servlet-class>
+ </servlet>
+
+ <servlet-mapping>
+	<servlet-name>SchemaFormServlet</servlet-name>
+	<url-pattern>/schemaform/*</url-pattern>
+ </servlet-mapping>
+  <servlet-mapping>
+     <servlet-name>DownloadFileServlet</servlet-name>
+     <url-pattern>/servlet/DownloadFileServlet</url-pattern>
+  </servlet-mapping> 
+  
+   <servlet-mapping>
+     <servlet-name>Captcha</servlet-name>
+     <url-pattern>/Captcha.jpg</url-pattern>
+  </servlet-mapping> 
+ 
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>/servlet/AxisServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>*.jws</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/servlet/AdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>graphServlet</servlet-name>
+    <servlet-class>com.elitecore.elitesm.web.livemonitoring.server.GraphServiceImpl</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>graphServlet</servlet-name>
+    <url-pattern>/gwtgraph/graph</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>dictionaryMgmtServlet</servlet-name>
+    <servlet-class>com.elitecore.elitesm.web.radius.dictionarymgmt.server.DictionaryMgmtServiceImpl</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>FieldRetrievalServlet</display-name>
+  	<servlet-name>FieldRetrievalServlet</servlet-name>
+  	<servlet-class>
+  	com.elitecore.elitesm.web.core.util.FieldRetrievalServlet</servlet-class>
+  </servlet>
+   <servlet>
+  	<description>
+  	</description>
+  	<display-name>RetriveCipherSuit</display-name>
+  	<servlet-name>RetriveCipherSuit</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.core.util.RetriveCipherSuit</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>RetriveEAPCipherSuites</display-name>
+  	<servlet-name>RetriveEAPCipherSuites</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.core.util.RetriveEAPCipherSuites</servlet-class>
+  </servlet>
+  <servlet>
+  	<description></description>
+  	<display-name>GetPrimaryDriverDataServlet</display-name>
+  	<servlet-name>GetPrimaryDriverDataServlet</servlet-name>
+  	<servlet-class>com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.GetPrimaryDriverDataServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<description></description>
+  	<display-name>GetTGPPDriverDataServlet</display-name>
+  	<servlet-name>GetTGPPDriverDataServlet</servlet-name>
+  	<servlet-class>com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.GetTGPPDriverDataServlet</servlet-class>
+  </servlet>
+    <servlet>
+  	<description>
+  	</description>
+  	<display-name>CheckPasswordValidity</display-name>
+  	<servlet-name>CheckPasswordValidity</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.core.util.CheckPasswordValidity</servlet-class>
+  	</servlet>
+  	
+  	<servlet>
+  	<description>
+  	</description>
+  	<display-name>DashboardDeleteAjax</display-name>
+  	<servlet-name>DashboardDeleteAjax</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.dashboard.ajaxfunction.DashboardDeleteAjax</servlet-class>
+  	</servlet>
+  	
+  	<servlet>
+  	<description>
+  	</description>
+  	<display-name>ActiveInActiveDashboardAjax</display-name>
+  	<servlet-name>ActiveInActiveDashboardAjax</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.dashboard.ajaxfunction.ActiveInActiveDashboardAjax</servlet-class>
+  	</servlet>
+  	
+  	<servlet>
+  	<description>
+  	</description>
+  	<display-name>WidgetConfiguration</display-name>
+  	<servlet-name>WidgetConfiguration</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.dashboard.ajaxfunction.WidgetConfiguration</servlet-class>
+  	</servlet>
+  
+  	<servlet>
+  	<description>
+  	</description>
+  	<display-name>CheckWidgetConfiguration</display-name>
+  	<servlet-name>CheckWidgetConfiguration</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.dashboard.ajaxfunction.CheckWidgetConfiguration</servlet-class>
+  	</servlet>
+  	
+  	<servlet>
+	  	<description></description>
+	  	<display-name>ChangeWidgetOrder</display-name>
+	  	<servlet-name>ChangeWidgetOrder</servlet-name>
+	  	<servlet-class>com.elitecore.elitesm.web.dashboard.ajaxfunction.ChangeWidgetOrder</servlet-class>
+	</servlet>
+  	
+  	
+  	<servlet>
+  	<description>
+  	</description>
+  	<display-name>AddWidgetConfiguration</display-name>
+  	<servlet-name>AddWidgetConfiguration</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.dashboard.ajaxfunction.AddWidgetConfiguration</servlet-class>
+  	</servlet>
+  	
+  	<servlet>
+	  	<description>
+	  	</description>
+	  	<display-name>RemoveWidgetDetails</display-name>
+	  	<servlet-name>RemoveWidgetDetails</servlet-name>
+	  	<servlet-class>
+	  		com.elitecore.elitesm.web.dashboard.ajaxfunction.RemoveWidgetDetails</servlet-class>
+  	</servlet>
+  	
+  	
+  	
+  	<servlet>
+  	<description>
+  	</description>
+  	<display-name>SaveWidgetConfiguration</display-name>
+  	<servlet-name>SaveWidgetConfiguration</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.dashboard.ajaxfunction.SaveWidgetConfiguration</servlet-class>
+  	</servlet>
+  	
+  	<servlet>
+  	<description>
+  	</description>
+  	<display-name>FetchWidgetConfiguration</display-name>
+  	<servlet-name>FetchWidgetConfiguration</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.dashboard.ajaxfunction.FetchWidgetConfiguration</servlet-class>
+  	</servlet>
+  	
+  	<servlet>
+  	<description>
+  	</description>
+  	<display-name>GetWidgetOrder</display-name>
+  	<servlet-name>GetWidgetOrder</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.dashboard.ajaxfunction.GetWidgetOrder</servlet-class>
+  	</servlet>
+  	
+  	<servlet>
+  	<description>
+  	</description>
+  	<display-name>AddNewWidget</display-name>
+  	<servlet-name>AddNewWidget</servlet-name>
+  	<servlet-class>
+  		com.elitecore.elitesm.web.dashboard.ajaxfunction.AddNewWidget</servlet-class>
+  	</servlet>
+  	
+  	
+   <servlet>
+  	<description>
+  	</description>
+  	<display-name>FindDifferenceBetweenCipherSuits</display-name>
+  	<servlet-name>FindDifferenceBetweenCipherSuits</servlet-name>
+  	<servlet-class>
+  	com.elitecore.elitesm.web.core.util.FindDifferenceBetweenCipherSuits</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>FindDifferenceBetweenEapCipherSuites</display-name>
+  	<servlet-name>FindDifferenceBetweenEapCipherSuites</servlet-name>
+  	<servlet-class>
+  	com.elitecore.elitesm.web.core.util.FindDifferenceBetweenEapCipherSuites</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>FindInvalidCipherSuit</display-name>
+  	<servlet-name>FindInvalidCipherSuit</servlet-name>
+  	<servlet-class>
+  	com.elitecore.elitesm.web.core.util.FindInvalidCipherSuit</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>FindInvalidEapCipherSuit</display-name>
+  	<servlet-name>FindInvalidEapCipherSuit</servlet-name>
+  	<servlet-class>
+  	com.elitecore.elitesm.web.core.util.FindInvalidEapCipherSuit</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>ConvertListToCipherSuit</display-name>
+  	<servlet-name>ConvertListToCipherSuit</servlet-name>
+  	<servlet-class>
+  	com.elitecore.elitesm.web.core.util.ConvertListToCipherSuit</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<description></description>
+  	<display-name>WimaxServiceServlet</display-name>
+  	<servlet-name>WimaxServiceServlet</servlet-name>
+  	<servlet-class>com.elitecore.elitesm.ws.ytl.cal.WimaxServiceServlet</servlet-class>
+  </servlet>
+
+	<servlet>
+		<display-name>FetchMapDBField</display-name>
+		<servlet-name>FetchMapDBField</servlet-name>
+		<servlet-class>
+			com.elitecore.elitesm.web.core.util.FetchMapDBField
+		</servlet-class>
+	</servlet>
+  
+ <servlet-mapping>
+    <servlet-name>dictionaryMgmtServlet</servlet-name>
+    <url-pattern>/dictionarymgmt/dictionary</url-pattern>
+  </servlet-mapping>
+
+ <servlet-mapping>
+ 	<servlet-name>FieldRetrievalServlet</servlet-name>
+ 	<url-pattern>/FieldRetrievalServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>RetriveCipherSuit</servlet-name>
+ 	<url-pattern>/RetriveCipherSuit</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>RetriveEAPCipherSuites</servlet-name>
+ 	<url-pattern>/RetriveEAPCipherSuites</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>GetPrimaryDriverDataServlet</servlet-name>
+ 	<url-pattern>/GetPrimaryDriverDataServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>GetTGPPDriverDataServlet</servlet-name>
+ 	<url-pattern>/GetTGPPDriverDataServlet</url-pattern>
+ </servlet-mapping>
+  <servlet-mapping>
+ 	<servlet-name>CheckPasswordValidity</servlet-name>
+ 	<url-pattern>/CheckPasswordValidity</url-pattern>
+ </servlet-mapping>
+   <servlet-mapping>
+ 	<servlet-name>ActiveInActiveDashboardAjax</servlet-name>
+ 	<url-pattern>/ActiveInActiveDashboardAjax</url-pattern>
+ </servlet-mapping>
+  <servlet-mapping>
+ 	<servlet-name>WidgetConfiguration</servlet-name>
+ 	<url-pattern>/WidgetConfiguration</url-pattern>
+ </servlet-mapping>
+   <servlet-mapping>
+ 	<servlet-name>AddWidgetConfiguration</servlet-name>
+ 	<url-pattern>/AddWidgetConfiguration</url-pattern>
+ </servlet-mapping>
+  <servlet-mapping>
+ 	<servlet-name>RemoveWidgetDetails</servlet-name>
+ 	<url-pattern>/RemoveWidgetDetails</url-pattern>
+ </servlet-mapping>
+ 
+  <servlet-mapping>
+ 	<servlet-name>SaveWidgetConfiguration</servlet-name>
+ 	<url-pattern>/SaveWidgetConfiguration</url-pattern>
+ </servlet-mapping>
+ 
+  <servlet-mapping>
+ 	<servlet-name>FetchWidgetConfiguration</servlet-name>
+ 	<url-pattern>/FetchWidgetConfiguration</url-pattern>
+ </servlet-mapping>
+  <servlet-mapping>
+ 	<servlet-name>CheckWidgetConfiguration</servlet-name>
+ 	<url-pattern>/CheckWidgetConfiguration</url-pattern>
+ </servlet-mapping>
+  <servlet-mapping>
+ 	<servlet-name>ChangeWidgetOrder</servlet-name>
+ 	<url-pattern>/ChangeWidgetOrder</url-pattern>
+ </servlet-mapping>
+  <servlet-mapping>
+ 	<servlet-name>GetWidgetOrder</servlet-name>
+ 	<url-pattern>/GetWidgetOrder</url-pattern>
+ </servlet-mapping>
+  <servlet-mapping>
+ 	<servlet-name>AddNewWidget</servlet-name>
+ 	<url-pattern>/AddNewWidget</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>FindDifferenceBetweenCipherSuits</servlet-name>
+ 	<url-pattern>/FindDifferenceBetweenCipherSuits</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>FindDifferenceBetweenEapCipherSuites</servlet-name>
+ 	<url-pattern>/FindDifferenceBetweenEapCipherSuites</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>FindInvalidCipherSuit</servlet-name>
+ 	<url-pattern>/FindInvalidCipherSuit</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>FindInvalidEapCipherSuit</servlet-name>
+ 	<url-pattern>/FindInvalidEapCipherSuit</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet-mapping>
+ 	<servlet-name>ConvertListToCipherSuit</servlet-name>
+ 	<url-pattern>/ConvertListToCipherSuit</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet-mapping>
+ 	<servlet-name>WimaxServiceServlet</servlet-name>
+ 	<url-pattern>/WimaxServiceServlet</url-pattern>
+ </servlet-mapping>
+
+ <servlet-mapping>
+	 <servlet-name>FetchMapDBField</servlet-name>
+	 <url-pattern>/FetchMapDBField</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ 	<servlet-name>diameterdicMgmtServlet</servlet-name>
+    <servlet-class>com.elitecore.elitesm.web.diameter.diameterdicmgmt.server.DiameterdicMgmtServiceImpl</servlet-class>
+ </servlet>
+ 
+ <servlet>
+ 	<servlet-name>expressionBuilderServlet</servlet-name>
+    <servlet-class>com.elitecore.elitesm.web.expressionbuilder.server.ExpressionBuilderServiceImpl</servlet-class>
+ </servlet>
+ 
+ <servlet>
+ 	<servlet-name>cliServlet</servlet-name>
+    <servlet-class>com.elitecore.elitesm.web.cli.server.CLIServiceImpl</servlet-class>
+ </servlet>
+ 
+ <servlet>
+ 	<description>
+ 	</description>
+ 	<display-name>SearchRadiusAttributesServlet</display-name>
+ 	<servlet-name>SearchRadiusAttributesServlet</servlet-name>
+ 	<servlet-class>
+ 	com.elitecore.elitesm.web.core.util.SearchRadiusAttributesServlet</servlet-class>
+ </servlet>
+ <servlet>
+ 	<description>
+ 	</description>
+ 	<display-name>SearchDiameterAttributesServlet</display-name>
+ 	<servlet-name>SearchDiameterAttributesServlet</servlet-name>
+ 	<servlet-class>
+ 	com.elitecore.elitesm.web.core.util.SearchDiameterAttributesServlet</servlet-class>
+ </servlet>
+ <servlet>
+ 	<description>
+ 	</description>
+ 	<display-name>VerifyInstanceNameServlet</display-name>
+ 	<servlet-name>VerifyInstanceNameServlet</servlet-name>
+ 	<servlet-class>
+ 	com.elitecore.elitesm.web.core.util.VerifyInstanceNameServlet</servlet-class>
+ </servlet>
+ <servlet>
+ 	<description>
+ 	</description>
+ 	<display-name>DownloadNetServerFileServlet</display-name>
+ 	<servlet-name>DownloadNetServerFileServlet</servlet-name>
+ 	<servlet-class>com.elitecore.elitesm.web.core.system.servlet.DownloadNetServerFileServlet</servlet-class>
+ </servlet>	
+ <servlet-mapping>
+    <servlet-name>diameterdicMgmtServlet</servlet-name>
+    <url-pattern>/diameterdicmgmt/diamiterdic</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet-mapping>
+    <servlet-name>expressionBuilderServlet</servlet-name>
+    <url-pattern>/expressionbuilder/expbuilder</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet-mapping>
+    <servlet-name>cliServlet</servlet-name>
+    <url-pattern>/cli/commandlineinterface</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet-mapping>
+ 	<servlet-name>SearchRadiusAttributesServlet</servlet-name>
+ 	<url-pattern>/SearchRadiusAttributesServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>SearchDiameterAttributesServlet</servlet-name>
+ 	<url-pattern>/SearchDiameterAttributesServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>VerifyInstanceNameServlet</servlet-name>
+ 	<url-pattern>/VerifyInstanceNameServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>DownloadNetServerFileServlet</servlet-name>
+ 	<url-pattern>/DownloadNetServerFileServlet</url-pattern>
+ </servlet-mapping>
+ 
+  <session-config>
+    <session-timeout>15</session-timeout>
+  </session-config>
+ 
+	 <filter>
+	 	<filter-name>PortalSecurityFilter</filter-name>
+	 	<filter-class>com.elitecore.elitesm.web.core.system.security.PortalSecurityFilter</filter-class>
+		
+		<!-- To prevent Click Jacking  -->
+		<init-param>
+			<param-name>X-Frame-Options</param-name>
+			<param-value>SAMEORIGIN</param-value>
+		</init-param>
+		
+		<!-- to prevent Cross-Site Scripting (XSS) attacks -->
+		<init-param>
+			<param-name>X-XSS-Protection</param-name>
+			<param-value>1; mode=block</param-value>
+		</init-param>
+		
+		<!-- to prevent MIME-type sniffing -->
+		<init-param>
+			<param-name>X-Content-Type-Options</param-name>
+			<param-value>nosniff</param-value>
+		</init-param>
+		
+		<!-- to protect websites against protocol downgrade attacks and cookie hijacking -->
+		<init-param>
+			<param-name>Strict-Transport-Security</param-name>
+			<param-value>max-age=63072000; includeSubDomains</param-value>
+		</init-param>
+		
+	 </filter>
+	 <filter-mapping>
+	 	<filter-name>PortalSecurityFilter</filter-name>
+	 	<url-pattern>*</url-pattern>
+	 </filter-mapping>
+ 
+     <!-- ESAPI Security -->
+	<!--
+	<filter>
+	 	<filter-name>ServerManagerSecurityFilter</filter-name>
+	 	<filter-class>com.elitecore.elitesm.web.core.system.security.ServerManagerSecurityFilter</filter-class>
+	 </filter>
+	 <filter-mapping>
+	 	<filter-name>ServerManagerSecurityFilter</filter-name>
+	 	<url-pattern>*</url-pattern>
+	 </filter-mapping>
+	 
+	 <error-page>
+	 	<exception-type>java.lang.SecurityException</exception-type>
+	 	<location>/jsp/core/response/MalformedDetected.jsp</location>
+	 </error-page>  -->
+
+	 <context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>/WEB-INF/restservice.xml</param-value>
+	 </context-param>
+	 <listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	 </listener>
+	 <listener>
+	 	<listener-class>com.elitecore.elitesm.web.core.system.login.ActiveSessionListener</listener-class>
+	 </listener>
+	<servlet>
+		<servlet-name>cxf</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cxf</servlet-name>
+		<url-pattern>/cxfservices/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<display-name>GetStartupStatusServlet</display-name>
+		<servlet-name>GetStartupStatusServlet</servlet-name>
+		<servlet-class>com.elitecore.elitesm.web.core.system.servlet.GetStartupStatusServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetStartupStatusServlet</servlet-name>
+		<url-pattern>/getstartupStatus</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/cxfservices/*</url-pattern>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>jsp</servlet-name>
+		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+		<init-param>
+			<param-name>mappedfile</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<display-name>DownServerNodeDataServlet</display-name>
+		<servlet-name>DownServerNodeDataServlet</servlet-name>
+		<servlet-class>com.elitecore.elitesm.web.core.system.servlet.DownServerNodeDataServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DownServerNodeDataServlet</servlet-name>
+		<url-pattern>/DownServerNodeDataServlet</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eap-config>
+	<server-address>127.0.0.1</server-address>
+	<client-address>127.0.0.1</client-address>
+	<server-port>1812</server-port>
+	<user-name>eliteaaa</user-name>
+	<secret>secret</secret>
+	<request-timeout-in-secs>10</request-timeout-in-secs>
+	<eap-method>TLS</eap-method>
+	<identity>abc</identity>
+	<tls>
+		//TLSv1 --> TLS 1.0, TLSv1.1 --> TLS 1.1
+		<min-tls-version>TLSv1</min-tls-version>
+		<max-tls-version>TLSv1</max-tls-version>
+		<session-resumption-duration>4000</session-resumption-duration>
+		<client-cert-file>elitecore-server-cert.pem</client-cert-file>
+		<private-key-file>elitecore-server-key.rsa</private-key-file>
+		<private-key-passwd>elitecore</private-key-passwd>
+	</tls>
+	<peap>
+		//	MD5-Challenge	TLS
+		//	MS-CHAPv2		GTC
+		<inner-method>GTC</inner-method>
+		<inner-identity>eliteaaa</inner-identity>
+		<inner-passwd>eliteaaa</inner-passwd>
+	</peap>
+	<ttls>
+		//	PAP 	--> 1		CHAP --> 2
+		//	MSCHAP 	--> 4	MSCHAPv2 --> 5
+		<inner-method>5</inner-method>
+		<inner-identity>eliteaaa</inner-identity>
+		<inner-passwd>eliteaaa</inner-passwd>
+	</ttls>
+</eap-config>

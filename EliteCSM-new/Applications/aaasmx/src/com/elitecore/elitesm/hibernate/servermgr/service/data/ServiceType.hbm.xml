@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class  name="com.elitecore.elitesm.datamanager.servermgr.service.data.ServiceTypeData" table="TBLSSERVICETYPE">
+
+			<id name="serviceTypeId" column="servicetypeid" type="long"></id>    
+	
+			<property name="name" type="StringType"> 
+				<column name="name" sql-type="VARCHAR(200)" not-null="true" /> 
+			</property>
+	
+			<property name="displayName" type="StringType"> 
+				<column name="displayname" sql-type="VARCHAR(200)" not-null="true" /> 
+			</property>
+	
+			<property name="alias" type="StringType"> 
+				<column name="alias" sql-type="VARCHAR(100)" not-null="true" /> 
+			</property>
+	
+			<property name="serialNo" type="long"> 
+				<column name="serialno" sql-type="NUMBER(10)" not-null="false" /> 
+			</property>
+	
+			<property name="description" type="StringType"> 
+				<column name="description" sql-type="VARCHAR(255)" not-null="false" /> 
+			</property>
+	
+			<property name="status" type="CharType"> 
+				<column name="status" sql-type="CHAR(1)" not-null="true" /> 
+			</property>
+	    
+	    	<set name="driverTypeSet" lazy="false" inverse="true" order-by="name" where="status='Y'">
+				<key column="servicetypeid"></key>			
+				<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.data.DriverTypeData"/>
+		  	</set>
+	
+		</class>
+
+</hibernate-mapping> 
+
+
+
+
+
+
+
+
+
+

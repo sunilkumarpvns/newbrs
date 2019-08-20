@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+     
+<attribute-list vendorid="255" vendor-name="Cisco-VPN5000">
+	<attribute id="1" name="CVPN5000-Tunnel-Throughput" type="integer"/>
+	<attribute id="2" name="CVPN5000-Client-Assigned-IP" type="string"/>
+	<attribute id="3" name="CVPN5000-Client-Real-IP" type="string"/>
+	<attribute id="4" name="CVPN5000-VPN-GroupInfo" type="string"/>
+	<attribute id="5" name="CVPN5000-VPN-Password" type="string"/>
+	<attribute id="6" name="CVPN5000-Echo" type="integer"/>
+	<attribute id="7" name="CVPN5000-Client-Assigned-IPX" type="integer"/>
+</attribute-list>

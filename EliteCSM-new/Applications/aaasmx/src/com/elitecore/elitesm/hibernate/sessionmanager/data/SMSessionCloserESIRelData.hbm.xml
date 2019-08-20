@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+                 
+	<class name="com.elitecore.elitesm.datamanager.sessionmanager.data.SMSessionCloserESIRelData" table="TBLMSMSESSIONCLOSERESIREL" >          
+	 
+		<composite-id>
+                <key-property name="smConfigId" column="SMCONFIGID" type="StringType"></key-property>
+                <key-property name="esiInstanceId" column="ESIINSTANCEID" type="StringType"></key-property>
+       </composite-id>
+
+	   <property name="weightage" type="java.lang.Integer">
+		  <column name="WEIGHTAGE" sql-type="NUMBER(3)" not-null="false"/>
+		</property>
+		<many-to-one name="externalSystemData" lazy="false" fetch="join"  insert="false" update="false" class="com.elitecore.elitesm.datamanager.externalsystem.data.ExternalSystemInterfaceInstanceData" column="ESIINSTANCEID" ></many-to-one>
+
+	</class>
+</hibernate-mapping>
+
+          

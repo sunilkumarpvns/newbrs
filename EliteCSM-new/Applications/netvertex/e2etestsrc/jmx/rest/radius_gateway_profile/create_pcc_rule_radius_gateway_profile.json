@@ -1,0 +1,19 @@
+{
+  "id": "rest_pccrule_map_radius_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Rest_PCC_Rule_Mapping",
+  "description": "PCC Rule Mapping for Radius Gateway Profile",
+  "commProtocol": "RADIUS",
+  "staticAttributeMappings": {
+"mappings": [
+      "{\"pid\":\"0\",\"attribute\":\"0:50\",\"policykey\":\"CS.CallingStationId\",\"defaultvalue\":\"000\",\"valuemapping\":\"111\"}"],
+    "orderNumber": null
+  },
+  "dynamicAttributeMappings": {
+    "mappings": [
+      "{\"pid\":\"0\",\"attribute\":\"0:50\",\"policykey\":\"CS.CalledStationId\",\"defaultvalue\":\"111\",\"valuemapping\":\"000\"}"],
+    "orderNumber": null
+  },
+  "groupNames": "DefaultGroup"
+}

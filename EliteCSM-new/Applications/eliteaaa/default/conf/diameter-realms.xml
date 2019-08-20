@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- ======================================================= -->
+	<!-- Routing configuration.                                  -->
+	<!-- ======================================================= -->
+<realms>
+	<realm>
+		<realm-name>hpintelco.org</realm-name>
+		<auth-application-list>
+			<auth-application-id>1</auth-application-id>
+			<auth-application-id>5</auth-application-id>
+		</auth-application-list>
+		<acct-application-list>
+			<acct-application-id>1</acct-application-id>
+			<acct-application-id>3</acct-application-id>
+		</acct-application-list>
+		<vendor-specific-application-list>
+			<vendor-specific-application-id>
+				<vendor-id>0</vendor-id>
+				<acct-application-id>1</acct-application-id>
+				<auth-application-id>1</auth-application-id>
+			</vendor-specific-application-id>
+		</vendor-specific-application-list>
+		<!-- 0 Local, 1 Relay, 2 Proxy, 3 Redirect -->
+		<routing-action>0</routing-action>
+		<peer-list>
+			<peer>
+				<name>seagull.ims.hpintelco.org</name>
+				<communication-port>3868</communication-port>
+				<attempt-connection></attempt-connection>
+				<routing-policy></routing-policy>
+				<translation-mapping></translation-mapping>
+				<!-- Watchdog interval:
+					MinValue is 6 seconds 
+				-->
+				<watchdog-interval>30</watchdog-interval> <!-- in Seconds -->
+			</peer>
+		</peer-list>
+	</realm>
+	<realm>
+		<realm-name>elitecore.com</realm-name>
+		<auth-application-list>
+			<auth-application-id>1</auth-application-id>
+			<auth-application-id>5</auth-application-id>
+		</auth-application-list>
+		<acct-application-list>
+			<acct-application-id>1</acct-application-id>
+			<acct-application-id>3</acct-application-id>
+		</acct-application-list>
+		<vendor-specific-application-list>
+			<vendor-specific-application-id>
+				<vendor-id>0</vendor-id>
+				<acct-application-id>1</acct-application-id>
+				<auth-application-id>1</auth-application-id>
+			</vendor-specific-application-id>
+		</vendor-specific-application-list>
+		<!-- 0 Local, 1 Relay, 2 Proxy, 3 Redirect -->
+		<routing-action>2</routing-action>
+		<peer-list>
+			<peer>
+				<name>jatin.elitecore.com</name>
+				<communication-port>3868</communication-port>
+				<attempt-connection>true</attempt-connection>
+				<routing-policy></routing-policy>
+				<translation-mapping>PulinTranslation</translation-mapping>
+				<!-- Watchdog interval:
+					MinValue is 6 seconds					
+				-->
+				<watchdog-interval>30</watchdog-interval> <!-- in Seconds -->
+			</peer>
+		</peer-list>
+	</realm>
+</realms>

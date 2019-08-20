@@ -1,0 +1,357 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Diameter Peer Profile",
+  "properties":{
+      "profile-name":{
+          "title":"Profile Name",
+          "type":"string"
+      },
+      "description":{
+          "title":"Description",
+          "type":"string"
+      },
+      "exclusive-auth-application-ids":{
+          "title":"Exclusive Auth Application Ids",
+          "type":"string"
+      },
+      "exclusive-acct-application-ids":{
+          "title":"Exclusive Acct Application Ids",
+          "type":"string"
+      },
+      "cer-avps":{
+          "title":"CER AVPs",
+          "type":"string"
+      },
+      "dpr-avps":{
+          "title":"DPR AVPs",
+          "type":"string"
+      },
+      "dwr-avps":{
+          "title":"DWR AVPs",
+          "type":"string"
+      },
+      "session-clean-up-on-cer":{
+          "title":"Session Clean Up On CER",
+          "type":"string"
+      },
+      "session-clean-up-on-dpr":{
+          "title":"Session Clean Up DPR",
+          "type":"string"
+      },
+      "redirect-host-avp-format":{
+          "title":"Redirect-Host AVP Format",
+          "type":"string"
+      },
+      "follow-redirection":{
+          "title":"Follow Redirection",
+          "type":"string"
+      },
+      "hotline-policy":{
+          "title":"Hotline Policy",
+          "type":"string"
+      },
+      "transport-protocol":{
+          "title":"Transport Protocol",
+          "type":"string"
+      },
+      "security-standard":{
+          "title":"Security Standard",
+          "type":"string"
+      },
+      "socket-receive-buffer-size":{
+          "title":"Socket Receive Buffer Size",
+          "type":"integer",
+          "default":-1
+      },
+      "socket-send-buffer-size":{
+          "title":"Socket Send Buffer Size",
+          "type":"integer",
+          "default":-1
+      },
+      "tcp-nagle-algorithm":{
+          "title":"TCP Nagle Algorithm",
+          "type":"string"
+      },
+      "dwr-duration-tw":{
+          "title":"DWR Duration (Sec) - Tw",
+          "type":"integer",
+          "default":6
+      },
+      "init-connection-duration-tc":{
+          "title":"Init Connection Duration (Sec) - Tc",
+          "type":"integer",
+          "default":60
+      },
+      "retry-count":{
+          "title":"Retry Count",
+          "type":"integer"
+      },
+      "dpr-on-cer-timeout":{
+          "title":"DPR on CER Timeout",
+          "type":"string"
+      },
+      "minimum-tls-version":{
+          "title":"Minimum TLS Version",
+          "type":"string"
+      },
+      "maximum-tls-version":{
+          "title":"Maximum TLS Version",
+          "type":"string"
+      },
+      "server-certificate-profile":{
+          "title":"Server Certificate Profile",
+          "type":"string"
+      },
+      "client-certificate-request":{
+          "title":"Client Certificate Request",
+          "type":"string"
+      },
+      "ciphersuite-list":{
+          "title":"CipherSuite List",
+          "type":"string"
+      },
+      "certificate-validation":{
+         "type":"object",
+         "properties":{
+             "expiry-date":{
+                 "title":"Expiry Date",
+                 "type":"boolean"
+             },
+             "unknown-ca":{
+                 "title":"Unknown CA",
+                 "type":"boolean"
+             },
+             "revoked-certificate":{
+                 "title":"Revoked Certificate",
+                 "type":"boolean"
+             },
+             "unknown-host":{
+                 "title":"Unknown Host",
+                 "type":"boolean"
+             }
+         }
+      },
+      "ha-ip-address":{
+          "title":"HA IP Address",
+          "type":"string"
+      },
+      "dhcp-ip-address":{
+          "title":"DHCP IP Address",
+          "type":"string"
+      }
+      
+  }
+  
+},
+   "form":[
+  {
+      "key":"profile-name"
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"exclusive-auth-application-ids"
+  },
+  {
+      "key":"exclusive-acct-application-ids"
+  },
+  {
+      "key":"cer-avps",
+      "type":"textarea"
+  },
+  {
+      "key":"dpr-avps",
+      "type":"textarea"
+  },
+  {
+      "key":"dwr-avps",
+      "type":"textarea"
+  },
+  {
+      "key":"session-clean-up-on-cer",
+      "type":"radios",
+      "titleMap":{
+          "True":"True",
+          "False":"False"
+      }
+  },
+  {
+      "key":"session-clean-up-on-dpr",
+      "type":"radios",
+      "titleMap":{
+          "True":"True",
+          "False":"False"
+      }
+  },
+  {
+      "key":"redirect-host-avp-format",
+      "type":"select",
+      "titleMap":{
+          "IP":"IP",
+          "HostIdentity":"HostIdentity",
+          "DiameterURl":"DiameterURl",
+          "NONE":"NONE"
+          
+      }
+  },
+  {
+      "key":"follow-redirection",
+      "type":"select",
+      "titleMap":{
+          "Enabled":"Enabled",
+          "Disabled":"Disabled"
+      }
+  },
+  {
+      "key":"hotline-policy"
+  },
+  {
+      "key":"transport-protocol",
+      "type":"select",
+      "titleMap":{
+          "TCP":"TCP"
+      }
+  },
+  {
+      "key":"security-standard",
+      "type":"select",
+      "titleMap":{
+          "NONE":"NONE",
+          "RFC 3588 Dynamic":"RFC 3588 Dynamic",
+          "RFC 3588 TLS":"RFC 3588 TLS",
+          "RFC 6733":"RFC 6733"
+      }
+  },
+  {
+      "key":"socket-receive-buffer-size"
+  },
+  {
+      "key":"socket-send-buffer-size"
+  },
+  {
+      "key":"tcp-nagle-algorithm",
+      "type":"select",
+      "titleMap":{
+          "True":"True",
+          "False":"False"
+      }
+  },
+  {
+      "key":"dwr-duration-tw"
+  },
+  {
+      "key":"init-connection-duration-tc"
+  },
+  {
+      "key":"retry-count"
+  },
+  {
+      "key":"dpr-on-cer-timeout",
+      "type":"select",
+      "titleMap":{
+          "True":"True",
+          "False":"False"
+      }
+  },
+  {
+      "key":"minimum-tls-version",
+      "type":"select",
+      "titleMap":{
+          "TLSv1":"TLSv1",
+          "TLSv1.1":"TLSv1.1",
+          "TLSv1.2":"TLSv1.2"
+      }
+  },
+  {
+      "key":"maximum-tls-version",
+      "type":"select",
+      "titleMap":{
+          "TLSv1":"TLSv1",
+          "TLSv1.1":"TLSv1.1",
+          "TLSv1.2":"TLSv1.2"
+      }
+  },
+  {
+      "key":"server-certificate-profile",
+      "type":"select",
+      "titleMap":{
+          "NONE":"NONE",
+          "Elitecore_server_cert":"Elitecore_server_cert"
+      }
+  },
+  {
+      "key":"client-certificate-request",
+      "type":"select",
+      "titleMap":{
+          "True":"True",
+          "False":"False"
+      }
+  },
+  {
+      "key":"ciphersuite-list"
+  },
+  {
+      "key":"certificate-validation",
+      "items":[
+          {
+              "key":"certificate-validation.expiry-date"
+          },
+          {
+              "key":"certificate-validation.unknown-ca"
+          },
+          {
+              "key":"certificate-validation.revoked-certificate"
+          },
+          {
+              "key":"certificate-validation.unknown-host"
+          }
+          ]
+      
+  },
+  {
+      "key":"ha-ip-address"
+  },
+  {
+      "key":"dhcp-ip-address"
+  }
+  
+],
+"model":{
+	"profile-name": "diameter_peer_profile",
+	"description": "Created by admin on 01/02/2017 07:01:17 PM",
+	"exclusive-auth-application-ids": "1,5",
+	"exclusive-acct-application-ids": "1,4,5",
+	"cer-avps": "0:265=\"10415\"",
+	"dpr-avps": "0:265=\"10415\"",
+	"dwr-avps": "0:265=\"10415\"",
+	"session-clean-up-on-cer": "true",
+	"session-clean-up-on-dpr": "true",
+	"redirect-host-avp-format": "DiameterURI",
+	"follow-redirection": "Enabled",
+	"hotline-policy": "hotline_policy",
+	"transport-protocol": "TCP",
+	"security-standard": "NONE",
+	"socket-receive-buffer-size": -1,
+	"socket-send-buffer-size": -1,
+	"tcp-nagle-algorithm": "false",
+	"dwr-duration-tw": 6,
+	"init-connection-duration-tc": 60,
+	"retry-count": 0,
+	"dpr-on-cer-timeout": "false",
+	"minimum-tls-version": "TLSv1",
+	"maximum-tls-version": "TLSv1",
+	"server-certificate-profile": "server_certificate_profile",
+	"client-certificate-request": "true",
+	"ciphersuite-list": "TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA",
+	"certificate-validation": {
+		"expiry-date": "true",
+		"unknown-ca": "true",
+		"revoked-certificate": "true",
+		"unknown-host": "true"
+	},
+	"ha-ip-address": "10.121.21.50",
+	"dhcp-ip-address": "10.122.25.29"
+}
+}

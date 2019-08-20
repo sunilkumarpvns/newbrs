@@ -1,0 +1,46 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="pkgData.name">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("pkg.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("pkg.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("pkg.name")})}</message>
+        </field-validator>		
+	</field>
+
+	<field name="pkgData.availabilityStartDate">
+	
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("pkg.availability.start.date")})}</message>
+		</field-validator>
+	</field>
+	
+	<field name="pkgData.availabilityEndDate">
+		
+		<field-validator type="date" short-circuit="true">
+			<param name="minExpression">${currentTime}</param>
+			<param name="maxExpression">${pkgData.availabilityEndDate}</param>
+			<message> ${getText("pkg.availability.enddate.greater.than.current.time")}</message>
+		</field-validator>
+		
+		<field-validator type="date"  short-circuit="true" >
+			<param name="minExpression">${pkgData.availabilityStartDate}</param>
+			<param name="maxExpression">${pkgData.availabilityEndDate}</param>
+			<message>${getText("pkg.availability.enddate.mustbe.greaterthan.startdate")}</message>
+		</field-validator>
+		
+	</field>
+	 
+</validators>

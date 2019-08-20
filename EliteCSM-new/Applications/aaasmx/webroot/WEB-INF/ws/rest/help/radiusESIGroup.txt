@@ -1,0 +1,398 @@
+***********************************************************************************************************************************
+                                        Redundancy Mode Configuration Format
+**********************************************************************************************************************************
+    -----------------------
+ => | N+M Redundancy Mode |
+    -----------------------
+    -> XML Format :
+        <primary-esi-list>
+             <esi-entry-detail load-factor="1" name="Auth1"/>
+        </primary-esi-list>
+        <failover-esi-list>
+             <esi-entry-detail load-factor="1" name="RadAuth"/>
+        </failover-esi-list>
+
+    -> JSON Format :
+        "primary-esi-list": [
+            {
+                "name": "Auth1",
+                "load-factor": 1
+            }
+        ],
+        "failover-esi-list": [
+            {
+                "name": "RadAuth",
+                "load-factor": 1
+            }
+        ]
+
+     ----------------------------------
+  => | ACTIVE-PASSIVE Redundancy Mode |
+     ----------------------------------
+     -> XML Format :
+        <esi-list>
+            <active-passive-esi>
+                <active-esi-name>Test</active-esi-name>
+                <passive-esi-name>Test-Test</passive-esi-name>
+                <load-factor>1</load-factor>
+            </active-passive-esi>
+
+     -> JSON Format :
+        "esi-list": [
+            {
+                "active-esi-name": "Auth1",
+                "passive-esi-name": "Test-Test",
+                "load-factor": 1
+            }
+        ]
+
+
+Note: In Following configuration examples N+M Configuration is used.
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup?name=radius_esi_group&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup.xml?name=radius_esi_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup?operation=search&name=radius_esi_group&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup.xml?operation=search&name=radius_esi_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group.xml?operation=search
+
+Response :
+
+<radius-esi-group>
+    <name>radius_esi_group</name>
+    <description>Created by admin on 06/26/2018 03:21:43 PM</description>
+    <redundancy-mode>N+M</redundancy-mode>
+    <esi-type>AUTH</esi-type>
+    <is-sticky-session-enable>true</is-sticky-session-enable>
+    <is-switch-back-enable>false</is-switch-back-enable>
+    <primary-esi-list>
+        <esi-entry-detail load-factor="1" name="Auth1"/>
+    </primary-esi-list>
+    <failover-esi-list>
+        <esi-entry-detail load-factor="1" name="RadAuth"/>
+    </failover-esi-list>
+</radius-esi-group>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup?name=radius_esi_group&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup.json?name=radius_esi_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup?operation=search&name=radius_esi_group&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup.json?operation=search&name=radius_esi_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group.json?operation=search
+
+Response :
+
+{
+    "name": "radius_esi_group",
+    "description": "Created by admin on 06/26/2018 03:21:43 PM",
+    "redundancy-mode": "N+M",
+    "esi-type": "AUTH",
+    "is-switch-back-enable": "false",
+    "primary-esi-list": [
+        {
+            "name": "Auth1",
+            "load-factor": 1
+        }
+    ],
+    "failover-esi-list": [
+        {
+            "name": "RadAuth",
+            "load-factor": 1
+        }
+    ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<radius-esi-group>
+    <name>radius_esi_group</name>
+    <description>Created by admin on 06/26/2018 03:21:43 PM</description>
+    <redundancy-mode>N+M</redundancy-mode>
+    <esi-type>AUTH</esi-type>
+    <is-sticky-session-enable>true</is-sticky-session-enable>
+    <is-switch-back-enable>false</is-switch-back-enable>
+    <primary-esi-list>
+        <esi-entry-detail load-factor="1" name="Auth1"/>
+    </primary-esi-list>
+    <failover-esi-list>
+        <esi-entry-detail load-factor="1" name="RadAuth"/>
+    </failover-esi-list>
+</radius-esi-group>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius ESI Group created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+    "name": "radius_esi_group",
+    "description": "Created by admin on 06/26/2018 03:21:43 PM",
+    "redundancy-mode": "N+M",
+    "esi-type": "AUTH",
+    "is-switch-back-enable": "false",
+    "primary-esi-list": [
+        {
+            "name": "Auth1",
+            "load-factor": 1
+        }
+    ],
+    "failover-esi-list": [
+        {
+            "name": "RadAuth",
+            "load-factor": 1
+        }
+    ]
+}		
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius ESI Group created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/bulk?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<radius-esi-group>
+        <name>radius_esi_group</name>
+        <description>Created by admin on 06/26/2018 03:21:43 PM</description>
+        <redundancy-mode>N+M</redundancy-mode>
+        <esi-type>AUTH</esi-type>
+        <is-sticky-session-enable>true</is-sticky-session-enable>
+        <is-switch-back-enable>false</is-switch-back-enable>
+        <primary-esi-list>
+            <esi-entry-detail load-factor="1" name="Auth1"/>
+        </primary-esi-list>
+        <failover-esi-list>
+            <esi-entry-detail load-factor="1" name="RadAuth"/>
+        </failover-esi-list>
+    </radius-esi-group>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius ESI Group(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"list":[
+		{
+            "name": "radius_esi_group",
+            "description": "Created by admin on 06/26/2018 03:21:43 PM",
+            "redundancy-mode": "N+M",
+            "esi-type": "AUTH",
+            "is-switch-back-enable": "false",
+            "primary-esi-list": [
+                {
+                    "name": "Auth1",
+                    "load-factor": 1
+                }
+            ],
+            "failover-esi-list": [
+                {
+                    "name": "RadAuth",
+                    "load-factor": 1
+                }
+            ]
+        }
+  	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius ESI Group(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup?name=radius_esi_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup?operation=update&name=radius_esi_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<radius-esi-group>
+    <name>radius_esi_group</name>
+    <description>Created by admin on 06/26/2018 03:21:43 PM</description>
+    <redundancy-mode>N+M</redundancy-mode>
+    <esi-type>AUTH</esi-type>
+    <is-sticky-session-enable>true</is-sticky-session-enable>
+    <is-switch-back-enable>false</is-switch-back-enable>
+    <primary-esi-list>
+        <esi-entry-detail load-factor="1" name="Auth1"/>
+    </primary-esi-list>
+    <failover-esi-list>
+        <esi-entry-detail load-factor="1" name="RadAuth"/>
+    </failover-esi-list>
+</radius-esi-group>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius ESI Group updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+    "name": "radius_esi_group",
+    "description": "Created by admin on 06/26/2018 03:21:43 PM",
+    "redundancy-mode": "N+M",
+    "esi-type": "AUTH",
+    "is-switch-back-enable": "false",
+    "primary-esi-list": [
+        {
+            "name": "Auth1",
+            "load-factor": 1
+        }
+    ],
+    "failover-esi-list": [
+        {
+            "name": "RadAuth",
+            "load-factor": 1
+        }
+    ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius ESI Group updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup?name=radius_esi_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup?operation=delete&name=radius_esi_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/radiusesigroup/radius_esi_group?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Radius ESI Group(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

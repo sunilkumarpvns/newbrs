@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.servermgr.plugins.groovyplugin.data.GroovyPluginFile" table="TBLMGROOVYFILES">
+
+		<id name="groovyFileId" column="GROOVYFILEID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+		
+		<property name="groovyFileName" type="StringType">
+			<column name="GROOVYFILENAME" sql-type="VARCHAR(100)" not-null="true"></column>
+		</property>
+        
+		<property name="pluginId" type="StringType"> 
+			<column name="PLUGINID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="groovyFile" type="byte[]" column="GROOVYFILE" not-null="false" />
+			
+		<property name="lastUpdatedTime" type="java.sql.Timestamp">
+			<column name="LASTUPDATETIME" sql-type="TIMESTAMP(6)" not-null="false" />
+		</property>
+
+		<property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false" />
+	</class>
+
+</hibernate-mapping> 

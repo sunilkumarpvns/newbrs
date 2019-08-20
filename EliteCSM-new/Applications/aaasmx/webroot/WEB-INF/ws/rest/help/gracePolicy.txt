@@ -1,0 +1,248 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy?name=grace_policy&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy.xml?name=grace_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy?operation=search&name=grace_policy&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy.xml?operation=search&name=grace_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy.xml?operation=search
+
+Response :
+
+<grace-policy>
+	<name>grace_policy</name>
+	<value>1</value>
+</grace-policy>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy?name=grace_policy&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy.json?name=grace_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy?operation=search&name=grace_policy&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy.json?operation=search&name=grace_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy.json?operation=search
+
+Response :
+
+{
+	"name": "grace_policy",
+	"value": "1"
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<grace-policy>
+	<name>grace_policy</name>
+	<value>1</value>
+</grace-policy>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Grace Policy created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "grace_policy",
+	"value": "1"
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Grace Policy created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/bulk?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<grace-policy>
+		<name>grace_policy</name>
+		<value>1</value>
+	</grace-policy>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Grace Policy/Policies created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"list":[
+		{
+			"name": "grace_policy",
+			"value": "1"
+		}
+  	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Grace Policy/Policies created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy?name=grace_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy?operation=update&name=grace_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<grace-policy>
+	<name>grace_policy</name>
+	<value>2</value>
+</grace-policy>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Grace Policy updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "grace_policy",
+	"value": "2"
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Grace Policy updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy?name=grace_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy?operation=delete&name=grace_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/gracepolicy/grace_policy?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Grace Policy/Policies deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

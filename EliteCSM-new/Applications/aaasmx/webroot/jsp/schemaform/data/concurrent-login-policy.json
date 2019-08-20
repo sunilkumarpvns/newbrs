@@ -1,0 +1,154 @@
+{
+   "schema":{
+ "type":"object",
+ "title":"CONCURRENT LOGIN POLICY",
+ "properties":{
+     "name":{
+         "title":"Name",
+         "type":"string"
+     },
+     "status":{
+         "title":"Status",
+         "type":"string"
+     },
+     "description":{
+         "title":"Description",
+         "type":"string"
+     },
+     "policy-type":{
+         "title":"Policy Type",
+         "type":"string"
+     },
+     "login-limit":{
+         "title":"Login Limit",
+         "type":"string"
+     },
+     "max-concurrent-login":{
+         "title":"Max. Concurrent Login",
+         "type":"integer"
+     },
+     "policy-mode":{
+         "title":"Policy Mode",
+         "type":"string"
+     },
+     "attribute":{
+         "title":"Attribute",
+         "type":"string"
+     },
+     "attribute-details":{
+         "type":"array",
+         "items":{
+             "type":"object",
+             "properties":{
+                 "attribute-value":{
+                     "title":"Attribute Value",
+                     "type":"string"
+                 },
+                 "max-concurrent-login":{
+                     "title":"Max. Concurrent Login",
+                     "type":"integer"
+                 },
+                 "login-limit":{
+                     "title":"Login Limit",
+                     "type":"string"
+                 }
+             }
+         }
+     }
+ }
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"status",
+      "type":"checkboxes",
+      "titleMap":{
+          "ACTIVE":"ACTIVE",
+          "INACTIVE":"INACTIVE"
+      }
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"policy-type",
+      "type":"radios",
+      "titleMap":[
+          {
+              "value":"Individual",
+              "name":"Individual"
+          },
+          {
+              "value":"Group",
+              "name":"Group"
+          }
+          ]
+  },
+  {
+      "key":"login-limit",
+      "type":"radios",
+      "titleMap":{
+          "Limited":"Limited",
+          "Unlimited":"Unlimited"
+      }
+  },
+  {
+      "key":"max-concurrent-login"
+  },
+  {
+      "key":"policy-mode",
+      "type":"radios",
+      "titleMap":{
+          "General":"General",
+          "Service Wise":"Service Wise"
+      }
+  },
+  {
+      "key":"attribute"
+  },
+  {
+      "key":"attribute-details",
+      "items":[
+          {
+              "key":"attribute-details[].attribute-value"
+          },
+          {
+             "key":"attribute-details[].max-concurrent-login",
+             "type":"radios",
+             "titleMap":{
+                 "Limited":"Limited",
+                 "Unlimited":"Unlimited"
+             }
+          },
+          {
+              "key":"attribute-details[].login-limit"
+          }
+          ]
+  }
+  
+],
+"model":{
+	"name": "concurrent_login_policy",
+	"status": "ACTIVE",
+	"description": "Created by admin on 01/10/2017 11:47:00 AM",
+	"policy-type": "Individual",
+	"login-limit": "Limited",
+	"max-concurrent-login": 4,
+	"policy-mode": "Service Wise",
+	"attribute": "NAS-Port-Type",
+	"attribute-details": [
+		{
+			"attribute-value": "Async",
+			"login-limit": "Limited",
+			"max-concurrent-login": 1
+		},
+		{
+			"attribute-value": "Sync",
+			"login-limit": "Limited",
+			"max-concurrent-login": 1
+		}
+	]
+}
+}

@@ -1,0 +1,158 @@
+<script type="text/html" id="categorytemplate">
+	<li id="<%= id %>" class="selectcategory"><button><%= title %> (<%= amount %>)</button></li>
+</script>
+
+<script type="text/javascript">
+function bigImg(x)
+{
+x.src="images/i2.png";
+}
+function changeImage(){
+	 document.getElementById("imgServer").src="images/i1.png";
+}
+function widgetCloseMouseOut(myImage) {
+	myImage.style.backgroundColor="white";
+	myImage.getElementsByTagName("img")[0].src="images/minimize-submenu.png";
+}
+function widgetCloseMouseOver(myImage) {
+	myImage.style.backgroundColor="#3C78B5";
+	myImage.getElementsByTagName("img")[0].src="images/minimize-white-submenu.png";
+}
+
+function widgetDeleteMouseOut(myImage) {
+	myImage.style.backgroundColor="white";
+	myImage.getElementsByTagName("img")[0].src="images/delete-submenu.png";
+}
+function widgetDeleteMouseOver(myImage) {
+	myImage.style.backgroundColor="#3C78B5";
+	myImage.getElementsByTagName("img")[0].src="images/delete-white-submenu.png";
+}
+
+function widgetEditMouseOut(myImage) {
+	myImage.style.backgroundColor="white";
+	myImage.getElementsByTagName("img")[0].src="images/configuration.png";
+}
+function widgetEditMouseOver(myImage) {
+	myImage.style.backgroundColor="#3C78B5";
+	myImage.getElementsByTagName("img")[0].src="images/configuration-white.png";
+}
+
+function widgetRefreshMouseOut(myImage) {
+	myImage.style.backgroundColor="white";
+	myImage.getElementsByTagName("img")[0].src="images/Refresh_Submenu.png";
+}
+function widgetRefreshMouseOver(myImage) {
+	myImage.style.backgroundColor="#3C78B5";
+	myImage.getElementsByTagName("img")[0].src="images/Refresh-White.png";
+}
+
+function widgetOpneMouseOut(myImage) {
+	myImage.style.backgroundColor="white";
+	myImage.getElementsByTagName("img")[0].src="images/expand-icon.png";
+}
+function widgetOpenMouseOver(myImage) {
+	myImage.style.backgroundColor="#3C78B5";
+	myImage.getElementsByTagName("img")[0].src="images/expand-icon-white.png";
+}
+
+
+</script>
+
+<script type="text/html" id="widgettemplate">
+	<div class="ui-widget ui-corner-all ui-widget-content widget" id="<%= id %>">
+		<div class="ui-widget-header widgetheader ui-widget-header-subwidget" style="height:20px;">
+			<span style="position:relative;cursor:default;display:none;" class="warnWidget" id="warnWidget<%=id%>"><img src="images/widget-warning.png" height="15px" width="15px" style="position: relative;vertical-align:top;padding-top:2px;"/></span>
+			<span style="position:relative;cursor:default;display:none;" class="errorWidget" id="errorWidget<%=id%>"><img src="images/widget-red-warn.png" height="15px" width="15px" style="position: relative;vertical-align:top;padding-top:2px;"/></span>
+			
+			<span class="widgettitle">
+				<span style="position:absolute;padding-left:5px;"><%= title %></span>
+			</span>
+			
+			<span class="right icons hidden" style="text-align: right;">
+				<span class="widgetopenfullscreen">
+					<img id="imgMaximizeServer"  src="images/icon-maximize.png"  style="cursor:pointer;"  alt="maximize"   />
+				</span>
+				<span class="menutrigger">
+					<img id="imgServer" class="imgServer" src="images/i1.png" onmouseover="bigImg(this)"   alt="menu"  style="cursor:pointer;"/> 				
+				</span>
+				<span class="hiddenmenu" style="text-align: left;">
+					<ul style="z-index: 1;margin-top:-6px;" class="hidden controls" id="mainHidden">
+						<li class="widgetClose" id="widgetClose" onmouseover="widgetCloseMouseOver(this)" onmouseout="widgetCloseMouseOut(this)">
+							<span class="icon-minus" style="padding-left:7px;padding-top:13px;">
+								<img id="imgiconminus"  src="images/minimize-submenu.png" height="10px" width="11px" style="cursor:pointer;"  alt="maximize"   />
+							</span>
+							<a class="minimization" href="#">Minimize</a>
+						</li>
+						<li class="widgetOpen" id="widgetOpen" onmouseover="widgetOpenMouseOver(this)" onmouseout="widgetOpneMouseOut(this)">
+							<span class="icon-expand" style="padding-left:7px;padding-top:15px;">
+								<img id="imgiconexpand"  src="images/expand-icon.png" height="12px" width="14px" style="cursor:pointer;"  alt="maximize"   />
+							</span>
+							<a class="minimization" href="#">Expand</a>
+						</li>
+						<li class="widgetDelete" id="widgetDelete" onmouseover="widgetDeleteMouseOver(this)" onmouseout="widgetDeleteMouseOut(this)">
+							<span class="icon-delete" style="padding-left:7px;padding-top:15px;">
+								<img id="imgicondelete"  src="images/delete-submenu.png" height="12px" width="14px" style="cursor:pointer;"  alt="maximize"   />
+							</span>
+							<a class="delete" href="#">Delete</a>
+						</li>
+						<!-- This could be implemented -->
+						<li class="widgetEdit" id="widgetEdit" onmouseover="widgetEditMouseOver(this)" onmouseout="widgetEditMouseOut(this)">
+							<span class="icon-configure" style="padding-left:7px;padding-top:13px;">
+								<img id="imgiconconfigure"  src="images/configuration.png" height="12px" width="13px" style="cursor:pointer;"  alt="maximize"   />
+							</span>
+							<a class="no_target" href="#">Configure</a>
+						</li>
+						<li class="widgetRefresh" id="widgetRefresh" onmouseover="widgetRefreshMouseOver(this)" onmouseout="widgetRefreshMouseOut(this)">
+							<span class="icon-refresh" style="padding-left:7px;padding-top:13px;">
+								<img id="imgiconrefresh"  src="images/Refresh_Submenu.png" height="12px" width="13px" style="cursor:pointer;"  alt="maximize"   />
+							</span>
+							<a id ="myClass" class="no_target" href="#">Refresh</a>
+						</li>
+					</ul>
+				</span>
+			</span>
+		</div>
+		<div class="widgetcontent" id="widgetcontent<%= id %>"  style="background-color: white;" width="100%">
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="selectlayouttemplate">
+	<li class="layoutchoice" id="<%= id %>" style="background-image: url('<%= image %>')"></li>
+</script>
+
+<script type="text/html" id="addwidgettemplate">
+
+	<li class="widgetitem">
+		<img src="<%= image %>" alt="" height="60" width="120">
+		<div class="add-button">
+				<input class="macro-button-add addwidget" id="addwidget<%= id %>" value="Add Widget" type="button"><br>
+				<input class="macro-hidden-uri" value="<%= url %>" type="hidden">
+		</div>
+		<!-- // .add-button -->
+		<h3><a href=""><%= title %></a></h3>
+
+		 <p style="color:rgb(60,120,181);margin-top:0;">By <%= creator %></p>
+		<p><%= description %></p>
+	</li>
+
+</script>
+
+<div class="dialog" id="addwidgetdialog" title="Widget Directory">
+	<ul class="categories">
+	</ul>
+
+	<div class="panel-body">
+		<ol id="category-all" class="widgets">
+		</ol>
+	</div>
+</div>
+
+
+<div class="dialog" id="editLayout" title="Edit layout">
+	<div class="panel-body" id="layout-dialog">
+			<p><strong>Choose dashboard layout</strong></p>
+			<ul class="layoutselection">
+			</ul>
+	</div>
+</div>

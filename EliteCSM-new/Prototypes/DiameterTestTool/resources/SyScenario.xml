@@ -1,0 +1,133 @@
+<scenario>
+
+	<tcp ip="127.0.0.1" port="3870" />
+
+	<receive-request time-out="50000" cc="257" app-id="0">
+		<validate>
+			<attribute id="0:264" alias="Origin-Host" value="netvertex.csm.com" />
+			<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+		</validate>
+
+		<send>
+			<packet cc="257" app-id="0" request="false">
+				<attribute id="0:264" alias="Origin-Host" value="sy.csm.com" />
+				<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+				<attribute id="0:268" alias="Result-Code" value="2001" />
+				<attribute id="0:269" alias="Product-name" value="test" />
+				<attribute id="0:266" alias="Vendor" value="21067" />
+				<attribute id="0:257" alias="Host-IP" value="127.0.0.1" />
+			</packet>
+
+			<store key="result-code" attr="0:268" />
+		</send>
+	</receive-request>
+
+
+	<parallel>
+		<!-- <loop ruleset="result-code=&quot;2001&quot;"> -->
+		<loop count="50000">
+			<receive-request time-out="-1" cc="280" app-id="0">
+				<send>
+					<packet cc="280" app-id="0" request="false">
+						<attribute id="0:264" alias="Origin-Host" value="sy.csm.com" />
+						<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+						<attribute id="0:268" alias="Result-Code" value="2001" />
+					</packet>
+				</send>
+			</receive-request>
+		</loop>
+		<!-- </loop> -->
+	</parallel>
+
+	<loop count="1">
+		<receive-request time-out="-1" cc="8388635" app-id="16777302">
+			<validate>
+				<attribute id="0:264" alias="Origin-Host" value="netvertex.csm.com" />
+				<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+				<attribute id="0:283" alias="Destination-Realm" value="csm.com" />
+				<attribute id="10415:2904" alias="SL-Request-Type" value="0" />
+			</validate>
+			<store key="sy-session-id" attr="0:263" />
+			<send>
+				<packet cc="8388635" app-id="16777302" request="false">
+					<attribute id="0:264" alias="Origin-Host" value="sy.csm.com" />
+					<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+					<attribute id="0:268" alias="Result-Code" value="2001" />
+					<attribute id="10415:2903" alias="Policy-Counter-report">
+						<attribute id="10415:2901" alias="Result-Code" value="gold" />
+						<attribute id="10415:2902" alias="Result-Code" value="70" />
+					</attribute>
+					<attribute id="10415:2903" alias="Policy-Counter-report">
+						<attribute id="10415:2901" alias="Result-Code" value="silver" />
+						<attribute id="10415:2902" alias="Result-Code" value="70" />
+					</attribute>
+				</packet>
+			</send>
+		</receive-request>
+		
+		<!--  <receive-request time-out="-1" cc="8388635" app-id="16777302">
+			<validate>
+				<attribute id="0:264" alias="Origin-Host" value="netvertex.csm.com" />
+				<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+				<attribute id="0:283" alias="Destination-Realm" value="csm.com" />
+				<attribute id="10415:2904" alias="SL-Request-Type" value="1" />
+			</validate>
+			<store key="sy-session-id" attr="0:263" />
+			<send>
+				<packet cc="8388635" app-id="16777302" request="false">
+					<attribute id="0:264" alias="Origin-Host" value="sy.csm.com" />
+					<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+					<attribute id="0:268" alias="Result-Code" value="2001" />
+					<attribute id="10415:2903" alias="Policy-Counter-report">
+						<attribute id="10415:2901" alias="Result-Code" value="gold" />
+						<attribute id="10415:2902" alias="Result-Code" value="80" />
+					</attribute>
+				</packet>
+			</send>
+		</receive-request>  -->
+
+
+
+		<wait duration="5" time-unit="SECONDS" />
+		<send>
+			<packet cc="8388636" app-id="16777302" request="true" h2h="2"
+				e2e="4">
+				<attribute id="0:263" alias="Session-Id" value="value(sy-session-id)" />
+				<attribute id="0:264" alias="Origin-Host" value="ocs.csm.com" />
+				<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+				<attribute id="0:283" alias="Destination-Realm" value="csm.com" />
+				<attribute id="10415:2903" alias="Policy-Counter-report">
+					<attribute id="10415:2901" alias="Result-Code" value="gold" />
+					<attribute id="10415:2902" alias="Result-Code" value="80" />
+				</attribute>
+			</packet>
+
+			<receive-response time-out="5">
+				<store key="result-code" attr="0:268" />
+				<validate>
+					<attribute id="0:264" alias="Origin-Host" value="netvertex.csm.com" />
+					<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+					<attribute id="0:268" alias="Result-Code" value="*" />
+				</validate>
+			</receive-response>
+
+		</send>
+ 
+		<receive-request time-out="-1" cc="275" app-id="16777302">
+			<validate>
+				<attribute id="0:264" alias="Origin-Host" value="netvertex.csm.com" />
+				<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+				<attribute id="0:283" alias="Destination-Realm" value="csm.com" />
+			</validate>
+
+			<send>
+				<packet cc="275" app-id="16777302" request="false">
+					<attribute id="0:263" alias="Session-Id" value="value(sy-session-id)" />
+					<attribute id="0:264" alias="Origin-Host" value="pcef.csm.com" />
+					<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+					<attribute id="0:268" alias="Result-Code" value="2001" />
+				</packet>
+			</send>
+		</receive-request>
+	</loop>
+</scenario>

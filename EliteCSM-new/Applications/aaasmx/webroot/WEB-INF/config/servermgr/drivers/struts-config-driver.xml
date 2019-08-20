@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+
+		<struts-config>
+				
+				<form-beans>
+						<form-bean name="createDriverForm" type="com.elitecore.elitesm.web.driver.forms.CreateDriverForm" />
+						<form-bean name="addDriverPopupForm" type="com.elitecore.elitesm.web.driver.forms.AddDriverPopupForm" />
+						<form-bean name="searchDriverInstanceForm" type="com.elitecore.elitesm.web.driver.forms.SearchDriverInstanceForm"/>
+						<form-bean name="updateDriverInstanceForm" type="com.elitecore.elitesm.web.driver.forms.UpdateDriverInstanceForm" />
+						
+						<!-- Radius Auth Drivers -->
+						<form-bean name="createRadiusDBAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusDBAuthDriverForm" />
+						<form-bean name="createRadiusHttpAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusHttpAuthDriverForm" />
+						<form-bean name="createRadiusUserFileAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusUserFileAuthDriverForm" />
+						<form-bean name="createRadiusLDAPAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusLDAPAuthDriverForm" />
+						<form-bean name="updateRadiusDBAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateRadiusDBAuthDriverForm" />
+						<form-bean name="updateRadiusHttpAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateRadiusHttpAuthDriverForm" />
+						<form-bean name="updateRadiusMappingGWAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateRadiusMappingGWAuthDriverForm" />
+						<form-bean name="updateRadiusLDAPAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateRadiusLDAPAuthDriverForm" />
+						<form-bean name="updateRadiusUserFileAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateRadiusUserFileAuthDriverForm" />
+						<form-bean name="createRadiusMappingGWAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusMappingGWAuthDriverForm" />
+						<form-bean name="createRadiusPCDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusPCDriverForm" />
+						<form-bean name="createWebServiceAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateWebServiceAuthDriverForm" />
+						<form-bean name="updateWebServiceAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateWebServiceAuthDriverForm" />
+						<form-bean name="viewRadiusDCDriverRealmsForm" type="com.elitecore.elitesm.web.driver.radius.forms.ViewRadiusDCDriverRealmsForm" />
+						<form-bean name="updateRadiusDCDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateRadiusDCDriverForm" />
+						<form-bean name="createRadiusDCDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusDCDriverForm" />
+						<form-bean name="updateRadiusDCDriverRealmsForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateRadiusDCDriverRealmsForm" />
+						<form-bean name="createCrestelChargingDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateCrestelChargingDriverForm" />
+						<form-bean name="updateCrestelChargingDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateCrestelChargingDriverForm" />
+						<form-bean name="crestelOCSv2DriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CrestelOCSv2DriverForm"></form-bean>
+						<form-bean name="createRadiusHSSAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusHSSAuthDriverForm" />
+						<form-bean name="radiusHSSAuthDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateRadiusHSSAuthDriverForm" />
+					
+						<!-- Radius Acct Drivers -->						
+						<form-bean name="createRadiusDBAcctDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusDBAcctDriverForm" />
+						<form-bean name="createRadiusDetailLocalAcctDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusDetailLocalAcctDriverForm" />
+						<form-bean name="createRadiusDBAcctDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusDBAcctDriverForm" />
+						<form-bean name="createRadiusClassicCSVAcctDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.CreateRadiusClassicCSVAcctDriverForm" />
+						<form-bean name="updateRadiusDetailLocalAcctDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateRadiusDetailLocalAcctDriverForm" />
+						<form-bean name="updateRadiusDBAcctDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateRadiusDBAcctDriverForm" />
+						<form-bean name="updateRadiusClassicCSVAcctDriverForm" type="com.elitecore.elitesm.web.driver.radius.forms.UpdateRadiusClassicCSVAcctDriverForm" />
+
+
+						<!-- Diameter Auth Drivers -->
+						<form-bean name="createDiameterDBAuthDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.CreateDiameterDBAuthDriverForm" />
+						<form-bean name="createDiameterUserFileAuthDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.CreateDiameterUserFileAuthDriverForm" />
+						<form-bean name="createDiameterLDAPAuthDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.CreateDiameterLDAPAuthDriverForm" />
+						<form-bean name="updateDiameterDBAuthDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.UpdateDiameterDBAuthDriverForm" />
+						<form-bean name="updateDiameterLDAPAuthDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.UpdateDiameterLDAPAuthDriverForm" />
+						<form-bean name="updateDiameterUserFileAuthDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.UpdateDiameterUserFileAuthDriverForm" />
+						<form-bean name="diameterMappingGWAuthDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.DiameterMappingGWAuthDriverForm" />
+						<form-bean name="diameterHttpAuthDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.DiameterHttpAuthDriverForm" />
+						<form-bean name="createDiameterHSSAuthDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.CreateDiameterHSSAuthDriverForm" />
+						<form-bean name="diameterHSSAuthDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.UpdateDiameterHSSAuthDriverForm" />
+						<!-- Diameter Acct Drivers -->						
+						<form-bean name="createDiameterDBAcctDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.CreateDiameterDBAcctDriverForm" />
+						<form-bean name="createDiameterDetailLocalAcctDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.CreateDiameterDetailLocalAcctDriverForm" />
+						<form-bean name="createDiameterClassicCSVAcctDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.CreateDiameterClassicCSVAcctDriverForm" />
+						<form-bean name="createDiameterRatingTranslationDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.CreateDiameterRatingTranslationDriverForm" />
+						<form-bean name="updateDiameterDetailLocalAcctDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.UpdateDiameterDetailLocalAcctDriverForm" />
+						<form-bean name="updateDiameterDBAcctDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.UpdateDiameterDBAcctDriverForm" />
+						<form-bean name="updateDiameterClassicCSVAcctDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.UpdateDiameterClassicCSVAcctDriverForm" />
+						<form-bean name="updateDiameterRatingTranslationDriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.UpdateDiameterRatingTranslationDriverForm" />
+						<form-bean name="diameterCrestelOCSv2DriverForm" type="com.elitecore.elitesm.web.driver.diameter.forms.DiameterCrestelOCSv2DriverForm"></form-bean>
+
+						<!-- Subscriber Profile Management -->
+						<form-bean name="updateDatabaseSubscriberProfileFieldForm" type="com.elitecore.elitesm.web.driver.subscriberprofile.database.forms.UpdateDatabaseSubscriberProfileFieldForm" />
+						<form-bean name="addDatabaseSubscriberProfileDataForm" type="com.elitecore.elitesm.web.driver.subscriberprofile.database.forms.AddDatabaseSubscriberProfileDataForm" />
+						<form-bean name="UpdateValuePoolForm" type="com.elitecore.elitesm.web.driver.subscriberprofile.database.forms.UpdateValuePoolForm" />
+						<form-bean name="searchDatabaseSubscriberProfileDataForm" type="com.elitecore.elitesm.web.driver.subscriberprofile.database.forms.SearchDatabaseSubscriberProfileDataForm" />
+						<form-bean name="miscSearchDatabaseSubscriberProfileForm" type="com.elitecore.elitesm.web.driver.subscriberprofile.database.forms.MiscSearchDatabaseSubscriberProfileForm" />
+						<form-bean name="updateDatabaseSubscriberProfileDataForm" type="com.elitecore.elitesm.web.driver.subscriberprofile.database.forms.UpdateDatabaseSubscriberProfileDataForm" />
+						<form-bean name="viewDatabaseSubscriberProfileDataForm" type="com.elitecore.elitesm.web.driver.subscriberprofile.database.forms.ViewDatabaseSubscriberProfileDataForm" />
+	
+				</form-beans>
+				
+			<action-mappings>
+				
+				<action path="/initCreateDriver" 
+         				type="com.elitecore.elitesm.web.driver.InitCreateDriverAction"
+        				name="createDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="InitCreateDriver" path="/jsp/servermgr/drivers/CreateDriver.jsp" /> 				
+				</action>
+				
+				<action path="/nextCreateDriver" 
+         				type="com.elitecore.elitesm.web.driver.CreateDriverAction"
+        				name="createDriverForm"
+         				scope="request"
+         				validate="false">
+						<forward name="createRadiusDBAuthDriver" path="/createRadiusDBAuthDriver.do" />
+						<forward name="createRadiusHttpAuthDriver" path="/createRadiusHttpAuthDriver.do" />
+						<forward name="createWebServiceAuthDriver" path="/createWebServiceAuthDriver.do" />
+						<forward name="createRadiusUserFileAuthDriver" path="/createRadiusUserFileAuthDriver.do" />
+						<forward name="createRadiusParleyChargingDriver" path="/createRadiusParleyChargingDriver.do" />
+						<forward name="createRadiusLDAPAuthDriver" path="/createRadiusLDAPAuthDriver.do" />  
+						<forward name="createRadiusDetailLocalAcctDriver" path="/createRadiusDetailLocalAcctDriver.do" />	
+						<forward name="createRadiusDBAcctDriver" path="/createRadiusDBAcctDriver.do" />
+						<forward name="createRadiusClassicCSVAcctDriver" path="/createRadiusClassicCSVAcctDriver.do" />  	
+						<forward name="createRadiusMappingGatewayAuthDriver" path="/createRadiusMappingGatewayAuthDriver.do" />
+						<forward name="createRadiusParleyChargingDriver" path="/createRadiusParleyChargingDriver.do" />    		
+						<forward name="createRadiusDCDriver" path="/createRadiusDCDriver.do" />   
+						<forward name="createCrestelChargingDriver" path="/createCrestelChargingDriver.do" />
+						
+						<forward name="createDiameterDBAuthDriver" path="/createDiameterDBAuthDriver.do" />
+						<forward name="createDiameterUserFileAuthDriver" path="/createDiameterUserFileAuthDriver.do" />
+						<forward name="createDiameterLDAPAuthDriver" path="/createDiameterLDAPAuthDriver.do" />  
+						<forward name="createDiameterDetailLocalAcctDriver" path="/createDiameterDetailLocalAcctDriver.do" />	
+						<forward name="createDiameterDBAcctDriver" path="/createDiameterDBAcctDriver.do" />
+						<forward name="createDiameterClassicCSVAcctDriver" path="/createDiameterClassicCSVAcctDriver.do" />
+						<forward name="createDiameterRatingTranslationDriver" path="/createDiameterRatingTranslationDriver.do" />
+						<forward name="createDiameterMappingGatewayAuthDriver" path="/createDiameterMappingGatewayAuthDriver.do" />
+						<forward name="createDiameterHttpAuthDriver" path="/createDiameterHttpAuthDriver.do"></forward>
+						<forward name="createCrestelOCSv2Driver" path="/createCrestelOCSv2Driver.do"></forward>
+						<forward name="createDiameterCrestelOCSv2Driver" path="/createDiameterCrestelOCSv2Driver.do"></forward>	
+						<forward name="createRadiusHSSAuthDriver" path="/createRadiusHSSAuthDriver.do"></forward>	
+						<forward name="createDiameterHSSAuthDriver" path="/createDiameterHSSAuthDriver.do"></forward>	       							
+				</action>
+				
+				<action path="/createRadiusDCDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateRadiusDCDriverAction"
+        				name="createRadiusDCDriverForm"
+         				scope="session"
+         				validate="false">
+         				<forward name="cDCDriver" path="/jsp/servermgr/drivers/radius/CreateRadiusDCDriver.jsp" />
+         				<forward name="cDCDriverMapping" path="/jsp/servermgr/drivers/radius/CreateRadiusDCRealms.jsp" />		
+				</action>
+				
+				<action path="/initAddDriverPopup" 
+         				type="com.elitecore.elitesm.web.driver.InitAddDriverPopupAction"
+        				name="addDriverPopupForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="addDriverPopup" path="/jsp/servermgr/driver/AddDriverPopup.jsp" /> 				
+				</action>
+				
+				<action path="/initSearchDriver" 
+         				type="com.elitecore.elitesm.web.driver.InitSearchDriverInstanceAction"
+        				name="searchDriverInstanceForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="SearchDriverInstance" path="/jsp/servermgr/drivers/SearchDriverInstance.jsp" /> 				
+				</action>
+				
+				<action path="/searchDriverInstance" 
+         				type="com.elitecore.elitesm.web.driver.SearchDriverInstanceAction"
+        				name="searchDriverInstanceForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="driverinstance" path="/jsp/servermgr/drivers/SearchDriverInstance.jsp" /> 				
+				</action>
+				
+				<action path="/initupdateDriverInstance" 
+         				type="com.elitecore.elitesm.web.driver.InitUpdateDriverInstanceAction"
+        				name="updateDriverInstanceForm"
+         				scope="request"
+         				validate="false">
+
+         				<forward name="radiusDBAuthDriver" path="/initUpdateRadiusDBAuthDriver.do" />
+         				<forward name="radiusHttpAuthDriver" path="/initUpdateRadiusHttpAuthDriver.do" />
+         				<forward name="radiusUserFileAuthDriver" path="/initUpdateRadiusUserFileAuthDriver.do" />
+         				<forward name="radiusWebServiceAuthDriver" path="/initUpdateWebServiceAuthDriver.do" />
+         				<forward name="radiusLDAPAuthDriver" path="/initUpdateRadiusLDAPAuthDriver.do" />
+         				<forward name="radiusDetailLocalAcctDriver" path="/initUpdateRadiusDetailLocalAcctDriver.do" />
+         				<forward name="radiusDBAcctDriver" path="/initUpdateRadiusDBAcctDriver.do" />
+						<forward name="radiusClassicCSVAcctDriver" path="/initUpdateRadiusClassicCSVAcctDriver.do" />
+						<forward name="radiusMappingGWAuthDriver" path="/initUpdateRadiusMappingGWAuthDriver.do" />
+						<forward name="radiusDCDriver" path="/initUpdateRadiusDCDriver.do" />
+						<forward name="crestelChargingDriver" path="/initUpdateCrestelChargingDriver.do" />
+						<forward name="crestelOCSv2Driver" path="/updateCrestelOCSv2Driver.do"></forward>
+						<forward name="radiusHssAuthDriver" path="/initUpdateRadiusHssDriver.do"></forward>
+						
+						<forward name="diameterDBAuthDriver" path="/initUpdateDiameterDBAuthDriver.do" />
+         				<forward name="diameterUserFileAuthDriver" path="/initUpdateDiameterUserFileAuthDriver.do" />
+         				<forward name="diameterLDAPAuthDriver" path="/initUpdateDiameterLDAPAuthDriver.do" />
+         				<forward name="diameterDetailLocalAcctDriver" path="/initUpdateDiameterDetailLocalAcctDriver.do" />
+         				<forward name="diameterDBAcctDriver" path="/initUpdateDiameterDBAcctDriver.do" />
+						<forward name="diameterClassicCSVAcctDriver" path="/initUpdateDiameterClassicCSVAcctDriver.do" />
+						<forward name="diameterRatingTranslationDriver" path="/initUpdateDiameterRatingTranslationDriver.do" />
+						<forward name="diameterMappingGWAuthDriver" path="/updateDiameterMappingGWAuthDriver.do"></forward>
+						<forward name="diameterHttpAuthDriver" path="/updateDiameterHttpAuthDriver.do"></forward>
+						<forward name="diameterCrestelOCSv2Driver" path="/updateDiameterCrestelOCSv2Driver.do"></forward>
+						<forward name="diameterHssAuthDriver" path="/initUpdateDiameterHssDriver.do"></forward>
+				</action>
+				
+					
+				<action path="/viewDriverInstance" 
+         				type="com.elitecore.elitesm.web.driver.InitUpdateDriverInstanceAction"
+        				name="updateDriverInstanceForm"
+         				scope="request"
+         				validate="false">
+         				
+         				<forward name="radiusDBAuthDriver" path="/initViewRadiusDBAuthDriver.do" />
+         				<forward name="radiusHttpAuthDriver" path="/initViewRadiusHttpAuthDriver.do" />
+         				<forward name="radiusUserFileAuthDriver" path="/initViewRadiusUserFileAuthDriver.do" />
+         				<forward name="radiusWebServiceAuthDriver" path="/initViewWebServiceAuthDriver.do" />
+         				<forward name="radiusLDAPAuthDriver" path="/initViewRadiusLDAPAuthDriver.do" />
+         				<forward name="radiusDetailLocalAcctDriver" path="/initViewRadiusDetailLocalAcctDriver.do" />
+         				<forward name="radiusDBAcctDriver" path="/initViewRadiusDBAcctDriver.do" />
+         				<forward name="radiusClassicCSVAcctDriver" path="/initViewRadiusClassicCSVAcctDriver.do" />
+         				<forward name="radiusMappingGWAuthDriver" path="/initViewRadiusMappingGWAuthDriver.do" />
+         				<forward name="radiusDCDriver" path="/initViewRadiusDCDriver.do" />
+         				<forward name="crestelChargingDriver" path="/initViewCrestelChargingDriver.do" />
+         				<forward name="radiusHssAuthDriver" path="/viewRadiusHssAuthDriver.do" />
+						
+         				<forward name="diameterDBAuthDriver" path="/initViewDiameterDBAuthDriver.do" />
+         				<forward name="diameterUserFileAuthDriver" path="/initViewDiameterUserFileAuthDriver.do" />
+         				<forward name="diameterLDAPAuthDriver" path="/initViewDiameterLDAPAuthDriver.do" />
+         				<forward name="diameterDetailLocalAcctDriver" path="/initViewDiameterDetailLocalAcctDriver.do" />
+         				<forward name="diameterDBAcctDriver" path="/initViewDiameterDBAcctDriver.do" />
+         				<forward name="diameterClassicCSVAcctDriver" path="/initViewDiameterClassicCSVAcctDriver.do" />
+         				<forward name="diameterRatingTranslationDriver" path="/initViewDiameterRatingTranslationDriver.do" />
+         				<forward name="diameterMappingGWAuthDriver" path="/viewDiameterMappingGWAuthDriver.do"></forward>
+         				<forward name="diameterHttpAuthDriver" path="/viewDiameterHttpAuthDriver.do"></forward>
+         				<forward name="crestelOCSv2Driver" path="/viewCrestelOCSv2Driver.do"></forward>
+         				<forward name="diameterCrestelOCSv2Driver" path="/viewDiameterCrestelOCSv2Driver.do"></forward>
+         				<forward name="diameterHssAuthDriver" path="/viewDiameterHssAuthDriver.do"></forward>
+    			</action>		
+				
+				<!-- Actions  for Radius Auth Drivers -->
+				<action path="/createRadiusDBAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateRadiusDBAuthDriverAction"
+        				name="createRadiusDBAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cRadiusDBAuthDriver" path="/jsp/servermgr/drivers/radius/CreateRadiusDBAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/createRadiusHttpAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateRadiusHttpAuthDriverAction"
+        				name="createRadiusHttpAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cRadiusHttpAuthDriver" path="/jsp/servermgr/drivers/radius/CreateRadiusHttpAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/createRadiusHSSAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateRadiusHSSAuthDriverAction"
+        				name="createRadiusHSSAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cRadiusHSSAuthDriver" path="/jsp/servermgr/drivers/radius/CreateRadiusHSSAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/createDiameterHSSAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.CreateDiameterHSSAuthDriverAction"
+        				name="createDiameterHSSAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cDiameterHSSAuthDriver" path="/jsp/servermgr/drivers/diameter/CreateDiameterHSSAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/createRadiusMappingGatewayAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateRadiusMappingGWAuthDriverAction"
+        				name="createRadiusMappingGWAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cRadiusMapGWAuthDriver" path="/jsp/servermgr/drivers/radius/CreateRadiusMappingGWAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/createRadiusUserFileAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateRadiusUserFileAuthDriverAction"
+        				name="createRadiusUserFileAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cRadiusUserFileAuthDriver" path="/jsp/servermgr/drivers/radius/CreateRadiusUserFileAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/createWebServiceAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateWebServiceAuthDriverAction"
+        				name="createWebServiceAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cWebServiceAuthDriver" path="/jsp/servermgr/drivers/radius/CreateWebServiceAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/createRadiusLDAPAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateRadiusLDAPAuthDriverAction"
+        				name="createRadiusLDAPAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cRadiusLDAPAuthDriver" path="/jsp/servermgr/drivers/radius/CreateRadiusLDAPAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/initUpdateRadiusDBAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDBAuthDriverAction"
+        				name="updateRadiusDBAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusDBAuthDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusDBAuthDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initUpdateRadiusHttpAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusHttpAuthDriverAction"
+        				name="updateRadiusHttpAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateRadiusHttpAuthDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusHttpAuthDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initUpdateRadiusMappingGWAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusMappingGWAuthDriverAction"
+        				name="updateRadiusMappingGWAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateRadiusMappingGWAuthDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusMappingGWAuthDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initUpdateRadiusDCDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDCDriverAction"
+        				name="updateRadiusDCDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateRadiusDCDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusDCDriverContainer.jsp" />
+         				<forward name="viewRadiusDCDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusDCDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/updateRealms" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDCDriverRealmsAction"
+        				name="updateRadiusDCDriverRealmsForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateRadiusDCDriverRealms" path="/jsp/servermgr/drivers/radius/UpdateRadiusDCDriverRealmsContainer.jsp" />
+         				<forward name="viewRadiusDCDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusDCDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/viewDCDriverRealmsDetail" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewRadiusDCDriverRealmsAction"
+        				name="viewRadiusDCDriverRealmsForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusDCDriverRealms" path="/jsp/servermgr/drivers/radius/ViewRadiusDCDriverRealmsContainer.jsp" /> 				
+				</action>
+			    
+				<action path="/updateRadiusDCDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDCDriverAction"
+        				name="updateRadiusDCDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateRadiusDCDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusDCDriverContainer.jsp" />
+         				<forward name="viewRadiusDCDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusDCDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initUpdateRadiusLDAPAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusLDAPAuthDriverAction"
+        				name="updateRadiusLDAPAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusLDAPAuthDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusLDAPAuthDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initUpdateRadiusUserFileAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusUserFileAuthDriverAction"
+        				name="updateRadiusUserFileAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusUserFileAuthDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusUserFileAuthDriverContainer.jsp" />          							
+				</action>
+				
+				<action path="/initUpdateWebServiceAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateWebServiceAuthDriverAction"
+        				name="updateWebServiceAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="ViewWebServiceAuthDriverInstance" path="/jsp/servermgr/drivers/radius/UpdateWebServiceAuthDriverContainer.jsp" />          							
+				</action>
+				
+				<action path="/updateRadiusDBAuthDriver"
+				        type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDBAuthDriverAction"
+        				name="updateRadiusDBAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusDBAuthDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusDBAuthDriverContainer.jsp" />
+         				<forward name="viewRadiusDBAuthDriverInstance" path="/viewDriverInstance.do" /> 	
+         		</action>
+         		
+         		<action path="/updateRadiusHttpAuthDriver"
+				        type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusHttpAuthDriverAction"
+        				name="updateRadiusHttpAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateRadiusHttpAuthDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusDBAuthDriverContainer.jsp" />
+         				<forward name="viewRadiusHttpAuthDriverInstance" path="/viewDriverInstance.do" /> 	
+         		</action>
+         		
+         		<action path="/updateRadiusMappingGatewayAuthDriver"
+				        type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusMappingGWAuthDriverAction"
+        				name="updateRadiusMappingGWAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusMapGWAuthDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusMappingGWAuthDriverContainer.jsp" />
+         		</action>
+         		
+         		<action path="/updateRadiusLDAPAuthDriver"
+				        type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusLDAPAuthDriverAction"
+        				name="updateRadiusLDAPAuthDriverForm"
+         				scope="request"
+         				validate="false">
+        				 <forward name="openUpdateRadiusLDAPAuthDriver" path="/viewDriverInstance.do" />
+         				<forward name="viewRadiusLDAPAuthDriverInstance" path="/viewDriverInstance.do" />
+         		</action>
+         		
+				<action path="/updateRadiusUserFileAuthDriver"
+				        type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusUserFileAuthDriverAction"
+        				name="updateRadiusUserFileAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusUserFileAuthDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusUserFileAuthDriverContainer.jsp" /> 	
+         				<forward name="ViewRadiusUserFileAuthDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusUserFileAuthDriverContainer.jsp" />
+         		</action>	
+         		
+         		<action path="/updateWebServiceAuthDriver"
+				        type="com.elitecore.elitesm.web.driver.radius.UpdateWebServiceAuthDriverAction"
+        				name="updateWebServiceAuthDriverForm"
+         				scope="request"
+         				validate="false"> 	
+         				<forward name="ViewWebServiceAuthDriverInstance" path="/jsp/servermgr/drivers/radius/ViewWebServiceAuthDriverContainer.jsp" />
+         		</action>
+				
+				<action path="/initViewRadiusDBAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDBAuthDriverAction"
+        				name="updateRadiusDBAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusDBAuthDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusDBAuthDriverContainer.jsp" />
+         				<forward name="viewRadiusDBAuthDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusDBAuthDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initViewRadiusHttpAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusHttpAuthDriverAction"
+        				name="updateRadiusHttpAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateRadiusHttpAuthDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusHttpAuthDriverContainer.jsp" />
+         				<forward name="viewRadiusHttpAuthDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusHttpAuthDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initViewRadiusUserFileAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusUserFileAuthDriverAction"
+        				name="updateRadiusUserFileAuthDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="openUpdateRadiusUserFileAuthDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusUserFileAuthDriverContainer.jsp" />
+         				<forward name="ViewRadiusUserFileAuthDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusUserFileAuthDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initViewWebServiceAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateWebServiceAuthDriverAction"
+        				name="updateWebServiceAuthDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="ViewWebServiceAuthDriverInstance" path="/jsp/servermgr/drivers/radius/ViewWebServiceAuthDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initViewRadiusMappingGWAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusMappingGWAuthDriverAction"
+        				name="updateRadiusMappingGWAuthDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="viewRadiusMapGWAuthDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusMappingGWAuthDriverContainer.jsp" />
+         				<forward name="updateRadiusMappingGWAuthDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusMappingGWAuthDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initViewRadiusDCDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDCDriverAction"
+        				name="updateRadiusDCDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="viewRadiusDCDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusDCDriverContainer.jsp" />
+         				<forward name="updateRadiusDCDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusDCDriverContainer.jsp" /> 				
+				</action>	
+				
+         		<action path="/initViewRadiusLDAPAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusLDAPAuthDriverAction"
+        				name="updateRadiusLDAPAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusLDAPAuthDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusLDAPAuthDriverContainer.jsp" />
+         				<forward name="openUpdateRadiusLDAPAuthDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusLDAPAuthDriverContainer.jsp" />
+				</action>
+				
+         		
+				<!-- Actions  for Radius Acct Drivers -->
+				<action path="/createRadiusDetailLocalAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateRadiusDetailLocalAcctDriverAction"
+        				name="createRadiusDetailLocalAcctDriverForm"
+         				scope="request"
+         				validate="false">      
+         				<forward name="cRadiusDetailLocalAcctDriver" path="/jsp/servermgr/drivers/radius/CreateRadiusDetailLocalAcctDriver.jsp"/>   				
+				</action>
+				
+				<action path="/createRadiusDBAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateRadiusDBAcctDriverAction"
+        				name="createRadiusDBAcctDriverForm"
+         				scope="request"
+         				validate="false">      
+         				<forward name="cRadiusDBAcctDriver" path="/jsp/servermgr/drivers/radius/CreateRadiusDBAcctDriver.jsp"/>   				
+				</action>
+				
+				<action path="/createRadiusClassicCSVAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateRadiusClassicCSVAcctDriverAction"
+        				name="createRadiusClassicCSVAcctDriverForm"
+         				scope="request"
+         				validate="false">      
+         				<forward name="cRadiusClassicCSVAcctDriver" path="/jsp/servermgr/drivers/radius/CreateRadiusClassicCSVAcctDriver.jsp"/>   				
+				</action>
+				
+				<action path="/initUpdateRadiusDetailLocalAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDetailLocalAcctDriverAction"
+        				name="updateRadiusDetailLocalAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusDetailLocalAcctDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusDetailLocalAcctDriverContainer.jsp" />          							
+				</action>
+				
+				
+				<action path="/initUpdateRadiusDBAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDBAcctDriverAction"
+        				name="updateRadiusDBAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusDBAcctDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusDBAcctDriverContainer.jsp" />          							
+				</action> 				
+				
+				<action path="/initUpdateRadiusClassicCSVAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusClassicCSVAcctDriverAction"
+        				name="updateRadiusClassicCSVAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusClassicCSVAcctDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusClassicCSVAcctDriverContainer.jsp" />          							
+				</action>
+				
+			
+
+         		<action path="/updateRadiusDetailLocalAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDetailLocalAcctDriverAction"
+        				name="updateRadiusDetailLocalAcctDriverForm"
+         				scope="request"
+         				validate="false">         				
+         				<forward name="openUpdateRadiusDetailLocalAcctDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusDetailLocalAcctDriverContainer.jsp" />
+         				<forward name="viewRadiusDetailLocalAcctDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusDetailLocalAcctDriverContainer.jsp" />          							
+				</action>
+				
+				<action path="/updateRadiusDBAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDBAcctDriverAction"
+        				name="updateRadiusDBAcctDriverForm"
+         				scope="request"
+         				validate="false">         				
+         				<forward name="openUpdateRadiusDBAcctDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusDBAcctDriverContainer.jsp" />
+         				<forward name="viewRadiusDBAcctDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusDBAcctDriverContainer.jsp" />          							
+				</action>				
+			
+				<action path="/updateRadiusClassicCSVAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusClassicCSVAcctDriverAction"
+        				name="updateRadiusClassicCSVAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusClassicCSVAcctDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusClassicCSVAcctDriverContainer.jsp" />
+         				<forward name="viewRadiusClassicCSVAcctDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusClassicCSVAcctDriverContainer.jsp" />     							
+				</action>
+				
+
+				<action path="/initViewRadiusClassicCSVAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusClassicCSVAcctDriverAction"
+        				name="updateRadiusClassicCSVAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusClassicCSVAcctDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusClassicCSVAcctDriverContainer.jsp" />
+         				<forward name="viewRadiusClassicCSVAcctDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusClassicCSVAcctDriverContainer.jsp" />     							
+				</action>
+				
+				<action path="/initViewRadiusDetailLocalAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDetailLocalAcctDriverAction"
+        				name="updateRadiusDetailLocalAcctDriverForm"
+         				scope="request" 
+         				validate="false">         				
+         				<forward name="viewRadiusDetailLocalAcctDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusDetailLocalAcctDriverContainer.jsp" /> 				
+         				<forward name="openUpdateRadiusDetailLocalAcctDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusDetailLocalAcctDriverContainer.jsp" />
+				</action>	
+				
+				<action path="/initViewRadiusDBAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusDBAcctDriverAction"
+        				name="updateRadiusDBAcctDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="openUpdateRadiusDBAcctDriver" path="/jsp/servermgr/drivers/radius/ViewRadiusDBAcctDriverContainer.jsp" /> 				
+         				<forward name="viewRadiusDBAcctDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusDBAcctDriverContainer.jsp" />
+				</action>
+				
+				
+					<!-- Actions  for Diameter Auth Drivers -->
+				<action path="/createDiameterDBAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.CreateDiameterDBAuthDriverAction"
+        				name="createDiameterDBAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cDiameterDBAuthDriver" path="/jsp/servermgr/drivers/diameter/CreateDiameterDBAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/createDiameterUserFileAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.CreateDiameterUserFileAuthDriverAction"
+        				name="createDiameterUserFileAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cDiameterUserFileAuthDriver" path="/jsp/servermgr/drivers/diameter/CreateDiameterUserFileAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/createDiameterLDAPAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.CreateDiameterLDAPAuthDriverAction"
+        				name="createDiameterLDAPAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cDiameterLDAPAuthDriver" path="/jsp/servermgr/drivers/diameter/CreateDiameterLDAPAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/initUpdateDiameterDBAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterDBAuthDriverAction"
+        				name="updateDiameterDBAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterDBAuthDriver" path="/jsp/servermgr/drivers/diameter/UpdateDiameterDBAuthDriverContainer.jsp" /> 				
+				</action>
+
+				<action path="/initUpdateDiameterLDAPAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterLDAPAuthDriverAction"
+        				name="updateDiameterLDAPAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterLDAPAuthDriver" path="/jsp/servermgr/drivers/diameter/UpdateDiameterLDAPAuthDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initUpdateDiameterUserFileAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterUserFileAuthDriverAction"
+        				name="updateDiameterUserFileAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterUserFileAuthDriver" path="/jsp/servermgr/drivers/diameter/UpdateDiameterUserFileAuthDriverContainer.jsp" />          							
+				</action>
+				
+				<action path="/updateDiameterDBAuthDriver"
+				        type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterDBAuthDriverAction"
+        				name="updateDiameterDBAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterDBAuthDriver" path="/jsp/servermgr/drivers/diameter/UpdateDiameterDBAuthDriverContainer.jsp" />
+         				<forward name="viewDiameterDBAuthDriverInstance" path="/viewDriverInstance.do" /> 	
+         		</action>
+         		
+         		<action path="/updateDiameterLDAPAuthDriver"
+				        type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterLDAPAuthDriverAction"
+        				name="updateDiameterLDAPAuthDriverForm"
+         				scope="request"
+         				validate="false">
+        				 <forward name="openUpdateDiameterLDAPAuthDriver" path="/viewDriverInstance.do" />
+         				<forward name="viewDiameterLDAPAuthDriverInstance" path="/viewDriverInstance.do" />
+         		</action>
+         		
+				<action path="/updateDiameterUserFileAuthDriver"
+				        type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterUserFileAuthDriverAction"
+        				name="updateDiameterUserFileAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterUserFileAuthDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterUserFileAuthDriverContainer.jsp" /> 	
+         				<forward name="ViewDiameterUserFileAuthDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterUserFileAuthDriverContainer.jsp" />
+         		</action>	
+				
+				<action path="/initViewDiameterDBAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterDBAuthDriverAction"
+        				name="updateDiameterDBAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterDBAuthDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterDBAuthDriverContainer.jsp" />
+         				<forward name="viewDiameterDBAuthDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterDBAuthDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/initViewDiameterUserFileAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterUserFileAuthDriverAction"
+        				name="updateDiameterUserFileAuthDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="openUpdateDiameterUserFileAuthDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterUserFileAuthDriverContainer.jsp" />
+         				<forward name="ViewDiameterUserFileAuthDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterUserFileAuthDriverContainer.jsp" /> 				
+				</action>	
+				
+         		<action path="/initViewDiameterLDAPAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterLDAPAuthDriverAction"
+        				name="updateDiameterLDAPAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDiameterLDAPAuthDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterLDAPAuthDriverContainer.jsp" />
+         				<forward name="openUpdateDiameterLDAPAuthDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterLDAPAuthDriverContainer.jsp" />
+				</action>
+				
+				<!-- Actions  for Diameter Map GateWay Drivers -->
+				
+				<action path="/createDiameterMappingGatewayAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.CreateDiameterMappingGWAuthDriverAction"
+        				name="diameterMappingGWAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cDiameterMapGWAuthDriver" path="/jsp/servermgr/drivers/diameter/CreateDiameterMappingGWAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/viewDiameterMappingGWAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterMappingGWAuthDriverAction"
+        				name="diameterMappingGWAuthDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="viewDiameterMapGWAuthDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterMappingGWAuthDriverContainer.jsp" />
+				</action>
+				
+				<action path="/updateDiameterMappingGWAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterMappingGWAuthDriverAction"
+        				name="diameterMappingGWAuthDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="updateDiameterMapGWAuthDriverInstance" path="/jsp/servermgr/drivers/diameter/UpdateDiameterMappingGWAuthDriverContainer.jsp" />
+				</action>
+				
+				<!-- Actions  for Diameter Http Auth Driver -->
+				<action path="/createDiameterHttpAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.CreateDiameterHtttpAuthDriverAction"
+        				name="diameterHttpAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cDiameterHttpAuthDriver" path="/jsp/servermgr/drivers/diameter/CreateDiameterHttpAuthDriver.jsp" />		
+				</action>
+				
+				<action path="/viewDiameterHttpAuthDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterHttpAuthDriverAction"
+        				name="diameterHttpAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDiameterHttpAuthDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterHttpAuthDriverContainer.jsp" />		
+				</action>
+				
+				<action path="/updateDiameterHttpAuthDriver"
+						type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterHttpAuthDriverAction"
+						name="diameterHttpAuthDriverForm"
+						scope="request"
+						validate="false">
+						<forward name="updateDiameterHttpAuthDriverInstance" path="/jsp/servermgr/drivers/diameter/UpdateDiameterHttpAuthDriverContainer.jsp"></forward>
+				</action>
+         		
+				<!-- Actions  for Diameter Acct Drivers -->
+				<action path="/createDiameterDetailLocalAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.CreateDiameterDetailLocalAcctDriverAction"
+        				name="createDiameterDetailLocalAcctDriverForm"
+         				scope="request"
+         				validate="false">      
+         				<forward name="cDiameterDetailLocalAcctDriver" path="/jsp/servermgr/drivers/diameter/CreateDiameterDetailLocalAcctDriver.jsp"/>   				
+				</action>
+				
+				<action path="/createDiameterDBAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.CreateDiameterDBAcctDriverAction"
+        				name="createDiameterDBAcctDriverForm"
+         				scope="request"
+         				validate="false">      
+         				<forward name="cDiameterDBAcctDriver" path="/jsp/servermgr/drivers/diameter/CreateDiameterDBAcctDriver.jsp"/>   				
+				</action>
+				
+				<action path="/createDiameterClassicCSVAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.CreateDiameterClassicCSVAcctDriverAction"
+        				name="createDiameterClassicCSVAcctDriverForm"
+         				scope="request"
+         				validate="false">      
+         				<forward name="cDiameterClassicCSVAcctDriver" path="/jsp/servermgr/drivers/diameter/CreateDiameterClassicCSVAcctDriver.jsp"/>   				
+				</action>
+				
+				<action path="/createDiameterRatingTranslationDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.CreateDiameterRatingTranslationDriverAction"
+        				name="createDiameterRatingTranslationDriverForm"
+         				scope="request"
+         				validate="false">      
+         				<forward name="cDiameterRatingTranslationDriver" path="/jsp/servermgr/drivers/diameter/CreateDiameterRatingTranslationDriver.jsp"/>   				
+				</action>
+				
+				<action path="/createCrestelChargingDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateCrestelChargingDriverAction"
+        				name="createCrestelChargingDriverForm"
+         				scope="request"
+         				validate="false">      
+         				<forward name="cCrestelChargingDriver" path="/jsp/servermgr/drivers/radius/CreateCrestelChargingDriver.jsp"/>   				
+				</action>
+				
+				<!-- Action for Crestel OCSv2 Driver -->
+				<action path="/createCrestelOCSv2Driver"
+						type="com.elitecore.elitesm.web.driver.radius.CreateCrestelOCSv2DriverAction"
+						name="crestelOCSv2DriverForm"
+						scope="request"
+						validate="false">
+						<forward name="cCrestelOCSv2Driver" path="/jsp/servermgr/drivers/radius/CreateCrestelOCSv2Driver.jsp"></forward>
+				</action>
+				
+				<action path="/viewCrestelOCSv2Driver"
+						type="com.elitecore.elitesm.web.driver.radius.ViewCrestelOCSv2DriverAction"
+						name="crestelOCSv2DriverForm"
+						scope="request"
+						validate="false">
+						<forward name="viewCrestelOCSv2DriverInstance" path="/jsp/servermgr/drivers/radius/ViewCrestelOCSv2DriverContainer.jsp"></forward>
+				</action>
+				
+				<action path="/updateCrestelOCSv2Driver"
+						type="com.elitecore.elitesm.web.driver.radius.UpdateCrestelOCSv2DriverAction"
+						name="crestelOCSv2DriverForm"
+						scope="request"
+						validate="false">
+						<forward name="updateCrestelOCSv2DriverInstance" path="/jsp/servermgr/drivers/radius/UpdateCrestelOCSv2DriverContainer.jsp"></forward>
+				</action>
+				
+				<!--  Action For Diameter CrestelOCSv2 Translation Driver -->
+				<action path="/createDiameterCrestelOCSv2Driver"
+						type="com.elitecore.elitesm.web.driver.diameter.CreateDiameterCrestelOCSv2DriverAction"
+						name="diameterCrestelOCSv2DriverForm"
+						scope="request"
+						validate="false">
+						<forward name="cCreateDiameterCrestelOCSv2Driver" path="/jsp/servermgr/drivers/diameter/CreateDiameterCrestelOCSv2Driver.jsp"></forward>
+				</action>
+				
+				<action path="/viewDiameterCrestelOCSv2Driver"
+						type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterCrestelOCSv2DriverAction"
+						name="diameterCrestelOCSv2DriverForm"
+						scope="request"
+						validate="false">
+						<forward name="viewDiameterCrestelOCSv2DriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterCrestelOCSv2DriverContainer.jsp"></forward>
+				</action>
+				
+				<action path="/updateDiameterCrestelOCSv2Driver"
+						type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterCrestelOCSv2DriverAction"
+						name="diameterCrestelOCSv2DriverForm"
+						scope="request"
+						validate="false">
+						<forward name="updateDiameterCrestelOCSv2DriverInstance" path="/jsp/servermgr/drivers/diameter/UpdateDiameterCrestelOCSv2DriverContainer.jsp"></forward>
+				</action>
+				
+				<!-- Actions  for Parley Charging Drivers -->
+				<action path="/createRadiusParleyChargingDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.CreateRadiusPCDriverAction"
+        				name="createRadiusPCDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="cRadiusPCDriver" path="/jsp/servermgr/drivers/radius/CreateRadiusPCDriver.jsp" />		
+				</action>
+				
+				<action path="/initUpdateDiameterDetailLocalAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterDetailLocalAcctDriverAction"
+        				name="updateDiameterDetailLocalAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterDetailLocalAcctDriver" path="/jsp/servermgr/drivers/diameter/UpdateDiameterDetailLocalAcctDriverContainer.jsp" />          							
+				</action>
+				
+				
+				<action path="/initUpdateDiameterDBAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterDBAcctDriverAction"
+        				name="updateDiameterDBAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterDBAcctDriver" path="/jsp/servermgr/drivers/diameter/UpdateDiameterDBAcctDriverContainer.jsp" />          							
+				</action> 				
+				
+				<action path="/initUpdateDiameterClassicCSVAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterClassicCSVAcctDriverAction"
+        				name="updateDiameterClassicCSVAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterClassicCSVAcctDriver" path="/jsp/servermgr/drivers/diameter/UpdateDiameterClassicCSVAcctDriverContainer.jsp" />          							
+				</action>
+				
+				<action path="/initUpdateDiameterRatingTranslationDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterRatingTranslationDriverAction"
+        				name="updateDiameterRatingTranslationDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterRatingTranslationDriver" path="/jsp/servermgr/drivers/diameter/UpdateDiameterRatingTranslationDriverContainer.jsp" />          							
+				</action>
+				
+				<action path="/initUpdateCrestelChargingDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateCrestelChargingDriverAction"
+        				name="updateCrestelChargingDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateCrestelChargingDriver" path="/jsp/servermgr/drivers/radius/UpdateCrestelChargingDriverContainer.jsp" />          							
+				</action>
+				
+				<action path="/updateCrestelChargingDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateCrestelChargingDriverAction"
+        				name="updateCrestelChargingDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateCrestelChargingDriver" path="/jsp/servermgr/drivers/radius/ViewCrestelChargingDriverContainer.jsp" />
+         				<forward name="viewCrestelChargingDriverInstance" path="/jsp/servermgr/drivers/radius/ViewCrestelChargingDriverContainer.jsp" />          							
+				</action>
+				
+         		<action path="/updateDiameterDetailLocalAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterDetailLocalAcctDriverAction"
+        				name="updateDiameterDetailLocalAcctDriverForm"
+         				scope="request"
+         				validate="false">         				
+         				<forward name="openUpdateDiameterDetailLocalAcctDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterDetailLocalAcctDriverContainer.jsp" />
+         				<forward name="viewDiameterDetailLocalAcctDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterDetailLocalAcctDriverContainer.jsp" />          							
+				</action>
+				
+				<action path="/updateDiameterDBAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterDBAcctDriverAction"
+        				name="updateDiameterDBAcctDriverForm"
+         				scope="request"
+         				validate="false">         				
+         				<forward name="openUpdateDiameterDBAcctDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterDBAcctDriverContainer.jsp" />
+         				<forward name="viewDiameterDBAcctDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterDBAcctDriverContainer.jsp" />          							
+				</action>				
+			
+				<action path="/updateDiameterClassicCSVAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterClassicCSVAcctDriverAction"
+        				name="updateDiameterClassicCSVAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterClassicCSVAcctDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterClassicCSVAcctDriverContainer.jsp" />
+         				<forward name="viewDiameterClassicCSVAcctDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterClassicCSVAcctDriverContainer.jsp" />     							
+				</action>
+				
+				<action path="/updateDiameterRatingTranslationDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterRatingTranslationDriverAction"
+        				name="updateDiameterRatingTranslationDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterRatingTranslationDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterRatingTranslationDriverContainer.jsp" />
+         				<forward name="viewDiameterRatingTranslationDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterRatingTranslationDriverContainer.jsp" />     							
+				</action>
+				
+				<action path="/initViewDiameterClassicCSVAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterClassicCSVAcctDriverAction"
+        				name="updateDiameterClassicCSVAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterClassicCSVAcctDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterClassicCSVAcctDriverContainer.jsp" />
+         				<forward name="viewDiameterClassicCSVAcctDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterClassicCSVAcctDriverContainer.jsp" />     							
+				</action>
+				
+				<action path="/initViewDiameterDetailLocalAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterDetailLocalAcctDriverAction"
+        				name="updateDiameterDetailLocalAcctDriverForm"
+         				scope="request" 
+         				validate="false">         				
+         				<forward name="viewDiameterDetailLocalAcctDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterDetailLocalAcctDriverContainer.jsp" /> 				
+         				<forward name="openUpdateDiameterDetailLocalAcctDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterDetailLocalAcctDriverContainer.jsp" />
+				</action>	
+				
+				<action path="/initViewDiameterDBAcctDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterDBAcctDriverAction"
+        				name="updateDiameterDBAcctDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="openUpdateDiameterDBAcctDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterDBAcctDriverContainer.jsp" /> 				
+         				<forward name="viewDiameterDBAcctDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterDBAcctDriverContainer.jsp" />
+				</action>
+				
+				<action path="/initViewDiameterRatingTranslationDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterRatingTranslationDriverAction"
+        				name="updateDiameterRatingTranslationDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="openUpdateDiameterRatingTranslationDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterRatingTranslationDriverContainer.jsp" /> 				
+         				<forward name="viewDiameterRatingTranslationDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameteRatingTranslationDriverContainer.jsp" />
+				</action>
+				
+				<action path="/initViewCrestelChargingDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateCrestelChargingDriverAction"
+        				name="updateCrestelChargingDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="openUpdateCrestelChargingDriver" path="/jsp/servermgr/drivers/radius/ViewCrestelChargingDriverContainer.jsp" /> 				
+         				<forward name="viewCrestelChargingDriverInstance" path="/jsp/servermgr/drivers/radius/ViewCrestelChargingDriverContainer.jsp" />
+				</action>
+				
+				
+				<!--  Subscriber Profile Management -->
+				<action path="/addDatabaseSubscriberProfileData" 
+         				type="com.elitecore.elitesm.web.driver.subscriberprofile.database.AddDatabaseSubscriberProfileDataAction"
+        				name="addDatabaseSubscriberProfileDataForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="addDatabaseSubscriberProfile" path="/jsp/servermgr/drivers/subscriberprofile/database/AddDatabaseSubscriberProfileContainer.jsp" />          							
+				</action>
+				
+				<action path="/searchDatabaseSubscriberProfileData"
+				      type="com.elitecore.elitesm.web.driver.subscriberprofile.database.SearchDatabaseSubscriberProfileDataAction"
+				      name="searchDatabaseSubscriberProfileDataForm"
+				      scope="request"
+				      validate="false">
+        		    <forward name="searchDatabaseSubscriberProfile" path="/jsp/servermgr/drivers/subscriberprofile/database/SearchDatabaseSubscriberProfileDataContainer.jsp"/>
+        		</action>
+        
+        		<action path="/updateDatabaseSubscriberProfileField" 
+         				type="com.elitecore.elitesm.web.driver.subscriberprofile.database.UpdateDatabaseSubscriberProfileFieldAction"
+        				name="updateDatabaseSubscriberProfileFieldForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateDatabaseField" path="/jsp/servermgr/drivers/subscriberprofile/database/UpdateDatabaseSubscriberProfileFieldContainer.jsp" />          							
+				</action>
+				
+		      	<action path="/updateDatabaseSubscriberProfileValuePool"
+		      		type="com.elitecore.elitesm.web.driver.subscriberprofile.database.UpdateDatabaseSubscriberProfileFieldAction"
+		    	  	name="updateDatabaseSubscriberProfileFieldForm"
+		      		scope="request"
+		      		validate="false">
+           			<forward name="updateDatabaseFieldValuePool" path="/jsp/servermgr/drivers/subscriberprofile/database/UpdateDatabaseSubscriberProfileValuePoolContainer.jsp"/>
+        		</action>
+        
+				<action path="/updateValuePool" 
+         				type="com.elitecore.elitesm.web.driver.subscriberprofile.database.UpdateValuePoolAction"
+        				name="UpdateValuePoolForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateFieldValuePool" path="/jsp/servermgr/drivers/subscriberprofile/database/PopUpUpdateValuePool.jsp"/>          							
+				</action>
+									
+				<action path="/miscSearchDatabaseSubscriberProfile"
+         				type="com.elitecore.elitesm.web.driver.subscriberprofile.database.MiscSearchDatabaseSubscriberProfileAction"
+        				name="miscSearchDatabaseSubscriberProfileForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="searchDatabaseSubscriberProfileDataList" path="/searchDatabaseSubscriberProfileData.do?"/>          							
+				</action>
+
+				<action path="/updateDatabaseSubscriberProfileData"
+         				type="com.elitecore.elitesm.web.driver.subscriberprofile.database.UpdateDatabaseSubscriberProfileDataAction"
+        				name="updateDatabaseSubscriberProfileDataForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateSubscriberProfileRecord" path="/jsp/servermgr/drivers/subscriberprofile/database/UpdateDatabaseSubscriberProfileDataContainer.jsp"/>          							
+				</action>
+
+				<action path="/viewDatabaseSubscriberProfileData"
+         				type="com.elitecore.elitesm.web.driver.subscriberprofile.database.ViewDatabaseSubscriberProfileDataAction"
+        				name="viewDatabaseSubscriberProfileDataForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewSubscriberProfileRecord" path="/jsp/servermgr/drivers/subscriberprofile/database/ViewDatabaseSubscriberProfileDataContainer.jsp"/>          							
+				</action>
+				
+				<action path="/viewRadiusDBAuthDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewRadiusDBAuthDriverHistoryAction"
+        				name="updateRadiusDBAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusDBAuthDriverHistoryDetailAction" path="/jsp/servermgr/drivers/radius/ViewRadiusDBAuthDriverHistoryContainer.jsp" />
+				</action>
+				
+				<action path="/viewRadiusHttpAuthDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewRadiusHttpAuthDriverHistoryAction"
+        				name="updateRadiusHttpAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusHttpAuthDriverHistory" path="/jsp/servermgr/drivers/radius/ViewRadiusHttpAuthDriverHistoryContainer.jsp" />
+				</action>
+				
+				<action path="/viewDiameterDBAuthDriverHistoryDetails" 
+         				type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterDBAuthDriverHistoryAction"
+        				name="updateDiameterDBAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDiameterDBAuthDriver" path="/jsp/servermgr/drivers/diameter/ViewDiameterDBAuthDriverHistoryContainer.jsp" />
+				</action>
+				
+				<action path="/viewDiameterHttpAuthDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterHttpAuthDriverHistoryAction"
+        				name="diameterHttpAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDiameterHttpAuthDriverHistory" path="/jsp/servermgr/drivers/diameter/ViewDiameterHttpAuthDriverHistoryContainer.jsp" />
+				</action>
+			
+				<action path="/viewRadiusLDAPAuthDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewRadiusLDAPAuthDriverHistoryAction"
+        				name="updateRadiusLDAPAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusLDAPAuthDriverHistory" path="/jsp/servermgr/drivers/radius/ViewRadiusLDAPAuthDriverHistoryContainer.jsp" />
+				</action>
+				
+				<action path="/viewDiameterLDAPAuthDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterLDAPAuthDriverHistoryAction"
+        				name="updateDiameterLDAPAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDiameterLDAPAuthDriverHistory" path="/jsp/servermgr/drivers/diameter/ViewDiameterLDAPAuthDriverHistoryContainer.jsp" />
+				</action>
+				
+				<action path="/viewRadiusMappingGWAuthDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewRadiusMappingGWAuthDriverHistoryAction"
+        				name="updateRadiusMappingGWAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusMappingGWAuthDriverHistory" path="/jsp/servermgr/drivers/radius/ViewRadiusMappingGWAuthDriverHistoryContainer.jsp" /> 				
+				</action>
+				
+				<action path="/viewDiameterMappingGWAuthDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterMappingGWAuthDriverHistoryAction"
+        				name="diameterMappingGWAuthDriverForm"
+         				scope="request" 
+         				validate="false">
+         				<forward name="viewDiameterMapGWAuthDriverHistory" path="/jsp/servermgr/drivers/diameter/ViewDiameterMappingGWAuthDriverHistoryContainer.jsp" />
+				</action>
+				
+				<action path="/viewRadiusUserFileAuthDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewRadiusUserFileAuthDriverHistoryAction"
+        				name="updateRadiusUserFileAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusUserFileAuthDriverHistory" path="/jsp/servermgr/drivers/radius/ViewRadiusUserFileAuthDriverHistoryContainer.jsp" />          							
+				</action>
+				
+				<action path="/viewDiameterUserFileAuthDriverHistory"
+				        type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterUserFileAuthDriverHistoryAction"
+        				name="updateDiameterUserFileAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDiameterUserFIleAuthDriverHistory" path="/jsp/servermgr/drivers/diameter/ViewDiameterUserFileAuthDriverHistoryContainer.jsp" />
+         		</action>
+         		
+         		<action path="/viewWebServiceAuthDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewWebServiceAuthDriverHistoryAction"
+        				name="updateWebServiceAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewWebServiceAuthDriverHistory" path="/jsp/servermgr/drivers/radius/ViewWebServiceAuthDriverHistoryContainer.jsp" />          							
+				</action>
+				
+				<action path="/viewRadiusClassicCSVAcctDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewRadiusClassicCSVAcctDriverHistoryAction"
+        				name="updateRadiusClassicCSVAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusClassicCSVAcctDriverHistory" path="/jsp/servermgr/drivers/radius/ViewRadiusClassicCSVAcctDriverHistoryContainer.jsp" />          							
+				</action>
+				
+				<action path="/viewDiameterClassicCSVAcctDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterClassicCSVAcctDriverHistoryAction"
+        				name="updateDiameterClassicCSVAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDiameterClassicCSVAcctDriverHistory" path="/jsp/servermgr/drivers/diameter/ViewDiameterClassicCSVAcctDriverHistoryContainer.jsp" />          							
+				</action>
+				
+				
+				
+				<action path="/viewRadiusDBAcctDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewRadiusDBAcctDriverHistoryAction"
+        				name="updateRadiusDBAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusDBAcctDriverHistory" path="/jsp/servermgr/drivers/radius/ViewRadiusDBAcctDriverHistoryContainer.jsp" />          							
+				</action> 	
+         		
+         		<action path="/viewDiameterDBAcctDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterDBAcctDriverHistoryAction"
+        				name="updateDiameterDBAcctDriverForm"
+         				scope="request"
+         				validate="false">         				
+         				<forward name="viewDiameterDBAcctDriverHistory" path="/jsp/servermgr/drivers/diameter/ViewDiameterDBAcctDriverHistoryContainer.jsp" />          							
+				</action>				
+			
+				<action path="/viewRadiusDetailLocalAcctDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewRadiusDetailLocalAcctDriverHistoryAction"
+        				name="updateRadiusDetailLocalAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusDetailLocalAcctDriverHistory" path="/jsp/servermgr/drivers/radius/ViewRadiusDetailLocalAcctDriverHistoryContainer.jsp" />          							
+				</action>
+				
+				<action path="/viewDiameterDetailLocalAcctDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterDetailLocalAcctDriverHistoryAction"
+        				name="updateDiameterDetailLocalAcctDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDiameterDetailLocalAcctDriverHistory" path="/jsp/servermgr/drivers/diameter/ViewDiameterDetailLocalAcctDriverHistoryContainer.jsp" />          							
+				</action>
+				
+				<action path="/viewCrestelChargingDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewCrestelChargingDriverHistoryAction"
+        				name="updateCrestelChargingDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewCrestelChargingDriverHistory" path="/jsp/servermgr/drivers/radius/ViewCrestelChargingDriverHistoryContainer.jsp" />          							
+				</action>
+				
+				<action path="/viewCrestelOCSv2DriverHistory"
+						type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterCrestelOCSv2DriverHistoryAction"
+						name="diameterCrestelOCSv2DriverForm"
+						scope="request"
+						validate="false">
+						<forward name="viewCrestelOCSv2DriverHistory" path="/jsp/servermgr/drivers/radius/ViewCrestelOCSv2DriverHistoryContainer.jsp"></forward>
+				</action>
+				
+				<action path="/viewDiameterRatingTranslationDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterRatingTranslationDriverHistoryAction"
+        				name="updateDiameterRatingTranslationDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDiameterRatingTranslationDriverHistory" path="/jsp/servermgr/drivers/diameter/ViewDiameterRatingTranslationDriverHistoryContainer.jsp" />          							
+				</action>
+         		
+         		<action path="/viewRadiusDCDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewRadiusDCDriverHistoryAction"
+        				name="updateRadiusDCDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusDCDriverHistory" path="/jsp/servermgr/drivers/radius/ViewRadiusDCDriverHistoryContainer.jsp" /> 				
+				</action>
+				
+				<action path="/viewDiameterHssAuthDriver"
+						type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterHSSAuthDriverAction"
+						name="diameterHSSAuthDriverForm"
+						scope="request"
+						validate="false">
+						<forward name="viewDiameterHssAuthDriverInstance" path="/jsp/servermgr/drivers/diameter/ViewDiameterHssAuthDriverContainer.jsp"></forward>
+				</action>
+				
+				<action path="/initUpdateDiameterHssDriver" 
+         				type="com.elitecore.elitesm.web.driver.diameter.UpdateDiameterHSSDriverAction"
+        				name="diameterHSSAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateDiameterHssAuthDriver" path="/jsp/servermgr/drivers/diameter/UpdateDiameterHSSDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/viewRadiusHssAuthDriver"
+						type="com.elitecore.elitesm.web.driver.radius.ViewRadiusHSSAuthDriverAction"
+						name="radiusHSSAuthDriverForm"
+						scope="request"
+						validate="false">
+						<forward name="viewRadiusHssAuthDriverInstance" path="/jsp/servermgr/drivers/radius/ViewRadiusHssAuthDriverContainer.jsp"></forward>
+				</action>
+				
+				<action path="/initUpdateRadiusHssDriver" 
+         				type="com.elitecore.elitesm.web.driver.radius.UpdateRadiusHSSDriverAction"
+        				name="radiusHSSAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="openUpdateRadiusHssAuthDriver" path="/jsp/servermgr/drivers/radius/UpdateRadiusHSSDriverContainer.jsp" /> 				
+				</action>
+				
+				<action path="/viewRadiusHSSAuthDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.radius.ViewRadiusHssAuthDriverHistoryAction"
+        				name="radiusHSSAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusHssAuthDriverHistory" path="/jsp/servermgr/drivers/radius/ViewRadiusHSSAuthDriverHistoryContainer.jsp" />
+				</action>
+				
+				<action path="/viewDiameterHSSAuthDriverHistory" 
+         				type="com.elitecore.elitesm.web.driver.diameter.ViewDiameterHssAuthDriverHistoryAction"
+        				name="diameterHSSAuthDriverForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDiameterHssAuthDriverHistory" path="/jsp/servermgr/drivers/diameter/ViewDiameterHSSAuthDriverHistoryContainer.jsp" />
+				</action>
+				
+			</action-mappings>
+			<message-resources key="driverResources" parameter="com.elitecore.elitesm.web.driver.driverResources" />  
+
+		</struts-config>

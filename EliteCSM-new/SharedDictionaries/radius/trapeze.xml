@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="14525" vendor-name="Trapeze">
+<attribute id="1" name="Trapeze-VLAN-Name" type="string"/>
+<attribute id="2" name="Trapeze-Mobility-Profile" type="string"/>
+<attribute id="3" name="Trapeze-Encryption-Type" type="string"/>
+<attribute id="4" name="Trapeze-Time-Of-Day" type="string"/>
+<attribute id="5" name="Trapeze-SSid" type="string"/>
+<attribute id="6" name="Trapeze-End-Date" type="string"/>
+<attribute id="7" name="Trapeze-Start-Date" type="string"/>
+<attribute id="8" name="Trapeze-URL" type="string"/>
+</attribute-list>

@@ -1,0 +1,57 @@
+.sectionText {
+	FONT-SIZE: 70%; LINE-HEIGHT: 1.5em; FONT-FAMILY: Verdana, Tahoma, Arial, Sans-Serif
+}
+.sectionHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 70%; COLOR: #ffffff; FONT-FAMILY: Verdana, Tahoma, Arial, Sans-Serif
+}
+A:hover {
+	COLOR: #ff0000
+}
+.body {
+	FONT-SIZE: 70%; LINE-HEIGHT: 140%; FONT-FAMILY: Verdana, Tahoma, Arial, Sans-Serif
+}
+H4 {
+	FONT-FAMILY: Verdana, Tahoma, Arial, Helvetica
+}
+H3 {
+	FONT-FAMILY: Verdana, Tahoma, Arial, Helvetica
+}
+H2 {
+	FONT-FAMILY: Verdana, Tahoma, Arial, Helvetica
+}
+#tblArticle {
+	FONT-SIZE: 70%; LINE-HEIGHT: 1.2em; FONT-FAMILY: Verdana, Arial, 'MS Sans Serif'
+}
+.noUnderline {
+	FONT-SIZE: 70%; LINE-HEIGHT: 1.2em; FONT-FAMILY: Verdana, Tahoma, Arial, Sans-Serif
+}
+.noUnderline A:link {
+	TEXT-DECORATION: none
+}
+.noUnderline A:visited {
+	TEXT-DECORATION: none
+}
+.noUnderline A:hover {
+	TEXT-DECORATION: underline
+}
+#tblTail {
+	FONT-SIZE: 70%; COLOR: #ffffff; FONT-FAMILY: Tahoma, Verdana, Arial, sans-serif
+}
+PRE {
+	BORDER-RIGHT: #999999 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #999999 1px solid; PADDING-LEFT: 10px; FONT-SIZE: 100%; PADDING-BOTTOM: 5px; BORDER-LEFT: #999999 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: Verdana, Tahoma, Arial, "Courier New"; BACKGROUND-COLOR: #ffffef
+}
+#tblNavigation {
+	FONT-WEIGHT: bold; FONT-SIZE: x-small; COLOR: #000000; FONT-FAMILY: Verdana, Tahoma, Arial, sans-serif; LETTER-SPACING: 1px
+}
+#tblNavigation A:link {
+	FONT-WEIGHT: bold; COLOR: #ffffff; FONT-FAMILY: Verdana, Tahoma, Arial, sans-serif; LETTER-SPACING: 1px; TEXT-DECORATION: none
+}
+#tblNavigation A:visited {
+	FONT-WEIGHT: bold; COLOR: #ffffff; FONT-FAMILY: Verdana, Tahoma, Arial, sans-serif; LETTER-SPACING: 1px; TEXT-DECORATION: none
+}
+#tblNavigation A:hover {
+	FONT-WEIGHT: bold; COLOR: #ff3300; FONT-FAMILY: Verdana, Tahoma, Arial, sans-serif; LETTER-SPACING: 1px; TEXT-DECORATION: none
+}
+.cbtn {
+	BORDER-RIGHT: #D9E6F6 1px solid; BORDER-TOP: #D9E6F6 1px solid; BORDER-LEFT: #D9E6F6 1px solid; BORDER-BOTTOM: #D9E6F6 1px solid
+}

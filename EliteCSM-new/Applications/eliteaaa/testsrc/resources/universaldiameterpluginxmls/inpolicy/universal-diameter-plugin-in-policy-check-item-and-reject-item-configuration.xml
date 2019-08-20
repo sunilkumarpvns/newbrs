@@ -1,0 +1,493 @@
+<list>
+	<test-case
+		behaviour="policy is not selected if configured check item attribute is not present in request packet">
+					
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"elitecore"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"success"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:1" value="eliteaaa@elitecore.com" />
+				<not>
+					<contains-attribute id="0:25" value="success" />
+				</not>
+			</request>
+		</assert>
+
+	</test-case>
+
+	<test-case
+		behaviour="policy is selected if configured check item attribute is present in request packet
+						and matches the expression in attribute value. Attribute value can contain:
+						1) Literal expression (enclosed within double quotes) 
+						2) An identifier e.g attribute-id 0:1 
+						3) Function of expression library.">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:1</attr-id>
+							<attribute-value>"eliteaaa@elitecore.com"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>toUpperCase("elitecore")</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>0:30</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"success"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="ELITECORE" />
+			<attribute id="0:31" value="ELITECORE" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:25" value="success" />
+			</request>
+		</assert>
+	</test-case>
+
+
+	<test-case
+		behaviour="policy is NOT selected on first check item not satisfied in order of configuration, further check items are not checked">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:1</attr-id>
+							<attribute-value>"eliteaaa"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>fail("Check items must work like short-circuit operator. After first not satisfied, other check items must not be checked")</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:31" value="elitecore" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<not>
+					<contains-attribute id="0:25" value="success" />
+				</not>
+			</request>
+		</assert>
+	</test-case>
+
+	<test-case
+		behaviour="policy is NOT selected if configured reject item attribute is present in request packet
+						and matches the expression in attribute value. Attribute value can contain 
+						Literal expression (enclosed within double quotes), and further execution is skipped 
+						">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:1</attr-id>
+							<attribute-value>"eliteaaa@elitecore.com"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>J</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"success"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="ELITECORE" />
+			<attribute id="0:31" value="ELITECORE" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:1" value="eliteaaa@elitecore.com" />
+				<contains-attribute id="0:31" value="ELITECORE" />
+				<not>
+					<contains-attribute id="0:25" value="success" />
+				</not>
+			</request>
+		</assert>
+
+	</test-case>
+
+
+	<test-case
+		behaviour="policy  NOT is selected if configured reject item attribute is present in request packet
+						and matches the expression in attribute value. Attribute value can contain:
+						An identifier e.g attribute-id 0:1, and further execution is skipped
+	">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>0:30</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>J</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"success"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="ELITECORE" />
+			<attribute id="0:31" value="ELITECORE" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:1" value="eliteaaa@elitecore.com" />
+				<contains-attribute id="0:31" value="ELITECORE" />
+				<not>
+					<contains-attribute id="0:25" value="success" />
+				</not>
+			</request>
+		</assert>
+
+	</test-case>
+
+
+	<test-case
+		behaviour="policy is NOT selected if configured reject item attribute is present in request packet
+						and matches the expression in attribute value. Attribute value can contain 
+						a function of expression library">
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>toUpperCase("elitecore")</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>J</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"success"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:30" value="ELITECORE" />
+			<attribute id="0:31" value="ELITECORE" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:1" value="eliteaaa@elitecore.com" />
+				<contains-attribute id="0:31" value="ELITECORE" />
+				<not>
+					<contains-attribute id="0:25" value="success" />
+				</not>
+			</request>
+		</assert>
+
+	</test-case>
+
+	<test-case
+		behaviour="policy is NOT selected on first reject item satisfied in order of configuration, further reject items are not checked">
+		<diameter-universal-plugin-detail>
+			<description>Created by admin on 04/17/2017 03:17:43 PM</description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:1</attr-id>
+							<attribute-value>"eliteaaa@elitecore.com"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>J</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>fail("Reject items must work like short-circuit operator. After first satisfied, other reject item must not be checked")</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>J</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:31" value="elitecore" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<not>
+					<contains-attribute id="0:25" value="success" />
+				</not>
+			</request>
+		</assert>
+	</test-case>
+	
+	<test-case
+		behaviour="policy is selected and applied successfully if reject item not present in request ">
+		<diameter-universal-plugin-detail>
+			<description>Created by admin on 04/17/2017 03:17:43 PM</description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:1</attr-id>
+							<attribute-value>"eliteaaa@elitecore.com"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>J</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"success"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:31" value="elitecore" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+					<contains-attribute id="0:25" value="success" />
+			</request>
+		</assert>
+	</test-case>
+	
+	<test-case
+		behaviour="policy selection criteria is:
+				* Policy is selected if all check items are satisfied and none of reject items are satisfied
+				* Policy selection = Check Item AND NOT (Reject Item) AND NOT (Reject Item) AND Check Item ...">
+	
+		<diameter-universal-plugin-detail>
+			<description></description>
+			<name>DUP</name>
+			<universal-in-diameter-policies>
+				<policy-data name="inPolicy">
+					<action>1</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"elitecore"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:1</attr-id>
+							<attribute-value>"not-satisfied"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>J</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"eliteaaa"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:25</attr-id>
+							<attribute-value>"success"</attribute-value>
+							<packet-type>1</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+				</policy-data>
+			</universal-in-diameter-policies>
+			<universal-out-diameter-policies />
+		</diameter-universal-plugin-detail>
+
+		<diameter-request cc="271" app-id="1" request="true">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+			<attribute id="0:31" value="elitecore" />
+			<attribute id="0:30" value="eliteaaa" />
+		</diameter-request>
+
+		<diameter-answer cc="271" app-id="1">
+		</diameter-answer>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:1" value="eliteaaa@elitecore.com" />
+				<contains-attribute id="0:30" value="eliteaaa" />
+				<contains-attribute id="0:31" value="elitecore" />
+				<contains-attribute id="0:25" value="success" />
+				<packet-type value="4" />
+			</request>
+		</assert>
+	</test-case>
+</list>

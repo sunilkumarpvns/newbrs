@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="5948" vendor-name="Issanni">
+<attribute id="1" name="Issanni-SoftFlow-Template" type="string"/>
+<attribute id="2" name="Issanni-NAT-Support" type="string"/>
+<attribute id="3" name="Issanni-Routing-Context" type="string"/>
+<attribute id="4" name="Issanni-Tunnel-Name" type="string"/>
+<attribute id="5" name="Issanni-IP-Pool-Name" type="string"/>
+<attribute id="6" name="Issanni-PPPoE-URL" type="string"/>
+<attribute id="7" name="Issanni-PPPoE-MOTM" type="string"/>
+<attribute id="8" name="Issanni-Service" type="string"/>
+<attribute id="9" name="Issanni-Pri-DNS" type="ipaddr"/>
+<attribute id="10" name="Issanni-Sec-DNS" type="ipaddr"/>
+<attribute id="11" name="Issanni-Pri-NBNS" type="ipaddr"/>
+<attribute id="12" name="Issanni-Sec-NBNS" type="ipaddr"/>
+<attribute id="13" name="Issanni-Traffic-Class" type="string"/>
+<attribute id="14" name="Issanni-Tunnel-Type" type="integer">
+	<supported-values>
+		<value id="1" name="IP-IP"/>
+		<value id="2" name="ESP"/>
+		<value id="3" name="L2TP"/>
+	</supported-values>
+</attribute>
+<attribute id="15" name="Issanni-NAT-Type" type="integer">
+	<supported-values>
+		<value id="1" name="NAT"/>
+		<value id="2" name="NAPT"/>
+	</supported-values>
+</attribute>
+<attribute id="16" name="Issanni-QOS-Class" type="string"/>
+<attribute id="17" name="Issanni-Interface-Name" type="string"/>
+</attribute-list>

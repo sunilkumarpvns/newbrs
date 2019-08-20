@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<keys>
+
+<dhcp-rk-threshold-time>600</dhcp-rk-threshold-time>
+
+<!-- 
+the default value of cleanup enabled should be false The possible values are:   true  false  
+-->
+
+<dhcp-keys-cleanup-enabled>false</dhcp-keys-cleanup-enabled>
+
+<!-- In keys cleanup interval tag specify the interval in seconds 86400 is the default  value-->
+
+<dhcp-keys-cleanup-interval>86400</dhcp-keys-cleanup-interval>
+
+</keys>

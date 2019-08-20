@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>         
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+                               
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.diameter.tgppaaapolicy.data.TGPPAAAPolicyData" table="TBLMTGPPAAASERVICEPOLICY">
+	
+		<id name="tgppAAAPolicyId" column="TGPPAAAPOLICYID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+		
+		<property name="name" type="StringType" column="NAME" not-null="true"/> 
+		<property name="description" type="StringType" column="DESCRIPTION" not-null="false"/> 
+		<property name="status" type="CharType" column="STATUS" not-null="true"/>
+		<property name="ruleset" type="StringType" not-null="false" column="RULESET"></property>
+	    <property name="sessionManagement" type="StringType" not-null="false" column="SESSIONMANAGEMENT"></property>
+		<property name="userIdentity" type="StringType" column="USERIDENTITY" not-null="false"></property>
+		<property name="cui" type="StringType" not-null="false" column="CUI"></property>
+		<property name="auditUid" type="StringType" column="AUDIT_UID" not-null="false"/>
+		<property name="orderNumber" type="java.lang.Long" column="ORDERNUMBER" not-null="false"/>
+		<property name="defaultResponseBehaviorArgument" type="StringType" column="DEFAULTRESPONSEBEHAVIORPARAM" not-null="false"/>
+		<property name="defaultResponseBehaviour" type="StringType" column="DEFAULTRESPONSEBEHAVIORTYPE" not-null="false"/>
+		<property name="tgppAAAPolicyXml" type="byte[]" column="TGPPAAAPOLICYXML" not-null="false" />
+			
+	</class>            
+
+</hibernate-mapping>

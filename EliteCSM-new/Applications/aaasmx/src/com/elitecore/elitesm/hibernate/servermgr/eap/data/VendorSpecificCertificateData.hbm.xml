@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.eap.data.VendorSpecificCertificateData" table="TBLMVENDORSPECIFICCERT">
+
+		<id name="id" column="ID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="eaptlsId" type="StringType"> 
+			<column name="EAP_TLS_ID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="oui" type="StringType"> 
+			<column name="OUI" sql-type="VARCHAR(15)" not-null="false" /> 
+		</property>
+
+		<property name="serverCertificateIdForVSC" type="StringType"> 
+			<column name="SERVERCERTIFICATEID" sql-type="VARCHAR(36)"/> 
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false" />     
+	</class>
+
+</hibernate-mapping> 
+
+	
+
+
+	

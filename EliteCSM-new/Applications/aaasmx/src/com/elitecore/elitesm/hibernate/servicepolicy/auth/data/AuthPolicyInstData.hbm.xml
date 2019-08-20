@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyInstData" table="TBLMAUTHSERVICEPOLICY">
+	
+		<id name="authPolicyId" column="AUTHPOLICYID" type="java.lang.String">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+		<property name="name" type="StringType" column="NAME" not-null="true"/> 
+		<property name="description" type="StringType" column="DESCRIPTION" not-null="false"/> 
+		<property name="status" type="CharType" column="STATUS" not-null="true"/>
+		<property name="orderNumber" type="java.lang.Long" column="ORDERNUMBER" not-null="false"/>
+		<property name="ruleSet" type="StringType" column="RULESET" not-null="true"/>
+		<property name="responseAttributes" type="StringType" column="RESPONSEATTRIBUTES" not-null="false"/>
+		<property name="requestType" type="java.lang.Integer" column="REQUESTTYPE" not-null="true"/>
+		<property name="caseSensitiveUserIdentity" type="java.lang.Integer" column="CASESENSITIVEUID" not-null="false"/>
+		<property name="multipleUserIdentity" type="StringType" column="MULTIPLEUID" not-null="false"/>
+		<property name="stripUserIdentity" type="StringType" column="STRIPUSERIDENTITY" not-null="false"/>
+		<property name="realmPattern" type="StringType" column="REALMPATTERN" not-null="false"/>
+		<property name="realmSeparator" type="CharType" column="REALMSEPARATOR" not-null="false"/>
+		<property name="trimUserIdentity" type="StringType" column="TRIMUSERIDENTITY" not-null="false"/>
+		<property name="trimPassword" type="StringType" column="TRIMPASSWORD" not-null="false"/>
+		<property name="defaultSessionTimeout" type="java.lang.Long" column="DEFAULTSESSIONTIMEOUT" not-null="false"/>
+		<property name="rejectOnCheckItemNotFound" type="StringType" column="REJECTONCHECKITEMNOTFOUND" not-null="true"/>
+		<property name="rejectOnRejectItemNotFound" type="StringType" column="REJECTONREJECTITEMNOTFOUND" not-null="true"/>
+		<property name="actionOnPolicyNotFound" type="java.lang.Integer" column="ACTIONONPOLICYNOTFOUND" not-null="true"/>
+		<property name="cui" type="StringType" column="CUI" not-null="false"/>
+		<property name="cuiResponseAttributes" type="StringType" column="CUIRESPONSEATTRIBUTES" not-null="false"/>
+		<property name="userName" type="string" column="USERNAME" not-null="false"/>
+		<property name="userNameResonseAttributes" type="StringType" column="USERNAMERESPONSEATTRIBUTES" not-null="false"/>
+		<property name="anonymousName" type="StringType" column="ANONYMOUSNAME" not-null="false"/>
+        <property name="eapConfigId" type="StringType" column="EAP_ID" not-null="false"/>
+        <property name="digestConfigId" type="StringType" column="DIGESTCONFID" not-null="false"/>
+        <property name="gracePolicyId" type="StringType" column="GRACEPOLICY_ID" not-null="false"/>
+		<property name="threeGPPEnabled" type="StringType" column="THREEGPPENABLED" not-null="false"/>
+		<property name="wimaxEnabled" type="StringType" column="WIMAXENABLED" not-null="false"/>
+		<property name="prePlugins" type="StringType" column="PREPLUGINS" not-null="false"/>
+		<property name="postPlugins" type="StringType" column="POSTPLUGINS" not-null="false"/>
+		<property name="validateAuthPacket" type="StringType" column="VALIDATEAUTHPACKET" not-null="false"/>
+		<property name="proxyTranslationMapConfigId" type="StringType" column="PROXYTRANSLATIONMAPCONFIGID"  />
+		<property name="proxyScript" type="StringType" column="PROXYSCRIPT" />
+		<property name="driverScript" type="StringType" column="DRIVERSCRIPT" />
+		<property name="responseBehavior" type="StringType" column="RESPONSEBEHAVIOR" />
+		<property name="hotlinePolicy" type="StringType" column="HOTLINEPOLICY" />
+		<property name="auditUid" type="StringType" column="AUDIT_UID" not-null="false"/>
+		
+	 <!--    <bag name="authPolicySecDriverRelDataList" lazy="false" inverse="false">
+        	<key column="authPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicySecDriverRelData" />
+        </bag>
+        
+        <bag name="proxyServerRelList" lazy="false" inverse="false" cascade="delete">
+        	<key column="authPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyExternalSystemRelData" />
+        </bag>
+        
+         <bag name="ipPoolServerRelList" lazy="false" inverse="false">
+        	<key column="authPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyExternalSystemRelData" />
+        </bag>
+        
+         <bag name="prepaidServerRelList" lazy="false" inverse="false" >
+        	<key column="authPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyExternalSystemRelData" />
+        </bag>
+        
+         <bag name="chargingGatewayServerRelList" lazy="false" inverse="false">
+        	<key column="authPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyExternalSystemRelData" />
+         </bag>
+         
+          <bag name="broadcastingServerRelList" lazy="false" inverse="false">
+        	<key column="authPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyBroadcastESIRelData" />
+         </bag>
+         
+          <bag name="secondaryDriverList" lazy="false" inverse="false">
+        	<key column="authPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicySecDriverRelData" />
+         </bag>
+         
+          <bag name="additionalDriverList" lazy="false" inverse="false">
+        	<key column="authPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyAdditionalDriverRelData" />
+         </bag>
+         
+          <bag name="mainDriverList" lazy="false" inverse="false">
+        	<key column="authPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyMainDriverRelData" />
+         </bag>
+         
+         <bag name="authMethodRelDataList" lazy="false" inverse="false" cascade="delete">
+        	<key column="authPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyAuthMethodRelData" />
+         </bag>
+         
+         <set name="authMethodRelSet" lazy="false" inverse="false" >
+         	<key column="authPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyAuthMethodRelData" />
+         </set> -->
+	</class>            
+	            
+ 
+</hibernate-mapping>

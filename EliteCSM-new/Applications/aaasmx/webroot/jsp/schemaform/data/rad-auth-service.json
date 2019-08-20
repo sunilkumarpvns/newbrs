@@ -1,0 +1,448 @@
+{
+	"schema": {
+  "type":"object",
+  "title":"Auth Service",
+  "properties":{
+      "service-address":{
+          "title":"Service Address",
+          "type":"string",
+          "default":"0.0.0.0:1812"
+      },
+      "socket-receive-buffer-size":{
+          "title":"Socket Receive Buffer Size",
+          "type":"string",
+          "default":"-1"
+      },
+      "socket-send-buffer-size":{
+          "title":"Socket Send Buffer Size",
+          "type":"string",
+          "default":"-1"
+      },
+       "queue-size":{
+          "title":"Queue Size",
+          "type":"string",
+          "default":"10000"
+      },
+      "minimum-thread":{
+          "title":"Minimum Thread",
+          "type":"string",
+          "default":"5"
+      },
+      "maximum-thread":{
+          "title":"Maximum Thread",
+          "type":"string",
+          "default":"10"
+      },
+      "main-thread-priority":{
+          "title":"Main Thread Priority",
+          "type":"string",
+          "default":"7"
+      },
+      "worker-thread-priority":{
+          "title":"Worker Thread Priority",
+          "type":"string",
+          "default":"7"
+      },
+       "duplicate-request-check-enabled":{
+          "title":"Duplicate Request Check Enabled",
+          "type":"string"
+      },
+      "duplicate-request-purge-interval":{
+          "title":"Duplicate Request Purge Interval",
+          "type":"string",
+          "default":"15"
+      },
+     "service-policies": {
+			"type": "array",
+			"items": {
+				"title": "Service Policy",
+				"type": "string"
+			}
+		},
+      
+      
+     "logging":{
+         "type":"object",
+         "properties":{
+             "service-logger-enabled":{
+                 "title":"Service Logger Enabled",
+                 "type":"string"
+             },
+             "log-level":{
+                 "title":"Log Level",
+                 "type":"string"
+             },
+             "rolling-type":{
+                 "title":"Rolling Type",
+                 "type":"string"
+             },
+             "rolling-unit":{
+                 "title":"Rolling Unit",
+                 "type":"string",
+                 "default":"5"
+             },
+             "max-rolled-unit":{
+                 "title":"Max Rolled Unit",
+                 "type":"string",
+                 "default":"10"
+             },
+             "compress-rolled-unit":{
+                 "title":"Compress Rolled Unit",
+                 "type":"string"
+             },
+             "location":{
+                 "title":"Location",
+                 "type":"string",
+                 "default":"logs"
+             },
+             "syslog":{
+                 "type":"object",
+                 "properties":{
+                     "address":{
+                         "title":"Address",
+                         "type":"string"
+                     },
+                     "facility":{
+                         "title":"Facility",
+                         "type":"string"
+                     }
+                 }
+             }
+         }
+     },
+     
+     "plugin-list":{
+         "type":"object",
+         "properties":{
+             "pre-plugins":{
+                 "type":"object",
+                 "properties":{
+                     "plugin-entry":{
+                         "type":"array",
+                         "items":{
+                             "type":"object",
+                             "properties":{
+                                 "plugin-name":{
+                                     "title":"Plugin Name",
+                                     "type":"string"
+                                 },
+                                 "argument":{
+                                     "title":"Argument",
+                                     "type":"string"
+                                 }
+                             }
+                         }
+                     }
+                 }
+             },
+             
+             "post-plugins":{
+                 "type":"object",
+                 "properties":{
+                     "plugin-entry":{
+                         "type":"array",
+                         "items":{
+                             "type":"object",
+                             "properties":{
+                                 "plugin-name":{
+                                     "title":"Plugin Name",
+                                     "type":"string"
+                                 },
+                                 "argument":{
+                                     "title":"Argument",
+                                     "type":"string"
+                                 }
+                             }
+                         }
+                         
+                        
+                         }
+                     }
+                 }
+             }
+         },
+         
+         
+         "rrd":{
+             "type":"object",
+             "properties":{
+                 "response-time":{
+                     "title":"Response Time",
+                     "type":"string"
+                 },
+                 "summary":{
+                     "title":"Summary",
+                     "type":"string"
+                 },
+                 "errors":{
+                     "title":"Errors",
+                     "type":"string"
+                 },
+                 "reject-with-reasons":{
+                     "title":"Reject With Reasons",
+                     "type":"string"
+                 }
+             }
+         }
+     }
+     
+  }
+,
+	"form": [
+  {
+      "key":"service-address"
+  },
+  {
+      "key":"socket-receive-buffer-size"
+  },
+  {
+      "key":"socket-send-buffer-size"
+  },
+  {
+      "key":"queue-size"
+  },
+  {
+      "key":"minimum-thread"
+  },
+  {
+      "key":"maximum-thread"
+  },
+  {
+      "key":"main-thread-priority"
+  },
+  {
+      "key":"worker-thread-priority"
+  },
+  {
+       "key":"duplicate-request-check-enabled",
+       "type":"select",
+       "titleMap":{
+           "True":"True",
+           "False":"False"
+       }
+  },
+  {
+      "key":"duplicate-request-purge-interval"
+  },
+  {
+      "key":"service-policies",
+      "add":"Add"
+  },
+  {
+      "key":"logging",
+      "items":[
+          {
+              "key":"logging.service-logger-enabled",
+              "type":"select",
+              "titleMap":{
+                   "True":"True",
+                    "False":"False"
+              }
+          },
+          {
+              "key":"logging.log-level",
+              "type":"select",
+              "titleMap":{
+                  "OFF": "OFF",
+					"WARM": "WARM",
+					"ERROR": "ERROR",
+					"INFO": "INFO",
+					"FATAL": "FATAL",
+					"DEBUG": "DEBUG",
+					"TRACE": "TRACE",
+					"All": "All"
+              }
+          },
+          {
+              "key":"logging.rolling-type",
+              "type":"select",
+              "titleMap":{
+                  "Size-Based": "Size-Based",
+					"Time-Based": "Time-Based"
+              }
+          },
+          {
+              "key":"logging.rolling-unit"
+          },
+          {
+              "key":"logging.max-rolled-unit"
+          },
+          {
+              "key":"logging.compress-rolled-unit",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                    "False":"False"
+              }
+          },
+          {
+              "key":"logging.location"
+          },
+          {
+              "key":"logging.syslog",
+              "items":[
+                  {
+                      "key":"logging.syslog.address"
+                  },
+                  {
+                      "key":"logging.syslog.facility",
+                      "type":"select",
+                      "titleMap":{
+                          "None": "None",
+							"AUTH": "AUTH",
+							"KERN": "KERN",
+							"USER": "USER",
+							"MAIL": "MAIL",
+							"DAEMON": "DAEMON",
+							"SYSLOG": "SYSLOG",
+							"LPR": "LPR",
+							"NEWS": "NEWS",
+							"UUCP": "UUCP",
+							"CRON": "CRON",
+							"AUTHPRIV": "AUTHPRIV",
+							"FTP": "FTP",
+							"LOCAL0": "LOCAL0",
+							"LOCAL1": "LOCAL1",
+							"LOCAL2": "LOCAL2",
+							"LOCAL3": "LOCAL3",
+							"LOCAL4": "LOCAL4",
+							"LOCAL5": "LOCAL5",
+							"LOCAL6": "LOCAL6",
+							"LOCAL7": "LOCAL7"
+                      }
+                  }
+                  ]
+          }
+          ]
+  },
+  {
+      "key":"plugin-list",
+      "items":[
+          {
+              "key":"plugin-list.pre-plugins",
+              "items":[
+                  {
+                      "key":"plugin-list.pre-plugins.plugin-entry",
+                      "items":[
+                          {
+                              "key":"plugin-list.pre-plugins.plugin-entry[].plugin-name"
+                          },
+                          {
+                              "key":"plugin-list.pre-plugins.plugin-entry[].argument"
+                          }
+                          ]
+                  }
+                  ]
+          },
+          {
+              "key":"plugin-list.post-plugins",
+              "items":[
+                  {
+                      "key":"plugin-list.post-plugins.plugin-entry",
+                      "items":[
+                          {
+                              "key":"plugin-list.post-plugins.plugin-entry[].plugin-name"
+                          },
+                          {
+                               "key":"plugin-list.post-plugins.plugin-entry[].argument",
+                               "title":"Argument"
+                          }
+                          ]
+                  }
+                  ]
+          }
+          ]
+  },
+  {
+      "key":"rrd",
+      "items":[
+          {
+              "key":"rrd.response-time",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                    "False":"False"
+              }
+          },
+          {
+              "key":"rrd.summary",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                    "False":"False"
+              }
+          },
+          {
+              "key":"rrd.errors",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                    "False":"False"
+              }
+          },
+          {
+              "key":"rrd.reject-with-reasons",
+              "type":"select",
+              "titleMap":{
+                  "True":"True",
+                    "False":"False"
+              }
+          }
+          ]
+  }     
+  
+],
+"model":{
+   "service-address":"0.0.0.0:1812",
+   "socket-receive-buffer-size":"-1",
+   "socket-send-buffer-size":"-1",
+   "queue-size":"3000",
+   "minimum-thread":"5",
+   "maximum-thread":"10",
+   "main-thread-priority":"7",
+   "worker-thread-priority":"7",
+   "duplicate-request-check-enabled":"false",
+   "duplicate-request-purge-interval":"15",
+   "service-policies":[
+      "ALL"
+   ],
+   "logging":{
+      "service-logger-enabled":"false",
+      "log-level":"INFO",
+      "rolling-type":"Time-Based",
+      "rolling-unit":"5",
+      "max-rolled-unit":"10",
+      "compress-rolled-unit":"false",
+      "location":"logs",
+      "syslog":{
+         "address":"",
+         "facility":"-None-"
+      }
+   },
+   "plugin-list":{
+      "pre-plugins":{
+         "plugin-entry":[
+            {
+               "plugin-name":"-None-",
+               "argument":""
+            }
+         ]
+      },
+      "post-plugins":{
+         "plugin-entry":[
+            {
+               "plugin-name":"-None-",
+               "argument":""
+            }
+         ]
+      }
+   },
+   "rrd":{
+      "response-time":"false",
+      "summary":"false",
+      "errors":"false",
+      "reject-with-reasons":"false"
+   }
+}
+
+}

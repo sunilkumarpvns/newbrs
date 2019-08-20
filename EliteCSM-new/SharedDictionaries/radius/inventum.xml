@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="31936" vendor-name="Inventum">
+        <attribute id="10" name="QoS-Policy-UID" type="integer"/>
+        <attribute id="99" name="Inventum-User-UID" type="integer"/>
+        <attribute id="101" name="Service-Plan" type="integer"/>
+        <attribute id="102" name="Inventum-QoS-Policy-ID" type="string"/>
+        <attribute id="104" name="Inventum-Acct-Sub-Type" type="integer">
+            <supported-values>
+                        <value id="0" name="User"/>
+                        <value id="1" name="System"/>
+            </supported-values>
+         </attribute>
+        <attribute id="103" name="Inventum-Package-No" type="integer"/>
+        <attribute id="105" name="Inventum-Login-Type" type="integer">
+                <supported-values>
+                        <value id="0" name="Scan"/>
+                        <value id="1" name="Control"/>
+                </supported-values>
+          </attribute>
+        <attribute id="108" name="Inventum-Last-Duration" type="integer"/>
+        <attribute id="109" name="Inventum-Max-Bytes-In" type="string"/>
+        <attribute id="110" name="Inventum-Max-Bytes-Out" type="string"/>
+        <attribute id="111" name="Inventum-Session-Timeout-Type" type="string"/>
+        <attribute id="112" name="Inventum-Bytes-Pulse" type="string"/>
+        <attribute id="113" name="Inventum-Time-Pulse" type="string"/>
+        <attribute id="114" name="Inventum-Use-Bytes-Sum" type="integer"/>
+        <attribute id="115" name="Inventum-Traffic-Class" type="string"/>
+        <attribute id="117" name="Inventum-Max-Time" type="string"/>
+        <attribute id="118" name="Inventum-TCP-Session-Count" type="string"/>
+        <attribute id="119" name="Inventum-Gateway" type="string"/>
+        <attribute id="120" name="Inventum-Subscription-Id" type="string"/>
+        <attribute id="121" name="Inventum-Authenticate-Params" type="string"/>
+        <attribute id="122" name="Session-Action" type="integer">
+               <supported-values>
+                        <value id="0" name="Close-Session"/>
+                        <value id="1" name="Close-Account"/>
+                        <value id="2" name="No-Close"/>
+               </supported-values>
+          </attribute>
+        <attribute id="123" name="Ethernet-Address" type="string"/>
+        <attribute id="124" name="Password-Expiry-Date" type="string"/>
+        <attribute id="125" name="Service-Id" type="string"/>
+        <attribute id="126" name="Service-Status" type="string"/>
+        <attribute id="127" name="Inventum-parentSID" type="string"/>
+        <attribute id="128" name="Inventum-internalid" type="string"/>
+</attribute-list>

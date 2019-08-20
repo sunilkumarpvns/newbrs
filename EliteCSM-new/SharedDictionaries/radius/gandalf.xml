@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="64" vendor-name="Gandalf">
+<attribute id="0" name="Gandalf-Remote-LAN-Name" type="string"/>
+<attribute id="1" name="Gandalf-Operational-Modes" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Called-Only"/>
+		<value id="3" name="Calling-Called"/>
+		<value id="4" name="Calling-Only"/>
+	</supported-values>
+</attribute>
+<attribute id="2" name="Gandalf-Compression-Status" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="3" name="Gandalf-Min-Outgoing-Bearer" type="integer">
+	<supported-values>
+		<value id="1" name="Unrestricted-64K"/>
+		<value id="2" name="Digital-56K"/>
+		<value id="3" name="3100Hz-Audio"/>
+	</supported-values>
+</attribute>
+<attribute id="5" name="Gandalf-Authentication-String" type="string"/>
+<attribute id="6" name="Gandalf-PPP-Authentication" type="integer">
+	<supported-values>
+		<value id="1" name="CHAP"/>
+		<value id="2" name="PAP"/>
+		<value id="3" name="PAP-Sending-on-Incoming-Calls"/>
+	</supported-values>
+</attribute>
+<attribute id="7" name="Gandalf-PPP-NCP-Type" type="integer">
+	<supported-values>
+		<value id="2" name="BCP"/>
+		<value id="3" name="IPCP"/>
+	</supported-values>
+</attribute>
+<attribute id="8" name="Gandalf-Fwd-Multicast-In" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="9" name="Gandalf-Fwd-Broadcast-In" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="10" name="Gandalf-Fwd-Unicast-In" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="11" name="Gandalf-Fwd-Multicast-Out" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="12" name="Gandalf-Fwd-Broadcast-Out" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="13" name="Gandalf-Fwd-Unicast-Out" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="14" name="Gandalf-Around-The-Corner" type="integer"/>
+<attribute id="15" name="Gandalf-Channel-Group-Name-1" type="string"/>
+<attribute id="16" name="Gandalf-Dial-Prefix-Name-1" type="string"/>
+<attribute id="17" name="Gandalf-Phone-Number-1" type="string"/>
+<attribute id="18" name="Gandalf-Calling-Line-id-1" type="string"/>
+<attribute id="19" name="Gandalf-Channel-Group-Name-2" type="string"/>
+<attribute id="20" name="Gandalf-Dial-Prefix-Name-2" type="string"/>
+<attribute id="21" name="Gandalf-Phone-Number-2" type="string"/>
+<attribute id="22" name="Gandalf-Calling-Line-id-2" type="string"/>
+<attribute id="23" name="Gandalf-IPX-Spoofing-State" type="integer">
+	<supported-values>
+		<value id="1" name="Forward"/>
+		<value id="2" name="Spoof"/>
+		<value id="3" name="Filter-all-outgoing-RIP-SAP"/>
+	</supported-values>
+</attribute>
+<attribute id="24" name="Gandalf-IPX-Watchdog-Spoof" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="25" name="Gandalf-SAP-Group-Name-1" type="string"/>
+<attribute id="26" name="Gandalf-SAP-Group-Name-2" type="string"/>
+<attribute id="27" name="Gandalf-SAP-Group-Name-3" type="string"/>
+<attribute id="28" name="Gandalf-SAP-Group-Name-4" type="string"/>
+<attribute id="29" name="Gandalf-SAP-Group-Name-5" type="string"/>
+<attribute id="30" name="Gandalf-Hunt-Group" type="string"/>
+<attribute id="31" name="Gandalf-Modem-Mode" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="32" name="Gandalf-Modem-Required-1" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="33" name="Gandalf-Modem-Required-2" type="integer">
+	<supported-values>
+		<value id="1" name="Disabled"/>
+		<value id="2" name="Enabled"/>
+	</supported-values>
+</attribute>
+</attribute-list>

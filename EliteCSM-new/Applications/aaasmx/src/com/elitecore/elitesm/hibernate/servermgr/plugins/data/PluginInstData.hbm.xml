@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.servermgr.plugins.data.PluginInstData" table="TBLMPLUGININSTANCEDATA">
+
+		<id name="pluginInstanceId" column="PLUGININSTANCEID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">				
+			</generator>
+		</id>    
+
+		<property name="pluginTypeId" type="StringType"> 
+			<column name="PLUGINTYPEID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="name" type="StringType"> 
+			<column name="NAME" sql-type="VARCHAR2(200)" not-null="true" /> 
+		</property>
+
+		<property name="description" type="StringType"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+
+		<property name="status" type="CharType"> 
+			<column name="STATUS" sql-type="CHAR(5)" not-null="true" /> 
+		</property>
+		
+		<property name="lastModifiedByStaffId" type="StringType"> 
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+
+		<property name="createdByStaffId" type="StringType"> 
+			<column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp"> 
+			<column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP(6)" not-null="false" /> 
+		</property>
+
+		<property name="createDate" type="java.sql.Timestamp"> 
+			<column name="CREATEDATE" sql-type="TIMESTAMP(6)" not-null="false" /> 
+		</property>
+		
+		<property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	     </property>
+		
+		<many-to-one name="pluginTypesData" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.plugins.data.PluginTypesData" column="PLUGINTYPEID" />
+			
+		<set name="universalPluginDetails" lazy="false" inverse="false" cascade="delete">
+			<key column="pluginInstanceId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.plugins.universalplugin.data.UniversalPluginData" />
+	  	</set>	
+	  	
+	  	<set name="groovyPluginDataSet" lazy="false" inverse="false" cascade="delete">
+			<key column="pluginInstanceId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.plugins.groovyplugin.data.GroovyPluginData" />
+	  	</set>
+	  	
+	  	<set name="transactionLoggerDataSet" lazy="false" inverse="false" cascade="delete">
+			<key column="pluginInstanceId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.plugins.transactionlogger.data.TransactionLoggerData" />
+	  	</set>
+	  	
+	  	<set name="quotaMgtPluginDataSet" lazy="false" inverse="false" cascade="delete">
+			<key column="pluginInstanceId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.plugins.quotamgrplugin.data.QuotaMgtPluginData" />
+	  	</set>
+	  	
+	  	<set name="userStatPostAuthPluginData" lazy="false" inverse="false" cascade="delete">
+			<key column="pluginInstanceId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.plugins.usrstatpostauthplugin.data.UserStatPostAuthPluginData" />
+	  	</set>
+	 
+	</class>
+
+</hibernate-mapping> 
+
+	
+
+
+	

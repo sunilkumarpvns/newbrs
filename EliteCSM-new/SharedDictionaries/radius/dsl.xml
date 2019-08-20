@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="3561" vendor-name="DSL">
+
+	<attribute id="1" name="Agent-Circuit-Id" type="string" />
+	
+	<attribute id="2" name="Agent-Remote-Id" type="string" />
+
+	<attribute id="129" name="Actual-Data-Rate-Upstream" type="integer" />
+
+	<attribute id="130" name="Actual-Data-Rate-Downstream" type="integer" />
+
+	<attribute id="131" name="Minimum-Data-Rate-Upstream" type="integer" />
+	
+	<attribute id="132" name="Minimum-Data-Rate-Downstream" type="integer" />
+
+	<attribute id="133" name="Attainable-Data-Rate-Upstream" type="integer" />
+
+	<attribute id="134" name="Attainable-Data-Rate-Downstream" type="integer" />
+
+	<attribute id="135" name="Maximum-Data-Rate-Upstream" type="integer" />
+
+	<attribute id="136" name="Maximum-Data-Rate-Downstream" type="integer" />
+
+	<attribute id="137" name="Minimum-Data-Rate-Upstream-Low-Power" type="integer" />
+	
+	<attribute id="138" name="Minimum-Data-Rate-Downstream-Low-Power" type="integer" />
+
+	<attribute id="139" name="Maximum-Interleaving-Delay-Upstream" type="integer" />
+	
+	<attribute id="140" name="Actual-Interleaving-Delay-Upstream" type="integer" />
+	
+	<attribute id="141" name="Maximum-Interleaving-Delay-Downstream" type="integer" />
+
+	<attribute id="142" name="Actual-Interleaving-Delay-Downstream" type="integer" />
+
+	<attribute id="144" name="Access-Loop-Encapsulation" type="integer"/>		
+	
+	<attribute id="254" name="IWF-Session" type="string"/>
+	
+</attribute-list>

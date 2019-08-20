@@ -1,0 +1,8 @@
+{
+  "id": "REVENUEDETAIL1",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "REVENUE_DETAIL",
+  "description": "Created by rest automation",
+  "groupNames": "DefaultGroup"
+}

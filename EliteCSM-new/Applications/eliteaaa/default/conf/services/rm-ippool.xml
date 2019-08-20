@@ -1,0 +1,42 @@
+<ippool-service>
+
+    <service-address>10.106.1.80:1811</service-address>
+
+    <socket-receive-buffer-size>32767</socket-receive-buffer-size>
+    <socket-send-buffer-size>32767</socket-send-buffer-size>
+
+    <queue-size>150000</queue-size>
+
+    <minimum-thread>3</minimum-thread>
+    <maximum-thread>3</maximum-thread>
+    <main-thread-priority>1</main-thread-priority>
+    <worker-thread-priority>1</worker-thread-priority>
+    <logging>
+		<service-logger-enabled>false</service-logger-enabled>
+		<log-level>ALL</log-level>
+		<rolling-type>1</rolling-type>
+		<rolling-unit>5</rolling-unit>
+		<max-rolled-unit>10</max-rolled-unit>
+		<compress-rolled-unit>false</compress-rolled-unit>
+		<location>D:/Priti</location>
+		<immediate-flush>true</immediate-flush>
+	</logging>
+	
+    <plugin-list>
+		<pre-plugins> <!-- Comma "," separated Plugin names  --> </pre-plugins>
+		<post-plugins> <!-- Comma "," separated Plugin names  --> </post-plugins>
+	</plugin-list>
+	<auto-session-closure>
+		<enabled>true</enabled>											   <!-- default is false -->
+		<execution-interval>50</execution-interval>						   
+		<reservation-timeout-interval>1</reservation-timeout-interval>     
+    	<session-timeout-interval>2</session-timeout-interval>          
+    	<max-batch-size>100</max-batch-size>							
+	</auto-session-closure>
+	
+	<datasource-name>IPPoolDS</datasource-name>
+	
+	
+	
+	
+</ippool-service>

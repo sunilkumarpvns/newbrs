@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.NetworkData" table="TBLMNETWORK" >          
+		
+		<id name="networkID" column="NETWORKID"  type="java.lang.Long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"> 
+			</generator>
+		</id>
+	    
+	    <property name="operatorID" type="java.lang.Long">
+	          <column name="OPERATORID" sql-type="NUMERIC" not-null="false"/>
+	    </property>
+	    
+	    <property name="brandID" type="java.lang.Long">
+	          <column name="BRANDID" sql-type="NUMERIC" not-null="false"/>
+	    </property>
+	    
+	    <property name="networkName" type="string">
+    		<column name="NETWORKNAME" sql-type="VARCHAR(64)" not-null="true"/>
+		</property>
+		
+		<property name="technology" type="string">
+    		<column name="TECHNOLOGY" sql-type="VARCHAR(64)" not-null="false"/>
+		</property>
+		
+		<property name="countryID" type="java.lang.Long">
+    		<column name="COUNTRYID" sql-type="NUMERIC" not-null="false"/>
+		</property>
+
+		<property name="mcc" type="java.lang.Integer">
+    		<column name="MCC" sql-type="NUMERIC(3)" not-null="false"/>
+		</property>
+				
+		<property name="mnc" type="java.lang.Integer">
+    		<column name="MNC" sql-type="NUMERIC(3)" not-null="false"/>
+		</property>
+				
+		<many-to-one name="countryData" fetch="join"  insert="false" update="false" class="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.CountryData" column="COUNTRYID" ></many-to-one>
+		<many-to-one name="operatorData" fetch="join"  insert="false" update="false" class="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.OperatorData" column="OPERATORID" ></many-to-one>
+		<many-to-one name="brandData" fetch="join"  insert="false" update="false" class="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.BrandData" column="BRANDID" ></many-to-one>
+			
+	</class>
+</hibernate-mapping>

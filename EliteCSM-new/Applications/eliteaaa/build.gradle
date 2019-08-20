@@ -1,0 +1,225 @@
+description = 'eliteaaa'
+
+
+apply plugin: 'application'
+apply plugin: 'distribution'
+apply plugin: 'groovy'
+
+  def depPojects = ["core", "elitecommons", "diameterapi", "coreradius", "passwordutil", "exprlib", "license", "coregtp", "coreeap"]
+
+def releaseVersion = project.properties['release.version']
+def releaseMinorVersion = project.properties['release.minor.version']
+def svnRevision = project.properties['svn.rev']
+def releaseName = project(":eliteaaa").name + "-${releaseVersion}.${releaseMinorVersion}";
+def upgradeName = releaseName + "-upgrade-" + svnRevision  ;
+
+ext {
+    injectVersionInfo {
+        packageName = "com.elitecore.aaa"
+        moduleName = "EliteAAA"
+        filepath = "src/com/elitecore/aaa/Version.java"
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+
+        }
+        resources {
+            srcDirs = ['src/resources']
+        }
+    }
+
+    test {
+        java {
+            srcDir 'testsrc'
+            exclude 'resources/', '**/**groovy'
+        }
+
+        groovy {
+            srcDir 'testsrc'
+            exclude 'resources/'
+            exclude "**/**java"
+        }
+
+        resources {
+            srcDirs = ['testsrc/resources']
+        }
+    }
+}
+
+
+
+distributions {
+    main {
+        baseName = releaseName
+		 contents {
+            into('lib') {
+                from jar
+                from(project.configurations.runtime)
+
+            }
+            }
+        applicationDistribution.from("$projectDir") {
+
+
+            include "bin/**", "system/**", "dictionary/**","default/**"	, "scripts/**"
+        }
+    }
+    
+     upgradeWithLibs {
+        baseName = upgradeName
+
+        contents {
+            into('lib') {
+                from jar
+                from(project.configurations.runtime)
+            }
+        }
+        contents {
+            from("$projectDir") {
+                include "default/**"
+            }
+
+        }
+
+    }
+
+    upgradeWithoutLibs {
+        baseName = upgradeName
+
+        contents {
+            into('lib') {
+                from jar
+                from(project.configurations.runtime) {
+
+                    depPojects.each {
+                        include it + ".jar"
+                    }
+                }
+            }
+        }
+
+        contents {
+            from("$projectDir") {
+                include "default/**"
+            }
+
+        }
+
+
+
+    }
+    
+}
+
+    upgradeWithoutLibsDistTar {
+        extension = 'tar.gz'
+        compression = Compression.GZIP
+    }
+
+    upgradeWithLibsDistTar {
+        extension = 'tar.gz'
+        compression = Compression.GZIP
+    }
+
+    distTar {
+        extension = 'tar.gz'
+        compression = Compression.GZIP
+    }
+
+
+  jar {
+        manifest {
+            attributes(
+                    'Main-Class': 'com.elitecore.aaa.Version'
+            )
+        }
+    }
+
+
+  task fullsetUpTask(type: Tar) {
+
+        from(project.parent.projectDir.path + "/Build/install.sh") {
+            expand(projectName: 'eliteaaa', releaseVersion: releaseVersion, releaseMinorVersion: releaseMinorVersion)
+        }
+
+        from {
+            project.buildDir.path + "/distributions/" + releaseName + ".tar.gz"
+
+        }
+/*        from (project.projectDir.path + "/docs/fullsetup"){
+            include '/README.txt'
+        }*/
+
+        baseName = "EliteAAA-V${releaseVersion}.${releaseMinorVersion}"
+        destinationDir = file(project.buildDir.path)
+        extension = 'tar.gz'
+        compression = Compression.GZIP
+        dependsOn distTar
+    }
+    
+     task upgradeSetUpTask(type: Tar) {
+
+        from(project.parent.projectDir.path + "/Build/upgrade.sh") {
+            expand(projectName: 'eliteaaa', releaseVersion: releaseVersion, releaseMinorVersion: releaseMinorVersion, svnRevision: svnRevision)
+        }
+
+        from(this.buildDir.path + "/distributions/") {
+            include "${releaseName}-upgrade-${svnRevision}.tar.gz"
+
+        }
+
+/*        from (project.projectDir.path + "/docs/upgrade"){
+            include '/README.txt'
+        }*/
+
+        baseName = "EliteAAA-V${releaseVersion}.${releaseMinorVersion}-upgrade-${svnRevision}"
+        destinationDir = file(project.buildDir.path)
+        extension = 'tar.gz'
+        compression = Compression.GZIP
+        dependsOn upgradeWithoutLibsDistTar
+    }
+
+
+
+mainClassName = "com.elitecore.aaa.Version"
+
+//startScripts.enabled=false
+startScripts.doLast{
+    unixScript.delete()
+    windowsScript.delete()
+}
+ 
+ 
+ configurations {
+        testCompile.exclude group: 'org.codehaus.groovy', module: 'groovy'
+    }
+
+dependencies {
+//    def depPojects = [":core", ":elitecommons", ":diameterapi", ":coreradius", ":passwordutil", ":exprlib", ":license", ":coregtp", ":coreeap"]
+
+    depPojects.each {
+        compile project(":" + it)
+        compile fileTree(dir: 'lib/third-party/rest/', include: ['*.jar'])
+        testCompile files(project(":" + it).sourceSets.test.output)
+    }
+
+    compile group: 'com.sterlite.ocs', name: 'ocs-client', version: '1.0'
+    compile group: 'com.sterlite.ocs', name: 'ocs-remoting', version: '1.0'
+    compile group: 'com.wipro', name: 'sdp', version: '1.0', classifier: 'aircelws'
+    compile group: 'axis', name: 'axis', version: '1.4'
+    compile group: 'com.sterlite.rating', name: 'rating-api', version: '1.0'
+    compile group: 'com.sterlite.rating', name: 'rating-client', version: '1.0'
+    compile group: 'ssscejb-client', name: 'ssscejb-client', version: '1.0'
+    compile group: 'com.sterlite.ssscsce', name: 'ssscsce-webservice', version: '1.0'
+
+
+
+
+
+
+
+}

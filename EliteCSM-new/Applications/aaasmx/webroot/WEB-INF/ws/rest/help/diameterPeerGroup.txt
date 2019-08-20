@@ -1,0 +1,352 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup?name=diameter_peer_group&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup.xml?name=diameter_peer_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup?operation=search&name=diameter_peer_group&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup.xml?operation=search&name=diameter_peer_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group.xml?operation=search
+
+Response :
+
+<diameter-peer-group>
+    <name>diameter_peer_group</name>
+    <description>Created by admin on 11/23/2016 04:21:10 PM</description>
+    <peer-group>
+        <peer-entry>
+            <peer-name>peer1</peer-name>
+            <weightage>4</weightage>
+        </peer-entry>
+        <peer-entry>
+            <peer-name>peer2</peer-name>
+            <weightage>5</weightage>
+        </peer-entry>
+    </peer-group>
+    <stateful>false</stateful>
+    <transaction-timeout>7000</transaction-timeout>
+    <geo-redundunt-group>DPG</geo-redundunt-group>
+</diameter-peer-group>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup?name=diameter_peer_group&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup.json?name=diameter_peer_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup?operation=search&name=diameter_peer_group&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup.json?operation=search&name=diameter_peer_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group.json?operation=search
+
+Response :
+
+{
+    "name": "diameter_peer_group",
+    "description": "Created by admin on 11/23/2016 04:21:10 PM",
+    "peer-group": [
+        {
+            "peer-name": "peer1",
+            "weightage": 4
+        },
+        {
+            "peer-name": "peer2",
+            "weightage": 5
+        }
+    ],
+    "stateful": "false",
+    "transaction-timeout": "7000",
+    "geo-redundunt-group": "DPG"
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-peer-group>
+	<name>diameter_peer_group</name>
+	<description>Created by admin on 11/23/2016 04:21:10 PM</description>
+	<peer-group>
+        <peer-entry>
+            <peer-name>peer1</peer-name>
+            <weightage>4</weightage>
+        </peer-entry>
+        <peer-entry>
+            <peer-name>peer2</peer-name>
+            <weightage>5</weightage>
+        </peer-entry>
+    </peer-group>
+    <stateful>false</stateful>
+    <transaction-timeout>7000</transaction-timeout>
+    <geo-redundunt-group>DPG</geo-redundunt-group>
+</diameter-peer-group>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Group created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+    "name": "diameter_peer_group",
+    "description": "Created by admin on 11/23/2016 04:21:10 PM",
+    "peer-group": [
+        {
+            "peer-name": "peer1",
+            "weightage": 4
+        },
+        {
+            "peer-name": "peer2",
+            "weightage": 5
+        }
+    ],
+    "stateful": "false",
+    "transaction-timeout": "7000",
+    "geo-redundunt-group": "DPG"
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Group created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/bulk?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<diameter-peer-group>
+		<name>diameter_peer_group</name>
+		<description>Created by admin on 11/23/2016 04:21:10 PM</description>
+		<peer-group>
+        	<peer-entry>
+            	<peer-name>peer1</peer-name>
+            	<weightage>4</weightage>
+        	</peer-entry>
+        	<peer-entry>
+            	<peer-name>peer2</peer-name>
+            	<weightage>5</weightage>
+        	</peer-entry>
+    	</peer-group>
+    	<stateful>false</stateful>
+    	<transaction-timeout>7000</transaction-timeout>
+    	<geo-redundunt-group>DPG</geo-redundunt-group>
+	</diameter-peer-group>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Group(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{  
+   "list":[  
+      {  
+         "name":"diameter_peer_group",
+         "description":"Created by admin on 11/23/2016 04:21:10 PM",
+         "peer-group":[  
+            {  
+               "peer-name":"peer1",
+               "weightage":4
+            },
+            {  
+               "peer-name":"peer2",
+               "weightage":5
+            }
+         ],
+         "stateful": "false",
+    	 "transaction-timeout": "7000",
+    	 "geo-redundunt-group": "DPG"
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Group(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup?name=diameter_peer_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup?operation=update&name=diameter_peer_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-peer-group>
+    <name>diameter_peer_group</name>
+    <description>Created by admin on 11/23/2016 04:21:10 PM</description>
+    <peer-group>
+        <peer-entry>
+            <peer-name>peer3</peer-name>
+            <weightage>4</weightage>
+        </peer-entry>
+        <peer-entry>
+            <peer-name>peer4</peer-name>
+            <weightage>5</weightage>
+        </peer-entry>
+    </peer-group>
+    <stateful>true</stateful>
+    <transaction-timeout>2000</transaction-timeout>
+    <geo-redundunt-group>DPG</geo-redundunt-group>
+</diameter-peer-group>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Group updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+    "name": "diameter_peer_group",
+    "description": "Created by admin on 11/23/2016 04:21:10 PM",
+    "peer-group": [
+        {
+            "peer-name": "peer3",
+            "weightage": 4
+        },
+        {
+            "peer-name": "peer4",
+            "weightage": 5
+        }
+    ],
+    "stateful": "false",
+    "transaction-timeout": "7000",
+    "geo-redundunt-group": "DPG"
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Group updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup?name=diameter_peer_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup?operation=delete&name=diameter_peer_group
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diameterpeergroup/diameter_peer_group?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Peer Group(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

@@ -1,0 +1,284 @@
+plugins {
+    id 'war'
+}
+
+//apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+apply plugin: 'war'
+
+description = 'nvsmx'
+webAppDirName = "WebContent"
+
+
+def releaseVersion = project.properties['release.version']
+def releaseMinorVersion = project.properties['release.minor.version']
+def releaseName = "server-manager-" + releaseVersion + "." + releaseMinorVersion
+def svnRevision = project.properties['svn.rev']
+def warFileName = "server-manager"
+
+def removeClassesFolder(rootSpec) {
+    file(project.buildDir.path + '/resources/main').listFiles().each {
+        println it.name
+        rootSpec.exclude(it.name)
+    }
+}
+
+ext {
+    injectVersionInfo {
+        packageName = "com.elitecore.nvsmx"
+        moduleName = "NetvertexSM"
+        filepath = "src/com/elitecore/nvsmx/Version.java"
+    }
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+
+        }
+        resources {
+            srcDirs = ['resources/hibernate', 'resources/struts', 'src']
+            exclude '**/*.java'
+        }
+    }
+
+    test {
+        java.srcDir 'testsrc'
+
+        resources {
+            srcDirs = ['testsrc/resources']
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.elitecore.nvsmx.Version'
+        )
+    }
+}
+
+jar.enabled = true
+
+task fullReleaseWar (type: War) {
+    webInf {
+        from 'resources/cxfwebservice', 'resources/config'
+    } // adds a file-set to the WEB-INF dir.
+
+// Creating nvsmx.jar file
+    classpath  configurations.runtime.allArtifacts.files
+
+    from(this.project.projectDir) {
+        include 'bin/**', 'system/**', 'setup/**'
+    }
+
+    archiveName = warFileName + '.war'
+
+    dependsOn 'copyVoltDBStoredProcedure'
+
+// Before Executing fullReleaseWar task, remove classes folder
+    doFirst {
+        removeClassesFolder(rootSpec)
+    }
+}
+
+task upgradeWar (type: War) {
+    webInf {
+        from 'resources/cxfwebservice'
+
+    } // adds a file-set to the WEB-INF dir.
+    classpath configurations.runtime.allArtifacts.files
+    exclude ('WEB-INF/database.properties', 'WEB-INF/NVSMXConfiguration.properties')
+
+
+
+    from (this.project.projectDir){
+        include 'setup/**'
+     }
+
+    archiveName = warFileName + '-' + releaseVersion +'.war'
+
+    dependsOn 'copyVoltDBStoredProcedure'
+
+// Before Executing upgradeWar task, remove classes folder
+    doFirst {
+        removeClassesFolder(rootSpec)
+    }
+}
+
+task explodedWar(type: Copy, dependsOn: fullReleaseWar) {
+    
+    def zipFile = file(this.buildDir.absolutePath + File.separator +  'libs' + File.separator + tasks['fullReleaseWar'].archiveName)
+    def outputDir = file(this.buildDir.absolutePath + File.separator + "exploded")
+
+    from zipTree(zipFile)
+    into outputDir
+}
+
+
+
+// Creats tar.gz file which contains nvsmx.war
+task distTarForInstallWar (type: Tar){
+
+    baseName = releaseName
+    extension = 'tar.gz'
+    compression = Compression.GZIP
+    dependsOn 'fullReleaseWar'
+
+    from (this.buildDir.path + '/libs'){
+        include  warFileName + '.war'
+    }
+
+    from (this.project.parent.projectDir.path + File.separator + '/Tools') {
+
+    include 'apache-tomcat-8.tar.gz'
+
+    }
+}
+
+task distTarForUpgradeWar (type: Tar){
+
+    baseName = "${releaseName}-upgrade-${svnRevision}"
+    extension = 'tar.gz'
+    compression = Compression.GZIP
+    dependsOn 'upgradeWar'
+
+    from (this.buildDir.path + '/libs'){
+        include warFileName+'-'+releaseVersion +'.war'
+    }
+
+}
+
+task distTarForInstallation (type: Tar) {
+
+    from(this.parent.projectDir.path + "/Build/install-web-app.sh") {
+        expand(distName:releaseName, warfile:warFileName , projectName:'NetvertexSM')
+    }
+
+    from (this.buildDir.path + "/distributions/"){
+         include "${releaseName}.tar.gz"
+    }
+
+    baseName =  "NetvertexSM-V${releaseVersion}.${releaseMinorVersion}"
+    destinationDir = file(this.buildDir.path)
+    extension = 'tar.gz'
+    compression = Compression.GZIP
+
+    dependsOn 'distTarForInstallWar'
+}
+
+task distTarForUpgrade (type: Tar) {
+
+    from(this.parent.projectDir.path + "/Build/upgrade-web-app.sh") {
+        expand(distName:releaseName, warfile: warFileName +'-'+releaseVersion, svnRevision: svnRevision, projectName:'NetvertexSM')
+    }
+
+    from (this.buildDir.path + "/distributions/"){
+        include "${releaseName}-upgrade-${svnRevision}.tar.gz"
+    }
+
+    baseName =  "NetvertexSM-V${releaseVersion}.${releaseMinorVersion}-upgrade-${svnRevision}"
+    destinationDir = file(this.buildDir.path)
+    extension = 'tar.gz'
+    compression = Compression.GZIP
+
+    dependsOn 'distTarForUpgradeWar'
+}
+
+
+task copyVoltDBStoredProcedure(type: Copy) {
+    from(project(':corenetvertex').buildDir.getAbsolutePath() + "/libs") {
+        include 'NetVertex-PCC-StoredProcedure.jar'
+    }
+
+    dependsOn ':corenetvertex:storedProcedureJar'
+
+    into this.project.projectDir.getAbsolutePath() + "/setup/database/voltdb"
+
+}
+/*gretty {
+    // supported values:
+    // 'jetty7', 'jetty8', 'jetty9', 'jetty93', 'jetty94', 'tomcat7', 'tomcat8'
+    servletContainer = 'jetty9'
+    httpPort = 9090
+}*/
+
+
+dependencies {
+
+    def depPojects = [":core", ":elitecommons", ":corenetvertex", ":diameterapi", ":coreradius", ":passwordutil", ":exprlib", ":license"]
+
+    depPojects.each {
+        compile project(it)
+        testCompile files(project(it).sourceSets.test.output)
+    }
+
+    configurations {
+        ///dependency of 3.3 in groovy 1.18 in core project
+        runtime.exclude group: 'asm'
+    }
+
+
+    //cxf
+    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: '3.1.12' // soap
+    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxrs', version: '3.1.12' // rest
+    compile group: 'org.apache.cxf', name: 'cxf-rt-rs-service-description', version: '3.1.12'
+    compile group: 'org.apache.cxf', name: 'cxf-tools-wsdlto-frontend-jaxws', version: '3.1.12'
+
+
+
+    compile (group: 'org.apache.struts', name: 'struts2-convention-plugin', version: '2.3.34')
+    compile (group: 'org.apache.struts', name: 'struts2-core', version: '2.3.34')
+    compile (group: 'org.apache.struts', name: 'struts2-json-plugin', version: '2.3.34')
+    compile (group: 'org.apache.struts', name: 'struts2-tiles3-plugin', version: '2.3.34') {
+        exclude group: 'org.springframework'
+    }
+
+
+    compile (group: 'org.apache.struts', name: 'struts2-rest-plugin', version: '2.3.34')
+    compile (group: 'com.jgeppert.struts2.jquery', name: 'struts2-jquery-plugin', version: '3.7.1')
+
+    compile (group: 'com.google.code.jcaptcha4struts2', name: 'jcaptcha4struts2', version: '2.0.2'){
+        exclude group: 'com.opensymphony', module: 'xwork'
+    }
+
+    runtime group: 'org.apache.struts', name: 'struts2-java8-support-plugin', version: '2.3.34'
+
+    runtime group: 'com.ckeditor', name: 'ckeditor-java-core', version: '3.5.3'
+    ///required in cxf and tiles3
+    runtime group: 'org.springframework', name: 'spring-web', version: '4.3.10.RELEASE'
+    runtime group: 'org.springframework', name: 'spring-webmvc-portlet', version: '4.3.10.RELEASE'
+    //
+
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
+    compileOnly group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version:'2.3.1'
+    compileOnly group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: '8.5.16'
+    compile group: 'commons-logging', name: 'commons-logging-api', version: '1.1'
+
+
+    testCompile group: 'org.apache.struts', name: 'struts2-junit-plugin', version: '2.3.34'
+    testCompile group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
+    testCompile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version:'2.3.1'
+    testCompile group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: '8.5.16'
+    testCompile group: 'com.h2database', name: 'h2', version: '1.4.196'
+
+    compile 'org.apache.cxf:cxf-rt-rs-service-description-swagger:3.1.12'
+
+    // https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-core
+    compile group: 'io.swagger.core.v3', name: 'swagger-core', version: '2.0.5'
+
+    // https://mvnrepository.com/artifact/org.webjars/swagger-ui
+    compile group: 'org.webjars', name: 'swagger-ui', version: '3.19.0'
+
+    compile group: 'org.keycloak', name: 'keycloak-admin-client', version: '4.4.0.Final'
+
+    compile (group: 'org.keycloak', name: 'keycloak-servlet-filter-adapter', version: '4.4.0.Final' ) {
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+        exclude group: 'org.bouncycastle', module: 'bcprov-jdk15on'
+    }
+
+
+
+}

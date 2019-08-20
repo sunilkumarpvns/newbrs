@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!--                                                                     
+	ZTE stuff.                                                  
+-->  
+<attribute-list vendorid="3902" vendor-name="ZTE">
+       
+    <attribute id="6" name="Served-MDN" type="string"/>
+	<attribute id="7" name="Charging Type" type="integer"/>			
+	<attribute id="8" name="Charging Rules Name" type="string"/>
+	<attribute id="9" name="CCG-Address-Used" type="ipaddr"/>
+	
+	<attribute id="11" name="List Of Service Data" type="grouped">
+		
+		<attribute id="1" name="Rating Group" type="integer"/>
+    	<attribute id="2" name="SI" type="integer"/>
+    	<attribute id="3" name="Data Volume Uplink" type="octets"/>
+    	<attribute id="4" name="Data Volume Downlink" type="octets"/>
+    	<attribute id="5" name="Result Code" type="integer"/>    		    	
+    	<attribute id="6" name="Local Sequence Number" type="integer"/>
+    	<attribute id="7" name="Time of First Usage" type="integer"/>
+    	<attribute id="8" name="Time of Last Usage" type="integer"/>
+    	<attribute id="9" name="Time Usage" type="integer"/>
+    	<attribute id="10" name="Report Reason" type="integer"/>
+    	<attribute id="11" name="Qos Information" type="string"/>
+    	<attribute id="12" name="Report Time" type="integer"/>
+    	
+			
+	</attribute>	
+	<attribute id="12" name="MPA Capability Indication" type="integer"/>		
+	
+	
+</attribute-list>
+
+

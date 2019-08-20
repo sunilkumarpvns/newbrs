@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>	
+
+<attribute-list vendorid="3076" vendor-name="Cisco-VPN3000">
+	<attribute id="1" name="CVPN3000-Access-Hours" type="string "/>
+	<attribute id="2" name="CVPN3000-Simultaneous-Logins" type="integer"/>
+	<attribute id="5" name="CVPN3000-Primary-DNS" type="ipaddr "/>
+	<attribute id="6" name="CVPN3000-Secondary-DNS" type="ipaddr "/>
+	<attribute id="7" name="CVPN3000-Primary-WINS" type="ipaddr "/>
+	<attribute id="8" name="CVPN3000-Secondary-WINS" type="ipaddr "/>
+	<attribute id="9" name="CVPN3000-SEP-Card-Assignment" type="integer"/>
+	<attribute id="10" name="CVPN3000-Priority-On-SEP" type="ipaddr "/>
+	<attribute id="11" name="CVPN3000-Tunneling-Protocols" type="integer"/>
+	<attribute id="12" name="CVPN3000-IPSec-Sec-Association" type="string "/>
+	<attribute id="13" name="CVPN3000-IPSec-Authentication" type="integer"/>
+	<attribute id="15" name="CVPN3000-IPSec-Banner1" type="string "/>
+	<attribute id="16" name="CVPN3000-IPSec-Allow-Passwd-Store" type="integer"/>
+	<attribute id="17" name="CVPN3000-Use-Client-Address" type="integer"/>
+	<attribute id="18" name="CVPN3000-PPTP-Min-Auth-Protocol" type="integer"/>
+	<attribute id="19" name="CVPN3000-L2TP-Min-Auth-Protocol" type="integer"/>
+	<attribute id="20" name="CVPN3000-PPTP-Encryption" type="integer"/>
+	<attribute id="21" name="CVPN3000-L2TP-Encryption" type="integer"/>
+	<attribute id="22" name="CVPN3000-Auth-Server-Type" type="integer"/>
+	<attribute id="23" name="CVPN3000-Auth-Server-Password" type="string "/>
+	<attribute id="24" name="CVPN3000-Request-Auth-Vector" type="string "/>
+	<attribute id="25" name="CVPN3000-IPSec-LTL-Keepalives" type="integer"/>
+	<attribute id="26" name="CVPN3000-IPSec-Group-Name" type="string "/>
+	<attribute id="27" name="CVPN3000-IPSec-Split-Tunnel-List" type="string "/>
+	<attribute id="28" name="CVPN3000-IPSec-Default-Domain" type="string "/>
+	<attribute id="29" name="CVPN3000-IPSec-Split-DNS-Names" type="string "/>
+	<attribute id="30" name="CVPN3000-IPSec-Tunnel-Type" type="integer"/>
+	<attribute id="31" name="CVPN3000-IPSec-Mode-Config" type="integer"/>
+	<attribute id="32" name="CVPN3000-Auth-Server-Priority" type="integer"/>
+	<attribute id="33" name="CVPN3000-IPSec-User-Group-Lock" type="integer"/>
+	<attribute id="34" name="CVPN3000-IPSec-Over-UDP" type="integer"/>
+	<attribute id="35" name="CVPN3000-IPSec-Over-UDP-Port" type="integer"/>
+	<attribute id="36" name="CVPN3000-IPSec-Banner2" type="string "/>
+	<attribute id="37" name="CVPN3000-PPTP-MPPC-Compression" type="integer"/>
+	<attribute id="38" name="CVPN3000-L2TP-MPPC-Compression" type="integer"/>
+	<attribute id="39" name="CVPN3000-IPSec-IP-Compression" type="integer"/>
+	<attribute id="40" name="CVPN3000-IPSec-IKE-Peer-ID-Check" type="integer"/>
+	<attribute id="41" name="CVPN3000-IKE-Keep-Alives" type="integer"/>
+	<attribute id="42" name="CVPN3000-IPSec-Auth-On-Rekey" type="integer"/>
+	<attribute id="45" name="CVPN3000-Reqrd-Client-Fw-Vendor-Code" type="integer"/>
+	<attribute id="46" name="CVPN3000-Reqrd-Client-Fw-Product-Code" type="integer"/>
+	<attribute id="47" name="CVPN3000-Reqrd-Client-Fw-Description" type="string "/>
+	<attribute id="48" name="CVPN3000-Require-HW-Client-Auth" type="integer"/>
+	<attribute id="49" name="CVPN3000-Require-Individual-User-Auth" type="integer"/>
+	<attribute id="50" name="CVPN3000-Authd-User-Idle-Timeout" type="integer"/>
+	<attribute id="51" name="CVPN3000-Cisco-IP-Phone-Bypass" type="integer"/>
+	<attribute id="52" name="CVPN3000-User-Auth-Server-Name" type="string "/>
+	<attribute id="53" name="CVPN3000-User-Auth-Server-Port" type="integer"/>
+	<attribute id="54" name="CVPN3000-User-Auth-Server-Secret" type="string "/>
+	<attribute id="55" name="CVPN3000-IPSec-Split-Tunneling-Policy" type="integer"/>
+	<attribute id="56" name="CVPN3000-IPSec-Reqrd-Client-Fw-Cap" type="integer"/>
+	<attribute id="57" name="CVPN3000-IPSec-Client-Fw-Filter-Name" type="string "/>
+	<attribute id="58" name="CVPN3000-IPSec-Client-Fw-Filter-Opt" type="integer"/>
+	<attribute id="59" name="CVPN3000-IPSec-Backup-Servers" type="integer"/>
+	<attribute id="60" name="CVPN3000-IPSec-Backup-Server-List" type="string "/>
+	<attribute id="61" name="CVPN3000-DHCP-Network-Scope" type="ipaddr "/>
+	<attribute id="62" name="CVPN3000-MS-Client-Icpt-DHCP-Conf-Msg" type="integer"/>
+	<attribute id="63" name="CVPN3000-MS-Client-Subnet-Mask" type="ipaddr "/>
+	<attribute id="64" name="CVPN3000-Allow-Network-Extension-Mode" type="integer"/>
+	<attribute id="65" name="CVPN3000-IPSec-Authorization-Type" type="integer"/>
+	<attribute id="66" name="CVPN3000-IPSec-Authorization-Required" type="integer"/>
+	<attribute id="67" name="CVPN3000-IPSec-DN-Field" type="string "/>
+	<attribute id="68" name="CVPN3000-IPSec-Confidence-Level" type="integer"/>
+	<attribute id="75" name="CVPN3000-LEAP-Bypass" type="integer"/>
+	<attribute id="128" name="CVPN3000-Partition-Primary-DHCP" type="ipaddr "/>
+	<attribute id="129" name="CVPN3000-Partition-Secondary-DHCP" type="ipaddr "/>
+	<attribute id="131" name="CVPN3000-Partition-Premise-Router" type="ipaddr "/>
+	<attribute id="132" name="CVPN3000-Partition-Max-Sessions" type="integer"/>
+	<attribute id="133" name="CVPN3000-Partition-Mobile-IP-Key" type="string "/>
+	<attribute id="134" name="CVPN3000-Partition-Mobile-IP-Address" type="ipaddr "/>
+	<attribute id="136" name="CVPN3000-Partition-Mobile-IP-SPI" type="integer"/>
+	<attribute id="136" name="CVPN3000-Strip-Realm" type="integer"/>
+</attribute-list>

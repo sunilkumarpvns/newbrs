@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/viewTableList.do" location="255,315" dimension="342,88" />
+  <StrutsActivity path="/viewTableDetail.do" location="630,600" dimension="337,88" />
+  <StrutsActivity path="/viewPackageDetail.do" location="600,870" dimension="286,88" />
+  <StrutsActivity path="/genrateDataClass.do" location="-195,600" dimension="351,88" />
+  <StrutsActivity path="/dispatchGenration.do" location="330,600" dimension="211,88" />
+  <StrutsActivity path="/navigateDataClassGen.do" location="-90,900" dimension="150,100" />
+  <StrutsActivity path="/genrateDataSource.do" location="-150,1200" dimension="409,88" />
+  <StrutsActivity path="/createZip.do" location="300,1470" dimension="241,88" />
+  <StrutsActivity path="/packageGenrationAcion.do" location="555,1200" dimension="376,88" />
+  <StrutsActivity path="/jsp/viewTableList.jsp" location="345,495" dimension="133,49" />
+  <StrutsActivity path="/jsp/WelcomeEliteGen.jsp" location="345,60" dimension="151,49" />
+  <StrutsActivity path="/jsp/viewTable.jsp" location="690,750" dimension="117,49" />
+  <StrutsActivity path="/jsp/packageDetail.jsp" location="660,1035" dimension="136,49" />
+  <StrutsActivity path="/jsp/genrateDataClass.jsp" location="-90,780" dimension="155,49" />
+  <StrutsTransition id="/viewTableList.do,failure,/jsp/WelcomeEliteGen.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="426,315" />
+      <AbsolutePoint location="426,109" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/viewTableList.jsp,null,/dispatchGenration.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="411,544" />
+      <AbsolutePoint location="411,600" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewTableDetail.do,next,/jsp/viewTable.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="792,688" />
+      <AbsolutePoint location="792,750" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/genrateDataSource.do,success,/createZip.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="259,1244" />
+      <AbsolutePoint location="420,1244" />
+      <AbsolutePoint location="420,1470" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/packageGenrationAcion.do,createZip,/createZip.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="555,1244" />
+      <AbsolutePoint location="450,1244" />
+      <AbsolutePoint location="450,1470" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPackageDetail.do,next,/jsp/packageDetail.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="743,958" />
+      <AbsolutePoint location="743,1035" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewTableList.do,success,/jsp/viewTableList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="426,403" />
+      <AbsolutePoint location="426,495" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/genrateDataClass.do,genrateDataClass,/jsp/genrateDataClass.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="-19,688" />
+      <AbsolutePoint location="-19,780" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dispatchGenration.do,genrateDataClass,/genrateDataClass.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="330,644" />
+      <AbsolutePoint location="156,644" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/navigateDataClassGen.do,genrateDataClass,/jsp/genrateDataClass.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="-15,900" />
+      <AbsolutePoint location="-15,829" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/navigateDataClassGen.do,genrateDataSource,/genrateDataSource.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="-15,1000" />
+      <AbsolutePoint location="-15,1200" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/packageDetail.jsp,null,/packageGenrationAcion.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="728,1084" />
+      <AbsolutePoint location="728,1200" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/WelcomeEliteGen.jsp,null,/viewTableList.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="456,109" />
+      <AbsolutePoint location="456,315" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dispatchGenration.do,viewTableDetail,/viewTableDetail.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="541,644" />
+      <AbsolutePoint location="630,644" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/viewTable.jsp,null,/viewPackageDetail.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="748,799" />
+      <AbsolutePoint location="748,870" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

@@ -1,0 +1,161 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+ 
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients/AAA_Server?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients?name=AAA_Server&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients/AAA_Server.xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients?name=AAA_Server
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients/AAA_Server?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients?name=AAA_Server&operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients?name=AAA_Server&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients/AAA_Server.xml?operation=search
+
+Response     :
+
+<clients>
+    <client>
+        <client-ip>127.0.0.1</client-ip>
+        <shared-secret>secret</shared-secret>
+        <request-expiry-time>10</request-expiry-time>
+        <profile-name>test_profile</profile-name>
+        <framed-pool-name>poo1</framed-pool-name>
+    </client>
+    <client>
+        <client-ip>127.0.0.1</client-ip>
+        <shared-secret>secret</shared-secret>
+        <request-expiry-time>8000</request-expiry-time>
+        <profile-name>client_profile</profile-name>
+        <framed-pool-name>pool2</framed-pool-name>
+    </client>
+</clients>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients/AAA_Server?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients?name=AAA_Server&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients/AAA_Server.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients/AAA_Server?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients?name=AAA_Server&operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients?name=AAA_Server&operation=search	
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients/AAA_Server.json?operation=search
+
+Response     :
+
+{
+  "client": [
+    {
+      "client-ip": "127.0.0.1",
+      "shared-secret": "secret",
+      "request-expiry-time": "10",
+      "profile-name": "test_profile",
+      "framed-pool-name": "poo1"
+    },
+    {
+      "client-ip": "127.0.0.1",
+      "shared-secret": "secret",
+      "request-expiry-time": "8000",
+      "profile-name": "client_profile",
+      "framed-pool-name": "pool2"
+    }
+  ]
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#EliteCSM Server
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients/AAA_Server
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients/AAA_Server?operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/clients?name=AAA_Server&operation=update
+
+
+Content Type : application/xml
+
+Body     :
+
+<clients>
+    <client>
+        <client-ip>10.121.21.96</client-ip>
+        <shared-secret>secret</shared-secret>
+        <request-expiry-time>100</request-expiry-time>
+        <profile-name>client_profile</profile-name>
+        <framed-pool-name>poo1</framed-pool-name>
+    </client>
+    <client>
+        <client-ip>10.121.21.85</client-ip>
+        <shared-secret>secret</shared-secret>
+        <request-expiry-time>8000</request-expiry-time>
+        <profile-name>test_profile</profile-name>
+        <framed-pool-name>pool2</framed-pool-name>
+    </client>
+</clients>
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Clients Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "client": [
+    {
+      "client-ip": "10.121.21.96",
+      "shared-secret": "secret",
+      "request-expiry-time": "100",
+      "profile-name": "client_profile",
+      "framed-pool-name": "poo1"
+    }
+  ]
+}
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Clients Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+

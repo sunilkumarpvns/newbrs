@@ -1,0 +1,259 @@
+package com.elitecore.aaa.rm.service.rdr;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public enum RDRConstants {
+	
+	 SUBSCRIBER_ID (0),
+	 PACKAGE_ID (1),
+	 ACCESS_STRING (2),
+	 BREACH_STATE (3),
+	 CLIENT_IP (4),
+	 CLIENT_PORT (5),
+	 CONFIGURED_DURATION (6),
+	 END_TIME (7),
+	 FLAVOR_ID (8),
+	 INFO_STRING (9),
+	 INITIATING_SIDE (10),
+	 PROTOCOL_ID (11),
+	 PROTOCOL_SIGNATURE (12),
+	 REPORT_TIME (13),
+	 SERVER_IP (14),
+	 SERVER_PORT (15),
+	 SERVICE_ID (16),
+	 TIME_FRAME (17),
+	 ZONE_ID (18),
+	
+	 SKIPPED_SESSIONS (19),
+	 SUBSCRIBER_COUNTER_ID (20),
+	 MILLISEC_DURATION (21),
+	 SESSION_UPSTREAM_VOLUME (22),
+	 SESSION_DOWNSTREAM_VOLUME (23),
+	 GLOBAL_COUNTER_ID (24),
+	 PACKAGE_COUNTER_ID (25),
+	 IP_PROTOCOL (26),
+	 FLOW_CLOSE_MODE (27),
+	
+	// HTTP Transection Usage RDR
+	 USER_AGENT (28),
+	 HTTP_URL (29),
+	 HTTP_REFERER (30),
+	 HTTP_COOKIE (31),
+	
+	// Anonymized HTTP Transaction Usage RDR
+	 HASHED_SUBSCRIBER_ID (32),
+	 HOST (33),
+	 URL (34),
+	 HASHED_SUBSCRIBER_IP (35),
+	
+	//RTSP Transaction Usage RDR
+	 RTSP_SESSION_ID (36),
+	 RTSP_URL (37),
+	 RESPONSE_DATE (38),
+	 TOTAL_ENCODING_RATE (39),
+	 NUMBER_OF_VIDEO_STREAMS (40),
+	 NUMBER_OF_AUDIO_STREAMS (41),
+	 SESSION_TITLE (42),
+	 SERVER_NAME (43),
+	
+	//VoIP Transaction Usage RDR
+	 APPLICATION_ID (44),
+	 UPSTREAM_PACKET_LOSS  (45),
+	 DOWNSTREAM_PACKET_LOSS  (46),
+	 UPSTREAM_AVERAGE_JITTER  (47),
+	 DOWNSTREAM_AVERAGE_JITTER  (48),
+	 CALL_DESTINATION  (49),
+	 CALL_SOURCE  (50),
+	 UPSTREAM_PAYLOAD_TYPE (51),
+	 DOWNSTREAM_PAYLOAD_TYPE (52),
+	 CALL_TYPE (53),
+	 MEDIA_CHANNELS (54),
+	
+	//Video Transaction Usage RDR
+	 TITLE (55),
+	 DURATION (56),
+	 ENCODING_RATE (57),
+	 RESOLUTION (58),
+	 REFERER (59),
+	
+	//Generic Usage RDR
+	 GUR_TYPE (60),
+	 LINK_ID (61),
+	 GENERATOR_ID (62),
+	 DESTINATION_IP (63),
+	 DESTINATION_PORT (64),
+	 SIGNATURE_ID (159),
+	 SESSION_ID (160),
+	 SOURCE_IP (65),
+	 SOURCE_PORT (66),
+	 START_TIME (67),
+		// 4 Future
+	 UPSTREAM_VOLUME (68),
+	 DOWNSTREAM_VOLUME (69),
+	 TOTAL_VOLUME (70),
+	 SESSIONS (71),
+	 SECONDS (72),
+	 CONCURRENT_SESSIONS (73),
+	 ACTIVE_SUBSCRIBERS (74),
+	 TOTAL_ACTIVE_SUBSCRIBERS (75),
+		// 4 furure
+	
+	//Using the Generic Usage RDR to Report IPv6 Usage
+	
+	//Subscriber Usage RDR
+	 REASON (76),
+	 UP_VLINK (77),
+	 DOWN_VLINK (78),
+	
+	//Real-Time Subscriber Usage RDR
+	 SERVICE_USAGE_COUNTER_ID (79),
+	 AGGREGATION_OBJECT_ID (80),
+	
+	//Link Usage RDR
+	
+	//Zone Usage RDR
+	 ZONE_COUNTER_ID (81),
+	
+	//Package Usage RDR
+	
+	//Virtual Links Usage RDR
+	 VLINK_ID (82),
+	 VLINK_DIRECTION (83),
+	
+	//Blocking RDR
+	 BLOCK_REASON (84),
+	 BLOCK_RDR_COUNT (85),
+	 REDIRECTED (86),
+	
+	//Quota Breach RDR
+	 QUOTA_MODEL_TYPE (87),
+	 RDR_REASON (88),
+	 ADDITIONAL_INFO (89),
+	 BUCKET_ID (90),
+	 BUCKET_TYPE (91),
+	 UNIT_AMOUNT_IN (92),
+	 UNIT_AMOUNT_OUT (93),
+	 BUCKET_SIZE_IN (94),
+	 BUCKET_SIZE_OUT (95),
+	
+	//Quota Status RDR
+	
+	//Quota Threshold Breach RDR
+	 THRESHOLD_SIZE_IN (96),
+	 THRESHOLD_SIZE_OUT (97),
+	
+	//Session Creation RDRs
+	
+	//DHCP RDR
+	 CPE_MAC (98),
+	 CMTS_IP (99),
+	 ASSIGNED_IP (100),
+	 RELEASED_IP (101),
+	 TRANSACTION_ID (102),
+	 MESSAGE_TYPE (103),
+	
+	 OPTION_TYPE_0 (104),
+	 OPTION_TYPE_1 (105),
+	 OPTION_TYPE_2 (106),
+	 OPTION_TYPE_3 (107),
+	 OPTION_TYPE_4 (108),
+	 OPTION_TYPE_5 (109),
+	 OPTION_TYPE_6 (110),
+	 OPTION_TYPE_7 (111),
+	
+	//RADIUS RDR
+	 RADIUS_PACKET_CODE (112),
+	 RADIUS_ID (113),
+	 ATTRIBUTE_VALUE_1 (114),
+	 ATTRIBUTE_VALUE_2 (115),
+	 ATTRIBUTE_VALUE_3 (116),
+	 ATTRIBUTE_VALUE_4 (117),
+	 ATTRIBUTE_VALUE_5 (118),
+	 ATTRIBUTE_VALUE_6 (119),
+	 ATTRIBUTE_VALUE_7 (120),
+	 ATTRIBUTE_VALUE_8 (121),
+	 ATTRIBUTE_VALUE_9 (122),
+	 ATTRIBUTE_VALUE_10 (123),
+	 ATTRIBUTE_VALUE_11 (124),
+	 ATTRIBUTE_VALUE_12 (125),
+	 ATTRIBUTE_VALUE_13 (126),
+	 ATTRIBUTE_VALUE_14 (127),
+	 ATTRIBUTE_VALUE_15 (128),
+	 ATTRIBUTE_VALUE_16 (129),
+	 ATTRIBUTE_VALUE_17 (130),
+	 ATTRIBUTE_VALUE_18 (131),
+	 ATTRIBUTE_VALUE_19 (132),
+	 ATTRIBUTE_VALUE_20 (133),
+	
+	//Flow Start RDR
+	
+	//Flow End RDR
+	
+	//Ongoing Flow RDR
+	
+	 FLOW_ID (134),
+	
+	//Media Flow RDR
+	 DOMAIN (135),
+	 DURATION_SECONDS (136),
+	 FLOW_TYPE (137),
+	 UPSTREAM_JITTER (138),
+	 DOWNSTREAM_JITTER (139),
+	
+	//Attack Start RDR
+	 ATTACK_ID (140),
+	 ATTACKING_IP (141),
+	 ATTACKED_IP (142),
+	 ATTACKED_PORT (143),
+	 ATTACKING_SIDE (144),
+	 ATTACK_TYPE (145),
+	 ATTACK_TIME (146),
+	
+	//Attack End RDR
+	
+	//Malicious Traffic Periodic RDR
+	 ATTACK_IP (147),
+	 OTHER_IP (148),
+	 PORT_NUMBER (149),
+	 SIDE (150),
+	 ATTACKS (151),
+	 MALICIOUS_SESSIONS (152),
+	
+	//Spam RDR
+	 SPAM_FOUND (153),
+	 THRESHOLD_LEVEL (154),
+	 SESSION_COUNTER (155),
+	 TIME_INTERVAL (156),
+	 DEFINED_SESSION_COUNTER (157),
+	 DEFINED_TIME_INTERVAL (158);
+	
+	//Information About RDR Enumeration Fields
+	 public final int typeID;
+	 
+	 RDRConstants (int type){
+			this.typeID = type;
+		}
+	 
+	 public static final RDRConstants[] types = values();
+		private static final Map<Integer , RDRConstants> map;
+
+		static {
+			map = new HashMap<Integer,RDRConstants>();
+			for ( RDRConstants type : types){
+				map.put(type.typeID, type);
+			}
+		}
+		
+		public int getTypeID (){
+			return typeID;
+		}
+
+		public static RDRConstants fromTypeID (int type){
+			return map.get(type);
+		}
+		public boolean isValid (int value){
+			return map.containsKey(value);
+		}
+		// Last Index 160
+}

@@ -1,0 +1,120 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"DIAMETER POLICY",
+  "properties":{
+      "name":{
+          "title":"Name",
+          "type":"string"
+      },
+      "description":{
+          "title":"Description",
+          "type":"string"
+      },
+      "status":{
+          "title":"Status",
+          "type":"string"
+      },
+      "check-item-expression":{
+          "title":"Check Item Expression",
+          "type":"string"
+      },
+      "reject-item-expression":{
+          "title":"Reject Item Expression",
+          "type":"string"
+      },
+      "reply-item-expression":{
+          "title":"Reply Item Expression",
+          "type":"string"
+      },
+      "time-base-policy":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "month-of-year":{
+                      "title":"Month of Year",
+                      "type":"string"
+                  },
+                  "date-of-month":{
+                      "title":"Day of Month",
+                      "type":"string"
+                  },
+                  "day-of-week":{
+                      "title":"Day of Week",
+                      "type":"string"
+                  },
+                  "time-duration":{
+                      "title":"Time Period",
+                      "type":"string"
+                  }
+              }
+          }
+      }
+  }
+  
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"status",
+      "type":"radios",
+      "titleMap":{
+          "ACTIVE":"ACTIVE",
+          "INACTIVE":"INACTIVE"
+      }
+  },
+  {
+      "key":"check-item-expression",
+      "type":"textarea"
+  },
+  {
+      "key":"reject-item-expression",
+      "type":"textarea"
+  },
+  {
+      "key":"reply-item-expression",
+      "type":"textarea"
+  },
+  {
+      "key":"time-base-policy",
+      "add":"Add",
+      "items":[
+          {
+              "key":"time-base-policy[].month-of-year"
+          },
+          {
+              "key":"time-base-policy[].date-of-month"
+          },
+          {
+              "key":"time-base-policy[].day-of-week"
+          },
+          {
+              "key":"time-base-policy[].time-duration"
+          }
+          ]
+  }
+  
+],
+"model":{
+  "name": "Authorization_policy",
+  "description": "Created by admin on 12/05/2016 01:30:43 PM",
+  "status": "ACTIVE",
+  "check-item-expression": "0:4=\"10.10.10.10\"",
+  "reply-item-expression": "0:18=\"Hotline\"",
+  "reject-item-expression": "0:31=\"12.12.12.12\"",
+  "time-base-policy": [
+    {
+      "month-of-year": "1",
+      "date-of-month": "3",
+      "day-of-week": "4",
+      "time-duration": "12"
+    }
+  ]
+}
+}

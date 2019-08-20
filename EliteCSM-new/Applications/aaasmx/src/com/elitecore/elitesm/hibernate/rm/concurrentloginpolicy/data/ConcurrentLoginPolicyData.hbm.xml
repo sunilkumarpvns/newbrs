@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.rm.concurrentloginpolicy.data.ConcurrentLoginPolicyData" table="TBLMCONCURRENTLOGIN" >          
+	 
+     <id name="concurrentLoginId" column="CONCURRENTLOGINID" type="StringType">
+		<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+	 </id>
+     
+     <property name="login" type="int">
+          <column name="MAXIMUMLOGIN" sql-type="NUMERIC(3)" not-null="true"/>
+      </property>
+     
+     <property name="name" type="PolicyCaseSensitivityType">
+          <column name="NAME" sql-type="VARCHAR(50)" not-null="true"/>
+     </property>
+     
+     <property name="systemGenerated" type="CharType">
+          <column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+     </property>
+     
+     <property name="description" type="StringType">
+          <column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"/>
+     </property>
+     
+     <property name="commonStatusId" type="CharType">
+          <column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="true"/>
+     </property>
+ 
+ 	<property name="createDate" type="java.sql.Timestamp">
+          <column name="CREATEDATE" sql-type="TIMESTAMP" not-null="true"/>
+    </property>
+ 
+ 
+ 	 <property name="createdByStaffId" type="StringType">
+		 <column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"/>
+     </property>
+     	
+     <property name="lastModifiedDate" type="java.sql.Timestamp">
+          <column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP" not-null="false"/>
+      </property>
+	
+	 <property name="lastModifiedByStaffId" type="StringType">
+          <column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"/>
+      </property>
+ 
+     <property name="statusChangeDate" type="java.sql.Timestamp">
+          <column name="STATUSCHANGEDATE" sql-type="TIMESTAMP" not-null="false"/>
+      </property>
+ 
+     <property name="attribute" type="StringType">
+          <column name="ATTRIBUtE" sql-type="VARCHAR(50)" not-null="false"/>
+     </property>
+ 
+      <property name="concurrentLoginPolicyTypeId" type="CharType">
+          <column name="CONCURRENTLOGINPOLICYTYPEID" sql-type="CHAR(7)" not-null="true"/>
+      </property>
+      
+      <property name="concurrentLoginPolicyModeId" type="CharType">
+          <column name="CONCURRENTLOGINPOLICYMODEID" sql-type="CHAR(7)" not-null="true"/>
+      </property>
+
+	<many-to-one name="commonStatus" class="com.elitecore.elitesm.datamanager.core.base.data.CommonStatusData" column="COMMONSTATUSID" insert="false" update="false" not-null="true" lazy="false"/>
+	<many-to-one name="policyType"   class="com.elitecore.elitesm.datamanager.radius.system.standardmaster.data.StandardMasterData" column="CONCURRENTLOGINPOLICYTYPEID" insert="false" update="false" not-null="true" lazy="false"/>			
+	
+   <bag name="concurrentLoginPolicyDetail" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+      	<key column="concurrentLoginId"></key>
+      	<one-to-many class="com.elitecore.elitesm.datamanager.rm.concurrentloginpolicy.data.ConcurrentLoginPolicyDetailData"/>
+    </bag>
+     
+     <property name="auditUId" type="StringType" >
+	     <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false" />
+	 </property>
+	     
+	</class>
+	
+</hibernate-mapping>

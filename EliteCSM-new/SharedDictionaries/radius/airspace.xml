@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="14179" vendor-name="Airespace">
+<attribute id="1" name="Airespace-Wlan-id" type="integer"/>
+<attribute id="2" name="Airespace-QOS-Level" type="integer">
+	<supported-values>
+		<value id="0" name="Bronze"/>
+		<value id="1" name="Silver"/>
+		<value id="2" name="Gold"/>
+		<value id="3" name="Platinum"/>
+		<value id="4" name="Uranium"/>
+	</supported-values>
+</attribute>
+<attribute id="3" name="Airespace-DSCP" type="integer"/>
+<attribute id="4" name="Airespace-8021p-Tag" type="integer"/>
+<attribute id="5" name="Airespace-Interface-Name" type="string"/>
+<attribute id="6" name="Airespace-ACL-Name" type="string"/>
+</attribute-list>

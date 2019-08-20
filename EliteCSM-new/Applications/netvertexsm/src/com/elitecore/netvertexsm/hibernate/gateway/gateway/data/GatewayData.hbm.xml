@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.gateway.data">
+
+  <class name="com.elitecore.netvertexsm.datamanager.gateway.gateway.data.GatewayData" table="TBLMGATEWAY">
+  
+  	 <id name="gatewayId" column="GATEWAYID" type="java.lang.Long" >
+     	  <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+	 	  </generator>
+     </id>     
+
+     <property name="gatewayName" type="string">
+     	  <column name="GATEWAYNAME" sql-type="VARCHAR2(40)" not-null="true"/>
+     </property>
+    
+     <property name="description" type="string">
+     	  <column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="false"/>
+     </property>
+     
+     <property name="commProtocol" type="string">
+     	  <column name="COMMPROTOCOLID" sql-type="VARCHAR2(6)" not-null="true"/>
+     </property>
+     
+     <property name="profileId" type="java.lang.Long">
+     	  <column name="PROFILEID" sql-type="NUMBER(20)" not-null="true"/>
+     </property>
+     
+     <property name="areaName" type="string">
+     	  <column name="AREANAME" sql-type="VARCHAR2(40)" not-null="false"/>
+     </property> 
+
+     <property name="connectionUrl" type="string">
+     	  <column name="CONNECTIONURL" sql-type="VARCHAR2(45)" not-null="false"/> 
+     </property>
+     
+     <property name="locationId" type="java.lang.Integer">
+     	  <column name="LOCATIONID" sql-type="NUMBER(20)" not-null="false"/> 
+     </property>
+     
+     <property name="createdDate" type="java.sql.Timestamp">
+     	  <column name="CREATEDDATE" sql-type="TIMESTAMP(6)" not-null="false"/>
+     </property>
+     	     
+	 <property name="modifiedDate" type="java.sql.Timestamp">
+	     <column name="MODIFIEDDATE" sql-type="TIMESTAMP(6)" not-null="false"/>
+	 </property>
+	         
+     <property name="createdByStaffId" type="java.lang.Long">
+     	 <column name="CREATEDBYSTAFFID" sql-type="NUMBER" not-null="false"/>
+     </property>
+     	     
+     <property name="modifiedByStaffId" type="java.lang.Long">
+     	 <column name="MODIFIEDBYSTAFFID" sql-type="NUMBER" not-null="false"/>
+     </property>
+     
+     <property name="clientIp" type="string">
+    	<column name="CLIENTIP" sql-type="VARCHAR2(64)" not-null="false"/>
+	 </property>
+    
+     <property name="policyEnforcementMethodName" type="string">
+    	<column name="POLICYENFORCEMENTMETHOD" sql-type="VARCHAR2(64)" not-null="false"/>
+	 </property>
+          
+     <many-to-one name="gatewayProfileData" column="PROFILEID" lazy="false" insert="false" update="false"
+     	  class="com.elitecore.netvertexsm.datamanager.gateway.profile.data.GatewayProfileData" not-null="false">
+     </many-to-one>
+     
+     <many-to-one name="gatewayLocationData" column="LOCATIONID" lazy="false" insert="false" update="false"
+     	  class="com.elitecore.netvertexsm.datamanager.gateway.gateway.data.GatewayLocationData" not-null="false">
+     </many-to-one>
+     
+		 
+	<set inverse="true" name="diameterGatewayDataSet" lazy="false" cascade="delete-orphan" >
+		 <key column="GATEWAYID" />
+		 <one-to-many class="com.elitecore.netvertexsm.datamanager.gateway.gateway.data.DiameterGatewayData" not-found="ignore" />
+	</set>
+  
+  	<set inverse="true" name="radiusGatewayDataSet" lazy="false" cascade="delete-orphan" >
+		 <key column="GATEWAYID" />
+		 <one-to-many class="com.elitecore.netvertexsm.datamanager.gateway.gateway.data.RadiusGatewayData" not-found="ignore" />
+	</set>
+	
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_datasource,POST : Create DB Datasource : 201,sm/database/database.json,POST,create_datasource_sp_interface.json,,,201,database
+2,create_sp_interface,POST : Create Sp Interface rest_sp_interface : 201,sm/spinterface/db-sp-interface.json,POST,create_sp_interface.json,,28859,201,db-sp-interface
+3,get_created_sp_interface,GET : rest_sp_interface should be displayed : 200,sm/spinterface/db-sp-interface/rest_sp_interface_11111111.json,GET,,,28860,200,db-sp-interface
+4,update_sp_interface,PUT : Update  rest_sp_interface and change to update_rest_sp_interface : 200,sm/spinterface/db-sp-interface/rest_sp_interface_11111111.json,PUT,update_sp_interface.json,,28861,200,db-sp-interface
+5,get_updated_sp_interface,GET : update_rest_sp_interface should be displayed : 200,sm/spinterface/db-sp-interface/rest_sp_interface_11111111.json,GET,,,28862,200,db-sp-interface
+6,delete_sp_interface,DELETE : Delete update_rest_sp_interface : 200,sm/spinterface/db-sp-interface/rest_sp_interface_11111111.json,DELETE,,,28863,200,db-sp-interface
+7,get_deleted_sp_interface,GET : update_rest_sp_interface should not be displayed : 404,sm/spinterface/db-sp-interface/rest_sp_interface_11111111.json,GET,,"{""actionErrors"":[""Sp Interface Not Found with id: rest_sp_interface_11111111""]}",28864,404,db-sp-interface
+8,delete_datasource,DELETE : Delete DB Datasource : 200,sm/database/database/rest_datasource_sp_11111111.json,DELETE,,,,200,database

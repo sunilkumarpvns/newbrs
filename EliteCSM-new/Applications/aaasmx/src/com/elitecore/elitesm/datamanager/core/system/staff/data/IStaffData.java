@@ -1,0 +1,83 @@
+package com.elitecore.elitesm.datamanager.core.system.staff.data;
+
+import java.util.List;
+import java.util.Set;
+
+import com.elitecore.elitesm.datamanager.core.base.data.CommonStatusData;
+
+public interface IStaffData {
+	
+	public String getAddress1();
+	public void setAddress1(String address1);
+	public String getAddress2();
+	public void setAddress2(String address2);
+	public java.sql.Timestamp getBirthDate();
+	public void setBirthDate(java.sql.Timestamp birthDate);
+	public String getCity();
+	public void setCity(String city);
+	public String getCommonStatusId();
+	public void setCommonStatusId(String commonStatusId);
+	public String getCountry();
+	public void setCountry(String country);
+	public java.sql.Timestamp getCreateDate();
+	public void setCreateDate(java.sql.Timestamp createDate);
+	public String getCreatedByStaffId();
+	public void setCreatedByStaffId(String createdByStaffId);
+	public String getEmailAddress();
+	public void setEmailAddress(String emailAddress);
+	public java.sql.Timestamp getLastLoginTime();
+	public void setLastLoginTime(java.sql.Timestamp lastLoginTime);
+	public String getLastModifiedByStaffId();
+	public void setLastModifiedByStaffId(String lastModifiedByStaffId);
+	public java.sql.Timestamp getLastModifiedDate();
+	public void setLastModifiedDate(java.sql.Timestamp lastModifiedDate);
+	public List getStaffDetail();
+	public void setStaffDetail(List lstStaffDetail);
+	public String getMobile();
+	public void setMobile(String mobile);
+	public String getName();
+	public void setName(String name);
+	public long getPageNumber();
+	public void setPageNumber(long pageNumber);
+	public String getPassword();
+	public void setPassword(String password);
+	public String getPhone();
+	public void setPhone(String phone);
+	public String getStaffId();
+	public void setStaffId(String staffId);
+	public String getState();
+	public void setState(String state);
+	public java.sql.Timestamp getStatusChangeDate();
+	public void setStatusChangeDate(java.sql.Timestamp statusChangeDate);
+	public String getSystemGenerated();
+	public void setSystemGenerated(String systemGenerated);
+	public long getTotalPages();
+	public void setTotalPages(long totalPages);
+	public long getTotalRecords();
+	public void setTotalRecords(long totalRecords);
+	public String getUsername();
+	public void setUsername(String username);
+	public String getZip();
+	public void setZip(String zip);
+	public String getReason();
+	public void setReason(String reason);
+	public String getStatus();
+	public void setStatus(String status);
+	public CommonStatusData getCommonStatus(); 
+	public void setCommonStatus(CommonStatusData commonStatus);
+	public Set<StaffGroupRelData> getStaffGroupRel();
+	public void setStaffGroupRel(Set<StaffGroupRelData> staffGroupRel);
+	public String toString();
+	public String getBasicDetail();
+	public java.sql.Timestamp getLastChangePasswordDate();
+	public void setLastChangePasswordDate(java.sql.Timestamp lastChangePasswordDate);
+	public String getAuditId();
+	public void setAuditId(String auditId);
+	public String getAuditName();
+	public void setAuditName(String auditName);
+	public String getAuditUId();
+	public void setAuditUId(String auditUId);
+	public String getHistoricalPassword();
+	public void setHistoricalPassword(String historicalPassword);
+}
+

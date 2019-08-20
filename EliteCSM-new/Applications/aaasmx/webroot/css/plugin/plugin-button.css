@@ -1,0 +1,107 @@
+.padding_10 {
+	padding: 10px
+}
+
+.textbox_width {
+	width: 250px;
+}
+
+.select_width {
+	width: 100px;
+}
+
+.parameter_properties {
+	padding-left: 60px;
+	padding-top: 5px;
+}
+
+.nested_param {
+	padding-left: 100px;
+}
+
+.align-right {
+	float: right;
+}
+
+.addElement {
+	position: relative;
+	cursor: pointer;
+}
+
+.addElement:before {
+	content: "\f067";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	color: gray;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.removeElement {
+	position: relative;
+	cursor: pointer;
+}
+
+.removeElement:before {
+	content: "\f014";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	color: gray;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.expandCollapseElement {
+	position: relative;
+	cursor: pointer;
+}
+
+.expandCollapseElement:before {
+	content: "\f150";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	color: gray;
+	font-size: 16px;
+	cursor: pointer;
+}
+.plugin-template-header{
+	font-weight: bold;
+	background-color: #D9E6F6;
+}
+.plugin-table-firstcol{
+	border-left-style: solid;
+	border-width: 1px;
+	border-left-color: #CCC;
+	border-bottom-color: #CCC;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+.tbl-plugin-rows{ font-family: Arial; font-size: 12px; color: #000000; border: #CCCCCC; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 0px ; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; line-height: 19px}
+.full-width{width: 100%}
+.plugin-policy-background{background-color: #D9E6F6;}
+.padding-top{padding-top: 5px;}
+.padding-bottom{padding-bottom: 5px;}
+.downloadElement {
+	position: relative;
+	cursor: pointer;
+}
+
+.downloadElement:before {
+	content: "\f019";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	color: #015198;
+	font-size: 16px;
+	cursor: pointer;
+}
+.border-left-download{border-left: 1px solid #CCCCCC;color:#000000}
+.labeltext { font-family: Arial; font-size: 12px; color: #000000;padding-top: 1px; padding-right: 0px; padding-bottom: 1px; padding-left: 3px }
+.border-right-download{border-left: 1px solid #D9E6F6;border-right: 1px solid #D9E6F6;}

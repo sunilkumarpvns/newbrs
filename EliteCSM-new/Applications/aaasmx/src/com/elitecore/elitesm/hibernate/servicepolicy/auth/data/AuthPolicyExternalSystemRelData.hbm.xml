@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyExternalSystemRelData" table="TBLMAUTHPOLICYESIREL">
+		<composite-id>
+			<key-property name="authPolicyId" column="AUTHPOLICYID" type="StringType"></key-property>
+			<key-property name="esiInstanceId" column="ESIINSTANCEID" type="StringType"></key-property>
+		</composite-id>
+		<property name="weightage" type="java.lang.Integer" column="WEIGHTAGE" not-null="true"/>
+		<many-to-one name="externalSystemData" fetch="join" lazy="false"  insert="false" update="false" class="com.elitecore.elitesm.datamanager.externalsystem.data.ExternalSystemInterfaceInstanceData" column="ESIINSTANCEID" ></many-to-one>
+	</class>		
+</hibernate-mapping>

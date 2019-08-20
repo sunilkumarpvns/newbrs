@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <data-sources />
+
+	 <!-- form-beans for ippool -->
+    <form-beans>
+       <!-- ip pool form -->
+      <form-bean name="ipPoolForm" type="com.elitecore.elitesm.web.rm.ippool.forms.IPPoolForm"/>
+      <!-- Concurrent Login Policy form -->
+      <form-bean name="searchConcurrentLoginPolicyForm" type= "com.elitecore.elitesm.web.rm.concurrentloginpolicy.forms.SearchConcurrentLoginPolicyForm" />          
+      <form-bean name="addConcurrentLoginPolicyForm" type= "com.elitecore.elitesm.web.rm.concurrentloginpolicy.forms.AddConcurrentLoginPolicyForm" />    
+      <form-bean name="addConcurrentLoginPolicyDetailForm" type= "com.elitecore.elitesm.web.rm.concurrentloginpolicy.forms.AddConcurrentLoginPolicyDetailForm" />    
+      <form-bean name="updateConcurrentLoginPolicyBasicDetailForm" type= "com.elitecore.elitesm.web.rm.concurrentloginpolicy.forms.UpdateConcurrentLoginPolicyBasicDetailForm" />    
+      <form-bean name="updateConcLoginPolicyAttributeDetailForm" type= "com.elitecore.elitesm.web.rm.concurrentloginpolicy.forms.UpdateConcLoginPolicyAttributeDetailForm" />    
+      <form-bean name="updateConcurrentLoginPolicyStatusForm" type= "com.elitecore.elitesm.web.rm.concurrentloginpolicy.forms.UpdateConcurrentLoginPolicyStatusForm" />          
+      <form-bean name="miscConcurrentLoginPolicyForm" type = "com.elitecore.elitesm.web.rm.concurrentloginpolicy.forms.MiscConcurrentLoginPolicyForm"/>
+    </form-beans>
+    
+    <global-exceptions />
+  
+    <action-mappings>
+	   	    
+	    <action path="/searchIPPool"
+		        type="com.elitecore.elitesm.web.rm.ippool.SearchIPPoolAction"
+		        scope="request"
+		        name="ipPoolForm"
+		        validate="true"
+		        input="/jsp/ippool/SearchIPPool.jsp">
+		        <forward name="searchIPPool" path="/jsp/rm/ippool/SearchIPPool.jsp"/>
+	     </action>
+	     
+	     <action path="/miscIPPool"
+	        type="com.elitecore.elitesm.web.rm.ippool.MiscIPPoolAction"
+	        scope="request"
+	        name="ipPoolForm"
+	        validate="true"
+	        input="/jsp/ippool/SearchIPPool.jsp">
+	        <forward name="searchIPPool" path="/searchIPPool.do"/>
+      	 </action>
+      	 
+      	 <action path="/initCreateIPPool"
+      	 		 type="com.elitecore.elitesm.web.rm.ippool.CreateIPPoolAction"
+      	 		 scope="request"
+      	 		 name="ipPoolForm"
+      	 		 validate="true">
+      	 		 <forward name="initCreateIPPool" path="/jsp/rm/ippool/CreateIPPool.jsp"></forward>
+      	 </action>
+      	 
+      	 
+      	 <action path="/createIPPool"
+      	 		 type="com.elitecore.elitesm.web.rm.ippool.CreateIPPoolAction"
+      	 		 scope="request"
+      	 		 name="ipPoolForm"
+      	 		 validate="true">
+      	 </action>
+      	 		 
+
+		<action path="/viewIPPool"
+			    type="com.elitecore.elitesm.web.rm.ippool.ViewIPPoolAction"
+			    name="ipPoolForm"
+			    scope="request" 
+			    validate="false">
+			<forward name="viewIPPoolDetail" path="/jsp/rm/ippool/ViewIPPoolContainer.jsp" />
+	    </action>
+	   
+	   	<action path="/initUpdateIPPool"
+			    type="com.elitecore.elitesm.web.rm.ippool.ViewIPPoolAction"
+			    name="ipPoolForm"
+			    scope="request"
+			    validate="false">
+			<forward name="viewIPPoolDetail" path="/jsp/rm/ippool/UpdateIPPoolContainer.jsp" />
+	    </action>
+	    
+	    <action path="/updateIPPool"
+			    type="com.elitecore.elitesm.web.rm.ippool.UpdateIPPoolAction"
+			    name="ipPoolForm"
+			    scope="request"
+			    validate="false">
+	    </action>
+	    
+	    <action path="/initChangeStatus"
+			    type="com.elitecore.elitesm.web.rm.ippool.ViewIPPoolAction"
+			    name="ipPoolForm"
+			    scope="request"
+			    validate="false">
+			    <forward name="viewIPPoolDetail" path="/jsp/rm/ippool/UpdateIPPoolStatusContainer.jsp" />
+	    </action>
+	    
+	     <action path="/changeStatus"
+			    type="com.elitecore.elitesm.web.rm.ippool.UpdateIPPoolAction"
+			    name="ipPoolForm"
+			    scope="request"
+			    validate="false">
+	    </action>
+	    
+	    <action path="/searchIPAddress"
+    		type="com.elitecore.elitesm.web.rm.ippool.SearchIPAddressAction"
+    		name="ipPoolForm"
+    		scope="request"
+    		validate="false">
+    	<forward name="searchIPAddress" path="/jsp/rm/ippool/SearchIPAddressContainer.jsp"/>
+       </action>
+       
+       <action path="/checkIPPool"
+    		type="com.elitecore.elitesm.web.rm.ippool.CheckIPPoolAction"
+    		name="ipPoolForm"
+    		scope="request"
+    		validate="false">
+    	<forward name="checkIPPool" path="/jsp/rm/ippool/CheckIPPool.jsp"></forward>	
+      </action>
+      
+      <action path="/viewIPPoolCheck"
+    		type="com.elitecore.elitesm.web.rm.ippool.ViewIPPoolCheckAction"
+    		name="ipPoolForm"
+    		scope="request"
+    		validate="false">
+    	<forward name="viewIPCheck" path="/jsp/rm/ippool/ViewIPPoolCheck.jsp"></forward>	
+      </action>
+      
+      <action path="/ipPoolCSVFormatFile"
+      		  type="com.elitecore.elitesm.web.rm.ippool.IPPoolCSVFileAction"
+    		  name="ipPoolForm"
+    		  scope="request"
+    		  validate="false">
+    		  <forward name="ipPoolCSVFormatFile" path="/jsp/rm/ippool/IPPoolCsvPopup.jsp"></forward>	
+      </action>
+      
+      <action path="/downloadCSVFormatFile"
+      		  type="com.elitecore.elitesm.web.rm.ippool.IPPoolCSVFileAction"
+    		  name="ipPoolForm"
+    		  scope="request"
+    		  validate="false">
+      </action>
+      
+      <action path="/deleteIPPoolDetailByRange"
+      		  type="com.elitecore.elitesm.web.rm.ippool.DeleteIPPoolDetailByRange"
+    		  name="ipPoolForm"
+    		  scope="request"
+    		  validate="false">
+      </action>
+      
+      
+      <!-- Concurrrent Login Policy Module -->
+       <action path="/searchConcurrentLoginPolicy"
+          type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.SearchConcurrentLoginPolicyAction"
+          name="searchConcurrentLoginPolicyForm"
+          scope="request"
+          validate="false"
+          input="/jsp/rm/concurrentloginpolicy/SearchConcurrentLoginPolicy.jsp">   
+        <forward name="searchConc" path="/jsp/rm/concurrentloginpolicy/SearchConcurrentLoginPolicy.jsp"/>
+      </action>
+
+      <action path="/miscConcurrentLoginPolicy"
+          type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.MiscConcurrentLoginPolicyAction"
+          scope="request"
+          name="miscConcurrentLoginPolicyForm"
+          validate="true"
+        >
+        <forward name="searchConc" path="/searchConcurrentLoginPolicy.do"/>
+      </action>
+      
+      
+      <action path="/initSearchConcurrentLoginPolicy"
+         type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.InitSearchConcurrentLoginPolicyAction"
+         name="searchConcurrentLoginPolicyForm"
+         scope="request"
+         validate="false"
+         >
+         <forward name="initSearchConcurrentLog" path="/jsp/rm/concurrentloginpolicy/SearchConcurrentLoginPolicy.jsp"/>
+      </action>  
+
+    <action path="/addConcurrentLoginPolicy"
+        type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.AddConcurrentLoginPolicyAction"
+        name="addConcurrentLoginPolicyForm"
+        scope="session"
+        validate="false">
+        <forward name="createConcurrentLoginPolicy" path="/jsp/rm/concurrentloginpolicy/AddConcurrentLoginPolicy.jsp"/>
+        <forward name="addConcLoginPolSerWise" path="/addConcurrentLoginPolicyDetail.do"/>
+        <forward name="create" path="/createConcurrentLoginPolicy.do?action=master"/>
+    </action>
+
+   <action path="/addConcurrentLoginPolicyDetail"
+        type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.AddConcurrentLoginPolicyDetailAction"
+        name="addConcurrentLoginPolicyDetailForm"
+        scope="request"
+        validate="false">
+        <forward name="addConcLoginPolicyDetail" path="/jsp/rm/concurrentloginpolicy/AddConcLoginPolicyDetail.jsp"/>
+        <forward name="create" path="/createConcurrentLoginPolicy.do?action=detail"/>
+        <forward name="previous" path="/addConcurrentLoginPolicy.do?action=new"/>
+    </action>
+
+    <action path="/createConcurrentLoginPolicy"
+        type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.CreateConcurrentLoginPolicyAction"
+        name="addConcurrentLoginPolicyForm"
+        scope="session"
+        validate="false" >
+
+    </action>
+        
+    <action path="/viewConcurrentLoginPolicy"
+         type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.ViewConcurrentLoginPolicyAction"
+         scope="request"
+         validate="false">              
+         <forward name="viewConcurrentLoginPolicyDetail" path="/jsp/rm/concurrentloginpolicy/ConcurrentLoginPolicyContainer.jsp"/>
+      </action>     
+      
+      <action path="/updateConcurrentLoginPolicyBasicDetail"
+         type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.UpdateConcurrentLoginPolicyBasicDetailAction"
+         name="updateConcurrentLoginPolicyBasicDetailForm"
+         scope="request"
+         validate="false">
+         <forward name="updateConcurrentLoginPolicyDetail" path="/jsp/rm/concurrentloginpolicy/ConcUpdateBasicDetailContainer.jsp"/>
+         <forward name="viewConcurrentLoginPolicyDetail" path="/viewConcurrentLoginPolicy.do?"/>         
+      </action> 
+                        
+      <action path="/updateConcLoginPolicyAttributeDetail"
+         type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.UpdateConcLoginPolicyAttributeDetailAction"
+         name="updateConcLoginPolicyAttributeDetailForm"
+         scope="request"
+         validate="false">
+         <forward name="updateConcLoginAttributeDet" path="/jsp/rm/concurrentloginpolicy/UpdateConcPolicyAttributeDetailContainer.jsp"/>
+         <forward name="viewConcurrentLoginPolicyDetail" path="/viewConcurrentLoginPolicy.do?"/>         
+      </action> 
+
+      <action path="/viewConcLoginPolicyAttributeDetail"
+         type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.ViewConcLoginPolicyAttributeDetailAction"
+         scope="request"
+         validate="false">
+         <forward name="viewConcurrentLoginPolicyDetail" path="/jsp/rm/concurrentloginpolicy/ViewConcPolicyAttributeDetailContainer.jsp"/>
+        
+      </action> 
+        
+        <action path="/updateConcurrentLoginPolicyStatus"
+         type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.UpdateConcurrentLoginPolicyStatusAction"
+         name="updateConcurrentLoginPolicyStatusForm"
+         scope="request"
+         validate="false" >
+         <forward name="updateConcLoginPolicyStatus" path="/jsp/rm/concurrentloginpolicy/ConcUpdateStatusContainer.jsp"/>
+         <forward name="viewConcurrentLoginPolicyDetail" path="/viewConcurrentLoginPolicy.do?"/>         
+      </action> 
+    
+    	<action path="/viewIPPoolHistory"
+			    type="com.elitecore.elitesm.web.rm.ippool.ViewIPPoolHistoryAction"
+			    name="ipPoolForm"
+			    scope="request" 
+			    validate="false">
+			<forward name="viewIPPoolDetail" path="/jsp/rm/ippool/ViewIPPoolHistoryContainer.jsp" />
+	    </action>
+	    
+	     <action path="/viewConcurrentLoginPolicyHistory"
+         type="com.elitecore.elitesm.web.rm.concurrentloginpolicy.ViewConcurrentLoginPolicyHistoryAction"
+         scope="request"
+         validate="false">              
+         <forward name="viewConcurrentLoginPolicyDetailHistory" path="/jsp/rm/concurrentloginpolicy/ConcurrentLoginPolicyHistoryContainer.jsp"/>
+      </action> 
+	    
+	   
+    </action-mappings>	      
+
+	<message-resources key="ippoolResources" parameter="com.elitecore.elitesm.web.rm.ippool.IPPoolResources" null="false"/>  
+	<message-resources key="rmResources" parameter="com.elitecore.elitesm.web.rm.rmResources" null="false"/>  
+	
+</struts-config>       

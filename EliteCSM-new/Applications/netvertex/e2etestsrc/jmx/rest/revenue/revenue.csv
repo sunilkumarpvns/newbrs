@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_revenue,POST : Create revenue REVENUE_DETAIL : 201,pd/revenuedetail/revenue-detail.json,POST,create_revenue.json,,109959,201,revenue
+2,get_created_revenue,GET : REVENUE_DETAIL should be displayed : 200,pd/revenuedetail/revenue-detail/REVENUEDETAIL1.json,GET,,,109960,200,revenue
+3,update_revenue,PUT : Update REVENUE_DETAIL and change to UPDATED_REVENUE_DETAIL : 200,pd/revenuedetail/revenue-detail/REVENUEDETAIL1.json,PUT,update_revenue.json,,109961,200,revenue
+4,get_updated_revenue,GET : UPDATED_REVENUE_DETAIL should be displayed : 200,pd/revenuedetail/revenue-detail/REVENUEDETAIL1.json,GET,,,109962,200,revenue
+5,delete_revenue,DELETE : Delete UPDATED_REVENUE_DETAIL : 200,pd/revenuedetail/revenue-detail/REVENUEDETAIL1.json,DELETE,,,109963,200,revenue
+6,get_deleted_revenue,GET : UPDATED_REVENUE_DETAIL should not be displayed : 404,pd/revenuedetail/revenue-detail/REVENUEDETAIL1.json,GET,,"{""actionErrors"":[""Revenue Detail Not Found with id: REVENUEDETAIL1""]}",109964,404,revenue

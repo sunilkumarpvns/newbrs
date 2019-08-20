@@ -1,0 +1,748 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener?name=SysLog_Listener&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener.xml?name=SysLog_Listener
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener?operation=search&name=SysLog_Listener&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener.xml?operation=search&name=SysLog_Listener
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener.xml?operation=search
+
+Response     :
+
+<alert-listener-data>
+    <name>SysLog_Listener</name>
+    <sys-log-listener>
+        <address>10.121.21.221</address>
+        <facility>AUTH</facility>
+        <repeated-message-reduction>true</repeated-message-reduction>
+    </sys-log-listener>
+    <enable>
+        <alert-name>ServerUp</alert-name>
+        <alert-name>ServerDown</alert-name>
+        <alert-name>UnknownUser</alert-name>
+        <alert-name>InvalidClient</alert-name>
+        <alert-name>CDRStorageProblem</alert-name>
+        <alert-name>DatbaseUp</alert-name>
+        <alert-name>DatabaseDown</alert-name>
+        <alert-name>QueryTimeout</alert-name>
+        <alert-name>RadiusUp</alert-name>
+        <alert-name>RadiusDown</alert-name>
+        <alert-name>RadiusRequestTimeout</alert-name>
+        <alert-name>RadiusEsiHighResponseTime</alert-name>
+        <alert-name>LdapUp</alert-name>
+        <alert-name>LdapDown</alert-name>
+        <alert-name>NotLicensedVendor</alert-name>
+        <alert-name>LicenseExpired</alert-name>
+        <alert-name>NotLicensedSupportedVendor</alert-name>
+        <alert-name>LicenseTpsExceeded</alert-name>
+        <alert-name>LicenseCPUExceeded</alert-name>
+        <alert-name>LicenseClientsExceeded</alert-name>
+        <alert-name>LicensedConcurrentUserExceeded</alert-name>
+        <alert-name>RadiusServicePolicyNotSatisfied</alert-name>
+        <alert-name>DatabaseUniqueConstraints</alert-name>
+        <alert-name>RadiusAuthGeneric</alert-name>
+        <alert-name>RadiusAcctGeneric</alert-name>
+        <alert-name>DynaAuthGeneric</alert-name>
+        <alert-name>DataBaseGeneric</alert-name>
+        <alert-name>LDAPGeneric</alert-name>
+        <alert-name>ESIGeneric</alert-name>
+        <alert-name>IPPoolGeneric</alert-name>
+        <alert-name>ConcurrencyGeneric</alert-name>
+        <alert-name>PrePaidGeneric</alert-name>
+        <alert-name>NASGeneric</alert-name>
+        <alert-name>CreditControlGeneric</alert-name>
+        <alert-name>EAPGeneric</alert-name>
+        <alert-name>MIPGeneric</alert-name>
+        <alert-name>DiameterWebServiceGeneric</alert-name>
+        <alert-name>OtherGeneric</alert-name>
+        <alert-name>RADIUSWebServiceGeneric</alert-name>
+        <alert-name>Thread Not Available</alert-name>
+        <alert-name>High AAA Response Time</alert-name>
+        <alert-name>Diameter Stack Up</alert-name>
+        <alert-name>Diameter Stack Down</alert-name>
+        <alert-name>Diameter Peer Up</alert-name>
+        <alert-name>Diameter Peer Down</alert-name>
+        <alert-name>IDLE Communication</alert-name>
+        <alert-name>Diameter Peer Connection Rejected</alert-name>
+        <alert-name>Diameter Stack High Response Time</alert-name>
+        <alert-name>Diameter Peer High Response Time</alert-name>
+    </enable>
+</alert-listener-data>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener?name=SysLog_Listener&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener.json?name=SysLog_Listener
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener?operation=search&name=SysLog_Listener&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener.json?operation=search&name=SysLog_Listener
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener.json?operation=search
+
+Response     :
+
+{
+   "name":"SysLog_Listener",
+   "sys-log-listener":{
+      "address":"10.121.21.221",
+      "facility":"AUTH",
+      "repeated-message-reduction":"true"
+   },
+   "enable":[
+      "ServerUp",
+      "ServerDown",
+      "UnknownUser",
+      "InvalidClient",
+      "CDRStorageProblem",
+      "DatbaseUp",
+      "DatabaseDown",
+      "QueryTimeout",
+      "RadiusUp",
+      "RadiusDown",
+      "RadiusRequestTimeout",
+      "RadiusEsiHighResponseTime",
+      "LdapUp",
+      "LdapDown",
+      "NotLicensedVendor",
+      "LicenseExpired",
+      "NotLicensedSupportedVendor",
+      "LicenseTpsExceeded",
+      "LicenseCPUExceeded",
+      "LicenseClientsExceeded",
+      "LicensedConcurrentUserExceeded",
+      "RadiusServicePolicyNotSatisfied",
+      "DatabaseUniqueConstraints",
+      "RadiusAuthGeneric",
+      "RadiusAcctGeneric",
+      "DynaAuthGeneric",
+      "DataBaseGeneric",
+      "LDAPGeneric",
+      "ESIGeneric",
+      "IPPoolGeneric",
+      "ConcurrencyGeneric",
+      "PrePaidGeneric",
+      "NASGeneric",
+      "CreditControlGeneric",
+      "EAPGeneric",
+      "MIPGeneric",
+      "DiameterWebServiceGeneric",
+      "OtherGeneric",
+      "RADIUSWebServiceGeneric",
+      "Thread Not Available",
+      "High AAA Response Time",
+      "Diameter Stack Up",
+      "Diameter Stack Down",
+      "Diameter Peer Up",
+      "Diameter Peer Down",
+      "IDLE Communication",
+      "Diameter Peer Connection Rejected",
+      "Diameter Stack High Response Time",
+      "Diameter Peer High Response Time"
+   ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<alert-listener-data>
+    <name>SysLog_Listener</name>
+    <sys-log-listener>
+        <address>10.121.21.221</address>
+        <facility>AUTH</facility>
+        <repeated-message-reduction>true</repeated-message-reduction>
+    </sys-log-listener>
+    <enable>
+        <alert-name>ServerUp</alert-name>
+        <alert-name>ServerDown</alert-name>
+        <alert-name>UnknownUser</alert-name>
+        <alert-name>InvalidClient</alert-name>
+        <alert-name>CDRStorageProblem</alert-name>
+        <alert-name>DatbaseUp</alert-name>
+        <alert-name>DatabaseDown</alert-name>
+        <alert-name>QueryTimeout</alert-name>
+        <alert-name>RadiusUp</alert-name>
+        <alert-name>RadiusDown</alert-name>
+        <alert-name>RadiusRequestTimeout</alert-name>
+        <alert-name>RadiusEsiHighResponseTime</alert-name>
+        <alert-name>LdapUp</alert-name>
+        <alert-name>LdapDown</alert-name>
+        <alert-name>NotLicensedVendor</alert-name>
+        <alert-name>LicenseExpired</alert-name>
+        <alert-name>NotLicensedSupportedVendor</alert-name>
+        <alert-name>LicenseTpsExceeded</alert-name>
+        <alert-name>LicenseCPUExceeded</alert-name>
+        <alert-name>LicenseClientsExceeded</alert-name>
+        <alert-name>LicensedConcurrentUserExceeded</alert-name>
+        <alert-name>RadiusServicePolicyNotSatisfied</alert-name>
+        <alert-name>DatabaseUniqueConstraints</alert-name>
+        <alert-name>RadiusAuthGeneric</alert-name>
+        <alert-name>RadiusAcctGeneric</alert-name>
+        <alert-name>DynaAuthGeneric</alert-name>
+        <alert-name>DataBaseGeneric</alert-name>
+        <alert-name>LDAPGeneric</alert-name>
+        <alert-name>ESIGeneric</alert-name>
+        <alert-name>IPPoolGeneric</alert-name>
+        <alert-name>ConcurrencyGeneric</alert-name>
+        <alert-name>PrePaidGeneric</alert-name>
+        <alert-name>NASGeneric</alert-name>
+        <alert-name>CreditControlGeneric</alert-name>
+        <alert-name>EAPGeneric</alert-name>
+        <alert-name>MIPGeneric</alert-name>
+        <alert-name>DiameterWebServiceGeneric</alert-name>
+        <alert-name>OtherGeneric</alert-name>
+        <alert-name>RADIUSWebServiceGeneric</alert-name>
+        <alert-name>Thread Not Available</alert-name>
+        <alert-name>High AAA Response Time</alert-name>
+        <alert-name>Diameter Stack Up</alert-name>
+        <alert-name>Diameter Stack Down</alert-name>
+        <alert-name>Diameter Peer Up</alert-name>
+        <alert-name>Diameter Peer Down</alert-name>
+        <alert-name>IDLE Communication</alert-name>
+        <alert-name>Diameter Peer Connection Rejected</alert-name>
+        <alert-name>Diameter Stack High Response Time</alert-name>
+        <alert-name>Diameter Peer High Response Time</alert-name>
+    </enable>
+</alert-listener-data>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>SysLog Listener configuration created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "name":"SysLog_Listener",
+   "sys-log-listener":{
+      "address":"10.121.21.221",
+      "facility":"AUTH",
+      "repeated-message-reduction":"true"
+   },
+   "enable":[
+      "ServerUp",
+      "ServerDown",
+      "UnknownUser",
+      "InvalidClient",
+      "CDRStorageProblem",
+      "DatbaseUp",
+      "DatabaseDown",
+      "QueryTimeout",
+      "RadiusUp",
+      "RadiusDown",
+      "RadiusRequestTimeout",
+      "RadiusEsiHighResponseTime",
+      "LdapUp",
+      "LdapDown",
+      "NotLicensedVendor",
+      "LicenseExpired",
+      "NotLicensedSupportedVendor",
+      "LicenseTpsExceeded",
+      "LicenseCPUExceeded",
+      "LicenseClientsExceeded",
+      "LicensedConcurrentUserExceeded",
+      "RadiusServicePolicyNotSatisfied",
+      "DatabaseUniqueConstraints",
+      "RadiusAuthGeneric",
+      "RadiusAcctGeneric",
+      "DynaAuthGeneric",
+      "DataBaseGeneric",
+      "LDAPGeneric",
+      "ESIGeneric",
+      "IPPoolGeneric",
+      "ConcurrencyGeneric",
+      "PrePaidGeneric",
+      "NASGeneric",
+      "CreditControlGeneric",
+      "EAPGeneric",
+      "MIPGeneric",
+      "DiameterWebServiceGeneric",
+      "OtherGeneric",
+      "RADIUSWebServiceGeneric",
+      "Thread Not Available",
+      "High AAA Response Time",
+      "Diameter Stack Up",
+      "Diameter Stack Down",
+      "Diameter Peer Up",
+      "Diameter Peer Down",
+      "IDLE Communication",
+      "Diameter Peer Connection Rejected",
+      "Diameter Stack High Response Time",
+      "Diameter Peer High Response Time"
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>SysLog Listener configuration created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+    <alert-listener-data>
+    <name>SysLog_Listener</name>
+    <sys-log-listener>
+        <address>10.121.21.221</address>
+        <facility>AUTH</facility>
+        <repeated-message-reduction>true</repeated-message-reduction>
+    </sys-log-listener>
+    <enable>
+        <alert-name>ServerUp</alert-name>
+        <alert-name>ServerDown</alert-name>
+        <alert-name>UnknownUser</alert-name>
+        <alert-name>InvalidClient</alert-name>
+        <alert-name>CDRStorageProblem</alert-name>
+        <alert-name>DatbaseUp</alert-name>
+        <alert-name>DatabaseDown</alert-name>
+        <alert-name>QueryTimeout</alert-name>
+        <alert-name>RadiusUp</alert-name>
+        <alert-name>RadiusDown</alert-name>
+        <alert-name>RadiusRequestTimeout</alert-name>
+        <alert-name>RadiusEsiHighResponseTime</alert-name>
+        <alert-name>LdapUp</alert-name>
+        <alert-name>LdapDown</alert-name>
+        <alert-name>NotLicensedVendor</alert-name>
+        <alert-name>LicenseExpired</alert-name>
+        <alert-name>NotLicensedSupportedVendor</alert-name>
+        <alert-name>LicenseTpsExceeded</alert-name>
+        <alert-name>LicenseCPUExceeded</alert-name>
+        <alert-name>LicenseClientsExceeded</alert-name>
+        <alert-name>LicensedConcurrentUserExceeded</alert-name>
+        <alert-name>RadiusServicePolicyNotSatisfied</alert-name>
+        <alert-name>DatabaseUniqueConstraints</alert-name>
+        <alert-name>RadiusAuthGeneric</alert-name>
+        <alert-name>RadiusAcctGeneric</alert-name>
+        <alert-name>DynaAuthGeneric</alert-name>
+        <alert-name>DataBaseGeneric</alert-name>
+        <alert-name>LDAPGeneric</alert-name>
+        <alert-name>ESIGeneric</alert-name>
+        <alert-name>IPPoolGeneric</alert-name>
+        <alert-name>ConcurrencyGeneric</alert-name>
+        <alert-name>PrePaidGeneric</alert-name>
+        <alert-name>NASGeneric</alert-name>
+        <alert-name>CreditControlGeneric</alert-name>
+        <alert-name>EAPGeneric</alert-name>
+        <alert-name>MIPGeneric</alert-name>
+        <alert-name>DiameterWebServiceGeneric</alert-name>
+        <alert-name>OtherGeneric</alert-name>
+        <alert-name>RADIUSWebServiceGeneric</alert-name>
+        <alert-name>Thread Not Available</alert-name>
+        <alert-name>High AAA Response Time</alert-name>
+        <alert-name>Diameter Stack Up</alert-name>
+        <alert-name>Diameter Stack Down</alert-name>
+        <alert-name>Diameter Peer Up</alert-name>
+        <alert-name>Diameter Peer Down</alert-name>
+        <alert-name>IDLE Communication</alert-name>
+        <alert-name>Diameter Peer Connection Rejected</alert-name>
+        <alert-name>Diameter Stack High Response Time</alert-name>
+        <alert-name>Diameter Peer High Response Time</alert-name>
+    </enable>
+	</alert-listener-data>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>SysLog Listener configuration(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"SysLog_Listener",
+         "sys-log-listener":{
+            "address":"10.121.21.221",
+            "facility":"AUTH",
+            "repeated-message-reduction":"true"
+         },
+         "enable":[
+            "ServerUp",
+            "ServerDown",
+            "UnknownUser",
+            "InvalidClient",
+            "CDRStorageProblem",
+            "DatbaseUp",
+            "DatabaseDown",
+            "QueryTimeout",
+            "RadiusUp",
+            "RadiusDown",
+            "RadiusRequestTimeout",
+            "RadiusEsiHighResponseTime",
+            "LdapUp",
+            "LdapDown",
+            "NotLicensedVendor",
+            "LicenseExpired",
+            "NotLicensedSupportedVendor",
+            "LicenseTpsExceeded",
+            "LicenseCPUExceeded",
+            "LicenseClientsExceeded",
+            "LicensedConcurrentUserExceeded",
+            "RadiusServicePolicyNotSatisfied",
+            "DatabaseUniqueConstraints",
+            "RadiusAuthGeneric",
+            "RadiusAcctGeneric",
+            "DynaAuthGeneric",
+            "DataBaseGeneric",
+            "LDAPGeneric",
+            "ESIGeneric",
+            "IPPoolGeneric",
+            "ConcurrencyGeneric",
+            "PrePaidGeneric",
+            "NASGeneric",
+            "CreditControlGeneric",
+            "EAPGeneric",
+            "MIPGeneric",
+            "DiameterWebServiceGeneric",
+            "OtherGeneric",
+            "RADIUSWebServiceGeneric",
+            "Thread Not Available",
+            "High AAA Response Time",
+            "Diameter Stack Up",
+            "Diameter Stack Down",
+            "Diameter Peer Up",
+            "Diameter Peer Down",
+            "IDLE Communication",
+            "Diameter Peer Connection Rejected",
+            "Diameter Stack High Response Time",
+            "Diameter Peer High Response Time"
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>SysLog Listener configuration(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener?name=SysLog_Listener
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener?operation=update&name=SysLog_Listener
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<alert-listener-data>
+    <name>SysLog_Listener</name>
+    <sys-log-listener>
+        <address>10.121.21.221</address>
+        <facility>AUTH</facility>
+        <repeated-message-reduction>true</repeated-message-reduction>
+    </sys-log-listener>
+    <enable>
+        <alert-name>ServerUp</alert-name>
+        <alert-name>ServerDown</alert-name>
+        <alert-name>UnknownUser</alert-name>
+        <alert-name>InvalidClient</alert-name>
+        <alert-name>CDRStorageProblem</alert-name>
+        <alert-name>DatbaseUp</alert-name>
+        <alert-name>DatabaseDown</alert-name>
+        <alert-name>QueryTimeout</alert-name>
+        <alert-name>RadiusUp</alert-name>
+        <alert-name>RadiusDown</alert-name>
+        <alert-name>RadiusRequestTimeout</alert-name>
+        <alert-name>RadiusEsiHighResponseTime</alert-name>
+        <alert-name>LdapUp</alert-name>
+        <alert-name>LdapDown</alert-name>
+        <alert-name>NotLicensedVendor</alert-name>
+        <alert-name>LicenseExpired</alert-name>
+        <alert-name>NotLicensedSupportedVendor</alert-name>
+        <alert-name>LicenseTpsExceeded</alert-name>
+        <alert-name>LicenseCPUExceeded</alert-name>
+        <alert-name>LicenseClientsExceeded</alert-name>
+        <alert-name>LicensedConcurrentUserExceeded</alert-name>
+        <alert-name>RadiusServicePolicyNotSatisfied</alert-name>
+        <alert-name>DatabaseUniqueConstraints</alert-name>
+        <alert-name>RadiusAuthGeneric</alert-name>
+        <alert-name>RadiusAcctGeneric</alert-name>
+        <alert-name>DynaAuthGeneric</alert-name>
+        <alert-name>DataBaseGeneric</alert-name>
+        <alert-name>LDAPGeneric</alert-name>
+        <alert-name>ESIGeneric</alert-name>
+        <alert-name>IPPoolGeneric</alert-name>
+        <alert-name>ConcurrencyGeneric</alert-name>
+        <alert-name>PrePaidGeneric</alert-name>
+        <alert-name>NASGeneric</alert-name>
+        <alert-name>CreditControlGeneric</alert-name>
+        <alert-name>EAPGeneric</alert-name>
+        <alert-name>MIPGeneric</alert-name>
+        <alert-name>DiameterWebServiceGeneric</alert-name>
+        <alert-name>OtherGeneric</alert-name>
+        <alert-name>RADIUSWebServiceGeneric</alert-name>
+        <alert-name>Thread Not Available</alert-name>
+        <alert-name>High AAA Response Time</alert-name>
+        <alert-name>Diameter Stack Up</alert-name>
+        <alert-name>Diameter Stack Down</alert-name>
+        <alert-name>Diameter Peer Up</alert-name>
+        <alert-name>Diameter Peer Down</alert-name>
+        <alert-name>IDLE Communication</alert-name>
+        <alert-name>Diameter Peer Connection Rejected</alert-name>
+        <alert-name>Diameter Stack High Response Time</alert-name>
+        <alert-name>Diameter Peer High Response Time</alert-name>
+    </enable>
+</alert-listener-data>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>SysLog configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+   "name":"SysLog_Listener",
+   "sys-log-listener":{
+      "address":"10.121.21.221",
+      "facility":"AUTH",
+      "repeated-message-reduction":"true"
+   },
+   "enable":[
+      "ServerUp",
+      "ServerDown",
+      "UnknownUser",
+      "InvalidClient",
+      "CDRStorageProblem",
+      "DatbaseUp",
+      "DatabaseDown",
+      "QueryTimeout",
+      "RadiusUp",
+      "RadiusDown",
+      "RadiusRequestTimeout",
+      "RadiusEsiHighResponseTime",
+      "LdapUp",
+      "LdapDown",
+      "NotLicensedVendor",
+      "LicenseExpired",
+      "NotLicensedSupportedVendor",
+      "LicenseTpsExceeded",
+      "LicenseCPUExceeded",
+      "LicenseClientsExceeded",
+      "LicensedConcurrentUserExceeded",
+      "RadiusServicePolicyNotSatisfied",
+      "DatabaseUniqueConstraints",
+      "RadiusAuthGeneric",
+      "RadiusAcctGeneric",
+      "DynaAuthGeneric",
+      "DataBaseGeneric",
+      "LDAPGeneric",
+      "ESIGeneric",
+      "IPPoolGeneric",
+      "ConcurrencyGeneric",
+      "PrePaidGeneric",
+      "NASGeneric",
+      "CreditControlGeneric",
+      "EAPGeneric",
+      "MIPGeneric",
+      "DiameterWebServiceGeneric",
+      "OtherGeneric",
+      "RADIUSWebServiceGeneric",
+      "Thread Not Available",
+      "High AAA Response Time",
+      "Diameter Stack Up",
+      "Diameter Stack Down",
+      "Diameter Peer Up",
+      "Diameter Peer Down",
+      "IDLE Communication",
+      "Diameter Peer Connection Rejected",
+      "Diameter Stack High Response Time",
+      "Diameter Peer High Response Time"
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>SysLog configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener?name=SysLog_Listener
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener?operation=delete&name=SysLog_Listener
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/alertconfiguration/sysloglistener/SysLog_Listener?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>SysLog configuration(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+
+***********************************************************************
+						Additional Details(Properties as per SM)
+***********************************************************************	
+# List of Possible value for repeated-message-reduction (anyone):
+	1) true
+	2) false
+
+# List of Possible value for enable (alert-name)(can be one or multiple):	
+	1)	ServerUp
+	2)	ServerDown
+	3) 	UnknownUser
+	4) 	InvalidClient
+	5) 	CDRStorageProblem
+	6) 	DatbaseUp
+	7) 	DatabaseDown
+	8)	QueryTimeout
+	9) 	RadiusUp
+	10) RadiusDown
+	11) RadiusRequestTimeout
+	12) RadiusEsiHighResponseTime
+	13) LdapUp
+	14) LdapDown
+	15) NotLicensedVendor
+	16) LicenseExpired
+	17) NotLicensedSupportedVendor
+	18) LicenseTpsExceeded
+	19) LicenseCPUExceeded
+	20) LicenseClientsExceeded
+	21) LicensedConcurrentUserExceeded
+	22) RadiusServicePolicyNotSatisfied
+	23) DatabaseUniqueConstraints
+	24) Thread Not Available
+	25) High AAA Response Time
+	26) Diameter Stack Up
+	27) Diameter Stack Down
+	28) Diameter Peer Up
+	29 	Diameter Peer Down
+	30) IDLE Communication
+	31) Diameter Peer Connection Rejected
+	32) Diameter Stack High Response Time
+	33) Diameter Peer High Response Time
+	34) RadiusAuthGeneric
+	35)	RadiusAcctGeneric
+	36)	DynaAuthGeneric
+	37) DataBaseGeneric
+	38) LDAPGeneric
+	39) ESIGeneric
+	40) IPPoolGeneric
+	41) ConcurrencyGeneric
+	42) PrePaidGeneric
+	43) NASGeneric
+	44) CreditControlGeneric
+	45) EAPGeneric
+	46) MIPGeneric
+	47) DiameterWebServiceGeneric
+	48) RADIUSWebServiceGeneric
+	49) OtherGeneric

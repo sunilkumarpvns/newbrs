@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.datasource.ldap.data.LDAPBaseDnDetailData"
+			table="TBLMLDAPBASEDNDETAIL">
+
+		<id name="baseDnDetailId" column="BASEDNDETAILID" type="long">
+			<generator
+				class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">				
+			</generator>
+		</id>    
+
+		<property name="searchBaseDn" type="string"> 
+			<column name="SEARCHBASEDN" sql-type="VARCHAR2(300)" not-null="false" /> 
+		</property>
+
+		<property name="ldapDsId" type="java.lang.Long"> 
+			<column name="LDAPDSID" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+		
+	</class>
+</hibernate-mapping>	
+          

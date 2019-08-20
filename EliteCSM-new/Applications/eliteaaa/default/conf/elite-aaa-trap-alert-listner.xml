@@ -1,0 +1,15 @@
+<elite-aaa-trap-alert-listners>
+
+	<elite-aaa-trap-alert-listner>
+		<name></name>   
+		<target-system-list>
+			<target>
+				<community>public</community>
+				<ip>127.0.0.1</ip>
+				<port>162</port>
+				<trap-version>2</trap-version>
+			</target>						
+		</target-system-list>
+	</elite-aaa-trap-alert-listner>
+	
+</elite-aaa-trap-alert-listners>

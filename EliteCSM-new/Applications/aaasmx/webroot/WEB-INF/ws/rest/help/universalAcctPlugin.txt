@@ -1,0 +1,519 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct?name=universalPlugin&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct.xml?name=universalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct?operation=search&name=universalPlugin&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct.xml?operation=search&name=universalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin.xml?operation=search
+
+Response     :
+
+<universal-plugin-detail>
+   <name>universalPlugin</name>
+   <description>Created by admin on 01/13/2017 11:24:57 AM</description>
+   <status>ACTIVE</status>
+   <universal-post-policies>
+      <post-policy-detail name="postPolicy">
+         <action>none</action>
+         <enabled>true</enabled>
+         <parameter-list>
+            <parameter>
+               <active>YES</active>
+               <packet-type>Default</packet-type>
+               <attr-id>0:31</attr-id>
+               <attribute-value>"10.121.21.21"</attribute-value>
+               <parameter-usage>Dynamical Assign Item</parameter-usage>
+            </parameter>
+         </parameter-list>
+         <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+      </post-policy-detail>
+   </universal-post-policies>
+   <universal-pre-policies>
+      <pre-policy-detail name="prePolicy">
+         <action>none</action>
+         <enabled>true</enabled>
+         <parameter-list>
+            <parameter>
+               <active>YES</active>
+               <packet-type>Default</packet-type>
+               <attr-id>0:25</attr-id>
+               <attribute-value>"elitecore"</attribute-value>
+               <parameter-usage>Dynamical Assign Item</parameter-usage>
+            </parameter>
+         </parameter-list>
+         <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+      </pre-policy-detail>
+   </universal-pre-policies>
+</universal-plugin-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct?name=universalPlugin&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct.json?name=universalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct?operation=search&name=universalPlugin&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct.json?operation=search&name=universalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin.json?operation=search
+
+Response     :
+
+{
+   "name":"universalPlugin",
+   "description":"Created by admin on 01/13/2017 11:24:57 AM",
+   "status":"ACTIVE",
+   "universal-pre-policies":[
+      {
+         "action":"none",
+         "name":"prePolicy",
+         "enabled":true,
+         "reject-on-check-item-not-found":true,
+         "parameter-list":[
+            {
+               "active":"YES",
+               "packet-type":"Default",
+               "attr-id":"0:25",
+               "attribute-value":"\"elitecore\"",
+               "parameter-usage":"Dynamical Assign Item"
+            }
+         ]
+      }
+   ],
+   "universal-post-policies":[
+      {
+         "action":"none",
+         "name":"postPolicy",
+         "enabled":true,
+         "reject-on-check-item-not-found":true,
+         "parameter-list":[
+            {
+               "active":"YES",
+               "packet-type":"Default",
+               "attr-id":"0:31",
+               "attribute-value":"\"10.121.21.21\"",
+               "parameter-usage":"Dynamical Assign Item"
+            }
+         ]
+      }
+   ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<universal-plugin-detail>
+   <name>universalPlugin</name>
+   <description>Created by admin on 01/13/2017 11:24:57 AM</description>
+   <status>ACTIVE</status>
+   <universal-post-policies>
+      <post-policy-detail name="postPolicy">
+         <action>none</action>
+         <enabled>true</enabled>
+         <parameter-list>
+            <parameter>
+               <active>YES</active>
+               <packet-type>Default</packet-type>
+               <attr-id>0:31</attr-id>
+               <attribute-value>"10.121.21.21"</attribute-value>
+               <parameter-usage>Dynamical Assign Item</parameter-usage>
+            </parameter>
+         </parameter-list>
+         <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+      </post-policy-detail>
+   </universal-post-policies>
+   <universal-pre-policies>
+      <pre-policy-detail name="prePolicy">
+         <action>none</action>
+         <enabled>true</enabled>
+         <parameter-list>
+            <parameter>
+               <active>YES</active>
+               <packet-type>Default</packet-type>
+               <attr-id>0:25</attr-id>
+               <attribute-value>"elitecore"</attribute-value>
+               <parameter-usage>Dynamical Assign Item</parameter-usage>
+            </parameter>
+         </parameter-list>
+         <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+      </pre-policy-detail>
+   </universal-pre-policies>
+</universal-plugin-detail>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Acct Plugin created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "name":"universalPlugin",
+   "description":"Created by admin on 01/13/2017 11:24:57 AM",
+   "status":"ACTIVE",
+   "universal-pre-policies":[
+      {
+         "action":"none",
+         "name":"prePolicy",
+         "enabled":true,
+         "reject-on-check-item-not-found":true,
+         "parameter-list":[
+            {
+               "active":"YES",
+               "packet-type":"Default",
+               "attr-id":"0:25",
+               "attribute-value":"\"elitecore\"",
+               "parameter-usage":"Dynamical Assign Item"
+            }
+         ]
+      }
+   ],
+   "universal-post-policies":[
+      {
+         "action":"none",
+         "name":"postPolicy",
+         "enabled":true,
+         "reject-on-check-item-not-found":true,
+         "parameter-list":[
+            {
+               "active":"YES",
+               "packet-type":"Default",
+               "attr-id":"0:31",
+               "attribute-value":"\"10.121.21.21\"",
+               "parameter-usage":"Dynamical Assign Item"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Acct Plugin created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+   <universal-plugin-detail>
+      <name>universalPlugin</name>
+      <description>Created by admin on 01/13/2017 11:24:57 AM</description>
+      <status>ACTIVE</status>
+      <universal-post-policies>
+         <post-policy-detail name="postPolicy">
+            <action>none</action>
+            <enabled>true</enabled>
+            <parameter-list>
+               <parameter>
+                  <active>YES</active>
+                  <packet-type>Default</packet-type>
+                  <attr-id>0:31</attr-id>
+                  <attribute-value>"10.121.21.21"</attribute-value>
+                  <parameter-usage>Dynamical Assign Item</parameter-usage>
+               </parameter>
+            </parameter-list>
+            <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+         </post-policy-detail>
+      </universal-post-policies>
+      <universal-pre-policies>
+         <pre-policy-detail name="prePolicy">
+            <action>none</action>
+            <enabled>true</enabled>
+            <parameter-list>
+               <parameter>
+                  <active>YES</active>
+                  <packet-type>Default</packet-type>
+                  <attr-id>0:25</attr-id>
+                  <attribute-value>"elitecore"</attribute-value>
+                  <parameter-usage>Dynamical Assign Item</parameter-usage>
+               </parameter>
+            </parameter-list>
+            <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+         </pre-policy-detail>
+      </universal-pre-policies>
+   </universal-plugin-detail>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Acct Plugins created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"universalPlugin",
+         "description":"Created by admin on 01/13/2017 11:24:57 AM",
+         "status":"ACTIVE",
+         "universal-pre-policies":[
+            {
+               "action":"none",
+               "name":"prePolicy",
+               "enabled":true,
+               "reject-on-check-item-not-found":true,
+               "parameter-list":[
+                  {
+                     "active":"YES",
+                     "packet-type":"Default",
+                     "attr-id":"0:25",
+                     "attribute-value":"\"elitecore\"",
+                     "parameter-usage":"Dynamical Assign Item"
+                  }
+               ]
+            }
+         ],
+         "universal-post-policies":[
+            {
+               "action":"none",
+               "name":"postPolicy",
+               "enabled":true,
+               "reject-on-check-item-not-found":true,
+               "parameter-list":[
+                  {
+                     "active":"YES",
+                     "packet-type":"Default",
+                     "attr-id":"0:31",
+                     "attribute-value":"\"10.121.21.21\"",
+                     "parameter-usage":"Dynamical Assign Item"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Acct Plugins created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct?name=universalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct?operation=update&name=universalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<universal-plugin-detail>
+   <name>universalPlugin</name>
+   <description>Created by admin on 01/13/2017 11:24:57 AM</description>
+   <status>ACTIVE</status>
+   <universal-post-policies>
+      <post-policy-detail name="postPolicy">
+         <action>none</action>
+         <enabled>true</enabled>
+         <parameter-list>
+            <parameter>
+               <active>YES</active>
+               <packet-type>Default</packet-type>
+               <attr-id>0:31</attr-id>
+               <attribute-value>"10.121.21.21"</attribute-value>
+               <parameter-usage>Dynamical Assign Item</parameter-usage>
+            </parameter>
+         </parameter-list>
+         <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+      </post-policy-detail>
+   </universal-post-policies>
+   <universal-pre-policies>
+      <pre-policy-detail name="prePolicy">
+         <action>none</action>
+         <enabled>true</enabled>
+         <parameter-list>
+            <parameter>
+               <active>NO</active>
+               <packet-type>Default</packet-type>
+               <attr-id>0:25</attr-id>
+               <attribute-value>"elitecore"</attribute-value>
+               <parameter-usage>Dynamical Assign Item</parameter-usage>
+            </parameter>
+         </parameter-list>
+         <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+      </pre-policy-detail>
+   </universal-pre-policies>
+</universal-plugin-detail>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Acct Plugin updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+   "name":"universalPlugin",
+   "description":"Created by admin on 01/13/2017 11:24:57 AM",
+   "status":"ACTIVE",
+   "universal-pre-policies":[
+      {
+         "action":"none",
+         "name":"prePolicy",
+         "enabled":true,
+         "reject-on-check-item-not-found":true,
+         "parameter-list":[
+            {
+               "active":"YES",
+               "packet-type":"Default",
+               "attr-id":"0:25",
+               "attribute-value":"\"elitecore\"",
+               "parameter-usage":"Dynamical Assign Item"
+            }
+         ]
+      }
+   ],
+   "universal-post-policies":[
+      {
+         "action":"none",
+         "name":"postPolicy",
+         "enabled":true,
+         "reject-on-check-item-not-found":true,
+         "parameter-list":[
+            {
+               "active":"NO",
+               "packet-type":"Default",
+               "attr-id":"0:31",
+               "attribute-value":"\"10.121.21.21\"",
+               "parameter-usage":"Dynamical Assign Item"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Acct Plugin updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct?name=universalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct?operation=delete&name=universalPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/universalplugin/acct/universalPlugin?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Universal Acct Plugins deleted successfully</response-message>
+    </response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+***********************************************************************

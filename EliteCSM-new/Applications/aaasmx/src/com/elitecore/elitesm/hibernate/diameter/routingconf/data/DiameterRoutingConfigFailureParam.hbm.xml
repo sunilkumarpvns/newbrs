@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.diameter.routingconf.data.DiameterRoutingConfigFailureParam" table="TBLMROUTINGCONFFAILUREPARAMS">
+
+		<id name="parameterId" column="PARAMETERID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="errorCodes" type="StringType"> 
+			<column name="ERRORCODES" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<property name="failureAction" type="java.lang.Short"> 
+			<column name="FAILUREACTION" sql-type="NUMBER()" not-null="false" /> 
+		</property>
+		
+		<property name="failureArgument" type="StringType"> 
+			<column name="FAILUREARGUMENTS" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer">
+			<column name="ORDERNUMBER" sql-type="NUMERIC(20)" not-null="false"></column>
+		</property>
+		
+	  	<many-to-one name="diameterRoutingConfData"  insert="true" update="true" class="com.elitecore.elitesm.datamanager.diameter.routingconf.data.DiameterRoutingConfData" column="ROUTINGCONFIGID"/>
+</class>            
+	            
+</hibernate-mapping>

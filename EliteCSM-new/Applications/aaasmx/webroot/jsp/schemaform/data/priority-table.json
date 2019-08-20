@@ -1,0 +1,82 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Priority Table Configuration",
+  "properties":{
+      "priority-entry":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "application-id":{
+                      "title":"Application Id",
+                      "type":"string"
+                  },
+                  "command-code":{
+                      "title":"Command Code",
+                      "type":"string"
+                  },
+                  "ip-address":{
+                      "title":"IP Address",
+                      "type":"string"
+                  },
+                  "diameter-session":{
+                      "title":"Diameter Session",
+                      "type":"string"
+                  },
+                  "priority":{
+                      "title":"Priority",
+                      "type":"string"
+                  }
+              }
+          }
+      }
+  }
+},
+   "form":[
+    {
+        "key":"priority-entry",
+        "add":"Add Priority",
+        "items":[
+            {
+                "key":"priority-entry[].application-id"
+            },
+            {
+                "key":"priority-entry[].command-code"
+            },
+            {
+                "key":"priority-entry[].ip-address"
+            },
+            {
+                "key":"priority-entry[].diameter-session",
+                "type":"select",
+                "titleMap":{
+                    "All":"All",
+                    "New":"New",
+                    "Existing":"Existing"
+                }
+            },
+            {
+                "key":"priority-entry[].priority",
+                "type":"select",
+                "titleMap":{
+                    "High":"High",
+                    "Medium":"Medium",
+                    "Low":"Low"
+                }
+            }
+            ]
+    }
+],
+"model":{
+	"priority-entry": [
+		{
+			"application-id": "16777220",
+			"command-code": "272",
+			"ip-address": "10.106.1.158",
+			"diameter-session": "New",
+			"priority": "Medium"
+		}
+	]
+}
+}

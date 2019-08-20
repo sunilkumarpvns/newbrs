@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.drivers.data.DriverInstanceData" table="TBLMDRIVERINSTANCE">
+
+		<id name="driverInstanceId" column="DRIVERINSTANCEID" type="java.lang.Long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">				
+			</generator>
+		</id>    
+		<property name="name" type="string"> 
+			<column name="NAME" sql-type="VARCHAR2(200)" not-null="true" /> 
+		</property>
+		<property name="description" type="string"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="false" /> 
+		</property>
+		<property name="status" type="string"> 
+			<column name="STATUS" sql-type="CHAR(5)" not-null="true" /> 
+		</property>
+		<property name="createdByStaffId" type="java.lang.Long"> 
+			<column name="CREATEDBYSTAFFID" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+		<property name="lastModifiedByStaffId" type="java.lang.Long"> 
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+		<property name="lastModifiedDate" type="java.sql.Timestamp"> 
+			<column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP(6)" not-null="false" /> 
+		</property>					
+		<property name="createDate" type="java.sql.Timestamp"> 
+			<column name="CREATEDATE" sql-type="TIMESTAMP(6)" not-null="false" /> 
+		</property>					
+		<property name="driverTypeId" type="java.lang.Long"> 
+			<column name="DRIVERTYPEID" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+												
+		<many-to-one name="driverTypeData" column="DRIVERTYPEID" lazy="false" insert="false" update="false"
+     	  class="com.elitecore.netvertexsm.datamanager.servermgr.drivers.data.DriverTypeData" not-null="true" cascade="save-update">
+     	</many-to-one>   
+     	 
+     	<set inverse="true" name="databaseSPInterfaceDriverSet" lazy="false" cascade="delete-orphan" >
+			<key column="DRIVERINSTANCEID" />
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.servermgr.spinterface.dbinterface.data.DatabaseSPInterfaceData" not-found="ignore" />
+		</set>
+		
+		<set inverse="true" name="ldapspInterfaceDriverSet" lazy="false" cascade="delete-orphan" >
+			<key column="DRIVERINSTANCEID" />
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.servermgr.spinterface.ldapinterface.data.LDAPSPInterfaceData" not-found="ignore" />
+		</set>
+		
+		<set inverse="true" name="csvDriverDataSet" lazy="false" cascade="delete-orphan" >
+			<key column="DRIVERINSTANCEID" />
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.servermgr.drivers.csvdriver.data.CSVDriverData" not-found="ignore" />
+		</set>
+
+		<set inverse="true" name="dbcdrDriverDataSet" lazy="false" cascade="delete-orphan" >
+			<key column="DRIVERINSTANCEID" />
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.servermgr.drivers.dbcdrdriver.data.DBCDRDriverData" not-found="ignore" />
+		</set>
+	</class>
+
+</hibernate-mapping>          

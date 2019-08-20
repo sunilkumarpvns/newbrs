@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Bay Networks                                                          
+http://www.baynetworks.com/                                           
+                                                                      
+From MegaZone <megazone@megazone.org>, as posted to the bay-isp list. 
+Modified for libradius by Alan DeKok <aland@ox.org>                   
+-->
+
+<attribute-list vendorid="1584" vendor-name="Bay-Networks">
+	<attribute id="28" name="Annex-Filter" type="string"/>
+	<attribute id="29" name="Annex-CLI-Command" type="string"/>
+	<attribute id="30" name="Annex-CLI-Filter" type="string"/>
+	<attribute id="31" name="Annex-Host-Restrict" type="string"/>
+	<attribute id="32" name="Annex-Host-Allow" type="string"/>
+	<attribute id="33" name="Annex-Product-Name" type="string"/>
+	<attribute id="34" name="Annex-SW-Version" type="string"/>
+	<attribute id="35" name="Annex-Local-IP-Address" type="ipaddr"/>
+	<attribute id="36" name="Annex-Callback-Portlist" type="integer"/>
+	<attribute id="37" name="Annex-Sec-Profile-Index" type="integer"/>
+	<attribute id="38" name="Annex-Tunnel-Authen-Type" type="integer">
+		<supported-values>
+			<value id="0" name="none"/>
+			<value id="1" name="kmd5-128"/>
+		</supported-values>
+	</attribute>
+	<attribute id="39" name="Annex-Tunnel-Authen-Mode" type="integer">
+		<supported-values>
+			<value id="0" name="none"/>
+			<value id="1" name="prefix-suffix"/>
+		</supported-values>
+	</attribute>
+	<attribute id="40" name="Annex-Authen-Servers" type="string"/>
+	<attribute id="41" name="Annex-Acct-Servers" type="string"/>
+	<attribute id="42" name="Annex-User-Server-Location" type="integer">
+		<supported-values>
+			<value id="1" name="local"/>
+			<value id="2" name="remote"/>
+		</supported-values>
+	</attribute>
+	<attribute id="43" name="Annex-Local-Username" type="string"/>
+	<attribute id="44" name="Annex-System-Disc-Reason" type="integer">
+		<supported-values>
+			<value id="0 " name="Unknown"/>
+			<value id="1 " name="Line-disconnected"/>
+			<value id="2 " name="Dial-failed"/>
+			<value id="3 " name="WAN-manager-error"/>
+			<value id="4 " name="Disconnect-reset"/>
+			<value id="5 " name="Error-from-adm_notify"/>
+			<value id="6 " name="Modem-down-adm_notify"/>
+			<value id="7 " name="PPP-protocol-disconnect"/>
+			<value id="8 " name="Inactivity-timer"/>
+			<value id="9 " name="CLI-Hangup-command"/>
+			<value id="10" name="CLI-last-job"/>
+			<value id="11" name="Session-timeout"/>
+			<value id="12" name="Slave-termination"/>
+			<value id="13" name="Abnormal-termination"/>
+			<value id="14" name="DCD-wait-failed"/>
+			<value id="15" name="CLI-inactivity"/>
+			<value id="16" name="Admin-port-reset"/>
+			<value id="17" name="CLI-auth-failed"/>
+			<value id="18" name="Slave-auth-failed"/>
+			<value id="19" name="PAP-auth-failed"/>
+			<value id="20" name="CHAP-auth-failed"/>
+			<value id="21" name="Local-modem-reset"/>
+			<value id="22" name="Modem-dead"/>
+			<value id="23" name="PPP-LCP-failure"/>
+			<value id="24" name="PPP-IPCP-failure"/>
+			<value id="25" name="PPP-IPXCP-failure"/>
+			<value id="26" name="PPP-ATCP-failure"/>
+			<value id="27" name="PPP-CCP-failure"/>
+			<value id="28" name="PPP-MP-failure"/>
+			<value id="29" name="PPP-IPCP-timeout"/>
+			<value id="30" name="PPP-IPXCP-timeout"/>
+			<value id="31" name="PPP-ATCP-timeout"/>
+			<value id="32" name="PPP-CCP-timeout"/>
+			<value id="33" name="PPP-MP-timeout"/>
+			<value id="34" name="PPP-init-failure"/>
+			<value id="35" name="PPP-Unknown"/>
+			<value id="36" name="PPP-Dialback-failed"/>
+			<value id="37" name="PPP-Address-In-Use"/>
+			<value id="38" name="PPP-No-device"/>
+			<value id="39" name="PPP-Modem-hangup-rcvd"/>
+			<value id="40" name="PPP-Hangup-rcvd"/>
+			<value id="41" name="PPP-Termination-rcvd"/>
+			<value id="42" name="PPP-Kill-rcvd"/>
+			<value id="43" name="PPP-Time-rcvd"/>
+			<value id="44" name="PPP-No-memory"/>
+			<value id="45" name="PPP-Connection-Abort"/>
+			<value id="46" name="PPP-VPN-LCP-failure"/>
+			<value id="47" name="PPP-VPN-Auth-failure"/>
+			<value id="48" name="PPP-MP-invalid-port"/>
+			<value id="49" name="PPP-Invalid-device"/>
+			<value id="50" name="PPP-MMP-bundle-failure"/>
+			<value id="51" name="DVS-Registration-failure"/>
+			<value id="52" name="DVS-Home-agent-dereg"/>
+			<value id="53" name="DVS-Tunnel-no-renew"/>
+			<value id="54" name="DVS-Tunnel-expired"/>
+		</supported-values>
+	</attribute>
+	<attribute id="45" name="Annex-Modem-Disc-Reason" type="integer">
+		<supported-values>
+			<value id="0" name="Unknown"/>
+			<value id="1" name="Local-disconnect"/>
+			<value id="2" name="CD-Timer-Expired"/>
+			<value id="4" name="Remote-protocol-disc"/>
+			<value id="5" name="Clear-down"/>
+			<value id="6" name="Long-Space-disconnect"/>
+			<value id="7" name="Carrier-Lost"/>
+			<value id="8" name="Modem-Retrain-Timeout"/>
+		</supported-values>
+	</attribute>
+	<attribute id="46" name="Annex-Disconnect-Reason" type="integer"/>
+	<attribute id="47" name="Annex-Addr-Resolution-Protocol" type="integer">
+		<supported-values>
+			<value id="0" name="none"/>
+			<value id="1" name="DHCP"/>
+		</supported-values>
+	</attribute>
+	<attribute id="48" name="Annex-Addr-Resolution-Servers" type="string"/>
+	<attribute id="49" name="Annex-Domain-Name" type="string"/>
+	<attribute id="50" name="Annex-Transmit-Speed" type="integer"/>
+	<attribute id="51" name="Annex-Receive-Speed" type="integer"/>
+	<attribute id="52" name="Annex-Input-Filter" type="string"/>
+	<attribute id="53" name="Annex-Output-Filter" type="string"/>
+	<attribute id="54" name="Annex-Primary-DNS-Server" type="ipaddr"/>
+	<attribute id="55" name="Annex-Secondary-DNS-Server" type="ipaddr"/>
+	<attribute id="56" name="Annex-Primary-NBNS-Server" type="ipaddr"/>
+	<attribute id="57" name="Annex-Secondary-NBNS-Server" type="ipaddr"/>
+	<attribute id="58" name="Annex-Syslog-Tap" type="integer"/>
+	<attribute id="59" name="Annex-Keypress-Timeout" type="integer"/>
+	<attribute id="60" name="Annex-Unauthenticated-Time" type="integer"/>
+	<attribute id="61" name="Annex-Re-CHAP-Timeout" type="integer"/>
+	<attribute id="62" name="Annex-MRRU" type="integer"/>
+	<attribute id="63" name="Annex-EDO" type="string"/>
+	<attribute id="64" name="Annex-PPP-Trace-Level" type="integer"/>
+	<attribute id="65" name="Annex-Pre-Input-Octets" type="integer"/>
+	<attribute id="66" name="Annex-Pre-Output-Octets" type="integer"/>
+	<attribute id="67" name="Annex-Pre-Input-Packets" type="integer"/>
+	<attribute id="68" name="Annex-Pre-Output-Packets" type="integer"/>
+	<attribute id="69" name="Annex-Connect-Progress" type="integer">
+		<supported-values>
+			<value id="0" name="none"/>
+			<value id="1" name="prefix-suffix"/>
+		</supported-values>
+	</attribute>
+	<attribute id="73" name="Annex-Multicast-Rate-Limit" type="integer"/>
+	<attribute id="74" name="Annex-Maximum-Call-Duration" type="integer"/>
+	<attribute id="75" name="Annex-Multilink-Id" type="integer"/>
+	<attribute id="76" name="Annex-Num-In-Multilink" type="integer"/>
+	<attribute id="81" name="Annex-Logical-Channel-Number" type="integer"/>
+	<attribute id="82" name="Annex-Wan-Number" type="integer"/>
+	<attribute id="83" name="Annex-Port" type="integer"/>
+	<attribute id="85" name="Annex-Pool-Id" type="integer">
+		<supported-values>
+			<value id="1" name="Pool-One"/>
+			<value id="2" name="Pool-Two"/>
+			<value id="3" name="Pool-Three"/>
+			<value id="4" name="Pool-Four"/>
+			<value id="5" name="Pool-Five"/>
+			<value id="6" name="Pool-Six"/>
+		</supported-values>
+	</attribute>
+	<attribute id="86" name="Annex-Compression-Protocol" type="string"/>
+	<attribute id="87" name="Annex-Transmitted-Packets" type="integer"/>
+	<attribute id="88" name="Annex-Retransmitted-Packets" type="integer"/>
+	<attribute id="89" name="Annex-Signal-to-Noise-Ratio" type="integer"/>
+	<attribute id="90" name="Annex-Retrain-Requests-Sent" type="integer"/>
+	<attribute id="91" name="Annex-Retrain-Requests-Rcvd" type="integer"/>
+	<attribute id="92" name="Annex-Rate-Reneg-Req-Sent" type="integer"/>
+	<attribute id="93" name="Annex-Rate-Reneg-Req-Rcvd" type="integer"/>
+	<attribute id="94" name="Annex-Begin-Receive-Line-Level" type="integer"/>
+	<attribute id="95" name="Annex-End-Receive-Line-Level" type="integer"/>
+	<attribute id="96" name="Annex-Begin-Modulation" type="string"/>
+	<attribute id="97" name="Annex-Error-Correction-Prot" type="string"/>
+	<attribute id="98" name="Annex-End-Modulation" type="string"/>
+	<attribute id="100" name="Annex-User-Level" type="integer">
+		<supported-values>
+			<value id="2" name="Manager"/>
+			<value id="4" name="User"/>
+			<value id="8" name="Operator"/>
+		</supported-values>
+	</attribute>
+	<attribute id="101" name="Annex-Audit-Level" type="integer">
+		<supported-values>
+			<value id="2" name="Manager"/>
+			<value id="4" name="User"/>
+			<value id="8" name="Operator"/>
+		</supported-values>
+	</attribute>
+</attribute-list>

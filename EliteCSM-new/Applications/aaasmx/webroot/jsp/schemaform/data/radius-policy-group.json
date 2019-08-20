@@ -1,0 +1,28 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "RADIUS POLICY GROUP",
+		"properties": {
+			"name": {
+				"title": "Policy Name",
+				"type": "string"
+			},
+			"expression": {
+				"title": "Expression",
+				"type": "string"
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "expression"
+		}
+	],
+	"model": {
+		"name": "radius_policy_group",
+		"expression": "policy1 || policy2"
+	}
+}

@@ -1,0 +1,129 @@
+.Toolbar 
+{
+	background-color: #dddddd;
+	border-left: solid 0px #eeeeee;
+	border-right: solid 0px #eeeeee;
+	border-top: solid 0px #eeeeee;
+	border-bottom: solid 1px #cccccc;
+	padding: 2px;
+}
+
+.ButtonNormal
+{
+	background-color: #dddddd;
+	border-left: #dddddd solid 1px;
+	border-top: #dddddd solid 1px;
+	border-right: #dddddd solid 1px;
+	border-bottom: #dddddd solid 1px;
+	cursor:hand;
+}
+
+.ButtonPressed
+{
+	background-color: #dddddd;
+	border-left: #bbbbbb solid 1px;
+	border-top: #bbbbbb solid 1px;
+	border-right: #ffffff solid 1px;
+	border-bottom: #ffffff solid 1px;
+	cursor:hand;
+}
+
+.ButtonMouseOver
+{
+	background-color: #dddddd;
+	border-left: #ffffff solid 1px;
+	border-top: #ffffff solid 1px;
+	border-right: #bbbbbb solid 1px;
+	border-bottom: #bbbbbb solid 1px;
+	cursor:hand;
+}
+
+.ButtonDisabled
+{
+	background-color: #eeeeee;
+	border-left: #dddddd solid 1px;
+	border-top: #dddddd solid 1px;
+	border-right: #dddddd solid 1px;
+	border-bottom: #dddddd solid 1px;
+}
+
+.ButtonText
+{
+	font-family: Verdana;
+	font-size: 10px;
+}
+
+.DropDown
+{
+	background-color:#FFFFFF;
+	border-left:#eeeeee solid 1px;
+	border-top:#eeeeee solid 1px;
+	border-right:buttonshadow solid 1px;
+	border-bottom:buttonshadow solid 1px;
+}
+
+.Space
+{
+	background-color: #dddddd;
+	width: 4px;
+	height: 24px;
+}
+
+.List
+{	
+	background-color: #eeeeee;
+}
+
+.Image
+{
+	width: 22px;
+	height: 22px;
+}
+
+.Divider
+{
+	background-color: #dddddd;
+	border-left: #bbbbbb solid 1px;
+	border-top: #bbbbbb solid 1px;
+	border-right: #ffffff solid 1px;
+	border-bottom: #ffffff solid 1px;
+	width: 2px;
+	height: 24px;
+}
+
+.Text
+{
+	font: 8pt verdana,arial,sans-serif
+}
+
+.Heading
+{
+	color:white;
+	background-color: #eeeeee;
+}
+
+.Selector
+{
+	z-index:100;
+	display:none;
+	position:absolute;
+}
+
+A.SelectItem:link
+{
+	color: black;
+	text-decoration:none;
+}
+
+A.SelectItem:active
+{
+	color: black;
+	text-decoration:none;
+}
+
+A.SelectItem:visited
+{
+	color: black;
+	text-decoration:none;
+}
+

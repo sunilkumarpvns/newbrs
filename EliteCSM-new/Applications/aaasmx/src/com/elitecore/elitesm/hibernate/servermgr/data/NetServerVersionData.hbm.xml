@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.elitecore.elitesm.datamanager.servermgr.data.NetServerVersionData" table="TBLNETSERVERCONFIGVERSION">
+    <composite-id>
+      <key-property column="NETSERVERTYPEID" name="netServerTypeId" type="CharType"/>
+      <key-property column="NETSERVERVERSION" name="netServerVersion" type="StringType"/>
+    </composite-id>
+    <property name="configVersion" type="StringType">
+      <column name="CONFIGVERSION" not-null="true" sql-type="VARCHAR(25)"/>
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="quotaNotificationData.quotaProfile.id">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("quotanotification.quotaprofile")})}</message>
+		</field-validator>
+	</field>
+	<field name="quotaNotificationData.dataServiceTypeData.id">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("quotanotification.servicetype")})}</message>
+		</field-validator>
+	</field>
+	<field name="quotaNotificationData.fupLevel">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("quotanotification.fupLevel")})}</message>
+		</field-validator>
+	</field>
+	<field name="quotaNotificationData.aggregationKey">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("quotanotification.aggregationkey")})}</message>
+		</field-validator>
+	</field>
+	<field name="quotaNotificationData.threshold">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("quotanotification.threshold")})}</message>
+		</field-validator>
+		<field-validator type="regex" short-circuit="true">
+        	<param name="regex"><![CDATA[^\d*(\d)*?$]]></param>
+    		<message>${getText("error.required.positive.numeric", {getText("quotanotification.threshold")})}</message>
+        </field-validator>
+		<field-validator type="int">
+			<param name="min">1</param>
+			<param name="max">100</param>
+   			<message>${getText("error.numeric.range",{getText("quotanotification.threshold")})}  </message>
+    	</field-validator>
+		
+	</field>
+</validators>

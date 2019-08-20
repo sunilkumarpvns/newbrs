@@ -1,0 +1,244 @@
+<list>
+	<test-case
+		behaviour="Dummy translation is applied if the mapping selected has dummy mapping option enabled.
+">
+
+		<translation-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<name>translation-mapping-policy</name>
+				<from-interpreter-id>TTI0004</from-interpreter-id>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<dummy-response-enable>true</dummy-response-enable>
+				<dummy-responses>
+					<dummy-response>
+						<out-field>0:1</out-field>
+						<dummy-value>eliteaaa</dummy-value>
+					</dummy-response>
+				</dummy-responses>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<mapping-name>mapping1</mapping-name>
+						<in-request-type>0:1="*"</in-request-type>
+						<out-request-type></out-request-type>
+						<dummy-response-enabled>true</dummy-response-enabled>
+						<request-mappings>
+						</request-mappings>
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>0:1="*"</checked-expression>
+								<mapping-expression>0:1=0:1
+								</mapping-expression>
+								<default-value></default-value>
+								<value-mapping></value-mapping>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</translation-mapping>
+
+		<selected-mapping>mapping1</selected-mapping>
+
+		<from-radius-request type="1"></from-radius-request>
+
+		<from-radius-response type="2">
+			<attribute id="0:1" value="eliteaaa" />
+		</from-radius-response>
+
+		<to-radius-response type="2">
+			<attribute id="0:1" value="eliteaaa" />
+		</to-radius-response>
+	</test-case>
+
+
+	<test-case
+		behaviour="Identifiers present in RHS of mapping expression are located from dummy response mappings.
+					Dummy response mappings are always considered as literal values and need not be enclosed
+					within double quotes.
+					Identifier can be attribute id like 0:1 or any arbitrary value like PacketType.
+	">
+
+		<translation-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<name>translation-mapping-policy</name>
+				<from-interpreter-id>TTI0004</from-interpreter-id>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<dummy-response-enable>true</dummy-response-enable>
+				<dummy-responses>
+					<dummy-response>
+						<out-field>0:1</out-field>
+						<dummy-value>eliteaaa</dummy-value>
+					</dummy-response>
+					<dummy-response>
+						<out-field>PacketType</out-field>
+						<dummy-value>3</dummy-value>
+					</dummy-response>
+				</dummy-responses>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<mapping-name>mapping1</mapping-name>
+						<in-request-type>0:1="*"</in-request-type>
+						<out-request-type></out-request-type>
+						<dummy-response-enabled>true</dummy-response-enabled>
+						<request-mappings>
+						</request-mappings>
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=${STROP-(touppercase)}:0:1
+								</mapping-expression>
+								<default-value></default-value>
+								<value-mapping></value-mapping>
+							</response-mapping>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>PacketType=PacketType</mapping-expression>
+								<default-value></default-value>
+								<value-mapping></value-mapping>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</translation-mapping>
+
+		<selected-mapping>mapping1</selected-mapping>
+
+		<from-radius-request type="1"></from-radius-request>
+
+		<from-radius-response type="2">
+			<attribute id="0:1" value="eliteaaa" />
+			<attribute id="0:27" value="600" />
+			<attribute id="0:25" value="poolname=POOL1;poolid=1;serialnumber=1" />
+			<attribute id="0:8" value="1.2.3.4" />
+		</from-radius-response>
+
+		<to-radius-response type="3">
+			<attribute id="0:1" value="ELITEAAA" />
+		</to-radius-response>
+	</test-case>
+
+	<test-case behaviour="changing Packet type using dummy response mapping">
+
+		<translation-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<name>translation-mapping-policy</name>
+				<from-interpreter-id>TTI0004</from-interpreter-id>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<dummy-response-enable>true</dummy-response-enable>
+				<dummy-responses>
+					<dummy-response>
+						<out-field>PacketType</out-field>
+						<dummy-value>3</dummy-value>
+					</dummy-response>
+				</dummy-responses>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<mapping-name>mapping1</mapping-name>
+						<in-request-type>0:1="*"</in-request-type>
+						<out-request-type></out-request-type>
+						<dummy-response-enabled>true</dummy-response-enabled>
+						<request-mappings>
+						</request-mappings>
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>PacketType=PacketType</mapping-expression>
+								<default-value></default-value>
+								<value-mapping></value-mapping>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</translation-mapping>
+
+		<selected-mapping>mapping1</selected-mapping>
+
+		<from-radius-request type="1"></from-radius-request>
+
+		<from-radius-response type="2">
+			<attribute id="0:1" value="eliteaaa" />
+			<attribute id="0:27" value="600" />
+			<attribute id="0:25" value="poolname=POOL1;poolid=1;serialnumber=1" />
+			<attribute id="0:8" value="1.2.3.4" />
+		</from-radius-response>
+
+		<to-radius-response type="3">
+		</to-radius-response>
+	</test-case>
+
+	<test-case
+		behaviour="a single group attribute having multiple sub attributes can be configured in dummy response mapping 
+						with JSON syntax VENDOR-ID:ATTRIB-ID=&quot;{'SUB-ATTRIB-ID'='LITERAL'|'IDENTIFIER';...}&quot;">
+
+		<translation-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<name>translation-mapping-policy</name>
+				<from-interpreter-id>TTI0004</from-interpreter-id>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<dummy-response-enable>true</dummy-response-enable>
+				<dummy-responses>
+					<dummy-response>
+						<out-field>0:1</out-field>
+						<dummy-value>eliteaaa</dummy-value>
+					</dummy-response>
+					<dummy-response>
+						<out-field>21067:117</out-field>
+						<dummy-value>{'1'='param1';'2'='param2'}</dummy-value>
+					</dummy-response>
+				</dummy-responses>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<mapping-name>mapping1</mapping-name>
+						<in-request-type>0:1="*"</in-request-type>
+						<out-request-type></out-request-type>
+						<dummy-response-enabled>true</dummy-response-enabled>
+						<request-mappings>
+						</request-mappings>
+						<response-mappings>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:1=0:1</mapping-expression>
+								<default-value></default-value>
+								<value-mapping></value-mapping>
+							</response-mapping>
+							<response-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>21067:117=21067:117</mapping-expression>
+								<default-value></default-value>
+								<value-mapping></value-mapping>
+							</response-mapping>
+						</response-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</translation-mapping>
+
+		<selected-mapping>mapping1</selected-mapping>
+
+		<from-radius-request type="1"></from-radius-request>
+
+		<from-radius-response type="2">
+			<attribute id="0:1" value="eliteaaa" />
+			<attribute id="0:27" value="600" />
+		</from-radius-response>
+
+		<to-radius-response type="2">
+			<attribute id="0:1" value="eliteaaa" />
+			<attribute id="21067:117" value="{'1'='param1';'2'='param2'}" />
+		</to-radius-response>
+	</test-case>
+</list>

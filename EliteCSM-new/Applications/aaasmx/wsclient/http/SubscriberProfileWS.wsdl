@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.elitesm.elitecore.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.elitesm.elitecore.com" xmlns:intf="http://ws.elitesm.elitecore.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.elitesm.elitecore.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <element name="findByUserIdentity">
+    <complexType>
+     <sequence>
+      <element name="userIdentity" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findByUserIdentityResponse">
+    <complexType>
+     <sequence>
+      <element name="findByUserIdentityReturn" type="apachesoap:Map"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="fault" type="xsd:anyType"/>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="mapItem">
+    <sequence>
+     <element name="key" nillable="true" type="xsd:anyType"/>
+     <element name="value" nillable="true" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <complexType name="Map">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="apachesoap:mapItem"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="findByUserIdentityResponse">
+
+      <wsdl:part element="impl:findByUserIdentityResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findByUserIdentityRequest">
+
+      <wsdl:part element="impl:findByUserIdentity" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="SubscriberProfileWebServiceException">
+
+      <wsdl:part element="impl:fault" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SubscriberProfileWS">
+
+      <wsdl:operation name="findByUserIdentity">
+
+         <wsdl:input message="impl:findByUserIdentityRequest" name="findByUserIdentityRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findByUserIdentityResponse" name="findByUserIdentityResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:SubscriberProfileWebServiceException" name="SubscriberProfileWebServiceException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SubscriberProfileWSSoapBinding" type="impl:SubscriberProfileWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="findByUserIdentity">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findByUserIdentityRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findByUserIdentityResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SubscriberProfileWebServiceException">
+
+            <wsdlsoap:fault name="SubscriberProfileWebServiceException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SubscriberProfileWSService">
+
+      <wsdl:port binding="impl:SubscriberProfileWSSoapBinding" name="SubscriberProfileWS">
+
+         <wsdlsoap:address location="http://localhost:8080/aaasmx/services/SubscriberProfileWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

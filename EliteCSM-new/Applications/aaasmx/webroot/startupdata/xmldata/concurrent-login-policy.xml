@@ -1,0 +1,10 @@
+<concurrent-login-policy>
+    <name>def_ConcurrentLoginPolicy</name>
+    <status>ACTIVE</status>
+    <description>This policy is created by EliteAAA Default configuration Setup. This policy allowed number of session configured in Max Concurrent Login</description>
+    <policy-type>Individual</policy-type>
+    <login-limit>Limited</login-limit>
+    <max-concurrent-login>1</max-concurrent-login>
+    <policy-mode>General</policy-mode>
+    <attribute-details/>
+</concurrent-login-policy>

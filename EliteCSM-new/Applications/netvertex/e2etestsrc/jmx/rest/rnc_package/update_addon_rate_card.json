@@ -1,0 +1,38 @@
+ {
+        "id": "rest_monetary_rate_card_11111111",
+        "status": "ACTIVE",
+        "groups": "GROUP_1",
+        "name": "updated_rest_monetary_rate_card",
+        "description": "Created by admin on 05/03/2018 10:45:09",
+        "type": "MONETARY",
+        "monetaryRateCardData": {
+            "rateUnit": "SECOND",
+            "pulseUnit": "HOUR",
+            "monetaryRateCardVersions": [
+                {
+                    "monetaryRateCardVersionDetail": [
+                        {
+                            "label1": null,
+                            "label2": null,
+                            "slab1": null,
+                            "slab2": null,
+                            "slab3": null,
+                            "pulse1": 2,
+                            "pulse2": null,
+                            "pulse3": null,
+                            "rate1": 2,
+                            "rate2": null,
+                            "rate3": null,
+                            "rateType": "FLAT"
+                        }
+                    ],
+                    "effectiveFromDate": 1525324520361,
+                    "name": "Default Version"
+                }
+            ]
+        },
+        "nonMonetaryRateCardData": null,
+		"currency": "INR",
+        "rncPkgId": "rest_rnc_addon_11111111",
+        "groupNames": null
+    }

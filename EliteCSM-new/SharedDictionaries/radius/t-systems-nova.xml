@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="16787" vendor-name="T-Systems-Nova">
+<attribute id="1" name="T-Systems-Nova-Location-id" type="string"/>
+<attribute id="2" name="T-Systems-Nova-Location-Name" type="string"/>
+<attribute id="3" name="T-Systems-Nova-Logoff-URL" type="string"/>
+<attribute id="4" name="T-Systems-Nova-Redirection-URL" type="string"/>
+<attribute id="5" name="T-Systems-Nova-Bandwidth-Min-Up" type="integer"/>
+<attribute id="6" name="T-Systems-Nova-Bandwidth-Min-Down" type="integer"/>
+<attribute id="7" name="T-Systems-Nova-Bandwidth-Max-Up" type="integer"/>
+<attribute id="8" name="T-Systems-Nova-Bandwidth-Max-Down" type="integer"/>
+<attribute id="9" name="T-Systems-Nova-Session-Terminate-Time" type="integer"/>
+<attribute id="10" name="T-Systems-Nova-Session-Terminate-EoD" type="integer"/>
+<attribute id="11" name="T-Systems-Nova-Billing-Class-Of-Service" type="string"/>
+<attribute id="12" name="T-Systems-Nova-Service-Name" type="string"/>
+<attribute id="13" name="T-Systems-Nova-Price-Of-Service" type="integer"/>
+<attribute id="14" name="T-Systems-Nova-Visiting-Provider-Code" type="string"/>
+<attribute id="15" name="T-Systems-Nova-UnknownAVP" type="string"/>
+</attribute-list>

@@ -1,0 +1,33 @@
+#  
+#  This sample makefile is only a guide.
+#
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(C64FLAGS) -c $< -o $@
+
+LIBRARY		= ../../../library
+CC              = gcc
+LD              = ld -G
+C64FLAGS        = -m64
+CFLAGS		= $(INCLUDE) $(DEFINES) $(DEBUG) $(LOCAL_PATH)
+DEBUG           = -g -Wall
+#DEBUG		= -g  -xs
+DEFINES		= -D_REENTRANT -DC7_Q
+INCLUDE		= -I. 
+
+WLAN_LIBRARY_SO		= libulcmmg.so
+WLAN_SRCS	 		= ulcm_hash.c clientMod.c tcp_message.c wlan_custom.c
+WLAN_OBJECTS 		= $(WLAN_SRCS:%.c=%.o)
+CP=cp
+
+all:: $(WLAN_LIBRARY_SO)
+
+$(WLAN_LIBRARY_SO) :: $(WLAN_OBJECTS)
+	$(LD) -o $(WLAN_LIBRARY_SO) $(WLAN_OBJECTS);						\
+	echo Replacing $(WLAN_LIBRARY_SO) to $(LIBRARY) ; 					\
+	$(RM) $(LIBRARY)/$(WLAN_LIBRARY_SO) ; 								\
+	$(CP) $(WLAN_LIBRARY_SO) $(LIBRARY)
+
+clean::
+	$(RM) $(WLAN_LIBRARY_SO)
+	$(RM) $(WLAN_OBJECTS)

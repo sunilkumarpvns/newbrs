@@ -1,0 +1,66 @@
+.table-blue-stripped > tbody > tr:FIRST-CHILD  {
+   background: -webkit-linear-gradient(white, #e5ecf5);
+   background: -o-linear-gradient(white, #e5ecf5); 
+   background: -moz-linear-gradient(white, #e5ecf5);
+   background: linear-gradient(white, #e5ecf5);  
+}
+
+.table-blue-stripped > tbody > tr:nth-child(2n+1) td, .table-blue-stripped > tbody > tr:nth-child(2n+2) td{
+   border: none;
+}
+.table-blue-stripped > tbody > tr:not(:first-child){
+   background: #fafbfb;
+}
+.table-blue-stripped >  thead tr,.table-blue-stripped > thead tr th {
+   background-color: #ECF1F8;
+   border-bottom: 2px solid #dae4f1;
+}
+
+.table-blue-stripped  {
+   border : 1px solid #dae4f1 !important;
+} 
+.table-blue-stripped  > tbody tr td, .table-blue-stripped   > thead tr th {
+   border : 1px solid #dae4f1 !important;
+}
+
+/* No stripes  */
+.table-blue{
+   border : 1px solid #dae4f1 !important;
+}
+
+.table-blue > tbody > tr{
+          /* background: #ecf1f8 !important; */
+          background: white;
+        box-sizing: border-box;
+        line-height: 15 px;
+   
+}
+
+.table-blue > tbody> tr:hover {
+    background: -webkit-linear-gradient(white, #e5ecf5);
+   background: -o-linear-gradient(white, #e5ecf5); 
+   background: -moz-linear-gradient(white, #e5ecf5);
+   background: linear-gradient(white, #e5ecf5);                   
+ }
+
+.table-blue thead tr,.table-blue thead tr th{
+   background-color: #ECF1F8;
+   border-bottom: 2px solid #dae4f1;
+}
+.table-blue thead tr,.table-blue thead tr th { 
+   background-color: #ECF1F8;
+   border-bottom: 2px solid #dae4f1;
+}
+ 
+.table-blue   tbody tr td, .table-blue   thead tr th {
+   border : 1px solid #dae4f1 !important;
+}
+
+
+.pass{
+color:green;
+}
+
+.fail{
+color:red;
+}

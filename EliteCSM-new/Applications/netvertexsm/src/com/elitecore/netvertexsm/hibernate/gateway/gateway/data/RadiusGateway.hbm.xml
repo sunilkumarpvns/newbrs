@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.data">
+
+  <class name="com.elitecore.netvertexsm.datamanager.gateway.gateway.data.RadiusGatewayData" table="TBLMRADIUSGATEWAY">
+  
+  	 <id name="gatewayId" type="long" >
+  	   <column name="GATEWAYID" sql-type="NUMBER(12)"></column>
+  	 </id>     
+  	 
+     <property name="sharedSecret" type="string">
+          <column name="SHAREDSECRET" sql-type="VARCHAR(40)" not-null="false"/>
+     </property>          
+           
+     <property name="minLocalPort" type="java.lang.Long">
+          <column name="MINLOCALPORT" sql-type="NUMERIC(8)" not-null="false"/>
+     </property>
+     
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+{
+	"id": "1Rs_session_based_global_rate_card",
+	"status": "ACTIVE",
+	"groups": "GROUP_1",
+	"name": "1Rs_session_based_global_rate_card_Updated",
+	"description": "Created by admin on 09/27/2018 12:18:06",
+	"type": "MONETARY",
+	"monetaryRateCardData": {
+		"id": "ffbe77d2-8a64-4cfe-86b0-e58663103f0b",
+		"rateUnit": "PERPULSE",
+		"pulseUnit": "SECOND",
+		"labelKey1": "CS.CalledOperator",
+		"labelKey2": "System.Operator",
+		"monetaryRateCardVersions": [{
+			"id": "a494abee-caec-4e56-a616-d876780e25da",
+			"monetaryRateCardVersionDetail": [{
+				"id": "74636964-bf1c-4abf-b83b-ca086ae7e0d6",
+				"label1": "Vodafone-in",
+				"label2": "Vodafone-in",
+				"slab1": null,
+				"slab2": null,
+				"slab3": null,
+				"pulse1": 1,
+				"pulse2": null,
+				"pulse3": null,
+				"rate1": 1,
+				"rate2": null,
+				"rate3": null,
+				"discount": null,
+				"rateType": "FLAT",
+				"orderNumber": 1
+			}],
+			"effectiveFromDate": 1538030957426,
+			"name": "Default Version"
+		}]
+	},
+	"nonMonetaryRateCardData": null,
+	"rncPkgId": null,
+	"scope": "GLOBAL",
+	"chargingType": "SESSION",
+	"currency": "INR",
+	"groupNames": "DefaultGroup"
+}

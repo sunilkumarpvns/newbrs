@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.profile.data">
+
+  <class name="com.elitecore.netvertexsm.datamanager.gateway.profile.data.DiameterProfileData" table="TBLMDIAMETERGATEWAYPROFILE">
+  
+  		<id name="profileId" column="PROFILEID" type="java.lang.Long">  			
+  		</id>
+  		<property name="supportedVendorList" type="string" >
+  			<column name="SUPPORTEDVENODRLIST" sql-type="VARCHAR2(255)" not-null="false"/>
+  		</property>
+		<property name="supportedStandard" type="java.lang.Integer">
+          	<column name="SUPPORTEDSTANDARD" sql-type="VARCHAR2(20)" not-null="false"/>
+     	</property>
+		<property name="umStandard" type="string">
+          	<column name="UMSTANDARD" sql-type="VARCHAR2(8)" default="3GPPR9" not-null="false"/>
+     	</property>     	
+     	<property name="multiChargingRuleEnabled" type="string" >
+  			<column name="CHARGINGRULEINSTALLMODE" sql-type="VARCHAR2(255)" not-null="false"/>
+  		</property>
+  		<property name="timeout" type="java.lang.Long">
+          <column name="TIMEOUT" sql-type="NUMBER(10)" not-null="false"/>
+     </property>          
+     <property name="tlsEnable" type="string">
+          <column name="TLSENABLE" sql-type="VARCHAR2(5)" not-null="false"/>
+     </property>          
+     <!-- <property name="initConnection" type="string">
+          <column name="INITCONNECION" sql-type="VARCHAR2(10)" not-null="false"/>
+     </property> -->
+     <property name="isCustomGxAppId" type="string">
+          <column name="ISCUSTOMGXAPPLICATIONID" sql-type="VARCHAR2(5)" not-null="false"/>
+     </property>
+     <property name="isCustomGyAppId" type="string">
+          <column name="ISCUSTOMGYAPPLICATIONID" sql-type="VARCHAR2(5)" not-null="false"/>
+     </property>
+     <property name="isCustomRxAppId" type="string">
+          <column name="ISCUSTOMRXAPPLICATIONID" sql-type="VARCHAR2(5)" not-null="false"/>
+     </property>
+     <property name="isCustomS9AppId" type="string">
+          <column name="ISCUSTOMS9APPLICATIONID" sql-type="VARCHAR2(5)" not-null="false"/>
+     </property>
+     <property name="isCustomSyAppId" type="string">
+          <column name="ISCUSTOMSYAPPLICATIONID" sql-type="VARCHAR2(5)" not-null="false"/>
+     </property>     
+     <property name="gxApplicationId" type="string">
+          <column name="GXAPPLICATIONID" sql-type="VARCHAR2(60)" not-null="false"/>
+     </property>
+     <property name="gyApplicationId" type="string">
+          <column name="GYAPPLICATIONID" sql-type="VARCHAR2(60)" not-null="false"/>
+     </property>
+     <property name="rxApplicationId" type="string">
+          <column name="RXAPPLICATIONID" sql-type="VARCHAR2(60)" not-null="false"/>
+     </property>
+     <property name="s9ApplicationId" type="string">
+          <column name="S9APPLICATIONID" sql-type="VARCHAR2(60)" not-null="false"/>
+     </property>
+     <property name="syApplicationId" type="string">
+          <column name="SYAPPLICATIONID" sql-type="VARCHAR2(60)" not-null="false"/>
+     </property>     
+     <property name="retransmissionCnt" type="java.lang.Long">
+          <column name="RETRANSMISSIONCNT" sql-type="NUMBER(10)" not-null="false"/>
+     </property>
+     <property name="dwInterval" type="java.lang.Integer">
+          <column name="DWINTERVAL" sql-type="NUMBER(10)" not-null="false"/>
+     </property>
+     <property name="isDWGatewayLevel" type="string">
+          <column name="ISDWGATEWAYLEVEL" sql-type="VARCHAR2(5)" not-null="false"/>
+     </property>
+     <property name="pccProvision" type="java.lang.Integer">
+     	  <column name="PCCPROVISION" sql-type="NUMBER(2)" not-null="false"/> 
+     </property>
+     <property name="sessionCleanUpCER" type="java.lang.String">
+		<column name="SESSIONCLEANUPONCER" ></column>
+	 </property>	
+	 <property name="sessionCleanUpDPR" type="java.lang.String">
+		<column name="SESSIONCLEANUPONDPR"></column>
+	 </property>
+	 <property name="cerAvps" type="string"> 
+		<column name="CERAVPS" sql-type="VARCHAR2(2000)" not-null="false" /> 
+	 </property>	
+	 <property name="dprAvps" type="string"> 
+		<column name="DPRAVPS" sql-type="VARCHAR2(2000)" not-null="false" /> 
+	 </property>
+	 <property name="dwrAvps" type="string"> 
+		<column name="DWRAVPS" sql-type="VARCHAR2(2000)" not-null="false" /> 
+	 </property>
+	 <property name="transportProtocol" type="string"> 
+		<column name="TRANSPORTPROTOCOL" sql-type="VARCHAR2(8)" not-null="false" /> 
+	 </property>	
+	 <property name="socketReceiveBufferSize" type="java.lang.Integer">
+		<column name="SOCKETRECEIVEBUFFERSIZE"></column>
+	 </property>
+	 <property name="sendDPRCloseEvent" type="java.lang.String">
+		<column name="SENDDPRCLOSEEVENT"></column>
+	 </property>
+	 <property name="socketSendBufferSize" type="java.lang.Integer">
+		<column name="SOCKETSENDBUFFERSIZE"></column>
+	 </property>
+	 <property name="tcpNagleAlgorithm" type="java.lang.String">
+		<column name="TCPNAGLEALGORITHM"></column>
+	 </property>
+	 <property name="initConnectionDuration" type="java.lang.Long"> 
+		<column name="INITCONNECTIONDURATION" sql-type="NUMBER(10)" not-null="false" /> 
+	 </property>
+	 <property name="sessionLookUpKey" type="string">
+		<column name="SESSIONLOOKUPKEY" sql-type="VARCHAR2(25)" default="CS.SessionIP" not-null="true"/>
+	</property>
+  </class>
+</hibernate-mapping>

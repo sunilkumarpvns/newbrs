@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.systemaudit.Data.SystemAuditData" table="TBLTSYSTEMAUDIT" >          
+		
+		<id name="systemAuditId" column="SYSTEMAUDITID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"> 
+			</generator>
+		</id>
+		
+		<property name="transactionId" type="string">
+          <column name="TRANSACTIONID" sql-type="CHAR(12)" not-null="false"/>
+    	</property>
+	     <property name="remarks" type="string">
+	          <column name="REMARK" sql-type="VARCHAR(2000)" not-null="false"/>
+	     </property>
+	     <property name="systemUserName" type="string">
+	          <column name="SYSTEMUSERNAME" sql-type="VARCHAR(60)" not-null="true"/>
+	     </property>
+	     <property name="auditDate" type="java.util.Date">
+	          <column name="AUDITDATE" sql-type="DATE" not-null="true"/>
+	     </property>
+	     <property name="clientIP" type="string">
+	          <column name="CLIENTIP" sql-type="VARCHAR(64)" not-null="true"/>
+	     </property>
+	     <property name="actionId" type="string">
+	          <column name="ACTIONID" sql-type="CHAR(8)" not-null="true"/>
+	     </property>
+	     <property name="systemUserId" type="java.lang.Long">
+	          <column name="SYSTEMUSERID" sql-type="NUMERIC(20)" not-null="true"/>
+	     </property>
+	     
+	     <many-to-one name="actionData" class="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.ActionData" column="ACTIONID" insert="false" update="false" lazy="false"/>			
+		<!-- <many-to-one name="staffData" class="com.elitecore.netvertexsm.datamanager.core.system.staff.data.StaffData" column="SYSTEMUSERID" insert="false" update="false" not-null="true" lazy="false"/>				  
+		
+	-->
+		
+	</class>
+</hibernate-mapping>

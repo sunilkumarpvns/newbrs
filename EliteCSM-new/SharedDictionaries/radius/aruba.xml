@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="14823" vendor-name="Aruba">
+<attribute id="1" name="Aruba-User-Role" type="string"/>
+<attribute id="2" name="Aruba-User-Vlan" type="integer"/>
+<attribute id="3" name="Aruba-Priv-Admin-User" type="integer"/>
+<attribute id="4" name="Aruba-Admin-Role" type="string"/>
+<attribute id="5" name="Aruba-Essid-Name" type="string"/>
+<attribute id="6" name="Aruba-Location-id" type="string"/>
+<attribute id="7" name="Aruba-Port-identifier" type="string"/>
+<attribute id="8" name="Aruba-Template-User" type="string"/>
+</attribute-list>

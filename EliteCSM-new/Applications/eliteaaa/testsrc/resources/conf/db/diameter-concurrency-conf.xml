@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<diameter-concurrency-configuration-list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:////opt/EliteAAA6.8.0/V-6.8.0/Applications/eliteaaa/system/schema/diameter-concurrency-conf.xsd">
+    <diameter-concurrency-configuration>
+        <concurrency-id-field>SUBSCRIBER_ID</concurrency-id-field>
+        <failure-action>IGNORE</failure-action>
+        <datasource>20</datasource>
+        <diameter-concurrency-id>20</diameter-concurrency-id>
+        <include-in-abort-session>
+            <property-name>21067:65539</property-name>
+            <property-name>21067:65621</property-name>
+            <property-name>0:263</property-name>
+        </include-in-abort-session>
+        <last-update-time-field>LAST_UPDATED_TIME</last-update-time-field>
+        <name>dia_con</name>
+        <session-data>
+            <field-mappings>
+                <field-mapping>
+                    <db-field-name>APPLICATION_ID</db-field-name>
+                    <logical-field>Application ID</logical-field>
+                    <referring-attribute>21067:65539</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+                <field-mapping>
+                    <db-field-name>SESSION_ID</db-field-name>
+                    <logical-field>Session Identity</logical-field>
+                    <referring-attribute>0:263</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+                <field-mapping>
+                    <db-field-name>PDP_TYPE</db-field-name>
+                    <logical-field>PDP Type</logical-field>
+                    <referring-attribute>0:6</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+                <field-mapping>
+                    <db-field-name>SUBSCRIBER_ID</db-field-name>
+                    <logical-field>Individual Identity</logical-field>
+                    <referring-attribute>0:1</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+                <field-mapping>
+                    <db-field-name>PEER_ID</db-field-name>
+                    <logical-field>Peer Identity</logical-field>
+                    <referring-attribute>21067:65621</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+                <field-mapping>
+                    <db-field-name>GROUPNAME</db-field-name>
+                    <logical-field>Group Identity</logical-field>
+                    <referring-attribute>21067:65557</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+            </field-mappings>
+            <name>dia_con Mapping</name>
+        </session-data>
+        <session-override-action>NONE</session-override-action>
+        <start-time-field>START_TIME</start-time-field>
+        <tablename>TBLMDIAMETERSESSIONDATA</tablename>
+    </diameter-concurrency-configuration>
+    <diameter-concurrency-configuration>
+        <concurrency-id-field>GROUPNAME</concurrency-id-field>
+        <failure-action>IGNORE</failure-action>
+        <datasource>20</datasource>
+        <diameter-concurrency-id>40</diameter-concurrency-id>
+        <include-in-abort-session>
+            <property-name>21067:65539</property-name>
+            <property-name>21067:65621</property-name>
+            <property-name>0:263</property-name>
+        </include-in-abort-session>
+        <last-update-time-field>LAST_UPDATED_TIME</last-update-time-field>
+        <name>dia_con_grp</name>
+        <session-data>
+            <field-mappings>
+                <field-mapping>
+                    <db-field-name>SESSION_ID</db-field-name>
+                    <logical-field>Session Identity</logical-field>
+                    <referring-attribute>0:263</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+                <field-mapping>
+                    <db-field-name>PDP_TYPE</db-field-name>
+                    <logical-field>PDP Type</logical-field>
+                    <referring-attribute>0:6</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+                <field-mapping>
+                    <db-field-name>SUBSCRIBER_ID</db-field-name>
+                    <logical-field>Individual Identity</logical-field>
+                    <referring-attribute>0:1</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+                <field-mapping>
+                    <db-field-name>PEER_ID</db-field-name>
+                    <logical-field>Peer Identity</logical-field>
+                    <referring-attribute>21067:65621</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+                <field-mapping>
+                    <db-field-name>GROUPNAME</db-field-name>
+                    <logical-field>Group Identity</logical-field>
+                    <referring-attribute>21067:144</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+                <field-mapping>
+                    <db-field-name>APPLICATION_ID</db-field-name>
+                    <logical-field>Application ID</logical-field>
+                    <referring-attribute>21067:65539</referring-attribute>
+                    <data-type>0</data-type>
+                </field-mapping>
+            </field-mappings>
+            <name>dia_con_grp Mapping</name>
+        </session-data>
+        <session-override-action>NONE</session-override-action>
+        <start-time-field>START_TIME</start-time-field>
+        <tablename>TBLMDIAMETERSESSIONDATA</tablename>
+    </diameter-concurrency-configuration>
+</diameter-concurrency-configuration-list>

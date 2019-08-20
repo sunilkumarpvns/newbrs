@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.spinterface.ldapinterface.data.LDAPFieldMapData" table="TBLMLDAPFIELDMAP">
+
+		<id name="ldapFieldMapId" column="LDAPFIELDMAPID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">				
+			</generator>
+		</id>    
+
+		<property name="logicalName" type="string"> 
+			<column name="LOGICALNAME" sql-type="VARCHAR2(50)" not-null="false" /> 
+		</property>
+
+
+		<property name="ldapAttribute" type="string"> 
+			<column name="LDAPATTRIBUTE" sql-type="VARCHAR2(50)" not-null="false" /> 
+		</property>
+
+
+		<property name="ldapSPInterfaceId" type="java.lang.Long"> 
+			<column name="LDAPSPINTERFACEID" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+	
+	</class>
+
+</hibernate-mapping>          

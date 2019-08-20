@@ -1,0 +1,155 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("csv.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("csv.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("csv.name")})}</message>
+        </field-validator>		
+	</field>
+
+	<field name="description">
+		<field-validator type="stringlength">
+			<param name="minLength">0</param>
+			<param name="maxLength">2000</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("csv.description")})}</message>
+		</field-validator>
+	</field>
+
+    <field name="csvDriverData.header">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("csv.header")})}</message>
+        </field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^true|false]]></param>
+			<message>${getText("invalid.required.field", {getText("csv.header")})}</message>
+		</field-validator>
+    </field>
+
+    <field name="csvDriverData.delimiter">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("csv.delimiter")})}</message>
+        </field-validator>
+        <field-validator type="stringlength" short-circuit="true">
+            <param name="maxLength">1</param>
+            <param name="trim">false</param>
+            <message>${getText("error.max.length", {getText("csv.delimiter")})}</message>
+        </field-validator>
+
+    </field>
+
+    <field name="csvDriverData.sequenceRange">
+        <field-validator type="stringlength" short-circuit="true">
+            <param name="maxLength">40</param>
+            <param name="trim">false</param>
+            <message>${getText("error.max.length", {getText("csv.sequence.range")})}</message>
+        </field-validator>
+    </field>
+
+	<field name="csvDriverData.fileName">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("csv.file.name")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="csvDriverData.fileLocation">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("csv.location")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="csvDriverData.sequencePosition">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("csv.sequence.position")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^SUFFIX|PREFIX]]></param>
+			<message>${getText("invalid.field.value")}</message>
+		</field-validator>
+	</field>
+
+	<field name="csvDriverData.sequenceGlobalization">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("csv.sequence.globalization")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^true|false]]></param>
+			<message>${getText("invalid.field.value")}</message>
+		</field-validator>
+	</field>
+
+	<field name="csvDriverData.allocatingProtocol">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("csv.allocating.protocol")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^LOCAL|FTP|SMTP]]></param>
+			<message>${getText("invalid.field.value")}</message>
+		</field-validator>
+
+	</field>
+
+	<field name="csvDriverData.postOperation">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("csv.post.operation")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^DELETE|RENAME|ARCHIVE]]></param>
+			<message>${getText("invalid.field.value")}</message>
+		</field-validator>
+	</field>
+
+	<field name="csvDriverData.timeBasedRollingUnit">
+		<field-validator type="long">
+			<param name="min">0</param>
+			<param name="max">999999999999</param>
+			<message>${getText("error.numeric.range", {getText("csv.time.based.rolling.unit")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="csvDriverData.sizeBasedRollingUnit">
+		<field-validator type="long">
+			<param name="min">0</param>
+			<param name="max">999999999999</param>
+			<message>${getText("error.numeric.range", {getText("csv.size.based.rolling.unit")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="csvDriverData.recordBasedRollingUnit">
+		<field-validator type="long">
+			<param name="min">0</param>
+			<param name="max">999999999999</param>
+			<message>${getText("error.numeric.range", {getText("csv.record.based.rolling.unit")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="csvDriverData.failOverTime">
+		<field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">2147483647</param>
+			<message>${getText("error.numeric.range", {getText("csv.fail.over.time")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="csvDriverData.reportingType">
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^UM|CHARGING_CDR]]></param>
+			<message>${getText("invalid.field.value")}</message>
+		</field-validator>
+	</field>
+
+
+</validators>

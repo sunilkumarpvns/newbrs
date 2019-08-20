@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.web.dashboard.json.WidgetTemplateData" table="TBLMWIDGETTEMPLATE">
+		<id name="widgteTemplateId" column="WIDGETTEMPLATEID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		<property name="title" type="StringType">
+			<column name="TITLE" sql-type="VARCHAR(64)" not-null="false" />
+		</property>
+		
+		<property name="jspUrl" type="StringType">
+			<column name="JSPURL" sql-type="VARCHAR(64)" not-null="false" />
+		</property>
+		<property name="configJspUrl" type="StringType">
+			<column name="CONFIGJSPURL" sql-type="VARCHAR(64)" not-null="false" />
+		</property>
+		
+		<property name="thumbnail" type="StringType">
+			<column name="THUMBNAIL" sql-type="VARCHAR(100)" not-null="false" />
+		</property>
+		
+		<property name="categoryId" type="StringType">
+			<column name="CATEGORYID" sql-type="VARCHAR(36)" not-null="false" />
+		</property>
+		
+		<property name="description" type="StringType">
+			<column name="DESCRIPTION" sql-type="VARCHAR(256)" not-null="false" />
+		</property>
+		
+		<property name="widgetGroovy" type="StringType">
+			<column name="GROOVYPATH" sql-type="VARCHAR(256)" not-null="false" />
+		</property>
+		
+		 <property name="orderNumber" type="java.lang.Long">
+			<column name="ORDERNUMBER" sql-type="NUMBER(20)" not-null="false" />
+		</property>
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,990 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig?name=eap1&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig.xml?name=eap1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig?operation=search&name=eap1&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig.xml?operation=search&name=eap1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1.xml?operation=search
+
+Response     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<eap-configuration>
+    <name>eap1</name>
+    <description>Created by admin on 12/26/2016 03:17:44 PM</description>
+    <session-cleanup-interval>300</session-cleanup-interval>
+    <session-duration-for-cleanup>300</session-duration-for-cleanup>
+    <session-timeout>3000</session-timeout>
+    <msk-revalidation-time>1024</msk-revalidation-time>
+    <treat-invalid-packet-as-fatal>true</treat-invalid-packet-as-fatal>
+    <default-negotiation-method>MD5-CHALLENGE</default-negotiation-method>
+    <notification-success>false</notification-success>
+    <notification-failure>false</notification-failure>
+    <max-eap-packet-size>1024</max-eap-packet-size>
+    <enable-auth-methods>TLS,TTLS,MD5,PEAP,SIM,AKA,GTC,MS-CHAPv2,AKA'</enable-auth-methods>
+    <tls-configuration>
+        <min-tls-version>TLSv1</min-tls-version>
+        <max-tls-version>TLSv1.1</max-tls-version>
+        <server-certificate-profile>Elitecore_server_cert</server-certificate-profile>
+        <tls-certificate-request>false</tls-certificate-request>
+        <ciphersuites>TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_256_CBC_SHA,TLS_DH_anon_WITH_AES_256_CBC_SHA</ciphersuites>
+        <certificate-validations>
+            <expiry-date>true</expiry-date>
+            <revoked-certificate>true</revoked-certificate>
+            <missing-client-certificate>true</missing-client-certificate>
+            <mac-validation>true</mac-validation>
+        </certificate-validations>
+        <session-resumption-limit>2</session-resumption-limit>
+        <session-resumption-duration>5000</session-resumption-duration>
+        <certificate-types>DSS,DSS-DH,RSA,RSA-DH</certificate-types>
+        <ttls-configuration>
+            <ttls-certificate-request>false</ttls-certificate-request>
+            <ttls-negotiation-method>EAP-MsCHAPv2</ttls-negotiation-method>
+        </ttls-configuration>
+        <peap-configuration>
+            <peap-certificate-request>false</peap-certificate-request>
+            <peap-version>0</peap-version>
+            <peap-negotiation-method>EAP-MsCHAPv2</peap-negotiation-method>
+        </peap-configuration>
+        <vendor-specific-certificates>
+            <vendor-specific-certificate>
+                <vendor-identifier>000000*</vendor-identifier>
+                <server-certificate-profile>Elitecore_server_cert</server-certificate-profile>
+            </vendor-specific-certificate>
+            <vendor-specific-certificate>
+                <vendor-identifier>0000001*</vendor-identifier>
+            </vendor-specific-certificate>
+        </vendor-specific-certificates>
+    </tls-configuration>
+    <sim-configuration>
+        <pseudonym-method>BASE32</pseudonym-method>
+        <pseudonym-encoding>Enable</pseudonym-encoding>
+        <pseudonym-prefix>1999</pseudonym-prefix>
+        <pseudonym-root-nai>Disable</pseudonym-root-nai>
+        <pseudonym-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</pseudonym-aaa-identity-in-root-nai>
+        <fast-reauth-method>BASE32</fast-reauth-method>
+        <fast-reauth-encoding>Enable</fast-reauth-encoding>
+        <fast-reauth-prefix>1888</fast-reauth-prefix>
+        <fast-reauth-root-nai>Disable</fast-reauth-root-nai>
+        <fast-reauth-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</fast-reauth-aaa-identity-in-root-nai>
+    </sim-configuration>
+    <aka-configuration>
+        <pseudonym-method>BASE32</pseudonym-method>
+        <pseudonym-encoding>Enable</pseudonym-encoding>
+        <pseudonym-prefix>0999</pseudonym-prefix>
+        <pseudonym-root-nai>Disable</pseudonym-root-nai>
+        <pseudonym-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</pseudonym-aaa-identity-in-root-nai>
+        <fast-reauth-method>BASE32</fast-reauth-method>
+        <fast-reauth-encoding>Enable</fast-reauth-encoding>
+        <fast-reauth-prefix>0888</fast-reauth-prefix>
+        <fast-reauth-root-nai>Disable</fast-reauth-root-nai>
+        <fast-reauth-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</fast-reauth-aaa-identity-in-root-nai>
+    </aka-configuration>
+    <aka-prime-configuration>
+        <pseudonym-method>BASE32</pseudonym-method>
+        <pseudonym-encoding>Enable</pseudonym-encoding>
+        <pseudonym-prefix>6999</pseudonym-prefix>
+        <pseudonym-root-nai>Disable</pseudonym-root-nai>
+        <pseudonym-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</pseudonym-aaa-identity-in-root-nai>
+        <fast-reauth-method>BASE32</fast-reauth-method>
+        <fast-reauth-encoding>Enable</fast-reauth-encoding>
+        <fast-reauth-prefix>6888</fast-reauth-prefix>
+        <fast-reauth-root-nai>Disable</fast-reauth-root-nai>
+        <fast-reauth-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</fast-reauth-aaa-identity-in-root-nai>
+    </aka-prime-configuration>
+</eap-configuration>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig?name=eap1&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig.json?name=eap1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig?operation=search&name=eap1&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig.json?operation=search&name=eap1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1.json?operation=search
+
+Response     :
+
+{  
+   "name":"eap1",
+   "description":"Created by admin on 12/26/2016 03:17:44 PM",
+   "session-cleanup-interval":"300",
+   "session-duration-for-cleanup":"300",
+   "session-timeout":"3000",
+   "msk-revalidation-time":"1024",
+   "treat-invalid-packet-as-fatal":"true",
+   "default-negotiation-method":"MD5-CHALLENGE",
+   "notification-success":"false",
+   "notification-failure":"false",
+   "max-eap-packet-size":"1024",
+   "enable-auth-methods":"TLS,TTLS,MD5,PEAP,SIM,AKA,GTC,MS-CHAPv2,AKA'",
+   "tls-configuration":{  
+      "min-tls-version":"TLSv1",
+      "max-tls-version":"TLSv1.1",
+      "server-certificate-profile":"Elitecore_server_cert",
+      "tls-certificate-request":"false",
+      "ciphersuites":"TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_256_CBC_SHA,TLS_DH_anon_WITH_AES_256_CBC_SHA",
+      "certificate-validations":{  
+         "expiry-date":"true",
+         "revoked-certificate":"true",
+         "missing-client-certificate":"true",
+         "mac-validation":"true"
+      },
+      "session-resumption-limit":"2",
+      "session-resumption-duration":"5000",
+      "certificate-types":"DSS,DSS-DH,RSA,RSA-DH",
+      "ttls-configuration":{  
+         "ttls-certificate-request":"false",
+         "ttls-negotiation-method":"EAP-MsCHAPv2"
+      },
+      "peap-configuration":{  
+         "peap-certificate-request":"false",
+         "peap-version":"0",
+         "peap-negotiation-method":"EAP-MsCHAPv2"
+      },
+      "vendor-specific-certificates":[  
+         {  
+            "vendor-identifier":"0000001*"
+         },
+         {  
+            "vendor-identifier":"000000*",
+            "server-certificate-profile":"Elitecore_server_cert"
+         }
+      ]
+   },
+   "sim-configuration":{  
+      "pseudonym-method":"BASE32",
+      "pseudonym-encoding":"Enable",
+      "pseudonym-prefix":"1999",
+      "pseudonym-root-nai":"Disable",
+      "pseudonym-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI",
+      "fast-reauth-method":"BASE32",
+      "fast-reauth-encoding":"Enable",
+      "fast-reauth-prefix":"1888",
+      "fast-reauth-root-nai":"Disable",
+      "fast-reauth-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI"
+   },
+   "aka-configuration":{  
+      "pseudonym-method":"BASE32",
+      "pseudonym-encoding":"Enable",
+      "pseudonym-prefix":"0999",
+      "pseudonym-root-nai":"Disable",
+      "pseudonym-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI",
+      "fast-reauth-method":"BASE32",
+      "fast-reauth-encoding":"Enable",
+      "fast-reauth-prefix":"0888",
+      "fast-reauth-root-nai":"Disable",
+      "fast-reauth-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI"
+   },
+   "aka-prime-configuration":{  
+      "pseudonym-method":"BASE32",
+      "pseudonym-encoding":"Enable",
+      "pseudonym-prefix":"6999",
+      "pseudonym-root-nai":"Disable",
+      "pseudonym-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI",
+      "fast-reauth-method":"BASE32",
+      "fast-reauth-encoding":"Enable",
+      "fast-reauth-prefix":"6888",
+      "fast-reauth-root-nai":"Disable",
+      "fast-reauth-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI"
+   }
+}
+
+***********************************************************************
+					CREATE OPERATION(SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<eap-configuration>
+    <name>eap1</name>
+    <description>Created by admin on 12/26/2016 03:17:44 PM</description>
+    <session-cleanup-interval>300</session-cleanup-interval>
+    <session-duration-for-cleanup>300</session-duration-for-cleanup>
+    <session-timeout>3000</session-timeout>
+    <msk-revalidation-time>1024</msk-revalidation-time>
+    <treat-invalid-packet-as-fatal>true</treat-invalid-packet-as-fatal>
+    <default-negotiation-method>MD5-CHALLENGE</default-negotiation-method>
+    <notification-success>false</notification-success>
+    <notification-failure>false</notification-failure>
+    <max-eap-packet-size>1024</max-eap-packet-size>
+    <enable-auth-methods>TLS,TTLS,MD5,PEAP,SIM,AKA,GTC,MS-CHAPv2,AKA'</enable-auth-methods>
+    <tls-configuration>
+        <min-tls-version>TLSv1</min-tls-version>
+        <max-tls-version>TLSv1.1</max-tls-version>
+        <server-certificate-profile>Elitecore_server_cert</server-certificate-profile>
+        <tls-certificate-request>false</tls-certificate-request>
+        <ciphersuites>TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_256_CBC_SHA,TLS_DH_anon_WITH_AES_256_CBC_SHA</ciphersuites>
+        <certificate-validations>
+            <expiry-date>true</expiry-date>
+            <revoked-certificate>true</revoked-certificate>
+            <missing-client-certificate>true</missing-client-certificate>
+            <mac-validation>true</mac-validation>
+        </certificate-validations>
+        <session-resumption-limit>2</session-resumption-limit>
+        <session-resumption-duration>5000</session-resumption-duration>
+        <certificate-types>DSS,DSS-DH,RSA,RSA-DH</certificate-types>
+        <ttls-configuration>
+            <ttls-certificate-request>false</ttls-certificate-request>
+            <ttls-negotiation-method>EAP-MsCHAPv2</ttls-negotiation-method>
+        </ttls-configuration>
+        <peap-configuration>
+            <peap-certificate-request>false</peap-certificate-request>
+            <peap-version>0</peap-version>
+            <peap-negotiation-method>EAP-MsCHAPv2</peap-negotiation-method>
+        </peap-configuration>
+        <vendor-specific-certificates>
+            <vendor-specific-certificate>
+                <vendor-identifier>000000*</vendor-identifier>
+                <server-certificate-profile>Elitecore_server_cert</server-certificate-profile>
+            </vendor-specific-certificate>
+            <vendor-specific-certificate>
+                <vendor-identifier>0000001*</vendor-identifier>
+            </vendor-specific-certificate>
+        </vendor-specific-certificates>
+    </tls-configuration>
+    <sim-configuration>
+        <pseudonym-method>BASE32</pseudonym-method>
+        <pseudonym-encoding>Enable</pseudonym-encoding>
+        <pseudonym-prefix>1999</pseudonym-prefix>
+        <pseudonym-root-nai>Disable</pseudonym-root-nai>
+        <pseudonym-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</pseudonym-aaa-identity-in-root-nai>
+        <fast-reauth-method>BASE32</fast-reauth-method>
+        <fast-reauth-encoding>Enable</fast-reauth-encoding>
+        <fast-reauth-prefix>1888</fast-reauth-prefix>
+        <fast-reauth-root-nai>Disable</fast-reauth-root-nai>
+        <fast-reauth-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</fast-reauth-aaa-identity-in-root-nai>
+    </sim-configuration>
+    <aka-configuration>
+        <pseudonym-method>BASE32</pseudonym-method>
+        <pseudonym-encoding>Enable</pseudonym-encoding>
+        <pseudonym-prefix>0999</pseudonym-prefix>
+        <pseudonym-root-nai>Disable</pseudonym-root-nai>
+        <pseudonym-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</pseudonym-aaa-identity-in-root-nai>
+        <fast-reauth-method>BASE32</fast-reauth-method>
+        <fast-reauth-encoding>Enable</fast-reauth-encoding>
+        <fast-reauth-prefix>0888</fast-reauth-prefix>
+        <fast-reauth-root-nai>Disable</fast-reauth-root-nai>
+        <fast-reauth-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</fast-reauth-aaa-identity-in-root-nai>
+    </aka-configuration>
+    <aka-prime-configuration>
+        <pseudonym-method>BASE32</pseudonym-method>
+        <pseudonym-encoding>Enable</pseudonym-encoding>
+        <pseudonym-prefix>6999</pseudonym-prefix>
+        <pseudonym-root-nai>Disable</pseudonym-root-nai>
+        <pseudonym-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</pseudonym-aaa-identity-in-root-nai>
+        <fast-reauth-method>BASE32</fast-reauth-method>
+        <fast-reauth-encoding>Enable</fast-reauth-encoding>
+        <fast-reauth-prefix>6888</fast-reauth-prefix>
+        <fast-reauth-root-nai>Disable</fast-reauth-root-nai>
+        <fast-reauth-aaa-identity-in-root-nai>AAA_Identity_Root_NAI</fast-reauth-aaa-identity-in-root-nai>
+    </aka-prime-configuration>
+</eap-configuration>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EAP Configuration created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "eap1",
+  "description": "Created by admin on 12/26/2016 03:17:44 PM",
+  "session-cleanup-interval": "300",
+  "session-duration-for-cleanup": "300",
+  "session-timeout": "3000",
+  "msk-revalidation-time": "1024",
+  "treat-invalid-packet-as-fatal": "true",
+  "default-negotiation-method": "MD5-CHALLENGE",
+  "notification-success": "false",
+  "notification-failure": "false",
+  "max-eap-packet-size": "1024",
+  "enable-auth-methods": "TLS,TTLS,MD5,PEAP,SIM,AKA,GTC,MS-CHAPv2,AKA'",
+  "tls-configuration": {
+    "min-tls-version": "TLSv1",
+    "max-tls-version": "TLSv1.1",
+    "server-certificate-profile": "Elitecore_server_cert",
+    "tls-certificate-request": "false",
+    "ciphersuites": "TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_256_CBC_SHA,TLS_DH_anon_WITH_AES_256_CBC_SHA",
+    "certificate-validations": {
+      "expiry-date": "true",
+      "revoked-certificate": "true",
+      "missing-client-certificate": "true",
+      "mac-validation": "true"
+    },
+    "session-resumption-limit": "2",
+    "session-resumption-duration": "5000",
+    "certificate-types": "DSS,DSS-DH,RSA,RSA-DH",
+    "ttls-configuration": {
+      "ttls-certificate-request": "false",
+      "ttls-negotiation-method": "EAP-MsCHAPv2"
+    },
+    "peap-configuration": {
+      "peap-certificate-request": "false",
+      "peap-version": "0",
+      "peap-negotiation-method": "EAP-MsCHAPv2"
+    },
+    "vendor-specific-certificates": [
+      {
+        "vendor-identifier": "0000001*"
+      },
+      {
+        "vendor-identifier": "000000*",
+        "server-certificate-profile": "Elitecore_server_cert"
+      }
+    ]
+  },
+  "sim-configuration": {
+    "pseudonym-method": "BASE32",
+    "pseudonym-encoding": "Enable",
+    "pseudonym-prefix": "1999",
+    "pseudonym-root-nai": "Disable",
+    "pseudonym-aaa-identity-in-root-nai": "AAA_Identity_Root_NAI",
+    "fast-reauth-method": "BASE32",
+    "fast-reauth-encoding": "Enable",
+    "fast-reauth-prefix": "1888",
+    "fast-reauth-root-nai": "Disable",
+    "fast-reauth-aaa-identity-in-root-nai": "AAA_Identity_Root_NAI"
+  },
+  "aka-configuration": {
+    "pseudonym-method": "BASE32",
+    "pseudonym-encoding": "Enable",
+    "pseudonym-prefix": "0999",
+    "pseudonym-root-nai": "Disable",
+    "pseudonym-aaa-identity-in-root-nai": "AAA_Identity_Root_NAI",
+    "fast-reauth-method": "BASE32",
+    "fast-reauth-encoding": "Enable",
+    "fast-reauth-prefix": "0888",
+    "fast-reauth-root-nai": "Disable",
+    "fast-reauth-aaa-identity-in-root-nai": "AAA_Identity_Root_NAI"
+  },
+  "aka-prime-configuration": {
+    "pseudonym-method": "BASE32",
+    "pseudonym-encoding": "Enable",
+    "pseudonym-prefix": "6999",
+    "pseudonym-root-nai": "Disable",
+    "pseudonym-aaa-identity-in-root-nai": "AAA_Identity_Root_NAI",
+    "fast-reauth-method": "BASE32",
+    "fast-reauth-encoding": "Enable",
+    "fast-reauth-prefix": "6888",
+    "fast-reauth-root-nai": "Disable",
+    "fast-reauth-aaa-identity-in-root-nai": "AAA_Identity_Root_NAI"
+  }
+}
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EAP Configuration created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION(BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+   <eap-configuration>
+      <name>eap1</name>
+      <description>Created by admin on 12/26/2016 03:17:44 PM</description>
+      <msk-revalidation-time>1024</msk-revalidation-time>
+      <notification-failure>false</notification-failure>
+      <notification-success>false</notification-success>
+      <session-cleanup-interval>300</session-cleanup-interval>
+      <session-duration-for-cleanup>300</session-duration-for-cleanup>
+      <session-timeout>3000</session-timeout>
+      <max-eap-packet-size>1024</max-eap-packet-size>
+      <default-negotiation-method>MD5-CHALLENGE</default-negotiation-method>
+      <enable-auth-methods>TLS,TTLS,MD5,PEAP,SIM,AKA,GTC,MS-CHAPv2,AKA'</enable-auth-methods>
+      <treat-invalid-packet-as-fatal>true</treat-invalid-packet-as-fatal>
+      <tls-configuration>
+         <max-tls-version>TLSv1.1</max-tls-version>
+         <min-tls-version>TLSv1</min-tls-version>
+         <tls-certificate-request>false</tls-certificate-request>
+         <server-certificate-profile>Elitecore_server_cert</server-certificate-profile>
+         <ciphersuites>TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_256_CBC_SHA,TLS_DH_anon_WITH_AES_256_CBC_SHA</ciphersuites>
+         <certificate-validations>
+            <expiry-date>true</expiry-date>
+            <mac-validation>false</mac-validation>
+            <missing-client-certificate>true</missing-client-certificate>
+            <revoked-certificate>false</revoked-certificate>
+         </certificate-validations>
+         <session-resumption-duration>5000</session-resumption-duration>
+         <session-resumption-limit>2</session-resumption-limit>
+         <certificate-types>DSS,DSS-DH,RSA,RSA-DH</certificate-types>
+         <ttls-configuration>
+            <ttls-certificate-request>false</ttls-certificate-request>
+            <ttls-negotiation-method>EAP-MsCHAPv2</ttls-negotiation-method>
+         </ttls-configuration>
+         <peap-configuration>
+            <peap-certificate-request>false</peap-certificate-request>
+            <peap-negotiation-method>EAP-MsCHAPv2</peap-negotiation-method>
+            <peap-version>0</peap-version>
+         </peap-configuration>
+         <vendor-specific-certificates>
+            <vendor-specific-certificate>
+               <vendor-identifier>0000001*</vendor-identifier>
+            </vendor-specific-certificate>
+            <vendor-specific-certificate>
+               <vendor-identifier>000000*</vendor-identifier>
+               <server-certificate-profile>Elitecore_server_cert</server-certificate-profile>
+            </vendor-specific-certificate>
+         </vendor-specific-certificates>
+      </tls-configuration>
+      <sim-configuration>
+         <pseudonym-method>BASE32</pseudonym-method>
+         <pseudonym-encoding>ENABLE</pseudonym-encoding>
+         <pseudonym-prefix>1999</pseudonym-prefix>
+         <pseudonym-root-nai>DISABLE</pseudonym-root-nai>
+         <fast-reauth-method>BASE32</fast-reauth-method>
+         <fast-reauth-encoding>ENABLE</fast-reauth-encoding>
+         <fast-reauth-prefix>1888</fast-reauth-prefix>
+         <fast-reauth-root-nai>DISABLE</fast-reauth-root-nai>
+      </sim-configuration>
+      <aka-configuration>
+         <pseudonym-method>BASE32</pseudonym-method>
+         <pseudonym-encoding>ENABLE</pseudonym-encoding>
+         <pseudonym-prefix>0999</pseudonym-prefix>
+         <pseudonym-root-nai>DISABLE</pseudonym-root-nai>
+         <fast-reauth-method>BASE32</fast-reauth-method>
+         <fast-reauth-encoding>ENABLE</fast-reauth-encoding>
+         <fast-reauth-prefix>0888</fast-reauth-prefix>
+         <fast-reauth-root-nai>DISABLE</fast-reauth-root-nai>
+      </aka-configuration>
+      <aka-prime-configuration>
+         <pseudonym-method>BASE32</pseudonym-method>
+         <pseudonym-encoding>ENABLE</pseudonym-encoding>
+         <pseudonym-prefix>6999</pseudonym-prefix>
+         <pseudonym-root-nai>DISABLE</pseudonym-root-nai>
+         <fast-reauth-method>BASE32</fast-reauth-method>
+         <fast-reauth-encoding>ENABLE</fast-reauth-encoding>
+         <fast-reauth-prefix>6888</fast-reauth-prefix>
+         <fast-reauth-root-nai>DISABLE</fast-reauth-root-nai>
+      </aka-prime-configuration>
+   </eap-configuration>
+   <eap-configuration>
+      <name>eap2</name>
+      <description>Created by admin on 12/26/2016 03:17:44 PM</description>
+      <msk-revalidation-time>1024</msk-revalidation-time>
+      <notification-failure>false</notification-failure>
+      <notification-success>false</notification-success>
+      <session-cleanup-interval>300</session-cleanup-interval>
+      <session-duration-for-cleanup>300</session-duration-for-cleanup>
+      <session-timeout>3000</session-timeout>
+      <max-eap-packet-size>1024</max-eap-packet-size>
+      <default-negotiation-method>MD5-CHALLENGE</default-negotiation-method>
+      <enable-auth-methods>TLS,TTLS,MD5,SIM,AKA,GTC,MS-CHAPv2,AKA'</enable-auth-methods>
+      <treat-invalid-packet-as-fatal>true</treat-invalid-packet-as-fatal>
+      <tls-configuration>
+         <max-tls-version>TLSv1.1</max-tls-version>
+         <min-tls-version>TLSv1</min-tls-version>
+         <tls-certificate-request>false</tls-certificate-request>
+         <server-certificate-profile>Elitecore_server_cert</server-certificate-profile>
+         <ciphersuites>TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_256_CBC_SHA,TLS_DH_anon_WITH_AES_256_CBC_SHA</ciphersuites>
+         <certificate-validations>
+            <expiry-date>true</expiry-date>
+            <mac-validation>false</mac-validation>
+            <missing-client-certificate>true</missing-client-certificate>
+            <revoked-certificate>false</revoked-certificate>
+         </certificate-validations>
+         <session-resumption-duration>5000</session-resumption-duration>
+         <session-resumption-limit>2</session-resumption-limit>
+         <certificate-types>DSS,DSS-DH,RSA,RSA-DH</certificate-types>
+         <ttls-configuration>
+            <ttls-certificate-request>false</ttls-certificate-request>
+            <ttls-negotiation-method>EAP-MsCHAPv2</ttls-negotiation-method>
+         </ttls-configuration>
+         <peap-configuration>
+            <peap-certificate-request>false</peap-certificate-request>
+            <peap-negotiation-method>EAP-MsCHAPv2</peap-negotiation-method>
+            <peap-version>0</peap-version>
+         </peap-configuration>
+         <vendor-specific-certificates>
+            <vendor-specific-certificate>
+               <vendor-identifier>0000001*</vendor-identifier>
+            </vendor-specific-certificate>
+            <vendor-specific-certificate>
+               <vendor-identifier>000000*</vendor-identifier>
+               <server-certificate-profile>Elitecore_server_cert</server-certificate-profile>
+            </vendor-specific-certificate>
+         </vendor-specific-certificates>
+      </tls-configuration>
+      <sim-configuration>
+         <pseudonym-method>BASE32</pseudonym-method>
+         <pseudonym-encoding>ENABLE</pseudonym-encoding>
+         <pseudonym-prefix>1999</pseudonym-prefix>
+         <pseudonym-root-nai>DISABLE</pseudonym-root-nai>
+         <fast-reauth-method>BASE32</fast-reauth-method>
+         <fast-reauth-encoding>ENABLE</fast-reauth-encoding>
+         <fast-reauth-prefix>1888</fast-reauth-prefix>
+         <fast-reauth-root-nai>DISABLE</fast-reauth-root-nai>
+      </sim-configuration>
+      <aka-configuration>
+         <pseudonym-method>BASE32</pseudonym-method>
+         <pseudonym-encoding>ENABLE</pseudonym-encoding>
+         <pseudonym-prefix>0999</pseudonym-prefix>
+         <pseudonym-root-nai>DISABLE</pseudonym-root-nai>
+         <fast-reauth-method>BASE32</fast-reauth-method>
+         <fast-reauth-encoding>ENABLE</fast-reauth-encoding>
+         <fast-reauth-prefix>0888</fast-reauth-prefix>
+         <fast-reauth-root-nai>DISABLE</fast-reauth-root-nai>
+      </aka-configuration>
+   </eap-configuration>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EAP Configuration(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{  
+   "list":[  
+      {  
+         "name":"eap1",
+         "description":"Created by admin on 12/26/2016 03:17:44 PM",
+         "session-cleanup-interval":"300",
+         "session-duration-for-cleanup":"300",
+         "session-timeout":"3000",
+         "msk-revalidation-time":"1024",
+         "treat-invalid-packet-as-fatal":"true",
+         "default-negotiation-method":"MD5-CHALLENGE",
+         "notification-success":"false",
+         "notification-failure":"false",
+         "max-eap-packet-size":"1024",
+         "enable-auth-methods":"TLS,TTLS,MD5,PEAP,SIM,AKA,GTC,MS-CHAPv2,AKA'",
+         "tls-configuration":{  
+            "min-tls-version":"TLSv1",
+            "max-tls-version":"TLSv1.1",
+            "server-certificate-profile":"Elitecore_server_cert",
+            "tls-certificate-request":"false",
+            "ciphersuites":"TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_256_CBC_SHA,TLS_DH_anon_WITH_AES_256_CBC_SHA",
+            "certificate-validations":{  
+               "expiry-date":"true",
+               "revoked-certificate":"true",
+               "missing-client-certificate":"true",
+               "mac-validation":"true"
+            },
+            "session-resumption-limit":"2",
+            "session-resumption-duration":"5000",
+            "certificate-types":"DSS,DSS-DH,RSA,RSA-DH",
+            "ttls-configuration":{  
+               "ttls-certificate-request":"false",
+               "ttls-negotiation-method":"EAP-MsCHAPv2"
+            },
+            "peap-configuration":{  
+               "peap-certificate-request":"false",
+               "peap-version":"0",
+               "peap-negotiation-method":"EAP-MsCHAPv2"
+            },
+            "vendor-specific-certificates":[  
+               {  
+                  "vendor-identifier":"0000001*"
+               },
+               {  
+                  "vendor-identifier":"000000*",
+                  "server-certificate-profile":"Elitecore_server_cert"
+               }
+            ]
+         },
+         "sim-configuration":{  
+            "pseudonym-method":"BASE32",
+            "pseudonym-encoding":"Enable",
+            "pseudonym-prefix":"1999",
+            "pseudonym-root-nai":"Disable",
+            "pseudonym-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI",
+            "fast-reauth-method":"BASE32",
+            "fast-reauth-encoding":"Enable",
+            "fast-reauth-prefix":"1888",
+            "fast-reauth-root-nai":"Disable",
+            "fast-reauth-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI"
+         },
+         "aka-configuration":{  
+            "pseudonym-method":"BASE32",
+            "pseudonym-encoding":"Enable",
+            "pseudonym-prefix":"0999",
+            "pseudonym-root-nai":"Disable",
+            "pseudonym-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI",
+            "fast-reauth-method":"BASE32",
+            "fast-reauth-encoding":"Enable",
+            "fast-reauth-prefix":"0888",
+            "fast-reauth-root-nai":"Disable",
+            "fast-reauth-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI"
+         },
+         "aka-prime-configuration":{  
+            "pseudonym-method":"BASE32",
+            "pseudonym-encoding":"Enable",
+            "pseudonym-prefix":"6999",
+            "pseudonym-root-nai":"Disable",
+            "pseudonym-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI",
+            "fast-reauth-method":"BASE32",
+            "fast-reauth-encoding":"Enable",
+            "fast-reauth-prefix":"6888",
+            "fast-reauth-root-nai":"Disable",
+            "fast-reauth-aaa-identity-in-root-nai":"AAA_Identity_Root_NAI"
+         }
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EAP Configuration(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig?name=eap1
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig?name=eap1&operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<eap-configuration>
+    <name>eap1</name>
+    <description>Created by admin on 12/26/2016 03:17:44 PM</description>
+    <session-cleanup-interval>3000</session-cleanup-interval>
+    <session-duration-for-cleanup>300</session-duration-for-cleanup>
+    <session-timeout>3000</session-timeout>
+    <msk-revalidation-time>1024</msk-revalidation-time>
+    <treat-invalid-packet-as-fatal>true</treat-invalid-packet-as-fatal>
+    <default-negotiation-method>MD5-CHALLENGE</default-negotiation-method>
+    <notification-success>false</notification-success>
+    <notification-failure>false</notification-failure>
+    <max-eap-packet-size>1024</max-eap-packet-size>
+    <enable-auth-methods>TLS,TTLS,MD5,PEAP,SIM,AKA,GTC,MS-CHAPv2</enable-auth-methods>
+    <tls-configuration>
+        <min-tls-version>TLSv1</min-tls-version>
+        <max-tls-version>TLSv1.1</max-tls-version>
+        <server-certificate-profile>Elitecore_server_cert</server-certificate-profile>
+        <tls-certificate-request>false</tls-certificate-request>
+        <ciphersuites>TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_256_CBC_SHA,TLS_DH_anon_WITH_AES_256_CBC_SHA</ciphersuites>
+        <certificate-validations>
+            <expiry-date>true</expiry-date>
+            <revoked-certificate>false</revoked-certificate>
+            <missing-client-certificate>true</missing-client-certificate>
+            <mac-validation>false</mac-validation>
+        </certificate-validations>
+        <session-resumption-limit>2</session-resumption-limit>
+        <session-resumption-duration>5000</session-resumption-duration>
+        <certificate-types>DSS,DSS-DH,RSA,RSA-DH</certificate-types>
+        <ttls-configuration>
+            <ttls-certificate-request>false</ttls-certificate-request>
+            <ttls-negotiation-method>EAP-MD5</ttls-negotiation-method>
+        </ttls-configuration>
+        <peap-configuration>
+            <peap-certificate-request>true</peap-certificate-request>
+            <peap-version>0</peap-version>
+            <peap-negotiation-method>EAP-MsCHAPv2</peap-negotiation-method>
+        </peap-configuration>
+        <vendor-specific-certificates>
+            <vendor-specific-certificate>
+                <vendor-identifier>000000*</vendor-identifier>
+                <server-certificate-profile>Elitecore_server_cert</server-certificate-profile>
+            </vendor-specific-certificate>
+            <vendor-specific-certificate>
+                <vendor-identifier>0000001*</vendor-identifier>
+            </vendor-specific-certificate>
+        </vendor-specific-certificates>
+    </tls-configuration>
+    <sim-configuration>
+        <pseudonym-method>BASE32</pseudonym-method>
+        <pseudonym-encoding>Enable</pseudonym-encoding>
+        <pseudonym-prefix>1999</pseudonym-prefix>
+        <pseudonym-root-nai>Disable</pseudonym-root-nai>
+        <fast-reauth-method>BASE32</fast-reauth-method>
+        <fast-reauth-encoding>Enable</fast-reauth-encoding>
+        <fast-reauth-prefix>1888</fast-reauth-prefix>
+        <fast-reauth-root-nai>Disable</fast-reauth-root-nai>
+    </sim-configuration>
+    <aka-configuration>
+        <pseudonym-method>BASE32</pseudonym-method>
+        <pseudonym-encoding>Enable</pseudonym-encoding>
+        <pseudonym-prefix>0999</pseudonym-prefix>
+        <pseudonym-root-nai>Disable</pseudonym-root-nai>
+        <fast-reauth-method>BASE32</fast-reauth-method>
+        <fast-reauth-encoding>Enable</fast-reauth-encoding>
+        <fast-reauth-prefix>0888</fast-reauth-prefix>
+        <fast-reauth-root-nai>Disable</fast-reauth-root-nai>
+    </aka-configuration>
+</eap-configuration>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EAP Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "name": "eap1",
+  "description": "Created by admin on 12/26/2016 03:17:44 PM",
+  "session-cleanup-interval": "300",
+  "session-duration-for-cleanup": "300",
+  "session-timeout": "3000",
+  "msk-revalidation-time": "1024",
+  "treat-invalid-packet-as-fatal": "true",
+  "default-negotiation-method": "MD5-CHALLENGE",
+  "notification-success": "false",
+  "notification-failure": "false",
+  "max-eap-packet-size": "1024",
+  "enable-auth-methods": "TLS,TTLS,MD5,PEAP,GTC,MS-CHAPv2",
+  "tls-configuration": {
+    "min-tls-version": "TLSv1",
+    "max-tls-version": "TLSv1.1",
+    "server-certificate-profile": "Elitecore_server_cert",
+    "tls-certificate-request": "false",
+    "ciphersuites": "TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_RC4_128_SHA,TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_RC4_128_MD5,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_RC4_128_MD5,TLS_DH_anon_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA,TLS_RSA_WITH_NULL_MD5,TLS_RSA_WITH_DES_CBC_SHA,TLS_DHE_RSA_WITH_DES_CBC_SHA,TLS_DH_anon_WITH_DES_CBC_SHA,TLS_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DH_anon_EXPORT_WITH_RC4_40_MD5,TLS_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA,TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_256_CBC_SHA,TLS_DH_anon_WITH_AES_256_CBC_SHA",
+    "certificate-validations": {
+      "expiry-date": "true",
+      "revoked-certificate": "false",
+      "missing-client-certificate": "true",
+      "mac-validation": "false"
+    },
+    "session-resumption-limit": "2",
+    "session-resumption-duration": "5000",
+    "certificate-types": "DSS,DSS-DH,RSA,RSA-DH",
+    "ttls-configuration": {
+      "ttls-certificate-request": "false",
+      "ttls-negotiation-method": "EAP-MD5"
+    },
+    "peap-configuration": {
+      "peap-certificate-request": "true",
+      "peap-version": "0",
+      "peap-negotiation-method": "EAP-MsCHAPv2"
+    },
+    "vendor-specific-certificates": [
+      {
+        "vendor-identifier": "000000*",
+        "server-certificate-profile": "Elitecore_server_cert"
+      },
+      {
+        "vendor-identifier": "0000001*"
+      }
+    ]
+  }
+}
+
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EAP Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig?name=eap1,eap2
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1,eap2
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig?operation=delete&name=eap1,eap2
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/eapconfig/eap1,eap2?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EAP Configuration(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+#Note : 
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************
+						Additional Details(propeties as per SM)
+***********************************************************************
+# Treat Invalid Packet as fatal  ---- true/false
+# Notification Success   ------- true/false
+# Notification Failure -------- true/false
+# Default Negotiation Method
+  1). MD5-CHALLENGE
+  2). GTC
+  3). TLS
+  4). TTLS
+  5). PEAP
+  6). SIM
+  7). AKA
+  8). AKA'
+  9). MS-CHAPv2
+# Enable Auth Methods(commad seprated allow)
+	1). MD5
+  	2). GTC
+  	3). TLS
+  	4). TTLS
+  	5). PEAP
+  	6). SIM
+  	7). AKA
+  	8). AKA'
+  	9). MS-CHAPv2 
+  	
+#Minimum and Maximum TLS Version(any one for individual Min TLS version and Max TLS version)
+
+	1). TLSv1
+	2). TLSv1.1
+	3). TLSv1.2
+	
+# TLS Certificate Request ----- true/false
+# CipherSuite List (case sensitive and Valid selection of Minimum and Maximum TLS Version) 
+
+//(MinTLSVersion) TLSv1 and (MaxTLSVersion) TLSv1
+TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_DES_CBC_SHA, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_RC4_128_MD5, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_DES_CBC_SHA, TLS_RSA_WITH_IDEA_CBC_SHA, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+
+//(MinTLSVersion) TLSv1 and (MaxTLSVersion) TLS1.1
+TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_DES_CBC_SHA, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_RC4_128_MD5, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_DES_CBC_SHA, TLS_RSA_WITH_IDEA_CBC_SHA, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+
+//(MinTLSVersion) TLSv1 and (MaxTLSVersion) TLSv1.2
+TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_DES_CBC_SHA, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA256, TLS_DH_anon_WITH_RC4_128_MD5, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_DES_CBC_SHA, TLS_RSA_WITH_IDEA_CBC_SHA, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+
+//(MinTLSVersion) TLS1.1 and (MaxTLSVersion) TLS1.1
+TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_DES_CBC_SHA, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_RC4_128_MD5, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_DES_CBC_SHA, TLS_RSA_WITH_IDEA_CBC_SHA, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+//(MinTLSVersion) TLSv1.1 and (MaxTLSVersion) TLSv1.2
+TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_DES_CBC_SHA, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_DES_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA256, TLS_DH_anon_WITH_RC4_128_MD5, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_DES_CBC_SHA, TLS_RSA_WITH_IDEA_CBC_SHA, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+//(MinTLSVersion) TLSv1.2 and (MaxTLSVersion) TLS1.2
+TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DH_anon_WITH_AES_128_CBC_SHA, TLS_DH_anon_WITH_AES_128_CBC_SHA256, TLS_DH_anon_WITH_RC4_128_MD5, TLS_RSA_WITH_3DES_EDE_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_RC4_128_MD5, TLS_RSA_WITH_RC4_128_SHA
+
+# Expiry Date ------ true/false
+# Revoked Certificate ---- true/false
+# Missing Client Certificate ----true/false
+# MAC Validation ------ true/false
+
+# Certificate-types(comma seprated allow)
+	1). RSA
+	2). RSA-DH
+	3). DSS  
+	4). DSS-DH
+# Pseudonym Method :(any one)
+	1). -NONE-
+	2). BASE16
+	3). BASE32
+	4). BASE64
+	5). ELITECRYPT
+	6). BASIC_ALPHA_1
+	
+# FastReAuth Method:(any one)
+	1). -NONE-
+	2). BASE16
+	3). BASE32
+	4). BASE64
+	5). ELITECRYPT
+	6). BASIC_ALPHA_1
+
+# Pseudonym Encoding : ENABLE/DISABLE
+
+# FastReAuth Encoding : ENABLE/DISABLE
+# Root NAI : ENABLE/DISABLE
+		

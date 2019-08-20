@@ -1,0 +1,370 @@
+{
+   "schema":{
+	"type": "object",
+	"title": "Universal Plugin Policies",
+	"properties": {
+		"name": {
+			"title": "Plugin Name",
+			"type": "string"
+		},
+		"description": {
+			"title": "Plugin Description",
+			"type": "string"
+		},
+		"status": {
+			"title": "Status",
+			"type": "string"
+		},
+		"universal-pre-policies": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"title": "Name",
+						"type": "string"
+					},
+					"action": {
+						"title": "Action",
+						"type": "string"
+					},
+					"enabled": {
+						"title": "Enabled",
+						"type": "boolean"
+					},
+					"reject-on-check-item-not-found": {
+						"title": "Reject On check Item Not Found",
+						"type": "boolean"
+					},
+					"parameter-list": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"active": {
+									"title": "Active",
+									"type": "string"
+								},
+								"packet-type": {
+									"title": "Packet Type",
+									"type": "string"
+								},
+								"attr-id": {
+									"title": "Attribute Id",
+									"type": "string"
+								},
+								"attribute-value": {
+									"title": "Attribute Value",
+									"type": "string"
+								},
+								"parameter-usage": {
+									"title": "Parameter Usage",
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		
+		"universal-post-policies":{
+		    "type":"array",
+		    "items":{
+		        "type":"object",
+		        "properties":{
+		            "name":{
+		                "title":"Name",
+		                "type":"string"
+		            },
+		            "action":{
+		                "title":"Action",
+		                "type":"string"
+		            },
+		            "enabled":{
+		                "title":"Enabled",
+		                "type":"boolean"
+		            },
+		            "reject-on-check-item-not-found":{
+		                "title":"Reject On Check Item Not Found",
+		                "type":"boolean"
+		            },
+		            	"parameter-list": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"active": {
+									"title": "Active",
+									"type": "string"
+								},
+								"packet-type": {
+									"title": "Packet Type",
+									"type": "string"
+								},
+								"attr-id": {
+									"title": "Attribute Id",
+									"type": "string"
+								},
+								"attribute-value": {
+									"title": "Attribute Value",
+									"type": "string"
+								},
+								"parameter-usage": {
+									"title": "Parameter Usage",
+									"type": "string"
+								}
+							}
+						}
+					}
+		        }
+		    }
+		}
+	}
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"status",
+      "type":"radios",
+      "titleMap":{
+          "INACTIVE":"INACTIVE",
+          "ACTIVE":"ACTIVE"
+      }
+  },
+  {
+      "key":"universal-pre-policies",
+      "add":"Add Policy",
+      "items":[
+          {
+              "key":"universal-pre-policies[].name"
+          },
+          {
+              "key":"universal-pre-policies[].action",
+              "type":"select",
+              "titleMap":{
+                  "accept":"Accept",
+                  "none":"None",
+                  "drop":"Drop",
+                  "stop":"Stop"
+              }
+          },
+          {
+              "key":"universal-pre-policies[].enabled",
+              "type":"radiobuttons",
+              "titleMap":[
+                  {
+                      "value":true,
+                      "name":"Enabled"
+                  },
+                  {
+                      "value":false,
+                      "name":"Disabled"
+                  }
+                  ]
+          },
+          {
+              "key":"universal-pre-policies[].reject-on-check-item-not-found",
+              "type":"select",
+              "titleMap":[
+                  {
+                      "value":true,
+                      "name":"True"
+                  },
+                  {
+                      "value":false,
+                      "name":"False"
+                  }
+                  ]
+          },
+          {
+              "key":"universal-pre-policies[].parameter-list",
+              "add":"Add Parameter",
+              "items":[
+                  {
+                      "key":"universal-pre-policies[].parameter-list[].active",
+                      "title":"Active",
+                      "type":"select",
+                      "titleMap":{
+                          "YES":"Yes",
+                          "NO":"No"
+                      }
+                  },
+                  {
+                      "key":"universal-pre-policies[].parameter-list[].packet-type",
+                      "title":"Packet Type",
+                      "type":"select",
+                      "titleMap":{
+                          "Default":"Default",
+                          "Accounting Request":"Accounting Request"
+                      }
+                  },
+                  {
+                      "key":"universal-pre-policies[].parameter-list[].attr-id",
+                      "title":"Attribute Id"
+                  },
+                  {
+                      "key":"universal-pre-policies[].parameter-list[].attribute-value",
+                      "title":"Attribute Value"
+                  },
+                  {
+                      "key":"universal-pre-policies[].parameter-list[].parameter-usage",
+                      "title":"Parameter Usage",
+                      "type":"select",
+                      "titleMap":{
+                          "Check Item":"Check Item",
+                          "Dynamical Assign Item":"Dynamical Assign Item",
+                          "Filter Item":"Filter Item",
+                          "Reject Item":"Reject Item",
+                          "Reply Item":"Reply Item",
+                          "Update Item":"Update Item",
+                          "Value Replace Item":"Value Replace Item"
+                      }
+                  }
+                  ]
+          }
+          
+          ]
+  },
+  {
+      "key":"universal-post-policies",
+      "add":"Add Policy",
+      "items":[
+          {
+              "key":"universal-post-policies[].name"
+          },
+          {
+              "key":"universal-post-policies[].action",
+              "type":"select",
+              "titleMap":{
+                  "accept":"Accept",
+                  "none":"None",
+                  "drop":"Drop",
+                  "stop":"Stop"
+              }
+          },
+              {
+              "key":"universal-post-policies[].enabled",
+              "type":"radiobuttons",
+              "titleMap":[
+                  {
+                      "value":true,
+                      "name":"Enabled"
+                  },
+                  {
+                      "value":false,
+                      "name":"Disabled"
+                  }
+                  ]
+          },
+               {
+              "key":"universal-post-policies[].reject-on-check-item-not-found",
+              "type":"select",
+              "titleMap":[
+                  {
+                      "value":true,
+                      "name":"True"
+                  },
+                  {
+                      "value":false,
+                      "name":"False"
+                  }
+                  ]
+          },
+          {
+              "key":"universal-post-policies[].parameter-list",
+              "add":"Add Parameter",
+              "items":[
+                 {
+                      "key":"universal-post-policies[].parameter-list[].active",
+                      "title":"Active",
+                      "type":"select",
+                      "titleMap":{
+                          "YES":"Yes",
+                          "NO":"No"
+                      }
+                 },
+                 {
+                     "key":"universal-post-policies[].parameter-list[].packet-type",
+                      "title":"Packet Type",
+                      "type":"select",
+                      "titleMap":{
+                          "Default":"Default",
+                          "Accounting Response":"Accounting Response"
+                      }
+                 },
+                 {
+                    "key":"universal-post-policies[].parameter-list[].attr-id",
+                      "title":"Attribute Id" 
+                 },
+                 {
+                     "key":"universal-post-policies[].parameter-list[].parameter-usage",
+                      "title":"Parameter Usage",
+                      "type":"select",
+                      "titleMap":{
+                          "Check Item":"Check Item",
+                          "Dynamical Assign Item":"Dynamical Assign Item",
+                          "Filter Item":"Filter Item",
+                          "Reject Item":"Reject Item",
+                          "Reply Item":"Reply Item",
+                          "Update Item":"Update Item",
+                          "Value Replace Item":"Value Replace Item"
+                          
+                          
+                      }
+                 }
+                  ]
+          }
+          
+          
+          
+          ]
+  }
+  
+  
+],
+"model":{
+   "name":"universalPlugin",
+   "description":"Created by admin on 01/13/2017 11:24:57 AM",
+   "status":"ACTIVE",
+   "universal-pre-policies":[
+      {
+         "action":"none",
+         "name":"prePolicy",
+         "enabled":true,
+         "reject-on-check-item-not-found":true,
+         "parameter-list":[
+            {
+               "active":"YES",
+               "packet-type":"Default",
+               "attr-id":"0:25",
+               "attribute-value":"\"elitecore\"",
+               "parameter-usage":"Dynamical Assign Item"
+            }
+         ]
+      }
+   ],
+   "universal-post-policies":[
+      {
+         "action":"none",
+         "name":"postPolicy",
+         "enabled":true,
+         "reject-on-check-item-not-found":true,
+         "parameter-list":[
+            {
+               "active":"YES",
+               "packet-type":"Default",
+               "attr-id":"0:31",
+               "attribute-value":"\"10.121.21.21\"",
+               "parameter-usage":"Dynamical Assign Item"
+            }
+         ]
+      }
+   ]
+}
+}

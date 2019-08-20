@@ -1,0 +1,16 @@
+{
+  "id": "rest_service_policy_11111111",
+  "status": "ACTIVE",
+  "name": "Updated_rest_service_policy",
+  "description": "Updated by Rest",
+  "ruleset": "0:1=\"11111111\"",
+  "action": "PROCESS_REQUEST",
+  "subscriberLookupOn": "SUBSCRIBER_IDENTITY",
+  "identityAttribute": "CS.MSISDN",
+  "unknownUserAction": "REJECT_UNKNOWN_USER",
+  "unknownUserPkgId": null,
+  "syGatewayId": null,
+  "syMode": "PUSH",
+  "policyCdrDriverId":null,
+  "chargingCdrDriverId": "rest_csv_driver_pcc_11111111"
+}

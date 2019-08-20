@@ -1,0 +1,282 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"DIAMETER CONCURRENCY",
+  "properties":{
+      "name":{
+          "title":"Name",
+          "type":"string"
+      },
+      "description":{
+          "title":"Description",
+          "type":"string"
+      },
+      "database-name":{
+          "title":"Data Source",
+          "type":"string"
+      },
+      "table-name":{
+          "title":"Table Name",
+          "type":"string",
+          "default":"TBLMDIAMETERSESSIONDATA"
+      },
+      "start-time-field":{
+          "title":"Start Time Field",
+          "type":"string",
+          "default":"START_TIME"
+      },
+      "last-update-time-field":{
+          "title":"Last Update Time Field",
+          "type":"string",
+          "default":"LAST_UPDATED_TIME"
+      },
+      "concurrency-identity-field":{
+          "title":"Concurrency Identity Field",
+          "type":"string",
+          "default":"CONCURRENCY_ID"
+      },
+      "db-failure-action":{
+          "title":"DB Failure Action",
+          "type":"string"
+      },
+      "session-override-action":{
+          "title":"Action",
+          "type":"string"
+      },
+      "session-override-fields":{
+          "title":"Fields",
+          "type":"string"
+      },
+      "mandatory-db-field-mappings":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "field":{
+                      "title":"Logical Field",
+                      "type":"string"
+                  },
+                  "db-field-name":{
+                      "title":"DB Field Name",
+                      "type":"string"
+                  },
+                  "referring-attribute":{
+                      "title":"Referring Attribute",
+                      "type":"string"
+                  },
+                  "datatype":{
+                      "title":"Data Type",
+                      "type":"string"
+                  },
+                  "defaultvalue":{
+                      "title":"Default Value",
+                      "type":"string"
+                  },
+                  "include-in-asr":{
+                      "title":"Include In ASR",
+                      "type":"string"
+                  }
+              }
+          }
+      },
+      "additional-db-field-mappings":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  " db-field-name":{
+                      "title":"DB Field Name",
+                      "type":"string"
+                  },
+                  "referring-attribute":{
+                      "title":"Referring Attribute",
+                      "type":"string"
+                  },
+                  "datatype":{
+                      "title":"Data Type",
+                      "type":"string"
+                  },
+                  "defaultvalue":{
+                      "title":"Default Value",
+                      "type":"string"
+                  },
+                  "include-in-asr":{
+                      "title":"Include In ASR",
+                      "type":"string"
+                  }
+              }
+          }
+      }
+  }
+  
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"database-name"
+  },
+  {
+      "key":"table-name"
+  },
+  {
+      "key":"start-time-field"
+  },
+  {
+      "key":"last-update-time-field"
+  },
+  {
+      "key":"concurrency-identity-field"
+  },
+  {
+      "key":"db-failure-action",
+      "type":"select",
+      "titleMap":{
+          "IGNORE":"IGNORE",
+          "REJECT":"REJECT",
+          "DROP":"DROP"
+      }
+  },
+  {
+      "key":"session-override-action",
+      "type":"select",
+      "titleMap":{
+          "NONE":"NONE",
+          "GenerateASR":"GenerateASR"
+      }
+  },
+  {
+      "key":"session-override-fields"
+  },
+  {
+      "key":"mandatory-db-field-mappings",
+      "items":[
+          {
+              "key":"mandatory-db-field-mappings[].field"
+          },
+          {
+              "key":"mandatory-db-field-mappings[].db-field-name"
+          },
+          {
+              "key":"mandatory-db-field-mappings[].referring-attribute"
+          },
+          {
+              "key":"mandatory-db-field-mappings[].datatype"
+          },
+          {
+              "key":"mandatory-db-field-mappings[].defaultvalue"
+          },
+          {
+              "key":"mandatory-db-field-mappings[].include-in-asr",
+              "type":"radios",
+              "titleMap":{
+                  "True":"True",
+                  "False":"False"
+              }
+          }
+          ]
+  },
+  {
+      "key":"additional-db-field-mappings",
+      "add":"Add",
+      
+      
+      "items":[
+          {
+              "key":"additional-db-field-mappings[].db-field-name",
+              "title":"DB Field Name"
+          },
+          {
+              "key":"additional-db-field-mappings[].referring-attribute",
+              "title":"Referring Attribute"
+          },
+          {
+              "key":"additional-db-field-mappings[].datatype",
+              "title":"Data Type"
+          },
+          {
+              "key":"additional-db-field-mappings[].defaultvalue",
+              "title":"Default Value"
+          },
+          {
+              "key":"additional-db-field-mappings[].include-in-asr",
+              "title":"Include In ASR",
+              "type":"radios",
+              "titleMap":{
+                  "True":"True",
+                  "False":"False"
+              }
+          }
+          ]
+      
+  }
+  
+],
+"model":{
+  "name": "DiameterConcurrency",
+  "description": "Created by admin on 03/03/2017 01:10:22 PM",
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "TBLMDIAMETERSESSIONDATA",
+  "start-time-field": "START_TIME",
+  "last-update-time-field": "LAST_UPDATED_TIME",
+  "concurrency-identity-field": "CONCURRENCY_ID",
+  "db-failure-action": "IGNORE",
+  "session-override-action": "None",
+  "mandatory-db-field-mappings": [
+    {
+      "logical-field": "Application ID",
+      "db-field-name": "APPLICATION_ID",
+      "referring-attribute": "21067:65539",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "Session Identity",
+      "db-field-name": "SESSION_ID",
+      "referring-attribute": "0:263",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "PDP Type",
+      "db-field-name": "PDP_TYPE",
+      "referring-attribute": "0:6",
+      "data-type": "String",
+      "include-in-asr": "false"
+    },
+    {
+      "logical-field": "Individual Identity",
+      "db-field-name": "SUBSCRIBER_ID",
+      "referring-attribute": "0:1",
+      "data-type": "String",
+      "include-in-asr": "false"
+    },
+    {
+      "logical-field": "Peer Identity",
+      "db-field-name": "PEER_ID",
+      "referring-attribute": "21067:65621",
+      "data-type": "String",
+      "include-in-asr": "true"
+    },
+    {
+      "logical-field": "Group Identity",
+      "db-field-name": "GROUPNAME",
+      "referring-attribute": "21067:65557",
+      "data-type": "String",
+      "include-in-asr": "false"
+    }
+  ],
+  "additional-db-field-mappings": [
+    {
+      "db-field-name": "CLIENT_IP_ADDRESS",
+      "referring-attribute": "192.168.2.122",
+      "data-type": "String",
+      "include-in-asr": "false"
+    }
+  ]
+}
+}

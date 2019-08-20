@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--                                                                     
+	Altiga vendor attributes                                     
+	                                    
+        $Id: dictionary.altiga,v 1.2 2002/08/15 16:18:57 aland Exp $              
+-->   
+<attribute-list vendorid="3076" vendor-name="Altiga">
+       <attribute id ="1" name="Altiga-Access-Hours-G/U" type="string"/>    
+       <attribute id ="2" name="Altiga-Simultaneous-Logins-G/U" type="integer "/>  
+       <attribute id ="3" name="Altiga-Min-Password-Length-G" type="integer"/>  
+       <attribute id ="4" name="Altiga-Allow-Alpha-Only-Passwords-G" type="integer"> 
+                <supported-values> 	
+                 	<value id ="1" name ="Allow"/>         	
+                        <value id ="0" name ="Disallow"/> 
+       		</supported-values>
+       </attribute>
+       <attribute id ="5" name="Altiga-Primary-DNS-G" type="ipaddr"/>  
+       <attribute id ="6" name="Altiga-Secondary-DNS-G" type="ipaddr"/>  
+       <attribute id ="7" name="Altiga-Primary-WINS-G" type="ipaddr"/>  
+       <attribute id ="8" name="Altiga-Secondary-WINS-G" type="ipaddr"/>  
+       <attribute id ="9" name="Altiga-SEP-Card-Assignment-G/U" type="integer">  
+       		<supported-values>
+                         <value id ="1" name ="SEP1"/>    	
+                         <value id ="2" name ="SEP2"/>    
+                         <value id ="4" name ="SEP3"/>    
+                         <value id ="8" name ="SEP4"/>    
+                         <value id ="15" name ="Any-SEP"/>
+       		</supported-values>
+       </attribute>
+       <attribute id ="10" name="Altiga-Priority-on-SEP-G/U" type="integer">  
+       		<supported-values>
+       			<value id ="1" name ="High"/>     
+                        <value id ="2" name ="Med-High"/> 
+                        <value id ="3" name ="Medium"/>   
+                        <value id ="4" name ="Med-Low"/>  
+                        <value id ="5" name ="Low"/>      
+       		</supported-values>
+       </attribute>
+       <attribute id ="11" name="Altiga-Tunneling-Protocols-G/U" type="integer"> 
+       		<supported-values>
+       			<value id ="1" name ="PPTP"/>          
+                        <value id ="2" name ="L2TP"/>          
+                        <value id ="4" name ="IPSec"/>         
+                        <value id ="8" name ="L2TP/IPSec"/>    
+                        <value id ="5" name ="PPTP-and-IPSec"/>
+                        <value id ="15" name ="All"/>          
+       		</supported-values>
+       </attribute>
+       <attribute id ="12" name="Altiga-IPSec-Sec-Association-G/U" type="string"/>  
+       <attribute id ="13" name="Altiga-IPSec-Authentication-G" type="integer">  
+       		<supported-values>
+       			<value id ="0" name ="None"/>    
+                        <value id ="1" name ="RADIUS"/>  
+                        <value id ="2" name ="LDAP"/>    
+                        <value id ="3" name ="NTDomain"/>
+                        <value id ="4" name ="SDI"/>     
+                        <value id ="5" name ="Internal"/>
+             	</supported-values>
+       </attribute>      	
+       <attribute id ="15" name="Altiga-IPSec-Banner-G" type="string"/>  
+       <attribute id ="16" name="Altiga-IPSec-Allow-Passwd-Store-G/U" type="integer">  
+       		<supported-values>
+                         <value id ="1" name ="Allow"/>   
+                         <value id ="0" name ="Disallow"/>
+                </supported-values>                                                
+       </attribute>                        
+       <attribute id ="17" name="Altiga-Use-Client-Address-G/U" type="integer">  
+      		<supported-values>	    
+      			 <value id ="1" name ="Allow"/>    
+      			 <value id ="0" name ="Disallow"/> 
+       		</supported-values>
+       </attribute>
+       <attribute id ="18" name="Altiga-PPTP-Min-Authentication-G/U" type="integer">  
+       		<supported-values>
+       		         <value id ="1" name ="PAP"/>      
+                         <value id ="2" name ="CHAP"/>     
+                         <value id ="4" name ="EAP-MD5"/>  
+                         <value id ="8" name ="EAP-GTC"/>  
+                         <value id ="16" name ="EAP-TLS"/> 
+                         <value id ="32" name ="MSCHAPv1"/>
+                         <value id ="64" name ="MSCHAPv2"/>
+                         <value id ="102" name ="Default"/>
+       		</supported-values>
+       </attribute>
+       <attribute id ="19" name="Altiga-L2TP-Min-Authentication-G/U" type="integer"> 
+       		<supported-values>
+       			 <value id ="1" name ="PAP"/>        
+                         <value id ="2" name ="CHAP"/>       
+                         <value id ="4" name ="EAP-MD5"/>    
+                         <value id ="8" name ="EAP-GTC"/>    
+                         <value id ="16" name ="EAP-TLS"/>   
+                         <value id ="32" name ="MSCHAPv1"/>  
+                         <value id ="64" name ="MSCHAPv2"/>  
+                         <value id ="102" name ="Default"/>  
+       		</supported-values>
+      </attribute> 
+      <attribute id ="20" name="Altiga-PPTP-Encryption-G" type="integer">  
+       		<supported-values>
+                         <value id ="2" name ="40bit"/>                  	
+                         <value id ="3" name ="40-Encryption-Req"/>      
+                         <value id ="4" name ="128"/>                    
+                         <value id ="5" name ="128-Encryption-Req"/>     
+                         <value id ="6" name ="40-or-128"/>              
+                         <value id ="7" name ="40-or-128-Encry-Req"/>    
+                         <value id ="10" name ="40-Stateless-Req"/>      
+                         <value id ="11" name ="40-Enc/Stateless-Req "/> 
+                         <value id ="12" name ="128-Stateless-Req"/>     
+                         <value id ="13" name ="128-Enc/Stateless-Req"/> 
+                         <value id ="14" name ="40/128-Stateless-Req"/>  
+                         <value id ="15" name ="40/128-Enc/Statls-Req"/> 
+       		</supported-values>
+      </attribute> 
+      <attribute id ="21" name="Altiga-L2TP-Encryption-G" type="integer">  
+       		<supported-values>
+                         <value id ="2" name ="40bit"/>                   	
+                         <value id ="3" name ="40-Encryption-Req"/>       
+                         <value id ="4" name ="128"/>                     
+                         <value id ="5" name ="128-Encryption-Req"/>      
+                         <value id ="6" name ="40-or-128"/>               
+                         <value id ="7" name ="40-or-128-Encry-Req"/>     
+                         <value id ="10" name ="40-Stateless-Req"/>       
+                         <value id ="11" name ="40-Enc/Stateless-Req "/>  
+                         <value id ="12" name ="128-Stateless-Req"/>      
+                         <value id ="13" name ="128-Enc/Stateless-Req"/>  
+                         <value id ="14" name ="40/128-Stateless-Req"/>   
+                         <value id ="15" name ="40/128-Enc/Statls-Req"/>  
+       		</supported-values>
+       </attribute>
+       <attribute id ="25" name="Altiga-IPSec-L2L-Keepalives-G" type="integer">  
+       		<supported-values>	
+       			 <value id ="1" name ="ON"/>  
+                         <value id ="0" name ="OFF"/> 
+       		</supported-values>
+       </attribute>
+       <attribute id ="27" name="Altiga-IPSec-Split-Tunnel-List-G" type="string"/>  
+       <attribute id ="28" name="Altiga-IPSec-Default-Domain-G" type="string"/>  
+       <attribute id ="29" name="Altiga-IPSec-Secondary-Domains-G" type="string"/>  
+       <attribute id ="30" name="Altiga-IPSec-Tunnel-Type-G" type="integer">  
+                <supported-values>                             
+        		 <value id ="1" name ="LAN-to-LAN"/>   
+        		 <value id ="2" name ="Remote-Access"/>
+       		</supported-values>
+       </attribute>
+       <attribute id ="31" name="Altiga-IPSec-Mode-Config-G" type="integer">  
+       		<supported-values>
+                         <value id ="1" name ="ON"/> 	
+                         <value id ="0" name ="OFF"/>
+       		</supported-values>
+       </attribute>       		
+       <attribute id ="33" name="Altiga-IPSec-User-Group-Lock-G" type="integer">  
+       		<supported-values>
+       			 <value id ="1" name ="ON"/> 
+                         <value id ="0" name ="OFF"/>
+       		</supported-values>
+       </attribute>
+       <attribute id ="34" name="Altiga-IPSec-Over-NAT-G" type="integer">
+       		<supported-values>
+       			<value id ="1" name ="ON"/>  
+                        <value id ="0" name ="OFF"/> 
+       		</supported-values>
+       </attribute>      
+       <attribute id ="35" name="Altiga-IPSec-Over-NAT-Port-Num-G" type="integer"/>
+</attribute-list>
+       
+                          
+                             
+                       
+                          
+                              
+                       
+                        
+                        
+                           
+                           
+                            
+                             
+                             
+                             
+                       
+                       
+                       
+                        
+                        
+                         
+                          
+                          
+                          
+                                                  
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                                                                 
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                        
+                              
+                               
+                      
+                            
+                               
+                                                
+                               
+                                
+                                                 
+                               
+                                
+                                                
+                               
+                                

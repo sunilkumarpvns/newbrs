@@ -1,0 +1,297 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate?name=trusted_certificate&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate.xml?name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/trusted_certificate?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/trusted_certificate.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate?operation=search&name=trusted_certificate&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate.xml?operation=search&name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/trusted_certificate?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/trusted_certificate.xml?operation=search
+
+Response :
+
+<trusted-certificate>
+	<name>trusted_certificate</name>
+	<trusted-certificate-subject>WiMAX Forum(R) Device Root - CA1</trusted-certificate-subject>
+	<trusted-certificate-issuer>WiMAX Forum(R) Device Root - CA1</trusted-certificate-issuer>
+	<valid-from>12 Dec 2007 05:30:00 </valid-from>
+	<expiry-date>31 Dec 2049 05:29:59 </expiry-date>
+	<version>3</version>
+	<serial-number>91207601816888918437056689888367386861</serial-number>
+	<signature-algorithm>SHA256withRSA</signature-algorithm>
+	<trusted-certificate-detail-subject>CN=WiMAX Forum(R) Device Root - CA1, O=WiMAX Forum(R), C=US</trusted-certificate-detail-subject>
+	<trusted-certificate-detail-issuer>CN=WiMAX Forum(R) Device Root - CA1, O=WiMAX Forum(R), C=US</trusted-certificate-detail-issuer>
+	<basic-constraint>2147483647</basic-constraint>
+	<key-usage> Key Certificate Sign, CRL Sign</key-usage>
+</trusted-certificate>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate?name=trusted_certificate&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate.json?name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/trusted_certificate?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/trusted_certificate.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate?operation=search&name=trusted_certificate&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate.json?operation=search&name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/trusted_certificate?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/trusted_certificate.json?operation=search
+
+Response :
+
+{
+	"name": "trusted_certificate",
+	"trusted-certificate-subject": "WiMAX Forum(R) Device Root - CA1",
+	"trusted-certificate-issuer": "WiMAX Forum(R) Device Root - CA1",
+	"valid-from": "12 Dec 2007 05:30:00 ",
+	"expiry-date": "31 Dec 2049 05:29:59 ",
+	"version": "3",
+	"serial-number": "91207601816888918437056689888367386861",
+	"signature-algorithm": "SHA256withRSA",
+	"trusted-certificate-detail-subject": "CN=WiMAX Forum(R) Device Root - CA1, O=WiMAX Forum(R), C=US",
+	"trusted-certificate-detail-issuer": "CN=WiMAX Forum(R) Device Root - CA1, O=WiMAX Forum(R), C=US",
+	"basic-constraint": "2147483647",
+	"key-usage": " Key Certificate Sign, CRL Sign"
+}
+
+For Download Trusted Certificate-
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/download?name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/download/trusted_certificate
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/download?operation=search&name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/download/trusted_certificate?operation=search
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<trusted-certificate>
+	<name>trusted_certificate</name>
+</trusted-certificate>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Trusted Certificate created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "trusted_certificate"
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Trusted Certificate created successfully</response-message>
+	</response>
+</response-detail>
+
+For Duplicate Trusted Certificate-
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/duplicate?name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/duplicate/trusted_certificate
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/duplicate?operation=create&name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/duplicate/trusted_certificate?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<trusted-certificate>
+	<name>trusted_certificate_duplicate</name>
+</trusted-certificate>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Trusted Certificate duplicated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "trusted_certificate_duplicate"
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Trusted Certificate duplicated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/bulk?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<trusted-certificate>
+		<name>trusted_certificate</name>
+	</trusted-certificate>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Trusted Certificate(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"list":[
+		{
+			"name": "trusted_certificate"
+		}
+  	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Trusted Certificate(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+For Upload Trusted Certificate-
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/upload?name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/upload/trusted_certificate
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/upload?operation=update&name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/upload/trusted_certificate?operation=update
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Trusted Certificate uploaded successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate?name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/trusted_certificate
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate?operation=delete&name=trusted_certificate
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/sslcertificates/trustedcertificate/trusted_certificate?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Trusted Certificate(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

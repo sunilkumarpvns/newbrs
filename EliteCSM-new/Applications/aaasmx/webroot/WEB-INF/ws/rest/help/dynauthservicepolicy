@@ -1,0 +1,504 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy?name=DYNAUTH-SP&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy.xml?name=DYNAUTH-SP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy?operation=search&name=DYNAUTH-SP&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy.xml?operation=search&name=DYNAUTH-SP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP.xml?operation=search
+
+Response     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dynauth-service-policy>
+    <name>tst</name>
+    <description>Created by admin on 05/26/2016 01:35:35 PM</description>
+    <status>INACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <response-attributes>0:1=0:1</response-attributes>
+    <validate-packet>false</validate-packet>
+    <event-timestamp>60</event-timestamp>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>TBLMCONCURRENTUSERS</table-name>
+    <db-failure-action>NAK</db-failure-action>
+    <eligible-session>NONE</eligible-session>
+    <missing-attribute-field-mapping>
+        <attribute-mapping>
+            <attribute-ids>0:4</attribute-ids>
+            <db-field>NAS_IP_ADDRESS</db-field>
+            <default-value>0.0.0.0</default-value>
+            <mandatory>False</mandatory>
+        </attribute-mapping>
+    </missing-attribute-field-mapping>
+    <nas-clients>
+        <nas-client>
+            <ruleset>0:1="eliteaaa"</ruleset>
+            <nas-client-details>
+                <nas-client>
+                    <server-name>NAS-ESI</server-name>
+                    <load-factor>2</load-factor>
+                </nas-client>
+            </nas-client-details>
+            <translation-mapping>rad_to_rad</translation-mapping>
+            <script>abc</script>
+        </nas-client>
+    </nas-clients>
+</dynauth-service-policy>
+
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy?name=DYNAUTH-SP&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy.json?name=DYNAUTH-SP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy?operation=search&name=DYNAUTH-SP&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy.json?operation=search&name=DYNAUTH-SP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP.json?operation=search
+
+
+Response     :
+
+{
+  "name": "tst",
+  "description": "Created by admin on 05/26/2016 01:35:35 PM",
+  "status": "INACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "response-attributes": "0:1=0:1",
+  "validate-packet": "false",
+  "event-timestamp": 60,
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "TBLMCONCURRENTUSERS",
+  "db-failure-action": "NAK",
+  "eligible-session": "NONE",
+  "missing-attribute-field-mapping": [
+    {
+      "attribute-ids": "0:4",
+      "db-field": "NAS_IP_ADDRESS",
+      "default-value": "0.0.0.0",
+      "mandatory": "False"
+    }
+  ],
+  "nas-clients": [
+    {
+      "ruleset": "0:1=\"eliteaaa\"",
+      "nas-client-details": [
+        {
+          "server-name": "NAS-ESI",
+          "load-factor": 2
+        }
+      ],
+      "translation-mapping": "rad_to_rad",
+      "script": "abc"
+    }
+  ]
+}
+
+
+***********************************************************************
+                    CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy?operation=create
+
+
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<dynauth-service-policy>
+    <name>tst</name>
+    <description>Created by admin on 05/26/2016 01:35:35 PM</description>
+    <status>INACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <response-attributes>0:1=0:1</response-attributes>
+    <validate-packet>false</validate-packet>
+    <event-timestamp>60</event-timestamp>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>TBLMCONCURRENTUSERS</table-name>
+    <db-failure-action>NAK</db-failure-action>
+    <eligible-session>NONE</eligible-session>
+    <missing-attribute-field-mapping>
+        <attribute-mapping>
+            <attribute-ids>0:4</attribute-ids>
+            <db-field>NAS_IP_ADDRESS</db-field>
+            <default-value>0.0.0.0</default-value>
+            <mandatory>False</mandatory>
+        </attribute-mapping>
+    </missing-attribute-field-mapping>
+    <nas-clients>
+        <nas-client>
+            <ruleset>0:1="eliteaaa"</ruleset>
+            <nas-client-details>
+                <nas-client>
+                    <server-name>NAS-ESI</server-name>
+                    <load-factor>2</load-factor>
+                </nas-client>
+            </nas-client-details>
+            <translation-mapping>rad_to_rad</translation-mapping>
+            <script>abc</script>
+        </nas-client>
+    </nas-clients>
+</dynauth-service-policy>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Dynauth Service Policy created successfully</response-message>
+	</response>
+</response-detail>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+
+{
+  "name": "tst",
+  "description": "Created by admin on 05/26/2016 01:35:35 PM",
+  "status": "INACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "response-attributes": "0:1=0:1",
+  "validate-packet": "false",
+  "event-timestamp": 60,
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "TBLMCONCURRENTUSERS",
+  "db-failure-action": "NAK",
+  "eligible-session": "NONE",
+  "missing-attribute-field-mapping": [
+    {
+      "attribute-ids": "0:4",
+      "db-field": "NAS_IP_ADDRESS",
+      "default-value": "0.0.0.0",
+      "mandatory": "False"
+    }
+  ],
+  "nas-clients": [
+    {
+      "ruleset": "0:1=\"eliteaaa\"",
+      "nas-client-details": [
+        {
+          "server-name": "NAS-ESI",
+          "load-factor": 2
+        }
+      ],
+      "translation-mapping": "rad_to_rad",
+      "script": "abc"
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Dynauth Service Policy created successfully</response-message>
+	</response>
+</response-detail>
+
+
+***********************************************************************
+                    CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+
+<list>
+    <dynauth-service-policy>
+        <name>tst</name>
+        <description>Created by admin on 05/26/2016 01:35:35 PM</description>
+        <status>INACTIVE</status>
+        <ruleset>0:1="*"</ruleset>
+        <response-attributes>0:1=0:1</response-attributes>
+        <validate-packet>false</validate-packet>
+        <event-timestamp>60</event-timestamp>
+        <database-datasource>DefaultDatabaseDatasource</database-datasource>
+        <table-name>TBLMCONCURRENTUSERS</table-name>
+        <db-failure-action>NAK</db-failure-action>
+        <eligible-session>NONE</eligible-session>
+        <missing-attribute-field-mapping>
+            <attribute-mapping>
+                <attribute-ids>0:4</attribute-ids>
+                <db-field>NAS_IP_ADDRESS</db-field>
+                <default-value>0.0.0.0</default-value>
+                <mandatory>False</mandatory>
+            </attribute-mapping>
+        </missing-attribute-field-mapping>
+        <nas-clients>
+            <nas-client>
+                <ruleset>0:1="eliteaaa"</ruleset>
+                <nas-client-details>
+                    <nas-client>
+                        <server-name>NAS-ESI</server-name>
+                        <load-factor>2</load-factor>
+                    </nas-client>
+                </nas-client-details>
+                <translation-mapping>rad_to_rad</translation-mapping>
+                <script>abc</script>
+            </nas-client>
+        </nas-clients>
+    </dynauth-service-policy>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Dynauth Service Policies created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "list": [
+    {
+      "name": "tst",
+      "description": "Created by admin on 05/26/2016 01:35:35 PM",
+      "status": "INACTIVE",
+      "ruleset": "0:1=\"*\"",
+      "response-attributes": "0:1=0:1",
+      "validate-packet": "false",
+      "event-timestamp": 60,
+      "database-datasource": "DefaultDatabaseDatasource",
+      "table-name": "TBLMCONCURRENTUSERS",
+      "db-failure-action": "NAK",
+      "eligible-session": "NONE",
+      "missing-attribute-field-mapping": [
+        {
+          "attribute-ids": "0:4",
+          "db-field": "NAS_IP_ADDRESS",
+          "default-value": "0.0.0.0",
+          "mandatory": "False"
+        }
+      ],
+      "nas-clients": [
+        {
+          "ruleset": "0:1=\"eliteaaa\"",
+          "nas-client-details": [
+            {
+              "server-name": "NAS-ESI",
+              "load-factor": 2
+            }
+          ],
+          "translation-mapping": "rad_to_rad",
+          "script": "abc"
+        }
+      ]
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Dynauth Service Policies created successfully</response-message>
+	</response>
+</response-detail>
+
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy?name=DYNAUTH-SP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy?operation=update&name=DYNAUTH-SP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<dynauth-service-policy>
+    <name>tst</name>
+    <description>Created by admin on 05/26/2016 01:35:35 PM</description>
+    <status>INACTIVE</status>
+    <ruleset>0:1="*"</ruleset>
+    <response-attributes>0:1=0:1</response-attributes>
+    <validate-packet>false</validate-packet>
+    <event-timestamp>60</event-timestamp>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>TBLMCONCURRENTUSERS</table-name>
+    <db-failure-action>NAK</db-failure-action>
+    <eligible-session>NONE</eligible-session>
+    <missing-attribute-field-mapping>
+        <attribute-mapping>
+            <attribute-ids>0:4</attribute-ids>
+            <db-field>NAS_IP_ADDRESS</db-field>
+            <default-value>0.0.0.0</default-value>
+            <mandatory>False</mandatory>
+        </attribute-mapping>
+    </missing-attribute-field-mapping>
+    <nas-clients>
+        <nas-client>
+            <ruleset>0:1="eliteaaa"</ruleset>
+            <nas-client-details>
+                <nas-client>
+                    <server-name>NAS-ESI</server-name>
+                    <load-factor>2</load-factor>
+                </nas-client>
+            </nas-client-details>
+            <translation-mapping>rad_to_rad</translation-mapping>
+            <script>abc</script>
+        </nas-client>
+    </nas-clients>
+</dynauth-service-policy>
+
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Dynauth Service Policy updated successfully</response-message>
+	</response>
+</response-detail>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "tst",
+  "description": "Created by admin on 05/26/2016 01:35:35 PM",
+  "status": "INACTIVE",
+  "ruleset": "0:1=\"*\"",
+  "response-attributes": "0:1=0:1",
+  "validate-packet": "false",
+  "event-timestamp": 60,
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "TBLMCONCURRENTUSERS",
+  "db-failure-action": "NAK",
+  "eligible-session": "NONE",
+  "missing-attribute-field-mapping": [
+    {
+      "attribute-ids": "0:4",
+      "db-field": "NAS_IP_ADDRESS",
+      "default-value": "0.0.0.0",
+      "mandatory": "False"
+    }
+  ],
+  "nas-clients": [
+    {
+      "ruleset": "0:1=\"eliteaaa\"",
+      "nas-client-details": [
+        {
+          "server-name": "NAS-ESI",
+          "load-factor": 2
+        }
+      ],
+      "translation-mapping": "rad_to_rad",
+      "script": "abc"
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Dynauth Service Policy updated successfully</response-message>
+	</response>
+</response-detail>
+
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy?name=DYNAUTH-SP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy?operation=delete&name=DYNAUTH-SP
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/dynauthservicepolicy/DYNAUTH-SP?operation=delete
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Dynauth Service Policy/Policies deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

@@ -1,0 +1,261 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Client Profile Name",
+  "properties":{
+      "profile-name":{
+          "title":"Client Profile Name",
+          "type":"string"
+      },
+      "decription":{
+          "title":"Description",
+          "type":"string"
+      },
+      "client-type":{
+          "title":"Client Type",
+          "type":"string"
+      },
+      "vendor-name":{
+          "title":"Vendor Name",
+          "type":"string"
+      },
+      "dns-list":{
+          "title":"DNS List",
+          "type":"string"
+      },
+      "user-identities":{
+          "title":"User Identities",
+          "type":"string"
+      },
+      "prepaid-standard":{
+          "title":"Prepaid Standard",
+          "type":"string"
+      },
+      "client-policy":{
+          "title":"Client Policy",
+          "type":"string"
+      },
+      "hotline-policy":{
+          "title":"Hotline Policy",
+          "type":"string"
+      },
+      "dhcp-address":{
+          "title":"DHCP Address",
+          "type":"string"
+      },
+      "ha-address":{
+          "title":"HA Address",
+          "type":"string"
+      },
+      "multiple-class-attribute":{
+          "title":"Multiple Class Attribute",
+          "type":"string"
+      },
+      "filter-unsupported-vsa":{
+          "title":"Filter Unsupported VSA",
+          "type":"string"
+      },
+      "supported-vendors":{
+          "type":"array",
+          "items":{
+              "type":"object",
+              "properties":{
+                  "vendor-name":{
+                      "title":"Add Supported Vendors",
+                      "type":"string"
+                  }
+              }
+          }
+          
+      },
+      "dyn-auth-port":{
+          "title":"DynAuth Port",
+          "type":"integer",
+          "default":3799
+      },
+      "coa-supported-attributes":{
+          "title":"COA supported Attributes",
+          "type":"string"
+      },
+      "coa-unsupported-attributes":{
+          "title":"COA unsupported Attributes",
+          "type":"string"
+      },
+      "dm-supported-attributes":{
+          "title":"DM supported Attributes",
+          "type":"string"
+      },
+      "dm-unsupported-attributes":{
+          "title":"DM unsupported Attributes",
+          "type":"string"
+      }
+      
+  }
+  
+},
+   "form":[
+  {
+      "key":"profile-name"
+  },
+  {
+      "key":"decription"
+  },
+  {
+      "key":"client-type",
+      "type":"select",
+      "titleMap":{
+                "NAS":"NAS",
+                "Proxy":"Proxy",
+                "Portal":"Portal",
+                "WiMAX Portal":"WiMAX Portal",
+                "3GPP2-HA":"3GPP2-HA",
+                "WiMAX-HA":"WiMAX-HA",
+                "WiMAX-DHCP":"WiMAX-DHCP",
+                "ASN":"ASN",
+                "GGSN":"GGSN",
+                "PDSN":"PDSN",
+                "Cisco-ISG":"Cisco-ISG",
+                "Cisco-SSG":"Cisco-SSG",
+                "Cisco-LAC":"Cisco-LAC",
+                "Cisco-LNS":"Cisco-LNS",
+                "A12-ANAAA":"A12-ANAAA",
+                "RADIUS1":"RADIUS1",
+                "RADIUS2":"RADIUS2",
+                "RADIUS3":"RADIUS3",
+                "Softswitch":"Softswitch",
+                "VoIP":"VoIP",
+                "Voice":"Voice",
+                "ATM-VC":"ATM-VC",
+                "PPPoA":"PPPoA",
+                "PPPoE":"PPPoE",
+                "PPPoX":"PPPoX",
+                "DOCSIS":"DOCSIS",
+                "WAG":"WAG",
+                "Custom1":"Custom1",
+                "Custom2":"Custom2",
+                "Custom3":"Custom3",
+                "Custom4":"Custom4",
+                "Custom5":"Custom5",
+                "Custom6":"Custom6",
+                "Custom7":"Custom7",
+                "Custom8":"Custom8",
+                "Custom9":"Custom9",
+                "Custom10":"Custom10"
+      }
+  },
+  {
+      "key":"vendor-name",
+      "type":"select",
+      "titleMap":{
+            "standard":"standard",
+            "elitecore":"elitecore",
+            "wimax":"wimax",
+            "3gpp2":"3gpp2",
+            "microsoft":"microsoft",
+            "3gpp":"3gpp"
+      }
+  },
+  {
+      "key":"dns-list"
+  },
+  {
+      "key":"user-identities"
+  },
+  {
+      "key":"prepaid-standard"
+  },
+  {
+      "key":"client-policy"
+  },
+  {
+      "key":"hotline-policy"
+  },
+  {
+      "key":"dhcp-address"
+  },
+  {
+      "key":"ha-address"
+  },
+  {
+      "key":"multiple-class-attribute",
+      "type":"select",
+      "titleMap":{
+          "Yes":"Yes",
+          "No":"No"
+      }
+  },
+  {
+      "key":"filter-unsupported-vsa",
+      "type":"checkboxes",
+      "titleMap":[
+          {
+              "value":"True",
+              "name":"True"
+          },
+          {
+              "value":"False",
+              "name":"False"
+          }
+          ]
+  },
+  {
+      "key":"supported-vendors",
+      "add":"Add",
+      "items":[
+          {
+              "key":"supported-vendors[].vendor-name"
+          }
+          ]
+      
+      
+  },
+  {
+      "key":"dyn-auth-port"
+  },
+  {
+      "key":"coa-supported-attributes"
+  },
+  {
+      "key":"coa-unsupported-attributes"
+  },
+  {
+      "key":"dm-supported-attributes"
+  },
+  {
+      "key":"dm-unsupported-attributes"
+  }
+  
+],
+"model":{
+  "profile-name": "testClientProfile",
+  "decription": "Created by admin on 11/26/2016 10:57:43 AM",
+  "client-type": "Softswitch",
+  "vendor-name": "3gpp2",
+  "dns-list": "192.168.25.121,192.168.26.122",
+  "user-identities": "0:101,0:85",
+  "prepaid-standard": "WIMAX_1_2",
+  "client-policy": "radiusPolicy1",
+  "hotline-policy": "hotlinepolicy",
+  "dhcp-address": "192.169.2.178",
+  "ha-address": "10.121.21.102",
+  "multiple-class-attribute": "YES",
+  "supported-vendors": [
+    {
+      "vendor-name": "standard"
+    },
+    {
+      "vendor-name": "3gpp2"
+    },
+    {
+      "vendor-name": "microsoft"
+    }
+  ],
+  "filter-unsupported-vsa": "true",
+  "dyn-auth-port": 3798,
+  "coa-supported-attributes": "0:1",
+  "coa-unsupported-attributes": "0:31",
+  "dm-supported-attributes": "0:1,0:4",
+  "dm-unsupported-attributes": "0:89"
+}
+
+}

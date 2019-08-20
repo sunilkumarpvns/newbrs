@@ -1,0 +1,6 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_monetary_recharge_plan,POST : create monetary recharge plan MRP_1000 :201,pd/monetaryrechargeplan/monetary-recharge-plan.json,POST,create_monetary_recharge_plan.json,,81772,201,monetary_recharge_plan
+2,get_monetary_recharge_plan,GET : MRP_1000 should be displayed : 200,pd/monetaryrechargeplan/monetary-recharge-plan/MRP_1000.json,GET,,,81773,200,monetary_recharge_plan
+3,update_monetary_recharge_plan,PUT : Update MRP_1000 to UPDATED_MRP_1000 : 200,pd/monetaryrechargeplan/monetary-recharge-plan/MRP_1000.json,PUT,update_monetary_recharge_plan.json,,81774,200,monetary_recharge_plan
+4,get_updated_lrn,GET : UPDATED_MRP_1000 should be displayed : 200,pd/monetaryrechargeplan/monetary-recharge-plan/MRP_1000.json,GET,,,81775,200,monetary_recharge_plan
+5,delete_monetary_recharge_plan,DELETE : Delete UPDATED_MRP_1000 : 200,pd/monetaryrechargeplan/monetary-recharge-plan/MRP_1000.json,DELETE,,,81776,200,monetary_recharge_plan

@@ -1,0 +1,20 @@
+{
+        "id": "rest_non_monetary_rate_card_11111111",
+        "status": "ACTIVE",
+        "groups": "GROUP_1",
+        "name": "rest_non_monetary_rate_card",
+        "description": "Created by rest automation",
+        "type": "NON_MONETARY",
+        "nonMonetaryRateCardData": {
+        	"pulseUom": "MINUTE",
+        	"pulse":10,
+        	"timeUom" :"MINUTE",
+        	"time":10,
+            "renewalInterval":1,
+        	"renewalIntervalUnit":"MONTH"
+        },
+        "monetaryRateCardData":null,
+        "rncPkgId": "rest_po_rnc_package_11111111",
+		"currency": "INR",
+        "groupNames": null
+}

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.drivers.subscriberprofile.database.data.SQLParamPoolValueData" table="TBLMSQLPARAMPOOLVALUE" >          
+	 
+		<id name="sqlId" column="SQLID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"> 
+			</generator>
+		</id>
+		
+		<property name="query" type="StringType">
+		  <column name="QUERY" sql-type="VARCHAR(4000)" not-null="false"/>
+		</property>
+		
+	</class>
+	
+</hibernate-mapping>
+
+          
+

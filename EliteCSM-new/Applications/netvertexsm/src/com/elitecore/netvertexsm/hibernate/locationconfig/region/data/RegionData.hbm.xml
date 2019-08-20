@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 19, 2013 11:06:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class	name="com.elitecore.netvertexsm.datamanager.locationconfig.region.data.RegionData" table="TBLMREGION">
+		<id column="REGIONID" name="regionId" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator" ></generator>
+		</id>
+		
+		<property name="regionName" type="string">
+			<column length="64" name="REGIONNAME" />
+		</property>
+		
+		<property  name="countryId" type="java.lang.Long">
+			<column name="COUNTRYID" not-null="true" sql-type="NUMERIC" />
+		</property>
+		
+		
+		<many-to-one  name="countryData"  fetch="join"  insert="false" update="false" class="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.CountryData" column="COUNTRYID" ></many-to-one>
+	</class>
+</hibernate-mapping>

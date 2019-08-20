@@ -1,0 +1,8 @@
+description = ''
+
+dependencies {
+    compile project(':elitecommons')
+
+    compile group: 'commons-net', name: 'commons-net', version: '3.0.1'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.2.1'
+}

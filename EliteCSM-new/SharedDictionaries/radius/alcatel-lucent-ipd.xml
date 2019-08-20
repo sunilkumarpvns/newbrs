@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="6527" vendor-name="Alcatel-IPD">
+
+<attribute id="1" name="Timetra-Access" type="integer"/>
+
+<supported-values>
+<value id="1" name="Timetra-Access" type="ftp"/> 
+<value id="2" name="Timetra-Access" type="console"/> 
+<value id="3" name="Timetra-Access" type="both"/> 
+</supported-values>
+
+<attribute id="2" name="Timetra-Home-Directory" type="string"/>
+<attribute id="3" name="Timetra-Restrict-To-Home" type="integer"/>
+
+<supported-values>
+<value id="1" name="Timetra-Restrict-To-Home" type="true"/> 
+<value id="2" name="Timetra-Restrict-To-Home" type="false"/> 
+</supported-values>
+
+
+<attribute id="4" name="Timetra-Profile" type="string"/>
+<attribute id="5" name="Timetra-Default-Action" type="integer"/>
+
+<supported-values>
+<value id="1" name="Timetra-Default-Action" type="permit-all"/> 
+<value id="2" name="Timetra-Default-Action" type="deny-all"/>
+<value id="3" name="Timetra-Default-Action" type="none"/>
+</supported-values>
+
+<attribute id="6" name="Timetra-Cmd" type="string"/>
+<attribute id="7" name="Timetra-Action" type="integer"/>
+
+<supported-values>
+<value id="1" name="Timetra-Action " type="permit"/> 
+<value id="2" name="Timetra-Action " type="deny"/>
+</supported-values>
+
+
+<attribute id="8" name="Timetra-Exec-File" type="string"/>
+<attribute id="9" name="Alc-Primary-Dns" type="ipaddr"/>
+<attribute id="10" name="Alc-Secondary-Dns" type="ipaddr"/>
+<attribute id="11" name="Alc-Subsc-ID-Str" type="string"/>
+<attribute id="12" name="Alc-Subsc-Prof-Str" type="string"/>
+<attribute id="13" name="Alc-SLA-Prof-Str" type="string"/>
+<attribute id="14" name="Alc-Force-Renew" type="string"/>
+<attribute id="15" name="Alc-Create-Host" type="string"/>
+<attribute id="16" name="Alc-ANCP-Str" type="string"/>
+<attribute id="17" name="Alc-Retail-Serv-Id" type="integer"/>
+<attribute id="18" name="Alc-Default-Router" type="ipaddr"/>
+<attribute id="19" name="Alc-Acct-I-Inprof-Octets-64" type="octets"/>
+<attribute id="20" name="Alc-Acct-I-Outprof-Octets-64" type="octets"/>
+<attribute id="21" name="Alc-Acct-O-Inprof-Octets-64" type="octets"/>
+<attribute id="22" name="Alc-Acct-O-Outprof-Octets-64" type="octets"/>
+<attribute id="23" name="Alc-Acct-I-Inprof-Pkts-64" type="octets"/>
+<attribute id="24" name="Alc-Acct-I-Outprof-Pkts-64" type="octets"/>
+<attribute id="25" name="Alc-Acct-O-Inprof-Pkts-64" type="octets"/>
+<attribute id="26" name="Alc-Acct-O-Outprof-Pkts-64" type="octets"/>
+<attribute id="27" name="Alc-Client-Hardware-Addr" type="string"/>
+<attribute id="28" name="Alc-Int-Dest-Id-Str" type="string"/>
+<attribute id="29" name="Alc-Primary-Nbns" type="ipaddr"/>
+<attribute id="30" name="Alc-Secondary-Nbns" type="ipaddr"/>
+<attribute id="31" name="Alc-MSAP-Serv-Id" type="integer"/>
+<attribute id="32" name="Alc-MSAP-Policy" type="string"/>
+<attribute id="33" name="Alc-MSAP-Interface" type="string"/>
+<attribute id="34" name="Alc-PPPoE-PADO-Delay" type="integer"/>
+<attribute id="35" name="Alc-PPPoE-Service-Name" type="string"/>
+<attribute id="36" name="Alc-DHCP-Vendor-Class-Id" type="string"/>
+<attribute id="37" name="Alc-Acct-OC-I-Inprof-Octets-64" type="octets"/>
+<attribute id="38" name="Alc-Acct-OC-I-Outprof-Octets-64" type="octets"/>
+<attribute id="39" name="Alc-Acct-OC-O-Inprof-Octets-64" type="octets"/>
+<attribute id="40" name="Alc-Acct-OC-O-Outprof-Octets-64" type="octets"/>
+<attribute id="41" name="Alc-Acct-OC-I-Inprof-Pkts-64" type="octets"/>
+<attribute id="42" name="Alc-Acct-OC-I-Outprof-Pkts-64" type="octets"/>
+<attribute id="43" name="Alc-Acct-OC-O-Inprof-Pkts-64" type="octets"/>
+<attribute id="44" name="Alc-Acct-OC-O-Outprof-Pkts-64" type="octets"/>
+<attribute id="45" name="Alc-App-Prof-Str" type="string"/>
+<attribute id="46" name="Alc-Tunnel-Group" type="string"/>
+<attribute id="47" name="Alc-Tunnel-Algorithm" type="integer"/>
+
+<supported-values>
+<value id="1" name="Alc-Tunnel-Algorithm" type="weighted-access"/>
+<value id="2" name="Alc-Tunnel-Algorithm" type="existing-first"/>
+</supported-values>
+
+
+<attribute id="48" name="Alc-Tunnel-Max-Sessions" type="integer"/>
+<attribute id="49" name="Alc-Tunnel-Idle-Timeout" type="integer"/>
+<attribute id="50" name="Alc-Tunnel-Hello-Interval" type="integer"/>
+<attribute id="51" name="Alc-Tunnel-Destruct-Timeout" type="integer"/>
+<attribute id="52" name="Alc-Tunnel-Max-Retries-Estab" type="integer"/>
+<attribute id="53" name="Alc-Tunnel-Max-Retries-Not-Estab" type="integer"/>
+<attribute id="54" name="Alc-Tunnel-AVP-Hiding" type="integer"/>
+
+<supported-values>
+<value id="1" name="Alc-Tunnel-AVP-Hiding" type="nothing"/>
+<value id="2" name="Alc-Tunnel-AVP-Hiding" type="sensitive-only "/>
+<value id="3" name="Alc-Tunnel-AVP-Hiding" type="all"/>
+</supported-values>
+
+<attribute id="55" name="Alc-BGP-Policy" type="string"/>
+<attribute id="56" name="Alc-BGP-Auth-Keychain" type="string"/>
+<attribute id="57" name="Alc-BGP-Auth-Key" type="octets"/>
+<attribute id="58" name="Alc-BGP-Export-Policy" type="string"/>
+<attribute id="59" name="Alc-BGP-Import-Policy" type="string"/>
+<attribute id="60" name="Alc-BGP-PeerAS" type="integer"/>
+<attribute id="61" name="Alc-IPsec-Serv-Id" type="integer"/>
+<attribute id="62" name="Alc-IPsec-Interface" type="string"/>
+<attribute id="63" name="Alc-IPsec-Tunnel-Template-Id" type="integer"/>
+<attribute id="64" name="Alc-IPsec-SA-Lifetime" type="integer"/>
+<attribute id="65" name="Alc-IPsec-SA-PFS-Groupt" type="integer"/>
+
+<supported-values>
+<value id="1" name="Alc-IPsec-SA-PFS-Group" type="group1"/>
+<value id="2" name="Alc-IPsec-SA-PFS-Group" type="group2"/>
+<value id="5" name="Alc-IPsec-SA-PFS-Group" type="group5"/>
+</supported-values>
+
+
+<attribute id="66" name="Alc-IPsec-SA-Encr-Algorithm" type="integer"/>
+
+<supported-values>
+<value id="1" name="Alc-IPsec-SA-Encr-Algorithm" type="null"/>
+<value id="2" name="Alc-IPsec-SA-Encr-Algorithm" type="des"/>
+<value id="3" name="Alc-IPsec-SA-Encr-Algorithm" type="des3"/>
+<value id="4" name="Alc-IPsec-SA-Encr-Algorithm" type="aes128"/>
+<value id="5" name="Alc-IPsec-SA-Encr-Algorithm" type="aes192"/>
+<value id="6" name="Alc-IPsec-SA-Encr-Algorithm" type="aes256"/>
+</supported-values>
+
+
+<attribute id="67" name="Alc-IPsec-SA-Auth-Algorithm" type="integer"/>
+
+<supported-values>
+<value id="1" name="Alc-IPsec-SA-Auth-Algorithm" type="null"/>
+<value id="2" name="Alc-IPsec-SA-Auth-Algorithm" type="md5"/>
+<value id="3" name="Alc-IPsec-SA-Auth-Algorithm" type="sha1"/>
+</supported-values>
+
+
+<attribute id="68" name="Alc-IPsec-SA-Replay-Window" type="integer"/>
+<attribute id="69" name="Alc-Acct-I-High-Octets-Drop_64" type="octets"/>
+<attribute id="70" name="Alc-Acct-I-Low-Octets-Drop_64" type="octets"/>
+<attribute id="71" name="Alc-Acct-I-High-Pack-Drop_64" type="octets"/>
+<attribute id="72" name="Alc-Acct-I-Low-Pack-Drop_64" type="octets"/>
+<attribute id="73" name="Alc-Acct-I-High-Octets-Offer_64" type="octets"/>
+<attribute id="74" name="Alc-Acct-I-Low-Octets-Offer_64" type="octets"/>
+<attribute id="75" name="Alc-Acct-I-High-Pack-Offer_64" type="octets"/>
+<attribute id="76" name="Alc-Acct-I-Low-Pack-Offer_64" type="octets"/>
+<attribute id="77" name="Alc-Acct-I-Unc-Octets-Offer_64" type="octets"/>
+<attribute id="78" name="Alc-Acct-I-Unc-Pack-Offer_64" type="octets"/>
+<attribute id="79" name="Alc-Acct-I-All-Octets-Offer_64" type="octets"/>
+<attribute id="80" name="Alc-Acct-I-All-Pack-Offer_64" type="octets"/>
+<attribute id="81" name="Alc-Acct-O-Inprof-Pack-Drop_64" type="octets"/>
+<attribute id="82" name="Alc-Acct-O-Outprof-Pack-Drop_64" type="octets"/>
+<attribute id="83" name="Alc-Acct-O-Inprof-Octs-Drop_64" type="octets"/>
+<attribute id="84" name="Alc-Acct-O-Outprof-Octs-Drop_64" type="octets"/>
+<attribute id="85" name="Alc-Acct-OC-I-All-Octs-Offer_64" type="octets"/>
+<attribute id="86" name="Alc-Acct-OC-I-All-Pack-Offer_64" type="octets"/>
+<attribute id="87" name="Alc-Acct-OC-I-Inpr-Octs-Drop_64" type="octets"/>
+<attribute id="88" name="Alc-Acct-OC-I-Outpr-Octs-Drop_64" type="octets"/>
+<attribute id="89" name="Alc-Acct-OC-I-Inpr-Pack-Drop_64" type="octets"/>
+<attribute id="90" name="Alc-Acct-OC-I-Outpr-Pack-Drop_64" type="octets"/>
+<attribute id="91" name="Alc-Acct-OC-O-Inpr-Pack-Drop_64" type="octets"/>
+<attribute id="92" name="Alc-Acct-OC-O-Outpr-Pack-Drop_64" type="octets"/>
+<attribute id="93" name="Alc-Acct-OC-O-Inpr-Octs-Drop_64" type="octets"/>
+<attribute id="94" name="Alc-Acct-OC-O-Outpr-Octs-Drop_64" type="octets"/>
+<attribute id="95" name="Alc-Credit-Control-CategoryMap" type="string"/>
+<attribute id="96" name="Alc-Credit-Control-Quota" type="string"/>
+<attribute id="97" name="Alc-Tunnel-Challenge" type="integer"/>
+<attribute id="98" name="Alc-Force-Nak" type="string"/> 
+<attribute id="99" name="Alc-Ipv6-Address" type="ipv6addr"/>
+<attribute id="100" name="Alc-Serv-Id" type="integer"/>
+<attribute id="101" name="Alc-Interface" type="string"/>
+<attribute id="102" name="Alc-ToServer-Dhcp-Options" type="octets"/>
+<attribute id="103" name="Alc-ToClient-Dhcp-Options" type="octets"/>
+<attribute id="104" name="Alc-Tunnel-Serv-Id" type="integer"/>
+<attribute id="105" name="Alc-Ipv6-Primary-Dns" type="ipv6addr"/>
+<attribute id="106" name="Alc-Ipv6-Secondary-Dns" type="ipv6addr"/>
+<attribute id="107" name="Alc-Acct-statmode" type="string"/>
+<attribute id="108" name="Alc-Acct-I-Hiprio-Octets_64" type="octets"/>
+<attribute id="109" name="Alc-Acct-I-Lowprio-Octets_64" type="octets"/>
+<attribute id="110" name="Alc-Acct-O-Hiprio-Octets_64" type="octets"/>
+<attribute id="111" name="Alc-Acct-O-Lowprio-Octets_64" type="octets"/>
+<attribute id="112" name="Alc-Acct-I-Hiprio-Packets_64" type="octets"/>
+<attribute id="113" name="Alc-Acct-I-Lowprio-Packets_64" type="octets"/>
+<attribute id="114" name="Alc-Acct-O-Hiprio-Packets_64" type="octets"/>
+<attribute id="115" name="Alc-Acct-O-Lowprio-Packets_64" type="octets"/>
+<attribute id="116" name="Alc-Acct-I-All-Octets_64" type="octets"/>
+<attribute id="117" name="Alc-Acct-O-All-Octets_64" type="octets"/>
+<attribute id="118" name="Alc-Acct-I-All-Packets_64" type="octets"/>
+<attribute id="119" name="Alc-Acct-O-All-Packets_64" type="octets"/>
+<attribute id="120" name="Alc-Tunnel-Rx-Window-Size" type="integer"/>
+<attribute id="121" name="Alc-Nat-Port-Range" type="string"/>
+<attribute id="122" name="Alc-LI-Action" type="integer"/>
+
+<supported-values>
+<value id="1" name="Alc-LI-Action" type="no-action"/>
+<value id="2" name="Alc-LI-Action" type="enable"/>
+<value id="3" name="Alc-LI-Action" type="disable"/>
+</supported-values>
+
+
+<attribute id="123" name="Alc-LI-Destination" type="string"/>
+<attribute id="124" name="Alc-LI-FC" type="integer"/>
+
+<supported-values>
+<value id="0" name="Alc-LI-FC" type="be"/>
+<value id="1" name="Alc-LI-FC" type="l2"/>
+<value id="2" name="Alc-LI-FC" type="af"/>
+<value id="3" name="Alc-LI-FC" type="l1"/>
+<value id="4" name="Alc-LI-FC" type="h2"/>
+<value id="5" name="Alc-LI-FC" type="ef"/>
+<value id="6" name="Alc-LI-FC" type="h1"/>
+<value id="7" name="Alc-LI-FC" type="nc"/>
+</supported-values>
+ 
+<attribute id="125" name="Alc-LI-Direction" type="integer"/>
+
+<supported-values>
+<value id="1" name="Alc-LI-Direction" type="ingress"/>
+<value id="2" name="Alc-LI-Direction" type="egress"/>
+</supported-values>
+
+<attribute id="126" name="Alc-Subscriber-QoS-Override" type="string"/>
+
+</attribute-list>

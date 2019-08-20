@@ -1,0 +1,38 @@
+{
+  "id": "rest_rate_card_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "updated_rest_rate_card",
+  "description": "Updated by rest automation",
+  "type": "MONETARY",
+  "monetaryRateCardData": {
+    "rateUnit": "MINUTE",
+    "pulseUnit": "MINUTE",
+    "monetaryRateCardVersions": [
+      {
+        "monetaryRateCardVersionDetail": [
+          {
+            "label1": null,
+            "label2": null,
+            "slab1": null,
+            "slab2": null,
+            "slab3": null,
+            "pulse1": 10,
+            "pulse2": null,
+            "pulse3": null,
+            "rate1": 10,
+            "rate2": null,
+            "rate3": null,
+            "rateType": "FLAT"
+          }
+        ],
+        "effectiveFromDate": 1525776526388,
+        "name": "Default Version"
+      }
+    ]
+  },
+  "nonMonetaryRateCardData": null,
+  "currency": "INR",
+  "rncPkgId": "rest_rnc_package_11111111",
+  "groupNames": "DefaultGroup"
+}

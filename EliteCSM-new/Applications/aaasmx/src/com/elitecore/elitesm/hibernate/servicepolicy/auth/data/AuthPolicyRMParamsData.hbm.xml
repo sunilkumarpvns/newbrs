@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.auth.data.AuthPolicyRMParamsData" table="TBLMAUTHPOLICYRMPARAMS">
+		<composite-id>
+			<key-property name="authPolicyId" column="AUTHPOLICYID" type="StringType"></key-property>
+			<key-property name="esiTypeId" column="ESITYPEID" type="java.lang.Long"></key-property>
+		</composite-id>
+		<property name="acceptOnTimeout" type="StringType" >
+			<column name="ACCEPTONTIMEOUT" not-null="true" sql-type="VARCHAR(5)"></column>
+		</property>
+		
+		<property name="communicationEnabled" type="StringType" >
+			<column name="COMMUNICATIONENABLED" not-null="true" sql-type="VARCHAR(5)"></column>
+		</property>
+		<property name="defaultSessionTimeout" type="java.lang.Long" >
+			<column name="PREPAIDDEFAULTSESSIONTIMEOUT" not-null="false" sql-type="NUMERIC(10)"></column>
+		</property>
+		<property name="ratingClassAttribute" type="StringType" >
+			<column name="RATINGCLASSATTRIBUTE" not-null="false" sql-type="VARCHAR(255)"></column>
+		</property>
+		<property name="ruleSet" type="StringType" >
+			<column name="RULESET" not-null="false" sql-type="VARCHAR(2000)"></column>
+		</property>
+		<property name="driverInstanceId" type="StringType" >
+			<column name="DRIVERINSTANCEID" not-null="false" sql-type="VARCHAR(36)"></column>
+		</property>
+		<property name="translationMapConfigId" type="StringType" >
+			<column name="TRANSLATIONMAPCONFIGID"  sql-type="VARCHAR(36)"></column>
+		</property>
+		<property name="script" type="StringType" >
+			<column name="SCRIPT" not-null="false" sql-type="VARCHAR2(255)"></column>
+		</property>
+		
+		
+		<!-- property name="failureCDRFileName" type="string" >
+			<column name="FAILURECDRFILENAME" not-null="false" sql-type="VARCHAR(255)"></column>
+		</property>
+		<property name="failureCDRFileLocation" type="string" >
+			<column name="FAILURECDRFILELOCATION" not-null="false" sql-type="VARCHAR(255)"></column>
+		</property-->
+		<many-to-one name="driverInstanceData" lazy="false" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.drivers.data.DriverInstanceData" column="driverInstanceId"/>
+		<many-to-one name="translationMappingConfData" lazy="false" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.TranslationMappingConfData" column="translationMapConfigId"/>
+	</class>		
+</hibernate-mapping>   

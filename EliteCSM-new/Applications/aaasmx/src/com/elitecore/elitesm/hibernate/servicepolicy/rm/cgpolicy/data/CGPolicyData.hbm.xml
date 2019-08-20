@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.rm.cgpolicy.data.CGPolicyData" table="TBLMCGPOLICY">
+
+		<id name="policyId" column="POLICYID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+
+		<property name="name" type="StringType"> 
+			<column name="NAME" sql-type="VARCHAR(200)" not-null="true" /> 
+		</property>
+
+
+		<property name="description" type="StringType"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+
+
+		<property name="ruleSet" type="StringType"> 
+			<column name="RULESET" sql-type="VARCHAR(2000)" not-null="true" /> 
+		</property>
+
+
+		<property name="orderNumber" type="java.lang.Long"> 
+			<column name="ORDERNUMBER" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+
+
+		<property name="status" type="CharType"> 
+			<column name="STATUS" sql-type="CHAR(5)" not-null="true" /> 
+		</property>
+		
+		<property name="script" type="StringType" column="DRIVERSCRIPT" />
+		
+		<property name="auditUId" type="StringType" column="AUDIT_UID" not-null="false"/>
+		
+	  	<bag name="driverList"  cascade="delete" lazy="false" inverse="false">
+	         <key column="policyId" />
+	    	 <one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.rm.cgpolicy.data.CGPolicyDriverRelationData" />
+      	</bag>
+		
+	</class>            
+	            
+</hibernate-mapping>
+

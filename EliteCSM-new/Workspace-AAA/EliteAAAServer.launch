@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/eliteaaa/src/com/elitecore/aaa/EliteAAAServer.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<mapAttribute key="org.eclipse.debug.core.environmentVariables">
+<mapEntry key="ELITEAAA_HOME" value=""/>
+</mapAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.elitecore.aaa.EliteAAAServer"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="eliteaaa"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcom.sun.management.jmxremote.port=4442&#13;&#10;-Dcom.sun.management.jmxremote.ssl=false &#13;&#10;-Dcom.sun.management.jmxremote.authenticate=false&#13;&#10;-Dlog4j.configuration=system/log4j.properties"/>
+</launchConfiguration>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="318" vendor-name="APC">
+<attribute id="1" name="APC-Service-Type" type="integer">
+	<supported-values>
+		<value id="1" name="Admin"/>
+		<value id="2" name="Device"/>
+		<value id="3" name="ReadOnly"/>
+		<value id="4" name="Outlet"/>
+	</supported-values>
+</attribute>
+<attribute id="2" name="APC-Outlets" type="string"/>
+</attribute-list>

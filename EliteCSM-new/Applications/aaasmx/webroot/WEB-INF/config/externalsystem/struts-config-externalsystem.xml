@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+		<struts-config>
+		
+				<form-beans>
+					 
+					 <form-bean name="createESIForm" type="com.elitecore.elitesm.web.externalsystem.forms.CreateESIInstanceForm"/>
+				    <form-bean name="searchESIForm" type="com.elitecore.elitesm.web.externalsystem.forms.SearchESIInstanceForm"/>
+					<form-bean name="updateESIInstanceForm" type="com.elitecore.elitesm.web.externalsystem.forms.UpdateESIInstanceForm"/>
+					<form-bean name="addExtenalSystemPopupForm" type="com.elitecore.elitesm.web.externalsystem.forms.AddExternalSystemPopupForm"/>
+				</form-beans>
+				
+				<action-mappings>
+				
+					  <action path="/updateESI" 
+         				type="com.elitecore.elitesm.web.externalsystem.UpdateESIInstanceAction"
+        				name="updateESIInstanceForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="UpdateESIInstance" path="/viewESI.do" />               
+     			      </action>
+					 
+					  <action path="/initCreateExternalInterfaceInstance" 
+         				type="com.elitecore.elitesm.web.externalsystem.InitCreateESIInstanceAction"
+        				name="createESIForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="CreateESIInstance" path="/jsp/externalsystem/CreateESIInstance.jsp" />               
+     				  </action>
+     				  
+     				 <action path="/createESIInstance"
+	  	 				type="com.elitecore.elitesm.web.externalsystem.CreateESIInstanceAction"
+		 				name="createESIForm"
+		 				scope="request"
+		 				validate="false">
+		 				<forward name="CreateESIInstance" path="/jsp/externalsystem/CreateESIInstance.jsp" />       
+	  				</action>
+				
+					<action path="/initSearchESIInstance" 
+         				type="com.elitecore.elitesm.web.externalsystem.InitSearchESIInstanceAction"
+        				name="searchESIForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="SearchESIInstance" path="/jsp/externalsystem/SearchESIInstance.jsp" />               
+     			    </action>
+     			    
+     			    <action path="/searchESIInstance" 
+         				type="com.elitecore.elitesm.web.externalsystem.SearchESIInstanceAction"
+        				name="searchESIForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="SearchESIInstance" path="/jsp/externalsystem/SearchESIInstance.jsp" />               
+     			    </action>
+     			    
+     			    <action path="/viewESI" 
+         				type="com.elitecore.elitesm.web.externalsystem.InitUpdateESIInstanceAction"
+        				name="updateESIInstanceForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="InitUpdateESIInstance" path="/jsp/externalsystem/ViewESIContainer.jsp" />               
+     			    </action>
+					
+					<action path="/initupdateESI" 
+         				type="com.elitecore.elitesm.web.externalsystem.InitUpdateESIInstanceAction"
+        				name="updateESIInstanceForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="InitUpdateESIInstance" path="/jsp/externalsystem/UpdateESIContainer.jsp" />               
+     			    </action>
+					<action path="/initAddExtenalSystemPopup" 
+         				type="com.elitecore.elitesm.web.externalsystem.InitAddExtenalSystemPopupAction"
+        				name="addExtenalSystemPopupForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="addExternalSystemPopup" path="/jsp/externalsystem/AddExternalSystemPopup.jsp" />               
+     			    </action>
+     			    
+     			     <action path="/viewESIHistory" 
+         				type="com.elitecore.elitesm.web.externalsystem.ViewESIHistoryAction"
+        				name="updateESIInstanceForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewESIHistory" path="/jsp/externalsystem/ViewESIHistoryContainer.jsp" />               
+     			    </action>
+				
+			  </action-mappings>
+				<message-resources key="externalsystemResources" parameter="com.elitecore.elitesm.web.externalsystem.externalsystemResources" />
+		
+		</struts-config>

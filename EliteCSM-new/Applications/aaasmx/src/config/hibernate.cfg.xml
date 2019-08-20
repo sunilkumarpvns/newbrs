@@ -1,0 +1,438 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+<session-factory>
+
+	<property name="hibernate.jdbc.batch_size">0</property>
+	<property name="hibernate.jdbc.use_streams_for_binary">true</property>
+	
+	<!--  Connection Provider Class -->
+    <property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+  
+    <!-- minimum connections in pool -->
+	<property name="hibernate.c3p0.min_size">3</property>
+	
+	<!-- maximum connections in pool -->
+	<property name="hibernate.c3p0.max_size">100</property>
+	
+	<!-- no. of seconds of time, the unused connections will be remain pooled -->
+	<property name="hibernate.c3p0.timeout">300</property>
+	
+	<!-- maximum no. of cursors will be opened for the connection -->
+	<property name="hibernate.c3p0.max_statements">100</property>
+	
+	<!-- no. of connections to be acquired when connection pool is exhausted -->
+	<property name="hibernate.c3p0.acquire_increment">1</property>
+	
+	<!-- client will wait up to in milliseconds for a connection --> 
+	<property name="checkoutTimeout">5000</property>
+	
+	<!-- prevent hibernate to validate when an entity is about to be updated  -->
+	<property name="javax.persistence.validation.group.pre-update"></property>
+	
+	<!-- prevent hibernate to validate when an entity is about to be deleted -->
+	<property name="javax.persistence.validation.group.pre-remove"></property>
+		 
+	<!-- type definition of custom Datatypes -->	 
+	<mapping resource="com/elitecore/elitesm/hibernate/customtypes/data/CustomTypes.hbm.xml"/>	
+	 
+    <mapping resource="com/elitecore/elitesm/hibernate/core/base/data/CommonStatusData.hbm.xml"/>    
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/staff/data/StaffData.hbm.xml"/>        
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/staff/data/StaffGroupRelData.hbm.xml"/>  
+    
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/systemparameter/data/SystemParameterData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/systemparameter/data/SystemParameterValuePoolData.hbm.xml"/>
+    
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/systemparameter/data/PasswordSelectionPolicyData.hbm.xml"/>
+  
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/accessgroup/data/GroupData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/core/system/accessgroup/data/GroupActionRelData.hbm.xml"/> 
+    
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/profilemanagement/data/ActionData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/profilemanagement/data/ActionTypeData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/profilemanagement/data/BISModelData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/profilemanagement/data/BISModelModuleRelData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/profilemanagement/data/BISModuleData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/profilemanagement/data/BISModuleSubBISModuleRelData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/profilemanagement/data/BISModuleTypeData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/profilemanagement/data/SubBISModuleActionRelData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/profilemanagement/data/SubBISModuleData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/core/system/profilemanagement/data/SubBISModuleTypeData.hbm.xml"/>
+    
+  	<mapping resource="com/elitecore/elitesm/hibernate/systemaudit/Data/SystemAuditData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/datasource/database/data/DatabaseDS.hbm.xml"/>
+
+	<mapping resource="com/elitecore/elitesm/hibernate/datasource/ldap/data/LDAPDatasouce.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/datasource/ldap/data/LDAPBaseDnDetail.hbm.xml"/>
+	
+	<!--  auth service policy mapping -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/auth/data/AuthPolicyAuthMethodRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/auth/data/AuthPolicyExternalSystemRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/auth/data/AuthPolicyInstData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/auth/data/AuthPolicyMainDriverRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/auth/data/AuthPolicySecDriverRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/auth/data/AuthMethodTypeData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/auth/data/AuthPolicySMRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/auth/data/AuthPolicyRMParamsData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/auth/data/AuthPolicyBroadcastESIRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/auth/data/AuthPolicyAdditionalDriverRelData.hbm.xml"/>
+	
+	<!--  acct service policy mapping -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/acct/data/AcctPolicyExternalSystemRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/acct/data/AcctPolicyInstData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/acct/data/AcctPolicyMainDriverRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/acct/data/AcctPolicySMRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/acct/data/AcctPolicyRMParamsData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/acct/data/AcctPolicyAdditionalDriverRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/acct/data/AcctPolicyBroadcastESIRelData.hbm.xml"/>
+	
+	<!--  charging policy mapping -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/rm/cgpolicy/data/CGPolicyData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/rm/cgpolicy/data/CGPolicyDriverRelationData.hbm.xml"/>
+	
+	<!--  dynauth service policy mapping -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/dynauth/data/DynAuthPolicyInstData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/dynauth/data/DynAuthFieldMapData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/dynauth/data/DynAuthNasClientDetailData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/dynauth/data/DynAuthNasClientsData.hbm.xml"/>
+	
+	
+	<!-- mapping entry for sessionmanager  -->
+	
+    <mapping resource="com/elitecore/elitesm/hibernate/sessionmanager/data/SessionManagerInstanceData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/sessionmanager/data/SessionManagerTypeData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/sessionmanager/data/SMConfigInstanceData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/sessionmanager/data/SMDBFieldMapData.hbm.xml"/>	
+	<mapping resource="com/elitecore/elitesm/hibernate/sessionmanager/data/SMSessionCloserESIRelData.hbm.xml"/>
+	
+	<!-- Service Related Mapping  -->
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/service/data/ServiceType.hbm.xml"/>	
+	
+	<!-- Driver Related Mapping  -->
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/data/DriverInstance.hbm.xml"/>	
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/data/DriverType.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/data/LogicalNameValuePool.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/data/LogicalNameDriverRel.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/data/ProfileFieldValuePool.hbm.xml"/>
+	<!-- DBAcct Driver Related Mapping  -->
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/dbdriver/data/DBAcctDriver.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/dbdriver/data/DBAcctFeildMap.hbm.xml"/>	
+	
+	
+	<!-- DetailLocal Acct Driver Related Mapping  -->
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/detaillocaldriver/data/DetailLocalAcctDriver.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/detaillocaldriver/data/DetailLocalAttrRelation.hbm.xml"/>	
+	
+	<!-- Classic CSV Acct Driver Related Mapping  -->
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/csvdriver/data/ClassicCSVAcctDriver.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/csvdriver/data/ClassicCSVAttrRel.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/csvdriver/data/ClassicCSVStripPattRel.hbm.xml"/>	
+	
+	<!-- DB Auth Driver Related Mapping  -->
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/dbdriver/data/DBAuthDriver.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/dbdriver/data/DBAuthFieldMap.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/subscriberprofile/database/data/DatasourceSchemaData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/subscriberprofile/database/data/DBSubscriberProfileParamPoolValueData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/subscriberprofile/database/data/SQLParamPoolValueData.hbm.xml"/>
+	
+	<!-- Web Service Auth Driver -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/webserviceauthdriver/data/WebServiceAuthDriver.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/webserviceauthdriver/data/WebMethodKeyData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/webserviceauthdriver/data/WebMethodKeyMapRelData.hbm.xml"/>
+	
+	<!-- HTTP Auth Driver Related Mapping  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/httpdriver/data/HttpAuthDriverData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/httpdriver/data/HttpAuthDriverFieldMapData.hbm.xml"/>
+	
+	<!-- Mapping Gateway Auth Driver Related Mapping  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/mapgatewaydriver/data/MappingGatewayAuthDriver.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/mapgatewaydriver/data/GatewayFieldMap.hbm.xml"/>
+	
+	<!-- Parley Charging Driver Related Mapping  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/pcdriver/data/ParleyChargingDriverData.hbm.xml"/>
+	
+	<!-- Crestel Charging Driver Related Mapping  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/chargingdriver/data/CrestelChargingDriverData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/chargingdriver/data/CrestelChargingDriverPropsData.hbm.xml"/>
+	
+	<!-- Diameter Charging Driver Related Mapping  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/dcdriver/data/DiameterChargingDriverData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/dcdriver/data/DiameterChargingDriverPeerData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/dcdriver/data/DiameterChargingDriverRealmsData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/dcdriver/data/DiameterChargingDriverVendorData.hbm.xml"/>
+	
+	<!-- LDAP Auth Driver Related Mapping  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/ldapdriver/data/LDAPAuthDriver.hbm.xml"/>	
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/ldapdriver/data/LDAPAuthFieldMap.hbm.xml"/>
+	
+	<!--  Translation Mapping Configuration -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/transmapconf/data/DummyResponseParameterData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/transmapconf/data/MessageTypeData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/transmapconf/data/TranslationMappingConfData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/transmapconf/data/TranslationMappingInstData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/transmapconf/data/TranslationMappingInstDetailData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/transmapconf/data/TranslationMappingInstDetailRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/transmapconf/data/TranslationMappingTypeData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/transmapconf/data/TranslatorTypeData.hbm.xml"/>
+	
+	<!--  CopyPacket Mapping Configuration -->
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/copypacket/data/CopyPacketTranslationMapData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/copypacket/data/CopyPacketTranslationConfData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/copypacket/data/CopyPacketTranslationMapDetailData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/copypacket/data/CopyPacketDummyResponseParameterData.hbm.xml"/>
+	
+	
+	<!-- Certificate Configuration-->	
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/certificate/data/ServerCertificateData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/certificate/data/TrustedCertificateData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/certificate/data/CrlCertificateData.hbm.xml"/>
+	
+	<!-- User File Auth Driver Related Mapping  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/userfiledriver/data/UserFileAuthDriver.hbm.xml"/>	
+
+	<!-- ESI Related Mapping  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/externalsystem/data/ExternalSystemInterfaceInstance.hbm.xml"/>	
+	<mapping resource="com/elitecore/elitesm/hibernate/externalsystem/data/ExternalSystemInterfaceType.hbm.xml"/>
+	
+	<!-- server related mapping -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetConfigParamValuePoolData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetConfigurationData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetConfigurationInstanceData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetConfigurationParameterData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetConfigurationValuesData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServerConfigMapData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServerInstanceConfigMapTypeData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServerInstanceConfMapData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServerInstanceData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServerInstanceStartupConfig.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServerTypeData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServerVersionData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServiceConfigMapData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServiceInstanceConfigMapTypeData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServiceInstanceConfMapData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServiceInstanceData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServerStaffRelDetailData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/data/NetServiceTypeData.hbm.xml"/>
+   
+	<!-- mapping entry for Client Profile Config -->
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/clientprofile/data/ClientTypeData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/clientprofile/data/ProfileSuppVendorRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/clientprofile/data/RadiusClientProfileData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/clientprofile/data/VendorData.hbm.xml"/>
+	<!-- mapping entry for digest config -->
+	<mapping resource="com/elitecore/elitesm/hibernate/digestconf/data/digestConfigData.hbm.xml"/>
+	
+	<!-- mapping entry for Alert config -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/alert/data/AlertFileListener.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/alert/data/AlertType.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/alert/data/AlertListener.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/alert/data/AlertListenerType.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/alert/data/AlertTrapListener.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/alert/data/AlertListenerRel.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/alert/data/SYSLogAlertListener.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/alert/data/SYSLogNameValuePool.hbm.xml"/>
+	
+	<!-- mapping entry for standard master data -->
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/system/standardmaster/data/StandardMasterData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/system/standardmaster/data/StandardMasterTypeData.hbm.xml"/>
+	
+	<!-- mapping entry for Resource Manager  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/rm/ippool/data/IPPoolData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/rm/ippool/data/IPPoolDetailData.hbm.xml"/>
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/rm/concurrentloginpolicy/data/ConcurrentLoginPolicyData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/rm/concurrentloginpolicy/data/ConcurrentLoginPolicyDetailData.hbm.xml"/>
+	
+	<!-- mapping entry for EAP Config Manager -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/eap/data/EAPConfigData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/eap/data/EAPTLSConfigData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/eap/data/VendorSpecificCertificateData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/eap/data/EAPSimAkaConfigData.hbm.xml"/>
+	
+	<!-- mapping entry for Radius  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/dictionary/data/DataTypeData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/dictionary/data/DictionaryData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/dictionary/data/DictionaryParameterDetailData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/policies/accesspolicy/data/WeekDayData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/policies/radiuspolicy/data/OperatorData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/radius/policies/radiuspolicy/data/RadiusPolicyData.hbm.xml"/>  
+     <mapping resource="com/elitecore/elitesm/hibernate/radius/policies/radiuspolicy/data/RadiusPolicyTimePeriod.hbm.xml"/>    
+    <mapping resource="com/elitecore/elitesm/hibernate/radius/policies/accesspolicy/data/AccessPolicyData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/radius/policies/accesspolicy/data/AccessPolicyDetailData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/radtest/data/RadiusTestData.hbm.xml"/>
+		
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/radtest/data/RadiusTestParamData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/bwlist/data/BWListData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/bwlist/data/BWListTypeData.hbm.xml"/>
+	
+    <!-- mapping entry for Grace Policy -->
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/gracepolicy/data/GracepolicyData.hbm.xml"/>	
+    
+    <!-- mapping entry for Web Service -->
+    <mapping resource="com/elitecore/elitesm/hibernate/wsconfig/data/WSAttrFieldMapData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/wsconfig/data/WSConfigData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/wsconfig/data/WSDBFieldMapData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/wsconfig/data/WSKeyMappingData.hbm.xml"/>
+	
+	<!-- mapping entry for Diameter Dictionary -->
+    <mapping resource="com/elitecore/elitesm/hibernate/diameter/dictionary/data/DiameterdicData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/dictionary/data/DiameterdicParamDetailData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/dictionary/data/DiameterGroupedAttributeData.hbm.xml"/>
+	
+	<!-- mapping entry for Diameter NAS Policy -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/naspolicy/data/NASPolicyAuthMethodRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/naspolicy/data/NASPolicyAuthDriverRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/naspolicy/data/NASPolicyAcctDriverRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/naspolicy/data/NASPolicyAdditionalDriverRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/naspolicy/data/NASPolicyAuthPluginConfig.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/naspolicy/data/NASPolicyAcctPluginConfig.hbm.xml"/>
+	
+	<!-- mapping entry for Diameter Driver --> 
+    <mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/ratingdriver/data/CrestelRatingDriverData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/ratingdriver/data/RatingDriverPropsData.hbm.xml"/>
+
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/naspolicy/data/NASPolicyInstData.hbm.xml"/> 
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/naspolicy/data/NASResponseAttributes.hbm.xml"/> 
+	
+	<!-- mapping entry for Diameter Credit Control Policy -->
+    <mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/creditcontrolpolicy/data/CreditControlPolicyData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/creditcontrolpolicy/data/CreditControlPolicyDriverRelationData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/creditcontrolpolicy/data/CCResponseAttributes.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/creditcontrolpolicy/data/CCPolicyPluginConfig.hbm.xml"/>
+  
+	<!-- mapping entry for Diameter EAP Policy -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/eappolicy/data/EAPPolicyData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/eappolicy/data/EAPPolicyAuthDriverRelationData.hbm.xml"/>
+    <mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/eappolicy/data/EAPPolicyAdditionalDriverRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/eappolicy/data/EAPResponseAttribute.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/eappolicy/data/EAPPolicyPluginConfig.hbm.xml"/>
+	
+	<!-- mapping entry for Diameter Policy -->
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/diameterpolicy/data/DiameterPolicyData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/diameterpolicy/data/DiameterPolicyTimePeriod.hbm.xml"/>
+	
+	<!-- mapping entry for Diameter Routing Configuration -->
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/routingconf/data/DiameterRoutingConfData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/routingconf/data/DiameterPeerGroupData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/routingconf/data/DiameterPeerGroupRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/routingconf/data/DiameterRoutingConfigFailureParam.hbm.xml"/>
+	
+	<!-- mapping entry for Priority Table -->
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/prioritytable/data/PriorityTableData.hbm.xml"/>
+	
+	<!-- mapping entry for Diameter Peer Profile -->
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/diameterpeerprofile/data/DiameterPeerProfileData.hbm.xml"/>
+	
+	<!-- mapping entry for Diameter Peer-->
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/diameterpeer/data/DiameterPeerData.hbm.xml"/> 
+	
+	<!-- mapping entry for Diameter Routing Table-->
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/routingconf/data/DiameterRoutingTableData.hbm.xml"/>
+
+	<mapping resource="com/elitecore/elitesm/hibernate/dashboard/data/DashboardData.hbm.xml"></mapping>
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/hssdriver/data/HssAuthDriverData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/hssdriver/data/HssAuthDriverFieldMapData.hbm.xml"></mapping>
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/dashboard/data/WidgetData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/dashboard/data/WidgetOrderData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/dashboard/data/WidgetTemplateData.hbm.xml"></mapping>
+	
+	<!-- mapping entry for Memory Usage Table-->
+	<mapping resource="com/elitecore/elitesm/hibernate/dashboard/data/chartdata/MemoryUsageData.hbm.xml"/>
+	<mapping resource="com/elitecore/elitesm/hibernate/dashboard/data/chartdata/TotalRequestStatisticsData.hbm.xml"/>
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/dashboard/widget/configuration/data/WidgetConfigData.hbm.xml"/>
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/dashboard/category/data/CategoryData.hbm.xml"/>
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/diameterpeer/data/DiameterPeerRelData.hbm.xml"/>
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/dashboard/data/DashboardConfigData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/dashboard/data/TemplateGlobalConfData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/dashboard/userrelation/data/DashboardUserRelData.hbm.xml"></mapping>
+	
+	<mapping resource="com/elitecore/elitesm/hibernate/systemaudit/Data/SystemAuditDetails.hbm.xml"></mapping>
+	
+	<!--Diameter Session Manager  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/sessionmanager/data/DiameterSessionManagerData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/sessionmanager/data/DiameterSessionManagerMappingData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/sessionmanager/data/SessionManagerFieldMappingData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/sessionmanager/data/ScenarioMappingData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/sessionmanager/data/SessionOverideActionData.hbm.xml"></mapping>
+	
+	<!-- Radius Service Policy  -->
+    <mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/radiusservicepolicy/data/RadServicePolicyData.hbm.xml"></mapping>
+    
+    <!-- IMSI Based Routing Table -->
+    <mapping resource="com/elitecore/elitesm/hibernate/diameter/imsibasedroutingtable/data/IMSIBasedRoutingTableData.hbm.xml"></mapping>
+    <mapping resource="com/elitecore/elitesm/hibernate/diameter/imsibasedroutingtable/data/IMSIFieldMappingData.hbm.xml"></mapping>
+
+ 	<!-- MSISDN Based Routing Table -->
+    <mapping resource="com/elitecore/elitesm/hibernate/diameter/msisdnbasedroutingtable/data/MSISDNBasedRoutingTableData.hbm.xml"></mapping>
+    <mapping resource="com/elitecore/elitesm/hibernate/diameter/msisdnbasedroutingtable/data/MSISDNFieldMappingData.hbm.xml"></mapping>
+    
+    <!-- Radius Policy Group -->
+    <mapping resource="com/elitecore/elitesm/hibernate/radius/radiuspolicygroup/data/RadiusPolicyGroup.hbm.xml"></mapping>
+  
+    <!-- Diameter Policy Group -->
+    <mapping resource="com/elitecore/elitesm/hibernate/diameter/diameterpolicygroup/data/DiameterPolicyGroup.hbm.xml"></mapping>
+    
+    <!-- Diameter Concurrency -->
+    <mapping resource="com/elitecore/elitesm/hibernate/diameter/diameterconcurrency/data/DiameterConcurrencyData.hbm.xml"></mapping>
+    <mapping resource="com/elitecore/elitesm/hibernate/diameter/diameterconcurrency/data/DiameterConcurrencyFieldMapping.hbm.xml"></mapping>
+
+	<!-- Plugin  -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/plugins/data/PluginTypesData.hbm.xml" ></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/plugins/data/PluginInstData.hbm.xml" ></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/plugins/data/PluginServiceType.hbm.xml" ></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/plugins/universalplugin/data/UniversalPluginData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/plugins/groovyplugin/data/GroovyPluginData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/plugins/groovyplugin/data/GroovyPluginFile.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/plugins/transactionlogger/data/TransactionLoggerData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/plugins/transactionlogger/data/FormatMappingData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/plugins/quotamgtplugin/data/QuotaMgtPluginData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/plugins/userstatpostauthplugin/data/UserStatisticPostAuthPlugin.hbm.xml"></mapping>
+	
+	<!-- TGPP AAA POLICY -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servicepolicy/diameter/tgppaaapolicy/data/TGPPAAAPolicyData.hbm.xml"></mapping>
+	
+	<!-- Diameter Peer Group -->
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/diameterpeergroup/data/DiameterPeerGroup.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/diameter/diameterpeergroup/data/DiameterPeerRelationWithPeerGroup.hbm.xml"></mapping>
+	<!-- 	Radius ESI Group -->
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/radiusesigroup/data/RadiusESIGroup.hbm.xml"></mapping>
+	<!-- Subscriber Profile -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/drivers/subscriberprofile/data/subscriberprofile.hbm.xml"></mapping>
+	
+	<!-- SM license -->
+	<mapping resource="com/elitecore/elitesm/hibernate/core/system/license/data/SMLicenseData.hbm.xml"></mapping>
+	
+	<!-- IN-Memory Data Grid -->
+	<mapping resource="com/elitecore/elitesm/hibernate/inmemorydatagrid/data/InMemoryDataGridData.hbm.xml"></mapping>
+	
+	<!-- System Audit Relation -->
+	<mapping resource="com/elitecore/elitesm/hibernate/systemaudit/Data/SystemAuditRelationData.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/systemaudit/Data/SystemAuditRelationData.hbm.xml"></mapping>
+	<!-- Script -->
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/script/ScriptInstance.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/script/ScriptType.hbm.xml"></mapping>
+	<mapping resource="com/elitecore/elitesm/hibernate/servermgr/script/ScriptData.hbm.xml"></mapping>
+
+	<!-- Correlated Radius -->
+	<mapping resource="com/elitecore/elitesm/hibernate/radius/correlatedradius/data/CorrelatedRadiusData.hbm.xml"></mapping>
+</session-factory>
+
+</hibernate-configuration>
+
+

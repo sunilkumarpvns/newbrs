@@ -1,0 +1,413 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy?name=access_policy&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy.xml?name=access_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy?operation=search&name=access_policy&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy.xml?operation=search&name=access_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy.xml?operation=search
+
+Response :
+
+<access-policy>
+    <name>access_policy</name>
+    <status>ACTIVE</status>
+    <default-access>Allowed</default-access>
+    <description>Created by admin on 12/12/2016 04:21:13 PM</description>
+    <timeslaps>
+        <timeslap>
+            <start-day>Monday</start-day>
+            <start-hour>13</start-hour>
+            <start-minute>15</start-minute>
+            <end-day>Wednesday</end-day>
+            <stop-hour>13</stop-hour>
+            <stop-minute>17</stop-minute>
+            <access-status>D</access-status>
+        </timeslap>
+        <timeslap>
+            <start-day>Tuesday</start-day>
+            <start-hour>17</start-hour>
+            <start-minute>1</start-minute>
+            <end-day>Monday</end-day>
+            <stop-hour>19</stop-hour>
+            <stop-minute>2</stop-minute>
+            <access-status>D</access-status>
+        </timeslap>
+    </timeslaps>
+</access-policy>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy?name=access_policy&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy.json?name=access_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy?operation=search&name=access_policy&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy.json?operation=search&name=access_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy.json?operation=search
+
+Response :
+
+{
+    "name": "access_policy",
+    "status": "ACTIVE",
+    "default-access": "Allowed",
+    "description": "Created by admin on 12/12/2016 04:21:13 PM",
+    "timeslaps": [
+        {
+            "start-day": "Monday",
+            "start-hour": "13",
+            "start-minute": "15",
+            "end-day": "Wednesday",
+            "stop-hour": "13",
+            "stop-minute": "17",
+            "access-status": "D"
+        },
+        {
+            "start-day": "Tuesday",
+            "start-hour": "17",
+            "start-minute": "1",
+            "end-day": "Monday",
+            "stop-hour": "19",
+            "stop-minute": "2",
+            "access-status": "D"
+        }
+    ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<access-policy>
+	<name>access_policy</name>
+	<status>ACTIVE</status>
+	<default-access>Allowed</default-access>
+	<description>Created by admin on 12/12/2016 04:21:13 PM</description>
+	<timeslaps>
+		<timeslap>
+			<start-day>Monday</start-day>
+			<start-hour>13</start-hour>
+			<start-minute>15</start-minute>
+			<end-day>Wednesday</end-day>
+			<stop-hour>13</stop-hour>
+			<stop-minute>17</stop-minute>
+		</timeslap>
+		<timeslap>
+			<start-day>Tuesday</start-day>
+			<start-hour>17</start-hour>
+			<start-minute>1</start-minute>
+			<end-day>Monday</end-day>
+			<stop-hour>19</stop-hour>
+			<stop-minute>2</stop-minute>
+		</timeslap>
+	</timeslaps>
+</access-policy>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Access Policy created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "access_policy",
+	"status": "ACTIVE",
+	"default-access": "Allowed",
+	"description": "Created by admin on 12/12/2016 04:21:13 PM",
+	"timeslaps": [
+		{
+			"start-day": "Monday",
+			"start-hour": "13",
+			"start-minute": "15",
+			"end-day": "Wednesday",
+			"stop-hour": "13",
+			"stop-minute": "17"
+		},
+		{
+			"start-day": "Tuesday",
+			"start-hour": "17",
+			"start-minute": "1",
+			"end-day": "Monday",
+			"stop-hour": "19",
+			"stop-minute": "2"
+		}
+	]
+}		
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Access Policy created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By Default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/bulk
+--OR--
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/bulk?operation=create
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+	<access-policy>
+		<name>access_policy</name>
+		<status>ACTIVE</status>
+		<default-access>Allowed</default-access>
+		<description>Created by admin on 12/12/2016 04:21:13 PM</description>
+		<timeslaps>
+			<timeslap>
+				<start-day>Monday</start-day>
+				<start-hour>13</start-hour>
+				<start-minute>15</start-minute>
+				<end-day>Wednesday</end-day>
+				<stop-hour>13</stop-hour>
+				<stop-minute>17</stop-minute>
+			</timeslap>
+			<timeslap>
+				<start-day>Tuesday</start-day>
+				<start-hour>17</start-hour>
+				<start-minute>1</start-minute>
+				<end-day>Monday</end-day>
+				<stop-hour>19</stop-hour>
+				<stop-minute>2</stop-minute>
+			</timeslap>
+		</timeslaps>
+	</access-policy>
+</list>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Access Policy/Policies created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"list":[
+		{
+			"name": "access_policy",
+			"status": "ACTIVE",
+			"default-access": "Allowed",
+			"description": "Created by admin on 12/12/2016 04:21:13 PM",
+			"timeslaps": [
+				{
+					"start-day": "Monday",
+					"start-hour": "13",
+					"start-minute": "15",
+					"end-day": "Wednesday",
+					"stop-hour": "13",
+					"stop-minute": "17"
+				},
+				{
+					"start-day": "Tuesday",
+					"start-hour": "17",
+					"start-minute": "1",
+					"end-day": "Monday",
+					"stop-hour": "19",
+					"stop-minute": "2"
+				}
+			]
+		}		
+  	]
+}
+      
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Access Policy/Policies created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy?name=access_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy?operation=update&name=access_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<access-policy>
+	<name>access_policy</name>
+	<status>ACTIVE</status>
+	<default-access>Allowed</default-access>
+	<description>Created by admin on 12/12/2016 04:21:13 PM</description>
+	<timeslaps>
+		<timeslap>
+			<start-day>Monday</start-day>
+			<start-hour>14</start-hour>
+			<start-minute>25</start-minute>
+			<end-day>Tuesday</end-day>
+			<stop-hour>15</stop-hour>
+			<stop-minute>27</stop-minute>
+		</timeslap>
+		<timeslap>
+			<start-day>Tuesday</start-day>
+			<start-hour>19</start-hour>
+			<start-minute>11</start-minute>
+			<end-day>Wednesday</end-day>
+			<stop-hour>20</stop-hour>
+			<stop-minute>22</stop-minute>
+		</timeslap>
+	</timeslaps>
+</access-policy>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Access Policy updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+	"name": "access_policy",
+	"status": "ACTIVE",
+	"default-access": "Allowed",
+	"description": "Created by admin on 12/12/2016 04:21:13 PM",
+	"timeslaps": [
+		{
+			"start-day": "Monday",
+			"start-hour": "14",
+			"start-minute": "25",
+			"end-day": "Tuesday",
+			"stop-hour": "15",
+			"stop-minute": "27"
+		},
+		{
+			"start-day": "Tuesday",
+			"start-hour": "19",
+			"start-minute": "11",
+			"end-day": "Wednesday",
+			"stop-hour": "20",
+			"stop-minute": "22"
+		}
+	]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Access Policy updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By Default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy?name=access_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy?operation=delete&name=access_policy
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/accesspolicy/access_policy?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Access Policy/Policies deleted successfully</response-message>
+	</response>
+</response-detail>
+
+#Notes :
+
+1) For multiple delete use comma separated values
+
+2) To enable debug, add debug=true in query parameter
+
+***********************************************************************

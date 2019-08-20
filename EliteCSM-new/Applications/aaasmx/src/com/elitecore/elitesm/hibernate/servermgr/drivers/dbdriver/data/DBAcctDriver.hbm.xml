@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.drivers.dbdriver.data.DBAcctDriverData" table="TBLMOPENDBACCTDRIVER">
+
+		<id name="openDbAcctId" type="StringType" column="OPENDBID">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+
+		<property name="driverInstanceId" type="StringType">
+			<column name="DRIVERINSTANCEID" sql-type="VARCHAR(36)" 	not-null="true" />
+		</property>
+
+		<property name="databaseId" type="StringType">
+			<column name="DATABASEDSID" sql-type="VARCHAR(36)" not-null="true" />
+		</property>
+		<property name="datasourceType" type="StringType">
+			<column name="DATASOURCE_TYPE" length="25" />
+		</property>
+		<!-- <property name="datasourceScantime" type="java.lang.Long"> <column 
+			name="DATASOURCE_SCANTIME" sql-type="NUMBER(10)" not-null="false" /> </property> -->
+
+		<property name="cdrTablename" type="StringType">
+			<column name="CDR_TABLENAME" sql-type="VARCHAR(2000)" not-null="false" />
+		</property>
+		<property name="interimTablename" type="StringType">
+			<column name="INTERIM_TABLENAME" sql-type="VARCHAR(2000)" not-null="false" />
+		</property>
+		<property name="storeStopRec" type="StringType">
+			<column name="STORE_STOP_REC" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="storeInterimRec" type="StringType">
+			<column name="STORE_INTERIM_REC" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="removeInterimOnStop" type="StringType">
+			<column name="REMOVE_INTERIM_ON_STOP" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="storeTunnelStartRec" type="StringType">
+			<column name="STORE_TUNNEL_START_REC" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="storeTunnelStopRec" type="StringType">
+			<column name="STORE_TUNNEL_STOP_REC" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="removeTunnelStopRec" type="StringType">
+			<column name="REMOVE_TUNNEL_STOP_REC" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="storeTunnelLinkStartRec" type="StringType">
+			<column name="STORE_TUNNEL_LINK_START_REC" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="storeTunnelLinkStopRec" type="StringType">
+			<column name="STORE_TUNNEL_LINK_STOP_REC" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="removeTunnelLinkStopRec" type="StringType">
+			<column name="REMOVE_TUNNEL_LINK_STOP_REC" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="storeTunnelRejectRec" type="StringType">
+			<column name="STORE_TUNNEL_REJECT_REC" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="storeTunnelLinkRejectRec" type="StringType">
+			<column name="STORE_TUNNEL_LINK_REJECT_REC" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="dbQueryTimeout" type="java.lang.Long">
+			<column name="DB_QUERY_TIMEOUT" sql-type="NUMBER(10)" not-null="false" />
+		</property>
+		<property name="maxQueryTimeoutCount" type="java.lang.Long">
+			<column name="MAX_QUERY_TIMEOUT_COUNT" sql-type="NUMBER(10)" not-null="false" />
+		</property>
+		<property name="multivalDelimeter" type="StringType">
+			<column name="MULTIVAL_DELIMETER" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="dbDateField" type="StringType">
+			<column name="DB_DATE_FIELD" sql-type="VARCHAR(30)" not-null="false" />
+		</property>
+		<property name="enabled" type="StringType">
+			<column name="ENABLED" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<property name="cdrIdDbField" type="StringType">
+			<column name="CDR_ID_DB_FIELD" sql-type="VARCHAR(30)" not-null="false" />
+		</property>
+		<property name="cdrIdSeqName" type="StringType">
+			<column name="CDR_ID_SEQ_NAME" sql-type="VARCHAR(30)" not-null="false" />
+		</property>
+		<property name="interimCdrIdDbField" type="StringType">
+			<column name="INTERIM_CDR_ID_DB_FIELD" sql-type="VARCHAR(30)" not-null="false" />
+		</property>
+		<property name="interimCdrIdSeqName" type="StringType">
+			<column name="INTERIM_CDR_ID_SEQ_NAME" sql-type="VARCHAR(30)" not-null="false" />
+		</property>
+		<property name="callStartFieldName" type="StringType">
+			<column name="CALL_START_FIELD_NAME" sql-type="VARCHAR(30)" not-null="false" />
+		</property>
+		<property name="callEndFieldName" type="StringType">
+			<column name="CALL_END_FIELD_NAME" sql-type="VARCHAR(30)" not-null="false" />
+		</property>
+		<property name="createDateFieldName" type="StringType">
+			<column name="CREATE_DATE_FIELD_NAME" sql-type="VARCHAR(30)" not-null="false" />
+		</property>
+		<property name="lastModifiedDateFieldName" type="StringType">
+			<column name="LAST_MODIFIED_DATE_FIELD_NAME" sql-type="VARCHAR(30)" not-null="false" />
+		</property>
+		<property name="storeAllCdr" type="StringType">
+			<column name="STORE_ALL_CDR" sql-type="VARCHAR(5)" not-null="false" />
+		</property>
+		<bag name="dbAcctFieldMapList" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+			<key column="OPENDBID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.dbdriver.data.DBAcctFeildMapData" />
+		</bag>
+
+	</class>
+</hibernate-mapping>

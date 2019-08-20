@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.profile.data">
+
+  <class name="DefaultAttributeMappingData" table="TBLMDEFAULTATTRIBUTEMAPPING">
+  
+  	<id name="ID" column="ID" type="java.lang.Long">  			
+  	</id>
+ 
+     <property name="parameterUsageType" type="string">
+     	  <column name="PARAMETERUSAGETYPE" sql-type="VARCHAR2(100)" not-null="false"/>
+     </property>
+     
+     <property name="policyKey" type="string">
+     	  <column name="POLICYKEY" sql-type="VARCHAR2(50)" not-null="false"/>
+     </property>
+     
+     <property name="diameterAttribute" type="string">
+     	  <column name="DIAMETERATTRIBUTE" sql-type="VARCHAR2(50)" not-null="false"/>
+     </property>
+     
+     <property name="defaultValue" type="string">
+     	  <column name="DEFAULTVALUE" sql-type="VARCHAR2(100)" not-null="false"/>
+     </property>
+     
+     <property name="valueMapping" type="string">
+     	  <column name="VALUEMAPPING" sql-type="VARCHAR2(50)" not-null="false"/>
+     </property>
+     
+  </class>
+</hibernate-mapping>

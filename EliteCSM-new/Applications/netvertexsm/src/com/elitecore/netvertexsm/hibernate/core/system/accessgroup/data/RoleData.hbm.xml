@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping auto-import="false">
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.accessgroup.data.RoleData" table="TBLMROLE">
+		<id name="roleId" column="ROLEID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+			</generator>
+		</id>
+		
+		<property name="name" type="string">
+			<column name="NAME" sql-type="VARCHAR(50)" not-null="true"></column>
+		</property>
+
+		<property name="roleMailId" type="string">
+			<column name="ROLEMAILID" sql-type="VARCHAR(50)" not-null="false"></column>
+		</property>
+
+		<property name="description" type="string">
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"></column>
+		</property>
+
+		<property name="systemGenerated" type="string">
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="false"></column>
+		</property>
+
+		<property name="statusChangeDate" type="java.sql.Timestamp" column="STATUSCHANGEDATE" not-null="false">
+		</property>
+
+		<property name="commonStatusId" type="string">
+			<column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="false"></column>
+		</property>
+
+		<property name="createDate" type="java.sql.Timestamp" column="CREATEDATE" not-null="true">
+		</property>
+
+		<property name="createdByStaffId" type="string">
+			<column name="CREATEDBYSTAFFID" sql-type="CHAR(7)" not-null="true"></column>
+		</property>
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" not-null="true">
+		</property>
+
+		<property name="lastModifiedByStaffId" type="string">
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="CHAR(7)" not-null="true"></column>
+		</property>
+		
+		<set name="roleModuleActionData" lazy="false" inverse="true">
+			<key column="ROLEID"></key>
+			<one-to-many class="com.elitecore.corenetvertex.sm.acl.RoleModuleActionData"/>
+		</set>
+
+		<set name="roleActionRelDatas" lazy="false" inverse="true">
+			<key column="ROLEID"></key>
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.core.system.accessgroup.data.RoleActionRelData"/>
+		</set>
+
+
+	<!-- 	<set name="staffRoleRel" lazy="false" inverse="true">
+			<key column="roleId"></key>
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.core.system.staff.data.StaffRoleRelData"/>
+		</set> -->
+	</class>
+</hibernate-mapping>          

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="166" vendor-name="Shiva">
+<attribute id="1" name="Shiva-User-Attributes" type="string"/>
+<attribute id="30" name="Shiva-Compression" type="integer">
+	<supported-values>
+		<value id="0" name="None"/>
+		<value id="1" name="Negotiate"/>
+		<value id="2" name="Spider"/>
+		<value id="3" name="Predictor"/>
+		<value id="4" name="STAC"/>
+	</supported-values>
+</attribute>
+<attribute id="31" name="Shiva-Dialback-Delay" type="integer"/>
+<attribute id="32" name="Shiva-Call-Durn-Trap" type="integer"/>
+<attribute id="33" name="Shiva-Bandwidth-Trap" type="integer"/>
+<attribute id="34" name="Shiva-Minimum-Call" type="integer"/>
+<attribute id="35" name="Shiva-Default-Host" type="string"/>
+<attribute id="36" name="Shiva-Menu-Name" type="string"/>
+<attribute id="37" name="Shiva-User-Flags" type="string"/>
+<attribute id="38" name="Shiva-Termtype" type="string"/>
+<attribute id="39" name="Shiva-Break-Key" type="string"/>
+<attribute id="40" name="Shiva-Fwd-Key" type="string"/>
+<attribute id="41" name="Shiva-Bak-Key" type="string"/>
+<attribute id="42" name="Shiva-Dial-Timeout" type="integer"/>
+<attribute id="43" name="Shiva-LAT-Port" type="string"/>
+<attribute id="44" name="Shiva-Max-VCs" type="integer"/>
+<attribute id="45" name="Shiva-DHCP-Leasetime" type="integer"/>
+<attribute id="46" name="Shiva-LAT-Groups" type="string"/>
+<attribute id="60" name="Shiva-RTC-Timestamp" type="integer"/>
+<attribute id="61" name="Shiva-Circuit-Type" type="integer">
+	<supported-values>
+		<value id="1" name="Primary"/>
+		<value id="2" name="Secondary-Backup"/>
+		<value id="3" name="Secondary-Augment"/>
+		<value id="4" name="Secondary-Switch"/>
+		<value id="5" name="Listener"/>
+		<value id="6" name="RADIUS"/>
+	</supported-values>
+</attribute>
+<attribute id="90" name="Shiva-Called-Number" type="string"/>
+<attribute id="91" name="Shiva-Calling-Number" type="string"/>
+<attribute id="92" name="Shiva-Customer-id" type="string"/>
+<attribute id="93" name="Shiva-Type-Of-Service" type="integer">
+	<supported-values>
+		<value id="1" name="Analog"/>
+		<value id="2" name="Digitized-Analog"/>
+		<value id="3" name="Digital"/>
+		<value id="4" name="Digital-V110"/>
+		<value id="5" name="Digital-V120"/>
+		<value id="6" name="Digital-Leased-Line"/>
+	</supported-values>
+</attribute>
+<attribute id="94" name="Shiva-Link-Speed" type="integer"/>
+<attribute id="95" name="Shiva-Links-In-Bundle" type="integer"/>
+<attribute id="96" name="Shiva-Compression-Type" type="integer"/>
+<attribute id="97" name="Shiva-Link-Protocol" type="integer">
+	<supported-values>
+		<value id="1" name="HDLC"/>
+		<value id="2" name="ARAV1"/>
+		<value id="3" name="ARAV2"/>
+		<value id="4" name="SHELL"/>
+		<value id="5" name="AALAP"/>
+		<value id="6" name="SLIP"/>
+	</supported-values>
+</attribute>
+<attribute id="98" name="Shiva-Network-Protocols" type="integer"/>
+<attribute id="99" name="Shiva-Session-id" type="integer"/>
+<attribute id="100" name="Shiva-Disconnect-Reason" type="integer">
+	<supported-values>
+		<value id="1" name="Remote"/>
+		<value id="2" name="Error"/>
+		<value id="3" name="idle-Timeout"/>
+		<value id="4" name="Session-Timeout"/>
+		<value id="5" name="Admin-Disconnect"/>
+		<value id="6" name="Dialback"/>
+		<value id="7" name="Virtual-Connection"/>
+		<value id="8" name="Bandwidth-On-Demand"/>
+		<value id="9" name="Failed-Authentication"/>
+		<value id="10" name="Preempted"/>
+		<value id="11" name="Blocked"/>
+		<value id="12" name="Tariff-Management"/>
+		<value id="13" name="Backup"/>
+	</supported-values>
+</attribute>
+<attribute id="101" name="Shiva-Acct-Serv-Switch" type="ipaddr"/>
+<attribute id="102" name="Shiva-Event-Flags" type="integer"/>
+<attribute id="103" name="Shiva-Function" type="integer">
+	<supported-values>
+		<value id="0" name="Unknown"/>
+		<value id="1" name="Dialin"/>
+		<value id="2" name="Dialout"/>
+		<value id="3" name="Lan-To-Lan"/>
+	</supported-values>
+</attribute>
+<attribute id="104" name="Shiva-Connect-Reason" type="integer">
+	<supported-values>
+		<value id="1" name="Remote"/>
+		<value id="2" name="Dialback"/>
+		<value id="3" name="Virtual-Connection"/>
+		<value id="4" name="Bandwidth-On-Demand"/>
+	</supported-values>
+</attribute>
+</attribute-list>

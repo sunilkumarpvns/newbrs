@@ -1,0 +1,515 @@
+{
+    "schema": {
+        "type": "object",
+        "title": "Dynauth Service",
+        "properties": {
+            "service-address": {
+                "title": "Service Address",
+                "type": "string",
+                "default": "0.0.0.0:3799"
+            },
+            "socket-receive-buffer-size": {
+                "title": "Socket Receive Buffer Size",
+                "type": "string",
+                "default": "-1"
+            },
+            "socket-send-buffer-size": {
+                "title": "Socket Send Buffer Size",
+                "type": "string",
+                "default": "-1"
+            },
+            "queue-size": {
+                "title": "Queue Size",
+                "type": "string",
+                "default": "10000"
+            },
+            "minimum-thread": {
+                "title": " Minimum Thread ",
+                "type": "string",
+                "default": "5"
+            },
+            "maximum-thread": {
+                "title": "Maximum Thread",
+                "type": "string",
+                "default": "10"
+            },
+            "main-thread-priority": {
+                "title": "Main Thread Priority",
+                "type": "string",
+                "default": "7"
+            },
+            "worker-thread-priority": {
+                "title": "Worker Thread Priority",
+                "type": "string",
+                "default": "7"
+            },
+            "duplicate-request-check-enabled": {
+                "title": "Duplicate Request Check Enabled ",
+                "type": "string"
+            },
+            "duplicate-request-purge-interval": {
+                "title": "Duplicate Request Purge Interval",
+                "type": "string"
+            },
+            "service-policies": {
+                "type": "array",
+                "items": {
+                    "title": "Service Policy",
+                    "type": "string"
+                }
+            },
+            "logging": {
+                "type": "object",
+                "properties": {
+                    "service-logger-enabled": {
+                        "title": "Service Logger Enabled ",
+                        "type": "string"
+                    },
+                    "log-level": {
+                        "title": "Log Level",
+                        "type": "string"
+                    },
+                    "rolling-type": {
+                        "title": "Rolling Type",
+                        "type": "string"
+                    },
+                    "rolling-unit": {
+                        "title": "Rolling Unit",
+                        "type": "string",
+                        "default": "5"
+                    },
+                    "max-rolled-unit": {
+                        "title": "Max Rolled Unit",
+                        "type": "string",
+                        "default": "10"
+                    },
+                    "compress-rolled-unit": {
+                        "title": "Compress Rolled Unit",
+                        "type": "string"
+                    },
+                    "location": {
+                        "title": "Location",
+                        "type": "string"
+                    },
+                    "syslog": {
+                        "type": "object",
+                        "properties": {
+                            "address": {
+                                "title": "Address",
+                                "type": "string"
+                            },
+                            "facility": {
+                                "title": "Facility",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "process-request-from-external-system": {
+                "type": "object",
+                "properties": {
+                    "scan-from-database": {
+                        "type": "object",
+                        "properties": {
+                            "enabled": {
+                                "title": "Enabled",
+                                "type": "string"
+                            },
+                            "datasource-name": {
+                                "title": "Datasource Name",
+                                "type": "string"
+                            },
+                            "max-records-per-scan": {
+                                "title": "Max Records Per Scan",
+                                "type": "string",
+                                "default": "1000"
+                            },
+                            "scanning-period": {
+                                "title": "Scanning Period",
+                                "type": "string",
+                                "default": "30"
+                            },
+                            "delay-between-subsequent-requests": {
+                                "title": "Delay Between Subsequent Requests ",
+                                "type": "string",
+                                "default": "60000"
+                            }
+                        }
+                    },
+                    "response-code-to-retry": {
+                        "type": "object",
+                        "properties": {
+                            "enabled": {
+                                "title": "Enabled",
+                                "type": "string"
+                            },
+                            "retry-limit": {
+                                "title": "Retry Limit",
+                                "type": "string",
+                                "default": "3"
+                            },
+                            "response-code-list": {
+                                "type": "array",
+                                "items": {
+                                    "title": "Response Code",
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "action-on-success": {
+                        "title": "Action On Success",
+                        "type": "string"
+                    },
+                    "action-on-failure": {
+                        "title": "Action On Failure",
+                        "type": "string"
+                    }
+                }
+            },
+            "plugin-list": {
+                "type": "object",
+                "properties": {
+                    "pre-plugins": {
+                        "type": "object",
+                        "properties": {
+                            "plugin-entry": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "plugin-name": {
+                                            "title": "Plugin Name",
+                                            "type": "string"
+                                        },
+                                        "argument": {
+                                            "title": "Argument",
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "post-plugins": {
+                        "type": "object",
+                        "properties": {
+                            "plugin-entry": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "plugin-name": {
+                                            "title": "Plugin Name",
+                                            "type": "string"
+                                        },
+                                        "argument": {
+                                            "title": "Argument",
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "form": [
+        {
+            "key": "service-address"
+        },
+        {
+            "key": "socket-receive-buffer-size"
+        },
+        {
+            "key": "socket-send-buffer-size"
+        },
+        {
+            "key": "queue-size"
+        },
+        {
+            "key": "minimum-thread"
+        },
+        {
+            "key": "maximum-thread"
+        },
+        {
+            "key": "main-thread-priority"
+        },
+        {
+            "key": "worker-thread-priority"
+        },
+        {
+            "key": "duplicate-request-check-enabled",
+            "type": "select",
+            "titleMap": {
+                "True": "True",
+                "False": "False"
+            }
+        },
+        {
+            "key": "duplicate-request-purge-interval"
+        },
+        {
+            "key": "service-policies",
+            "add": "Add"
+        },
+        {
+            "key": "logging",
+            "items": [
+                {
+                    "key": "logging.service-logger-enabled",
+                    "type": "select",
+                    "titleMap": {
+                        "True": "True",
+                        "False": "False"
+                    }
+                },
+                {
+                    "key": "logging.log-level",
+                    "type": "select",
+                    "titleMap": {
+                        "0-OFF": "0-OFF",
+                        "1-WARM": "1-WARM",
+                        "2-ERROR": "2-ERROR",
+                        "3-INFO": "3-INFO",
+                        "4-FATAL": "4-FATAL",
+                        "5-DEBUG": "5-DEBUG",
+                        "6-TRACE": "6-TRACE",
+                        "7-All": "7-All"
+                    }
+                },
+                {
+                    "key": "logging.rolling-type",
+                    "type": "select",
+                    "titleMap": {
+                        "Size-Based": "Size-Based",
+                        "Time-Based": "Time-Based"
+                    }
+                },
+                {
+                    "key": "logging.rolling-unit"
+                },
+                {
+                    "key": "logging.max-rolled-unit"
+                },
+                {
+                    "key": "logging.compress-rolled-unit",
+                    "type": "select",
+                    "titleMap": {
+                        "True": "True",
+                        "False": "False"
+                    }
+                },
+                {
+                    "key": "logging.location"
+                },
+                {
+                    "key": "logging.syslog",
+                    "items": [
+                        {
+                            "key": "logging.syslog.address"
+                        },
+                        {
+                            "key": "logging.syslog.facility",
+                            "type": "select",
+                            "titleMap": {
+                                "None": "None",
+                                "AUTH": "AUTH",
+                                "KERN": "KERN",
+                                "USER": "USER",
+                                "MAIL": "MAIL",
+                                "DAEMON": "DAEMON",
+                                "SYSLOG": "SYSLOG",
+                                "LPR": "LPR",
+                                "NEWS": "NEWS",
+                                "UUCP": "UUCP",
+                                "CRON": "CRON",
+                                "AUTHPRIV": "AUTHPRIV",
+                                "FTP": "FTP",
+                                "LOCAL0": "LOCAL0",
+                                "LOCAL1": "LOCAL1",
+                                "LOCAL2": "LOCAL2",
+                                "LOCAL3": "LOCAL3",
+                                "LOCAL4": "LOCAL4",
+                                "LOCAL5": "LOCAL5",
+                                "LOCAL6": "LOCAL6",
+                                "LOCAL7": "LOCAL7"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "key": "process-request-from-external-system",
+                    "items": [
+                        {
+                            "key": "process-request-from-external-system.scan-from-database",
+                            "items": [
+                                {
+                                    "key": "process-request-from-external-system.scan-from-database.enabled",
+                                    "type": "select",
+                                    "titleMap": {
+                                        "True": "True",
+                                        "False": "False"
+                                    }
+                                },
+                                {
+                                    "key": "process-request-from-external-system.scan-from-database.datasource-name"
+                                },
+                                {
+                                    "key": "process-request-from-external-system.scan-from-database.max-records-per-scan"
+                                },
+                                {
+                                    "key": "process-request-from-external-system.scan-from-database.scanning-period"
+                                },
+                                {
+                                    "key": "process-request-from-external-system.scan-from-database.delay-between-subsequent-requests"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "process-request-from-external-system.response-code-to-retry",
+                            "items": [
+                                {
+                                    "key": "process-request-from-external-system.response-code-to-retry.enabled",
+                                    "type": "select",
+                                    "titleMap": {
+                                        "True": "True",
+                                        "False": "False"
+                                    }
+                                },
+                                {
+                                    "key": "process-request-from-external-system.response-code-to-retry.retry-limit"
+                                },
+                                {
+                                    "key": "process-request-from-external-system.response-code-to-retry.response-code-list",
+                                    "add": "Add"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "process-request-from-external-system.action-on-success"
+                        },
+                        {
+                            "key": "process-request-from-external-system.action-on-failure"
+                        }
+                    ]
+                },
+                {
+                    "key": "plugin-list",
+                    "items": [
+                        {
+                            "key": "plugin-list.pre-plugins",
+                            "add": "Add",
+                            "title": "Pre-plugins",
+                            "items": [
+                                {
+                                    "key": "plugin-list.pre-plugins.plugin-entry",
+                                    "title": "Plugin Entry",
+                                    "items": [
+                                        {
+                                            "key": "plugin-list.pre-plugins.plugin-entry[].plugin-name",
+                                            "title": "Plugin Name"
+                                        },
+                                        {
+                                            "key": "plugin-list.pre-plugins.plugin-entry[].argument",
+                                            "title": "Argument"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "plugin-list.post-plugins",
+                            "add": "Add",
+                            "title": "Post-plugins",
+                            "items": [
+                                {
+                                    "key": "plugin-list.post-plugins.plugin-entry",
+                                    "title": "Plugin Entry",
+                                    "items": [
+                                        {
+                                            "key": "plugin-list.post-plugins.plugin-entry[].plugin-name",
+                                            "title": "Plugin Name"
+                                        },
+                                        {
+                                            "key": "plugin-list.post-plugins.plugin-entry[].argument",
+                                            "title": "Argument"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "model": {
+        "service-address": "0.0.0.0:3799",
+        "socket-receive-buffer-size": "-1",
+        "socket-send-buffer-size": "-1",
+        "queue-size": "3000",
+        "minimum-thread": "5",
+        "maximum-thread": "10",
+        "main-thread-priority": "7",
+        "worker-thread-priority": "7",
+        "duplicate-request-check-enabled": "false",
+        "duplicate-request-purge-interval": "15",
+        "service-policies": [
+            "ALL"
+        ],
+        "logging": {
+            "service-logger-enabled": "false",
+            "log-level": "INFO",
+            "rolling-type": "Time-Based",
+            "rolling-unit": "5",
+            "max-rolled-unit": "10",
+            "compress-rolled-unit": "false",
+            "location": "logs",
+            "syslog": {
+                "address": "",
+                "facility": "-None-"
+            }
+        },
+        "process-request-from-external-system": {
+            "scan-from-database": {
+                "enabled": "true",
+                "datasource-name": "DefaultDatabaseDatasource",
+                "max-records-per-scan": "1000",
+                "scanning-period": "300",
+                "delay-between-subsequent-requests": "60000"
+            },
+            "response-code-to-retry": {
+                "enabled": "false",
+                "retry-limit": "3",
+                "response-code-list": [
+                    0
+                ]
+            },
+            "action-on-success": "delete",
+            "action-on-failure": "delete"
+        },
+        "plugin-list": {
+            "pre-plugins": {
+                "plugin-entry": [
+                    {
+                        "plugin-name": "-None-",
+                        "argument": ""
+                    }
+                ]
+            },
+            "post-plugins": {
+                "plugin-entry": [
+                    {
+                        "plugin-name": "-None-",
+                        "argument": ""
+                    }
+                ]
+            }
+        }
+    }
+}

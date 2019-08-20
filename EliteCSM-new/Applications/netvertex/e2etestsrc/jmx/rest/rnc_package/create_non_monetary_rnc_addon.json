@@ -1,0 +1,12 @@
+ {
+ 	   "id": "rest_rnc_nonmonetary_addon_11111111",
+        "status": "ACTIVE",
+        "groups": "GROUP_1",
+        "name": "rest_rnc_non_monetary_addon",
+        "description": "Created by admin on 04/25/2018 18:22:49",
+        "type": "NON_MONETARY_ADDON",
+        "mode": "TEST",
+        "groupNames": "DefaultGroup",
+        "chargingType":"SESSION",
+		"currency": "INR"
+}

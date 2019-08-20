@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="com.elitecore.elitesm.datamanager.dashboard.data.chartdata.TotalRequestStatistics" table="TBLESIREQSTATISTICS">
+   
+      <composite-id>
+         <key-property name="timestamp" column="TIMESTAMP" type="java.sql.Timestamp"/>
+         <key-property name="esi" column="ESI" type="string"/>
+      </composite-id>
+      
+      <property name="accessChallenge" type="java.lang.Integer">
+         <column name="ACCESS_CHALLENGE" sql-type="NUMBER" not-null="false"/>
+      </property>
+      <property name="accessReject" type="java.lang.Integer">
+         <column name="ACCESS_REJECT" sql-type="NUMBER" not-null="false"/>
+      </property>
+      
+      <property name="accessAccept" type="java.lang.Integer">
+         <column name="ACCESS_ACCEPT" sql-type="NUMBER" not-null="false"/>
+      </property>
+      <property name="requestDrop" type="java.lang.Integer">
+         <column name="REQUEST_DROP" sql-type="NUMBER" not-null="false"/>
+      </property><!--
+      
+       <sql-query name="findLatestTotalReqStatistics">
+			<return alias="totalReqStat" class="com.elitecore.neox.datamanager.dashboard.data.TotalRequestStatistics"/>
+			<![CDATA[select * from totalReqStat s ]]>
+    </sql-query>
+      
+   --></class>
+  
+</hibernate-mapping>

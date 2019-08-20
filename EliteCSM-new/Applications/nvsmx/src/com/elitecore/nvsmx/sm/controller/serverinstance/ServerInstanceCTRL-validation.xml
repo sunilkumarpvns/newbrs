@@ -1,0 +1,55 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    <field name="name">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">100</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("serverinstance.name")})}</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+            <message>${getText("invalid.name")}</message>
+        </field-validator>
+    </field>
+
+    <field name="description">
+
+        <field-validator type="stringlength">
+            <param name="minLength">0</param>
+            <param name="maxLength">255</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("serverinstance.description")})}</message>
+        </field-validator>
+
+    </field>
+
+    <field name="snmpUrl">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]):[0-9]+$]]></param>
+            <message>${getText("invalid.ip.port.value")}</message>
+        </field-validator>
+    </field>
+
+    <field name="restApiUrl">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]):[0-9]+$]]></param>
+            <message>${getText("invalid.ip.port.value")}</message>
+        </field-validator>
+    </field>
+</validators>

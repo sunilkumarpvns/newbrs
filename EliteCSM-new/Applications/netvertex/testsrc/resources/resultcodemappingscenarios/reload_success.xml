@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<result-code-mapping>
+    <result-code-list>
+        <result-code>
+            <application>
+                <diameter-result-code>101</diameter-result-code>
+                <id>5</id>
+                <experimental-result-code>201</experimental-result-code>
+                <vendor-id>12</vendor-id>
+            </application>
+            <pcrf-key>reloadKey1</pcrf-key>
+            <diameter-result-code>202</diameter-result-code>
+        </result-code>
+    </result-code-list>
+</result-code-mapping>

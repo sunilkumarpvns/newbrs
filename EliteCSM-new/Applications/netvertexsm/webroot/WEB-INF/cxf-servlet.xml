@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:soap="http://cxf.apache.org/bindings/soap"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	
+	<jaxws:endpoint xmlns:tns="http://sessionLookupWS.ws.netvertex.elitecore.com/"
+		id="SessionManagementWS" implementor="com.elitecore.netvertexsm.ws.cxfws.session.SessionManagementWS"
+		endpointName="tns:SessionManagementWS"
+		serviceName="tns:SessionManagementService" address="/SessionManagementService" >
+		
+		<jaxws:binding> 
+			<soap:soapBinding version="1.2"/> 
+		</jaxws:binding>
+		<!--  Logging future of CXF that logs the request  -->
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+</beans>

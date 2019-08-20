@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping auto-import="false">
+
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.staff.data.StaffData" table="TBLMSTAFF" >          
+	 
+	 <id name="staffId" column="STAFFID" type="long" >
+          	<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+			</generator>
+     </id>
+     
+     <property name="name" type="string">
+          <column name="NAME" sql-type="VARCHAR2(60)" not-null="true"/>
+     </property>
+     
+     <property name="userName" type="string">
+          <column name="USERNAME" sql-type="VARCHAR2(18)" not-null="true"/>
+     </property>
+     
+     <property name="createDate" type="java.sql.Timestamp" column="CREATEDATE" not-null="true">
+     </property>
+     
+     <property name="password" type="string">
+          <column name="PASSWORD" sql-type="VARCHAR2(50)" not-null="true"/>
+     </property>
+     
+     <property name="recentPasswords" type="string">
+          <column name="RECENTPASSWORDS" sql-type="VARCHAR2(1550)" not-null="false"/>
+     </property>
+     
+     <property name="lastModifiedDate" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" not-null="false"> 
+     </property>
+     
+     <property name="emailAddress" type="string">
+          <column name="EMAILADDRESS" sql-type="VARCHAR2(50)" not-null="true"/>
+     </property>
+     
+      <property name="phone" type="string">
+          <column name="PHONE" sql-type="VARCHAR2(20)" not-null="false"/>
+      </property>
+      
+     <property name="lastLoginTime" type="java.sql.Timestamp" column="LASTLOGINTIME" not-null="false">
+		</property>
+      
+      <property name="mobile" type="string">
+          <column name="MOBILE" sql-type="VARCHAR2(20)" not-null="false"/>
+      </property> 
+      
+      <property name="statusChangeDate" type="java.sql.Timestamp" column="STATUSCHANGEDATE" not-null="false" >
+      </property> 
+      
+      <property name="commonStatusId" type="string">
+          <column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="true"/>
+      </property>
+      
+      <property name="createdByStaffId" type="string">
+          <column name="CREATEDBYSTAFFID" sql-type="CHAR(7)" not-null="true"/>
+      </property>
+      
+      <property name="lastModifiedByStaffId" type="string">
+          <column name="LASTMODIFIEDBYSTAFFID" sql-type="CHAR(5)" not-null="true"/>
+      </property>
+      
+      <property name="systemGenerated" type="string">
+          <column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+      </property>
+     
+      <property name="lastLoginDuration" type="java.lang.Long">
+          <column name="LASTLOGINDURATION" sql-type="NUMERIC(10)" not-null="false"></column>
+      </property>
+      
+      <property name="passwordChangeDate" type="java.sql.Timestamp">
+          <column name="PASSWORDCHANGEDATE" sql-type="DATE"></column>
+      </property>
+      
+      <property name="passwordValidityPeriod" type="java.lang.Long">
+          <column name="PASSWORDVALIDITYPERIOD" sql-type="NUMERIC(5)"></column>
+      </property>
+      
+	<property name="profilePicture" type="byte[]">
+         <column name="PROFILEPICTURE" sql-type="BLOB"></column>
+     </property> 
+     
+      
+     <bag name="staffGroupRoleRelationList" table="TBLM_STAFF_GROUP_ROLE_REL"  lazy="false" >
+            <key column="STAFFID"  />
+            <composite-element class="com.elitecore.netvertexsm.datamanager.core.system.staff.data.StaffGroupRoleRelData">
+                <parent name="staffData" />
+                <many-to-one name="roleData" class="com.elitecore.netvertexsm.datamanager.core.system.accessgroup.data.RoleData" column="ROLEID" not-null="true" />
+                <many-to-one name="groupData" class="com.elitecore.corenetvertex.sm.acl.GroupData" column="GROUPID" not-null="true" />
+            </composite-element>
+     </bag>
+        
+        
+     <set name="groupDatas" table="TBLM_STAFF_GROUP_ROLE_REL" inverse="false"
+		lazy="false" fetch="select" cascade="all">
+		<key>
+			<column name="STAFFID" not-null="true" />
+		</key>
+		<many-to-many entity-name="com.elitecore.corenetvertex.sm.acl.GroupData">
+			<column name="GROUPID" not-null="true" />
+		</many-to-many>
+	</set>
+        
+	</class>
+	
+</hibernate-mapping>
+
+          

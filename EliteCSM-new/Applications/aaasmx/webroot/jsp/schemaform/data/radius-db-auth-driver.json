@@ -1,0 +1,260 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "DB Auth Driver",
+		"properties": {
+			"name": {
+				"title": "Instance Name",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"db-auth-driver": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"cacheable": {
+							"title": "Cacheable",
+							"type": "boolean"
+						},
+						"database-datasource": {
+							"title": "Database Datasource",
+							"type": "string"
+						},
+						"table-name": {
+							"title": "Table Name",
+							"type": "string",
+							"default": "TBLRADIUSCUSTOMER"
+						},
+						"db-query-timeout": {
+							"title": "DB Query Timeout",
+							"type": "string",
+							"default": "2"
+						},
+						"maximum-query-timeout-count": {
+							"title": "Maximum Query Timeout Count",
+							"type": "string",
+							"default": "9999"
+						},
+						"profile-lookup-column": {
+							"title": "Profile Lookup Column",
+							"type": "string",
+							"default": "USER_IDENTITY"
+						},
+						"user-identity-attributes": {
+							"title": "User Identity Attributes",
+							"type": "string"
+						},
+						"db-field-mappings": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": [
+									{
+										"logical-name": {
+											"title": "Logical Name",
+											"type": "string"
+										},
+										"db-field": {
+											"title": "DB Field",
+											"type": "string",
+											"default": "USERNAME"
+										},
+										"default-value": {
+											"title": "Default Value",
+											"type": "string"
+										},
+										"value-mapping": {
+											"title": "Value Mapping",
+											"type": "string"
+										}
+									}
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name",
+			"type": "textbox"
+		},
+		{
+			"key": "description",
+			"type": "textbox"
+		},
+		{
+			"key": "db-auth-driver",
+			"items": [
+				{
+					"key": "db-auth-driver[].cacheable"
+				},
+				{
+					"key": "db-auth-driver[].database-datasource"
+				},
+				{
+					"key": "db-auth-driver[].table-name"
+				},
+				{
+					"key": "db-auth-driver[].db-query-timeout"
+				},
+				{
+					"key": "db-auth-driver[].maximum-query-timeout-count"
+				},
+				{
+					"key": "db-auth-driver[].profile-lookup-column"
+				},
+				{
+					"key": "db-auth-driver[].user-identity-attributes"
+				},
+				{
+					"key": "db-auth-driver[].db-field-mappings",
+					"add": "Add Mapping",
+					"items": [
+						{
+							"key": "db-auth-driver[].db-field-mappings[].logical-name",
+							"title": "Logical Name",
+							"type": "select",
+							"titleMap": {
+								"CUI": "CUI",
+								"Callback ID": "Callback ID",
+								"Called Station ID": "Called Station ID",
+								"Calling Station ID": "Calling Station ID",
+								"Concurrent Login Policy": "Concurrent Login Policy",
+								"Credit Limit": "Credit Limit",
+								"Customer Check Items": "Customer Check Items",
+								"Customer Reject Items": "Customer Reject Items",
+								"Customer Reply Items": "Customer Reply Items",
+								"Customer Status": "Customer Status",
+								"Customer Type": "Customer Type",
+								"Encryption Type": "Encryption Type",
+								"Expiry Date": "Expiry Date",
+								"Grace Period": "Grace Period",
+								"Group Name": "Group Name",
+								"Hotline Policy": "Hotline Policy",
+								"IP Pool Name": "IP Pool Name",
+								"Param1": "Param1",
+								"Param2": "Param2",
+								"Param3": "Param3",
+								"Password Check": "Password Check",
+								"Authorization Policy": "Authorization Policy",
+								"Service Type": "Service Type",
+								"User Name": "User Name",
+								"User Password": "User Password",
+								"MAC Validation": "MAC Validation",
+								"Access Policy": "Access Policy",
+								"Group Bandwidth": "Group Bandwidth",
+								"Dynamic Check Items": "Dynamic Check Items",
+								"IMSI": "IMSI",
+								"MEID": "MEID",
+								"MSISDN": "MSISDN",
+								"MDN": "MDN",
+								"IMEI": "IMEI",
+								"Customer Services": "Customer Services",
+								"Additional Policy": "Additional Policy",
+								"Param4": "Param4",
+								"Param5": "Param5",
+								"Device Vendor": "Device Vendor",
+								"Device Name": "Device Name",
+								"Device Port": "Device Port",
+								"GEO Location": "GEO Location",
+								"Device VLAN": "Device VLAN",
+								"Reply Framed IPV4 Address": "Reply Framed IPV4 Address",
+								"Reply Framed IPV6 Prefix": "Reply Framed IPV6 Prefix",
+								"Reply Framed Pool": "Reply Framed Pool",
+								"Policy Group": "Policy Group"
+							}
+						},
+						{
+							"key": "db-auth-driver[].db-field-mappings[].db-field",
+							"title": "DB Field"
+						},
+						{
+							"key": "db-auth-driver[].db-field-mappings[].default-value",
+							"title": "Default Value"
+						},
+						{
+							"key": "db-auth-driver[].db-field-mappings[].value-mapping",
+							"title": "Value Mapping"
+						}
+					]
+				}
+			]
+		}
+	],
+	"model": {
+		"name": "radiusDBAuthDriver",
+		"description": "Created by admin on 01/23/2017 04:50:30 PM",
+		"db-auth-driver": [
+			{
+				"cacheable": "false",
+				"database-datasource": "DefaultDatabaseDatasource",
+				"table-name": "TBLRADIUSCUSTOMER",
+				"db-query-timeout": "2",
+				"maximum-query-timeout-count": "200",
+				"profile-lookup-column": "USER_IDENTITY",
+				"user-identity-attributes": "0:1",
+				"primary-key-column": "ID",
+				"sequence-name": "SEQ_RADIUSCUSTOMER",
+				"db-field-mappings": [
+					{
+						"logical-name": "User Name",
+						"db-field": "USERNAME"
+					},
+					{
+						"logical-name": "CUI",
+						"db-field": "CUI"
+					},
+					{
+						"logical-name": "User Password",
+						"db-field": "PASSWORD"
+					},
+					{
+						"logical-name": "Password Check",
+						"db-field": "PASSWORDCHECK"
+					},
+					{
+						"logical-name": "Encryption Type",
+						"db-field": "ENCRYPTIONTYPE"
+					},
+					{
+						"logical-name": "Customer Status",
+						"db-field": "CUSTOMERSTATUS",
+						"default-value": "Active",
+						"value-mapping": "1=Active,0=inActive"
+					},
+					{
+						"logical-name": "Calling Station ID",
+						"db-field": "CALLINGSTATIONID"
+					},
+					{
+						"logical-name": "Authorization Policy",
+						"db-field": "RADIUSPOLICY"
+					},
+					{
+						"logical-name": "Customer Check Items",
+						"db-field": "CUSTOMERCHECKITEM"
+					},
+					{
+						"logical-name": "Customer Reply Items",
+						"db-field": "CUSTOMERREPLYITEM"
+					},
+					{
+						"logical-name": "Expiry Date",
+						"db-field": "EXPIRYDATE"
+					},
+					{
+						"logical-name": "Credit Limit",
+						"db-field": "CREDITLIMIT"
+					}
+				]
+			}
+		]
+	}
+}

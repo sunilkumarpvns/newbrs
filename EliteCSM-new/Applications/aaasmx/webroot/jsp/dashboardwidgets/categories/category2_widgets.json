@@ -1,0 +1,31 @@
+{
+"result" :
+  {
+  "data" : [
+    {
+      "id" : "w07",
+      "title" : "Result-Code Statistics",
+      "description" : "Display graph of result-code categories detail per realm",
+      "creator" : "EliteCSM",
+      "url" : "jsp/dashboardwidgets/dscdashboard/RealmWiseResultCodeStats.jsp",
+      "image": "images/categoriesimage/EliteDSC-RealmwiseResultCodeStats.png"
+    },
+    {
+      "id" : "w08",
+      "title" : "Peer Statistics",
+      "description" : "Display statistics of all Diameter Peers",
+      "creator" : "EliteCSM",
+      "url" : "jsp/dashboardwidgets/dscdashboard/PeerStatsTable.jsp",
+      "image": "images/categoriesimage/EliteDSC-PeerStats.png"
+    },
+    {
+      "id" : "w09",
+      "title" : "Realm Statistics",
+      "description" : "Display statistics of Diameter Request/Answer per realm",
+      "creator" : "EliteCSM",
+      "url" : "jsp/dashboardwidgets/dscdashboard/RealmStatistics.jsp",
+      "image": "images/categoriesimage/EliteDSC-RealmStats.png"
+    }
+  ]
+  }
+}

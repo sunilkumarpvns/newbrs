@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clients>		
+	<client>
+		<client-ip>127.0.0.1</client-ip>
+        <request-expiry-time>8000</request-expiry-time>
+        <shared-secret>secret</shared-secret>
+            
+        <profile-name>test_profile</profile-name>        
+	</client>
+	<client>
+		<client-ip>192.168.8.94</client-ip>
+        <request-expiry-time>8000</request-expiry-time>
+        <shared-secret>secret</shared-secret> 
+        <framed-pool-name>RMIPPool</framed-pool-name>       
+        <profile-name>test_profile</profile-name>        
+	</client>
+	<client>
+		<client-ip>10.106.1.80</client-ip>
+        <request-expiry-time>8000</request-expiry-time>
+        <shared-secret>secret</shared-secret>
+        <framed-pool-name>RMIPPool</framed-pool-name>        
+        <profile-name>test_profile</profile-name>        
+	</client>
+	<client>
+		<client-ip>10.106.1.38</client-ip>
+        <request-expiry-time>8000</request-expiry-time>
+        <shared-secret>secret</shared-secret>        
+        <profile-name>test_profile</profile-name>        
+	</client>
+</clients>

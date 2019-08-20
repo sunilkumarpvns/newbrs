@@ -1,0 +1,1719 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy?name=service-policy-name&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy.xml?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy?operation=search&name=service-policy-name&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy.xml?operation=search&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name.xml?operation=search
+
+Response     :
+
+<tgpp-server-policy>
+    <name>tgpp</name>
+    <description>Created by admin on 03/03/2017 12:55:04 PM</description>
+    <status>CST02</status>
+    <ruleset>0:1="*"</ruleset>
+    <user-identity>0:1</user-identity>
+    <session-management>false</session-management>
+    <default-response-behavior-type>REJECT</default-response-behavior-type>
+    <default-response-behavior-parameter>5010</default-response-behavior-parameter>
+    <command-code-wise-response-attribute-list />
+    <command-code-flows>
+        <command-code-flow>
+            <name>AAR</name>
+            <command-code>265</command-code>
+            <interface-id>1</interface-id>
+            <authentication-handler>
+                <enabled>true</enabled>
+                <handler-name>Authentication Handler</handler-name>
+                <supported-methods>
+                    <method>PAP</method>
+                    <method>CHAP</method>
+                    <method>EAP</method>
+                </supported-methods>
+                <eap-config>eap_demo</eap-config>
+            </authentication-handler>
+            <authorization-handler>
+                <enabled>true</enabled>
+                <handler-name>Authorization Handler</handler-name>
+                <wimax>false</wimax>
+                <default-session-timeout-in-secs>600</default-session-timeout-in-secs>
+                <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+                <reject-on-reject-item-not-found>true</reject-on-reject-item-not-found>
+                <continue-on-policy-not-found>true</continue-on-policy-not-found>
+                <grace-policy></grace-policy>
+            </authorization-handler>
+            <user-profile-repository>
+                <enabled>true</enabled>
+                <handler-name>Profile Lookup Handler </handler-name>
+                <update-identity>
+                    <strip-identity>Prefix</strip-identity>
+                    <separator>@</separator>
+                    <case>Lower Case</case>
+                    <trim-identity>false</trim-identity>
+                    <trim-password>false</trim-password>
+                </update-identity>
+                <profile-drivers>
+                    <primary-group>
+                        <primary-driver>
+                            <driver-instace-id>NAS_PRM_DRV</driver-instace-id>
+                            <weightage>1</weightage>
+                        </primary-driver>
+                    </primary-group>
+                    <secondary-group>
+                        <secondary-driver>
+                            <secondary-driver-id>NAS_SEC_DRV</secondary-driver-id>
+                        </secondary-driver>
+                    </secondary-group>
+                    <additional-group>
+                        <additional-driver>
+                            <additional-driver-id>NAS_ADI_DRV</additional-driver-id>
+                        </additional-driver>
+                    </additional-group>
+                    <driver-script>script</driver-script>
+                </profile-drivers>
+            </user-profile-repository>
+            <cdr-generation>
+                <enabled>true</enabled>
+                <handler-name>CDR Handler</handler-name>
+                <cdr-handler-entry wait="true">
+                    <enabled>false</enabled>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <cdr-drivers>
+                        <primary-group>
+                            <primary-driver>
+                                <driver-instace-id>NAS-ACCT-DRV</driver-instace-id>
+                                <weightage>1</weightage>
+                            </primary-driver>
+                        </primary-group>
+                        <secondary-group>
+                            <secondary-driver>
+                                <secondary-driver-id>NAS-ACCT-DRV</secondary-driver-id>
+                            </secondary-driver>
+                        </secondary-group>
+                        <additional-group />
+                        <driver-script>script</driver-script>
+                    </cdr-drivers>
+                </cdr-handler-entry>
+            </cdr-generation>
+            <dia-concurrency-handler>
+                <enabled>true</enabled>
+                <handler-name>Concurrency Handler</handler-name>
+                <ruleset>0:1="eliteaaa"</ruleset>
+                <dia-concurrency>DCON</dia-concurrency>
+            </dia-concurrency-handler>
+            <proxy-handler protocol="DIAMETER" proxy-mode="SINGLE">
+                <enabled>true</enabled>
+                <handler-name>Diameter Proxy(Sequential) Handler </handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>3010</result-code-on-no-entry-selected>
+                <proxy-communication-entry>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping>D-TO-D-CP</translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </proxy-communication-entry>
+            </proxy-handler>
+            <proxy-handler protocol="RADIUS" proxy-mode="MULTIPLE">
+                <enabled>true</enabled>
+                <handler-name>Radius Proxy(Sequential) Handler </handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>3002</result-code-on-no-entry-selected>
+                <proxy-communication-entry>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping></translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </proxy-communication-entry>
+            </proxy-handler>
+            <broadcast-handler protocol="DIAMETER">
+                <enabled>true</enabled>
+                <handler-name>Diameter Broadcasting(Parallel) Handler</handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>0</result-code-on-no-entry-selected>
+                <broadcast-communication-entry wait="true">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping>D-TO-D-CP</translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </broadcast-communication-entry>
+            </broadcast-handler>
+            <broadcast-handler protocol="RADIUS">
+                <enabled>true</enabled>
+                <handler-name>Radius Broadcasting(Parallel) Handler</handler-name>
+                <priority-result-codes></priority-result-codes>
+                <result-code-on-no-entry-selected>3002</result-code-on-no-entry-selected>
+                <broadcast-communication-entry wait="true">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping></translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </broadcast-communication-entry>
+            </broadcast-handler>
+            <plugin-handler>
+                <enabled>true</enabled>
+                <handler-name>Plugin Handler</handler-name>
+                <plugin-entry onResponse="false">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+                    <plugin-argument>arg</plugin-argument>
+                </plugin-entry>
+            </plugin-handler>
+            <post-response-handler>
+                <enabled>false</enabled>
+            </post-response-handler>
+        </command-code-flow>
+    </command-code-flows>
+</tgpp-server-policy>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy?name=service-policy-name&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy.json?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy?operation=search&name=service-policy-name&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy.json?operation=search&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name.json?operation=search
+
+
+Response     :
+
+
+{
+  "name": "tgpp",
+  "description": "Created by admin on 03/03/2017 12:55:04 PM",
+  "status": "CST02",
+  "ruleset": "0:1=\"*\"",
+  "user-identity": "0:1",
+  "session-management": "false",
+  "default-response-behavior-type": "REJECT",
+  "default-response-behavior-parameter": "5010",
+  "command-code-wise-response-attribute-list": [],
+  "command-code-flows": [
+    {
+      "name": "AAR",
+      "command-code": "265",
+      "interface-id": "1",
+      "handlersData": [
+        {
+          "authentication-handler": {
+            "supported-methods": [
+              "PAP",
+              "CHAP",
+              "EAP"
+            ],
+            "eap-config": "eap_demo",
+            "enabled": true,
+            "handler-name": "Authentication Handler"
+          }
+        },
+        {
+          "authorization-handler": {
+            "wimax": false,
+            "default-session-timeout-in-secs": 600,
+            "reject-on-check-item-not-found": true,
+            "reject-on-reject-item-not-found": true,
+            "continue-on-policy-not-found": true,
+            "grace-policy": "",
+            "enabled": true,
+            "handler-name": "Authorization Handler"
+          }
+        },
+        {
+          "user-profile-repository": {
+            "update-identity": {
+              "strip-identity": "Prefix",
+              "separator": "@",
+              "case": "Lower Case",
+              "trim-identity": "false",
+              "trim-password": "false"
+            },
+            "profile-drivers": {
+              "primary-group": [
+                {
+                  "weightage": 1,
+                  "driver-instace-id": "NAS_PRM_DRV"
+                }
+              ],
+              "secondary-group": [
+             	{
+                  "secondary-driver-id": "NAS_SEC_DRV"
+                }
+              ],
+              "additional-group": [
+              	{
+                   "additional-driver-id": "NAS_ADI_DRV"
+                }
+              ],
+              "driver-script": "script"
+            },
+            "enabled": true,
+            "handler-name": "Profile Lookup Handler "
+          }
+        },
+        {
+          "cdr-generation": {
+            "enabled": true,
+            "handler-name": "CDR Handler",
+            "cdr-handler-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "cdr-drivers": {
+                  "primary-group": [
+                    {
+                      "weightage": 1,
+                      "driver-instace-id": "NAS-ACCT-DRV"
+                    }
+                  ],
+                  "secondary-group": [
+                    {
+                      "secondary-driver-id": "NAS-ACCT-DRV"
+                    }
+                  ],
+                  "additional-group": [],
+                  "driver-script": "script"
+                },
+                "enabled": false,
+                "wait": true
+              }
+            ]
+          }
+        },
+        {
+          "dia-concurrency-handler": {
+            "ruleset": "0:1=\"eliteaaa\"",
+            "dia-concurrency": "DCON",
+            "enabled": true,
+            "handler-name": "Concurrency Handler"
+          }
+        },
+        {
+          "proxy-handler": {
+            "priority-result-codes": "2000",
+            "result-code-on-no-entry-selected": 3010,
+            "proxy-communication-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "translation-mapping": "D-TO-D-CP",
+                "peer-group": "DiaemterPeerGroup",
+                "script": "script",
+                "acceptable-result-codes": [
+                  5010
+                ]
+              }
+            ],
+            "enabled": true,
+            "protocol": "DIAMETER",
+            "handler-name": "Diameter Proxy(Sequential) Handler ",
+            "proxy-mode": "SINGLE"
+          }
+        },
+        {
+          "proxy-handler": {
+            "priority-result-codes": "2000",
+            "result-code-on-no-entry-selected": 3002,
+            "proxy-communication-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "translation-mapping": "",
+                "peer-group": "DiaemterPeerGroup",
+                "script": "script",
+                "acceptable-result-codes": [
+                  5010
+                ]
+              }
+            ],
+            "enabled": true,
+            "protocol": "RADIUS",
+            "handler-name": "Radius Proxy(Sequential) Handler ",
+            "proxy-mode": "MULTIPLE"
+          }
+        },
+        {
+          "broadcast-handler": {
+            "priority-result-codes": "2000",
+            "result-code-on-no-entry-selected": 0,
+            "broadcast-communication-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "translation-mapping": "D-TO-D-CP",
+                "peer-group": "DiaemterPeerGroup",
+                "script": "script",
+                "acceptable-result-codes": [
+                  5010
+                ],
+                "wait": true
+              }
+            ],
+            "enabled": true,
+            "protocol": "DIAMETER",
+            "handler-name": "Diameter Broadcasting(Parallel) Handler"
+          }
+        },
+        {
+          "broadcast-handler": {
+            "priority-result-codes": "",
+            "result-code-on-no-entry-selected": 3002,
+            "broadcast-communication-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "translation-mapping": "",
+                "peer-group": "DiaemterPeerGroup",
+                "script": "script",
+                "acceptable-result-codes": [
+                  5010
+                ],
+                "wait": true
+              }
+            ],
+            "enabled": true,
+            "protocol": "RADIUS",
+            "handler-name": "Radius Broadcasting(Parallel) Handler"
+          }
+        },
+        {
+          "plugin-handler": {
+            "enabled": true,
+            "handler-name": "Plugin Handler",
+            "plugin-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "plugin-name": "DIAMETER-UNI-TEST",
+                "plugin-argument": "arg",
+                "onResponse": false
+              }
+            ]
+          }
+        }
+      ],
+      "post-response-handler": {
+        "enabled": false,
+        "handlersData": []
+      }
+    }
+  ]
+}
+
+
+***********************************************************************
+                    CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy?operation=create
+
+
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<tgpp-server-policy>
+    <name>tgpp</name>
+    <description>Created by admin on 03/03/2017 12:55:04 PM</description>
+    <status>CST02</status>
+    <ruleset>0:1="*"</ruleset>
+    <user-identity>0:1</user-identity>
+    <session-management>false</session-management>
+    <default-response-behavior-type>REJECT</default-response-behavior-type>
+    <default-response-behavior-parameter>5010</default-response-behavior-parameter>
+    <command-code-wise-response-attribute-list />
+    <command-code-flows>
+        <command-code-flow>
+            <name>AAR</name>
+            <command-code>265</command-code>
+            <interface-id>1</interface-id>
+            <authentication-handler>
+                <enabled>true</enabled>
+                <handler-name>Authentication Handler</handler-name>
+                <supported-methods>
+                    <method>PAP</method>
+                    <method>CHAP</method>
+                    <method>EAP</method>
+                </supported-methods>
+                <eap-config>eap_demo</eap-config>
+            </authentication-handler>
+            <authorization-handler>
+                <enabled>true</enabled>
+                <handler-name>Authorization Handler</handler-name>
+                <wimax>false</wimax>
+                <default-session-timeout-in-secs>600</default-session-timeout-in-secs>
+                <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+                <reject-on-reject-item-not-found>true</reject-on-reject-item-not-found>
+                <continue-on-policy-not-found>true</continue-on-policy-not-found>
+                <grace-policy></grace-policy>
+            </authorization-handler>
+            <user-profile-repository>
+                <enabled>true</enabled>
+                <handler-name>Profile Lookup Handler </handler-name>
+                <update-identity>
+                    <strip-identity>Prefix</strip-identity>
+                    <separator>@</separator>
+                    <case>Lower Case</case>
+                    <trim-identity>false</trim-identity>
+                    <trim-password>false</trim-password>
+                </update-identity>
+                <profile-drivers>
+                    <primary-group>
+                        <primary-driver>
+                            <driver-instace-id>NAS_PRM_DRV</driver-instace-id>
+                            <weightage>1</weightage>
+                        </primary-driver>
+                    </primary-group>
+                    <secondary-group>
+                        <secondary-driver>
+                            <secondary-driver-id>NAS_SEC_DRV</secondary-driver-id>
+                        </secondary-driver>
+                    </secondary-group>
+                    <additional-group>
+                        <additional-driver>
+                            <additional-driver-id>NAS_ADI_DRV</additional-driver-id>
+                        </additional-driver>
+                    </additional-group>
+                    <driver-script>script</driver-script>
+                </profile-drivers>
+            </user-profile-repository>
+            <cdr-generation>
+                <enabled>true</enabled>
+                <handler-name>CDR Handler</handler-name>
+                <cdr-handler-entry wait="true">
+                    <enabled>false</enabled>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <cdr-drivers>
+                        <primary-group>
+                            <primary-driver>
+                                <driver-instace-id>NAS-ACCT-DRV</driver-instace-id>
+                                <weightage>1</weightage>
+                            </primary-driver>
+                        </primary-group>
+                        <secondary-group>
+                            <secondary-driver>
+                                <secondary-driver-id>NAS-ACCT-DRV</secondary-driver-id>
+                            </secondary-driver>
+                        </secondary-group>
+                        <additional-group />
+                        <driver-script>script</driver-script>
+                    </cdr-drivers>
+                </cdr-handler-entry>
+            </cdr-generation>
+            <dia-concurrency-handler>
+                <enabled>true</enabled>
+                <handler-name>Concurrency Handler</handler-name>
+                <ruleset>0:1="eliteaaa"</ruleset>
+                <dia-concurrency>DCON</dia-concurrency>
+            </dia-concurrency-handler>
+            <proxy-handler protocol="DIAMETER" proxy-mode="SINGLE">
+                <enabled>true</enabled>
+                <handler-name>Diameter Proxy(Sequential) Handler </handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>3010</result-code-on-no-entry-selected>
+                <proxy-communication-entry>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping>D-TO-D-CP</translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </proxy-communication-entry>
+            </proxy-handler>
+            <proxy-handler protocol="RADIUS" proxy-mode="MULTIPLE">
+                <enabled>true</enabled>
+                <handler-name>Radius Proxy(Sequential) Handler </handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>3002</result-code-on-no-entry-selected>
+                <proxy-communication-entry>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping></translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </proxy-communication-entry>
+            </proxy-handler>
+            <broadcast-handler protocol="DIAMETER">
+                <enabled>true</enabled>
+                <handler-name>Diameter Broadcasting(Parallel) Handler</handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>0</result-code-on-no-entry-selected>
+                <broadcast-communication-entry wait="true">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping>D-TO-D-CP</translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </broadcast-communication-entry>
+            </broadcast-handler>
+            <broadcast-handler protocol="RADIUS">
+                <enabled>true</enabled>
+                <handler-name>Radius Broadcasting(Parallel) Handler</handler-name>
+                <priority-result-codes></priority-result-codes>
+                <result-code-on-no-entry-selected>3002</result-code-on-no-entry-selected>
+                <broadcast-communication-entry wait="true">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping></translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </broadcast-communication-entry>
+            </broadcast-handler>
+            <plugin-handler>
+                <enabled>true</enabled>
+                <handler-name>Plugin Handler</handler-name>
+                <plugin-entry onResponse="false">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+                    <plugin-argument>arg</plugin-argument>
+                </plugin-entry>
+            </plugin-handler>
+            <post-response-handler>
+                <enabled>false</enabled>
+            </post-response-handler>
+        </command-code-flow>
+    </command-code-flows>
+</tgpp-server-policy>
+
+
+Response : 
+
+Tgpp Service Policy created successfully
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "tgpp",
+  "description": "Created by admin on 03/03/2017 12:55:04 PM",
+  "status": "CST02",
+  "ruleset": "0:1=\"*\"",
+  "user-identity": "0:1",
+  "session-management": "false",
+  "default-response-behavior-type": "REJECT",
+  "default-response-behavior-parameter": "5010",
+  "command-code-wise-response-attribute-list": [],
+  "command-code-flows": [
+    {
+      "name": "AAR",
+      "command-code": "265",
+      "interface-id": "1",
+      "handlersData": [
+        {
+          "authentication-handler": {
+            "supported-methods": [
+              "PAP",
+              "CHAP",
+              "EAP"
+            ],
+            "eap-config": "eap_demo",
+            "enabled": true,
+            "handler-name": "Authentication Handler"
+          }
+        },
+        {
+          "authorization-handler": {
+            "wimax": false,
+            "default-session-timeout-in-secs": 600,
+            "reject-on-check-item-not-found": true,
+            "reject-on-reject-item-not-found": true,
+            "continue-on-policy-not-found": true,
+            "grace-policy": "",
+            "enabled": true,
+            "handler-name": "Authorization Handler"
+          }
+        },
+        {
+          "user-profile-repository": {
+            "update-identity": {
+              "strip-identity": "Prefix",
+              "separator": "@",
+              "case": "Lower Case",
+              "trim-identity": "false",
+              "trim-password": "false"
+            },
+            "profile-drivers": {
+              "primary-group": [
+                {
+                  "weightage": 1,
+                  "driver-instace-id": "NAS_PRM_DRV"
+                }
+              ],
+              "secondary-group": [
+             	{
+                  "secondary-driver-id": "NAS_SEC_DRV"
+                }
+              ],
+              "additional-group": [
+              	{
+                   "additional-driver-id": "NAS_ADI_DRV"
+                }
+              ],
+              "driver-script": "script"
+            },
+            "enabled": true,
+            "handler-name": "Profile Lookup Handler "
+          }
+        },
+        {
+          "cdr-generation": {
+            "enabled": true,
+            "handler-name": "CDR Handler",
+            "cdr-handler-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "cdr-drivers": {
+                  "primary-group": [
+                    {
+                      "weightage": 1,
+                      "driver-instace-id": "NAS-ACCT-DRV"
+                    }
+                  ],
+                  "secondary-group": [
+                    {
+                      "secondary-driver-id": "NAS-ACCT-DRV"
+                    }
+                  ],
+                  "additional-group": [],
+                  "driver-script": "script"
+                },
+                "enabled": false,
+                "wait": true
+              }
+            ]
+          }
+        },
+        {
+          "dia-concurrency-handler": {
+            "ruleset": "0:1=\"eliteaaa\"",
+            "dia-concurrency": "DCON",
+            "enabled": true,
+            "handler-name": "Concurrency Handler"
+          }
+        },
+        {
+          "proxy-handler": {
+            "priority-result-codes": "2000",
+            "result-code-on-no-entry-selected": 3010,
+            "proxy-communication-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "translation-mapping": "D-TO-D-CP",
+                "peer-group": "DiaemterPeerGroup",
+                "script": "script",
+                "acceptable-result-codes": [
+                  5010
+                ]
+              }
+            ],
+            "enabled": true,
+            "protocol": "DIAMETER",
+            "handler-name": "Diameter Proxy(Sequential) Handler ",
+            "proxy-mode": "SINGLE"
+          }
+        },
+        {
+          "proxy-handler": {
+            "priority-result-codes": "2000",
+            "result-code-on-no-entry-selected": 3002,
+            "proxy-communication-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "translation-mapping": "",
+                "peer-group": "DiaemterPeerGroup",
+                "script": "script",
+                "acceptable-result-codes": [
+                  5010
+                ]
+              }
+            ],
+            "enabled": true,
+            "protocol": "RADIUS",
+            "handler-name": "Radius Proxy(Sequential) Handler ",
+            "proxy-mode": "MULTIPLE"
+          }
+        },
+        {
+          "broadcast-handler": {
+            "priority-result-codes": "2000",
+            "result-code-on-no-entry-selected": 0,
+            "broadcast-communication-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "translation-mapping": "D-TO-D-CP",
+                "peer-group": "DiaemterPeerGroup",
+                "script": "script",
+                "acceptable-result-codes": [
+                  5010
+                ],
+                "wait": true
+              }
+            ],
+            "enabled": true,
+            "protocol": "DIAMETER",
+            "handler-name": "Diameter Broadcasting(Parallel) Handler"
+          }
+        },
+        {
+          "broadcast-handler": {
+            "priority-result-codes": "",
+            "result-code-on-no-entry-selected": 3002,
+            "broadcast-communication-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "translation-mapping": "",
+                "peer-group": "DiaemterPeerGroup",
+                "script": "script",
+                "acceptable-result-codes": [
+                  5010
+                ],
+                "wait": true
+              }
+            ],
+            "enabled": true,
+            "protocol": "RADIUS",
+            "handler-name": "Radius Broadcasting(Parallel) Handler"
+          }
+        },
+        {
+          "plugin-handler": {
+            "enabled": true,
+            "handler-name": "Plugin Handler",
+            "plugin-entry": [
+              {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "plugin-name": "DIAMETER-UNI-TEST",
+                "plugin-argument": "arg",
+                "onResponse": false
+              }
+            ]
+          }
+        }
+      ],
+      "post-response-handler": {
+        "enabled": false,
+        "handlersData": []
+      }
+    }
+  ]
+}
+
+
+***********************************************************************
+                    CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy?operation=create
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+<tgpp-server-policy>
+    <name>tgpp</name>
+    <description>Created by admin on 03/03/2017 12:55:04 PM</description>
+    <status>CST02</status>
+    <ruleset>0:1="*"</ruleset>
+    <user-identity>0:1</user-identity>
+    <session-management>false</session-management>
+    <default-response-behavior-type>REJECT</default-response-behavior-type>
+    <default-response-behavior-parameter>5010</default-response-behavior-parameter>
+    <command-code-wise-response-attribute-list />
+    <command-code-flows>
+        <command-code-flow>
+            <name>AAR</name>
+            <command-code>265</command-code>
+            <interface-id>1</interface-id>
+            <authentication-handler>
+                <enabled>true</enabled>
+                <handler-name>Authentication Handler</handler-name>
+                <supported-methods>
+                    <method>PAP</method>
+                    <method>CHAP</method>
+                    <method>EAP</method>
+                </supported-methods>
+                <eap-config>eap_demo</eap-config>
+            </authentication-handler>
+            <authorization-handler>
+                <enabled>true</enabled>
+                <handler-name>Authorization Handler</handler-name>
+                <wimax>false</wimax>
+                <default-session-timeout-in-secs>600</default-session-timeout-in-secs>
+                <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+                <reject-on-reject-item-not-found>true</reject-on-reject-item-not-found>
+                <continue-on-policy-not-found>true</continue-on-policy-not-found>
+                <grace-policy></grace-policy>
+            </authorization-handler>
+            <user-profile-repository>
+                <enabled>true</enabled>
+                <handler-name>Profile Lookup Handler </handler-name>
+                <update-identity>
+                    <strip-identity>Prefix</strip-identity>
+                    <separator>@</separator>
+                    <case>Lower Case</case>
+                    <trim-identity>false</trim-identity>
+                    <trim-password>false</trim-password>
+                </update-identity>
+                <profile-drivers>
+                    <primary-group>
+                        <primary-driver>
+                            <driver-instace-id>NAS_PRM_DRV</driver-instace-id>
+                            <weightage>1</weightage>
+                        </primary-driver>
+                    </primary-group>
+                    <secondary-group>
+                        <secondary-driver>
+                            <secondary-driver-id>NAS_SEC_DRV</secondary-driver-id>
+                        </secondary-driver>
+                    </secondary-group>
+                    <additional-group>
+                        <additional-driver>
+                            <additional-driver-id>NAS_ADI_DRV</additional-driver-id>
+                        </additional-driver>
+                    </additional-group>
+                    <driver-script>script</driver-script>
+                </profile-drivers>
+            </user-profile-repository>
+            <cdr-generation>
+                <enabled>true</enabled>
+                <handler-name>CDR Handler</handler-name>
+                <cdr-handler-entry wait="true">
+                    <enabled>false</enabled>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <cdr-drivers>
+                        <primary-group>
+                            <primary-driver>
+                                <driver-instace-id>NAS-ACCT-DRV</driver-instace-id>
+                                <weightage>1</weightage>
+                            </primary-driver>
+                        </primary-group>
+                        <secondary-group>
+                            <secondary-driver>
+                                <secondary-driver-id>NAS-ACCT-DRV</secondary-driver-id>
+                            </secondary-driver>
+                        </secondary-group>
+                        <additional-group />
+                        <driver-script>script</driver-script>
+                    </cdr-drivers>
+                </cdr-handler-entry>
+            </cdr-generation>
+            <dia-concurrency-handler>
+                <enabled>true</enabled>
+                <handler-name>Concurrency Handler</handler-name>
+                <ruleset>0:1="eliteaaa"</ruleset>
+                <dia-concurrency>DCON</dia-concurrency>
+            </dia-concurrency-handler>
+            <proxy-handler protocol="DIAMETER" proxy-mode="SINGLE">
+                <enabled>true</enabled>
+                <handler-name>Diameter Proxy(Sequential) Handler </handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>3010</result-code-on-no-entry-selected>
+                <proxy-communication-entry>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping>D-TO-D-CP</translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </proxy-communication-entry>
+            </proxy-handler>
+            <proxy-handler protocol="RADIUS" proxy-mode="MULTIPLE">
+                <enabled>true</enabled>
+                <handler-name>Radius Proxy(Sequential) Handler </handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>3002</result-code-on-no-entry-selected>
+                <proxy-communication-entry>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping></translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </proxy-communication-entry>
+            </proxy-handler>
+            <broadcast-handler protocol="DIAMETER">
+                <enabled>true</enabled>
+                <handler-name>Diameter Broadcasting(Parallel) Handler</handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>0</result-code-on-no-entry-selected>
+                <broadcast-communication-entry wait="true">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping>D-TO-D-CP</translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </broadcast-communication-entry>
+            </broadcast-handler>
+            <broadcast-handler protocol="RADIUS">
+                <enabled>true</enabled>
+                <handler-name>Radius Broadcasting(Parallel) Handler</handler-name>
+                <priority-result-codes></priority-result-codes>
+                <result-code-on-no-entry-selected>3002</result-code-on-no-entry-selected>
+                <broadcast-communication-entry wait="true">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping></translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </broadcast-communication-entry>
+            </broadcast-handler>
+            <plugin-handler>
+                <enabled>true</enabled>
+                <handler-name>Plugin Handler</handler-name>
+                <plugin-entry onResponse="false">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+                    <plugin-argument>arg</plugin-argument>
+                </plugin-entry>
+            </plugin-handler>
+            <post-response-handler>
+                <enabled>false</enabled>
+            </post-response-handler>
+        </command-code-flow>
+    </command-code-flows>
+</tgpp-server-policy>
+</list>
+
+Response : 
+
+Tgpp Service Policies created successfully
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+{
+  "list": [
+    {
+      "name": "tgpp",
+      "description": "Created by admin on 03/03/2017 12:55:04 PM",
+      "status": "CST02",
+      "ruleset": "0:1=\"*\"",
+      "user-identity": "0:1",
+      "session-management": "false",
+      "default-response-behavior-type": "REJECT",
+      "default-response-behavior-parameter": "5010",
+      "command-code-wise-response-attribute-list": [],
+      "command-code-flows": [
+        {
+          "name": "AAR",
+          "command-code": "265",
+          "interface-id": "1",
+          "handlersData": [
+            {
+              "authentication-handler": {
+                "supported-methods": [
+                  "PAP",
+                  "CHAP",
+                  "EAP"
+                ],
+                "eap-config": "eap_demo",
+                "enabled": true,
+                "handler-name": "Authentication Handler"
+              }
+            },
+            {
+              "authorization-handler": {
+                "wimax": false,
+                "default-session-timeout-in-secs": 600,
+                "reject-on-check-item-not-found": true,
+                "reject-on-reject-item-not-found": true,
+                "continue-on-policy-not-found": true,
+                "grace-policy": "",
+                "enabled": true,
+                "handler-name": "Authorization Handler"
+              }
+            },
+            {
+              "user-profile-repository": {
+                "update-identity": {
+                  "strip-identity": "Prefix",
+                  "separator": "@",
+                  "case": "Lower Case",
+                  "trim-identity": "false",
+                  "trim-password": "false"
+                },
+                "profile-drivers": {
+                  "primary-group": [
+                    {
+                      "weightage": 1,
+                      "driver-instace-id": "NAS_PRM_DRV"
+                    }
+                  ],
+                  "secondary-group": [
+             		{
+                  	"secondary-driver-id": "NAS_SEC_DRV"
+                	}
+              	],
+              	"additional-group": [
+              		{
+                   	"additional-driver-id": "NAS_ADI_DRV"
+                	}
+              	],
+                  	"driver-script": "script"
+                	},
+                	"enabled": true,
+                	"handler-name": "Profile Lookup Handler "
+              	}
+              },
+            {
+              "cdr-generation": {
+                "enabled": true,
+                "handler-name": "CDR Handler",
+                "cdr-handler-entry": [
+                  {
+                    "ruleset": "0:1=\"eliteaaa\"",
+                    "cdr-drivers": {
+                      "primary-group": [
+                        {
+                          "weightage": 1,
+                          "driver-instace-id": "NAS-ACCT-DRV"
+                        }
+                      ],
+                      "secondary-group": [
+                        {
+                          "secondary-driver-id": "NAS-ACCT-DRV"
+                        }
+                      ],
+                      "additional-group": [],
+                      "driver-script": "script"
+                    },
+                    "enabled": false,
+                    "wait": true
+                  }
+                ]
+              }
+            },
+            {
+              "dia-concurrency-handler": {
+                "ruleset": "0:1=\"eliteaaa\"",
+                "dia-concurrency": "DCON",
+                "enabled": true,
+                "handler-name": "Concurrency Handler"
+              }
+            },
+            {
+              "proxy-handler": {
+                "priority-result-codes": "2000",
+                "result-code-on-no-entry-selected": 3010,
+                "proxy-communication-entry": [
+                  {
+                    "ruleset": "0:1=\"eliteaaa\"",
+                    "translation-mapping": "D-TO-D-CP",
+                    "peer-group": "DiaemterPeerGroup",
+                    "script": "script",
+                    "acceptable-result-codes": [
+                      5010
+                    ]
+                  }
+                ],
+                "enabled": true,
+                "protocol": "DIAMETER",
+                "handler-name": "Diameter Proxy(Sequential) Handler ",
+                "proxy-mode": "SINGLE"
+              }
+            },
+            {
+              "proxy-handler": {
+                "priority-result-codes": "2000",
+                "result-code-on-no-entry-selected": 3002,
+                "proxy-communication-entry": [
+                  {
+                    "ruleset": "0:1=\"eliteaaa\"",
+                    "translation-mapping": "",
+                    "peer-group": "DiaemterPeerGroup",
+                    "script": "script",
+                    "acceptable-result-codes": [
+                      5010
+                    ]
+                  }
+                ],
+                "enabled": true,
+                "protocol": "RADIUS",
+                "handler-name": "Radius Proxy(Sequential) Handler ",
+                "proxy-mode": "MULTIPLE"
+              }
+            },
+            {
+              "broadcast-handler": {
+                "priority-result-codes": "2000",
+                "result-code-on-no-entry-selected": 0,
+                "broadcast-communication-entry": [
+                  {
+                    "ruleset": "0:1=\"eliteaaa\"",
+                    "translation-mapping": "D-TO-D-CP",
+                    "peer-group": "DiaemterPeerGroup",
+                    "script": "script",
+                    "acceptable-result-codes": [
+                      5010
+                    ],
+                    "wait": true
+                  }
+                ],
+                "enabled": true,
+                "protocol": "DIAMETER",
+                "handler-name": "Diameter Broadcasting(Parallel) Handler"
+              }
+            },
+            {
+              "broadcast-handler": {
+                "priority-result-codes": "",
+                "result-code-on-no-entry-selected": 3002,
+                "broadcast-communication-entry": [
+                  {
+                    "ruleset": "0:1=\"eliteaaa\"",
+                    "translation-mapping": "",
+                    "peer-group": "DiaemterPeerGroup",
+                    "script": "script",
+                    "acceptable-result-codes": [
+                      5010
+                    ],
+                    "wait": true
+                  }
+                ],
+                "enabled": true,
+                "protocol": "RADIUS",
+                "handler-name": "Radius Broadcasting(Parallel) Handler"
+              }
+            },
+            {
+              "plugin-handler": {
+                "enabled": true,
+                "handler-name": "Plugin Handler",
+                "plugin-entry": [
+                  {
+                    "ruleset": "0:1=\"eliteaaa\"",
+                    "plugin-name": "DIAMETER-UNI-TEST",
+                    "plugin-argument": "arg",
+                    "onResponse": false
+                  }
+                ]
+              }
+            }
+          ],
+          "post-response-handler": {
+            "enabled": false,
+            "handlersData": []
+          }
+        }
+      ]
+    }
+  ]
+}
+
+Response : 
+
+Tgpp Service Policies created successfully
+
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy?operation=update&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name?operation=update
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<tgpp-server-policy>
+    <name>tgpp</name>
+    <description>Created by admin on 03/03/2017 12:55:04 PM</description>
+    <status>CST02</status>
+    <ruleset>0:1="*"</ruleset>
+    <user-identity>0:1</user-identity>
+    <session-management>false</session-management>
+    <default-response-behavior-type>REJECT</default-response-behavior-type>
+    <default-response-behavior-parameter>5010</default-response-behavior-parameter>
+    <command-code-wise-response-attribute-list />
+    <command-code-flows>
+        <command-code-flow>
+            <name>AAR</name>
+            <command-code>265</command-code>
+            <interface-id>1</interface-id>
+            <authentication-handler>
+                <enabled>true</enabled>
+                <handler-name>Authentication Handler</handler-name>
+                <supported-methods>
+                    <method>PAP</method>
+                    <method>CHAP</method>
+                    <method>EAP</method>
+                </supported-methods>
+                <eap-config>eap_demo</eap-config>
+            </authentication-handler>
+            <authorization-handler>
+                <enabled>true</enabled>
+                <handler-name>Authorization Handler</handler-name>
+                <wimax>false</wimax>
+                <default-session-timeout-in-secs>600</default-session-timeout-in-secs>
+                <reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+                <reject-on-reject-item-not-found>true</reject-on-reject-item-not-found>
+                <continue-on-policy-not-found>true</continue-on-policy-not-found>
+                <grace-policy></grace-policy>
+            </authorization-handler>
+            <user-profile-repository>
+                <enabled>true</enabled>
+                <handler-name>Profile Lookup Handler </handler-name>
+                <update-identity>
+                    <strip-identity>Prefix</strip-identity>
+                    <separator>@</separator>
+                    <case>Lower Case</case>
+                    <trim-identity>false</trim-identity>
+                    <trim-password>false</trim-password>
+                </update-identity>
+                <profile-drivers>
+                    <primary-group>
+                        <primary-driver>
+                            <driver-instace-id>NAS_PRM_DRV</driver-instace-id>
+                            <weightage>1</weightage>
+                        </primary-driver>
+                    </primary-group>
+                    <secondary-group>
+                        <secondary-driver>
+                            <secondary-driver-id>NAS_SEC_DRV</secondary-driver-id>
+                        </secondary-driver>
+                    </secondary-group>
+                    <additional-group>
+                        <additional-driver>
+                            <additional-driver-id>NAS_ADI_DRV</additional-driver-id>
+                        </additional-driver>
+                    </additional-group>
+                    <driver-script>script</driver-script>
+                </profile-drivers>
+            </user-profile-repository>
+            <cdr-generation>
+                <enabled>true</enabled>
+                <handler-name>CDR Handler</handler-name>
+                <cdr-handler-entry wait="true">
+                    <enabled>false</enabled>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <cdr-drivers>
+                        <primary-group>
+                            <primary-driver>
+                                <driver-instace-id>NAS-ACCT-DRV</driver-instace-id>
+                                <weightage>1</weightage>
+                            </primary-driver>
+                        </primary-group>
+                        <secondary-group>
+                            <secondary-driver>
+                                <secondary-driver-id>NAS-ACCT-DRV</secondary-driver-id>
+                            </secondary-driver>
+                        </secondary-group>
+                        <additional-group />
+                        <driver-script>script</driver-script>
+                    </cdr-drivers>
+                </cdr-handler-entry>
+            </cdr-generation>
+            <dia-concurrency-handler>
+                <enabled>true</enabled>
+                <handler-name>Concurrency Handler</handler-name>
+                <ruleset>0:1="eliteaaa"</ruleset>
+                <dia-concurrency>DCON</dia-concurrency>
+            </dia-concurrency-handler>
+            <proxy-handler protocol="DIAMETER" proxy-mode="SINGLE">
+                <enabled>true</enabled>
+                <handler-name>Diameter Proxy(Sequential) Handler </handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>3010</result-code-on-no-entry-selected>
+                <proxy-communication-entry>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping>D-TO-D-CP</translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </proxy-communication-entry>
+            </proxy-handler>
+            <proxy-handler protocol="RADIUS" proxy-mode="MULTIPLE">
+                <enabled>true</enabled>
+                <handler-name>Radius Proxy(Sequential) Handler </handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>3002</result-code-on-no-entry-selected>
+                <proxy-communication-entry>
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping></translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </proxy-communication-entry>
+            </proxy-handler>
+            <broadcast-handler protocol="DIAMETER">
+                <enabled>true</enabled>
+                <handler-name>Diameter Broadcasting(Parallel) Handler</handler-name>
+                <priority-result-codes>2000</priority-result-codes>
+                <result-code-on-no-entry-selected>0</result-code-on-no-entry-selected>
+                <broadcast-communication-entry wait="true">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping>D-TO-D-CP</translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </broadcast-communication-entry>
+            </broadcast-handler>
+            <broadcast-handler protocol="RADIUS">
+                <enabled>true</enabled>
+                <handler-name>Radius Broadcasting(Parallel) Handler</handler-name>
+                <priority-result-codes></priority-result-codes>
+                <result-code-on-no-entry-selected>3002</result-code-on-no-entry-selected>
+                <broadcast-communication-entry wait="true">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <translation-mapping></translation-mapping>
+                    <peer-group>DiaemterPeerGroup</peer-group>
+                    <script>script</script>
+                    <acceptable-result-codes>
+                        <acceptable-result-code>5010</acceptable-result-code>
+                    </acceptable-result-codes>
+                </broadcast-communication-entry>
+            </broadcast-handler>
+            <plugin-handler>
+                <enabled>true</enabled>
+                <handler-name>Plugin Handler</handler-name>
+                <plugin-entry onResponse="false">
+                    <ruleset>0:1="eliteaaa"</ruleset>
+                    <plugin-name>DIAMETER-UNI-TEST</plugin-name>
+                    <plugin-argument>arg</plugin-argument>
+                </plugin-entry>
+            </plugin-handler>
+            <post-response-handler>
+                <enabled>false</enabled>
+            </post-response-handler>
+        </command-code-flow>
+    </command-code-flows>
+</tgpp-server-policy>
+
+Response : 
+
+Tgpp Service Policy updated successfully
+
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+   "name":"tgpp",
+   "description":"Created by admin on 03/03/2017 12:55:04 PM",
+   "status":"CST02",
+   "ruleset":"0:1=\"*\"",
+   "user-identity":"0:1",
+   "session-management":"false",
+   "default-response-behavior-type":"REJECT",
+   "default-response-behavior-parameter":"5010",
+   "command-code-wise-response-attribute-list":[
+
+   ],
+   "command-code-flows":[
+      {
+         "name":"AAR",
+         "command-code":"265",
+         "interface-id":"1",
+         "handlersData":[
+            {
+               "authentication-handler":{
+                  "supported-methods":[
+                     "PAP",
+                     "CHAP",
+                     "EAP"
+                  ],
+                  "eap-config":"eap_demo",
+                  "enabled":true,
+                  "handler-name":"Authentication Handler"
+               }
+            },
+            {
+               "authorization-handler":{
+                  "wimax":false,
+                  "default-session-timeout-in-secs":600,
+                  "reject-on-check-item-not-found":true,
+                  "reject-on-reject-item-not-found":true,
+                  "continue-on-policy-not-found":true,
+                  "grace-policy":"",
+                  "enabled":true,
+                  "handler-name":"Authorization Handler"
+               }
+            },
+            {
+               "user-profile-repository":{
+                  "update-identity":{
+                     "strip-identity":"Prefix",
+                     "separator":"@",
+                     "case":"Lower Case",
+                     "trim-identity":"false",
+                     "trim-password":"false"
+                  },
+                  "profile-drivers":{
+                     "primary-group":[
+                        {
+                           "weightage":1,
+                           "driver-instace-id":"NAS_PRM_DRV"
+                        }
+                     ],
+                     "secondary-group":[
+                        {
+                           "secondary-driver-id":"NAS_SEC_DRV"
+                        }
+                     ],
+                     "additional-group":[
+                        {
+                           "additional-driver-id":"NAS_ADI_DRV"
+                        }
+                     ],
+                     "driver-script":"script"
+                  },
+                  "enabled":true,
+                  "handler-name":"Profile Lookup Handler "
+               }
+            },
+            {
+               "cdr-generation":{
+                  "enabled":true,
+                  "handler-name":"CDR Handler",
+                  "cdr-handler-entry":[
+                     {
+                        "ruleset":"0:1=\"eliteaaa\"",
+                        "cdr-drivers":{
+                           "primary-group":[
+                              {
+                                 "weightage":1,
+                                 "driver-instace-id":"NAS-ACCT-DRV"
+                              }
+                           ],
+                           "secondary-group":[
+                              {
+                                 "secondary-driver-id":"NAS-ACCT-DRV"
+                              }
+                           ],
+                           "additional-group":[
+
+                           ],
+                           "driver-script":"script"
+                        },
+                        "enabled":false,
+                        "wait":true
+                     }
+                  ]
+               }
+            },
+            {
+               "dia-concurrency-handler":{
+                  "ruleset":"0:1=\"eliteaaa\"",
+                  "dia-concurrency":"DCON",
+                  "enabled":true,
+                  "handler-name":"Concurrency Handler"
+               }
+            },
+            {
+               "proxy-handler":{
+                  "priority-result-codes":"2000",
+                  "result-code-on-no-entry-selected":3010,
+                  "proxy-communication-entry":[
+                     {
+                        "ruleset":"0:1=\"eliteaaa\"",
+                        "translation-mapping":"D-TO-D-CP",
+                        "peer-group":"DiaemterPeerGroup",
+                        "script":"script",
+                        "acceptable-result-codes":[
+                           5010
+                        ]
+                     }
+                  ],
+                  "enabled":true,
+                  "protocol":"DIAMETER",
+                  "handler-name":"Diameter Proxy(Sequential) Handler ",
+                  "proxy-mode":"SINGLE"
+               }
+            },
+            {
+               "proxy-handler":{
+                  "priority-result-codes":"2000",
+                  "result-code-on-no-entry-selected":3002,
+                  "proxy-communication-entry":[
+                     {
+                        "ruleset":"0:1=\"eliteaaa\"",
+                        "translation-mapping":"",
+                        "peer-group":"DiaemterPeerGroup",
+                        "script":"script",
+                        "acceptable-result-codes":[
+                           5010
+                        ]
+                     }
+                  ],
+                  "enabled":true,
+                  "protocol":"RADIUS",
+                  "handler-name":"Radius Proxy(Sequential) Handler ",
+                  "proxy-mode":"MULTIPLE"
+               }
+            },
+            {
+               "broadcast-handler":{
+                  "priority-result-codes":"2000",
+                  "result-code-on-no-entry-selected":0,
+                  "broadcast-communication-entry":[
+                     {
+                        "ruleset":"0:1=\"eliteaaa\"",
+                        "translation-mapping":"D-TO-D-CP",
+                        "peer-group":"DiaemterPeerGroup",
+                        "script":"script",
+                        "acceptable-result-codes":[
+                           5010
+                        ],
+                        "wait":true
+                     }
+                  ],
+                  "enabled":true,
+                  "protocol":"DIAMETER",
+                  "handler-name":"Diameter Broadcasting(Parallel) Handler"
+               }
+            },
+            {
+               "broadcast-handler":{
+                  "priority-result-codes":"",
+                  "result-code-on-no-entry-selected":3002,
+                  "broadcast-communication-entry":[
+                     {
+                        "ruleset":"0:1=\"eliteaaa\"",
+                        "translation-mapping":"",
+                        "peer-group":"DiaemterPeerGroup",
+                        "script":"script",
+                        "acceptable-result-codes":[
+                           5010
+                        ],
+                        "wait":true
+                     }
+                  ],
+                  "enabled":true,
+                  "protocol":"RADIUS",
+                  "handler-name":"Radius Broadcasting(Parallel) Handler"
+               }
+            },
+            {
+               "plugin-handler":{
+                  "enabled":true,
+                  "handler-name":"Plugin Handler",
+                  "plugin-entry":[
+                     {
+                        "ruleset":"0:1=\"eliteaaa\"",
+                        "plugin-name":"DIAMETER-UNI-TEST",
+                        "plugin-argument":"arg",
+                        "onResponse":false
+                     }
+                  ]
+               }
+            }
+         ],
+         "post-response-handler":{
+            "enabled":false,
+            "handlersData":[
+
+            ]
+         }
+      }
+   ]
+}
+
+Response:
+
+Tgpp Service Policy updated successfully
+
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy?name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy?operation=delete&name=service-policy-name
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/tgppservicepolicy/service-policy-name?operation=delete
+
+Response : 
+
+Tgpp Service Policy deleted successfully

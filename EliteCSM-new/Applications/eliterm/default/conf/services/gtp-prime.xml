@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gtp-prime-service>
+
+	<service-address>127.0.0.1:3386</service-address>
+
+	<socket-receive-buffer-size>250000</socket-receive-buffer-size>
+	<socket-send-buffer-size>250000</socket-send-buffer-size>
+
+	<queue-size>150000</queue-size>
+	<minimum-thread>10</minimum-thread>
+	<maximum-thread>100</maximum-thread>
+	<main-thread-priority>1</main-thread-priority>
+	<worker-thread-priority>1</worker-thread-priority>
+
+	<redirection-ip></redirection-ip>
+	<max-idle-communication-time-interval>60</max-idle-communication-time-interval>
+	<!-- At server shut down, Which ip is to be send as redirection ip - This 
+		is server level ip. if client has not specified any ip then this ip will 
+		be sent as redirection ip -->
+
+	<logging>
+		<service-logger-enabled>false</service-logger-enabled>
+		<log-level>WARN</log-level>
+		<rolling-type>1</rolling-type>
+		<rolling-unit>5</rolling-unit>
+		<max-rolled-unit>10</max-rolled-unit>
+		<compress-rolled-unit>false</compress-rolled-unit>
+		<syslog>
+        	<address></address>
+        	<facility></facility>
+        </syslog>
+	</logging>
+
+	<plugin-list>
+		<pre-plugins>
+			<pre-plugin></pre-plugin>
+		</pre-plugins>
+
+		<post-plugins>
+			<post-plugin></post-plugin>
+		</post-plugins>
+	</plugin-list>
+
+	<clients>
+		<client>
+			<client-ip>10.106.1.25</client-ip>
+			<client-port>3386</client-port>
+			<node-alive-request>false</node-alive-request>
+			<echo-request>0</echo-request>
+			<request-expiry-time>5000</request-expiry-time>
+			<request-retry>1</request-retry>
+			<redirection-ip></redirection-ip>
+			<file-name>cdr-{yyyyMMDD_HHmmss_S}del.sasn</file-name>
+			<file-sequence>true</file-sequence>
+			<sequence-range>10-15</sequence-range>
+			<file-location>d:</file-location>
+			<rolling-type>3</rolling-type>
+			<rolling-unit>500</rolling-unit>
+		</client>
+	</clients>
+
+</gtp-prime-service>

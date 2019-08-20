@@ -1,0 +1,19 @@
+ {
+        "id": "rest_non_monetary_rate_card_11111111",
+        "status": "ACTIVE",
+        "groups": "GROUP_1",
+        "name": "rest_non_monetary_rate_card",
+        "description": "Created by admin on 05/03/2018 10:45:09",
+        "type": "NON_MONETARY",
+        "nonMonetaryRateCardData": {
+        	"pulseUom": "SECOND",
+        	"pulse":1,
+        	"timeUom" :"MINUTE",
+        	"time":100,
+            "renewalInterval":1,
+        	"renewalIntervalUnit":"MONTH"
+        },
+        "monetaryRateCardData":null,
+        "rncPkgId": "rest_rnc_nonmonetary_addon_11111111",
+        "groupNames": null
+    }

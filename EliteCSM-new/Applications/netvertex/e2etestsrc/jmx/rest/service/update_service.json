@@ -1,0 +1,7 @@
+{
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "UPDATE_SMS_REST",
+  "description": "Service updated by rest",
+  "groupNames": "DefaultGroup"
+}

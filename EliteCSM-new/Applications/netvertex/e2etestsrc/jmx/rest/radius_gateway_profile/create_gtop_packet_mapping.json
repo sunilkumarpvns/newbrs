@@ -1,0 +1,18 @@
+{
+  "id": "rest_ptog_r_packet_map_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Rest_Access_Request",
+  "description": "Gateway to PCC Packet Mapping for Radius Gateway Profile",
+  "commProtocol": "RADIUS",
+  "packetType": "ACCESS_REQUEST",
+  "type": "GATEWAY_TO_PCC",
+  "attributeMappingData": {
+    "mappings": [
+      "{\"pid\":\"0\",\"policykey\":\"CS.UserName\",\"attribute\":\"0:1\",\"defaultvalue\":\"netvertex_user\",\"valuemapping\":\"m\"}"
+    ],
+    "orderNumber": null
+  },
+  "applicationType": null,
+  "groupNames": "DefaultGroup"
+}

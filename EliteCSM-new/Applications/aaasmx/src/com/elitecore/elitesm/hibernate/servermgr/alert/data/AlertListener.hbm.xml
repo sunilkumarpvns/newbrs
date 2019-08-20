@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.alert.data.AlertListenerData" table="TBLMALERTINSTANCE" >          
+
+		<id name="listenerId" type="StringType" column="INSTANCEID">
+		    <generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>		
+		</id>
+		<property name="name" type="StringType" column="NAME" not-null="false"/>
+		<property name="typeId" type="CharType" column="TYPEID" not-null="false"/>
+		 	
+		 <property name="auditUId" type="StringType" >
+	         <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	    </property> 
+		 	
+		<many-to-one name="alertListenerTypeData" class="com.elitecore.elitesm.datamanager.servermgr.alert.data.AlertListenerTypeData" column="TYPEID" insert="false" update="false" not-null="true" lazy="false"/>
+	</class>
+	
+</hibernate-mapping>
+
+          

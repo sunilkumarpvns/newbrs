@@ -1,0 +1,10 @@
+  {
+    "id": "rest_server_group_11111111",
+    "status": "ACTIVE",
+    "groups": "GROUP_1",
+    "name": "updated_rest_server_group",
+    "sessionDataSourceId": "DATABASE_DS_1",
+    "notificationDataSourceId": "DATABASE_DS_1",
+    "serverInstanceIds": [],
+    "serverGroupType": "PCC"
+  }

@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_lrn,POST : create LRN 31128 : 201,sm/lrn/lrn.json,POST,create_lrn.json,,33914,201,lrn
+2,get_created_lrn,GET : LRN 31128 should be displayed : 200,sm/lrn/lrn/rest_lrn_1111111.json,GET,,,33915,200,lrn
+3,update_lrn,PUT : Update LRN 31128 and change to lrn 31145 : 200,sm/lrn/lrn/rest_lrn_1111111.json,PUT,update_lrn.json,,33916,200,lrn
+4,get_updated_lrn,GET : LRN 31145 should be displayed : 200,sm/lrn/lrn/rest_lrn_1111111.json,GET,,,33917,200,lrn
+5,delete_lrn,DELETE : Delete LRN 31145 : 200,sm/lrn/lrn/rest_lrn_1111111.json,DELETE,,,33918,200,lrn
+6,get_deleted_lrn,GET : LRN 31145 should not be displayed : 404,sm/lrn/lrn/rest_lrn_1111111.json,GET,,"{""actionErrors"":[""LRN Not Found with id: rest_lrn_1111111""]}",33919,404,lrn

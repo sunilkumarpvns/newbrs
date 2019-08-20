@@ -1,0 +1,178 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.profile.name")})}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("diameter.profile.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("diameter.profile.name")})}</message>
+        </field-validator>
+	</field>
+
+	<field name="vendorId">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.profile.vendor")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="gatewayType">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.profile.gatewaytype")})}</message>
+		</field-validator>
+		<field-validator type="fieldexpression" short-circuit="true">
+			<param name="expression"><![CDATA[((gatewayType == 'ACCESS_GATEWAY') || (gatewayType == 'APPLICATION_FUNCTION') || (gatewayType == 'V_PCRF') || (gatewayType == 'OCS') || (gatewayType == 'DRA'))]]></param>
+			<message>${getText("invalid.input.gatewaytype")}</message>
+		</field-validator>
+		<field-validator type="fieldexpression" short-circuit="true">
+			<param name="expression"><![CDATA[( (gatewayType == 'APPLICATION_FUNCTION' && (sessionLookUpKey!=null && sessionLookUpKey!='')) || (gatewayType == 'DRA' && (sessionLookUpKey!=null && sessionLookUpKey!='')) || (gatewayType == 'ACCESS_GATEWAY') || (gatewayType == 'V_PCRF') || (gatewayType == 'OCS') )]]></param>
+			<message>${getText("error.required.sessionlookupkey")}</message>
+		</field-validator>
+	</field>
+
+
+	<field name="usageReportingType">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.profile.usagereportingtype")})}</message>
+		</field-validator>
+		<field-validator type="fieldexpression" short-circuit="true">
+			<param name="expression"><![CDATA[((usageReportingType == 'NON_CUMULATIVE') || (usageReportingType == 'CUMULATIVE'))]]></param>
+			<message>${getText("invalid.input.usagereportingtype")}</message>
+		</field-validator>
+	</field>
+	<field name="revalidationMode">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.profile.revalidationmode")})}</message>
+		</field-validator>
+		<field-validator type="fieldexpression" short-circuit="true">
+			<param name="expression"><![CDATA[((revalidationMode == 'ClientInitiated') || (revalidationMode == 'ServerInitiated'))]]></param>
+			<message>${getText("invalid.input.revalidationmode")}</message>
+		</field-validator>
+	</field>
+	<field name="timeout">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.profile.timeout")})}</message>
+		</field-validator>
+		<field-validator type="int" short-circuit="true">
+			<param name="min">0</param>
+			<param name="max">2147483647</param>
+			<message>${getText("error.numeric.range", {getText("diameter.profile.timeout")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="socketSendBufferSize">
+		<field-validator type="int" short-circuit="true">
+			<param name="min">-1</param>
+			<param name="max">2147483647</param>
+			<message>${getText("error.numeric.range", {getText("diameter.profile.socketsendbuffersize")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="socketReceiveBufferSize">
+		<field-validator type="int" short-circuit="true">
+			<param name="min">-1</param>
+			<param name="max">2147483647</param>
+			<message>${getText("error.numeric.range", {getText("diameter.profile.socketreceivebuffersize")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="initConnectionDuration">
+		<field-validator type="int" short-circuit="true">
+			<param name="min">0</param>
+			<param name="max">2147483647</param>
+			<message>${getText("error.numeric.range", {getText("diameter.profile.initconnectionduration")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="dwInterval">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.profile.dwinterval")})}</message>
+		</field-validator>
+		<field-validator type="int" short-circuit="true">
+			<param name="min">0</param>
+			<param name="max">2147483647</param>
+			<message>${getText("error.numeric.range", {getText("diameter.profile.timeout")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="chargingRuleInstallMode">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.profile.chargingruleinstallmode")})}</message>
+		</field-validator>
+		<field-validator type="fieldexpression" short-circuit="true">
+			<param name="expression"><![CDATA[((chargingRuleInstallMode == 'SINGLE') || (chargingRuleInstallMode == 'GROUPED'))]]></param>
+			<message>${getText("invalid.input.chargingruleinstallmode")}</message>
+		</field-validator>
+	</field>
+
+	<field name="supportedStandard">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.profile.supportedstandard")})}</message>
+		</field-validator>
+		<field-validator type="fieldexpression" short-circuit="true">
+			<param name="expression"><![CDATA[((supportedStandard == 'RELEASE_7') || (supportedStandard == 'RELEASE_8') || (supportedStandard == 'RELEASE_9') || (supportedStandard == 'CISCOSCE'))]]></param>
+			<message>${getText("invalid.input.supportedstandard")}</message>
+		</field-validator>
+	</field>
+
+	<field name="umStandard">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.profile.umstandard")})}</message>
+		</field-validator>
+		<field-validator type="fieldexpression" short-circuit="true">
+			<param name="expression"><![CDATA[((umStandard == 'MSCC') || (umStandard == 'TGPPR9') || (umStandard == 'TGPPR9_SESSION_ONLY') || (umStandard == 'HUAWEI'))]]></param>
+			<message>${getText("invalid.input.umstandard")}</message>
+		</field-validator>
+	</field>
+
+	<field name="firmware">
+		<field-validator type="stringlength">
+			<param name="maxLength">60</param>
+			<message>${getText("error.max.length", {getText("diameter.profile.firmware")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="gxApplicationId">
+		<field-validator type="stringlength">
+			<param name="maxLength">60</param>
+			<message>${getText("error.max.length", {getText("diameter.profile.customgxapplicationid")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="gyApplicationId">
+		<field-validator type="stringlength">
+			<param name="maxLength">60</param>
+			<message>${getText("error.max.length", {getText("diameter.profile.customgyapplicationid")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="rxApplicationId">
+		<field-validator type="stringlength">
+			<param name="maxLength">60</param>
+			<message>${getText("error.max.length", {getText("diameter.profile.customrxapplicationid")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="s9ApplicationId">
+		<field-validator type="stringlength">
+			<param name="maxLength">60</param>
+			<message>${getText("error.max.length", {getText("diameter.profile.customs9applicationid")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="syApplicationId">
+		<field-validator type="stringlength">
+			<param name="maxLength">60</param>
+			<message>${getText("error.max.length", {getText("diameter.profile.syApplicationId")})}</message>
+		</field-validator>
+	</field>
+
+</validators>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.web.core.system.dashboardconfiguration.DashboardConfigData" table="TBLMDASHBOARDCONFIG">
+		<id name="dashboardConfigId" column="DASHBOARDCONFIGID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>
+	
+		<property name="databaseId" type="StringType"> 
+			<column name="DATABASEID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="maxTabs" type="java.lang.Long"> 
+			<column name="MAXTABS" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="maxWebSockets" type="java.lang.Long"> 
+			<column name="MAXWEBSOCKETS" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="maxConcurrentAccess" type="java.lang.Long"> 
+			<column name="MAXCONCACCESS" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="maxWidgets" type="java.lang.Long"> 
+			<column name="MAXWIDGET" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+	</class>
+
+</hibernate-mapping>

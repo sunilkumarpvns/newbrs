@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.profile.data">
+
+  <class name="DiameterValueMapData" table="TBLMDIAMETERVALMAPPING">
+  
+  	 <id name="valueMapId" column="VALUEMAPID" type="java.lang.Long" >
+     	  <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+	 	  </generator>
+     </id>     
+    
+     <property name="attributeVal" type="string">
+     	  <column name="ATTRIBUTEVALUE" sql-type="VARCHAR2(50)" not-null="false"/>
+     </property>
+     
+     <property name="keyVal" type="string">
+     	  <column name="KEYVALUE" sql-type="VARCHAR2(50)" not-null="false"/>
+     </property>
+     
+     <property name="diameterAttributeId" type="java.lang.Long">
+     	  <column name="DIAMETERATTRMAPID" sql-type="NUMBER(20)" not-null="false"/>
+     </property>
+     
+     <many-to-one name="attributeMapData" column="DIAMETERATTRMAPID" lazy="false" insert="false" update="false"
+     	  class="com.elitecore.netvertexsm.datamanager.gateway.profile.data.DiameterAttributeMapData" not-null="true" cascade="save-update">
+     </many-to-one>
+  
+  </class>
+</hibernate-mapping>

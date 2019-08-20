@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+
+<hibernate-mapping>
+    
+    <class name="com.elitecore.elitesm.datamanager.servicepolicy.dynauth.data.DynAuthFieldMapData" table="TBLMDYNAUTHPOLICYFIELDMAP" >        
+        
+        <id name="dynAuthFieldMapId" type="StringType" column="FIELDMAPID">            
+            <generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>        
+        </id>
+        
+        <property name="dynAuthPolicyId" type="StringType">
+            <column name="DYNAUTHPOLICYID" sql-type="VARCHAR(36)" not-null="true" />
+        </property>
+        
+        <property name="attributeid" type="StringType">
+            <column name="ATTRIBUTEID" sql-type="VARCHAR(50)" not-null="false"  />
+        </property>
+        <property name="dbfield" type="StringType">
+            <column name="DBFIELD" sql-type="VARCHAR(30)" not-null="false"  />
+        </property>
+        <property name="defaultvalue" type="StringType">
+            <column name="DEFAULTVALUE" sql-type="VARCHAR(50)" not-null="false" />
+        </property>
+        <property name="mandatory" type="StringType">
+            <column name="MANDATORY" sql-type="VARCHAR(5)" not-null="false"  />
+        </property>
+        <property name="orderNumber" type="java.lang.Integer">
+            <column name="ORDERNUMBER" sql-type="NUMERIC(20)" not-null="false"  />
+        </property>
+        
+    </class>
+    
+</hibernate-mapping>

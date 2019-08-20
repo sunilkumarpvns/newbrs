@@ -1,0 +1,9 @@
+{
+  "id": "rest_product_offer_11111111",
+  "productOfferServicePkgRelDataList": [
+    {
+   	"serviceId":"VOICE",
+   	"rncPackageId":"rest_po_rnc_package_11111111"
+    }
+  ]
+}

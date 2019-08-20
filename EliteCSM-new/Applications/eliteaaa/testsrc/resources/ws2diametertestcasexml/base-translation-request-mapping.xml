@@ -1,0 +1,152 @@
+<list>
+	<case
+		behaviour="Base Translation will be applied in request if base translation mapping id is configured in main translation policy
+	">
+		<base-translation-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>basePolicy</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>2</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>baseMapping</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>0:1="*"</checked-expression>
+								<mapping-expression>0:31=0:1</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</base-translation-mapping>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>2</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>Test</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>Mapping1</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>0:1="*"</checked-expression>
+								<mapping-expression>0:25=0:1</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+
+		<web-service-request-map>
+			<item>
+				<key>0:1</key>
+				<value>test</value>
+			</item>
+		</web-service-request-map>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:31" value="test" />
+				<contains-attribute id="0:25" value="test" />
+			</request>
+		</assert>
+	</case>
+	
+	
+	<case
+		behaviour="Base Translation policy will not applied in request if base translation in-request-type expression is not satisfied 
+	">
+		<base-translation-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>basePolicy</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>2</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>0:25 = "Test"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>baseMapping</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>0:1="*"</checked-expression>
+								<mapping-expression>0:31=0:1</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</base-translation-mapping>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>2</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>Test</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>"1" = "1"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>Mapping1</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>0:1="*"</checked-expression>
+								<mapping-expression>0:25=0:1</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+
+		<web-service-request-map>
+			<item>
+				<key>0:1</key>
+				<value>test</value>
+			</item>
+		</web-service-request-map>
+
+		<assert>
+			<request>
+				<contains-attribute id="0:25" value="test" />
+				<not>
+					<contains-attribute id="0:31" value="test" />
+				</not>
+			</request>
+		</assert>
+	</case>
+</list>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+
+    <!-- sample tiles definitions
+    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
+        <put name="title"  value="Sample Page Title" />
+        <put name="header" value="/common/header.jsp" />
+        <put name="menu"   value=".mainMenu" />
+        <put name="footer" value="/common/footer.jsp" />
+        <put name="body"   value=".portal.body" />
+    </definition>
+
+    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
+        <putList name="list" >
+            <add value=".menu.links" />
+            <add value=".menu.taglib.references" />
+            <add value=".menu.printer.friendly" />
+            <add value=".menu.old.documents" />
+      </putList>
+    </definition>
+
+    <definition name="aPage" extends=".mainLayout">
+        <put name="title"  value="Another Title" />
+        <put name="body"   value=".aPage.body" />
+    </definition>
+
+    end samples -->
+
+    <definition name="${YOUR_DEFINITION_HERE}">
+    
+    </definition>
+
+    <definition name="baseLayout" path="/jsp/core/baseLayout.jsp">
+        <put name="title"  value="Tiles Example" />
+        <put name="header" value="/jsp/core/header.jsp" />
+        <put name="menu"   value="/jsp/core/menu.jsp" />
+        <put name="body"   value="/jsp/ChildAccountInfo.jsp" />
+        <put name="rightpanel"   value="/jsp/core/rightpanel.jsp" />
+        <put name="footer" value="/jsp/core/footer.jsp" />        
+    </definition>
+    
+    <definition name="SUCCESS.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/core/response/success.jsp"/>
+	</definition>
+	
+	<definition name="FAILURE.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/core/response/failure.jsp"/>
+	</definition>
+    
+    <definition name="CHILDACCOUNT_INFO.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/ChildAccountInfo.jsp"/>
+	</definition>
+	
+    <definition name="DEPARTMENT_WISE_USAGE_INFO.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/DepartmentWiseUsageInfo.jsp"/>
+	</definition>
+	
+	
+	<definition name="ENTERPRISEMEMBER_ACCOUNT_INFO.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/EnterpriseMemberAcctInfo.jsp"/>
+	</definition> 
+    
+	<definition name="CHILDACCOUNT_USAGE_INFO.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/ChildAccountUsageInfo.jsp"/>
+	</definition>
+	
+	<definition name="ENTERPRISE_MEMBER_ACCOUNT_USAGE_INFO.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/EnterpriseMemberAccountUsageInfo.jsp"/>
+	</definition>
+
+	<definition name="ACCESS_CONTROL.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/AccessControl.jsp"/>
+	</definition>   	    
+	
+	<definition name="BOD.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/ServiceActivation.jsp"/>
+	</definition>   
+	
+	<definition name="PROMOTIONAL.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/PromotionalOffer.jsp"/>
+	</definition>
+	
+	<definition name="QUOTATRANSFER.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/QuotaTransfer.jsp"/>
+	</definition>
+	
+	<definition name="INIT.PENDING.BOD.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/InitPendingBodRequest.jsp"/>
+	</definition>
+	
+	<definition name="INIT.PENDING.PROMOTIONAL.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/InitPendingAddOnReq.jsp"/>
+	</definition>
+	
+	<definition name="VIEW.PENDING.PROMOTIONAL.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/ViewPendingAddOnReq.jsp"/>
+	</definition>
+
+	<definition name="VIEW.PENDING.BOD.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/ViewPendingBodReq.jsp"/>
+	</definition>	
+	
+	<definition name="CHILD.PROMOTIONAL.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/PendingPromotionalRequest.jsp"/>
+	</definition>
+	  
+	<definition name="CHILD.BOD.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/PendingBodRequest.jsp"/>
+	</definition>  
+
+	<definition name="SUBSCRIBE_PACKAGE.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/SubscribePackage.jsp"/>
+	</definition>  
+	
+	 <definition name="SUBSCRIBER_PROFILER.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/SearchSubscribeProfile.jsp"/>
+	</definition>
+	
+	<definition name="ALLSUBSCRIBER_PROFILER.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/SearchAllSubscriberProfile.jsp"/>
+	</definition>
+	
+	<definition name="SEARCH_SUBSCRIBER_PROFILE.LAYOUT" extends="baseLayout">		
+		<put name="body" value="/jsp/InitSearchSubscriberProfile.jsp"/>
+	</definition>
+	
+	<definition name="PROMOTIONALHISTORY.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/PromotionalOfferHistory.jsp"/>
+ 	</definition> 
+ 	
+ 	<definition name="QUOTA_ADVANCE.LAYOUT" extends="baseLayout">
+		<put name="body" value="/jsp/QuotaAdvance.jsp"/>
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,1777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="529" vendor-name="Ascend">
+<attribute id="2" name="Ascend-Max-Shared-Users" type="integer"/>
+<attribute id="7" name="Ascend-UU-Info" type="string"/>
+<attribute id="9" name="Ascend-CIR-Timer" type="integer"/>
+<attribute id="10" name="Ascend-FR-08-Mode" type="integer"/>
+<attribute id="11" name="Ascend-Destination-Nas-Port" type="integer"/>
+<attribute id="12" name="Ascend-FR-SVC-Addr" type="string"/>
+<attribute id="13" name="Ascend-NAS-Port-Format" type="integer">
+	<supported-values>
+		<value id="3" name="1_2_2"/>
+		<value id="2" name="2_4_5_5"/>
+		<value id="1" name="2_4_6_4"/>
+		<value id="0" name="Unknown"/>
+	</supported-values>
+</attribute>
+<attribute id="14" name="Ascend-ATM-Fault-Management" type="integer">
+	<supported-values>
+		<value id="2" name="VC-End-To-End-Loopback"/>
+		<value id="0" name="VC-No-Loopback"/>
+		<value id="1" name="VC-Segment-Loopback"/>
+	</supported-values>
+</attribute>
+<attribute id="15" name="Ascend-ATM-Loopback-Cell-Loss" type="integer"/>
+<attribute id="16" name="Ascend-Ckt-Type" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-PVC"/>
+		<value id="1" name="Ascend-SVC"/>
+	</supported-values>
+</attribute>
+<attribute id="17" name="Ascend-SVC-Enabled" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-SVC-Enabled-No"/>
+		<value id="1" name="Ascend-SVC-Enabled-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="18" name="Ascend-Session-Type" type="integer">
+	<supported-values>
+		<value id="3" name="Ascend-Session-G711-Alaw"/>
+		<value id="2" name="Ascend-Session-G711-Ulaw"/>
+		<value id="4" name="Ascend-Session-G723"/>
+		<value id="6" name="Ascend-Session-G723-64KPS"/>
+		<value id="7" name="Ascend-Session-G728"/>
+		<value id="5" name="Ascend-Session-G729"/>
+		<value id="8" name="Ascend-Session-RT24"/>
+		<value id="1" name="Ascend-Session-Unknown"/>
+		<value id="0" name="Ascend-Session-Unused"/>
+	</supported-values>
+</attribute>
+<attribute id="19" name="Ascend-H323-Gatekeeper" type="ipaddr"/>
+<attribute id="20" name="Ascend-Global-Call-id" type="string"/>
+<attribute id="21" name="Ascend-H323-Conference-id" type="integer"/>
+<attribute id="22" name="Ascend-H323-Fegw-Address" type="ipaddr"/>
+<attribute id="23" name="Ascend-H323-Dialed-Time" type="integer"/>
+<attribute id="24" name="Ascend-Dialed-Number" type="string"/>
+<attribute id="25" name="Ascend-Inter-Arrival-Jitter" type="integer"/>
+<attribute id="26" name="Ascend-Dropped-Octets" type="integer"/>
+<attribute id="27" name="Ascend-Dropped-Packets" type="integer"/>
+<attribute id="28" name="Ascend-Auth-Delay" type="integer"/>
+<attribute id="29" name="Ascend-X25-Pad-X3-Profile" type="integer">
+	<supported-values>
+		<value id="4" name="CC_SSP"/>
+		<value id="5" name="CC_TSP"/>
+		<value id="0" name="CRT"/>
+		<value id="11" name="CUSTOM"/>
+		<value id="2" name="DEFAULT"/>
+		<value id="6" name="HARDCOPY"/>
+		<value id="7" name="HDX"/>
+		<value id="1" name="INFONET"/>
+		<value id="10" name="NULL"/>
+		<value id="9" name="POS"/>
+		<value id="3" name="SCEN"/>
+		<value id="8" name="SHARK"/>
+	</supported-values>
+</attribute>
+<attribute id="30" name="Ascend-X25-Pad-X3-Parameters" type="string"/>
+<attribute id="31" name="Ascend-Tunnel-VRouter-Name" type="string"/>
+<attribute id="32" name="Ascend-X25-Reverse-Charging" type="integer">
+	<supported-values>
+		<value id="0" name="Reverse-Charging-No"/>
+		<value id="1" name="Reverse-Charging-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="33" name="Ascend-X25-Nui-Prompt" type="string"/>
+<attribute id="34" name="Ascend-X25-Nui-Password-Prompt" type="string"/>
+<attribute id="35" name="Ascend-X25-Cug" type="string"/>
+<attribute id="36" name="Ascend-X25-Pad-Alias-1" type="string"/>
+<attribute id="37" name="Ascend-X25-Pad-Alias-2" type="string"/>
+<attribute id="38" name="Ascend-X25-Pad-Alias-3" type="string"/>
+<attribute id="39" name="Ascend-X25-X121-Address" type="string"/>
+<attribute id="40" name="Ascend-X25-Nui" type="string"/>
+<attribute id="41" name="Ascend-X25-Rpoa" type="string"/>
+<attribute id="42" name="Ascend-X25-Pad-Prompt" type="string"/>
+<attribute id="43" name="Ascend-X25-Pad-Banner" type="string"/>
+<attribute id="44" name="Ascend-X25-Profile-Name" type="string"/>
+<attribute id="45" name="Ascend-Recv-Name" type="string"/>
+<attribute id="46" name="Ascend-Bi-Directional-Auth" type="integer">
+	<supported-values>
+		<value id="1" name="Bi-Directional-Auth-Allowed"/>
+		<value id="0" name="Bi-Directional-Auth-None"/>
+		<value id="2" name="Bi-Directional-Auth-Required"/>
+	</supported-values>
+</attribute>
+<attribute id="47" name="Ascend-MTU" type="integer"/>
+<attribute id="48" name="Ascend-Call-Direction" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-Call-Direction-Incoming"/>
+		<value id="1" name="Ascend-Call-Direction-Outgoing"/>
+	</supported-values>
+</attribute>
+<attribute id="49" name="Ascend-Service-Type" type="integer">
+	<supported-values>
+		<value id="20" name="Ascend-Service-Type-ATM"/>
+		<value id="7" name="Ascend-Service-Type-Combinet"/>
+		<value id="9" name="Ascend-Service-Type-EuRaw"/>
+		<value id="10" name="Ascend-Service-Type-EuUi"/>
+		<value id="8" name="Ascend-Service-Type-FR"/>
+		<value id="21" name="Ascend-Service-Type-HdlcNrm"/>
+		<value id="19" name="Ascend-Service-Type-IpFax"/>
+		<value id="15" name="Ascend-Service-Type-MP"/>
+		<value id="5" name="Ascend-Service-Type-MPP"/>
+		<value id="25" name="Ascend-Service-Type-NetToNet"/>
+		<value id="1" name="Ascend-Service-Type-None"/>
+		<value id="0" name="Ascend-Service-Type-NotUsed"/>
+		<value id="2" name="Ascend-Service-Type-Other"/>
+		<value id="3" name="Ascend-Service-Type-PPP"/>
+		<value id="18" name="Ascend-Service-Type-PseuTunPPP"/>
+		<value id="13" name="Ascend-Service-Type-RawTcp"/>
+		<value id="4" name="Ascend-Service-Type-Slip"/>
+		<value id="11" name="Ascend-Service-Type-Telnet"/>
+		<value id="12" name="Ascend-Service-Type-TelnetBin"/>
+		<value id="14" name="Ascend-Service-Type-TermServer"/>
+		<value id="16" name="Ascend-Service-Type-VirtualConn"/>
+		<value id="23" name="Ascend-Service-Type-Visa2"/>
+		<value id="22" name="Ascend-Service-Type-VoIp"/>
+		<value id="6" name="Ascend-Service-Type-X25"/>
+		<value id="17" name="Ascend-Service-Type-X25DChan"/>
+	</supported-values>
+</attribute>
+<attribute id="50" name="Ascend-Filter-Required" type="integer">
+	<supported-values>
+		<value id="0" name="Required-No"/>
+		<value id="1" name="Required-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="51" name="Ascend-Traffic-Shaper" type="integer"/>
+<attribute id="52" name="Ascend-Access-Intercept-LEA" type="string"/>
+<attribute id="53" name="Ascend-Access-Intercept-Log" type="string"/>
+<attribute id="54" name="Ascend-Private-Route-Table-id" type="string"/>
+<attribute id="55" name="Ascend-Private-Route-Required" type="integer">
+	<supported-values>
+		<value id="0" name="Required-No"/>
+		<value id="1" name="Required-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="56" name="Ascend-Cache-Refresh" type="integer">
+	<supported-values>
+		<value id="0" name="Refresh-No"/>
+		<value id="1" name="Refresh-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="57" name="Ascend-Cache-Time" type="integer"/>
+<attribute id="58" name="Ascend-Egress-Enabled" type="integer"/>
+<attribute id="59" name="Ascend-QOS-Upstream" type="string"/>
+<attribute id="60" name="Ascend-QOS-Downstream" type="string"/>
+<attribute id="61" name="Ascend-ATM-Connect-Vpi" type="integer"/>
+<attribute id="62" name="Ascend-ATM-Connect-Vci" type="integer"/>
+<attribute id="63" name="Ascend-ATM-Connect-Group" type="integer"/>
+<attribute id="64" name="Ascend-ATM-Group" type="integer"/>
+<attribute id="65" name="Ascend-IPX-Header-Compression" type="integer">
+	<supported-values>
+		<value id="0" name="IPX-Header-Compression-No"/>
+		<value id="1" name="IPX-Header-Compression-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="66" name="Ascend-Calling-id-Type-Of-Num" type="integer">
+	<supported-values>
+		<value id="6" name="Abbreviated-Number"/>
+		<value id="1" name="International-Number"/>
+		<value id="2" name="National-Number"/>
+		<value id="3" name="Network-Specific"/>
+		<value id="4" name="Subscriber-Number"/>
+		<value id="0" name="Unknown"/>
+	</supported-values>
+</attribute>
+<attribute id="67" name="Ascend-Calling-id-Number-Plan" type="integer">
+	<supported-values>
+		<value id="3" name="Data"/>
+		<value id="1" name="ISDN-Telephony"/>
+		<value id="8" name="National"/>
+		<value id="9" name="Private"/>
+		<value id="4" name="Telex"/>
+		<value id="0" name="Unknown"/>
+	</supported-values>
+</attribute>
+<attribute id="68" name="Ascend-Calling-id-Presentatn" type="integer">
+	<supported-values>
+		<value id="0" name="Allowed"/>
+		<value id="2" name="Number-Not-Available"/>
+		<value id="1" name="Restricted"/>
+	</supported-values>
+</attribute>
+<attribute id="69" name="Ascend-Calling-id-Screening" type="integer">
+	<supported-values>
+		<value id="3" name="Network-Provided"/>
+		<value id="0" name="User-Not-Screened"/>
+		<value id="2" name="User-Provided-Failed"/>
+		<value id="1" name="User-Provided-Passed"/>
+	</supported-values>
+</attribute>
+<attribute id="70" name="Ascend-BIR-Enable" type="integer">
+	<supported-values>
+		<value id="0" name="BIR-Enable-No"/>
+		<value id="1" name="BIR-Enable-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="71" name="Ascend-BIR-Proxy" type="integer">
+	<supported-values>
+		<value id="0" name="BIR-Proxy-No"/>
+		<value id="1" name="BIR-Proxy-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="72" name="Ascend-BIR-Bridge-Group" type="integer"/>
+<attribute id="73" name="Ascend-IPSEC-Profile" type="string"/>
+<attribute id="74" name="Ascend-PPPoE-Enable" type="integer">
+	<supported-values>
+		<value id="0" name="PPPoE-No"/>
+		<value id="1" name="PPPoE-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="75" name="Ascend-Bridge-Non-PPPoE" type="integer">
+	<supported-values>
+		<value id="0" name="Bridge-Non-PPPoE-No"/>
+		<value id="1" name="Bridge-Non-PPPoE-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="76" name="Ascend-ATM-Direct" type="integer">
+	<supported-values>
+		<value id="0" name="ATM-Direct-No"/>
+		<value id="1" name="ATM-Direct-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="77" name="Ascend-ATM-Direct-Profile" type="string"/>
+<attribute id="78" name="Ascend-Client-Primary-WINS" type="ipaddr"/>
+<attribute id="79" name="Ascend-Client-Secondary-WINS" type="ipaddr"/>
+<attribute id="80" name="Ascend-Client-Assign-WINS" type="integer">
+	<supported-values>
+		<value id="0" name="WINS-Assign-No"/>
+		<value id="1" name="WINS-Assign-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="81" name="Ascend-Auth-Type" type="integer">
+	<supported-values>
+		<value id="2" name="Auth-Any"/>
+		<value id="4" name="Auth-CHAP"/>
+		<value id="1" name="Auth-Default"/>
+		<value id="5" name="Auth-MS-CHAP"/>
+		<value id="0" name="Auth-None"/>
+		<value id="3" name="Auth-PAP"/>
+	</supported-values>
+</attribute>
+<attribute id="82" name="Ascend-Port-Redir-Protocol" type="integer">
+	<supported-values>
+		<value id="6" name="Ascend-Proto-TCP"/>
+		<value id="17" name="Ascend-Proto-UDP"/>
+	</supported-values>
+</attribute>
+<attribute id="83" name="Ascend-Port-Redir-Portnum" type="integer"/>
+<attribute id="84" name="Ascend-Port-Redir-Server" type="ipaddr"/>
+<attribute id="85" name="Ascend-IP-Pool-Chaining" type="integer">
+	<supported-values>
+		<value id="0" name="IP-Pool-Chaining-No"/>
+		<value id="1" name="IP-Pool-Chaining-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="86" name="Ascend-Owner-IP-Addr" type="ipaddr"/>
+<attribute id="87" name="Ascend-IP-TOS" type="integer">
+	<supported-values>
+		<value id="2" name="IP-TOS-Cost"/>
+		<value id="1" name="IP-TOS-Disabled"/>
+		<value id="16" name="IP-TOS-Latency"/>
+		<value id="0" name="IP-TOS-Normal"/>
+		<value id="4" name="IP-TOS-Reliability"/>
+		<value id="8" name="IP-TOS-Throughput"/>
+		<value id="3072" name="IP-TOS-Apply-To-Both"/>
+		<value id="1024" name="IP-TOS-Apply-To-Incoming"/>
+		<value id="2048" name="IP-TOS-Apply-To-Outgoing"/>
+		<value id="160" name="IP-TOS-Precedence-Pri-Five"/>
+		<value id="128" name="IP-TOS-Precedence-Pri-Four"/>
+		<value id="0" name="IP-TOS-Precedence-Pri-Normal"/>
+		<value id="32" name="IP-TOS-Precedence-Pri-One"/>
+		<value id="224" name="IP-TOS-Precedence-Pri-Seven"/>
+		<value id="192" name="IP-TOS-Precedence-Pri-Six"/>
+		<value id="96" name="IP-TOS-Precedence-Pri-Three"/>
+		<value id="64" name="IP-TOS-Precedence-Pri-Two"/>
+	</supported-values>
+</attribute>
+<attribute id="88" name="Ascend-IP-TOS-Precedence" type="integer">
+	<supported-values>
+		<value id="160" name="IP-TOS-Precedence-Pri-Five"/>
+		<value id="128" name="IP-TOS-Precedence-Pri-Four"/>
+		<value id="0" name="IP-TOS-Precedence-Pri-Normal"/>
+		<value id="32" name="IP-TOS-Precedence-Pri-One"/>
+		<value id="224" name="IP-TOS-Precedence-Pri-Seven"/>
+		<value id="192" name="IP-TOS-Precedence-Pri-Six"/>
+		<value id="96" name="IP-TOS-Precedence-Pri-Three"/>
+		<value id="64" name="IP-TOS-Precedence-Pri-Two"/>
+	</supported-values>
+</attribute>
+<attribute id="89" name="Ascend-IP-TOS-Apply-To" type="integer">
+	<supported-values>
+		<value id="3072" name="IP-TOS-Apply-To-Both"/>
+		<value id="1024" name="IP-TOS-Apply-To-Incoming"/>
+		<value id="2048" name="IP-TOS-Apply-To-Outgoing"/>
+	</supported-values>
+</attribute>
+<attribute id="90" name="Ascend-Filter" type="string">
+	<supported-values>
+		<value id="0" name="Required-No"/>
+		<value id="1" name="Required-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="91" name="Ascend-Telnet-Profile" type="string"/>
+<attribute id="92" name="Ascend-Dsl-Rate-Type" type="integer">
+	<supported-values>
+		<value id="2" name="Rate-Type-AdslCap"/>
+		<value id="4" name="Rate-Type-AdslDmt"/>
+		<value id="3" name="Rate-Type-AdslDmtCell"/>
+		<value id="0" name="Rate-Type-Disabled"/>
+		<value id="1" name="Rate-Type-Sdsl"/>
+	</supported-values>
+</attribute>
+<attribute id="93" name="Ascend-Redirect-Number" type="string"/>
+<attribute id="94" name="Ascend-ATM-Vpi" type="integer"/>
+<attribute id="95" name="Ascend-ATM-Vci" type="integer"/>
+<attribute id="96" name="Ascend-Source-IP-Check" type="integer">
+	<supported-values>
+		<value id="0" name="Source-IP-Check-No"/>
+		<value id="1" name="Source-IP-Check-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="97" name="Ascend-Dsl-Rate-Mode" type="integer">
+	<supported-values>
+		<value id="1" name="Rate-Mode-AutoBaud"/>
+		<value id="2" name="Rate-Mode-Single"/>
+	</supported-values>
+</attribute>
+<attribute id="98" name="Ascend-Dsl-Upstream-Limit" type="integer">
+	<supported-values>
+		<value id="153" name="adsldmt-up-896000"/>
+		<value id="50" name="adslcap-up-1088000"/>
+		<value id="56" name="adslcap-up-272000"/>
+		<value id="55" name="adslcap-up-408000"/>
+		<value id="54" name="adslcap-up-544000"/>
+		<value id="53" name="adslcap-up-680000"/>
+		<value id="52" name="adslcap-up-816000"/>
+		<value id="51" name="adslcap-up-952000"/>
+		<value id="151" name="adsldmt-up-1088000"/>
+		<value id="160" name="adsldmt-up-128000"/>
+		<value id="159" name="adsldmt-up-256000"/>
+		<value id="158" name="adsldmt-up-384000"/>
+		<value id="157" name="adsldmt-up-512000"/>
+		<value id="156" name="adsldmt-up-640000"/>
+		<value id="155" name="adsldmt-up-768000"/>
+		<value id="154" name="adsldmt-up-800000"/>
+		<value id="152" name="adsldmt-up-928000"/>
+		<value id="150" name="adsldmt-up-auto"/>
+		<value id="5" name="sdsl-1168000"/>
+		<value id="0" name="sdsl-144000"/>
+		<value id="6" name="sdsl-1552000"/>
+		<value id="7" name="sdsl-2320000"/>
+		<value id="1" name="sdsl-272000"/>
+		<value id="2" name="sdsl-400000"/>
+		<value id="3" name="sdsl-528000"/>
+		<value id="4" name="sdsl-784000"/>
+	</supported-values>
+</attribute>
+<attribute id="99" name="Ascend-Dsl-Downstream-Limit" type="integer">
+	<supported-values>
+		<value id="10" name="adslcap-dn-1280000"/>
+		<value id="9" name="adslcap-dn-1600000"/>
+		<value id="8" name="adslcap-dn-1920000"/>
+		<value id="7" name="adslcap-dn-2240000"/>
+		<value id="6" name="adslcap-dn-2560000"/>
+		<value id="5" name="adslcap-dn-2688000"/>
+		<value id="4" name="adslcap-dn-3200000"/>
+		<value id="3" name="adslcap-dn-4480000"/>
+		<value id="2" name="adslcap-dn-5120000"/>
+		<value id="1" name="adslcap-dn-6272000"/>
+		<value id="12" name="adslcap-dn-640000"/>
+		<value id="0" name="adslcap-dn-7168000"/>
+		<value id="11" name="adslcap-dn-960000"/>
+		<value id="121" name="adsldmt-dn-128000"/>
+		<value id="114" name="adsldmt-dn-1280000"/>
+		<value id="113" name="adsldmt-dn-1600000"/>
+		<value id="112" name="adsldmt-dn-1920000"/>
+		<value id="111" name="adsldmt-dn-2240000"/>
+		<value id="120" name="adsldmt-dn-256000"/>
+		<value id="110" name="adsldmt-dn-2560000"/>
+		<value id="109" name="adsldmt-dn-2688000"/>
+		<value id="108" name="adsldmt-dn-3200000"/>
+		<value id="119" name="adsldmt-dn-384000"/>
+		<value id="107" name="adsldmt-dn-4480000"/>
+		<value id="118" name="adsldmt-dn-512000"/>
+		<value id="106" name="adsldmt-dn-5120000"/>
+		<value id="105" name="adsldmt-dn-6272000"/>
+		<value id="117" name="adsldmt-dn-640000"/>
+		<value id="104" name="adsldmt-dn-7168000"/>
+		<value id="116" name="adsldmt-dn-768000"/>
+		<value id="103" name="adsldmt-dn-8000000"/>
+		<value id="102" name="adsldmt-dn-8960000"/>
+		<value id="101" name="adsldmt-dn-9504000"/>
+		<value id="115" name="adsldmt-dn-960000"/>
+		<value id="100" name="adsldmt-dn-auto"/>
+	</supported-values>
+</attribute>
+<attribute id="100" name="Ascend-Dsl-CIR-Recv-Limit" type="integer"/>
+<attribute id="101" name="Ascend-Dsl-CIR-Xmit-Limit" type="integer"/>
+<attribute id="102" name="Ascend-VRouter-Name" type="string"/>
+<attribute id="103" name="Ascend-Source-Auth" type="string"/>
+<attribute id="104" name="Ascend-Private-Route" type="string">
+	<supported-values>
+		<value id="0" name="Required-No"/>
+		<value id="1" name="Required-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="105" name="Ascend-Numbering-Plan-id" type="integer">
+	<supported-values>
+		<value id="1" name="ISDN-Numbering-Plan"/>
+		<value id="9" name="Private-Numbering-Plan"/>
+		<value id="0" name="Unknown-Numbering-Plan"/>
+	</supported-values>
+</attribute>
+<attribute id="106" name="Ascend-FR-Link-Status-DLCI" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-FR-LMI-Dlci-0"/>
+		<value id="1023" name="Ascend-FR-LMI-Dlci-1023"/>
+	</supported-values>
+</attribute>
+<attribute id="107" name="Ascend-Calling-Subaddress" type="string"/>
+<attribute id="108" name="Ascend-Callback-Delay" type="integer"/>
+<attribute id="109" name="Ascend-Endpoint-Disc" type="string"/>
+<attribute id="110" name="Ascend-Remote-FW" type="string"/>
+<attribute id="111" name="Ascend-Multicast-GLeave-Delay" type="integer"/>
+<attribute id="112" name="Ascend-CBCP-Enable" type="integer">
+	<supported-values>
+		<value id="0" name="CBCP-Not-Enabled"/>
+		<value id="1" name="CBCP-Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="113" name="Ascend-CBCP-Mode" type="integer">
+	<supported-values>
+		<value id="1" name="CBCP-No-Callback"/>
+		<value id="2" name="CBCP-User-Callback"/>
+		<value id="3" name="CBCP-Profile-Callback"/>
+		<value id="7" name="CBCP-Any-Or-No"/>
+		<value id="8" name="CBCP-Off"/>
+	</supported-values>
+</attribute>
+<attribute id="114" name="Ascend-CBCP-Delay" type="integer"/>
+<attribute id="115" name="Ascend-CBCP-Trunk-Group" type="integer"/>
+<attribute id="116" name="Ascend-Appletalk-Route" type="string"/>
+<attribute id="117" name="Ascend-Appletalk-Peer-Mode" type="integer">
+	<supported-values>
+		<value id="1" name="Appletalk-Peer-Dialin"/>
+		<value id="0" name="Appletalk-Peer-Router"/>
+	</supported-values>
+</attribute>
+<attribute id="118" name="Ascend-Route-Appletalk" type="integer">
+	<supported-values>
+		<value id="0" name="Route-Appletalk-No"/>
+		<value id="1" name="Route-Appletalk-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="119" name="Ascend-FCP-Parameter" type="string"/>
+<attribute id="120" name="Ascend-Modem-PortNo" type="integer"/>
+<attribute id="121" name="Ascend-Modem-SlotNo" type="integer"/>
+<attribute id="122" name="Ascend-Modem-ShelfNo" type="integer"/>
+<attribute id="123" name="Ascend-Call-Attempt-Limit" type="integer"/>
+<attribute id="124" name="Ascend-Call-Block-Duration" type="integer"/>
+<attribute id="125" name="Ascend-Maximum-Call-Duration" type="integer"/>
+<attribute id="126" name="Ascend-Temporary-Rtes" type="integer">
+	<supported-values>
+		<value id="0" name="Temp-Rtes-No"/>
+		<value id="1" name="Temp-Rtes-Yes"/>
+		<value id="0" name="Temp-Rtes-No"/>
+		<value id="1" name="Temp-Rtes-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="127" name="Ascend-Tunneling-Protocol" type="integer">
+	<supported-values>
+		<value id="0" name="ATMP-Tunnel"/>
+		<value id="1" name="VTP-Tunnel"/>
+		<value id="0" name="ATMP-Tunnel"/>
+		<value id="1" name="VTP-Tunnel"/>
+	</supported-values>
+</attribute>
+<attribute id="128" name="Ascend-Shared-Profile-Enable" type="integer">
+	<supported-values>
+		<value id="0" name="Shared-Profile-No"/>
+		<value id="1" name="Shared-Profile-Yes"/>
+		<value id="0" name="Shared-Profile-No"/>
+		<value id="1" name="Shared-Profile-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="129" name="Ascend-Primary-Home-Agent" type="string"/>
+<attribute id="130" name="Ascend-Secondary-Home-Agent" type="string"/>
+<attribute id="131" name="Ascend-Dialout-Allowed" type="integer">
+	<supported-values>
+		<value id="0" name="Dialout-Not-Allowed"/>
+		<value id="1" name="Dialout-Allowed"/>
+		<value id="0" name="Dialout-Not-Allowed"/>
+		<value id="1" name="Dialout-Allowed"/>
+	</supported-values>
+</attribute>
+<attribute id="132" name="Ascend-Client-Gateway" type="ipaddr"/>
+<attribute id="133" name="Ascend-BACP-Enable" type="integer">
+	<supported-values>
+		<value id="0" name="BACP-No"/>
+		<value id="1" name="BACP-Yes"/>
+		<value id="0" name="BACP-No"/>
+		<value id="1" name="BACP-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="134" name="Ascend-DHCP-Maximum-Leases" type="integer"/>
+<attribute id="135" name="Ascend-Client-Primary-DNS" type="ipaddr"/>
+<attribute id="136" name="Ascend-Client-Secondary-DNS" type="ipaddr"/>
+<attribute id="137" name="Ascend-Client-Assign-DNS" type="integer">
+	<supported-values>
+		<value id="0" name="DNS-Assign-No"/>
+		<value id="1" name="DNS-Assign-Yes"/>
+		<value id="0" name="DNS-Assign-No"/>
+		<value id="1" name="DNS-Assign-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="138" name="Ascend-User-Acct-Type" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-User-Acct-None"/>
+		<value id="1" name="Ascend-User-Acct-User"/>
+		<value id="2" name="Ascend-User-Acct-User-Default"/>
+		<value id="0" name="Ascend-User-Acct-None"/>
+		<value id="1" name="Ascend-User-Acct-User"/>
+		<value id="2" name="Ascend-User-Acct-User-Default"/>
+	</supported-values>
+</attribute>
+<attribute id="139" name="Ascend-User-Acct-Host" type="ipaddr"/>
+<attribute id="140" name="Ascend-User-Acct-Port" type="integer"/>
+<attribute id="141" name="Ascend-User-Acct-Key" type="string"/>
+<attribute id="142" name="Ascend-User-Acct-Base" type="integer">
+	<supported-values>
+		<value id="0" name="Base-10"/>
+		<value id="1" name="Base-16"/>
+		<value id="0" name="Base-10"/>
+		<value id="1" name="Base-16"/>
+	</supported-values>
+</attribute>
+<attribute id="143" name="Ascend-User-Acct-Time" type="integer"/>
+<attribute id="144" name="Ascend-Assign-IP-Client" type="ipaddr"/>
+<attribute id="145" name="Ascend-Assign-IP-Server" type="ipaddr"/>
+<attribute id="146" name="Ascend-Assign-IP-Global-Pool" type="string"/>
+<attribute id="147" name="Ascend-DHCP-Reply" type="integer">
+	<supported-values>
+		<value id="0" name="DHCP-Reply-No"/>
+		<value id="1" name="DHCP-Reply-Yes"/>
+		<value id="0" name="DHCP-Reply-No"/>
+		<value id="1" name="DHCP-Reply-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="148" name="Ascend-DHCP-Pool-Number" type="integer"/>
+<attribute id="149" name="Ascend-Expect-Callback" type="integer">
+	<supported-values>
+		<value id="0" name="Expect-Callback-No"/>
+		<value id="1" name="Expect-Callback-Yes"/>
+		<value id="0" name="Expect-Callback-No"/>
+		<value id="1" name="Expect-Callback-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="150" name="Ascend-Event-Type" type="integer">
+	<supported-values>
+		<value id="1" name="Ascend-ColdStart"/>
+		<value id="2" name="Ascend-Session-Event"/>
+		<value id="1" name="Ascend-ColdStart"/>
+		<value id="2" name="Ascend-Session-Event"/>
+	</supported-values>
+</attribute>
+<attribute id="151" name="Ascend-Session-Svr-Key" type="string"/>
+<attribute id="152" name="Ascend-Multicast-Rate-Limit" type="integer"/>
+<attribute id="153" name="Ascend-IF-Netmask" type="ipaddr"/>
+<attribute id="154" name="Ascend-Remote-Addr" type="ipaddr"/>
+<attribute id="155" name="Ascend-Multicast-Client" type="integer">
+	<supported-values>
+		<value id="0" name="Multicast-No"/>
+		<value id="1" name="Multicast-Yes"/>
+		<value id="0" name="Multicast-No"/>
+		<value id="1" name="Multicast-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="156" name="Ascend-FR-Circuit-Name" type="string"/>
+<attribute id="157" name="Ascend-FR-LinkUp" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-LinkUp-Default"/>
+		<value id="1" name="Ascend-LinkUp-AlwaysUp"/>
+		<value id="0" name="Ascend-LinkUp-Default"/>
+		<value id="1" name="Ascend-LinkUp-AlwaysUp"/>
+	</supported-values>
+</attribute>
+<attribute id="158" name="Ascend-FR-Nailed-Grp" type="integer"/>
+<attribute id="159" name="Ascend-FR-Type" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-FR-DTE"/>
+		<value id="1" name="Ascend-FR-DCE"/>
+		<value id="2" name="Ascend-FR-NNI"/>
+		<value id="0" name="Ascend-FR-DTE"/>
+		<value id="1" name="Ascend-FR-DCE"/>
+		<value id="2" name="Ascend-FR-NNI"/>
+	</supported-values>
+</attribute>
+<attribute id="160" name="Ascend-FR-Link-Mgt" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-FR-No-Link-Mgt"/>
+		<value id="1" name="Ascend-FR-T1-617D"/>
+		<value id="2" name="Ascend-FR-Q-933A"/>
+		<value id="0" name="Ascend-FR-No-Link-Mgt"/>
+		<value id="1" name="Ascend-FR-T1-617D"/>
+		<value id="2" name="Ascend-FR-Q-933A"/>
+	</supported-values>
+</attribute>
+<attribute id="161" name="Ascend-FR-N391" type="integer"/>
+<attribute id="162" name="Ascend-FR-DCE-N392" type="integer"/>
+<attribute id="163" name="Ascend-FR-DTE-N392" type="integer"/>
+<attribute id="164" name="Ascend-FR-DCE-N393" type="integer"/>
+<attribute id="165" name="Ascend-FR-DTE-N393" type="integer"/>
+<attribute id="166" name="Ascend-FR-T391" type="integer"/>
+<attribute id="167" name="Ascend-FR-T392" type="integer"/>
+<attribute id="168" name="Ascend-Bridge-Address" type="string"/>
+<attribute id="169" name="Ascend-TS-idle-Limit" type="integer"/>
+<attribute id="170" name="Ascend-TS-idle-Mode" type="integer">
+	<supported-values>
+		<value id="0" name="TS-idle-None"/>
+		<value id="1" name="TS-idle-Input"/>
+		<value id="2" name="TS-idle-Input-Output"/>
+		<value id="0" name="TS-idle-None"/>
+		<value id="1" name="TS-idle-Input"/>
+		<value id="2" name="TS-idle-Input-Output"/>
+	</supported-values>
+</attribute>
+<attribute id="171" name="Ascend-DBA-Monitor" type="integer">
+	<supported-values>
+		<value id="0" name="DBA-Transmit"/>
+		<value id="1" name="DBA-Transmit-Recv"/>
+		<value id="2" name="DBA-None"/>
+		<value id="0" name="DBA-Transmit"/>
+		<value id="1" name="DBA-Transmit-Recv"/>
+		<value id="2" name="DBA-None"/>
+	</supported-values>
+</attribute>
+<attribute id="172" name="Ascend-Base-Channel-Count" type="integer"/>
+<attribute id="173" name="Ascend-Minimum-Channels" type="integer"/>
+<attribute id="174" name="Ascend-IPX-Route" type="string"/>
+<attribute id="175" name="Ascend-FT1-Caller" type="integer">
+	<supported-values>
+		<value id="0" name="FT1-No"/>
+		<value id="1" name="FT1-Yes"/>
+		<value id="0" name="FT1-No"/>
+		<value id="1" name="FT1-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="176" name="Ascend-Backup" type="string"/>
+<attribute id="177" name="Ascend-Call-Type" type="integer">
+	<supported-values>
+		<value id="0" name="Switched"/>
+		<value id="1" name="Nailed"/>
+		<value id="2" name="Nailed/Mpp"/>
+		<value id="3" name="Perm/Switched"/>
+		<value id="6" name="AO/DI"/>
+		<value id="7" name="MegaMax"/>
+		<value id="0" name="Switched"/>
+		<value id="1" name="Nailed"/>
+		<value id="2" name="Nailed/Mpp"/>
+		<value id="3" name="Perm/Switched"/>
+		<value id="6" name="AO/DI"/>
+		<value id="7" name="MegaMax"/>
+	</supported-values>
+</attribute>
+<attribute id="178" name="Ascend-Group" type="string"/>
+<attribute id="179" name="Ascend-FR-DLCI" type="integer"/>
+<attribute id="180" name="Ascend-FR-Profile-Name" type="string"/>
+<attribute id="181" name="Ascend-Ara-PW" type="string"/>
+<attribute id="182" name="Ascend-IPX-Node-Addr" type="string"/>
+<attribute id="183" name="Ascend-Home-Agent-IP-Addr" type="ipaddr"/>
+<attribute id="184" name="Ascend-Home-Agent-Password" type="string"/>
+<attribute id="185" name="Ascend-Home-Network-Name" type="string"/>
+<attribute id="186" name="Ascend-Home-Agent-UDP-Port" type="integer"/>
+<attribute id="187" name="Ascend-Multilink-id" type="integer"/>
+<attribute id="188" name="Ascend-Num-In-Multilink" type="integer"/>
+<attribute id="189" name="Ascend-First-Dest" type="ipaddr"/>
+<attribute id="190" name="Ascend-Pre-Input-Octets" type="integer"/>
+<attribute id="191" name="Ascend-Pre-Output-Octets" type="integer"/>
+<attribute id="192" name="Ascend-Pre-Input-Packets" type="integer"/>
+<attribute id="193" name="Ascend-Pre-Output-Packets" type="integer"/>
+<attribute id="194" name="Ascend-Maximum-Time" type="integer"/>
+<attribute id="195" name="Ascend-Disconnect-Cause" type="integer">
+	<supported-values>
+		<value id="0" name="No-Reason"/>
+		<value id="1" name="Not-Applicable"/>
+		<value id="2" name="Unknown"/>
+		<value id="3" name="Call-Disconnected"/>
+		<value id="4" name="CLid-Authentication-Failed"/>
+		<value id="5" name="CLid-RADIUS-Timeout"/>
+		<value id="10" name="Modem-No-DCD"/>
+		<value id="11" name="DCD-Detected-Then-Inactive"/>
+		<value id="12" name="Modem-Invalid-Result-Codes"/>
+		<value id="20" name="TermSrv-User-Quit"/>
+		<value id="21" name="TermSrv-idle-Timeout"/>
+		<value id="22" name="TermSrv-Exit-Telnet"/>
+		<value id="23" name="TermSrv-No-IPaddr"/>
+		<value id="24" name="TermSrv-Exit-Raw-TCP"/>
+		<value id="25" name="TermSrv-Exit-Login-Failed"/>
+		<value id="26" name="TermSrv-Exit-Raw-TCP-Disabled"/>
+		<value id="27" name="TermSrv-CTRL-C-In-Login"/>
+		<value id="28" name="TermSrv-Destroyed"/>
+		<value id="29" name="TermSrv-User-Closed-VCon"/>
+		<value id="30" name="TermSrv-VCon-Destroyed"/>
+		<value id="31" name="TermSrv-Exit-Rlogin"/>
+		<value id="32" name="TermSrv-Bad-Rlogin-Option"/>
+		<value id="33" name="TermSrv-Not-Enough-Resources"/>
+		<value id="35" name="MPP-No-NULL-Msg-Timeout"/>
+		<value id="40" name="PPP-LCP-Timeout"/>
+		<value id="41" name="PPP-LCP-Negotion-Failed"/>
+		<value id="42" name="PPP-PAP-Auth-Failed"/>
+		<value id="43" name="PPP-CHAP-Auth-Failed"/>
+		<value id="44" name="PPP-Rmt-Auth-Failed"/>
+		<value id="45" name="PPP-Rcv-Terminate-Req"/>
+		<value id="46" name="PPP-Rcv-Close-Event"/>
+		<value id="47" name="PPP-No-NCPs-Open"/>
+		<value id="48" name="PPP-MP-Bundle-Unknown"/>
+		<value id="49" name="PPP-LCP-Close-MP-Add-Fail"/>
+		<value id="50" name="Session-Table-Full"/>
+		<value id="51" name="Out-Of-Resources"/>
+		<value id="52" name="Invalid-IP-Address"/>
+		<value id="53" name="Hostname-Resolution-Failed"/>
+		<value id="54" name="Bad-Or-Missing-Port-Number"/>
+		<value id="60" name="Host-Reset"/>
+		<value id="61" name="Connection-Refused"/>
+		<value id="62" name="Connection-Timeout"/>
+		<value id="63" name="Connection-Closed"/>
+		<value id="64" name="Network-Unreachable"/>
+		<value id="65" name="Host-Unreachable"/>
+		<value id="66" name="Network-Unreachable-Admin"/>
+		<value id="67" name="Host-Unreachable-Admin"/>
+		<value id="68" name="Port-Unreachable"/>
+		<value id="100" name="Session-Timeout"/>
+		<value id="101" name="Invalid-Incoming-User"/>
+		<value id="102" name="Disconnect-Due-To-Callback"/>
+		<value id="120" name="Proto-Disabled-Or-Unsupported"/>
+		<value id="150" name="Disconnect-Req-By-RADIUS"/>
+		<value id="151" name="Disconnect-Req-By-Local-Admin"/>
+		<value id="160" name="V110-Timeout-Sync-Retry-Exceed"/>
+		<value id="170" name="PPP-Auth-Timeout-Exceeded"/>
+		<value id="180" name="User-Executed-Do-Hangup"/>
+		<value id="185" name="Remote-End-Hung-Up"/>
+		<value id="190" name="Resource-Has-Been-Quiesced"/>
+		<value id="195" name="Max-Call-Duration-Reached"/>
+		<value id="0" name="No-Reason"/>
+		<value id="1" name="Not-Applicable"/>
+		<value id="2" name="Unknown"/>
+		<value id="3" name="Call-Disconnected"/>
+		<value id="4" name="CLid-Authentication-Failed"/>
+		<value id="5" name="CLid-RADIUS-Timeout"/>
+		<value id="10" name="Modem-No-DCD"/>
+		<value id="11" name="DCD-Detected-Then-Inactive"/>
+		<value id="12" name="Modem-Invalid-Result-Codes"/>
+		<value id="20" name="TermSrv-User-Quit"/>
+		<value id="21" name="TermSrv-idle-Timeout"/>
+		<value id="22" name="TermSrv-Exit-Telnet"/>
+		<value id="23" name="TermSrv-No-IPaddr"/>
+		<value id="24" name="TermSrv-Exit-Raw-TCP"/>
+		<value id="25" name="TermSrv-Exit-Login-Failed"/>
+		<value id="26" name="TermSrv-Exit-Raw-TCP-Disabled"/>
+		<value id="27" name="TermSrv-CTRL-C-In-Login"/>
+		<value id="28" name="TermSrv-Destroyed"/>
+		<value id="29" name="TermSrv-User-Closed-VCon"/>
+		<value id="30" name="TermSrv-VCon-Destroyed"/>
+		<value id="31" name="TermSrv-Exit-Rlogin"/>
+		<value id="32" name="TermSrv-Bad-Rlogin-Option"/>
+		<value id="33" name="TermSrv-Not-Enough-Resources"/>
+		<value id="35" name="MPP-No-NULL-Msg-Timeout"/>
+		<value id="40" name="PPP-LCP-Timeout"/>
+		<value id="41" name="PPP-LCP-Negotion-Failed"/>
+		<value id="42" name="PPP-PAP-Auth-Failed"/>
+		<value id="43" name="PPP-CHAP-Auth-Failed"/>
+		<value id="44" name="PPP-Rmt-Auth-Failed"/>
+		<value id="45" name="PPP-Rcv-Terminate-Req"/>
+		<value id="46" name="PPP-Rcv-Close-Event"/>
+		<value id="47" name="PPP-No-NCPs-Open"/>
+		<value id="48" name="PPP-MP-Bundle-Unknown"/>
+		<value id="49" name="PPP-LCP-Close-MP-Add-Fail"/>
+		<value id="50" name="Session-Table-Full"/>
+		<value id="51" name="Out-Of-Resources"/>
+		<value id="52" name="Invalid-IP-Address"/>
+		<value id="53" name="Hostname-Resolution-Failed"/>
+		<value id="54" name="Bad-Or-Missing-Port-Number"/>
+		<value id="60" name="Host-Reset"/>
+		<value id="61" name="Connection-Refused"/>
+		<value id="62" name="Connection-Timeout"/>
+		<value id="63" name="Connection-Closed"/>
+		<value id="64" name="Network-Unreachable"/>
+		<value id="65" name="Host-Unreachable"/>
+		<value id="66" name="Network-Unreachable-Admin"/>
+		<value id="67" name="Host-Unreachable-Admin"/>
+		<value id="68" name="Port-Unreachable"/>
+		<value id="100" name="Session-Timeout"/>
+		<value id="101" name="Invalid-Incoming-User"/>
+		<value id="102" name="Disconnect-Due-To-Callback"/>
+		<value id="120" name="Proto-Disabled-Or-Unsupported"/>
+		<value id="150" name="Disconnect-Req-By-RADIUS"/>
+		<value id="151" name="Disconnect-Req-By-Local-Admin"/>
+		<value id="160" name="V110-Timeout-Sync-Retry-Exceed"/>
+		<value id="170" name="PPP-Auth-Timeout-Exceeded"/>
+		<value id="180" name="User-Executed-Do-Hangup"/>
+		<value id="185" name="Remote-End-Hung-Up"/>
+		<value id="190" name="Resource-Has-Been-Quiesced"/>
+		<value id="195" name="Max-Call-Duration-Reached"/>
+	</supported-values>
+</attribute>
+<attribute id="196" name="Ascend-Connect-Progress" type="integer">
+	<supported-values>
+		<value id="0" name="No-Progress"/>
+		<value id="10" name="Call-Up"/>
+		<value id="30" name="Modem-Up"/>
+		<value id="31" name="Modem-Awaiting-DCD"/>
+		<value id="32" name="Modem-Awaiting-Codes"/>
+		<value id="40" name="TermSrv-Started"/>
+		<value id="41" name="TermSrv-Raw-TCP-Started"/>
+		<value id="42" name="TermSrv-Telnet-Started"/>
+		<value id="43" name="TermSrv-Raw-TCP-Connected"/>
+		<value id="44" name="TermSrv-Telnet-Connected"/>
+		<value id="45" name="TermSrv-Rlogin-Started"/>
+		<value id="46" name="TermSrv-Rlogin-Connected"/>
+		<value id="50" name="Modem-Outdial-Call-Up"/>
+		<value id="60" name="LAN-Session-Up"/>
+		<value id="61" name="LCP-Opening"/>
+		<value id="62" name="CCP-Opening"/>
+		<value id="63" name="IPNCP-Opening"/>
+		<value id="64" name="BNCP-Opening"/>
+		<value id="65" name="LCP-Opened"/>
+		<value id="66" name="CCP-Opened"/>
+		<value id="67" name="IPNCP-Opened"/>
+		<value id="68" name="BNCP-Opened"/>
+		<value id="69" name="LCP-State-Initial"/>
+		<value id="70" name="LCP-State-Starting"/>
+		<value id="71" name="LCP-State-Closed"/>
+		<value id="72" name="LCP-State-Stopped"/>
+		<value id="73" name="LCP-State-Closing"/>
+		<value id="74" name="LCP-State-Stopping"/>
+		<value id="75" name="LCP-State-Request-Sent"/>
+		<value id="76" name="LCP-State-Ack-Received"/>
+		<value id="77" name="LCP-State-Ack-Sent"/>
+		<value id="80" name="IPXNCP-Opened"/>
+		<value id="81" name="ATNCP-Opened"/>
+		<value id="82" name="BACP-Opening"/>
+		<value id="83" name="BACP-Opened"/>
+		<value id="90" name="V110-Up"/>
+		<value id="91" name="V110-State-Opened"/>
+		<value id="92" name="V110-State-Carrier"/>
+		<value id="93" name="V110-State-Reset"/>
+		<value id="94" name="V110-State-Closed"/>
+		<value id="0" name="No-Progress"/>
+		<value id="10" name="Call-Up"/>
+		<value id="30" name="Modem-Up"/>
+		<value id="31" name="Modem-Awaiting-DCD"/>
+		<value id="32" name="Modem-Awaiting-Codes"/>
+		<value id="40" name="TermSrv-Started"/>
+		<value id="41" name="TermSrv-Raw-TCP-Started"/>
+		<value id="42" name="TermSrv-Telnet-Started"/>
+		<value id="43" name="TermSrv-Raw-TCP-Connected"/>
+		<value id="44" name="TermSrv-Telnet-Connected"/>
+		<value id="45" name="TermSrv-Rlogin-Started"/>
+		<value id="46" name="TermSrv-Rlogin-Connected"/>
+		<value id="50" name="Modem-Outdial-Call-Up"/>
+		<value id="60" name="LAN-Session-Up"/>
+		<value id="61" name="LCP-Opening"/>
+		<value id="62" name="CCP-Opening"/>
+		<value id="63" name="IPNCP-Opening"/>
+		<value id="64" name="BNCP-Opening"/>
+		<value id="65" name="LCP-Opened"/>
+		<value id="66" name="CCP-Opened"/>
+		<value id="67" name="IPNCP-Opened"/>
+		<value id="68" name="BNCP-Opened"/>
+		<value id="69" name="LCP-State-Initial"/>
+		<value id="70" name="LCP-State-Starting"/>
+		<value id="71" name="LCP-State-Closed"/>
+		<value id="72" name="LCP-State-Stopped"/>
+		<value id="73" name="LCP-State-Closing"/>
+		<value id="74" name="LCP-State-Stopping"/>
+		<value id="75" name="LCP-State-Request-Sent"/>
+		<value id="76" name="LCP-State-Ack-Received"/>
+		<value id="77" name="LCP-State-Ack-Sent"/>
+		<value id="80" name="IPXNCP-Opened"/>
+		<value id="81" name="ATNCP-Opened"/>
+		<value id="82" name="BACP-Opening"/>
+		<value id="83" name="BACP-Opened"/>
+		<value id="90" name="V110-Up"/>
+		<value id="91" name="V110-State-Opened"/>
+		<value id="92" name="V110-State-Carrier"/>
+		<value id="93" name="V110-State-Reset"/>
+		<value id="94" name="V110-State-Closed"/>
+	</supported-values>
+</attribute>
+<attribute id="197" name="Ascend-Data-Rate" type="integer"/>
+<attribute id="198" name="Ascend-PreSession-Time" type="integer"/>
+<attribute id="199" name="Ascend-Token-idle" type="integer"/>
+<attribute id="200" name="Ascend-Token-Immediate" type="integer">
+	<supported-values>
+		<value id="0" name="Tok-Imm-No"/>
+		<value id="1" name="Tok-Imm-Yes"/>
+		<value id="0" name="Tok-Imm-No"/>
+		<value id="1" name="Tok-Imm-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="201" name="Ascend-Require-Auth" type="integer">
+	<supported-values>
+		<value id="0" name="Not-Require-Auth"/>
+		<value id="1" name="Require-Auth"/>
+		<value id="0" name="Not-Require-Auth"/>
+		<value id="1" name="Require-Auth"/>
+	</supported-values>
+</attribute>
+<attribute id="202" name="Ascend-Number-Sessions" type="string"/>
+<attribute id="203" name="Ascend-Authen-Alias" type="string"/>
+<attribute id="204" name="Ascend-Token-Expiry" type="integer"/>
+<attribute id="205" name="Ascend-Menu-Selector" type="string"/>
+<attribute id="206" name="Ascend-Menu-Item" type="string"/>
+<attribute id="207" name="Ascend-PW-Warntime" type="integer">
+	<supported-values>
+		<value id="0" name="Days-Of-Warning"/>
+		<value id="0" name="Days-Of-Warning"/>
+	</supported-values>
+</attribute>
+<attribute id="208" name="Ascend-PW-Lifetime" type="integer">
+	<supported-values>
+		<value id="0" name="Lifetime-In-Days"/>
+		<value id="0" name="Lifetime-In-Days"/>
+	</supported-values>
+</attribute>
+<attribute id="209" name="Ascend-IP-Direct" type="ipaddr"/>
+<attribute id="210" name="Ascend-PPP-VJ-Slot-Comp" type="integer">
+	<supported-values>
+		<value id="1" name="VJ-Slot-Comp-No"/>
+		<value id="1" name="VJ-Slot-Comp-No"/>
+	</supported-values>
+</attribute>
+<attribute id="211" name="Ascend-PPP-VJ-1172" type="integer">
+	<supported-values>
+		<value id="1" name="PPP-VJ-1172"/>
+		<value id="1" name="PPP-VJ-1172"/>
+	</supported-values>
+</attribute>
+<attribute id="212" name="Ascend-PPP-Async-Map" type="integer"/>
+<attribute id="213" name="Ascend-Third-Prompt" type="string"/>
+<!--Original Line : ATTRIBUTE	Ascend-Send-Secret			214	string	encrypt=3-->
+<attribute id="214" name="Ascend-Send-Secret" type="string"/>
+<!--Original Line : ATTRIBUTE	Ascend-Receive-Secret			215	string	encrypt=3-->
+<attribute id="215" name="Ascend-Receive-Secret" type="string"/>
+<attribute id="216" name="Ascend-IPX-Peer-Mode" type="integer">
+	<supported-values>
+		<value id="0" name="IPX-Peer-Router"/>
+		<value id="1" name="IPX-Peer-Dialin"/>
+		<value id="0" name="IPX-Peer-Router"/>
+		<value id="1" name="IPX-Peer-Dialin"/>
+	</supported-values>
+</attribute>
+<attribute id="217" name="Ascend-IP-Pool-Definition" type="string"/>
+<attribute id="218" name="Ascend-Assign-IP-Pool" type="integer"/>
+<attribute id="219" name="Ascend-FR-Direct" type="integer">
+	<supported-values>
+		<value id="0" name="FR-Direct-No"/>
+		<value id="1" name="FR-Direct-Yes"/>
+		<value id="0" name="FR-Direct-No"/>
+		<value id="1" name="FR-Direct-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="220" name="Ascend-FR-Direct-Profile" type="string"/>
+<attribute id="221" name="Ascend-FR-Direct-DLCI" type="integer"/>
+<attribute id="222" name="Ascend-Handle-IPX" type="integer">
+	<supported-values>
+		<value id="0" name="Handle-IPX-None"/>
+		<value id="1" name="Handle-IPX-Client"/>
+		<value id="2" name="Handle-IPX-Server"/>
+		<value id="0" name="Handle-IPX-None"/>
+		<value id="1" name="Handle-IPX-Client"/>
+		<value id="2" name="Handle-IPX-Server"/>
+	</supported-values>
+</attribute>
+<attribute id="223" name="Ascend-Netware-timeout" type="integer"/>
+<attribute id="224" name="Ascend-IPX-Alias" type="integer"/>
+<attribute id="225" name="Ascend-Metric" type="integer"/>
+<attribute id="226" name="Ascend-PRI-Number-Type" type="integer">
+	<supported-values>
+		<value id="0" name="Unknown-Number"/>
+		<value id="1" name="Intl-Number"/>
+		<value id="2" name="National-Number"/>
+		<value id="3" name="Net-Specific-Number"/>
+		<value id="4" name="Local-Number"/>
+		<value id="5" name="Abbrev-Number"/>
+		<value id="0" name="Unknown-Number"/>
+		<value id="1" name="Intl-Number"/>
+		<value id="2" name="National-Number"/>
+		<value id="3" name="Net-Specific-Number"/>
+		<value id="4" name="Local-Number"/>
+		<value id="5" name="Abbrev-Number"/>
+	</supported-values>
+</attribute>
+<attribute id="227" name="Ascend-Dial-Number" type="string"/>
+<attribute id="228" name="Ascend-Route-IP" type="integer">
+	<supported-values>
+		<value id="0" name="Route-IP-No"/>
+		<value id="1" name="Route-IP-Yes"/>
+		<value id="0" name="Route-IPX-No"/>
+		<value id="1" name="Route-IPX-Yes"/>
+		<value id="0" name="Route-IP-No"/>
+		<value id="1" name="Route-IP-Yes"/>
+		<value id="0" name="Route-IPX-No"/>
+		<value id="1" name="Route-IPX-Yes"/>
+		<value id="0" name="Route-IPX-No"/>
+		<value id="1" name="Route-IPX-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="229" name="Ascend-Route-IPX" type="integer">
+	<supported-values>
+		<value id="0" name="Route-IPX-No"/>
+		<value id="1" name="Route-IPX-Yes"/>
+		<value id="0" name="Route-IPX-No"/>
+		<value id="1" name="Route-IPX-Yes"/>
+		<value id="0" name="Route-IPX-No"/>
+		<value id="1" name="Route-IPX-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="230" name="Ascend-Bridge" type="integer">
+	<supported-values>
+		<value id="0" name="Bridge-No"/>
+		<value id="1" name="Bridge-Yes"/>
+		<value id="0" name="Bridge-Non-PPPoE-No"/>
+		<value id="1" name="Bridge-Non-PPPoE-Yes"/>
+		<value id="0" name="Bridge-No"/>
+		<value id="1" name="Bridge-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="231" name="Ascend-Send-Auth" type="integer">
+	<supported-values>
+		<value id="0" name="Send-Auth-None"/>
+		<value id="1" name="Send-Auth-PAP"/>
+		<value id="2" name="Send-Auth-CHAP"/>
+		<value id="3" name="Send-Auth-MS-CHAP"/>
+		<value id="0" name="Send-Auth-None"/>
+		<value id="1" name="Send-Auth-PAP"/>
+		<value id="2" name="Send-Auth-CHAP"/>
+		<value id="3" name="Send-Auth-MS-CHAP"/>
+	</supported-values>
+</attribute>
+<attribute id="232" name="Ascend-Send-Passwd" type="string"/>
+<attribute id="233" name="Ascend-Link-Compression" type="integer">
+	<supported-values>
+		<value id="0" name="Link-Comp-None"/>
+		<value id="1" name="Link-Comp-Stac"/>
+		<value id="2" name="Link-Comp-Stac-Draft-9"/>
+		<value id="3" name="Link-Comp-MS-Stac"/>
+		<value id="0" name="Link-Comp-None"/>
+		<value id="1" name="Link-Comp-Stac"/>
+		<value id="2" name="Link-Comp-Stac-Draft-9"/>
+		<value id="3" name="Link-Comp-MS-Stac"/>
+	</supported-values>
+</attribute>
+<attribute id="234" name="Ascend-Target-Util" type="integer"/>
+<attribute id="235" name="Ascend-Maximum-Channels" type="integer"/>
+<attribute id="236" name="Ascend-Inc-Channel-Count" type="integer"/>
+<attribute id="237" name="Ascend-Dec-Channel-Count" type="integer"/>
+<attribute id="238" name="Ascend-Seconds-Of-History" type="integer"/>
+<attribute id="239" name="Ascend-History-Weigh-Type" type="integer">
+	<supported-values>
+		<value id="0" name="History-Constant"/>
+		<value id="1" name="History-Linear"/>
+		<value id="2" name="History-Quadratic"/>
+		<value id="0" name="History-Constant"/>
+		<value id="1" name="History-Linear"/>
+		<value id="2" name="History-Quadratic"/>
+	</supported-values>
+</attribute>
+<attribute id="240" name="Ascend-Add-Seconds" type="integer"/>
+<attribute id="241" name="Ascend-Remove-Seconds" type="integer"/>
+<attribute id="242" name="Ascend-Data-Filter" type="abinary"/>
+<attribute id="243" name="Ascend-Call-Filter" type="abinary"/>
+<attribute id="244" name="Ascend-idle-Limit" type="integer"/>
+<attribute id="245" name="Ascend-Preempt-Limit" type="integer"/>
+<attribute id="246" name="Ascend-Callback" type="integer">
+	<supported-values>
+		<value id="0" name="Callback-No"/>
+		<value id="1" name="Callback-Yes"/>
+		<value id="0" name="Callback-No"/>
+		<value id="1" name="Callback-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="247" name="Ascend-Data-Svc" type="integer">
+	<supported-values>
+		<value id="0" name="Switched-Voice-Bearer"/>
+		<value id="1" name="Nailed-56KR"/>
+		<value id="2" name="Nailed-64K"/>
+		<value id="3" name="Switched-64KR"/>
+		<value id="4" name="Switched-56K"/>
+		<value id="5" name="Switched-384KR"/>
+		<value id="6" name="Switched-384K"/>
+		<value id="7" name="Switched-1536K"/>
+		<value id="8" name="Switched-1536KR"/>
+		<value id="9" name="Switched-128K"/>
+		<value id="10" name="Switched-192K"/>
+		<value id="11" name="Switched-256K"/>
+		<value id="12" name="Switched-320K"/>
+		<value id="13" name="Switched-384K-MR"/>
+		<value id="14" name="Switched-448K"/>
+		<value id="15" name="Switched-512K"/>
+		<value id="16" name="Switched-576K"/>
+		<value id="17" name="Switched-640K"/>
+		<value id="18" name="Switched-704K"/>
+		<value id="19" name="Switched-768K"/>
+		<value id="20" name="Switched-832K"/>
+		<value id="21" name="Switched-896K"/>
+		<value id="22" name="Switched-960K"/>
+		<value id="23" name="Switched-1024K"/>
+		<value id="24" name="Switched-1088K"/>
+		<value id="25" name="Switched-1152K"/>
+		<value id="26" name="Switched-1216K"/>
+		<value id="27" name="Switched-1280K"/>
+		<value id="28" name="Switched-1344K"/>
+		<value id="29" name="Switched-1408K"/>
+		<value id="30" name="Switched-1472K"/>
+		<value id="31" name="Switched-1600K"/>
+		<value id="32" name="Switched-1664K"/>
+		<value id="33" name="Switched-1728K"/>
+		<value id="34" name="Switched-1792K"/>
+		<value id="35" name="Switched-1856K"/>
+		<value id="36" name="Switched-1920K"/>
+		<value id="37" name="Switched-inherited"/>
+		<value id="38" name="Switched-restricted-bearer-x30"/>
+		<value id="39" name="Switched-clear-bearer-v110"/>
+		<value id="40" name="Switched-restricted-64-x30"/>
+		<value id="41" name="Switched-clear-56-v110"/>
+		<value id="42" name="Switched-modem"/>
+		<value id="43" name="Switched-atmodem"/>
+		<value id="45" name="Switched-V110-24-56"/>
+		<value id="46" name="Switched-V110-48-56"/>
+		<value id="47" name="Switched-V110-96-56"/>
+		<value id="48" name="Switched-V110-192-56"/>
+		<value id="49" name="Switched-V110-384-56"/>
+		<value id="50" name="Switched-V110-24-56R"/>
+		<value id="51" name="Switched-V110-48-56R"/>
+		<value id="52" name="Switched-V110-96-56R"/>
+		<value id="53" name="Switched-V110-192-56R"/>
+		<value id="54" name="Switched-V110-384-56R"/>
+		<value id="55" name="Switched-V110-24-64"/>
+		<value id="56" name="Switched-V110-48-64"/>
+		<value id="57" name="Switched-V110-96-64"/>
+		<value id="58" name="Switched-V110-192-64"/>
+		<value id="59" name="Switched-V110-384-64"/>
+		<value id="60" name="Switched-V110-24-64R"/>
+		<value id="61" name="Switched-V110-48-64R"/>
+		<value id="62" name="Switched-V110-96-64R"/>
+		<value id="64" name="Switched-V110-384-64R"/>
+		<value id="63" name="Switched-V110-192-64R"/>
+		<value id="68" name="Switched-Pots"/>
+		<value id="69" name="Switched-ATM"/>
+		<value id="70" name="Switched-FR"/>
+		<value id="0" name="Switched-Voice-Bearer"/>
+		<value id="1" name="Nailed-56KR"/>
+		<value id="2" name="Nailed-64K"/>
+		<value id="3" name="Switched-64KR"/>
+		<value id="4" name="Switched-56K"/>
+		<value id="5" name="Switched-384KR"/>
+		<value id="6" name="Switched-384K"/>
+		<value id="7" name="Switched-1536K"/>
+		<value id="8" name="Switched-1536KR"/>
+		<value id="9" name="Switched-128K"/>
+		<value id="10" name="Switched-192K"/>
+		<value id="11" name="Switched-256K"/>
+		<value id="12" name="Switched-320K"/>
+		<value id="13" name="Switched-384K-MR"/>
+		<value id="14" name="Switched-448K"/>
+		<value id="15" name="Switched-512K"/>
+		<value id="16" name="Switched-576K"/>
+		<value id="17" name="Switched-640K"/>
+		<value id="18" name="Switched-704K"/>
+		<value id="19" name="Switched-768K"/>
+		<value id="20" name="Switched-832K"/>
+		<value id="21" name="Switched-896K"/>
+		<value id="22" name="Switched-960K"/>
+		<value id="23" name="Switched-1024K"/>
+		<value id="24" name="Switched-1088K"/>
+		<value id="25" name="Switched-1152K"/>
+		<value id="26" name="Switched-1216K"/>
+		<value id="27" name="Switched-1280K"/>
+		<value id="28" name="Switched-1344K"/>
+		<value id="29" name="Switched-1408K"/>
+		<value id="30" name="Switched-1472K"/>
+		<value id="31" name="Switched-1600K"/>
+		<value id="32" name="Switched-1664K"/>
+		<value id="33" name="Switched-1728K"/>
+		<value id="34" name="Switched-1792K"/>
+		<value id="35" name="Switched-1856K"/>
+		<value id="36" name="Switched-1920K"/>
+		<value id="37" name="Switched-inherited"/>
+		<value id="38" name="Switched-restricted-bearer-x30"/>
+		<value id="39" name="Switched-clear-bearer-v110"/>
+		<value id="40" name="Switched-restricted-64-x30"/>
+		<value id="41" name="Switched-clear-56-v110"/>
+		<value id="42" name="Switched-modem"/>
+		<value id="43" name="Switched-atmodem"/>
+		<value id="45" name="Switched-V110-24-56"/>
+		<value id="46" name="Switched-V110-48-56"/>
+		<value id="47" name="Switched-V110-96-56"/>
+		<value id="48" name="Switched-V110-192-56"/>
+		<value id="49" name="Switched-V110-384-56"/>
+		<value id="50" name="Switched-V110-24-56R"/>
+		<value id="51" name="Switched-V110-48-56R"/>
+		<value id="52" name="Switched-V110-96-56R"/>
+		<value id="53" name="Switched-V110-192-56R"/>
+		<value id="54" name="Switched-V110-384-56R"/>
+		<value id="55" name="Switched-V110-24-64"/>
+		<value id="56" name="Switched-V110-48-64"/>
+		<value id="57" name="Switched-V110-96-64"/>
+		<value id="58" name="Switched-V110-192-64"/>
+		<value id="59" name="Switched-V110-384-64"/>
+		<value id="60" name="Switched-V110-24-64R"/>
+		<value id="61" name="Switched-V110-48-64R"/>
+		<value id="62" name="Switched-V110-96-64R"/>
+		<value id="64" name="Switched-V110-384-64R"/>
+		<value id="63" name="Switched-V110-192-64R"/>
+		<value id="68" name="Switched-Pots"/>
+		<value id="69" name="Switched-ATM"/>
+		<value id="70" name="Switched-FR"/>
+	</supported-values>
+</attribute>
+<attribute id="248" name="Ascend-Force-56" type="integer">
+	<supported-values>
+		<value id="0" name="Force-56-No"/>
+		<value id="1" name="Force-56-Yes"/>
+		<value id="0" name="Force-56-No"/>
+		<value id="1" name="Force-56-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="249" name="Ascend-Billing-Number" type="string"/>
+<attribute id="250" name="Ascend-Call-By-Call" type="integer"/>
+<attribute id="251" name="Ascend-Transit-Number" type="string"/>
+<attribute id="252" name="Ascend-Host-Info" type="string"/>
+<attribute id="253" name="Ascend-PPP-Address" type="ipaddr"/>
+<attribute id="254" name="Ascend-MPP-idle-Percent" type="integer"/>
+<attribute id="255" name="Ascend-Xmit-Rate" type="integer"/>
+<attribute id="119" name="X-Ascend-FCP-Parameter" type="string"/>
+<attribute id="120" name="X-Ascend-Modem-PortNo" type="integer"/>
+<attribute id="121" name="X-Ascend-Modem-SlotNo" type="integer"/>
+<attribute id="122" name="X-Ascend-Modem-ShelfNo" type="integer"/>
+<attribute id="123" name="X-Ascend-Call-Attempt-Limit" type="integer"/>
+<attribute id="124" name="X-Ascend-Call-Block-Duration" type="integer"/>
+<attribute id="125" name="X-Ascend-Maximum-Call-Duration" type="integer"/>
+<attribute id="126" name="X-Ascend-Temporary-Rtes" type="integer">
+	<supported-values>
+		<value id="0" name="Temp-Rtes-No"/>
+		<value id="1" name="Temp-Rtes-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="127" name="X-Ascend-Tunneling-Protocol" type="integer">
+	<supported-values>
+		<value id="0" name="ATMP-Tunnel"/>
+		<value id="1" name="VTP-Tunnel"/>
+	</supported-values>
+</attribute>
+<attribute id="128" name="X-Ascend-Shared-Profile-Enable" type="integer">
+	<supported-values>
+		<value id="0" name="Shared-Profile-No"/>
+		<value id="1" name="Shared-Profile-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="129" name="X-Ascend-Primary-Home-Agent" type="string"/>
+<attribute id="130" name="X-Ascend-Secondary-Home-Agent" type="string"/>
+<attribute id="131" name="X-Ascend-Dialout-Allowed" type="integer">
+	<supported-values>
+		<value id="0" name="Dialout-Not-Allowed"/>
+		<value id="1" name="Dialout-Allowed"/>
+	</supported-values>
+</attribute>
+<attribute id="132" name="X-Ascend-Client-Gateway" type="ipaddr"/>
+<attribute id="133" name="X-Ascend-BACP-Enable" type="integer">
+	<supported-values>
+		<value id="0" name="BACP-No"/>
+		<value id="1" name="BACP-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="134" name="X-Ascend-DHCP-Maximum-Leases" type="integer"/>
+<attribute id="135" name="X-Ascend-Client-Primary-DNS" type="ipaddr"/>
+<attribute id="136" name="X-Ascend-Client-Secondary-DNS" type="ipaddr"/>
+<attribute id="137" name="X-Ascend-Client-Assign-DNS" type="integer">
+	<supported-values>
+		<value id="0" name="DNS-Assign-No"/>
+		<value id="1" name="DNS-Assign-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="138" name="X-Ascend-User-Acct-Type" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-User-Acct-None"/>
+		<value id="1" name="Ascend-User-Acct-User"/>
+		<value id="2" name="Ascend-User-Acct-User-Default"/>
+	</supported-values>
+</attribute>
+<attribute id="139" name="X-Ascend-User-Acct-Host" type="ipaddr"/>
+<attribute id="140" name="X-Ascend-User-Acct-Port" type="integer"/>
+<attribute id="141" name="X-Ascend-User-Acct-Key" type="string"/>
+<attribute id="142" name="X-Ascend-User-Acct-Base" type="integer">
+	<supported-values>
+		<value id="0" name="Base-10"/>
+		<value id="1" name="Base-16"/>
+	</supported-values>
+</attribute>
+<attribute id="143" name="X-Ascend-User-Acct-Time" type="integer"/>
+<attribute id="144" name="X-Ascend-Assign-IP-Client" type="ipaddr"/>
+<attribute id="145" name="X-Ascend-Assign-IP-Server" type="ipaddr"/>
+<attribute id="146" name="X-Ascend-Assign-IP-Global-Pool" type="string"/>
+<attribute id="147" name="X-Ascend-DHCP-Reply" type="integer">
+	<supported-values>
+		<value id="0" name="DHCP-Reply-No"/>
+		<value id="1" name="DHCP-Reply-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="148" name="X-Ascend-DHCP-Pool-Number" type="integer"/>
+<attribute id="149" name="X-Ascend-Expect-Callback" type="integer">
+	<supported-values>
+		<value id="0" name="Expect-Callback-No"/>
+		<value id="1" name="Expect-Callback-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="150" name="X-Ascend-Event-Type" type="integer">
+	<supported-values>
+		<value id="1" name="Ascend-ColdStart"/>
+		<value id="2" name="Ascend-Session-Event"/>
+	</supported-values>
+</attribute>
+<attribute id="151" name="X-Ascend-Session-Svr-Key" type="string"/>
+<attribute id="152" name="X-Ascend-Multicast-Rate-Limit" type="integer"/>
+<attribute id="153" name="X-Ascend-IF-Netmask" type="ipaddr"/>
+<attribute id="154" name="X-Ascend-Remote-Addr" type="ipaddr"/>
+<attribute id="155" name="X-Ascend-Multicast-Client" type="integer">
+	<supported-values>
+		<value id="0" name="Multicast-No"/>
+		<value id="1" name="Multicast-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="156" name="X-Ascend-FR-Circuit-Name" type="string"/>
+<attribute id="157" name="X-Ascend-FR-LinkUp" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-LinkUp-Default"/>
+		<value id="1" name="Ascend-LinkUp-AlwaysUp"/>
+	</supported-values>
+</attribute>
+<attribute id="158" name="X-Ascend-FR-Nailed-Grp" type="integer"/>
+<attribute id="159" name="X-Ascend-FR-Type" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-FR-DTE"/>
+		<value id="1" name="Ascend-FR-DCE"/>
+		<value id="2" name="Ascend-FR-NNI"/>
+	</supported-values>
+</attribute>
+<attribute id="160" name="X-Ascend-FR-Link-Mgt" type="integer">
+	<supported-values>
+		<value id="0" name="Ascend-FR-No-Link-Mgt"/>
+		<value id="1" name="Ascend-FR-T1-617D"/>
+		<value id="2" name="Ascend-FR-Q-933A"/>
+	</supported-values>
+</attribute>
+<attribute id="161" name="X-Ascend-FR-N391" type="integer"/>
+<attribute id="162" name="X-Ascend-FR-DCE-N392" type="integer"/>
+<attribute id="163" name="X-Ascend-FR-DTE-N392" type="integer"/>
+<attribute id="164" name="X-Ascend-FR-DCE-N393" type="integer"/>
+<attribute id="165" name="X-Ascend-FR-DTE-N393" type="integer"/>
+<attribute id="166" name="X-Ascend-FR-T391" type="integer"/>
+<attribute id="167" name="X-Ascend-FR-T392" type="integer"/>
+<attribute id="168" name="X-Ascend-Bridge-Address" type="string"/>
+<attribute id="169" name="X-Ascend-TS-idle-Limit" type="integer"/>
+<attribute id="170" name="X-Ascend-TS-idle-Mode" type="integer">
+	<supported-values>
+		<value id="0" name="TS-idle-None"/>
+		<value id="1" name="TS-idle-Input"/>
+		<value id="2" name="TS-idle-Input-Output"/>
+	</supported-values>
+</attribute>
+<attribute id="171" name="X-Ascend-DBA-Monitor" type="integer">
+	<supported-values>
+		<value id="0" name="DBA-Transmit"/>
+		<value id="1" name="DBA-Transmit-Recv"/>
+		<value id="2" name="DBA-None"/>
+	</supported-values>
+</attribute>
+<attribute id="172" name="X-Ascend-Base-Channel-Count" type="integer"/>
+<attribute id="173" name="X-Ascend-Minimum-Channels" type="integer"/>
+<attribute id="174" name="X-Ascend-IPX-Route" type="string"/>
+<attribute id="175" name="X-Ascend-FT1-Caller" type="integer">
+	<supported-values>
+		<value id="0" name="FT1-No"/>
+		<value id="1" name="FT1-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="176" name="X-Ascend-Backup" type="string"/>
+<attribute id="177" name="X-Ascend-Call-Type" type="integer">
+	<supported-values>
+		<value id="0" name="Switched"/>
+		<value id="1" name="Nailed"/>
+		<value id="2" name="Nailed/Mpp"/>
+		<value id="3" name="Perm/Switched"/>
+		<value id="6" name="AO/DI"/>
+		<value id="7" name="MegaMax"/>
+	</supported-values>
+</attribute>
+<attribute id="178" name="X-Ascend-Group" type="string"/>
+<attribute id="179" name="X-Ascend-FR-DLCI" type="integer"/>
+<attribute id="180" name="X-Ascend-FR-Profile-Name" type="string"/>
+<attribute id="181" name="X-Ascend-Ara-PW" type="string"/>
+<attribute id="182" name="X-Ascend-IPX-Node-Addr" type="string"/>
+<attribute id="183" name="X-Ascend-Home-Agent-IP-Addr" type="ipaddr"/>
+<attribute id="184" name="X-Ascend-Home-Agent-Password" type="string"/>
+<attribute id="185" name="X-Ascend-Home-Network-Name" type="string"/>
+<attribute id="186" name="X-Ascend-Home-Agent-UDP-Port" type="integer"/>
+<attribute id="187" name="X-Ascend-Multilink-id" type="integer"/>
+<attribute id="188" name="X-Ascend-Num-In-Multilink" type="integer"/>
+<attribute id="189" name="X-Ascend-First-Dest" type="ipaddr"/>
+<attribute id="190" name="X-Ascend-Pre-Input-Octets" type="integer"/>
+<attribute id="191" name="X-Ascend-Pre-Output-Octets" type="integer"/>
+<attribute id="192" name="X-Ascend-Pre-Input-Packets" type="integer"/>
+<attribute id="193" name="X-Ascend-Pre-Output-Packets" type="integer"/>
+<attribute id="194" name="X-Ascend-Maximum-Time" type="integer"/>
+<attribute id="195" name="X-Ascend-Disconnect-Cause" type="integer">
+	<supported-values>
+		<value id="0" name="No-Reason"/>
+		<value id="1" name="Not-Applicable"/>
+		<value id="2" name="Unknown"/>
+		<value id="3" name="Call-Disconnected"/>
+		<value id="4" name="CLid-Authentication-Failed"/>
+		<value id="5" name="CLid-RADIUS-Timeout"/>
+		<value id="10" name="Modem-No-DCD"/>
+		<value id="11" name="DCD-Detected-Then-Inactive"/>
+		<value id="12" name="Modem-Invalid-Result-Codes"/>
+		<value id="20" name="TermSrv-User-Quit"/>
+		<value id="21" name="TermSrv-idle-Timeout"/>
+		<value id="22" name="TermSrv-Exit-Telnet"/>
+		<value id="23" name="TermSrv-No-IPaddr"/>
+		<value id="24" name="TermSrv-Exit-Raw-TCP"/>
+		<value id="25" name="TermSrv-Exit-Login-Failed"/>
+		<value id="26" name="TermSrv-Exit-Raw-TCP-Disabled"/>
+		<value id="27" name="TermSrv-CTRL-C-In-Login"/>
+		<value id="28" name="TermSrv-Destroyed"/>
+		<value id="29" name="TermSrv-User-Closed-VCon"/>
+		<value id="30" name="TermSrv-VCon-Destroyed"/>
+		<value id="31" name="TermSrv-Exit-Rlogin"/>
+		<value id="32" name="TermSrv-Bad-Rlogin-Option"/>
+		<value id="33" name="TermSrv-Not-Enough-Resources"/>
+		<value id="35" name="MPP-No-NULL-Msg-Timeout"/>
+		<value id="40" name="PPP-LCP-Timeout"/>
+		<value id="41" name="PPP-LCP-Negotion-Failed"/>
+		<value id="42" name="PPP-PAP-Auth-Failed"/>
+		<value id="43" name="PPP-CHAP-Auth-Failed"/>
+		<value id="44" name="PPP-Rmt-Auth-Failed"/>
+		<value id="45" name="PPP-Rcv-Terminate-Req"/>
+		<value id="46" name="PPP-Rcv-Close-Event"/>
+		<value id="47" name="PPP-No-NCPs-Open"/>
+		<value id="48" name="PPP-MP-Bundle-Unknown"/>
+		<value id="49" name="PPP-LCP-Close-MP-Add-Fail"/>
+		<value id="50" name="Session-Table-Full"/>
+		<value id="51" name="Out-Of-Resources"/>
+		<value id="52" name="Invalid-IP-Address"/>
+		<value id="53" name="Hostname-Resolution-Failed"/>
+		<value id="54" name="Bad-Or-Missing-Port-Number"/>
+		<value id="60" name="Host-Reset"/>
+		<value id="61" name="Connection-Refused"/>
+		<value id="62" name="Connection-Timeout"/>
+		<value id="63" name="Connection-Closed"/>
+		<value id="64" name="Network-Unreachable"/>
+		<value id="65" name="Host-Unreachable"/>
+		<value id="66" name="Network-Unreachable-Admin"/>
+		<value id="67" name="Host-Unreachable-Admin"/>
+		<value id="68" name="Port-Unreachable"/>
+		<value id="100" name="Session-Timeout"/>
+		<value id="101" name="Invalid-Incoming-User"/>
+		<value id="102" name="Disconnect-Due-To-Callback"/>
+		<value id="120" name="Proto-Disabled-Or-Unsupported"/>
+		<value id="150" name="Disconnect-Req-By-RADIUS"/>
+		<value id="151" name="Disconnect-Req-By-Local-Admin"/>
+		<value id="160" name="V110-Timeout-Sync-Retry-Exceed"/>
+		<value id="170" name="PPP-Auth-Timeout-Exceeded"/>
+		<value id="180" name="User-Executed-Do-Hangup"/>
+		<value id="185" name="Remote-End-Hung-Up"/>
+		<value id="190" name="Resource-Has-Been-Quiesced"/>
+		<value id="195" name="Max-Call-Duration-Reached"/>
+	</supported-values>
+</attribute>
+<attribute id="196" name="X-Ascend-Connect-Progress" type="integer">
+	<supported-values>
+		<value id="0" name="No-Progress"/>
+		<value id="10" name="Call-Up"/>
+		<value id="30" name="Modem-Up"/>
+		<value id="31" name="Modem-Awaiting-DCD"/>
+		<value id="32" name="Modem-Awaiting-Codes"/>
+		<value id="40" name="TermSrv-Started"/>
+		<value id="41" name="TermSrv-Raw-TCP-Started"/>
+		<value id="42" name="TermSrv-Telnet-Started"/>
+		<value id="43" name="TermSrv-Raw-TCP-Connected"/>
+		<value id="44" name="TermSrv-Telnet-Connected"/>
+		<value id="45" name="TermSrv-Rlogin-Started"/>
+		<value id="46" name="TermSrv-Rlogin-Connected"/>
+		<value id="50" name="Modem-Outdial-Call-Up"/>
+		<value id="60" name="LAN-Session-Up"/>
+		<value id="61" name="LCP-Opening"/>
+		<value id="62" name="CCP-Opening"/>
+		<value id="63" name="IPNCP-Opening"/>
+		<value id="64" name="BNCP-Opening"/>
+		<value id="65" name="LCP-Opened"/>
+		<value id="66" name="CCP-Opened"/>
+		<value id="67" name="IPNCP-Opened"/>
+		<value id="68" name="BNCP-Opened"/>
+		<value id="69" name="LCP-State-Initial"/>
+		<value id="70" name="LCP-State-Starting"/>
+		<value id="71" name="LCP-State-Closed"/>
+		<value id="72" name="LCP-State-Stopped"/>
+		<value id="73" name="LCP-State-Closing"/>
+		<value id="74" name="LCP-State-Stopping"/>
+		<value id="75" name="LCP-State-Request-Sent"/>
+		<value id="76" name="LCP-State-Ack-Received"/>
+		<value id="77" name="LCP-State-Ack-Sent"/>
+		<value id="80" name="IPXNCP-Opened"/>
+		<value id="81" name="ATNCP-Opened"/>
+		<value id="82" name="BACP-Opening"/>
+		<value id="83" name="BACP-Opened"/>
+		<value id="90" name="V110-Up"/>
+		<value id="91" name="V110-State-Opened"/>
+		<value id="92" name="V110-State-Carrier"/>
+		<value id="93" name="V110-State-Reset"/>
+		<value id="94" name="V110-State-Closed"/>
+	</supported-values>
+</attribute>
+<attribute id="197" name="X-Ascend-Data-Rate" type="integer"/>
+<attribute id="198" name="X-Ascend-PreSession-Time" type="integer"/>
+<attribute id="199" name="X-Ascend-Token-idle" type="integer"/>
+<attribute id="200" name="X-Ascend-Token-Immediate" type="integer">
+	<supported-values>
+		<value id="0" name="Tok-Imm-No"/>
+		<value id="1" name="Tok-Imm-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="201" name="X-Ascend-Require-Auth" type="integer">
+	<supported-values>
+		<value id="0" name="Not-Require-Auth"/>
+		<value id="1" name="Require-Auth"/>
+	</supported-values>
+</attribute>
+<attribute id="202" name="X-Ascend-Number-Sessions" type="string"/>
+<attribute id="203" name="X-Ascend-Authen-Alias" type="string"/>
+<attribute id="204" name="X-Ascend-Token-Expiry" type="integer"/>
+<attribute id="205" name="X-Ascend-Menu-Selector" type="string"/>
+<attribute id="206" name="X-Ascend-Menu-Item" type="string"/>
+<attribute id="207" name="X-Ascend-PW-Warntime" type="integer">
+	<supported-values>
+		<value id="0" name="Days-Of-Warning"/>
+	</supported-values>
+</attribute>
+<attribute id="208" name="X-Ascend-PW-Lifetime" type="integer">
+	<supported-values>
+		<value id="0" name="Lifetime-In-Days"/>
+	</supported-values>
+</attribute>
+<attribute id="209" name="X-Ascend-IP-Direct" type="ipaddr"/>
+<attribute id="210" name="X-Ascend-PPP-VJ-Slot-Comp" type="integer">
+	<supported-values>
+		<value id="1" name="VJ-Slot-Comp-No"/>
+	</supported-values>
+</attribute>
+<attribute id="211" name="X-Ascend-PPP-VJ-1172" type="integer">
+	<supported-values>
+		<value id="1" name="PPP-VJ-1172"/>
+	</supported-values>
+</attribute>
+<attribute id="212" name="X-Ascend-PPP-Async-Map" type="integer"/>
+<attribute id="213" name="X-Ascend-Third-Prompt" type="string"/>
+<!--Original Line : ATTRIBUTE	X-Ascend-Send-Secret			214	string encrypt=3-->
+<attribute id="214" name="X-Ascend-Send-Secret" type="string"/>
+<!--Original Line : ATTRIBUTE	X-Ascend-Receive-Secret			215	string encrypt=3-->
+<attribute id="215" name="X-Ascend-Receive-Secret" type="string"/>
+<attribute id="216" name="X-Ascend-IPX-Peer-Mode" type="integer">
+	<supported-values>
+		<value id="0" name="IPX-Peer-Router"/>
+		<value id="1" name="IPX-Peer-Dialin"/>
+	</supported-values>
+</attribute>
+<attribute id="217" name="X-Ascend-IP-Pool-Definition" type="string"/>
+<attribute id="218" name="X-Ascend-Assign-IP-Pool" type="integer"/>
+<attribute id="219" name="X-Ascend-FR-Direct" type="integer">
+	<supported-values>
+		<value id="0" name="FR-Direct-No"/>
+		<value id="1" name="FR-Direct-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="220" name="X-Ascend-FR-Direct-Profile" type="string"/>
+<attribute id="221" name="X-Ascend-FR-Direct-DLCI" type="integer"/>
+<attribute id="222" name="X-Ascend-Handle-IPX" type="integer">
+	<supported-values>
+		<value id="0" name="Handle-IPX-None"/>
+		<value id="1" name="Handle-IPX-Client"/>
+		<value id="2" name="Handle-IPX-Server"/>
+	</supported-values>
+</attribute>
+<attribute id="223" name="X-Ascend-Netware-timeout" type="integer"/>
+<attribute id="224" name="X-Ascend-IPX-Alias" type="integer"/>
+<attribute id="225" name="X-Ascend-Metric" type="integer"/>
+<attribute id="226" name="X-Ascend-PRI-Number-Type" type="integer">
+	<supported-values>
+		<value id="0" name="Unknown-Number"/>
+		<value id="1" name="Intl-Number"/>
+		<value id="2" name="National-Number"/>
+		<value id="3" name="Net-Specific-Number"/>
+		<value id="4" name="Local-Number"/>
+		<value id="5" name="Abbrev-Number"/>
+	</supported-values>
+</attribute>
+<attribute id="227" name="X-Ascend-Dial-Number" type="string"/>
+<attribute id="228" name="X-Ascend-Route-IP" type="integer">
+	<supported-values>
+		<value id="0" name="Route-IP-No"/>
+		<value id="1" name="Route-IP-Yes"/>
+		<value id="0" name="Route-IPX-No"/>
+		<value id="1" name="Route-IPX-Yes"/>
+		<value id="0" name="Route-IPX-No"/>
+		<value id="1" name="Route-IPX-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="229" name="X-Ascend-Route-IPX" type="integer">
+	<supported-values>
+		<value id="0" name="Route-IPX-No"/>
+		<value id="1" name="Route-IPX-Yes"/>
+		<value id="0" name="Route-IPX-No"/>
+		<value id="1" name="Route-IPX-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="230" name="X-Ascend-Bridge" type="integer">
+	<supported-values>
+		<value id="0" name="Bridge-No"/>
+		<value id="1" name="Bridge-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="231" name="X-Ascend-Send-Auth" type="integer">
+	<supported-values>
+		<value id="0" name="Send-Auth-None"/>
+		<value id="1" name="Send-Auth-PAP"/>
+		<value id="2" name="Send-Auth-CHAP"/>
+		<value id="3" name="Send-Auth-MS-CHAP"/>
+	</supported-values>
+</attribute>
+<attribute id="232" name="X-Ascend-Send-Passwd" type="string"/>
+<attribute id="233" name="X-Ascend-Link-Compression" type="integer">
+	<supported-values>
+		<value id="0" name="Link-Comp-None"/>
+		<value id="1" name="Link-Comp-Stac"/>
+		<value id="2" name="Link-Comp-Stac-Draft-9"/>
+		<value id="3" name="Link-Comp-MS-Stac"/>
+	</supported-values>
+</attribute>
+<attribute id="234" name="X-Ascend-Target-Util" type="integer"/>
+<attribute id="235" name="X-Ascend-Maximum-Channels" type="integer"/>
+<attribute id="236" name="X-Ascend-Inc-Channel-Count" type="integer"/>
+<attribute id="237" name="X-Ascend-Dec-Channel-Count" type="integer"/>
+<attribute id="238" name="X-Ascend-Seconds-Of-History" type="integer"/>
+<attribute id="239" name="X-Ascend-History-Weigh-Type" type="integer">
+	<supported-values>
+		<value id="0" name="History-Constant"/>
+		<value id="1" name="History-Linear"/>
+		<value id="2" name="History-Quadratic"/>
+	</supported-values>
+</attribute>
+<attribute id="240" name="X-Ascend-Add-Seconds" type="integer"/>
+<attribute id="241" name="X-Ascend-Remove-Seconds" type="integer"/>
+<attribute id="242" name="X-Ascend-Data-Filter" type="abinary"/>
+<attribute id="243" name="X-Ascend-Call-Filter" type="abinary"/>
+<attribute id="244" name="X-Ascend-idle-Limit" type="integer"/>
+<attribute id="245" name="X-Ascend-Preempt-Limit" type="integer"/>
+<attribute id="246" name="X-Ascend-Callback" type="integer">
+	<supported-values>
+		<value id="0" name="Callback-No"/>
+		<value id="1" name="Callback-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="247" name="X-Ascend-Data-Svc" type="integer">
+	<supported-values>
+		<value id="0" name="Switched-Voice-Bearer"/>
+		<value id="1" name="Nailed-56KR"/>
+		<value id="2" name="Nailed-64K"/>
+		<value id="3" name="Switched-64KR"/>
+		<value id="4" name="Switched-56K"/>
+		<value id="5" name="Switched-384KR"/>
+		<value id="6" name="Switched-384K"/>
+		<value id="7" name="Switched-1536K"/>
+		<value id="8" name="Switched-1536KR"/>
+		<value id="9" name="Switched-128K"/>
+		<value id="10" name="Switched-192K"/>
+		<value id="11" name="Switched-256K"/>
+		<value id="12" name="Switched-320K"/>
+		<value id="13" name="Switched-384K-MR"/>
+		<value id="14" name="Switched-448K"/>
+		<value id="15" name="Switched-512K"/>
+		<value id="16" name="Switched-576K"/>
+		<value id="17" name="Switched-640K"/>
+		<value id="18" name="Switched-704K"/>
+		<value id="19" name="Switched-768K"/>
+		<value id="20" name="Switched-832K"/>
+		<value id="21" name="Switched-896K"/>
+		<value id="22" name="Switched-960K"/>
+		<value id="23" name="Switched-1024K"/>
+		<value id="24" name="Switched-1088K"/>
+		<value id="25" name="Switched-1152K"/>
+		<value id="26" name="Switched-1216K"/>
+		<value id="27" name="Switched-1280K"/>
+		<value id="28" name="Switched-1344K"/>
+		<value id="29" name="Switched-1408K"/>
+		<value id="30" name="Switched-1472K"/>
+		<value id="31" name="Switched-1600K"/>
+		<value id="32" name="Switched-1664K"/>
+		<value id="33" name="Switched-1728K"/>
+		<value id="34" name="Switched-1792K"/>
+		<value id="35" name="Switched-1856K"/>
+		<value id="36" name="Switched-1920K"/>
+		<value id="37" name="Switched-inherited"/>
+		<value id="38" name="Switched-restricted-bearer-x30"/>
+		<value id="39" name="Switched-clear-bearer-v110"/>
+		<value id="40" name="Switched-restricted-64-x30"/>
+		<value id="41" name="Switched-clear-56-v110"/>
+		<value id="42" name="Switched-modem"/>
+		<value id="43" name="Switched-atmodem"/>
+		<value id="45" name="Switched-V110-24-56"/>
+		<value id="46" name="Switched-V110-48-56"/>
+		<value id="47" name="Switched-V110-96-56"/>
+		<value id="48" name="Switched-V110-192-56"/>
+		<value id="49" name="Switched-V110-384-56"/>
+		<value id="50" name="Switched-V110-24-56R"/>
+		<value id="51" name="Switched-V110-48-56R"/>
+		<value id="52" name="Switched-V110-96-56R"/>
+		<value id="53" name="Switched-V110-192-56R"/>
+		<value id="54" name="Switched-V110-384-56R"/>
+		<value id="55" name="Switched-V110-24-64"/>
+		<value id="56" name="Switched-V110-48-64"/>
+		<value id="57" name="Switched-V110-96-64"/>
+		<value id="58" name="Switched-V110-192-64"/>
+		<value id="59" name="Switched-V110-384-64"/>
+		<value id="60" name="Switched-V110-24-64R"/>
+		<value id="61" name="Switched-V110-48-64R"/>
+		<value id="62" name="Switched-V110-96-64R"/>
+		<value id="64" name="Switched-V110-384-64R"/>
+		<value id="63" name="Switched-V110-192-64R"/>
+		<value id="68" name="Switched-Pots"/>
+		<value id="69" name="Switched-ATM"/>
+		<value id="70" name="Switched-FR"/>
+	</supported-values>
+</attribute>
+<attribute id="248" name="X-Ascend-Force-56" type="integer">
+	<supported-values>
+		<value id="0" name="Force-56-No"/>
+		<value id="1" name="Force-56-Yes"/>
+	</supported-values>
+</attribute>
+<attribute id="249" name="X-Ascend-Billing-Number" type="string"/>
+<attribute id="250" name="X-Ascend-Call-By-Call" type="integer"/>
+<attribute id="251" name="X-Ascend-Transit-Number" type="string"/>
+<attribute id="252" name="X-Ascend-Host-Info" type="string"/>
+<attribute id="253" name="X-Ascend-PPP-Address" type="ipaddr"/>
+<attribute id="254" name="X-Ascend-MPP-idle-Percent" type="integer"/>
+<attribute id="255" name="X-Ascend-Xmit-Rate" type="integer"/>
+</attribute-list>

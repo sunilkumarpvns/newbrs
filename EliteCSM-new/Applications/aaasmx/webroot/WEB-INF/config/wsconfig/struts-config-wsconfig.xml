@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    
+    <form-beans>
+      <form-bean name="updateSubscriberWSDatabaseConfigForm" type="com.elitecore.elitesm.web.wsconfig.subscriber.forms.UpdateSubscriberWSDatabaseConfigForm" />
+      <form-bean name="sessionMgmtWSDatabaseConfigForm" type="com.elitecore.elitesm.web.wsconfig.sessionmgmt.forms.SessionMgmtWSDatabaseConfigForm" /> 
+    </form-beans>
+                   
+    <action-mappings> 
+
+      <action path="/initSubscriberWSDatabaseConfig"  
+          type="com.elitecore.elitesm.web.wsconfig.subscriber.UpdateSubscriberWSDatabaseConfigAction"   
+          name="updateSubscriberWSDatabaseConfigForm"
+          scope="request"     
+          validate="false">  
+        <forward name="updateSubscriberWSDatabaseConfig" path="/jsp/wsconfig/UpdateSubcriberWSContainer.jsp" />
+     </action>  
+ 
+     <action path="/updateSubscriberWSDatabaseConfig"  
+          type="com.elitecore.elitesm.web.wsconfig.subscriber.UpdateSubscriberWSDatabaseConfigAction"   
+          name="updateSubscriberWSDatabaseConfigForm"
+          scope="request"
+          validate="false">  
+          <forward name="updateSubscriberWSDatabaseConfig" path="/jsp/wsconfig/UpdateSubcriberWSContainer.jsp" />
+     </action>  
+
+     <action path="/viewSubcriberWSHistory"  
+          type="com.elitecore.elitesm.web.wsconfig.subscriber.ViewSubcriberWSHistoryAction"   
+          name="updateSubscriberWSDatabaseConfigForm"
+          scope="request"
+          validate="false">  
+          <forward name="viewSubcriberWSHistory" path="/jsp/wsconfig/ViewSubcriberWSHistoryContainer.jsp" />
+     </action>
+     
+     
+     <action path="/initSessionMgmtWSDatabaseConfig"  
+          type="com.elitecore.elitesm.web.wsconfig.sessionmgmt.InitSessionMgmtWSDatabaseConfigAction"   
+          name="sessionMgmtWSDatabaseConfigForm"
+          scope="request"     
+          validate="false">  
+        <forward name="updateSessionMgmtWSDatabaseConfig" path="/jsp/wsconfig/UpdateSessionMgmtWSContainer.jsp" />
+     </action>  
+ 
+     <action path="/sessionMgmtWSDatabaseConfig"  
+          type="com.elitecore.elitesm.web.wsconfig.sessionmgmt.SessionMgmtWSDatabaseConfigAction"   
+          name="sessionMgmtWSDatabaseConfigForm"
+          scope="request"
+          validate="false">  
+          <forward name="updateSessionMgmtWSDatabaseConfig" path="/jsp/wsconfig/UpdateSessionMgmtWSContainer.jsp" />
+     </action>
+     
+     <action path="/viewSessionMgmtWSHistory"  
+          type="com.elitecore.elitesm.web.wsconfig.sessionmgmt.ViewSessionMgmtWSHistoryAction"   
+          name="sessionMgmtWSDatabaseConfigForm"
+          scope="request"
+          validate="false">  
+          <forward name="viewSessionMgmtWSHistory" path="/jsp/wsconfig/ViewSessionMgmtHistoryContainer.jsp" />
+     </action>
+     
+ 
+   </action-mappings>  
+
+<message-resources key="webServiceConfigResources" parameter="com.elitecore.elitesm.web.wsconfig.WebServiceConfigResources" null="false"/>
+
+</struts-config> 

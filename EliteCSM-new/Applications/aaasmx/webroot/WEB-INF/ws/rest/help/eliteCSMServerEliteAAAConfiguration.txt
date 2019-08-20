@@ -1,0 +1,444 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+ 
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver/AAA_Server?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver?name=AAA_Server&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver/AAA_Server.xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver?name=AAA_Server
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver/AAA_Server?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver?operation=search&name=AAA_Server&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver/AAA_Server.xml?operation=search
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver?operation=search&name=AAA_Server	
+
+Response     :
+
+<elite-aaa-server>
+    <server-name>eliteaaa</server-name>
+    <domain-name>elitecore.com</domain-name>
+    <service-list>
+        <service>
+            <service-id>3GPP_AAA_SERVER</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>RAD_AUTH</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>RAD_ACCT</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>RAD_DYNAUTH</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>DIA_EAP</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>DIA_NAS</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>DIA_CC</service-id>
+            <enabled>true</enabled>
+        </service>
+    </service-list>
+    <aaa-db-datasource>
+        <connection-url>jdbc:oracle:thin:@//192.168.2.168:1521/csmdb</connection-url>
+        <user-name>chirag</user-name>
+    </aaa-db-datasource>
+    <logging>
+        <log-level>FATAL</log-level>
+        <rolling-type>Time-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <syslog>
+            <address>10.121.21.96</address>
+            <facility>CRON</facility>
+        </syslog>
+    </logging>
+    <snmp-address>0.0.0.0:1161</snmp-address>
+    <snmp-community>public</snmp-community>
+    <internal-schedular-thread-size>10</internal-schedular-thread-size>
+    <filter-response-attributes>0:1</filter-response-attributes>
+    <alert-listeners>
+        <alert-listener>-NONE-</alert-listener>
+    </alert-listeners>
+    <web-service-config>
+        <web-service-enabled>true</web-service-enabled>
+        <service-address>10.121.96.121</service-address>
+        <https-service-address>10.121.96.124</https-service-address>
+        <server-certificate-id>Elitecore_server_cert</server-certificate-id>
+        <max-session>100</max-session>
+        <thread-pool-size>100</thread-pool-size>
+    </web-service-config>
+    <rfc-4282-nai>
+        <enabled>true</enabled>
+        <realm-names>elitecore.com</realm-names>
+    </rfc-4282-nai>
+    <kpi-service-config>
+        <datasource-name>DefaultDatabaseDatasource</datasource-name>
+        <batch-size>200</batch-size>
+        <batch-interval>60</batch-interval>
+        <kpi-query-interval>10</kpi-query-interval>
+    </kpi-service-config>
+</elite-aaa-server>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver/AAA_Server?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver?name=AAA_Server&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver/AAA_Server.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver/AAA_Server?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver?operation=search&name=AAA_Server&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver?operation=search&name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver/AAA_Server.json?operation=search	
+
+Response     :
+
+{  
+   "server-name":"eliteaaa",
+   "domain-name":"elitecore.com",
+   "service-list":{  
+      "service":[  
+         {  
+            "service-id":"3GPP_AAA_SERVER",
+            "enabled":"true"
+         },
+         {  
+            "service-id":"RAD_AUTH",
+            "enabled":"true"
+         },
+         {  
+            "service-id":"RAD_ACCT",
+            "enabled":"true"
+         },
+         {  
+            "service-id":"RAD_DYNAUTH",
+            "enabled":"true"
+         },
+         {  
+            "service-id":"DIA_EAP",
+            "enabled":"true"
+         },
+         {  
+            "service-id":"DIA_NAS",
+            "enabled":"true"
+         },
+         {  
+            "service-id":"DIA_CC",
+            "enabled":"true"
+         }
+      ]
+   },
+   "aaa-db-datasource":{  
+      "connection-url":"jdbc:oracle:thin:@//192.168.2.168:1521/csmdb",
+      "user-name":"chirag"
+   },
+   "logging":{  
+      "log-level":"FATAL",
+      "rolling-type":"Time-Based",
+      "rolling-unit":"5",
+      "max-rolled-unit":"10",
+      "compress-rolled-unit":"false",
+      "syslog":{  
+         "address":"10.121.21.96",
+         "facility":"CRON"
+      }
+   },
+   "snmp-address":"0.0.0.0:1161",
+   "snmp-community":"public",
+   "internal-schedular-thread-size":"10",
+   "filter-response-attributes":"0:1",
+   "alert-listeners":{  
+      "alert-listener":[  
+         "-NONE-"
+      ]
+   },
+   "web-service-config":{  
+      "web-service-enabled":"true",
+      "service-address":"10.121.96.121",
+      "https-service-address":"10.121.96.124",
+      "server-certificate-id":"Elitecore_server_cert",
+      "max-session":"100",
+      "thread-pool-size":"100"
+   },
+   "rfc-4282-nai":{  
+      "enabled":"true",
+      "realm-names":"elitecore.com"
+   },
+   "kpi-service-config":{  
+      "datasource-name":"DefaultDatabaseDatasource",
+      "batch-size":"200",
+      "batch-interval":"60",
+      "kpi-query-interval":"10"
+   }
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#EliteCSM Server
+
+#URL Using PUT method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver?name=AAA_Server
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver/AAA_Server
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver/AAA_Server?operation=update
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/configuration/eliteaaaserver?name=AAA_Server&operation=update
+
+Content Type : application/xml
+
+Body     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elite-aaa-server>
+    <server-name>eliteaaa</server-name>
+    <domain-name>elitecore.com</domain-name>
+    <service-list>
+        <service>
+            <service-id>3GPP_AAA_SERVER</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>RAD_AUTH</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>RAD_ACCT</service-id>
+            <enabled>false</enabled>
+        </service>
+        <service>
+            <service-id>RAD_DYNAUTH</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>DIA_EAP</service-id>
+            <enabled>false</enabled>
+        </service>
+        <service>
+            <service-id>DIA_NAS</service-id>
+            <enabled>true</enabled>
+        </service>
+        <service>
+            <service-id>DIA_CC</service-id>
+            <enabled>true</enabled>
+        </service>
+    </service-list>
+    <aaa-db-datasource>
+        <connection-url>jdbc:oracle:thin:@//192.168.2.168:1521/csmdb</connection-url>
+        <user-name>ELITEAAA</user-name>
+        <password>ELITEAAA</password>
+    </aaa-db-datasource>
+    <logging>
+        <log-level>INFO</log-level>
+        <rolling-type>Size-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <syslog>
+            <address>10.121.21.96</address>
+            <facility>USER</facility>
+        </syslog>
+    </logging>
+    <snmp-address>0.0.0.0:1161</snmp-address>
+    <snmp-community>public</snmp-community>
+    <internal-schedular-thread-size>10</internal-schedular-thread-size>
+    <filter-response-attributes>0:1</filter-response-attributes>
+    <alert-listeners>
+        <alert-listener>-NONE-</alert-listener>
+    </alert-listeners>
+    <web-service-config>
+        <web-service-enabled>false</web-service-enabled>
+        <service-address>10.121.96.121</service-address>
+        <https-service-address>10.121.96.124</https-service-address>
+        <server-certificate-id>Elitecore_server_cert</server-certificate-id>
+        <max-session>100</max-session>
+        <thread-pool-size>100</thread-pool-size>
+    </web-service-config>
+    <rfc-4282-nai>
+        <enabled>true</enabled>
+        <realm-names>elitecore.com</realm-names>
+    </rfc-4282-nai>
+    <kpi-service-config>
+        <datasource-name>-NONE-</datasource-name>
+        <batch-size>200</batch-size>
+        <batch-interval>60</batch-interval>
+        <kpi-query-interval>10</kpi-query-interval>
+    </kpi-service-config>
+</elite-aaa-server>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EliteAAA Server Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{  
+   "server-name":"eliteaaa",
+   "domain-name":"elitecore.com",
+   "service-list":{  
+      "service":[  
+         {  
+            "service-id":"3GPP_AAA_SERVER",
+            "enabled":"true"
+         },
+         {  
+            "service-id":"RAD_AUTH",
+            "enabled":"true"
+         },
+         {  
+            "service-id":"RAD_ACCT",
+            "enabled":"false"
+         },
+         {  
+            "service-id":"RAD_DYNAUTH",
+            "enabled":"true"
+         },
+         {  
+            "service-id":"DIA_EAP",
+            "enabled":"false"
+         },
+         {  
+            "service-id":"DIA_NAS",
+            "enabled":"true"
+         },
+         {  
+            "service-id":"DIA_CC",
+            "enabled":"true"
+         }
+      ]
+   },
+   "aaa-db-datasource":{  
+      "connection-url":"jdbc:oracle:thin:@//192.168.2.168:1521/csmdb",
+      "user-name":"ELITEAAA",
+      "password":"ELITEAAA"
+   },
+   "logging":{  
+      "log-level":"DEBUG",
+      "rolling-type":"Time-Based",
+      "rolling-unit":"5",
+      "max-rolled-unit":"10",
+      "compress-rolled-unit":"false",
+      "syslog":{  
+         "address":"10.121.21.96",
+         "facility":"USER"
+      }
+   },
+   "snmp-address":"0.0.0.0:1161",
+   "snmp-community":"public",
+   "internal-schedular-thread-size":"10",
+   "filter-response-attributes":"0:1",
+   "alert-listeners":{  
+      "alert-listener":[  
+         "-NONE-"
+      ]
+   },
+   "web-service-config":{  
+      "web-service-enabled":"true",
+      "service-address":"10.121.96.121",
+      "https-service-address":"10.121.96.124",
+      "server-certificate-id":"Elitecore_server_cert",
+      "max-session":"100",
+      "thread-pool-size":"100"
+   },
+   "rfc-4282-nai":{  
+      "enabled":"true",
+      "realm-names":"elitecore.com"
+   },
+   "kpi-service-config":{  
+      "datasource-name":"-NONE-",
+      "batch-size":"200",
+      "batch-interval":"60",
+      "kpi-query-interval":"10"
+   }
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>EliteAAA Server Configuration updated successfully</response-message>
+    </response>
+</response-detail>
+
++++++++++++++++++++++ Additional Details++++++++++++++++++++++++++++++++
+
+ # Log Level
+ 	1) OFF
+ 	2) WARN
+ 	3) ERROR
+ 	4) INFO
+ 	5) FATAL
+ 	6) DEBUG
+ 	7) TRACE
+ 	8) ALL
+ 
+ # Rolling Type:
+	1) Size-Based
+	2) Time-Based
+ 
+ # Facility (Sys log Configuration)
+	1) -None- 
+	2) AUTH
+	3) KERN
+	4) USER
+	5) MAIL
+	6) DAEMON
+	7) SYSLOG
+	8) LPR
+	9) NEWS
+	10) UUCP
+	11) CRON
+	12) AUTHPRIV
+	13) FTP
+	14) LOCAL0
+	15) LOCAL1
+	16) LOCAL2
+	17) LOCAL3
+	18) LOCAL4
+	19) LOCAL5 
+	20) LOCAL6
+    21) LOCAL7
+
+ # Note : From List of Services You can only allow to do enable/disable particular configured service, You will not allow
+ 		  to remove or add services from this configuration 

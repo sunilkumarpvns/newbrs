@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.diameter.diameterpolicy.data.DiameterPolicyData" table="TBLMDIAMETERPOLICY">
+
+		<id name="diameterPolicyId" column="DIAMETERPOLICYID" type="StringType" >
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+	
+		<property name="name" type="PolicyCaseSensitivityType"> 
+			<column name="NAME" sql-type="VARCHAR(50)" not-null="true" /> 
+		</property>
+
+		<property name="systemGenerated" type="CharType"> 
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true" /> 
+		</property>
+
+		<property name="description" type="StringType"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+
+		<property name="createDate" type="java.sql.Timestamp"> 
+			<column name="CREATEDATE" sql-type="TIMESTAMP(6)(11)" not-null="true" /> 
+		</property>
+
+		<property name="commonStatusId" type="CharType"> 
+			<column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="true" /> 
+		</property>
+
+		<property name="statusChangeDate" type="java.sql.Timestamp"> 
+			<column name="STATUSCHANGEDATE" sql-type="TIMESTAMP(6)(11)" not-null="true" /> 
+		</property>
+
+		<property name="createdByStaffId" type="StringType"> 
+			<column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp"> 
+			<column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP(6)(11)" not-null="true" /> 
+		</property>
+
+		<property name="lastModifiedByStaffId" type="StringType"> 
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+
+		<property name="editable" type="CharType"> 
+			<column name="EDITABLE" sql-type="CHAR(1)" not-null="true" /> 
+		</property>
+
+		<property name="checkItem" type="StringType"> 
+			<column name="CHECKITEM" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+
+		<property name="replyItem" type="StringType"> 
+			<column name="REPLYITEM" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+
+		<property name="rejectItem" type="StringType"> 
+			<column name="REJECTITEM" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	  	</property>
+		
+		<many-to-one name="commonStatus" class="com.elitecore.elitesm.datamanager.core.base.data.CommonStatusData" column="COMMONSTATUSID" insert="false" update="false" not-null="true" lazy="false"/>
+			
+		<bag name="diameterPolicyTimePeriodList" inverse="true" lazy="false" order-by="orderNumber">
+			<key column="diameterPolicyId" ></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.diameter.diameterpolicy.data.DiameterPolicyTimePeriod"  />
+		</bag>
+</class>            
+	            
+</hibernate-mapping>

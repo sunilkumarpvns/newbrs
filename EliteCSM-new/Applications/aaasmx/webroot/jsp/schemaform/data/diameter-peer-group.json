@@ -1,0 +1,46 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Diameter Peer Group",
+  "properties":{
+      "name":{
+          "title":"Peer Group Name",
+          "type":"string"
+      },
+      "description":{
+          "title":"Description",
+          "type":"string"
+      },
+      "primary-peer-name":{
+          "title":"Primary Peer",
+          "type":"string"
+      },
+      "secondary-peer-name":{
+          "title":"Secondary Peer",
+          "type":"string"
+      }
+  }
+  
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"primary-peer-name"
+  },
+  {
+      "key":"secondary-peer-name"
+  }
+  
+],
+"model":{
+	"name":"diameter_peer_group",
+	"description":"Created by admin on 11/23/2016 04:26:40 PM",
+	"primary-peer-name":"peer3",
+	"secondary-peer-name":"peer4"
+}
+}

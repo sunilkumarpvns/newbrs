@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="52" vendor-name="Cabletron">
+<attribute id="201" name="Cabletron-Protocol-Enable" type="integer">
+	<supported-values>
+		<value id="1" name="IP-Enable"/>
+		<value id="2" name="Bridge-Enable"/>
+		<value id="3" name="IP-BR-Enable"/>
+		<value id="6" name="BR-IPX-Enable"/>
+		<value id="7" name="IP-BR-IPX-Enable"/>
+	</supported-values>
+</attribute>
+<attribute id="202" name="Cabletron-Protocol-Callable" type="integer">
+	<supported-values>
+		<value id="1" name="IP-Callable"/>
+		<value id="2" name="Bridge-Callable"/>
+		<value id="3" name="IP-BR-Callable"/>
+		<value id="6" name="BR-IPX-Callable"/>
+		<value id="7" name="IP-BR-IPX-Callable"/>
+	</supported-values>
+</attribute>
+</attribute-list>

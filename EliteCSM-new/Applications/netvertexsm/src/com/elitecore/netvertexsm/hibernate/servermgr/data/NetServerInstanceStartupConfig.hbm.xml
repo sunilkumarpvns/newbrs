@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class  name="com.elitecore.netvertexsm.datamanager.servermgr.data.NetServerStartupConfigData"
+		table="TBLNETSERVERSTARTUPCONFIG">
+
+
+		<id name="netServerId" type="long">
+			<column name="NETSERVERID" sql-type="NUMBER(20)" unique="true" > </column>
+		</id>    
+
+		<property name="protocol" type="string"> 
+			<column name="PROTOCOL" sql-type="VARCHAR2(25)" not-null="true" /> 
+		</property>
+
+
+		<property name="communicationPort" type="long"> 
+			<column name="COMMUNICATIONPORT" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+
+
+		<property name="userName" type="string"> 
+			<column name="USERNAME" sql-type="VARCHAR2(255)" not-null="true" /> 
+		</property>
+
+
+		<property name="password" type="string"> 
+			<column name="PASSWORD" sql-type="VARCHAR2(255)" not-null="true" /> 
+		</property>
+
+
+		<property name="loginPrompt" type="string"> 
+			<column name="LOGINPROMPT" sql-type="VARCHAR2(25)" not-null="true" /> 
+		</property>
+
+
+		<property name="passwordPrompt" type="string"> 
+			<column name="PASSWORDPROMPT" sql-type="VARCHAR2(25)" not-null="true" /> 
+		</property>
+
+
+		<property name="shellPrompt" type="string"> 
+			<column name="SHELLPROMPT" sql-type="CHAR(1)" not-null="true" /> 
+		</property>
+
+
+		<property name="failureMsg" type="string"> 
+			<column name="FAILUREMSG" sql-type="VARCHAR2(255)" not-null="true" /> 
+		</property>
+
+
+		<property name="operationTimeOut" type="long"> 
+			<column name="OPERATIONTIMEOUT" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" not-null="false" > 
+		</property>
+
+
+		<property name="lastModifiedByStaffId" type="long"> 
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+
+
+		<property name="commonStatusId" type="string"> 
+			<column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="false" /> 
+		</property>
+
+
+		<property name="statusChangeDate" type="java.sql.Timestamp" column="STATUSCHANGEDATE" not-null="false"> 
+		</property>
+		
+		<property name="shell" type="string"> 
+			<column name="SHELL" sql-type="VARCHAR2(255)" not-null="true" /> 
+		</property>
+
+</class>            
+	            
+</hibernate-mapping>

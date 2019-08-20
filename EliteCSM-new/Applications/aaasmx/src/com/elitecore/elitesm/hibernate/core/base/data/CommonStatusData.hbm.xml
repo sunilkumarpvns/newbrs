@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.core.base.data.CommonStatusData" table="TBLSCOMMONSTATUS">
+		<id name="commonStatusId" type="CharType">
+			<column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="true"/>
+		</id>
+		<property name="showHide" type="StringType">
+			<column name="SHOWHIDE" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>          

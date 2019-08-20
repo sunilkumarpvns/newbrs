@@ -1,0 +1,8 @@
+{
+  "realm": "realm name",
+  "auth-server-url": "http://hostname:port/auth",
+  "ssl-required": "external",
+  "resource": "client ID",
+  "public-client": true,
+  "confidential-port": 0
+}

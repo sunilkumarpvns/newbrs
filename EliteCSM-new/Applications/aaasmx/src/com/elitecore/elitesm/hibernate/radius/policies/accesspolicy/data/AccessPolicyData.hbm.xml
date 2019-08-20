@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+		<class name="com.elitecore.elitesm.datamanager.radius.policies.accesspolicy.data.AccessPolicyData" table="TBLMACCESSPOLICY">
+			
+			<id name="accessPolicyId" column="ACCESSPOLICYID" type="StringType">
+				<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+			</id>
+			
+			<property name="name" type="PolicyCaseSensitivityType">
+				<column name="NAME" sql-type="VARCHAR(50)" not-null="true"/>
+			</property>
+			
+			<property name="description" type="StringType">
+				<column name="DESCRIPTION" sql-type="VARCHAR(255)"/>
+			</property>
+			
+			<property name="assigned" type="CharType">
+				<column name="ASSIGNED" sql-type="CHAR(1)"></column>
+			</property>
+			
+			<property name="lastUpdated" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" >
+			</property>
+			
+			<property name="commonStatusId" type="CharType">
+				<column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="true"/>
+			</property>
+		
+			<property name="systemGenerated" type="CharType">
+				<column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+			</property>
+			
+			<property name="accessStatus" type="CharType">
+				<column name="ACCESSSTATUS" sql-type="CHAR(1)" not-null="true"></column>
+			</property>
+			
+		   <property name="statusChangeDate" type="java.sql.Timestamp" column="STATUSCHANGEDATE" not-null="false" >
+	       </property> 
+			
+			 <bag name="accessPolicyDetailDataList" lazy="false" inverse="false"  order-by="serialNumber">
+				<key column="accessPolicyId"></key>
+				<one-to-many class="com.elitecore.elitesm.datamanager.radius.policies.accesspolicy.data.AccessPolicyDetailData"/> 
+			</bag> 
+			
+		</class>
+</hibernate-mapping>             

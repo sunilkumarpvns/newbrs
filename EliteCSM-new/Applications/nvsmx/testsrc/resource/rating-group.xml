@@ -1,0 +1,9 @@
+<rating-group-container>
+    <ratingGroups>
+        <ratingGroup>
+            <id>RATING_GROUP_1</id>
+            <identifier>0</identifier>
+            <name>Default_Rating_Group</name>
+        </ratingGroup>
+    </ratingGroups>
+</rating-group-container>

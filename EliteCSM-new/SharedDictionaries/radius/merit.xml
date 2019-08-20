@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="61" vendor-name="Merit">
+<attribute id="211" name="Merit-Proxy-Action" type="string"/>
+<attribute id="222" name="Merit-User-id" type="string"/>
+<attribute id="223" name="Merit-User-Realm" type="string"/>
+</attribute-list>

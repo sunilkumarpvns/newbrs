@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+		<struts-config>
+		
+				<form-beans>
+				 	
+				 	 <!-- DynaAuth Service Policy Form -->		
+					 <form-bean name="addDynAuthServicePolicyForm" type="com.elitecore.elitesm.web.servicepolicy.dynauth.forms.AddDynAuthServicePolicyForm"/>
+					 <form-bean name="searchDynAuthServicePolicyForm" type="com.elitecore.elitesm.web.servicepolicy.dynauth.forms.SearchDynAuthServicePolicyForm"/>
+					 <form-bean name="dynauthpolicyorder" type="com.elitecore.elitesm.web.servicepolicy.dynauth.forms.ManageDynAuthPolicyOrderForm"/>
+					 <form-bean name="viewDynAuthServicePolicyForm" type="com.elitecore.elitesm.web.servicepolicy.dynauth.forms.ViewDynAuthServicePolicyForm"/>
+					 <form-bean name="updateDynAuthServicePolicyBasicDetailForm" type="com.elitecore.elitesm.web.servicepolicy.dynauth.forms.UpdateDynAuthServicePolicyBasicDetailForm"/>
+			        
+					<!-- Radius Service Policy Form -->
+					 <form-bean name="searchServicePolicyForm" type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.form.SearchRadiusServicePolicyForm"/>
+					 <form-bean name="createRadiusServicePolicyForm" type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.form.CreateRadiusServicePolicyForm"/>
+			         <form-bean name="viewRadiusServicePolicyForm" type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.form.ViewRadiusServicePolicyForm"/>
+			         <form-bean name="updateRadiusServicePolicyForm" type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.form.UpdateRadiusServicePolicyForm"/>
+			    	 <form-bean name="manageRadiusServicePolicyOrderForm" type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.form.ManageRadiusServicePolicyOrderForm"/>
+			         
+			         <!-- Diameter Forms -->
+			         <form-bean name="addNASServicePolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.forms.AddNASServicePolicyForm"/>
+			         <form-bean name="addNASServicePolicyDetailForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.forms.AddNASServicePolicyDetailForm"/>
+			         <form-bean name="searchNASServicePolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.forms.SearchNASServicePolicyForm"/>
+			         <form-bean name="naspolicyorder" type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.forms.ManageNASPolicyOrderForm"/>
+			         <form-bean name="updateNASServicePolicyBasicForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.forms.UpdateNasServicePolicyBasicForm"/>
+			         <form-bean name="updateNASServicePolicyAuthParamForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.forms.UpdateNASServicePolicyAuthenticationParamsForm"/>
+			         <form-bean name="updateNASServicePolicyAuthorizationParamsForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.forms.UpdateNASServicePolicyAuthorizationParamsForm"/>
+					 <form-bean name="updateNASServicePolicyRFC4372CUIParamsForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.forms.UpdateNASServicePolicyRFC4372CUIParamsForm"/>
+					 <form-bean name="updateNASServicePolicyAcctParamForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.forms.UpdateNASServicePolicyAccountingParamsForm"/>
+					 <form-bean name="updateNASServicePolicyResponseAttributesForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.forms.UpdateNASServicePolicyResponseAttributesForm"/>
+					 <form-bean name="viewNASServicePolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.forms.ViewNASServicePolicyForm"/>
+					 
+					 <!-- Credit Control Policy Forms -->		
+				      <form-bean name="initSearchCcpolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.forms.SearchCreditControlPolicyForm" /> 				      													
+				      <form-bean name="searchCcpolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.forms.SearchCreditControlPolicyForm" /> 
+				      <form-bean name="initCreateCcpolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.forms.CreateCreditControlPolicyForm" /> 
+				      <form-bean name="createCcpolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.forms.CreateCreditControlPolicyForm" /> 
+				      <form-bean name="initUpdateCcpolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.forms.UpdateCreditControlPolicyForm" /> 
+				      <form-bean name="updateCcpolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.forms.UpdateCreditControlPolicyForm" /> 
+					  <form-bean name="manageccordForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.forms.ManageCreditControlPolicyOrderForm" />
+			 			         
+					<!-- EAP Policy Forms -->
+					  <form-bean name="createEAPPolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.forms.CreateEAPPolicyForm" />
+					  <form-bean name="initSearchEAPPolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.forms.SearchEAPPolicyForm" /> 				      													
+				      <form-bean name="searchEAPPolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.forms.SearchEAPPolicyForm" />
+				      <form-bean name="initUpdateEAPPolicy" type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.forms.UpdateEAPPolicyForm" /> 
+				      <form-bean name="updateEAPPolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.forms.UpdateEAPPolicyForm" /> 
+					  <form-bean name="manageEAPordForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.forms.ManageEAPPolicyOrderForm" />
+				      <form-bean name="viewEAPPolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.forms.ViewEAPPolicyDetailsForm" />
+				      
+				    <!-- CG Policy Forms -->
+				      <form-bean name="createCGPolicyForm" type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.forms.CreateCGPolicyForm" />
+				      <form-bean name="initSearchCGPolicyForm" type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.forms.SearchCGPolicyForm" />
+				      <form-bean name="searchCGPolicyForm" type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.forms.SearchCGPolicyForm" />
+				      <form-bean name="initUpdateCGPolicy" type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.forms.UpdateCGPolicyForm" /> 
+				      <form-bean name="updateCGPolicyForm" type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.forms.UpdateCGPolicyForm" /> 
+					  <form-bean name="manageCGordForm" type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.forms.ManageCGPolicyOrderForm" />
+				      <form-bean name="viewCGPolicyForm" type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.forms.ViewCGPolicyDetailsForm" />
+				
+					<!-- TGPP AAA Policy Forms -->
+					<form-bean name="tgppAAAPolicyForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.tgppaaapolicy.form.TGPPAAAPolicyForm"/>
+					<form-bean name="manageTGPPAAAServicePolicyOrderForm" type="com.elitecore.elitesm.web.servicepolicy.diameter.tgppaaapolicy.form.ManageTGPPAAAPolicyOrderForm" />
+				
+				
+				</form-beans>
+				
+				<action-mappings>
+     			
+     			<!--  DynAuth Service Policy -->
+     			<action path="/initAddDynAuthServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.dynauth.InitAddDynAuthServicePolicyAction"
+        				name="addDynAuthServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="addDynAuthServicePolicy" path="/jsp/servicepolicy/dynauth/AddDynAuthServicePolicy.jsp" />
+     			</action>
+
+			
+				<action path="/addDynAuthServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.dynauth.AddDynAuthServicePolicyAction"
+        				name="addDynAuthServicePolicyForm"
+         				scope="request"
+         				validate="false">
+     			</action>
+     			
+    
+   
+     			<action path="/initSearchDynAuthServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.dynauth.InitSearchDynAuthServicePolicyAction"
+        				name="searchDynAuthServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="searchdynauthservicepolicy" path="/jsp/servicepolicy/dynauth/SearchDynAuthServicePolicy.jsp" />
+     			</action>  
+     			
+     			<action path="/searchDynAuthServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.dynauth.SearchDynAuthServicePolicyAction"
+        				name="searchDynAuthServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="listdynauthpolicies" path="/jsp/servicepolicy/dynauth/SearchDynAuthServicePolicy.jsp" />
+     			</action>     
+     			     				  
+    			
+    			<action path="/viewDynAuthServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.dynauth.ViewDynAuthServicePolicyAction"
+        				name="viewDynAuthServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDynAuthPolicy" path="/jsp/servicepolicy/dynauth/ViewDynAuthServicePolicyContainer.jsp" />
+     			</action>    
+     			
+     			<action path="/viewDynAuthServicePolicyHistory" 
+         				type="com.elitecore.elitesm.web.servicepolicy.dynauth.ViewDynAuthServicePolicyHistoryAction"
+        				name="viewDynAuthServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDynAuthServicePolicyHistory" path="/jsp/servicepolicy/dynauth/ViewDynAuthServicePolicyHistoryContainer.jsp" />
+     			</action>   
+     			
+     			<action path="/viewDynAuthServicePolicyAdvanceDetails" 
+         				type="com.elitecore.elitesm.web.servicepolicy.dynauth.ViewDynAuthServicePolicyAdvanceDetailsAction"
+        				name="viewDynAuthServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewDynAuthPolicy" path="/jsp/servicepolicy/dynauth/ViewDynAuthServicePolicyAdvanceDetailsContainer.jsp" />
+     			</action>     
+     			
+     			 <action path="/updateDynAuthServicePolicyBasicDetail" 
+         				type="com.elitecore.elitesm.web.servicepolicy.dynauth.UpdateDynAuthServicePolicyBasicDetailAction"
+        				name="updateDynAuthServicePolicyBasicDetailForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateDynAuthPolicyBasicDetail" path="/jsp/servicepolicy/dynauth/UpdateDynAuthServicePolicyBasicDetailContainer.jsp" />
+     			</action>    
+    			
+    	
+     			<action path="/manageOrderDynAuth" 
+         				type="com.elitecore.elitesm.web.servicepolicy.dynauth.ManageDynAuthPolicyOrderAction"
+        				name="dynauthpolicyorder"
+         				scope="request"
+         				validate="false">
+         				<forward name="dynAuthOrderList" path="/jsp/servicepolicy/dynauth/ManageDynAuthPolicyOrder.jsp" />         				
+     			</action>
+     			
+     			
+     			<!-- Diameter Action Mapping -->
+     			<action path="/initAddNASServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.InitAddNASServicePolicyAction"
+        				name="addNASServicePolicyForm"
+         				scope="session"
+         				validate="false">
+         				<forward name="addNASServicePolicy" path="/jsp/servicepolicy/diameter/naspolicy/AddNASServicePolicy.jsp" />
+     			</action>
+     			
+     			<action path="/addNASServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.AddNASServicePolicyAction"
+        				name="addNASServicePolicyForm"
+         				scope="session"
+         				validate="false">
+         				<forward name="addNASServicePolicyDetail" path="/jsp/servicepolicy/diameter/naspolicy/AddNASServicePolicyDetail.jsp" />
+     			</action>
+     			
+     			<action path="/addNASServicePolicyDetail" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.AddNASServicePolicyDetailAction"
+        				name="addNASServicePolicyDetailForm"
+         				scope="session"
+         				validate="false">
+         				<forward name="addNASServicePolicyDetail" path="/jsp/servicepolicy/diameter/naspolicy/AddNASServicePolicyDetail.jsp"/>
+     			</action>
+     			
+     			
+     			<action path="/initSearchNASServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.InitSearchNASServicePolicyAction"
+        				name="searchNASServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="searchnasservicepolicy" path="/jsp/servicepolicy/diameter/naspolicy/SearchNASServicePolicy.jsp" />
+     			</action>
+     			
+     			<action path="/searchNASServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.SearchNASServicePolicyAction"
+        				name="searchNASServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="listnaspolicies" path="/jsp/servicepolicy/diameter/naspolicy/SearchNASServicePolicy.jsp" />
+     			</action>
+     			
+     			<action path="/manageOrderNAS" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.ManageNASPolicyOrderAction"
+        				name="naspolicyorder"
+         				scope="request"
+         				validate="false">
+         				<forward name="nasOrderList" path="/jsp/servicepolicy/diameter/naspolicy/ManageNASPolicyOrder.jsp" />         				
+     			</action>
+     			 
+     			  <!-- Diameter Action Mapping  For Update-->
+     			  
+     			  <action path="/updateNASServicePolicyBasicDetail" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.UpdateBasicNASServicePolicyAction"
+        				name="updateNASServicePolicyBasicForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateBasicNASServicePolicyDetail" path="/jsp/servicepolicy/diameter/naspolicy/UpdateDiameterNasServicePolicyBasicDetailContainer.jsp" />
+     			</action>
+     			 <action path="/updateNASServicePolicyAuthenticationParamDetail" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.UpdateNASServicePolicyAuthenticationParametersAction"
+        				name="updateNASServicePolicyAuthParamForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateNASServicePolicyAuthenticationParams" path="/jsp/servicepolicy/diameter/naspolicy/UpdateDiameterNasServicePolicyAuthParamDetailContainer.jsp" />
+     			</action> 
+     			
+     			 <action path="/updateNASServicePolicyAuthorizationParamDetail" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.UpdateNASServicePolicyAuthorizationParametersAction"
+        				name="updateNASServicePolicyAuthorizationParamsForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateNASServicePolicyAuthorizationParams" path="/jsp/servicepolicy/diameter/naspolicy/UpdateDiameterNasServicePolicyAuthorizatinParamDetailContainer.jsp" />
+     			</action> 
+     			
+     			<action path="/updateNASServicePolicyRFC4372CUIParamDetail" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.UpdateNASServicePolicyRFC4372CUIParametersAction"
+        				name="updateNASServicePolicyRFC4372CUIParamsForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateNASServicePolicyRFC4372Params" path="/jsp/servicepolicy/diameter/naspolicy/UpdateRFC4372CUIParamDetailContainer.jsp" />
+     			</action> 
+     			
+     			 <action path="/updateNASServicePolicyAccountingParams" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.UpdateNASServicePolicyAccountingParameterAction"         																			     
+        				name="updateNASServicePolicyAcctParamForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateNASServicePolicyAccountingParams" path="/jsp/servicepolicy/diameter/naspolicy/UpdateDiameterNasServicePolicyAcctParamDetailContainer.jsp" />
+     			</action> 
+     			
+     			<action path="/updateResponseAttributeDetails" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.UpdateNASServicePolicyResponseAttributeAction"         																			     
+        				name="updateNASServicePolicyResponseAttributesForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateNASServicePolicyResponseAttributes" path="/jsp/servicepolicy/diameter/naspolicy/UpdateDiameterNasServicePolicyResponseAttributesContainer.jsp" />
+     			</action> 
+     			
+     			<action path="/viewNASServicePolicyDetail" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.ViewNASServicePolicyAction"
+        				name="viewNASServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewNASServicePolicyDetail" path="/jsp/servicepolicy/diameter/naspolicy/ViewNASServicePolicyDetailContainer.jsp" />
+     			</action>
+     			
+     			<action path="/viewNASServicePolicyHistory" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.naspolicy.ViewNASServicePolicyHistoryAction"
+        				name="viewNASServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewNASServicePolicyHistory" path="/jsp/servicepolicy/diameter/naspolicy/ViewNASServicePolicyHistoryContainer.jsp" />
+     			</action>
+     			
+     			<!-- Credit Control Policy -->
+     			
+		     	<action path="/initSearchCcpolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.InitSearchCreditControlPolicyAction"   
+		          		name="initSearchCcpolicyForm"
+		          		scope="request"     
+		          		validate="false">  
+		        		<forward name="initSearchCreditControlPolicy" path="/jsp/servicepolicy/diameter/creditcontrolpolicy/SearchCreditControlPolicy.jsp" />		        		
+		     	</action>  
+		 
+		
+		      	<action path="/searchCcpolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.SearchCreditControlPolicyAction"   
+		         	 	name="searchCcpolicyForm"
+		         	 	scope="request"     
+		          		validate="false">  
+		        		<forward name="searchCreditControlPolicy" path="/jsp/servicepolicy/diameter/creditcontrolpolicy/SearchCreditControlPolicy.jsp" />
+		     	</action>  
+		 
+		
+		      	<action path="/initCreateCcpolicy"  
+		         	 	type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.InitCreateCreditControlPolicyAction"   
+		          		name="initCreateCcpolicyForm"   
+		          		scope="request"  
+		          		validate="false">  
+		        		<forward name="initCreateCreditControlPolicy" path="/jsp/servicepolicy/diameter/creditcontrolpolicy/CreateCreditControlPolicy.jsp" />
+		     	</action>  
+		 
+		
+		      	<action path="/createCcpolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.CreateCreditControlPolicyAction"   
+		          		name="createCcpolicyForm"     
+		          		scope="request"
+		          		validate="false">  
+		        		<forward name="createCreditControlPolicy" path="/jsp/diameter/creditcontrolpolicy/CreateCcpolicy.jsp" />
+		     	</action>  
+		 
+		
+		      	<action path="/initUpdateCcpolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.InitUpdateCreditControlPolicyAction"   
+		          		name="updateCcpolicyForm"   
+		          		scope="request"  
+		          		validate="false">  
+		        		<forward name="initUpdateCreditControlPolicy" path="/jsp/servicepolicy/diameter/creditcontrolpolicy/UpdateCreditControlPolicyContainer.jsp" />
+		     	</action>  
+		 
+		      	<action path="/updateCcpolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.UpdateCreditControlPolicyAction"   
+		          		name="updateCcpolicyForm"     
+		          		scope="request"
+		          		validate="false">  
+		        		<forward name="updateCreditControlPolicy" path="/jsp/servicepolicy/diameter/creditcontrolpolicy/UpdateCreditControlPolicyContainer.jsp" />
+		     	</action>  
+		     	
+		     	<action path="/initViewCcpolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.InitUpdateCreditControlPolicyAction"   
+		          		name="updateCcpolicyForm"   
+		          		scope="request"  
+		          		validate="false">  
+		        		<forward name="initUpdateCreditControlPolicy" path="/jsp/servicepolicy/diameter/creditcontrolpolicy/ViewCreditControlServicePolicyContainer.jsp" />
+		     	</action> 
+		     	
+		     	<action path="/viewCcpolicyHistory"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.ViewCreditControlPolicyHistoryAction"   
+		          		name="updateCcpolicyForm"   
+		          		scope="request"  
+		          		validate="false">  
+		        		<forward name="viewCcpolicyHistory" path="/jsp/servicepolicy/diameter/creditcontrolpolicy/ViewCreditControlServicePolicyHistoryContainer.jsp" />
+		     	</action>  
+				
+				<action path="/manageccPolicyOrder"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.creditcontrolpolicy.ManageCreditControlPolicyOrderAction"   
+		          		name="manageccordForm"     
+		          		scope="request"
+		          		validate="false">  
+		        		<forward name="manageOrderCcPolicy" path="/jsp/servicepolicy/diameter/creditcontrolpolicy/ManageCreditControlPolicyOrder.jsp" />
+		     	</action>
+		     	
+		     	<action path="/initCreateEAPPolicy"  
+		         	 	type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.InitCreateEAPPolicyAction"   
+		          		name="createEAPPolicyForm"   
+		          		scope="request"  
+		          		validate="false">  
+		        		<forward name="initCreateEAPPolicy" path="/jsp/servicepolicy/diameter/eappolicy/CreateEAPPolicy.jsp" />
+		     	</action>    
+		     	
+		     	<action path="/createEAPPolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.CreateEAPPolicyAction"   
+		          		name="createEAPPolicyForm"     
+		          		scope="request"
+		          		validate="false">  
+		        		<forward name="createEAPPolicy" path="/jsp/diameter/eappolicy/CreateEAPPolicy.jsp" />
+		     	</action>  
+		     	
+		     	<action path="/initSearchEAPPolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.InitSearchEAPPolicyAction"   
+		          		name="initSearchEAPPolicyForm"
+		          		scope="request"     
+		          		validate="false">  
+		        		<forward name="initSearchEAPPolicy" path="/jsp/servicepolicy/diameter/eappolicy/SearchEAPPolicy.jsp" />		        		
+		     	</action>  
+		 
+		
+		      	<action path="/searchEAPPolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.SearchEAPPolicyAction"   
+		         	 	name="searchEAPPolicyForm"
+		         	 	scope="request"     
+		          		validate="false">  
+		        		<forward name="searchEAPPolicy" path="/jsp/servicepolicy/diameter/eappolicy/SearchEAPPolicy.jsp" />
+		     	</action>  
+				
+				<action path="/initViewEAPPolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.InitUpdateEAPPolicyAction"   
+		          		name="updateEAPPolicyForm"   
+		          		scope="request"  
+		          		validate="false">  
+		        		<forward name="initUpdateEAPPolicy" path="/jsp/servicepolicy/diameter/eappolicy/ViewEAPPolicyContainer.jsp" />
+		     	</action>  
+				
+				<action path="/manageEAPPolicyOrder"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.ManageEAPPolicyOrderAction"   
+		          		name="manageEAPordForm"     
+		          		scope="request"
+		          		validate="false">  
+		        		<forward name="manageOrderEAPPolicy" path="/jsp/servicepolicy/diameter/eappolicy/ManageEAPPolicyOrder.jsp" />
+		     	</action>
+		 
+		      	<action path="/updateEAPPolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.UpdateEAPPolicyAction"   
+		          		name="updateEAPPolicyForm"     
+		          		scope="request"
+		          		validate="false">  
+		        		<forward name="updateEAPPolicy" path="/jsp/servicepolicy/diameter/eappolicy/UpdateEAPPolicyContainer.jsp" />
+		     	</action>
+		     	
+		     	<action path="/updateEAPPolicyBasicDetail"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.UpdateEAPPolicyBasicDetailAction"   
+		          		name="updateEAPPolicyForm"     
+		          		scope="request"
+		          		validate="false">  
+		        		<forward name="updateEAPPolicyBasicDetail" path="/jsp/servicepolicy/diameter/eappolicy/UpdateEAPPolicyContainer.jsp" />
+		     	</action>
+		     	
+		     	<action path="/updateEAPPolicyAuthenticationDetail"
+		     			type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.UpdateEapPolicyAuthenticationDetailAction"
+		     			name="updateEAPPolicyForm"
+		     			scope="request"
+		     			validate="true">
+		     			<forward name="updateEAPAuthenticationDetails" path="/jsp/servicepolicy/diameter/eappolicy/UpdateEAPPolicyAuthenticationContainer.jsp" />
+		     	</action>
+		     	
+		     	<action path="/updateEAPPolicyAuthorizationDetail"
+		     			type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.UpdateEapPolicyAuthorizationDetailAction"
+		     			name="updateEAPPolicyForm"
+		     			scope="request"
+		     			validate="true">
+		     			<forward name="updateEAPAuthorizationDetails" path="/jsp/servicepolicy/diameter/eappolicy/UpdateEAPPolicyAuthorizationContainer.jsp" />
+		     	</action>
+		     	
+		     	<action path="/updateRFC4372CUIDetails"
+		     			type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.UpdateEapPolicyRFC4372CUIDetailAction"
+		     			name="updateEAPPolicyForm"
+		     			scope="request"
+		     			validate="true">
+		     			<forward name="updateEAPRFC4372CUIDetails" path="/jsp/servicepolicy/diameter/eappolicy/UpdateEAPPolicyRFC4372CUIContainer.jsp" />
+		     	</action>
+		     	
+		     	<action path="/updateEAPPolicyDriverProfile"
+		     			type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.UpdateEAPPolicyDriverProfileAction"
+		     			name="updateEAPPolicyForm"
+		     			scope="request"
+		     			validate="true">
+		     			<forward name="updateEAPDriverProfiles" path="/jsp/servicepolicy/diameter/eappolicy/UpdateEAPPolicyDriverProfileContainer.jsp" />
+		     	</action>
+		     	
+		     	<action path="/updateEAPPolicyResponseAttributesDetails"
+		     			type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.UpdateEAPPolicyResponseAttributesAction"
+		     			name="updateEAPPolicyForm"
+		     			scope="request"
+		     			validate="true">
+		     			<forward name="updateEAPPolicyResponseAttrubutes" path="/jsp/servicepolicy/diameter/eappolicy/UpdateEAPPolicyResponseAttributesContainer.jsp" />
+		     	</action>
+		     	
+		     	
+		     	<action path="/viewEAPDetails" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.ViewEAPPolicyDetailsAction"   
+        				name="viewEAPPolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewEAPPolicyDetails" path="/jsp/servicepolicy/diameter/eappolicy/ViewEAPPolicyDetailsContainer.jsp" />
+     			</action>  
+     			
+     				
+		     	<action path="/viewEAPDetailsHistory" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.eappolicy.ViewEAPPolicyDetailsHistoryAction"   
+        				name="viewEAPPolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewEAPDetailsHistoryData" path="/jsp/servicepolicy/diameter/eappolicy/ViewEAPPolicyDetailsHistoryContainer.jsp" />
+     			</action>   		
+     			
+     			<action path="/initCreateCGPolicy"  
+		         	 	type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.InitCreateCGPolicyAction"   
+		          		name="createCGPolicyForm"   
+		          		scope="request"  
+		          		validate="false">  
+		        		<forward name="initCreateCGPolicy" path="/jsp/servicepolicy/rm/cgpolicy/CreateCGPolicy.jsp" />
+		     	</action>
+		     	
+		     	<action path="/createCGPolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.CreateCGPolicyAction"   
+		          		name="createCGPolicyForm"     
+		          		scope="request"
+		          		validate="false">  
+		        		<forward name="createCGPolicy" path="/jsp/servicepolicy/rm/cgpolicy/CreateCGPolicy.jsp" />
+		     	</action>        	
+		     	
+		     	<action path="/initSearchCGPolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.InitSearchCGPolicyAction"   
+		          		name="initSearchCGPolicyForm"
+		          		scope="request"     
+		          		validate="false">  
+		        		<forward name="initSearchCGPolicy" path="/jsp/servicepolicy/rm/cgpolicy/SearchCGPolicy.jsp" />		        		
+		     	</action>  
+		     	
+		     	<action path="/searchCGPolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.SearchCGPolicyAction"   
+		         	 	name="searchCGPolicyForm"
+		         	 	scope="request"     
+		          		validate="false">  
+		        		<forward name="searchCGPolicy" path="/jsp/servicepolicy/rm/cgpolicy/SearchCGPolicy.jsp" />
+		     	</action>  
+				
+				<action path="/initViewCGPolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.InitUpdateCGPolicyAction"   
+		          		name="updateCGPolicyForm"   
+		          		scope="request"  
+		          		validate="false">  
+		        		<forward name="initUpdateCGPolicy" path="/jsp/servicepolicy/rm/cgpolicy/ViewCGPolicyContainer.jsp" />
+		     	</action>  
+				
+				<action path="/manageCGPolicyOrder"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.ManageCGPolicyOrderAction"   
+		          		name="manageCGordForm"     
+		          		scope="request"
+		          		validate="false">  
+		        		<forward name="manageOrderCGPolicy" path="/jsp/servicepolicy/rm/cgpolicy/ManageCGPolicyOrder.jsp" />
+		     	</action>
+		     	
+		     	<action path="/initUpdateCGPolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.InitUpdateCGPolicyAction"   
+		          		name="updateCGPolicyForm"   
+		          		scope="request"  
+		          		validate="false">  
+		        		<forward name="initUpdateCGPolicy" path="/jsp/servicepolicy/rm/cgpolicy/UpdateCGPolicyContainer.jsp" />
+		     	</action>  
+		 
+		      	<action path="/updateCGPolicy"  
+		          		type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.UpdateCGPolicyAction"   
+		          		name="updateCGPolicyForm"     
+		          		scope="request"
+		          		validate="false">  
+		        		<forward name="updateCGPolicy" path="/jsp/servicepolicy/rm/cgpolicy/UpdateEAPPolicyContainer.jsp" />
+		     	</action>
+		     	
+		     	<action path="/viewCGDetails" 
+         				type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.ViewCGPolicyDetailsAction"   
+        				name="viewCGPolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewCGPolicyDetails" path="/jsp/servicepolicy/rm/cgpolicy/ViewCGPolicyDetailsContainer.jsp" />
+     			</action> 
+     			
+     			<action path="/viewCGDetailsHistory" 
+         				type="com.elitecore.elitesm.web.servicepolicy.rm.cgpolicy.ViewCGPolicyDetailsHistoryAction"   
+        				name="viewCGPolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewCGPolicyDetailsHistory" path="/jsp/servicepolicy/rm/cgpolicy/ViewCGPolicyDetailsHistoryContainer.jsp" />
+     			</action>   
+     			
+     			<!-- Radius Service Policy -->
+     			
+     			<action path="/searchRadiusServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.SearchRadiusServicePolicyAction"
+        				name="searchServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="radiusServicePolicyList" path="/jsp/servicepolicy/radiusservicepolicy/SearchRadiusServicePolicy.jsp" />
+     			</action>   
+     			
+     			<action path="/initAddRadiusServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.CreateRadiusServicePolicyAction"
+        				name="createRadiusServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="addRadiusServicePolicy" path="/jsp/servicepolicy/radiusservicepolicy/CreateRadiusServicePolicy.jsp" />
+     			</action>
+     			
+     			<action path="/addRadiusServicePolicyAuth" 
+         				type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.AddRadiusServicePolicyAuthAction"
+        				name="createRadiusServicePolicyForm"
+         				scope="session"
+         				validate="false">
+         				<forward name="addAuthenticationHandler" path="/jsp/servicepolicy/radiusservicepolicy/CreateRadiusServicePolicyAuthentication.jsp" />
+         				<forward  name="toRadiusServiceAcct" path="/addRadiusServicePolicyAcct.do" redirect="false"/>
+     			</action>
+     			
+     			<action path="/addRadiusServicePolicyAcct" 
+         				type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.AddRadiusServicePolicyAcctAction"
+        				name="createRadiusServicePolicyForm"
+         				scope="session"
+         				validate="true">
+         				<forward name="addAccountingHandler" path="/jsp/servicepolicy/radiusservicepolicy/CreateRadiusServicePolicyAccounting.jsp" />
+         				<forward  name="addRadiusServiceHandler" path="/addRadiusServicePolicy.do" redirect="false"/>
+     			</action>
+     			
+     			<action path="/addRadiusServicePolicy" type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.AddRadiusServicePolicyAction" name="createRadiusServicePolicyForm" scope="session" validate="true">
+     			</action>
+     			
+     			<action path="/viewRadiusServicePolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.ViewRadiusServicePolicyAction"
+        				name="viewRadiusServicePolicyForm"
+         				scope="session"
+         				validate="false">
+         				<forward name="viewRadiusServicePolicy" path="/jsp/servicepolicy/radiusservicepolicy/ViewRadiusServicePolicyContainer.jsp" />
+     			</action> 
+     			
+     			<action path="/updateRadiusServicePolicyBasicDetail" 
+         				type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.UpdateRadiusServicePolicyBasicDetailAction"
+        				name="updateRadiusServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateRadiusServicePolicyBasicDetails" path="/jsp/servicepolicy/radiusservicepolicy/UpdateRadiusServicePolicyBasicDetailContainer.jsp" />
+     			</action>  
+     			
+     			<action path="/updateRadiusServicePolicyAuthServiceFlow" 
+         				type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.UpdateRadiusServicePolicyAuthServiceFlowAction"
+        				name="updateRadiusServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateRadiusServicePolicyAuthServiceFlow" path="/jsp/servicepolicy/radiusservicepolicy/UpdateRadiusServicePolicyAuthServiceFlowContainer.jsp" />
+     			</action> 
+     			
+     			<action path="/updateRadiusServicePolicyAcctServiceFlow" 
+         				type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.UpdateRadiusServicePolicyAcctServiceFlowAction"
+        				name="updateRadiusServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateRadiusServicePolicyAcctServiceFlow" path="/jsp/servicepolicy/radiusservicepolicy/UpdateRadiusServicePolicyAcctServiceFlowContainer.jsp" />
+     			</action>  
+     			
+     			<action path="/manageRadiusServicePolicyOrder"
+     					type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.ManageRadiusServicePolicyOrderAction"
+        				name="manageRadiusServicePolicyOrderForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="servicePolicyOrderList" path="/jsp/servicepolicy/radiusservicepolicy/ManageRadiusServicePolicyOrder.jsp" />
+     			</action>
+     			
+     			<action path="/viewRadiusServicePolicyAuthFlow" 
+         				type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.ViewRadiusServicePolicyAuthServiceFlowAction"
+        				name="updateRadiusServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusServicePolicyAuthServiceFlow" path="/jsp/servicepolicy/radiusservicepolicy/ViewRadiusServicePolicyAuthServiceFlowContainer.jsp" />
+     			</action> 
+     			
+     			<action path="/viewRadiusServicePolicyAcctFlow" 
+         				type="com.elitecore.elitesm.web.servicepolicy.radiusservicepolicy.ViewRadiusServicePolicyAcctServiceFlowAction"
+        				name="updateRadiusServicePolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="viewRadiusServicePolicyAcctServiceFlow" path="/jsp/servicepolicy/radiusservicepolicy/ViewRadiusServicePolicyAcctServiceFlowContainer.jsp" />
+     			</action> 
+     			
+     			<!-- TGPP AAA Policy -->
+     			<action path="/searchTGPPAAAPolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.tgppaaapolicy.SearchTGPPAAAPolicyAction"
+        				name="tgppAAAPolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="listTGPPAAAPolicy" path="/jsp/servicepolicy/diameter/tgppaaapolicy/SearchTGPPAAAPolicy.jsp" />
+     			</action>   
+     			
+     			<action path="/initCreateTGPPAAAPolicy" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.tgppaaapolicy.CreateTGPPAAAPolicyAction"
+        				name="tgppAAAPolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="createTGPPAAAPolicy" path="/jsp/servicepolicy/diameter/tgppaaapolicy/CreateTGPPAAAPolicy.jsp" />
+     			</action>
+     			
+     			<action path="/manageTGPPAAAServicePolicyOrder"
+     					type="com.elitecore.elitesm.web.servicepolicy.diameter.tgppaaapolicy.ManageTGPPAAAPolicyOrderAction"
+        				name="manageTGPPAAAServicePolicyOrderForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="tgppAAAServicePolicyOrderList" path="/jsp/servicepolicy/diameter/tgppaaapolicy/ManageTGPPAAAPolicyOrder.jsp" />
+     			</action>
+     			
+     			<action path="/createTGPPAAAPolicyFlow" 
+         				type="com.elitecore.elitesm.web.servicepolicy.diameter.tgppaaapolicy.CreateTGPPAAAPolicyFlowAction"
+        				name="tgppAAAPolicyForm"
+         				scope="session"
+         				validate="false">
+         				<forward name="createTGPPAAAPolicyFlow" path="/jsp/servicepolicy/diameter/tgppaaapolicy/CreateTGPPAAAPolicyFlow.jsp" />
+     			</action>
+     			
+     			<action path="/viewTGPPAAAPolicy"
+						type="com.elitecore.elitesm.web.servicepolicy.diameter.tgppaaapolicy.ViewTGPPAAAPolicyBasicDetailAction"
+        				name="tgppAAAPolicyForm"
+         				scope="session"
+         				validate="false">
+         				<forward name="viewTGPPAAAPolicyBasicDetails" path="/jsp/servicepolicy/diameter/tgppaaapolicy/ViewTGPPAAAServicePolicyContainer.jsp" />
+     			</action>
+     			
+     			<action path="/updateTGPPAAAServicePolicyBasicDetail"
+						type="com.elitecore.elitesm.web.servicepolicy.diameter.tgppaaapolicy.UpdateTGPPAAAPolicyBasicDetailAction"
+        				name="tgppAAAPolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateTGPPAAAPolicyBasicDetails" path="/jsp/servicepolicy/diameter/tgppaaapolicy/UpdateTGPPAAAServicePolicyContainer.jsp" />
+     			</action>
+     			
+     			<action path="/updateTGPPAAAServicePolicyCommandCodeFlow"
+						type="com.elitecore.elitesm.web.servicepolicy.diameter.tgppaaapolicy.UpdateTGPPAAAPolicyFlowAction"
+        				name="tgppAAAPolicyForm"
+         				scope="request"
+         				validate="false">
+         				<forward name="updateTGPPAAAPolicyCommandCode" path="/jsp/servicepolicy/diameter/tgppaaapolicy/UpdateTGPPAAAPolicyFlowContainer.jsp" />
+     			</action>
+     			
+			  </action-mappings>
+			<message-resources key="servicePolicyProperties" parameter="com.elitecore.elitesm.web.servicepolicy.servicePolicy" />
+		</struts-config>

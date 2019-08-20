@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="5395" vendor-name="Laurel">
+	<attribute name="Laurel-Login-Local-User-Name" id="1" type="string" />
+	<attribute name="Laurel-Login-Allowed-Commands" id="2" type="string" />
+	<attribute name="Laurel-Login-Denied-Commands" id="3" type="string" />
+	<attribute name="Laurel-Login-Allow-Config" id="4" type="string" />
+	<attribute name="Laurel-Login-Deny-Config" id="5" type="string" />
+	<attribute name="Laurel-Virtual-Router-Name" id="32" type="string" />
+	<attribute name="Laurel-Local-Loopback-Interface" id="33" type="string" />
+	<attribute name="Laurel-Local-IP-Address" id="34" type="ipaddr" />
+	<attribute name="Laurel-Local-IP-Netmask" id="35" type="ipaddr" />
+	<attribute name="Laurel-Rpf-Check" id="36" type="integer">
+		<supported-values>
+			<value id="0" name="No"  />
+			<value id="1" name="Yes" />
+		</supported-values>
+	</attribute>
+	<attribute name="Laurel-Input-Sampling" id="37" type="integer">
+		<supported-values>
+			<value name="No" id="0" />
+			<value name="Yes" id="1" />
+		</supported-values>
+
+	</attribute>
+	<attribute name="Laurel-Output-Sampling" id="38" type="integer">
+		<supported-values>
+			<value name="No" id="0" />
+			<value name="Yes" id="1" />
+		</supported-values>
+	</attribute>
+	<attribute name="Laurel-Proxy-ARP" id="39" type="integer">
+		<supported-values>
+			<value name="Disabled" id="0" />
+			<value name="Enabled" id="1" />
+			<value name="Ignore-Local-Subnet" id="2" />
+			<value name="Local-Subnet-Only" id="3" />
+		</supported-values>
+	</attribute>
+	<attribute name="Laurel-Client-Mac-Address" id="40" type="string" />
+	<attribute name="Laurel-IGMP-Mode" id="41" type="integer">
+		<supported-values>
+			<value name="Disabled" id="0" />
+			<value name="Enabled" id="1" />
+			<value name="Enabled_V1" id="2" />
+			<value name="Enabled_V2" id="3" />
+		</supported-values>
+	</attribute>
+	<attribute name="Laurel-Acct-User-Name" id="42" type="string" />
+	<attribute name="Laurel-Auth-User-Name" id="43" type="string" />
+	<attribute name="Laurel-Service-Tag" id="44" type="string" />
+	<attribute name="Laurel-PPPOE-URL" id="48" type="string" />
+	<attribute name="Laurel-PPPOE-MOTM" id="49" type="string" />
+	<attribute name="Laurel-Primary-Dns" id="56" type="ipaddr" />
+	<attribute name="Laurel-Primary-Wins" id="57" type="ipaddr" />
+	<attribute name="Laurel-Secondary-Dns" id="58" type="ipaddr" />
+	<attribute name="Laurel-Secondary-Wins" id="59" type="ipaddr" />
+	<attribute name="Laurel-Address-Pool-Name" id="64" type="string" />
+	<attribute name="Laurel-Classifier" id="72" type="string" />
+	<attribute name="Laurel-Input-Filter" id="73" type="string" />
+	<attribute name="Laurel-Policer" id="74" type="string" />
+	<attribute name="Laurel-Queue-Block" id="75" type="string" />
+	<attribute name="Laurel-Scheduler" id="76" type="string" />
+	<attribute name="Laurel-Service-Profile" id="77" type="string" />
+	<attribute name="Laurel-Output-Filter" id="78" type="string" />
+	<attribute name="Laurel-Egress-Policer" id="79" type="string" />
+	<attribute name="Laurel-Queue-Block2" id="80" type="string" />
+	<attribute name="Laurel-Scheduler2" id="81" type="string" />
+	<attribute name="Laurel-Queue-Block3" id="82" type="string" />
+	<attribute name="Laurel-Scheduler3" id="83" type="string" />
+	<attribute name="Laurel-Queue-Block4" id="84" type="string" />
+	<attribute name="Laurel-Scheduler4" id="86" type="string" />
+	<attribute name="Laurel-Queue-Block5" id="87" type="string" />
+	<attribute name="Laurel-Scheduler5" id="88" type="string" />
+	<attribute name="Laurel-Queue-Block6" id="89" type="string" />
+	<attribute name="Laurel-Scheduler6" id="90" type="string" />
+	<attribute name="Laurel-Queue-Block7" id="91" type="string" />
+	<attribute name="Laurel-Scheduler7" id="92" type="string" />
+	<attribute name="Laurel-Queue-Block8" id="93" type="string" />
+	<attribute name="Laurel-Scheduler8" id="94" type="string" />
+	<attribute name="Laurel-Policer-Block" id="95" type="string" />
+	<attribute name="Laurel-Tunnel-Group" id="96" type="string" />
+	<attribute name="Laurel-Tunnel-ToS-Setting" id="97" type="integer" />
+	<attribute name="Laurel-Tunnel-Weight" id="104" type="integer"
+		has_tag="yes" />
+	<attribute name="Laurel-Tunnel-Max-Sessions" id="105" type="integer"
+		has_tag="yes" />
+	<attribute name="Laurel-Tunnel-Receive-Window" id="106"
+		type="integer" has_tag="yes" />
+	<attribute name="Laurel-Tunnel-Persist-Timeout" id="107"
+		type="integer" has_tag="yes" />
+	<attribute name="Laurel-Encapsulation" id="128" type="integer">
+		<supported-values>
+			<value name="Encap-1483-Bridged" id="0" />
+			<value name="Encap-1483-Routed" id="1" />
+			<value name="Encap-1483-Autosense" id="2" />
+			<value name="Encap-Vc-Mux" id="3" />
+			<value name="Encap-Autosense" id="4" />
+		</supported-values>
+	</attribute>
+	<attribute name="Laurel-LIF-Idle-Timeout" id="129" type="integer" />
+	<attribute name="Laurel-Protocol" id="130" type="integer">
+		<supported-values>
+			<value name="None" id="0" />
+			<value name="PPP" id="1" />
+			<value name="PPPoE" id="2" />
+			<value name="PPPandPPPoE" id="3" />
+			<value name="IP" id="4" />
+			<value name="IPandPPP" id="5" />
+			<value name="IPandPPPoE" id="6" />
+			<value name="IPandPPPandPPPoE" id="7" />
+		</supported-values>
+
+	</attribute>
+	<attribute name="Laurel-LIF-Queue-Block" id="136" type="string" />
+	<attribute name="Laurel-LIF-Scheduler" id="137" type="string" />
+	<attribute name="Laurel-LIF-Queue-Block2" id="138" type="string" />
+	<attribute name="Laurel-LIF-Scheduler2" id="139" type="string" />
+	<attribute name="Laurel-LIF-Queue-Block3" id="140" type="string" />
+	<attribute name="Laurel-LIF-Scheduler3" id="141" type="string" />
+	<attribute name="Laurel-LIF-Queue-Block4" id="142" type="string" />
+	<attribute name="Laurel-LIF-Scheduler4" id="143" type="string" />
+	<attribute name="Laurel-LIF-Queue-Block5" id="144" type="string" />
+	<attribute name="Laurel-LIF-Scheduler5" id="145" type="string" />
+	<attribute name="Laurel-LIF-Queue-Block6" id="146" type="string" />
+	<attribute name="Laurel-LIF-Scheduler6" id="147" type="string" />
+	<attribute name="Laurel-LIF-Queue-Block7" id="148" type="string" />
+	<attribute name="Laurel-LIF-Scheduler7" id="149" type="string" />
+	<attribute name="Laurel-LIF-Queue-Block8" id="150" type="string" />
+	<attribute name="Laurel-LIF-Scheduler8" id="151" type="string" />
+	<attribute name="Laurel-PPPOE-Session-Limit" id="152"
+		type="integer" />
+	<attribute name="Laurel-PPPOE-Src-MAC-Validation" id="153"
+		type="integer">
+		<supported-values>
+			<value name="No" id="0" />
+			<value name="Yes" id="1" />
+		</supported-values>
+
+	</attribute>
+	<attribute name="Laurel-PPP-Authentication" id="154"
+		type="integer">
+		<supported-values>
+			<value name="Null" id="0" />
+			<value name="PAP" id="1" />
+			<value name="CHAP" id="2" />
+			<value name="PAP-then-CHAP" id="3" />
+			<value name="CHAP-then-PAP" id="4" />
+		</supported-values>
+	</attribute>
+	<attribute name="Laurel-CHAP-Challenge-Interval" id="155"
+		type="integer" />
+	<attribute name="Laurel-CHAP-Retries" id="157" type="integer" />
+	<attribute name="Laurel-PPP-Keepalives" id="158" type="integer">
+		<supported-values>
+			<value name="Disable" id="0" />
+			<value name="Enable" id="1" />
+		</supported-values>
+
+	</attribute>
+	<attribute name="Laurel-Magic-Number" id="159" type="integer">
+		<supported-values>
+			<value name="Disable" id="0" />
+			<value name="Enable" id="1" />
+		</supported-values>
+
+	</attribute>
+	<attribute name="Laurel-Maximum-Receive-Unit" id="160"
+		type="integer" />
+	<attribute name="Laurel-Domain-Filter" id="161" type="string" />
+	<attribute name="Laurel-DHCP" id="168" type="integer" />
+	<attribute name="Laurel-DHCP-Host-Limit" id="169" type="integer">
+		<supported-values>
+			<value id="0" name="None" />
+			<value id="1" name="Relay" />
+			<value id="2" name="Proxy" />
+		</supported-values>
+	</attribute>
+	<attribute name="Laurel-Disconnect-Cause-Code" id="200" type="integer">
+		<supported-values>
+			<value name="Invalid" id="0" />
+			<value name="Unspecified" id="1" />
+			<value name="Npb-Hotswap" id="2" />
+			<value name="Clear-Subscriber" id="3" />
+			<value name="Auth-Bad-Password" id="4" />
+			<value name="Auth-Unknown-User" id="5" />
+			<value name="Domain-Filter-Reject" id="6" />
+			<value name="CHAP-Auth-Failure" id="7" />
+			<value name="CHAP-Restart-Timeout" id="8" />
+			<value name="PAP-Auth-Failure" id="9" />
+			<value name="Remote-Auth-Failure" id="10" />
+			<value name="IP-Address-Unavailable" id="11" />
+			<value name="IP-Address-Used" id="12" />
+			<value name="PPP-LCP-Timeout" id="13" />
+			<value name="PPP-LCP-Negotiation-Failed" id="14" />
+			<value name="PPP-Remote-Terminate" id="15" />
+			<value name="CHAP-Negotiation-Falure" id="16" />
+			<value name="PAP-Negotiation-Falure" id="17" />
+			<value name="Invalid-QOS-Attributes " id="18" />
+			<value name="Pending-Session-Timeout" id="19" />
+			<value name="Memory-Monitor-Reject" id="20" />
+			<value name="PPP-IPCP-Timeout" id="21" />
+			<value name="L2tpv2-Session-Down-Unspecified" id="22" />
+			<value name="L2tpv2-Tunnel-Down-Unspecified" id="23" />
+			<value name="AD-Filter-With-FW-Filter" id="24" />
+			<value name="AD-Filter-Translation-Failure" id="25" />
+			<value name="TLV-Processing-Error" id="26" />
+			<value name="Lac-Bind-To-Tunnel-Failed" id="27" />
+			<value name="Lac-Bind-To-Tunnel-Group-Failed" id="28" />
+			<value name="Dhcp-Remote-Address-Assignment" id="29" />
+			<value name="Authentication-Not-RADIUS" id="30" />
+			<value name="No-Source-Interface" id="31" />
+			<value name="Source-Interface-Unnumbered" id="32" />
+			<value name="No-Initial-Routing-Instance" id="33" />
+			<value name="Routing-Instance-Not-Found" id="34" />
+			<value name="Bad-Radius-Authentication-Type" id="35" />
+			<value name="No-Radius-Context" id="36" />
+			<value name="Resource-Allocation-Failure" id="37" />
+			<value name="IP-Interface-Create-Failure" id="38" />
+			<value name="Tunnel-With-Routing-Instance" id="39" />
+			<value name="Auto-Non-Auto-Subscriber-Attr" id="40" />
+			<value name="Invalid-Tunnel-Password" id="41" />
+			<value name="Invalid-TOS-Value" id="42" />
+			<value name="Invalid-Egress-Policer-Format" id="43" />
+			<value name="Lac-Session-Complete-Failed" id="44" />
+			<value name="Lac-TX-update-failed" id="45" />
+			<value name="Lac-Session-Setup-Failed" id="46" />
+			<value name="Duplicate-IP-Address" id="47" />
+			<value name="Output-Filter-Create-Failed" id="48" />
+			<value name="Shaper-Without-QBlock" id="49" />
+			<value name="Classifier-With-Policer" id="50" />
+			<value name="Classifier-With-Service-Profile" id="51" />
+			<value name="Invalid-MTU" id="52" />
+			<value name="Unsupported-IGMP-Mode" id="53" />
+			<value name="IGMP-Create-Failed" id="54" />
+			<value name="Arp-Param-Id-Changed" id="55" />
+			<value name="L2TPv2-Retransmission-Timeout" id="56" />
+			<value name="L2TPv2-Control-Channel-Error" id="57" />
+			<value name="L2TPv2-Authentication-Failed" id="58" />
+			<value name="L2TPv2-Disabled" id="59" />
+			<value name="L2TPv2-Invalid-Client-Endpoint" id="60" />
+			<value name="L2TPv2-Instance-Disabled" id="61" />
+			<value name="L2TPv2-No-Route" id="62" />
+			<value name="L2TPv2-Internal-Network-Failure" id="63" />
+			<value name="QBlock-Not-Configured" id="64" />
+			<value name="Classifier-Not-Configured" id="65" />
+			<value name="ServiceProfile-Not-Configured" id="66" />
+			<value name="Scheduler-Not-Configured" id="67" />
+			<value name="Input-Filter-Not-Configured" id="68" />
+			<value name="Output-Filter-Not-Configured" id="69" />
+			<value name="Address-Pool-Not-Configured" id="70" />
+			<value name="Egress-Policer-Not-Configured" id="71" />
+			<value name="Tunnel-Group-Not-Configured" id="72" />
+			<value name="Tunnel-Switching-Not-Supported" id="73" />
+			<value name="LAC-Disabled" id="74" />
+			<value name="LAC-Drain-Enabled" id="75" />
+			<value name="Policer-Not-Configured" id="76" />
+			<value name="Input-Filter-Create-Failed" id="77" />
+			<value name="Incompatible-Scheduler" id="78" />
+			<value name="Lcp-Renegotiation" id="79" />
+			<value name="Routing-Inst-Already-Changed" id="80" />
+			<value name="Unsupported-QBlockSched-Combo" id="81" />
+			<value name="PBlock-Not-Configured" id="82" />
+			<value name="SessionTimeout-too-large" id="83" />
+			<value name="IdleTimeout-too-large" id="84" />
+			<value name="CoA-Completed" id="85" />
+			<value name="PPP-DCC-No-Info-Available" id="100" />
+			<value name="PPP-DCC-Admin-Disconnect" id="101" />
+			<value name="PPP-DCC-LCP-Renog-Disabled" id="102" />
+			<value name="PPP-DCC-Normal-Disconnect-Rmt" id="103" />
+			<value name="PPP-DCC-Normal-Disconnect-Lcl" id="104" />
+			<value name="PPP-DCC-Peer-Refused-Encryption" id="105" />
+			<value name="PPP-DCC-Encryption-Refused" id="106" />
+			<value name="PPP-DCC-LCP-FSM-Timeout" id="107" />
+			<value name="PPP-DCC-LCP-No-Packets-Received" id="108" />
+			<value name="PPP-DCC-LCP-Magic-Number-Error" id="109" />
+			<value name="PPP-DCC-LCP-Echo-Req-Timeout" id="110" />
+			<value name="PPP-DCC-LCP-Unexp-Ep-Descr" id="111" />
+			<value name="PPP-DCC-LCP-Unexp-MRRU" id="112" />
+			<value name="PPP-DCC-LCP-Unexp-Short-Seq" id="113" />
+			<value name="PPP-DCC-LCP-Peer-Refused-Cb" id="114" />
+			<value name="PPP-DCC-LCP-Refused-Cb" id="115" />
+			<value name="PPP-DCC-Chap-FSM-Timeout" id="116" />
+			<value name="PPP-DCC-Chap-Unexp-Auth-Name" id="117" />
+			<value name="PPP-DCC-Chap-Peer-Rej-Protocol" id="118" />
+			<value name="PPP-DCC-Chap-Protocol-Rej" id="119" />
+			<value name="PPP-DCC-Chap-Auth-Failure-Lcl" id="120" />
+			<value name="PPP-DCC-Chap-Auth-Failure-Rmt" id="121" />
+			<value name="PPP-DCC-Pap-FSM-Timeout" id="122" />
+			<value name="PPP-DCC-Pap-Unexp-Auth-Name" id="123" />
+			<value name="PPP-DCC-Pap-Peer-Rej-Protocol" id="124" />
+			<value name="PPP-DCC-Pap-Rej-Protocol" id="125" />
+			<value name="PPP-DCC-Pap-Auth-Failure-Lcl" id="126" />
+			<value name="PPP-DCC-Pap-Auth-Failure-Rmt" id="127" />
+			<value name="PPP-DCC-IPv4CP-FSM-Timeout" id="128" />
+			<value name="PPP-DCC-IPv4CP-Not-Available" id="129" />
+			<value name="PPP-DCC-Convergence-Failure-Rmt" id="130" />
+			<value name="PPP-DCC-Convergence-Failure-Lcl" id="131" />
+			<value name="PPP-DCC-Peer-Rej-Local-Addr" id="132" />
+			<value name="PPP-DCC-Rej-Remote-Addr" id="133" />
+			<value name="Tunnel-Invalid-Persist-Timeout" id="150" />
+			<value name="Tunnel-Invalid-Rcv-Window-Size" id="151" />
+			<value name="Tunnel-Invalid-Weight" id="152" />
+			<value name="Tunnel-Invalid-Max-Session" id="153" />
+			<value name="L2tp-StopCCN-General-Clear" id="200" />
+			<value name="L2tp-StopCCN-Tunnel-Exists" id="201" />
+			<value name="L2tp-StopCCN-Auth-Failure" id="202" />
+			<value name="L2tp-StopCCN-Ver-Unsupported" id="203" />
+			<value name="L2tp-StopCCN-Shutdown" id="204" />
+			<value name="L2tp-StopCCN-FSM-Error" id="205" />
+			<value name="L2tp-StopCCN-Invalid-Length" id="206" />
+			<value name="L2tp-StopCCN-Out-Of-Range" id="207" />
+			<value name="L2tp-StopCCN-No-Resources" id="208" />
+			<value name="L2tp-StopCCN-Vendor-Specific" id="209" />
+			<value name="L2tp-StopCCN-Try-Another" id="210" />
+			<value name="L2tp-StopCCN-Unknown-Mand-Avp" id="211" />
+			<value name="L2tp-Cdn-Loss-Of-Carrier" id="220" />
+			<value name="L2tp-Cdn-Admin-Disconnect" id="221" />
+			<value name="L2tp-Cdn-Temp-No-Resources" id="222" />
+			<value name="L2tp-Cdn-Perm-No-Resources" id="223" />
+<!--			<value name="L2tp-Cdn-Invalid-Destination" id="224" />
+			<value name="L2tp-Cdn-No-Carrier" id="225" />
+			<value name="L2tp-Cdn-Busy-Signal" id="226" />
+			<value name="L2tp-Cdn-No-Dial-Tone" id="227" />
+			<value name="L2tp-Cdn-Exceeded-Alloted-Time" id="228" />
+			<value name="L2tp-Cdn-Invalid-Framing" id="229" />
+			<value name="L2tp-Cdn-No-Tunnel" id="230" />
+			<value name="L2tp-Cdn-Invalid-Length" id="231" />
+			<value name="L2tp-Cdn-Out-Of-Range" id="232" />
+			<value name="L2tp-Cdn-No-Resources" id="233" />
+			<value name="L2tp-Cdn-Invalid-Id" id="234" />
+			<value name="L2tp-Cdn-Vendor-Specific" id="235" />
+			<value name="L2tp-Cdn-Unknown-Avp" id="236" />-->
+		</supported-values>
+	</attribute>
+	<attribute name="Laurel-Connect-Progress-Code" id="201" type="integer">
+		<supported-values>
+			<value id="0" name="No-Progress" />
+			<value id="1" name="Unspecified" />
+			<value id="5" name="LCP-State-Initial" />
+			<value id="10" name="LCP-State-Starting" />
+			<value id="15" name="LCP-State-Request-Sent" />
+			<value id="20" name="LCP-State-Ack-Received" />
+			<value id="25" name="LCP-State-Ack-Sent" />
+			<value id="30" name="Lcp-Opened" />
+			<value id="35" name="Auth-Pending" />
+			<value id="40" name="Auth-Succeeded" />
+			<value id="43" name="IP-Interface-Created" />
+			<value id="45" name="IPv4CP-Opening" />
+			<value id="50" name="IPv4CP-Opened" />
+			<value id="55" name="Lac-Creating-tx" />
+			<value id="60" name="Lac-Tx-Created" />
+			<value id="65" name="Lac-Session-Created" />
+			<value id="70" name="Call-Up" />
+		</supported-values>
+	</attribute>
+	<attribute name="Laurel-Access-Line-Id" id="202" type="string" />
+	<attribute name="Laurel-Acct-SvcP-Rx-Octets" id="203" type="string" />
+	<attribute name="Laurel-Acct-SvcP-Rx-Packets" id="204" type="string" />
+	<attribute name="Laurel-Acct-SvcP-Tx-Octets" id="205" type="string" />
+	<attribute name="Laurel-Acct-SvcP-Tx-Packets" id="206" type="string" />
+	<attribute name="Laurel-Redirect-URL" id="210" type="string" />
+	<attribute name="Laurel-IpAutoSess-IdleTimeout" id="211" type="integer" />
+	<attribute name="Laurel-IpAutoSess-Timeout" id="212" type="integer" />
+
+</attribute-list>

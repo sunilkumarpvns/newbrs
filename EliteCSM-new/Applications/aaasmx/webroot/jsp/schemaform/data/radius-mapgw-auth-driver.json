@@ -1,0 +1,307 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "MAP Gateway Auth Driver",
+		"properties": {
+			"name": {
+				"title": "Instance Name",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"map-gateway-auth-driver": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"local-host-id": {
+							"title": "Local Host Id",
+							"type": "string",
+							"default": "AAA-ULTICOM"
+						},
+						"local-host-ip": {
+							"title": "Local Host Ip",
+							"type": "string",
+							"default": "127.0.0.1"
+						},
+						"local-host-port": {
+							"title": "Local Host Port",
+							"type": "integer",
+							"default": 0
+						},
+						"remote-host-id": {
+							"title": "Remote Host Id",
+							"type": "string",
+							"default": "AAA-ULTICOM"
+						},
+						"remote-host-ip": {
+							"title": "Remote Host Ip",
+							"type": "string",
+							"default": "127.0.0.1"
+						},
+						"remote-host-port": {
+							"title": "Remote Host Port",
+							"type": "integer",
+							"default": 10090
+						},
+						"maximum-query-timeout-count": {
+							"title": "Maximum Query Timeout Count",
+							"type": "integer",
+							"default": 100
+						},
+						"connection-pool-size": {
+							"title": "Connection Pool Size",
+							"type": "integer",
+							"default": 10
+						},
+						"request-timeout": {
+							"title": "Request Timeout(ms)",
+							"type": "integer",
+							"default": 1000
+						},
+						"status-check-duration": {
+							"title": "Status Check Duration(sec)",
+							"type": "integer",
+							"default": 60
+						},
+						"user-identity-attributes": {
+							"title": "User Identity Attributes",
+							"type": "string"
+						},
+						"send-auth-info": {
+							"title": "Send Auth Info",
+							"type": "string"
+						},
+						"number-of-triplets": {
+							"title": "Number Of Triplets",
+							"type": "string",
+							"default": 3
+						},
+						"map-profile-fields": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"logical-name": {
+										"title": "Logical Name",
+										"type": "string"
+									},
+									"profile-field": {
+										"title": "Profile Field",
+										"type": "string"
+									},
+									"default-value": {
+										"title": "Default Value",
+										"type": "string"
+									},
+									"value-mapping": {
+										"title": "Value Mapping",
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "description"
+		},
+		{
+			"key": "map-gateway-auth-driver",
+			"items": [
+				{
+					"key": "map-gateway-auth-driver[].local-host-id"
+				},
+				{
+					"key": "map-gateway-auth-driver[].local-host-ip"
+				},
+				{
+					"key": "map-gateway-auth-driver[].local-host-port"
+				},
+				{
+					"key": "map-gateway-auth-driver[].remote-host-id"
+				},
+				{
+					"key": "map-gateway-auth-driver[].remote-host-ip"
+				},
+				{
+					"key": "map-gateway-auth-driver[].remote-host-port"
+				},
+				{
+					"key": "map-gateway-auth-driver[].maximum-query-timeout-count"
+				},
+				{
+					"key": "map-gateway-auth-driver[].connection-pool-size"
+				},
+				{
+					"key": "map-gateway-auth-driver[].request-timeout"
+				},
+				{
+					"key": "map-gateway-auth-driver[].status-check-duration"
+				},
+				{
+					"key": "map-gateway-auth-driver[].user-identity-attributes"
+				},
+				{
+					"key": "map-gateway-auth-driver[].send-auth-info",
+					"type": "select",
+					"titleMap": {
+						"True": "True",
+						"False": "False"
+					}
+				},
+				{
+					"key": "map-gateway-auth-driver[].number-of-triplets"
+				},
+				{
+					"key": "map-gateway-auth-driver[].map-profile-fields",
+					"add": "Add Mapping",
+					"items": [
+						{
+							"type": "section",
+							"htmlClass": "row",
+							"items": [
+								{
+									"type": "section",
+									"htmlClass": "col-xs-6",
+									"items": [
+										{
+											"key": "map-gateway-auth-driver[].map-profile-fields[].logical-name",
+											"title": "Logical Name",
+											"type": "select",
+											"titleMap": {
+												"CUI": "CUI",
+												"Callback ID": "Callback ID",
+												"Called Station ID": "Called Station ID",
+												"Calling Station ID": "Calling Station ID",
+												"Concurrent Login Policy": "Concurrent Login Policy",
+												"Credit Limit": "Credit Limit",
+												"Customer Check Items": "Customer Check Items",
+												"Customer Reject Items": "Customer Reject Items",
+												"Customer Reply Items": "Customer Reply Items",
+												"Customer Status": "Customer Status",
+												"Customer Type": "Customer Type",
+												"Encryption Type": "Encryption Type",
+												"Expiry Date": "Expiry Date",
+												"Grace Period": "Grace Period",
+												"Group Name": "Group Name",
+												"Hotline Policy": "Hotline Policy",
+												"IP Pool Name": "IP Pool Name",
+												"Param1": "Param1",
+												"Param2": "Param2",
+												"Param3": "Param3",
+												"Password Check": "Password Check",
+												"Authorization Policy": "Authorization Policy",
+												"Service Type": "Service Type",
+												"User Name": "User Name",
+												"User Password": "User Password",
+												"MAC Validation": "MAC Validation",
+												"Access Policy": "Access Policy",
+												"Group Bandwidth": "Group Bandwidth",
+												"Dynamic Check Items": "Dynamic Check Items",
+												"IMSI": "IMSI",
+												"MEID": "MEID",
+												"MSISDN": "MSISDN",
+												"MDN": "MDN",
+												"IMEI": "IMEI",
+												"Customer Services": "Customer Services",
+												"Additional Policy": "Additional Policy",
+												"Param4": "Param4",
+												"Param5": "Param5",
+												"Device Vendor": "Device Vendor",
+												"Device Name": "Device Name",
+												"Device Port": "Device Port",
+												"GEO Location": "GEO Location",
+												"Device VLAN": "Device VLAN",
+												"Reply Framed IPV4 Address": "Reply Framed IPV4 Address",
+												"Reply Framed IPV6 Prefix": "Reply Framed IPV6 Prefix",
+												"Reply Framed Pool": "Reply Framed Pool",
+												"Policy Group": "Policy Group"
+											}
+										}
+									]
+								},
+								{
+									"type": "section",
+									"htmlClass": "col-xs-6",
+									"items": [
+										{
+											"key": "map-gateway-auth-driver[].map-profile-fields[].profile-field",
+											"title": "Profile Field"
+										}
+									]
+								},
+								{
+									"type": "section",
+									"htmlClass": "col-xs-6",
+									"items": [
+										{
+											"key": "map-gateway-auth-driver[].map-profile-fields[].default-value",
+											"title": "Default Value"
+										}
+									]
+								},
+								{
+									"type": "section",
+									"htmlClass": "col-xs-6",
+									"items": [
+										{
+											"key": "map-gateway-auth-driver[].map-profile-fields[].value-mapping",
+											"title": "Value Mapping"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"model": {
+		"name": "radiusMapGWAuth",
+		"description": "Created by admin on 01/24/2017 11:43:32 AM",
+		"map-gateway-auth-driver": [
+			{
+				"local-host-id": "AAA-ULTICOM",
+				"local-host-port": 0,
+				"local-host-ip": "127.0.0.1",
+				"remote-host-id": "AAA-ULTICOM",
+				"remote-host-port": 10090,
+				"remote-host-ip": "127.0.0.1",
+				"maximum-query-timeout-count": 100,
+				"connection-pool-size": 10,
+				"request-timeout": 1000,
+				"status-check-duration": 60,
+				"user-identity-attributes": "0:1",
+				"send-auth-info": "True",
+				"number-of-triplets": "3",
+				"map-profile-fields": [
+					{
+						"logical-name": "IMSI",
+						"profile-field": "IMSI"
+					},
+					{
+						"logical-name": "MSISDN",
+						"profile-field": "MSISDN"
+					},
+					{
+						"logical-name": "Customer Status",
+						"profile-field": "CustomerStatus",
+						"default-value": "prepaid",
+						"value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+					}
+				]
+			}
+		]
+	}
+}

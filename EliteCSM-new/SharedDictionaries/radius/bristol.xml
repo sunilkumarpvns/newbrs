@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="4363" vendor-name="Bristol">
+<attribute id="1" name="NN-Data-Rate" type="integer"/>
+<attribute id="2" name="NN-Data-Rate-Ceiling" type="integer"/>
+<attribute id="3" name="NN-Homenode" type="ipaddr"/>
+<attribute id="4" name="NN-Homeservice" type="ipaddr"/>
+<attribute id="5" name="NN-Homeservice-Name" type="string"/>
+</attribute-list>

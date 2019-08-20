@@ -1,0 +1,90 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+   <field name="guidingName">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("guiding.guidingname")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("guiding.guidingname")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("guiding.guidingname")})}</message>
+        </field-validator>		
+	</field> 
+
+	<field name="accountIdentifierValue">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("guiding.accountidentifiervalue")})}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">1</param>
+			<param name="maxLength">50</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("guiding.accountidentifiervalue")})}</message>
+		</field-validator>
+	</field> 
+	
+	 <field name="accountId">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("guiding.accountnumber")})}</message>
+		</field-validator>
+	</field> 
+	
+	<field name="trafficType">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("guiding.traffictype")})}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">1</param>
+			<param name="maxLength">50</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("guiding.traffictype")})}</message>
+		</field-validator>
+	</field> 
+	
+	<field name="lobId">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("guiding.loblist")})}</message>
+		</field-validator>		
+	</field>
+	
+	<field name="serviceId">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("guiding.servicelist")})}</message>
+		</field-validator>		
+	</field>
+	
+	<field name="accountIdentifierType">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("guiding.accountidentifiertype")})}</message>
+		</field-validator>	
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^INGRESS|EGRESS|ACCOUNT_ID|TADIGCODE|CONTENT_PROVIDER_ID]]></param>
+			<message>${getText("invalid.required.field", {getText("guiding.accountidentifiertype")})}</message>
+		</field-validator>
+	</field> 
+	
+	 <field name="startDate">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("guiding.startdate")})}</message>
+		</field-validator>		
+	</field> 
+	
+	<field name="endDate">
+		<field-validator type="date"  short-circuit="true" >
+			<param name="minExpression">${startDate}</param>
+			<param name="maxExpression">${endDate}</param>
+			<message>${getText("guiding.enddate.mustbe.greaterthan.startdate")}</message>
+		</field-validator>
+	</field>
+	
+</validators>
+
+	 

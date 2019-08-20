@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="3309" vendor-name="Nomadix">
+<attribute id="1" name="Nomadix-Bw-Up" type="integer"/>
+<attribute id="2" name="Nomadix-Bw-Down" type="integer"/>
+<attribute id="3" name="Nomadix-URL-Redirection" type="string"/>
+<attribute id="4" name="Nomadix-IP-Upsell" type="integer">
+	<supported-values>
+		<value id="0" name="PrivatePool"/>
+		<value id="1" name="PublicPool"/>
+	</supported-values>
+</attribute>
+<attribute id="5" name="Nomadix-Expiration" type="string"/>
+<attribute id="6" name="Nomadix-Subnet" type="string"/>
+<attribute id="7" name="Nomadix-MaxBytesUp" type="integer"/>
+<attribute id="8" name="Nomadix-MaxBytesDown" type="integer"/>
+<attribute id="9" name="Nomadix-EndofSession" type="integer"/>
+<attribute id="10" name="Nomadix-Logoff-URL" type="string"/>
+<attribute id="11" name="Nomadix-Net-VLAN" type="integer"/>
+<attribute id="12" name="Nomadix-Config-URL" type="string"/>
+<attribute id="13" name="Nomadix-Goodbye-URL" type="string"/>
+</attribute-list>

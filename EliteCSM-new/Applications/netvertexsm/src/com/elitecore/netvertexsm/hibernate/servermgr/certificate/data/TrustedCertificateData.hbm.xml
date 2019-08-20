@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>	
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.certificate.data.TrustedCertificateData" table="TBLMTRUSTCERTIFICATE">
+		<id name="trustedCertificateId" column="TRUSTEDCERTIFICATEID" type="java.lang.Long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">			
+			</generator>
+		</id>
+		
+		<property name="trustedCertificateName" type="java.lang.String">
+			<column name="NAME" sql-type="VARCHAR2(64)" not-null="false" />
+		</property>
+		
+		<property name="trustedCertificate" type="byte[]">
+			<column name="CERTIFICATE" sql-type="BLOB" not-null="false" />
+		</property>
+		
+		<property name="createdByStaffId" type="java.lang.Long" insert="true" update="false">
+			<column name="CREATEDBYSTAFFID" sql-type="NUMERIC(38)" not-null="false" />
+		</property>
+		
+		<property name="createDate" type="java.sql.Timestamp">
+			<column name="CREATEDDATE" sql-type="TIMESTAMP" not-null="false" />
+		</property>
+		<property name="modifiedByStaffId" type="java.lang.Long">
+			<column name="MODIFIEDBYSTAFFID" sql-type="NUMERIC(38)" not-null="false" />
+		</property>
+		
+		<property name="modifiedDate" type="java.sql.Timestamp">
+			<column name="MODIFIEDDATE" sql-type="TIMESTAMP" not-null="false" />
+		</property>
+		
+		<property name="certificateFileName" type="java.lang.String">
+			<column name="CERTIFICATEFILENAME" sql-type="VARCHAR2(64)" not-null="false" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,94 @@
+{
+  "id": "rest_role_11111111",
+  "status": "ACTIVE",
+  "groups": null,
+  "name": "rest_role",
+  "description": "Created by REST",
+  "roleModuleActionData": [
+    {
+      "moduleName": "DATAPKG",
+      "actions": "CREATE,DELETE,EXPORT,IMPORT,UPDATE,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "QUOTAPROFILE",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "QOSPROFILE",
+      "actions": "CREATE,DELETE,MANAGEORDER,UPDATE,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "PCCRULE",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "NOTIFICATION",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "SUBSCRIBER",
+      "actions": "CREATE,DELETE,UPDATE,CREATE_SUBSCRIBER,VIEW_SUBSCRIBER,DELETE_SUBSCRIBER,UPDATE_SUBSCRIBER,PURGE_SUBSCRIBER,RESTORE_SUBSCRIBER,SUBSCRIBE_ADDON,UNSUBSCRIBE_ADDON,VIEW_DELETED_SUBSCRIBER,VIEW_SUBSCRIPTION,"
+    },
+    {
+      "moduleName": "NOTIFICATIONTEMPLATE",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "IMSPKG",
+      "actions": "CREATE,DELETE,EXPORT,IMPORT,UPDATE,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "IMSPKGSERVICE",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "GLOBALPCCRULE",
+      "actions": "CREATE,DELETE,EXPORT,IMPORT,UPDATE,"
+    },
+    {
+      "moduleName": "EMERGENCYPKG",
+      "actions": "CREATE,DELETE,MANAGEORDER,UPDATE,IMPORT,EXPORT,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "EMERGENCYQOSPROFILE",
+      "actions": "CREATE,DELETE,MANAGEORDER,UPDATE,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "EMERGENCYPCCRULE",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "PROMOTIONALPKG",
+      "actions": "CREATE,DELETE,MANAGEORDER,UPDATE,IMPORT,EXPORT,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "PROMOTIONALQOSPROFILE",
+      "actions": "CREATE,DELETE,MANAGEORDER,UPDATE,UPDATE_BASIC_DETAIL,"
+    },
+    {
+      "moduleName": "PROMOTIONALQUOTAPROFILE",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "PROMOTIONALNOTIFICATION",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "PROMOTIONALPCCRULE",
+      "actions": "CREATE,DELETE,UPDATE,"
+    },
+    {
+      "moduleName": "RATINGGROUP",
+      "actions": "CREATE,DELETE,EXPORT,IMPORT,UPDATE,"
+    },
+    {
+      "moduleName": "CHARGINGRULEBASENAME",
+      "actions": "CREATE,DELETE,EXPORT,IMPORT,UPDATE,"
+    },
+    {
+      "moduleName": "SUBSCRIBERSESSION",
+      "actions": "REAUTH,DELETE,DISCONNECT,SEARCH,"
+    }
+  ],
+  "groupNames": null
+}

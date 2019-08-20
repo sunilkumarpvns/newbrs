@@ -1,0 +1,256 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "Diameter HSS Auth Driver",
+		"properties": {
+			"name": {
+				"title": "Instance Name",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"hss-auth-driver": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"tgpp-application-id": {
+							"title": "3GPP Application Id",
+							"type": "string",
+							"default": "16777265"
+						},
+						"command-code": {
+							"title": "Command Code",
+							"type": "integer",
+							"default": 303
+						},
+						"request-timeout": {
+							"title": "Request Timeout",
+							"type": "integer",
+							"default": 3000
+						},
+						"user-identity-attributes": {
+							"title": "User Identity Attributes",
+							"type": "string",
+							"default": "0:1"
+						},
+						"no-of-triplets": {
+							"title": "No of Triplets",
+							"type": "integer",
+							"default": 1
+						},
+						"additional-attributes": {
+							"title": "Additional Attributes",
+							"type": "string"
+						},
+						"hss-peer-configuration": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"peer-name": {
+										"title": "Peer Name",
+										"type": "string"
+									},
+									"weightage": {
+										"title": "Weightage",
+										"type": "string"
+									}
+								}
+							}
+						},
+						"hss-driver-field-mappings": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"logical-name": {
+										"title": "Logical Name",
+										"type": "string"
+									},
+									"application-ids": {
+										"title": "Attribute Ids",
+										"type": "string"
+									},
+									"default-value": {
+										"title": "Default Value",
+										"type": "string"
+									},
+									"value-mapping": {
+										"title": "Value Mapping",
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "description"
+		},
+		{
+			"key": "hss-auth-driver",
+			"items": [
+				{
+					"key": "hss-auth-driver[].tgpp-application-id",
+					"title": "3GPP Application Id"
+				},
+				{
+					"key": "hss-auth-driver[].command-code"
+				},
+				{
+					"key": "hss-auth-driver[].command-code"
+				},
+				{
+					"key": "hss-auth-driver[].request-timeout"
+				},
+				{
+					"key": "hss-auth-driver[].user-identity-attributes"
+				},
+				{
+					"key": "hss-auth-driver[].no-of-triplets"
+				},
+				{
+					"key": "hss-auth-driver[].additional-attributes"
+				},
+				{
+					"key": "hss-auth-driver[].hss-peer-configuration",
+					"add": "Add",
+					"items": [
+						{
+							"key": "hss-auth-driver[].hss-peer-configuration[].peer-name"
+						},
+						{
+							"key": "hss-auth-driver[].hss-peer-configuration[].weightage",
+							"type": "select",
+							"titleMap": {
+								"0": "0",
+								"1": "1",
+								"2": "2",
+								"3": "3",
+								"4": "4",
+								"5": "5",
+								"6": "6",
+								"7": "7",
+								"8": "8",
+								"9": "9",
+								"10": "10"
+							}
+						}
+					]
+				},
+				{
+					"key": "hss-auth-driver[].hss-driver-field-mappings",
+					"add": "Add",
+					"items": [
+						{
+							"key": "hss-auth-driver[].hss-driver-field-mappings[].logical-name",
+							"type": "select",
+							"titleMap": {
+								"CUI": "CUI",
+								"Callback ID": "Callback ID",
+								"Called Station ID": "Called Station ID",
+								"Calling Station ID": "Calling Station ID",
+								"Concurrent Login Policy": "Concurrent Login Policy",
+								"Credit Limit": "Credit Limit",
+								"Customer Check Items": "Customer Check Items",
+								"Customer Reject Items": "Customer Reject Items",
+								"Customer Reply Items": "Customer Reply Items",
+								"Customer Status": "Customer Status",
+								"Customer Type": "Customer Type",
+								"Encryption Type": "Encryption Type",
+								"Expiry Date": "Expiry Date",
+								"Grace Period": "Grace Period",
+								"Group Name": "Group Name",
+								"Hotline Policy": "Hotline Policy",
+								"IP Pool Name": "IP Pool Name",
+								"Param1": "Param1",
+								"Param2": "Param2",
+								"Param3": "Param3",
+								"Password Check": "Password Check",
+								"Authorization Policy": "Authorization Policy",
+								"Service Type": "Service Type",
+								"User Name": "User Name",
+								"User Password": "User Password",
+								"MAC Validation": "MAC Validation",
+								"Access Policy": "Access Policy",
+								"Group Bandwidth": "Group Bandwidth",
+								"Dynamic Check Items": "Dynamic Check Items",
+								"IMSI": "IMSI",
+								"MEID": "MEID",
+								"MSISDN": "MSISDN",
+								"MDN": "MDN",
+								"IMEI": "IMEI",
+								"Customer Services": "Customer Services",
+								"Additional Policy": "Additional Policy",
+								"Param4": "Param4",
+								"Param5": "Param5",
+								"Device Vendor": "Device Vendor",
+								"Device Name": "Device Name",
+								"Device Port": "Device Port",
+								"GEO Location": "GEO Location",
+								"Device VLAN": "Device VLAN",
+								"Reply Framed IPV4 Address": "Reply Framed IPV4 Address",
+								"Reply Framed IPV6 Prefix": "Reply Framed IPV6 Prefix",
+								"Reply Framed Pool": "Reply Framed Pool",
+								"Policy Group": "Policy Group"
+							}
+						},
+						{
+							"key": "hss-auth-driver[].hss-driver-field-mappings[].application-ids"
+						},
+						{
+							"key": "hss-auth-driver[].hss-driver-field-mappings[].default-value"
+						},
+						{
+							"key": "hss-auth-driver[].hss-driver-field-mappings[].value-mapping"
+						}
+					]
+				}
+			]
+		}
+	],
+	"model": {
+		"name": "diameterHSSAuthDriver",
+		"description": "Created by admin on 01/28/2017 04:31:40 PM",
+		"hss-auth-driver": [
+			{
+				"tgpp-application-id": "16777265",
+				"command-code": 303,
+				"request-timeout": 3000,
+				"user-identity-attributes": "0:1",
+				"no-of-triplets": 1,
+				"additional-attributes": "s",
+				"hss-peer-configuration": [
+					{
+						"peer-name": "dss",
+						"weightage": 2
+					}
+				],
+				"hss-driver-field-mappings": [
+					{
+						"logical-name": "User Name",
+						"application-ids": "0:1"
+					},
+					{
+						"logical-name": "IMSI",
+						"application-ids": "10415:1"
+					},
+					{
+						"logical-name": "MSISDN",
+						"application-ids": "10415:701"
+					}
+				]
+			}
+		]
+	}
+}

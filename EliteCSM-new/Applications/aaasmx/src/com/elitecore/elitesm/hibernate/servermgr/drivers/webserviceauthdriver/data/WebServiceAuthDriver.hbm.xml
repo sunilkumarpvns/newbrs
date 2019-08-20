@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class  name="com.elitecore.elitesm.datamanager.servermgr.drivers.webserviceauthdriver.data.WebServiceAuthDriverData" table="TBLMWSAUTHDRIVER">
+			
+		<id name="wsAuthDriverId" column="WSAUTHDRIVERID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="serviceAddress" type="StringType"> 
+			<column name="SERVICEADDRESS" sql-type="VARCHAR(100)" not-null="true" /> 
+		</property>     
+		
+		<property name="imsiAttribute" type="StringType"> 
+			<column name="IMSIATTRIBUTE" sql-type="VARCHAR(128)" not-null="true" /> 
+		</property>     
+		
+		<property name="driverInstanceId" type="StringType"> 
+			<column name="DRIVERINSTANCEID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="maxQueryTimeoutCnt" type="java.lang.Long"> 
+			<column name="MAXQUERYTIMEOUTCOUNT" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+		
+		<property name="statusChkDuration" type="java.lang.Long"> 
+			<column name="STATUSCHECKDURATION" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+		
+		<property name="userIdentityAttributes" type="StringType"> 
+			<column name="USERIDENTITYATTRIBUTES" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property> 
+		
+		<bag name="webMethodKeyDataList" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+			<key column="WSAUTHDRIVERID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.webserviceauthdriver.data.WebMethodKeyMapRelData" />
+	  	</bag>
+	  	
+	</class>
+
+</hibernate-mapping> 
+
+

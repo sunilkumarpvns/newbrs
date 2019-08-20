@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.web.dashboard.json.WidgetData" table="TBLMWIDGET">
+		<id name="widgetId" column="WIDGETID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		<property name="widgetTemplateId" type="StringType">
+			<column name="WIDGETTEMPLATEID" sql-type="VARCHAR(36)" not-null="false" />
+		</property>
+		
+		<property name="dashboardId" type="StringType">
+			<column name="DASHBOARDID" sql-type="VARCHAR(36)" not-null="false" />
+		</property>
+		
+		<property name="orderId" type="StringType">
+			<column name="ORDERID" sql-type="VARCHAR(36)" not-null="false" />
+		</property>
+		
+		<many-to-one name="widgteTemplateData" class="com.elitecore.elitesm.web.dashboard.json.WidgetTemplateData"  column="WIDGETTEMPLATEID" insert="false" update="false" not-null="true" lazy="false" />
+		<many-to-one name="widgetOrderData" class="com.elitecore.elitesm.web.dashboard.json.WidgetOrderData" column="ORDERID" insert="false" update="false" not-null="true" lazy="false" />
+		
+		<bag name="widgetConfigDataList" lazy="false" inverse="false" table="TBLMWIDGETCONFIG">
+			<key column="widgetId" not-null="false"></key>
+			 <one-to-many class="com.elitecore.elitesm.web.dashboard.widget.configuration.WidgetConfigData" />
+		</bag>
+			  
+	</class>
+
+</hibernate-mapping>

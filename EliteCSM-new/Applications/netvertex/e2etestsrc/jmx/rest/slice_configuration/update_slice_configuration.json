@@ -1,0 +1,20 @@
+{
+  "id": "SLICE_CONFIG_1",
+  "status": "ACTIVE",
+  "groups": null,
+  "monetaryReservation": 10,
+  "volumeSlicePercentage": 10,
+  "volumeSliceThreshold": 80,
+  "volumeMinimumSlice": 10,
+  "volumeMaximumSlice": 400,
+  "volumeMinimumSliceUnit": "MB",
+  "volumeMaximumSliceUnit": "MB",
+  "timeSlicePercentage": 10,
+  "timeSliceThreshold": 80,
+  "timeMinimumSlice": 10,
+  "timeMaximumSlice": 60,
+  "timeMinimumSliceUnit": "MINUTE",
+  "timeMaximumSliceUnit": "MINUTE",
+  "dynamicSlicing": null,
+  "groupNames": null
+}

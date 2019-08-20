@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/"
+            xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+ <globalConfiguration>
+  <parameter name="adminPassword" value="admin"/>
+  <parameter name="attachments.Directory" value="./attachments"/>
+  <parameter name="attachments.implementation"
+             value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <parameter name="sendXsiTypes" value="true"/>
+  <parameter name="sendMultiRefs" value="true"/>
+  <parameter name="sendXMLDeclaration" value="true"/>
+  <parameter name="axis.sendMinimizedElements" value="true"/>
+  <requestFlow>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="session"/>
+   </handler>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="request"/>
+    <parameter name="extension" value=".jwr"/>
+   </handler>
+  </requestFlow>
+ </globalConfiguration>
+ <handler name="LocalResponder"
+          type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <handler name="URLMapper"
+          type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <handler name="Authenticate"
+          type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <!--         
+ <service name="AdminService" provider="java:MSG">
+  <parameter name="allowedMethods" value="AdminService"/>
+  <parameter name="enableRemoteAdmin" value="false"/>
+  <parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+ </service>
+ <service name="Version" provider="java:RPC">
+  <parameter name="allowedMethods" value="getVersion"/>
+  <parameter name="className" value="org.apache.axis.Version"/>
+ </service>
+-->
+   <service name="eliteRadiusDynAuthWS" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="http://eliteRadiusDynAuthWS.ws.service.radius.aaa.elitecore.com"/>
+      <parameter name="wsdlServiceElement" value="EliteDynAuthWSService"/>
+      <parameter name="schemaUnqualified" value="http://xml.apache.org/xml-soap"/>
+      <parameter name="wsdlServicePort" value="eliteRadiusDynAuthWS"/>
+      <parameter name="className" value="com.elitecore.aaa.radius.service.ws.eliteRadiusDynAuthWS.EliteRadiusDynAuthWSSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="EliteDynAuthWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+  </service>
+  
+  <service name="EliteGenericRadiusWS" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="http://eliteGenericRadiusWS.ws.service.radius.aaa.elitecore.com"/>
+      <parameter name="wsdlServiceElement" value="EliteGenericRadiusService"/>
+      <parameter name="schemaUnqualified" value="http://xml.apache.org/xml-soap"/>
+      <parameter name="wsdlServicePort" value="EliteGenericRadiusWS"/>
+      <parameter name="className" value="com.elitecore.aaa.radius.service.ws.eliteGenericRadiusWS.EliteGenericRadiusWSSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="EliteGenericRadiusWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+  </service>
+
+   <service name="EliteDiameterWS" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="http://EliteDiameterWS.ws.service.diameter.aaa.elitecore.com"/>
+<!--       <parameter name="wsdlServiceElement" value="EliteDiameterWSService"/>  -->
+      <parameter name="schemaUnqualified" value="http://xml.apache.org/xml-soap"/>
+      <parameter name="wsdlServicePort" value="EliteDiameterWS"/>
+      <parameter name="className" value="com.elitecore.aaa.diameter.service.ws.EliteDiameterWS.EliteDiameterWSSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="EliteDiameterWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+  </service>
+  
+<!--   TODO -->
+   <service name="EliteSubscriberRoutingWS" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="http://EliteSubscriberRoutingWS.ws.service.diameter.aaa.elitecore.com"/>
+      <parameter name="schemaUnqualified" value="http://xml.apache.org/xml-soap"/>
+      <parameter name="wsdlServicePort" value="EliteSubscriberRoutingWS"/>
+      <parameter name="className" value="com.elitecore.aaa.diameter.service.ws.EliteSubscriberRoutingWS.EliteSubscriberRoutingWSSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="EliteSubscriberRoutingWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+  </service>
+  
+     <service name="EliteGenericDiameterWS" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="http://EliteGenericDiameterWS.ws.service.diameter.aaa.elitecore.com"/>
+<!--       <parameter name="wsdlServiceElement" value="EliteDiameterWSService"/>  -->
+      <parameter name="schemaUnqualified" value="http://xml.apache.org/xml-soap"/>
+      <parameter name="wsdlServicePort" value="EliteDiameterWS"/>
+      <parameter name="className" value="com.elitecore.aaa.diameter.service.ws.EliteGenericDiameterWS.EliteGenericDiameterWSSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="EliteGenericDiameterWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+  </service>
+  
+  
+    <service name="EliteMAPSendRoutingInfoWS" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="http://eliteMAPSendRoutingInfoWS.ws.service.radius.aaa.elitecore.com"/>
+      <parameter name="schemaUnqualified" value="http://xml.apache.org/xml-soap"/>
+      <parameter name="wsdlServicePort" value="EliteMAPSendRoutingInfoWS"/>
+      <parameter name="className" value="com.elitecore.aaa.radius.service.ws.eliteMAPSendRoutingInfoWS.EliteMAPSendRoutingInfoWSSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="EliteMAPSendRoutingInfoWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+  </service>
+
+<!-- <transport name="http" pivot="java:org.apache.axis.transport.http.CommonsHTTPSender">
+  <requestFlow>
+   <handler type="URLMapper"/>
+   <handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </requestFlow>
+ </transport>
+ <transport name="local">
+  <responseFlow>
+   <handler type="LocalResponder"/>
+  </responseFlow>
+ </transport> -->
+ <transport name="http" pivot="java:
+org.apache.axis.transport.http.CommonsHTTPSender"/>
+
+ <transport name="local" pivot="java:
+org.apache.axis.transport.local.LocalSender"/>
+
+ <transport name="java" pivot="java:
+org.apache.axis.transport.java.JavaSender"/>
+ 
+</deployment>

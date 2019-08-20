@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.gateway.data">
+
+  <class name="com.elitecore.netvertexsm.datamanager.gateway.gateway.data.GatewayLocationData" table="TBLMLOCATION">
+  
+  		<id name="locationId" column="LOCATIONID" type="java.lang.Long">
+  			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"></generator>
+  		</id>
+  		<property name="locationName" type="string">
+  			<column name="LOCATIONNAME" sql-type="VARCHAR2(40)" not-null="true"/>
+  		</property>
+  		<property name="decription" type="string">
+  			<column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="false"/>
+  		</property>
+  		
+  		<set name="gatewaySet" lazy="true" inverse="true" cascade="all">
+     		<key column="LOCATIONID"></key>
+     		<one-to-many class="com.elitecore.netvertexsm.datamanager.gateway.gateway.data.GatewayData"/>
+     	</set>
+  		  		
+  </class>
+</hibernate-mapping>

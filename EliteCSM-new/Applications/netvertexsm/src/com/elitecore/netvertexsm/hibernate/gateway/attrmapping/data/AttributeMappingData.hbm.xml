@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.attrmapping.data">
+
+  <class name="AttributeMappingData" table="TBLMATTRIBUTEMAPPING">
+
+  	 <id name="attributeMapId" column="ATTRMAPID" type="java.lang.Long">
+  		  <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"></generator>
+  	 </id>     
+     <property name="orderNumber" type="java.lang.Integer">
+          <column name="ORDERNO" sql-type="NUMBER(4)" not-null="false"/>
+     </property>    	 
+     <property name="attribute" type="string">
+          <column name="ATTRIBUTE" sql-type="VARCHAR2(100)" not-null="false"/>
+     </property>          
+     <property name="policyKey" type="string">
+          <column name="POLICYKEY" sql-type="VARCHAR2(4000)" not-null="false"/>
+     </property>          
+     <property name="defaultValue" type="string">
+          <column name="DEFAULTVALUE" sql-type="VARCHAR2(1000)" not-null="false"/>
+     </property>          
+     <property name="valueMapping" type="string">
+          <column name="VALUEMAPPING" sql-type="VARCHAR2(1000)" not-null="false"/>
+     </property>          
+     <property name="packetMapId" type="java.lang.Long">
+          <column name="PACKETMAPID" sql-type="NUMBER(12)" not-null="false"/>
+     </property>
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="classicwsc"
+  id="myeclipse.1225804453224"
+  context-root="/classicwsc"
+  j2ee-spec="5.0"
+  archive="classicwsc.war">
+  <attributes>
+    <attribute name="webrootdir" value="/webroot" />
+  </attributes>
+</project-module>
+

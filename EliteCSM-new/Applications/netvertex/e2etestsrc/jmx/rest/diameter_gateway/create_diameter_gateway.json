@@ -1,0 +1,17 @@
+{
+  "id": "rest_diameter_gateway_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Rest_Diameter_Gateway",
+  "description": "Created by REST",
+  "policyEnforcementMethod": "STANDARD",
+  "connectionURL": "192.168.2.133",
+  "hostIdentity": "gx.elitecore.com",
+  "realm": "elitecore.com",
+  "localAddress": "10.121.21.72",
+  "alternateHostId": null,
+  "diameterGatewayProfileId": "rest_diameter_profile_11111111",
+  "requestTimeout": 3000,
+  "retransmissionCount": 0,
+  "groupNames": "DefaultGroup"
+}

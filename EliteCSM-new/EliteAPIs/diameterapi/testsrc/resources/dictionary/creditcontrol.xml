@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="0" applicationid="4" application-name="base" vendor-name="base">
+  <!-- ***************** Base Protocol Definition ******************* -->
+  	<!--
+  	     +============+==========+=============+====================+
+         | Attribute  | Presence | Constraints |       Values       |
+         +============+==========+=============+====================+
+         |   name     | Required |  UniqueKey  |       String       |
+         +============+==========+=============+====================+
+         |description | Optional |    None     |       String       |
+         +============+==========+=============+====================+
+         |   code     | Required |  UniqueKey  |      Integer       |
+         +============+==========+=============+====================+
+         | encryption | Optional |    None     |     yes or no      |
+         |            |          |             |  (default is yes)  |
+         +============+==========+=============+====================+
+         | mandatory  | Optional |    None     |     yes or no      |
+         |            |          |             |  (default is yes)  |
+         +============+==========+=============+====================+
+         | protected  | Optional |    None     |     yes or no      |
+         |            |          |             |  (default is yes)  |
+         +============+==========+=============+====================+
+         | vendor-id  | Optional |  Reference  |      Integer       |
+         +============+==========+=============+====================+
+  	-->
+     
+    <!-- ***************** DIAMETER BASE PROTOCOL AVPS ************** --> 
+    <attribute id="411"  name="CC-Correlation-Id" mandatory="no" protected="yes"  encryption="yes" type="UTF8String"/>
+	<attribute id="412"  name="CC-Input-Octets" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned64"/>
+	<attribute id="413"  name="CC-Money" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+				<attributerule vendor-id="0" id="445" name="Unit-Value" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+				<attributerule vendor-id="0" id="425" name="Currency-Code" maximum="1" minimum="0"/>
+			</optional>
+		</grouped>
+    </attribute>
+	<attribute id="414"  name="CC-Output-Octets" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned64"/>
+	<attribute id="415"  name="CC-Request-Number" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/> 	
+	<attribute id="416"  name="CC-Request-Type" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="1" name="INITIAL_REQUEST" />
+			<value id="2" name="UPDATE_REQUEST" />
+			<value id="3" name="TERMINATION_REQUEST"/>
+			<value id="4" name="EVENT_REQUEST" />
+		</supported-values>
+	</attribute>
+	<attribute id="417"  name="CC-Service-Specific-Units" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned64"/> 	
+	<attribute id="418"  name="CC-Session-Failover" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated"> 	
+		<supported-values>
+			<value id="0" name="FAILOVER_NOT_SUPPORTED" />
+			<value id="1" name="FAILOVER_SUPPORTED" />
+		</supported-values>
+	</attribute>
+	<attribute id="419"  name="CC-Sub-Session-Id" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned64"/> 	
+	<attribute id="420"  name="CC-Time" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/> 	
+	<attribute id="421"  name="CC-Total-Octets" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned64"/> 	
+	<attribute id="454"  name="CC-Unit-Type" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated"> 	
+		<supported-values>
+			<value id="0" name="TIME" />
+			<value id="1" name="MONEY" />
+			<value id="2" name="TOTAL-OCTETS" />
+			<value id="3" name="INPUT-OCTETS" />
+			<value id="4" name="OUTPUT-OCTETS" />
+			<value id="5" name="SERVICE-SPECIFIC-UNITS" />
+		</supported-values>
+	</attribute>
+	<attribute id="422"  name="Check-Balance-Result" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="ENOUGH_CREDIT" />
+			<value id="1" name="NO_CREDIT" />
+		</supported-values>
+	</attribute>
+	<attribute id="423"  name="Cost-Information" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+				<attributerule vendor-id="0" id="445" name="Unit-Value" maximum="1" minimum="1"/>
+				<attributerule vendor-id="0" id="425" name="Currency-Code" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+				<attributerule vendor-id="0" id="424" name="Cost-Unit" maximum="1" minimum="0"/>
+			</optional>
+		</grouped>	
+	</attribute>
+	<attribute id="424"  name="Cost-Unit" mandatory="yes" protected="yes"  encryption="yes" type="UTF8String"/> 	
+	<attribute id="426"  name="Credit-Control" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="CREDIT_AUTHORIZATION" />
+			<value id="1" name="RE_AUTHORIZATION" />
+		</supported-values>
+	</attribute>
+	<attribute id="427"  name="Credit-Control-Failure-Handling" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="TERMINATE" />
+			<value id="1" name="CONTINUE" />
+			<value id="2" name="RETRY_AND_TERMINATE" />
+		</supported-values>
+	</attribute>
+	<attribute id="425"  name="Currency-Code" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/> 	
+	<attribute id="428"  name="Direct-Debiting-Failure-Handling" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="TERMINATE_OR_BUFFER" />
+			<value id="1" name="CONTINUE" />
+		</supported-values>
+	</attribute>
+	<attribute id="429"  name="Exponent" mandatory="yes" protected="yes"  encryption="yes" type="Integer32"/> 	
+	<attribute id="449"  name="Final-Unit-Action" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated"> 	
+		<supported-values>
+			<value id="0" name="TERMINATE" />
+			<value id="1" name="REDIRECT" />
+			<value id="2" name="RESTRICT_ACCESS" />			
+		</supported-values>
+	</attribute>
+	<attribute id="430"  name="Final-Unit-Indication" mandatory="no" protected="no"  encryption="no" type="Grouped"> 	
+		<grouped>
+			<required>
+				<attributerule vendor-id="0" id="449" name="Final-Unit-Action" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+				<attributerule vendor-id="0" id="438" name="Restriction-Filter-Rule" maximum="*" minimum="0"/>
+				<!--<attributerule name="Filter-Id" maximum="*" minimum="0"/> -->
+				<attributerule vendor-id="0" id="434" name="Redirect-Server" maximum="*" minimum="0"/>								
+			</optional>
+		</grouped>	
+	</attribute>
+	<attribute id="431"  name="Granted-Service-Unit" mandatory="yes" protected="yes"  encryption="yes" type="Grouped"> 	
+		<grouped>
+			<required>
+			</required>
+			<optional>
+				<attributerule vendor-id="0" id="451" name="Tariff-Time-Change" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="420" name="CC-Time" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="413" name="CC-Money" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="421" name="CC-Total-Octets" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="412" name="CC-Input-Octets" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="414" name="CC-Output-Octets" maximum="1" minimum="0"/>								
+				<attributerule vendor-id="0" id="417" name="CC-Service-Specific-Units" maximum="1" minimum="0"/>
+				<attributerule vendor-id="*" id="*" name="attribute" maximum="*" minimum="0"/>
+			</optional>
+		</grouped>		
+	</attribute>
+	<attribute id="453"  name="G-S-U-Pool-Identifier" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32" /> 	
+	<attribute id="457"  name="G-S-U-Pool-Reference" mandatory="yes" protected="yes"  encryption="yes" type="Grouped" > 	
+		<grouped>
+			<required>
+				<attributerule vendor-id="0" id="453" name="G-S-U-Pool-Identifier" maximum="1" minimum="1"/>
+				<attributerule vendor-id="0" id="454" name="CC-Unit-Type" maximum="1" minimum="1"/>
+				<attributerule vendor-id="0" id="445" name="Unit-Value" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+			</optional>
+		</grouped>	
+	</attribute>
+	<attribute id="456"  name="Multiple-Services-Credit-Control" mandatory="yes" protected="yes"  encryption="yes" type="Grouped"> 	
+		<grouped>
+			<required>
+			</required>
+			<optional>
+				<attributerule vendor-id="0" id="430" name="Final-Unit-Indication" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="431" name="Granted-Service-Unit" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="437" name="Requested-Service-Unit" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="446" name="Used-Service-Unit" maximum="*" minimum="0"/>
+				<attributerule vendor-id="0" id="452" name="Tariff-Change-Usage" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="439" name="Service-Identifier" maximum="*" minimum="0"/>
+				<attributerule vendor-id="0" id="432" name="Rating-Group" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="457" name="G-S-U-Pool-Reference" maximum="*" minimum="0"/>
+				<attributerule vendor-id="0" id="448" name="Validity-Time" maximum="1" minimum="0"/>
+			<!--	<attributerule name="Result-Code" maximum="1" minimum="0"/> -->
+				<attributerule vendor-id="*" id="*" name="attribute" maximum="*" minimum="0"/>
+			</optional>
+		</grouped>	
+	</attribute>
+	<attribute id="455"  name="Multiple-Services-Indicator" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="DIRECT_DEBITING" />
+			<value id="1" name="REFUND_ACCOUNT" />
+			<value id="2" name="CHECK_BALANCE" />
+			<value id="3" name="PRICE_ENQUIRY" />			
+		</supported-values>	
+	</attribute>
+	<attribute id="432"  name="Rating-Group" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/> 	
+	<attribute id="433"  name="Redirect-Address-Type" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated"> 	
+		<supported-values>
+			<value id="0" name="IPv4 Address" />
+			<value id="1" name="IPv6 Address" />
+			<value id="2" name="URL" />
+			<value id="3" name="SIP URI" />			
+		</supported-values>	
+	</attribute>
+	<attribute id="434"  name="Redirect-Server" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+				<attributerule vendor-id="0" id="433" name="Redirect-Address-Type" maximum="1" minimum="1"/>			
+				<attributerule vendor-id="0" id="435" name="Redirect-Server-Address" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+			</optional>
+		</grouped>		
+	</attribute>
+	<attribute id="435"  name="Redirect-Server-Address" mandatory="yes" protected="yes"  encryption="yes" type="UTF8String"/> 	
+	<attribute id="436"  name="Requested-Action" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="DIRECT_DEBITING" />
+			<value id="1" name="REFUND_ACCOUNT" />
+			<value id="2" name="CHECK_BALANCE" />
+			<value id="3" name="PRICE_ENQUIRY" />			
+		</supported-values>	
+	</attribute>
+	<attribute id="437"  name="Requested-Service-Unit" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+			</required>
+			<optional>
+				<attributerule vendor-id="0" id="420" name="CC-Time" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="413" name="CC-Money" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="421" name="CC-Total-Octets" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="412" name="CC-Input-Octets" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="414" name="CC-Output-Octets" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="417" name="CC-Service-Specific-Units" maximum="1" minimum="0"/>
+				<attributerule vendor-id="*" id="*" name="attribute" maximum="*" minimum="0"/>
+			</optional>
+		</grouped>		
+	</attribute>
+	<attribute id="438"  name="Restriction-Filter-Rule" mandatory="yes" protected="yes"  encryption="yes" type="IPFiltrRule"/> 	
+	<attribute id="461"  name="Service-Context-Id" mandatory="yes" protected="yes"  encryption="yes" type="UTF8String"/> 	
+	<attribute id="439"  name="Service-Identifier" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/> 	
+	<attribute id="440"  name="Service-Parameter-Info" mandatory="no" protected="yes"  encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+				<attributerule vendor-id="0" id="441" name="Service-Parameter-Type" maximum="1" minimum="1"/>
+				<attributerule vendor-id="0" id="442" name="Service-Parameter-Value" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+			</optional>
+		</grouped>	
+	</attribute>
+	<attribute id="441"  name="Service-Parameter-Type" mandatory="no" protected="yes"  encryption="yes" type="Unsigned32"/> 	
+	<attribute id="442"  name="Service-Parameter-Value" mandatory="no" protected="yes"  encryption="yes" type="OctetString"/>
+	<attribute id="443"  name="Subscription-Id" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+				<attributerule vendor-id="0" id="450" name="Subscription-Id-Type" maximum="1" minimum="1"/>
+				<attributerule vendor-id="0" id="444" name="Subscription-Id-Data" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+			</optional>
+		</grouped>	
+	</attribute> 	
+	<attribute id="444"  name="Subscription-Id-Data" mandatory="yes" protected="yes"  encryption="yes" type="UTF8String"/> 	
+	<attribute id="450"  name="Subscription-Id-Type" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="END_USER_E164" />
+			<value id="1" name="END_USER_IMSI" />
+			<value id="2" name="END_USER_SIP_URI" />
+			<value id="3" name="END_USER_NAI" />			
+			<value id="4" name="END_USER_PRIVATE" />			
+		</supported-values>		
+	</attribute>
+	<attribute id="452"  name="Tariff-Change-Usage" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="UNIT_BEFORE_TARIFF_CHANGE" />
+			<value id="1" name="UNIT_AFTER_TARIFF_CHANGE" />
+			<value id="2" name="UNIT_INDETERMINATE" />
+		</supported-values>	
+	</attribute>
+	<attribute id="451"  name="Tariff-Time-Change" mandatory="yes" protected="yes"  encryption="yes" type="Time"/> 	
+	<attribute id="445"  name="Unit-Value" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+				<attributerule vendor-id="0" id="447" name="Value-Digits" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+				<attributerule vendor-id="0" id="429" name="Exponent" maximum="1" minimum="0"/>			
+			</optional>
+		</grouped>	
+	</attribute>
+	<attribute id="446"  name="Used-Service-Unit" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+		<grouped>
+			<required>
+			</required>
+			<optional>
+				<attributerule vendor-id="0" id="452" name="Tariff-Change-Usage" maximum="1" minimum="0"/>			
+				<attributerule vendor-id="0" id="420" name="CC-Time" maximum="1" minimum="0"/>			
+				<attributerule vendor-id="0" id="413" name="CC-Money" maximum="1" minimum="0"/>			
+				<attributerule vendor-id="0" id="421" name="CC-Total-Octets" maximum="1" minimum="0"/>			
+				<attributerule vendor-id="0" id="412" name="CC-Input-Octets" maximum="1" minimum="0"/>			
+				<attributerule vendor-id="0" id="414" name="CC-Output-Octets" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="417" name="CC-Service-Specific-Units" maximum="1" minimum="0"/>
+				<attributerule vendor-id="*" id="*" name="attribute" maximum="*" minimum="0"/>
+			</optional>
+		</grouped>	
+	</attribute>
+	<attribute id="458"  name="User-Equipment-Info" mandatory="yes" protected="no"  encryption="yes" type="UserEquipmentInfo">
+		<grouped>
+			<required>
+				<attributerule vendor-id="0" id="459" name="User-Equipment-Info-Type" maximum="1" minimum="1"/>	
+			<!--	<attributerule name="User-Equipment-Info-Value" maximum="1" minimum="1"/> -->	
+			</required>
+			<optional>
+			</optional>
+		</grouped>	
+	</attribute>
+	<attribute id="459"  name="User-Equipment-Info-Type" mandatory="no" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="IMEISV" />
+			<value id="1" name="MAC" />
+			<value id="2" name="EUI64" />
+			<value id="3" name="MODIFIED_EUI64" />
+		</supported-values>	
+	</attribute>
+	<attribute id="460"  name="User-Equipment-Info-Value" mandatory="yes" protected="no"  encryption="yes" type="UserEquipmentInfoValue"/> 	
+	<attribute id="447"  name="Value-Digits" mandatory="yes" protected="yes"  encryption="yes" type="Integer64"/> 	
+	<attribute id="448"  name="Validity-Time" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/> 	
+ </attribute-list>

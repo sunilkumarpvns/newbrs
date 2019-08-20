@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subscriber-validation-detail>
+
+	<validation-data>
+		<organization-name>YES</organization-name>
+		<realm-name>yes.my</realm-name>
+		<profile-set>
+			<name>WiFi-BRONZE-USC</name>
+			<name>WiMAX-BRONZE-2M512</name>
+			<name>WiMAX-BRONZE-64</name>
+			<name>WiMAX-BRONZE-USC</name>
+			<name>WiMAX-GOLD-USC</name>
+			<name>WiMAX-MOBILE5-64</name>
+			<name>WiMAX-MOBILE5-128</name>
+			<name>WiMAX-MOBILE5-USC</name>
+			<name>WiMAX-PPP-10M</name>
+			<name>WiMAX-PPP-20M</name>
+			<name>WiMAX-PPP-5M</name>
+			<name>WiMAX-PRVNET-USC</name>
+			<name>WiMAX-SAMSUNG-UGS</name>
+			<name>WiMAX-SILVER-USC</name>
+			<name>WiMAX-SOHO-PRI-256</name>
+			<name>WiMAX-SOHO-PRI-2M512</name>
+			<name>WiMAX-SOHO-PUB-256</name>
+			<name>WiMAX-SOHO-PUB-2M512</name>
+			<name>YES-PPP-12M</name>
+			<name>YES-PPP-25M</name>
+			<name>YES-PPP-50M</name>
+			<name>YES-PPP-6M</name>
+			<name>factory</name>
+		</profile-set>
+	</validation-data>
+
+	<validation-data>
+		<organization-name>MOE</organization-name>
+		<realm-name>moe.yes.my</realm-name>
+		<profile-set>
+			<name>ADSL-1BN-1M</name>
+			<name>ADSL-1BN-2M</name>
+			<name>WiMAX-1BN1-128</name>
+			<name>WiMAX-1BN1-USC</name>
+			<name>WiMAX-1BN10-128</name>
+			<name>WiMAX-1BN10-USC</name>
+			<name>WiMAX-1BN20-128</name>
+			<name>WiMAX-1BN20-USC</name>
+			<name>WiMAX-1BN30-128</name>
+			<name>WiMAX-1BN30-USC</name>
+			<name>WiMAX-1BN5-128</name>
+			<name>WiMAX-1BN5-USC</name>
+			<name>WiMAX-1BNO-5M</name>
+			<name>WiMAX-1BNZ-USC</name>
+			<name>WiMAX-FROG-2M</name>
+			<name>WiMAX-FROG-4M</name>
+			<name>WiMAX-MOE-1M</name>
+			<name>WiMAX-MOE-512</name>
+		</profile-set>
+	</validation-data>
+	
+	<validation-data>
+		<organization-name>FIZ</organization-name>
+		<realm-name>fiz.yes.my</realm-name>
+		<profile-set>
+			<name>WiMAX-FIZ-1M</name>
+			<name>WiMAX-FIZ-2M</name>
+			<name>WiMAX-FIZ-4M</name>
+			<name>WiMAX-FIZ-64M</name>
+			<name>WiMAX-FIZ-NOSPEED</name>
+		</profile-set>
+	</validation-data>
+	
+	<validation-data>
+		<organization-name>WiFi</organization-name>
+		<realm-name>wifi.yes.my</realm-name>
+		<profile-set>
+			<name>WiFi-BRONZE-USC</name>
+		</profile-set>
+	</validation-data>
+	
+</subscriber-validation-detail>

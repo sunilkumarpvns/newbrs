@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================= -->
+<!-- EAP Application configuration.                          -->
+<!-- ======================================================= -->
+
+<eap-application>
+	
+	<!-- Values Entered as  VendorId : ApplicationId  -->
+	<!-- If No values given  : Default Values of vandorId and ApplicationId Would be taken -->
+	<!-- If Only one value given  : It is Application Id's value and VendorId's Value would be Default value -->
+	<application-id>0:5</application-id>
+
+	<logging>
+		<application-logger-enabled>false</application-logger-enabled>
+		<!-- ALL/INFO/DEBUG/WARN/ERROR/OFF -->
+		<log-level>ALL</log-level>
+
+		<!-- 0:Time-Based Rolling -->
+		<!-- 1:Size-Based Rolling -->
+		<rolling-type>1</rolling-type>
+
+		<!-- 1:Every-Minute-Rolling, 2:Every-Hour-Rolling and 3:Daily-Rolling [Time-Based 
+			Rolling] -->
+		<!-- Number of MBs [Volume-Based Rolling] -->
+		<rolling-unit>5</rolling-unit>
+
+		<!-- Maximum Number of rolled files -->
+		<max-rolled-unit>10</max-rolled-unit>
+
+		<!-- Want to compress the rolled files or not -->
+		<compress-rolled-unit>false</compress-rolled-unit>
+		<location></location>
+		<syslog>
+			<address></address>
+			<facility></facility>
+		</syslog>
+	</logging>
+
+	<service-policies>
+           <service-policy></service-policy>
+    </service-policies>
+
+	<plugin-list>
+		<in-plugins>
+			<in-plugin></in-plugin>
+		</in-plugins>
+		<out-plugins>
+			<out-plugin></out-plugin>
+		</out-plugins>
+	</plugin-list>
+
+</eap-application>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--                                                                     
+	dictionary.alteon                                                   
+	                                                                    
+	Alteon Webswitch                                                    
+	                                                                    
+     $Id: dictionary.alteon,v 1.1 2002/11/20 20:29:35 aland Exp $             
+-->
+<attribute-list vendorid="1872" vendor-name="Alteon">
+	<attribute id="26" name="Alteon-Service-Type" type="integer">
+		<supported-values>
+			<value id="250" name="Alteon-L4admin"/>
+			<value id="251" name="Alteon-Slbadmin"/>
+			<value id="252" name="Alteon-Oper"/>
+			<value id="253" name="Alteon-L4oper"/>
+			<value id="254" name="Alteon-Slboper"/>
+			<value id="255" name="Alteon-User"/>
+		</supported-values>
+	</attribute>
+</attribute-list>

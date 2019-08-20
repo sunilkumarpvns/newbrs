@@ -1,0 +1,59 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "VSA in Class Attribute",
+		"properties": {
+			"enabled": {
+				"title": "Enabled",
+				"type": "string"
+			},
+			"class-attribute-id": {
+				"title": "Class Attribute ID",
+				"type": "string",
+				"default": "0:25"
+			},
+			"separator": {
+				"title": "Separator",
+				"type": "string",
+				"default": ","
+			},
+			"attributes-from-request-packet": {
+				"title": "Request Packet",
+				"type": "string"
+			},
+			"attributes-from-response-packet": {
+				"title": "Response Packet",
+				"type": "string"
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "enabled",
+			"type": "select",
+			"titleMap": {
+				"True": "True",
+				"False": "False"
+			}
+		},
+		{
+			"key": "class-attribute-id"
+		},
+		{
+			"key": "separator"
+		},
+		{
+			"key": "attributes-from-request-packet"
+		},
+		{
+			"key": "attributes-from-response-packet"
+		}
+	],
+	"model": {
+		"enabled": "false",
+		"class-attribute-id": "0:25",
+		"separator": ":",
+		"attributes-from-request-packet": "0:25",
+		"attributes-from-response-packet": "0:10"
+	}
+}

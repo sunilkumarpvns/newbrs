@@ -1,0 +1,15 @@
+{
+    	"id" : "rest_rate_card_group_11111111",
+        "status": "ACTIVE",
+        "groups": "GROUP_1",
+        "name": "updated_rest_rate_card_group",
+        "description": "Updated by rest automation",
+        "orderNo": 1,
+        "fixedCharge1": null,
+        "fixedCharge2": null,
+        "peakRateRateCardId": "rest_non_monetary_rate_card_11111111",
+        "rncPkgId": "rest_rnc_package_11111111",
+        "timeSlotRelationData": [],
+        "advanceCondition": "IMSEmergencySession = \"1\"",
+        "groupNames": null
+}

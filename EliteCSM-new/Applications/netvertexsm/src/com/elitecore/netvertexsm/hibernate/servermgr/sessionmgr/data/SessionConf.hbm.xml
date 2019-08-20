@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.servermgr.sessionmgr.data">
+
+  <class name="SessionConfData" table="TBLMSESSIONCONFIGURATION">
+  
+  	 <id name="sessionConfID" column="SESSIONCONFID" type="java.lang.Integer" >
+     </id>     
+     
+     <property name="dataSourceID" type="java.lang.Integer">
+     	  <column name="DATASOURCEID" sql-type="NUMBER(20)" not-null="false"/>
+     </property> 
+    
+      <property name="batchUpdate" type="java.lang.String">
+     	  <column name="BATCHUPDATE" sql-type="VARCHAR2(8)" not-null="false"/>
+     </property> 
+    
+     <property name="batchSize" type="java.lang.Integer">
+     	  <column name="BATCHSIZE" sql-type="NUMBER(4)" not-null="false"/>
+     </property>
+      
+     <property name="batchUpdateInterval" type="java.lang.Integer">
+     	  <column name="BATCHUPDATEINTERVAL" sql-type="NUMBER" not-null="false"/>
+     </property>
+      
+     <property name="dbQueryTimeout" type="java.lang.Integer">
+     	  <column name="DBQUERYTIMEOUT" sql-type="NUMBER" not-null="false"/>
+     </property>
+     <property name="modifiedDate" type="java.sql.Timestamp">
+	      <column name="MODIFIEDDATE" sql-type="TIMESTAMP(6)" not-null="false"/>
+	 </property>
+	 <property name="modifiedByStaffId" type="java.lang.Long">
+     	 <column name="MODIFIEDBYSTAFFID" sql-type="NUMBER" not-null="false"/>
+     </property>
+     <property name="clientIp" type="string">
+    	<column name="CLIENTIP" sql-type="VARCHAR2(64)" not-null="false"/>
+	 </property>
+	 <property name="secondaryDataSourceID" type="java.lang.Integer">
+     	  <column name="SECONDARYDATASOURCEID" sql-type="NUMBER(20)" not-null="false"/>
+     </property>
+     <set name="sessionFieldMapDataset" lazy="false" inverse="false" cascade="delete">
+		<key column="SESSIONCONFID"></key>
+		<one-to-many class="com.elitecore.netvertexsm.datamanager.servermgr.sessionmgr.data.SessionFieldMapData" />
+	 </set>
+	 <many-to-one name="databaseDS" column="DATASOURCEID" lazy="false" insert="false" update="false" 
+     	class="com.elitecore.netvertexsm.datamanager.datasource.database.data.DatabaseDSData" not-null="false" cascade="save-update">
+     </many-to-one>
+     <many-to-one name="secondaryDatabaseDS" column="SECONDARYDATASOURCEID" lazy="false" insert="false" update="false" 
+     	class="com.elitecore.netvertexsm.datamanager.datasource.database.data.DatabaseDSData" not-null="false" cascade="save-update">
+     </many-to-one>	
+  </class>
+</hibernate-mapping>

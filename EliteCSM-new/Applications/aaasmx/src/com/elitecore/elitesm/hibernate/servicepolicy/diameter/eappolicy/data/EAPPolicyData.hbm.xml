@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class  name="com.elitecore.elitesm.datamanager.servicepolicy.diameter.eappolicy.data.EAPPolicyData" table="TBLMEAPPOLICY">
+
+		<id name="eapPolicyId" column="EAPPOLICYID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="name" type="StringType"> 
+			<column name="NAME" sql-type="VARCHAR(200)" not-null="true" /> 
+		</property>
+
+		<property name="description" type="StringType"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+
+		<property name="ruleSet" type="StringType"> 
+			<column name="RULESET" sql-type="VARCHAR(2000)" not-null="true" /> 
+		</property>
+
+		<property name="orderNumber" type="long"> 
+			<column name="ORDERNUMBER" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+
+		<property name="status" type="CharType"> 
+			<column name="STATUS" sql-type="CHAR(5)" not-null="true" /> 
+		</property>
+		
+		<property name="caseSensitiveUserIdentity" type="java.lang.Integer"> 
+			<column name="CASESENSITIVEUID" sql-type="NUMBER(2)" not-null="true" /> 
+		</property>
+		
+		<property name="multipleUserIdentity" type="StringType"> 
+			<column name="MULTIPLEUID" sql-type="VARCHAR(250)" not-null="true" /> 
+		</property>
+		
+		<property name="stripUserIdentity" type="StringType"> 
+			<column name="STRIPUSERIDENTITY" sql-type="VARCHAR(10)" not-null="false" /> 
+		</property>
+		
+		<property name="realmPattern" type="StringType"> 
+			<column name="REALMPATTERN" sql-type="VARCHAR(10)" not-null="false" /> 
+		</property>
+		
+		<property name="realmSeparator" type="CharType"> 
+			<column name="REALMSEPARATOR" sql-type="CHAR(1)" not-null="false" /> 
+		</property>
+		
+		<property name="trimUserIdentity" type="StringType"> 
+			<column name="TRIMUSERIDENTITY" sql-type="VARCHAR(10)" not-null="false" /> 
+		</property>
+		
+		<property name="trimPassword" type="StringType"> 
+			<column name="TRIMPASSWORD" sql-type="VARCHAR(10)" not-null="false" /> 
+		</property>
+		
+		<property name="eapConfigId" type="StringType"> 
+			<column name="EAP_ID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="requestType" type="java.lang.Integer" column="REQUESTTYPE" not-null="true"/>
+		<property name="rejectOnCheckItemNotFound" type="StringType" column="REJECTONCHECKITEMNOTFOUND" not-null="true"/>
+		<property name="rejectOnRejectItemNotFound" type="StringType" column="REJECTONREJECTITEMNOTFOUND" not-null="true"/>
+		<property name="actionOnPolicyNotFound" type="StringType" column="ACTIONONPOLICYNOTFOUND" not-null="true"/>
+		<property name="script" type="StringType" column="DRIVERSCRIPT" />
+		<property name="anonymousProfileIdentity" type="StringType" column="ANONYMOUSIDENTITY" not-null="false"/>
+		<property name="gracePolicy" type="StringType" column="GRACEPOLICY" not-null="false"/>
+		<property name="wimax" type="StringType" column="WIMAX" not-null="false"/>
+		<property name="sessionManagement" type="StringType" column="SESSIONMANAGEMENT" not-null="false"/>
+		<property name="diameterConcurrency" type="StringType" column="DIACONCONFIGID" not-null="false"></property>
+		<property name="additionalDiameterConcurrency" type="StringType" column="ADDIDIACONCONFIGID" not-null="false"></property>
+	    <property name="defaultSessionTimeout" type="java.lang.Long" column="DEFAULTSESSIONTIMEOUT" not-null="false"></property>
+		<property name="cui" type="StringType" column="CUI" not-null="false"/>
+		<property name="cuiResponseAttributes" type="StringType" column="CUIRESPONSEATTRIBUTES" not-null="false"/>
+		<property name="advancedCuiExpression" type="StringType" column="ADVANCEDCUIEXPRESSION" not-null="false"></property>
+		<property name="auditUId" type="StringType" column="AUDIT_UID" not-null="false"/>
+		<property name="defaultResponseBehaviorArgument" type="StringType" column="DEFAULTRESPONSEBEHAVIORPARAM" not-null="false"/>
+		<property name="defaultResponseBehaviour" type="StringType" column="DEFAULTRESPONSEBEHAVIORTYPE" not-null="false"/>
+		<bag name="driverList" lazy="false" inverse="false">
+        	<key column="eapPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.eappolicy.data.EAPPolicyAuthDriverRelationData" />
+        </bag>
+        
+        <bag name="eapAdditionalDriverRelDataList" lazy="false" inverse="false">
+        	<key column="eapPolicyId" />
+        	<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.eappolicy.data.EAPPolicyAdditionalDriverRelData" />
+        </bag>
+        
+         <set name="eapResponseAttributesSet" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+  			<key column="EAPPOLICYID"></key>
+  			<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.eappolicy.data.EAPResponseAttributes" />
+		 </set>
+		 
+		 <bag name="eapPolicyPluginConfigList" lazy="false" inverse="true" cascade="delete" order-by="orderNumber">
+		 	<key column="EAPPOLICYID"></key>
+  			<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.diameter.eappolicy.data.EAPPolicyPluginConfig" />
+		 </bag>
+</class>            
+	            
+</hibernate-mapping>
+

@@ -1,0 +1,1307 @@
+***********************************************************************
+						GET OPERATION  
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv?name=diameterClassicCSVAcctDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv.xml?name=diameterClassicCSVAcctDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv?operation=search&name=diameterClassicCSVAcctDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv.xml?operation=search&name=diameterClassicCSVAcctDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+<driver-instance>
+    <name>diameterClassicCSVAcctDriver</name>
+    <description>Created by admin on 01/24/2017 11:00:55 AM</description>
+    <classic-csv-acct-driver>
+        <header>false</header>
+        <delimeter>,</delimeter>
+        <multivalue-delimeter>;</multivalue-delimeter>
+        <enclosing-character>-</enclosing-character>
+        <cdr-timestamp-format>EEE dd MMM yyyy hh:mm:ss aaa</cdr-timestamp-format>
+        <file-name>CDRs.csv</file-name>
+        <location>data/csvfiles</location>
+        <create-blank-file>false</create-blank-file>
+        <prefix-file-name>0:1</prefix-file-name>
+        <default-folder-name>no_nas_ip_address</default-folder-name>
+        <folder-name>0:1</folder-name>
+        <allocating-protocol>NONE</allocating-protocol>
+        <address>127.0.0.1:8080</address>
+        <destination-location>255.255.255.0</destination-location>
+        <username>admin</username>
+        <post-operation>archive</post-operation>
+        <archive-locations>data/csvfiles/archive</archive-locations>
+        <failover-time>3</failover-time>
+        <time-boundry>Daily</time-boundry>
+        <size-based-rolling-unit>1</size-based-rolling-unit>
+        <time-based-rolling-unit>1</time-based-rolling-unit>
+        <record-based-rolling-unit>1</record-based-rolling-unit>
+        <use-dictionary-value>false</use-dictionary-value>
+        <sequence-range>1-100</sequence-range>
+        <sequence-position>suffix</sequence-position>
+        <sequence-globalization>false</sequence-globalization>
+        <cdr-timestamp-header>CDRTimeStamp</cdr-timestamp-header>
+        <cdr-timestamp-position>SUFFIX</cdr-timestamp-position>
+        <classic-csv-field-mappings>
+            <classic-csv-field-mapping>
+                <header>UserName</header>
+                <attribute-id>0:1</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Calling-Station-ID</header>
+                <attribute-id>0:31</attribute-id>
+                <default-value>AB:1C:DE:3F:32:6F</default-value>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-IP-Address</header>
+                <attribute-id>0:4</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-Identifier</header>
+                <attribute-id>0:32</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-Port</header>
+                <attribute-id>0:5</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-Port-ID</header>
+                <attribute-id>0:87</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Session-ID</header>
+                <attribute-id>0:44</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Multi-Session-ID</header>
+                <attribute-id>0:50</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Status-Type</header>
+                <attribute-id>0:40</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Session-Time </header>
+                <attribute-id>0:46</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Input-Octets</header>
+                <attribute-id>0:42</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Output-Octets</header>
+                <attribute-id>0:43</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Input-Gigawards</header>
+                <attribute-id>0:52</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Output-Gigawords</header>
+                <attribute-id>0:53</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Input-Packets</header>
+                <attribute-id>0:47</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Output-Packets</header>
+                <attribute-id>0:48</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Delay-Time</header>
+                <attribute-id>0:41</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Event-Timestamp</header>
+                <attribute-id>0:55</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+        </classic-csv-field-mappings>
+        <classic-csv-strip-pattern-relation-mappings>
+            <classic-csv-strip-pattern-relation-mapping>
+                <attribute-id>0:1</attribute-id>
+                <pattern>suffix</pattern>
+                <separator>-</separator>
+            </classic-csv-strip-pattern-relation-mapping>
+        </classic-csv-strip-pattern-relation-mappings>
+    </classic-csv-acct-driver>
+</driver-instance>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL #URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv?name=diameterClassicCSVAcctDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv.json?name=diameterClassicCSVAcctDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv?operation=search&name=diameterClassicCSVAcctDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv.json?operation=search&name=diameterClassicCSVAcctDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+   "name":"diameterClassicCSVAcctDriver",
+   "description":"Created by admin on 01/24/2017 11:00:55 AM",
+   "classic-csv-acct-driver":[
+      {
+         "header":"false",
+         "delimeter":",",
+         "multivalue-delimeter":";",
+         "enclosing-character":"-",
+         "cdr-timestamp-format":"EEE dd MMM yyyy hh:mm:ss aaa",
+         "file-name":"CDRs.csv",
+         "location":"data/csvfiles",
+         "create-blank-file":"false",
+         "prefix-file-name":"0:1",
+         "default-folder-name":"no_nas_ip_address",
+         "folder-name":"0:1",
+         "allocating-protocol":"NONE",
+         "address":"127.0.0.1:8080",
+         "destination-location":"255.255.255.0",
+         "username":"admin",
+         "post-operation":"archive",
+         "archive-locations":"data/csvfiles/archive",
+         "failover-time":3,
+         "time-boundry":"Daily",
+         "size-based-rolling-unit":1,
+         "time-based-rolling-unit":1,
+         "record-based-rolling-unit":1,
+         "use-dictionary-value":"false",
+         "sequence-range":"1-100",
+         "sequence-position":"suffix",
+         "sequence-globalization":"false",
+         "cdr-timestamp-header":"CDRTimeStamp",
+         "cdr-timestamp-position":"SUFFIX",
+         "classic-csv-field-mappings":[
+            {
+               "header":"UserName",
+               "attribute-id":"0:1",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Calling-Station-ID",
+               "attribute-id":"0:31",
+               "default-value":"AB:1C:DE:3F:32:6F",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-IP-Address",
+               "attribute-id":"0:4",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-Identifier",
+               "attribute-id":"0:32",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-Port",
+               "attribute-id":"0:5",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-Port-ID",
+               "attribute-id":"0:87",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Session-ID",
+               "attribute-id":"0:44",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Multi-Session-ID",
+               "attribute-id":"0:50",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Status-Type",
+               "attribute-id":"0:40",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Session-Time ",
+               "attribute-id":"0:46",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Input-Octets",
+               "attribute-id":"0:42",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Output-Octets",
+               "attribute-id":"0:43",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Input-Gigawards",
+               "attribute-id":"0:52",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Output-Gigawords",
+               "attribute-id":"0:53",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Input-Packets",
+               "attribute-id":"0:47",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Output-Packets",
+               "attribute-id":"0:48",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Delay-Time",
+               "attribute-id":"0:41",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Event-Timestamp",
+               "attribute-id":"0:55",
+               "use-dictionary-value":"false"
+            }
+         ],
+         "classic-csv-strip-pattern-relation-mappings":[
+            {
+               "attribute-id":"0:1",
+               "pattern":"suffix",
+               "separator":"-"
+            }
+         ]
+      }
+   ]
+}
+***********************************************************************
+					CREATE OPERATION  (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+Note : - For inserting Default Value in Classic CSV field Mapping  Details use below format.
+
+	<default-value>AB:1C:DE:3F:32:6F</default-value> 
+	
+Content Type : application/xml
+
+Body :
+<driver-instance>
+    <name>diameterClassicCSVAcctDriver</name>
+    <description>Created by admin on 01/24/2017 11:00:55 AM</description>
+    <classic-csv-acct-driver>
+        <header>false</header>
+        <delimeter>,</delimeter>
+        <multivalue-delimeter>;</multivalue-delimeter>
+        <enclosing-character>-</enclosing-character>
+        <cdr-timestamp-format>EEE dd MMM yyyy hh:mm:ss aaa</cdr-timestamp-format>
+        <file-name>CDRs.csv</file-name>
+        <location>data/csvfiles</location>
+        <create-blank-file>false</create-blank-file>
+        <prefix-file-name>0:1</prefix-file-name>
+        <default-folder-name>no_nas_ip_address</default-folder-name>
+        <folder-name>0:1</folder-name>
+        <allocating-protocol>NONE</allocating-protocol>
+        <address>127.0.0.1:8080</address>
+        <destination-location>255.255.255.0</destination-location>
+        <username>admin</username>
+        <post-operation>archive</post-operation>
+        <archive-locations>data/csvfiles/archive</archive-locations>
+        <failover-time>3</failover-time>
+        <time-boundry>Daily</time-boundry>
+        <size-based-rolling-unit>1</size-based-rolling-unit>
+        <time-based-rolling-unit>1</time-based-rolling-unit>
+        <record-based-rolling-unit>1</record-based-rolling-unit>
+        <use-dictionary-value>false</use-dictionary-value>
+        <sequence-range>1-100</sequence-range>
+        <sequence-position>suffix</sequence-position>
+        <sequence-globalization>false</sequence-globalization>
+        <cdr-timestamp-header>CDRTimeStamp</cdr-timestamp-header>
+        <cdr-timestamp-position>SUFFIX</cdr-timestamp-position>
+        <classic-csv-field-mappings>
+            <classic-csv-field-mapping>
+                <header>UserName</header>
+                <attribute-id>0:1</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Calling-Station-ID</header>
+                <attribute-id>0:31</attribute-id>
+                <default-value>AB:1C:DE:3F:32:6F</default-value>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-IP-Address</header>
+                <attribute-id>0:4</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-Identifier</header>
+                <attribute-id>0:32</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-Port</header>
+                <attribute-id>0:5</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-Port-ID</header>
+                <attribute-id>0:87</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Session-ID</header>
+                <attribute-id>0:44</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Multi-Session-ID</header>
+                <attribute-id>0:50</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Status-Type</header>
+                <attribute-id>0:40</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Session-Time </header>
+                <attribute-id>0:46</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Input-Octets</header>
+                <attribute-id>0:42</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Output-Octets</header>
+                <attribute-id>0:43</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Input-Gigawards</header>
+                <attribute-id>0:52</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Output-Gigawords</header>
+                <attribute-id>0:53</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Input-Packets</header>
+                <attribute-id>0:47</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Output-Packets</header>
+                <attribute-id>0:48</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Delay-Time</header>
+                <attribute-id>0:41</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Event-Timestamp</header>
+                <attribute-id>0:55</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+        </classic-csv-field-mappings>
+        <classic-csv-strip-pattern-relation-mappings>
+            <classic-csv-strip-pattern-relation-mapping>
+                <attribute-id>0:1</attribute-id>
+                <pattern>suffix</pattern>
+                <separator>-</separator>
+            </classic-csv-strip-pattern-relation-mapping>
+        </classic-csv-strip-pattern-relation-mappings>
+    </classic-csv-acct-driver>
+</driver-instance>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Classic CSV Acct Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+Note : - For inserting Default Value in Classic CSV field Mapping  Details use below format.
+
+		"default-value":"AB:1C:DE:3F:32:6F"
+		
+Content Type : application/json
+
+Body :
+{
+   "name":"diameterClassicCSVAcctDriver",
+   "description":"Created by admin on 01/24/2017 11:00:55 AM",
+   "classic-csv-acct-driver":[
+      {
+         "header":"false",
+         "delimeter":",",
+         "multivalue-delimeter":";",
+         "enclosing-character":"-",
+         "cdr-timestamp-format":"EEE dd MMM yyyy hh:mm:ss aaa",
+         "file-name":"CDRs.csv",
+         "location":"data/csvfiles",
+         "create-blank-file":"false",
+         "prefix-file-name":"0:1",
+         "default-folder-name":"no_nas_ip_address",
+         "folder-name":"0:1",
+         "allocating-protocol":"NONE",
+         "address":"127.0.0.1:8080",
+         "destination-location":"255.255.255.0",
+         "username":"admin",
+         "post-operation":"archive",
+         "archive-locations":"data/csvfiles/archive",
+         "failover-time":3,
+         "time-boundry":"Daily",
+         "size-based-rolling-unit":1,
+         "time-based-rolling-unit":1,
+         "record-based-rolling-unit":1,
+         "use-dictionary-value":"false",
+         "sequence-range":"1-100",
+         "sequence-position":"suffix",
+         "sequence-globalization":"false",
+         "cdr-timestamp-header":"CDRTimeStamp",
+         "cdr-timestamp-position":"SUFFIX",
+         "classic-csv-field-mappings":[
+            {
+               "header":"UserName",
+               "attribute-id":"0:1",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Calling-Station-ID",
+               "attribute-id":"0:31",
+               "default-value":"AB:1C:DE:3F:32:6F",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-IP-Address",
+               "attribute-id":"0:4",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-Identifier",
+               "attribute-id":"0:32",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-Port",
+               "attribute-id":"0:5",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-Port-ID",
+               "attribute-id":"0:87",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Session-ID",
+               "attribute-id":"0:44",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Multi-Session-ID",
+               "attribute-id":"0:50",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Status-Type",
+               "attribute-id":"0:40",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Session-Time ",
+               "attribute-id":"0:46",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Input-Octets",
+               "attribute-id":"0:42",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Output-Octets",
+               "attribute-id":"0:43",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Input-Gigawards",
+               "attribute-id":"0:52",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Output-Gigawords",
+               "attribute-id":"0:53",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Input-Packets",
+               "attribute-id":"0:47",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Output-Packets",
+               "attribute-id":"0:48",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Delay-Time",
+               "attribute-id":"0:41",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Event-Timestamp",
+               "attribute-id":"0:55",
+               "use-dictionary-value":"false"
+            }
+         ],
+         "classic-csv-strip-pattern-relation-mappings":[
+            {
+               "attribute-id":"0:1",
+               "pattern":"suffix",
+               "separator":"-"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Classic CSV Acct Driver created successfully</response-message>
+	</response>
+</response-detail>
+***********************************************************************
+                    CREATE OPERATION (BULK CREATION)
+***********************************************************************
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+Note : - For inserting Default Value in Classic CSV field Mapping  Details use below format.
+
+	<default-value>AB:1C:DE:3F:32:6F</default-value>
+	
+Content Type : application/xml
+
+Body :
+<list>
+    <driver-instance>
+        <name>diameterClassicCSVAcctDriver</name>
+        <description>Created by admin on 01/24/2017 11:00:55 AM</description>
+        <classic-csv-acct-driver>
+            <header>false</header>
+            <delimeter>,</delimeter>
+            <multivalue-delimeter>;</multivalue-delimeter>
+            <enclosing-character>-</enclosing-character>
+            <cdr-timestamp-format>EEE dd MMM yyyy hh:mm:ss aaa</cdr-timestamp-format>
+            <file-name>CDRs.csv</file-name>
+            <location>data/csvfiles</location>
+            <create-blank-file>false</create-blank-file>
+            <prefix-file-name>0:1</prefix-file-name>
+            <default-folder-name>no_nas_ip_address</default-folder-name>
+            <folder-name>0:1</folder-name>
+            <allocating-protocol>NONE</allocating-protocol>
+            <address>127.0.0.1:8080</address>
+            <destination-location>255.255.255.0</destination-location>
+            <username>admin</username>
+            <post-operation>archive</post-operation>
+            <archive-locations>data/csvfiles/archive</archive-locations>
+            <failover-time>3</failover-time>
+            <time-boundry>Daily</time-boundry>
+            <size-based-rolling-unit>1</size-based-rolling-unit>
+            <time-based-rolling-unit>1</time-based-rolling-unit>
+            <record-based-rolling-unit>1</record-based-rolling-unit>
+            <use-dictionary-value>false</use-dictionary-value>
+            <sequence-range>1-100</sequence-range>
+            <sequence-position>suffix</sequence-position>
+            <sequence-globalization>false</sequence-globalization>
+            <cdr-timestamp-header>CDRTimeStamp</cdr-timestamp-header>
+            <cdr-timestamp-position>SUFFIX</cdr-timestamp-position>
+            <classic-csv-field-mappings>
+                <classic-csv-field-mapping>
+                    <header>UserName</header>
+                    <attribute-id>0:1</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Calling-Station-ID</header>
+                    <attribute-id>0:31</attribute-id>
+                    <default-value>AB:1C:DE:3F:32:6F</default-value>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>NAS-IP-Address</header>
+                    <attribute-id>0:4</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>NAS-Identifier</header>
+                    <attribute-id>0:32</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>NAS-Port</header>
+                    <attribute-id>0:5</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>NAS-Port-ID</header>
+                    <attribute-id>0:87</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Acct-Session-ID</header>
+                    <attribute-id>0:44</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Acct-Multi-Session-ID</header>
+                    <attribute-id>0:50</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Acct-Status-Type</header>
+                    <attribute-id>0:40</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Acct-Session-Time </header>
+                    <attribute-id>0:46</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Acct-Input-Octets</header>
+                    <attribute-id>0:42</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Acct-Output-Octets</header>
+                    <attribute-id>0:43</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Acct-Input-Gigawards</header>
+                    <attribute-id>0:52</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Acct-Output-Gigawords</header>
+                    <attribute-id>0:53</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Acct-Input-Packets</header>
+                    <attribute-id>0:47</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Acct-Output-Packets</header>
+                    <attribute-id>0:48</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Acct-Delay-Time</header>
+                    <attribute-id>0:41</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+                <classic-csv-field-mapping>
+                    <header>Event-Timestamp</header>
+                    <attribute-id>0:55</attribute-id>
+                    <use-dictionary-value>false</use-dictionary-value>
+                </classic-csv-field-mapping>
+            </classic-csv-field-mappings>
+            <classic-csv-strip-pattern-relation-mappings>
+                <classic-csv-strip-pattern-relation-mapping>
+                    <attribute-id>0:1</attribute-id>
+                    <pattern>suffix</pattern>
+                    <separator>-</separator>
+                </classic-csv-strip-pattern-relation-mapping>
+            </classic-csv-strip-pattern-relation-mappings>
+        </classic-csv-acct-driver>
+    </driver-instance>
+</list>
+
+Response :
+ 
+ <response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Classic CSV Acct Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+Note : - For inserting Default Value in Classic CSV field Mapping  Details use below format.
+
+		"default-value":"AB:1C:DE:3F:32:6F"
+
+Content Type : application/json
+
+Body :
+{
+   "list":[
+      {
+         "name":"diameterClassicCSVAcctDriver",
+         "description":"Created by admin on 01/24/2017 11:00:55 AM",
+         "classic-csv-acct-driver":[
+            {
+               "header":"false",
+               "delimeter":",",
+               "multivalue-delimeter":";",
+               "enclosing-character":"-",
+               "cdr-timestamp-format":"EEE dd MMM yyyy hh:mm:ss aaa",
+               "file-name":"CDRs.csv",
+               "location":"data/csvfiles",
+               "create-blank-file":"false",
+               "prefix-file-name":"0:1",
+               "default-folder-name":"no_nas_ip_address",
+               "folder-name":"0:1",
+               "allocating-protocol":"NONE",
+               "address":"127.0.0.1:8080",
+               "destination-location":"255.255.255.0",
+               "username":"admin",
+               "post-operation":"archive",
+               "archive-locations":"data/csvfiles/archive",
+               "failover-time":3,
+               "time-boundry":"Daily",
+               "size-based-rolling-unit":1,
+               "time-based-rolling-unit":1,
+               "record-based-rolling-unit":1,
+               "use-dictionary-value":"false",
+               "sequence-range":"1-100",
+               "sequence-position":"suffix",
+               "sequence-globalization":"false",
+               "cdr-timestamp-header":"CDRTimeStamp",
+               "cdr-timestamp-position":"SUFFIX",
+               "classic-csv-field-mappings":[
+                  {
+                     "header":"UserName",
+                     "attribute-id":"0:1",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Calling-Station-ID",
+                     "attribute-id":"0:31",
+                     "default-value":"AB:1C:DE:3F:32:6F",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"NAS-IP-Address",
+                     "attribute-id":"0:4",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"NAS-Identifier",
+                     "attribute-id":"0:32",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"NAS-Port",
+                     "attribute-id":"0:5",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"NAS-Port-ID",
+                     "attribute-id":"0:87",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Acct-Session-ID",
+                     "attribute-id":"0:44",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Acct-Multi-Session-ID",
+                     "attribute-id":"0:50",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Acct-Status-Type",
+                     "attribute-id":"0:40",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Acct-Session-Time ",
+                     "attribute-id":"0:46",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Acct-Input-Octets",
+                     "attribute-id":"0:42",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Acct-Output-Octets",
+                     "attribute-id":"0:43",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Acct-Input-Gigawards",
+                     "attribute-id":"0:52",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Acct-Output-Gigawords",
+                     "attribute-id":"0:53",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Acct-Input-Packets",
+                     "attribute-id":"0:47",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Acct-Output-Packets",
+                     "attribute-id":"0:48",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Acct-Delay-Time",
+                     "attribute-id":"0:41",
+                     "use-dictionary-value":"false"
+                  },
+                  {
+                     "header":"Event-Timestamp",
+                     "attribute-id":"0:55",
+                     "use-dictionary-value":"false"
+                  }
+               ],
+               "classic-csv-strip-pattern-relation-mappings":[
+                  {
+                     "attribute-id":"0:1",
+                     "pattern":"suffix",
+                     "separator":"-"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+Response :
+ 
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Classic CSV Acct Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv?name=diameterClassicCSVAcctDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv?operation=update&name=diameterClassicCSVAcctDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+Note : - For updating Default Value in Classic CSV field Mapping  Details use below format.
+
+	<default-value>AB:1C:DE:3F:32:6F</default-value>
+
+Content Type : application/xml
+
+Body     :
+<driver-instance>
+    <name>diameterClassicCSVAcctDriver</name>
+    <description>Created by admin on 01/24/2017 11:00:55 AM</description>
+    <classic-csv-acct-driver>
+        <header>false</header>
+        <delimeter>,</delimeter>
+        <multivalue-delimeter>;</multivalue-delimeter>
+        <enclosing-character>-</enclosing-character>
+        <cdr-timestamp-format>EEE dd MMM yyyy hh:mm:ss aaa</cdr-timestamp-format>
+        <file-name>CDRs.csv</file-name>
+        <location>data/csvfiles</location>
+        <create-blank-file>false</create-blank-file>
+        <prefix-file-name>0:1</prefix-file-name>
+        <default-folder-name>no_nas_ip_address</default-folder-name>
+        <folder-name>0:1</folder-name>
+        <allocating-protocol>NONE</allocating-protocol>
+        <address>127.0.0.1:8080</address>
+        <destination-location>255.255.255.0</destination-location>
+        <username>admin</username>
+        <post-operation>archive</post-operation>
+        <archive-locations>data/csvfiles/archive</archive-locations>
+        <failover-time>3</failover-time>
+        <time-boundry>Daily</time-boundry>
+        <size-based-rolling-unit>1</size-based-rolling-unit>
+        <time-based-rolling-unit>1</time-based-rolling-unit>
+        <record-based-rolling-unit>1</record-based-rolling-unit>
+        <use-dictionary-value>false</use-dictionary-value>
+        <sequence-range>1-100</sequence-range>
+        <sequence-position>suffix</sequence-position>
+        <sequence-globalization>false</sequence-globalization>
+        <cdr-timestamp-header>CDRTimeStamp</cdr-timestamp-header>
+        <cdr-timestamp-position>SUFFIX</cdr-timestamp-position>
+        <classic-csv-field-mappings>
+            <classic-csv-field-mapping>
+                <header>UserName</header>
+                <attribute-id>0:1</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Calling-Station-ID</header>
+                <attribute-id>0:31</attribute-id>
+                <default-value>AB:1C:DE:3F:32:6F</default-value>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-IP-Address</header>
+                <attribute-id>0:4</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-Identifier</header>
+                <attribute-id>0:32</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-Port</header>
+                <attribute-id>0:5</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>NAS-Port-ID</header>
+                <attribute-id>0:87</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Session-ID</header>
+                <attribute-id>0:44</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Multi-Session-ID</header>
+                <attribute-id>0:50</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Status-Type</header>
+                <attribute-id>0:40</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Session-Time </header>
+                <attribute-id>0:46</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Input-Octets</header>
+                <attribute-id>0:42</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Output-Octets</header>
+                <attribute-id>0:43</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Input-Gigawards</header>
+                <attribute-id>0:52</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Output-Gigawords</header>
+                <attribute-id>0:53</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Input-Packets</header>
+                <attribute-id>0:47</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Output-Packets</header>
+                <attribute-id>0:48</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Acct-Delay-Time</header>
+                <attribute-id>0:41</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+            <classic-csv-field-mapping>
+                <header>Event-Timestamp</header>
+                <attribute-id>0:55</attribute-id>
+                <use-dictionary-value>false</use-dictionary-value>
+            </classic-csv-field-mapping>
+        </classic-csv-field-mappings>
+        <classic-csv-strip-pattern-relation-mappings>
+            <classic-csv-strip-pattern-relation-mapping>
+                <attribute-id>0:1</attribute-id>
+                <pattern>suffix</pattern>
+                <separator>-</separator>
+            </classic-csv-strip-pattern-relation-mapping>
+        </classic-csv-strip-pattern-relation-mappings>
+    </classic-csv-acct-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Classic CSV Acct Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+Note : - For updating Default Value in Classic CSV field Mapping  Details use below format.
+
+		"default-value":"AB:1C:DE:3F:32:6F"
+		
+Content Type : application/json
+
+Body     :
+{
+   "name":"diameterClassicCSVAcctDriver",
+   "description":"Created by admin on 01/24/2017 11:00:55 AM",
+   "classic-csv-acct-driver":[
+      {
+         "header":"false",
+         "delimeter":",",
+         "multivalue-delimeter":";",
+         "enclosing-character":"-",
+         "cdr-timestamp-format":"EEE dd MMM yyyy hh:mm:ss aaa",
+         "file-name":"CDRs.csv",
+         "location":"data/csvfiles",
+         "create-blank-file":"false",
+         "prefix-file-name":"0:1",
+         "default-folder-name":"no_nas_ip_address",
+         "folder-name":"0:1",
+         "allocating-protocol":"NONE",
+         "address":"127.0.0.1:8080",
+         "destination-location":"255.255.255.0",
+         "username":"admin",
+         "post-operation":"archive",
+         "archive-locations":"data/csvfiles/archive",
+         "failover-time":3,
+         "time-boundry":"Daily",
+         "size-based-rolling-unit":1,
+         "time-based-rolling-unit":1,
+         "record-based-rolling-unit":1,
+         "use-dictionary-value":"false",
+         "sequence-range":"1-100",
+         "sequence-position":"suffix",
+         "sequence-globalization":"false",
+         "cdr-timestamp-header":"CDRTimeStamp",
+         "cdr-timestamp-position":"SUFFIX",
+         "classic-csv-field-mappings":[
+            {
+               "header":"UserName",
+               "attribute-id":"0:1",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Calling-Station-ID",
+               "attribute-id":"0:31",
+               "default-value":"AB:1C:DE:3F:32:6F",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-IP-Address",
+               "attribute-id":"0:4",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-Identifier",
+               "attribute-id":"0:32",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-Port",
+               "attribute-id":"0:5",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"NAS-Port-ID",
+               "attribute-id":"0:87",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Session-ID",
+               "attribute-id":"0:44",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Multi-Session-ID",
+               "attribute-id":"0:50",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Status-Type",
+               "attribute-id":"0:40",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Session-Time ",
+               "attribute-id":"0:46",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Input-Octets",
+               "attribute-id":"0:42",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Output-Octets",
+               "attribute-id":"0:43",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Input-Gigawards",
+               "attribute-id":"0:52",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Output-Gigawords",
+               "attribute-id":"0:53",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Input-Packets",
+               "attribute-id":"0:47",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Output-Packets",
+               "attribute-id":"0:48",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Acct-Delay-Time",
+               "attribute-id":"0:41",
+               "use-dictionary-value":"false"
+            },
+            {
+               "header":"Event-Timestamp",
+               "attribute-id":"0:55",
+               "use-dictionary-value":"false"
+            }
+         ],
+         "classic-csv-strip-pattern-relation-mappings":[
+            {
+               "attribute-id":"0:1",
+               "pattern":"suffix",
+               "separator":"-"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Classic CSV Acct Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv?name=diameterClassicCSVAcctDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv?operation=delete&name=diameterClassicCSVAcctDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/classiccsv/diameterClassicCSVAcctDriver?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Classic CSV Acct Driver(s)  deleted successfully</response-message>
+	</response>
+</response-detail>
+
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

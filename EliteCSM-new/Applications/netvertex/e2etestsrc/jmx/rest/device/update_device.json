@@ -1,0 +1,13 @@
+{
+  "id": "rest_tac_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "tac": 22222222,
+  "brand": "Apple",
+  "deviceModel": "6s Plus",
+  "hardwareType": "SmartPhone",
+  "os": "iOS",
+  "year": 2017,
+  "additionalInformation": "This is updated",
+  "groupNames": "DefaultGroup"
+}

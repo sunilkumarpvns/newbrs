@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.ConfigurationProfileScriptData" table="TBLMCONFIGPROFILESCRIPT">
+		<id name="profileScriptId" type="string">
+			<column name="PROFILESCRIPTID" sql-type="CHAR(7)"></column>
+		</id>
+		<property name="configurationProfileId" type="string">
+			<column name="CONFIGURATIONPROFILEID" sql-type="CHAR(7)"></column>
+		</property>
+		<property name="netScript" type="string">
+			<column name="NETSCRIPT" sql-type="VARCHAR(2000)"></column>
+		</property>
+		<property name="executionMode" type="string">
+			<column name="EXECUTIONMODE" sql-type="CHAR(1)"></column>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendor-id="0" vendor-name="standard">
+
+	<attribute id="1" name="cause" type="octet">
+		<supported-values>
+			<value id="59" name="system-failure" />
+			<value id="60" name="the-transmit-buffers-are-becoming-full" />
+			<value id="61" name="the-receive-buffers-are-becoming-full" />
+			<value id="62" name="another-node-is-about-to-go-down" />
+			<value id="63" name="this-node-is-about-to-go-down" />
+			<value id="128" name="request-accepted" />
+			<value id="177" name="CDR-decoding-error" />
+			<value id="193" name="invalid-message-format" />
+			<value id="198" name="version-not-supported" />
+			<value id="199" name="no-resources-available" />
+			<value id="200" name="service-not-supported" />
+			<value id="201" name="mandatory-IE-incorrect" />
+			<value id="202" name="mandatory-IE-missing" />
+			<value id="203" name="optional-IE-incorrect" />
+			<value id="204" name="system-failure" />
+			<value id="252" name="request-related-to-possibly-duplicated-packets-already-fulfilled" />
+			<value id="253" name="request-already-fulfilled" />
+			<value id="254" name="sequence-numbers-of-released/cancelled-packets-IE-incorrect" />
+			<value id="255" name="request-not-fulfilled" />
+			<value id="999" name="this-node-is-about-to-go-down" />
+			<value id="999" name="another-node-is-about-to-go-down" />
+			<value id="999" name="receive-buffers-becoming-full" />
+			<value id="999" name="send-buffers-becoming-full" />
+		</supported-values>
+	</attribute>
+	<attribute id="14" name="recovery" type="octet"/>
+	<attribute id="126" name="packet-transfer-command" type="octet">
+		<supported-values>
+			<value id="1" name="send-data-record-packet" />
+			<value id="2" name="send-possibly-duplicated-data-record-packet" />
+			<value id="3" name="cancel-data-record-packet" />
+			<value id="4" name="release-data-record-packet" />
+		</supported-values>
+	</attribute>
+	<attribute id="127" name="charging-ID" type="octet"/>
+	<attribute id="249" name="sequence-no-of-released-packets" type="sequence"/>
+	<attribute id="250" name="sequence-no-of-cancelled-packets" type="sequence"/>
+	<attribute id="251" name="node-address" type="ip-address"/>
+	<attribute id="252" name="data-record-packet" type="cdr"/>
+	<attribute id="253" name="requests-responded" type="sequence"/>
+	<attribute id="254" name="address-of-recommended-node" type="ip-address"/>
+	<attribute id="255" name="private-extension" type=""/>
+	
+</attribute-list>

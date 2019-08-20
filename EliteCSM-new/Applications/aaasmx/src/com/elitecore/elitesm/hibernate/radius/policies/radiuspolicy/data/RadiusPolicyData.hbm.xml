@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.radius.policies.radiuspolicy.data.RadiusPolicyData" table="TBLMRADIUSPOLICY" >
+			<id name="radiusPolicyId" column="RADIUSPOLICYID" type="StringType">
+				<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"> 
+				</generator>
+			</id>
+			
+			<property name="description" type="StringType">	
+				<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"/>	
+			</property>
+			
+		    <!--
+			
+ 			<property name="lastUpdated" type="date">
+				<column name="LASTMODIFIEDDATE" sql-type="DATE" not-null="true"/>
+ 				<column name="LASTMODIFIEDDATE" sql-type="com.domain.HibernateUTC$DateType" not-null="true"/>  
+			</property>  -->
+			
+	 		<property name="lastUpdated" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" not-null="true">
+			</property> 
+			
+			<property name="name" type="PolicyCaseSensitivityType">
+				<column name="NAME" sql-type="VARCHAR(50)" not-null="true"/>
+			</property>
+
+	 		<property name="createDate" type="java.sql.Timestamp" column="CREATEDATE" not-null="true">
+			</property> 
+	
+			<property name="lastModifiedByStaffId" type="StringType">
+				<column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"/>
+			</property>
+			
+			<property name="commonStatusId" type="CharType">
+				<column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="true"/>
+			</property>
+			
+			<property name="systemGenerated" type="CharType">
+				<column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+			</property>
+
+			<property name="createdByStaffId" type="StringType">
+				<column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"/>
+			</property>
+
+	 		<property name="statusChangeDate" type="java.sql.Timestamp" column="STATUSCHANGEDATE" not-null="true">
+			</property> 
+
+			<property name="editable" type="CharType">
+				<column name="EDITABLE" sql-type="CHAR(1)" not-null="false"/>
+			</property>
+			
+			<property name="checkItem" type="StringType">
+				<column name="CHECKITEM" sql-type="VARCHAR(4000)" />
+			</property>
+			<property name="addItem" type="StringType">
+				<column name="ADDITEM" sql-type="VARCHAR(4000)"/>
+			</property>
+			<property name="rejectItem" type="StringType">
+				<column name="REJECTITEM" sql-type="VARCHAR(4000)"/>
+			</property>
+			<property name="replyItem" type="StringType">
+				<column name="REPLYITEM" sql-type="VARCHAR(4000)" />
+			</property>
+
+			<many-to-one name="commonStatus" class="com.elitecore.elitesm.datamanager.core.base.data.CommonStatusData" column="COMMONSTATUSID" insert="false" update="false" not-null="true" lazy="false"/>
+			
+			<bag name="radiusPolicyTimePeriodList" inverse="true" lazy="false" order-by="orderNumber">
+				<key column="radiusPolicyId" ></key>
+				<one-to-many class="com.elitecore.elitesm.datamanager.radius.policies.radiuspolicy.data.RadiusPolicyTimePeriod"  />
+			</bag>
+			
+			<property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	  	   </property>
+		</class>
+</hibernate-mapping>          

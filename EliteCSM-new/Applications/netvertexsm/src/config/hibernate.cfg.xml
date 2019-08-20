@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+
+<hibernate-configuration>
+
+<session-factory>
+
+	<property name="hibernate.jdbc.batch_size">0</property>
+	<property name="hibernate.jdbc.use_streams_for_binary">true</property>
+	
+	
+    <!-- minimum connections in pool -->
+	<property name="hibernate.c3p0.min_size">5</property>
+	
+	<!-- maximum connections in pool -->
+	<property name="hibernate.c3p0.max_size">20</property>
+	
+	<!-- no. of seconds of time, the unused connections will be remain pooled -->
+	<property name="hibernate.c3p0.timeout">180</property>
+	
+	<!-- maximum no. of cursors will be opened for the conection -->
+	<property name="hibernate.c3p0.max_statements">50</property>
+	
+	<!-- no. of connections to be acquired when connection pool is exhausted -->
+	<property name="hibernate.c3p0.acquire_increment">1</property>
+	
+	<property name="hibernate.jdbc.use_get_generated_keys">true</property>
+	
+	       
+     
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/staff/data/StaffData.hbm.xml"/>        
+    <!-- <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/staff/data/StaffRoleRelData.hbm.xml"/>   -->
+    
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/systemparameter/data/SystemParameterData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/systemparameter/data/SystemParameterValuePoolData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/systemparameter/data/PasswordSelectionPolicyData.hbm.xml"/>
+    
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/accessgroup/data/RoleData.hbm.xml"/>
+	<mapping resource="com/elitecore/netvertexsm/hibernate/core/system/accessgroup/data/RoleActionRelData.hbm.xml"/> 
+    
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/profilemanagement/data/ActionData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/profilemanagement/data/ActionTypeData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/profilemanagement/data/BISModelData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/profilemanagement/data/BISModelModuleRelData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/profilemanagement/data/BISModuleData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/profilemanagement/data/BISModuleSubBISModuleRelData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/profilemanagement/data/BISModuleTypeData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/profilemanagement/data/SubBISModuleActionRelData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/profilemanagement/data/SubBISModuleData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/core/system/profilemanagement/data/SubBISModuleTypeData.hbm.xml"/>
+    
+    <!-- Gateway related Mapping -->
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/gateway/data/GatewayData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/gateway/data/GatewayLocationData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/gateway/data/RadiusGateway.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/gateway/data/DiameterGateway.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/attrmapping/data/PacketMappingData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/attrmapping/data/AttributeMappingData.hbm.xml"/>
+        
+    <!-- Gateway Profile related Mapping -->    
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/GatewayProfileData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/VendorData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/RadiusProfile.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/DiameterProfile.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/RadiusAttributeMap.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/RadiusValueMap.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/DiameterAttributeMap.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/DiameterValueMap.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/DefaultAttributeMapping.hbm.xml" />
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/DiameterPacketMap.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/GatewayProfilePacketMap.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/PCCRuleMapping.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/GroovyScriptData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/pccrulemapping/data/RuleMappingData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/gateway/profile/data/GatewayProfileRuleMappingData.hbm.xml"/>
+    
+           
+    <!-- BI/CEA Summary related Mapping -->
+    <mapping resource="com/elitecore/netvertexsm/hibernate/bitemplate/data/BITemplate.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/bitemplate/data/BISubKey.hbm.xml"/>
+    
+    <!-- Datasource related Mapping -->
+    <mapping resource="com/elitecore/netvertexsm/hibernate/datasource/database/data/DatabaseDS.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/datasource/ldap/data/LDAPBaseDnDetail.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/datasource/ldap/data/LDAPDatasouce.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/datasource/esiradius/data/EsiRadius.hbm.xml"/>    
+
+	<!-- Session related Mapping -->
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/sessionmgr/data/SessionConf.hbm.xml"/>
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/sessionmgr/data/SessionFieldMap.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/sessionmgr/data/CoreSessionData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/sessionmgr/data/SessionRuleData.hbm.xml"/>
+    
+    <!-- Driver related Mapping -->
+
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/drivers/data/DriverInstance.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/drivers/data/DriverType.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/drivers/data/ServiceType.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/drivers/data/LogicalNameValuePool.hbm.xml"/>
+    
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/spinterface/ldapinterface/data/LDAPSPInterface.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/spinterface/ldapinterface/data/LDAPFieldMap.hbm.xml"/>        
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/spinterface/dbinterface/data/DatabaseSPInterface.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/spinterface/dbinterface/data/DBFieldMap.hbm.xml"/>
+        
+     <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/drivers/csvdriver/data/CSVDriverData.hbm.xml"/>
+     <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/drivers/csvdriver/data/CSVFieldMapData.hbm.xml"/>
+  	 <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/drivers/csvdriver/data/CSVStripFieldMapData.hbm.xml"/>	
+  	
+  	<mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/drivers/dbcdrdriver/data/DBCDRDriverData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/drivers/dbcdrdriver/data/DBCDRFieldMappingData.hbm.xml"/>
+     	
+  	<mapping resource="com/elitecore/netvertexsm/hibernate/systemaudit/Data/SystemAuditData.hbm.xml"/>
+    
+	<!-- mapping entry for standard master data -->
+	<mapping resource="com/elitecore/netvertexsm/hibernate/radius/system/standardmaster/data/StandardMasterData.hbm.xml"/>
+	<mapping resource="com/elitecore/netvertexsm/hibernate/radius/system/standardmaster/data/StandardMasterTypeData.hbm.xml"/>
+	
+	<!-- server related mapping -->
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetConfigParamValuePoolData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetConfigurationData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetConfigurationInstanceData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetConfigurationParameterData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetConfigurationValuesData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServerConfigMapData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServerInstanceConfigMapTypeData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServerInstanceConfMapData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServerInstanceData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServerInstanceStartupConfig.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServerTypeData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServerVersionData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServiceConfigMapData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServiceInstanceConfigMapTypeData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServiceInstanceConfMapData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServiceInstanceData.hbm.xml"/>
+    <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/data/NetServiceTypeData.hbm.xml"/>
+    
+    <!-- mapping entry for Alert config -->
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/alert/data/AlertFileListener.hbm.xml"/>
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/alert/data/AlertType.hbm.xml"/>
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/alert/data/AlertListener.hbm.xml"/>
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/alert/data/AlertListenerType.hbm.xml"/>
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/alert/data/AlertTrapListener.hbm.xml"/>
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/alert/data/AlertListenerRel.hbm.xml"/>
+    
+    <!-- Service Policy related mapping -->
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servicepolicy/pcrfservicepolicy/data/PCRFServicePolicy.hbm.xml"/>
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servicepolicy/pcrfservicepolicy/data/PCRFPolicyCDRDriverRelData.hbm.xml"/>
+	<mapping resource="com/elitecore/netvertexsm/hibernate/servicepolicy/pcrfservicepolicy/data/PCRFPolicySyGatewayRelData.hbm.xml"/>
+	
+	 <!-- Radius Dictionary -->
+	 <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/dictionary/data/DataTypeData.hbm.xml"/>
+	 <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/dictionary/radius/data/RadiusDictionaryData.hbm.xml"/>
+	 <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/dictionary/radius/data/RadiusDictionaryParamDetailData.hbm.xml"/>
+	 
+	  <!-- Diameter Dictionary -->
+	 <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/dictionary/diameter/data/DiameterDictionaryData.hbm.xml"/>
+	 <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/dictionary/diameter/data/DiameterDictionaryParamDetailData.hbm.xml"/>
+	 <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/dictionary/diameter/data/DiameterGroupedAttributeData.hbm.xml"/>
+	 
+	  <!-- Device Managment  -->
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/devicemgmt/data/TACDetailData.hbm.xml"/>
+	  
+	  <!-- RoutingTable  -->
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/RoutingTable/network/data/NetworkData.hbm.xml"/>
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/RoutingTable/network/data/CountryData.hbm.xml"/>
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/RoutingTable/network/data/OperatorData.hbm.xml"/>
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/RoutingTable/network/data/BrandData.hbm.xml"/>
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/RoutingTable/network/data/BrandOperatorRelData.hbm.xml"/>
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/RoutingTable/mccmncgroup/data/MCCMNCGroupData.hbm.xml"/>
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/RoutingTable/mccmncgroup/data/MCCMNCCodeGroupRelData.hbm.xml"/>
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/RoutingTable/mccmncroutingTable/data/RoutingTableGatewayRelData.hbm.xml"/>
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/RoutingTable/mccmncroutingTable/data/RoutingTableData.hbm.xml"/>
+	   <!-- Customized Menu Mapping -->
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/CustomizedMenu/data/CustomizedMenu.hbm.xml"/>
+	  
+	  <!-- Location Configuration Mapping -->
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/locationconfig/area/data/AreaNetworkRelData.hbm.xml"/>
+	   <mapping resource="com/elitecore/netvertexsm/hibernate/locationconfig/area/data/AreaData.hbm.xml"/>
+	   <mapping resource="com/elitecore/netvertexsm/hibernate/locationconfig/area/data/WiFiCallingStationInfoData.hbm.xml"/>
+	   <mapping resource="com/elitecore/netvertexsm/hibernate/locationconfig/area/data/CallingStationInfoData.hbm.xml"/>
+	   <mapping resource="com/elitecore/netvertexsm/hibernate/locationconfig/area/data/LacData.hbm.xml"/>
+	   <mapping resource="com/elitecore/netvertexsm/hibernate/locationconfig/region/data/RegionData.hbm.xml"/>
+	   <mapping resource="com/elitecore/netvertexsm/hibernate/locationconfig/city/data/CityData.hbm.xml"/>
+	  
+	  <!-- Certificate Configuration Mapping -->
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/certificate/data/ServerCertificateData.hbm.xml"/>
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/certificate/data/CrlCertificateData.hbm.xml"/>
+	  <mapping resource="com/elitecore/netvertexsm/hibernate/servermgr/certificate/data/TrustedCertificateData.hbm.xml"/>
+	  
+	  	
+	<!-- Group Data -->
+	<mapping class="com.elitecore.corenetvertex.sm.acl.GroupData" />
+	<mapping class="com.elitecore.corenetvertex.sm.acl.StaffData" />
+	<mapping class="com.elitecore.netvertexsm.datamanager.core.system.staff.data.StaffGroupRoleRelData" />
+	<mapping class="com.elitecore.corenetvertex.sm.acl.RoleData" />
+	<mapping class="com.elitecore.corenetvertex.sm.acl.RoleModuleActionData" />
+	<mapping class="com.elitecore.corenetvertex.sm.ResourceData"/>
+<!-- 	<mapping class="com.elitecore.corenetvertex.pkg.ResourceGroupRelationData"/> -->
+	
+	
+	<!--  DDF related class mappings, This classes should be used for any DDF related module -->
+	<mapping package="com.elitecore.corenetvertex.spr"/>
+	<mapping package="com.elitecore.corenetvertex.pkg"/>
+	<mapping class="com.elitecore.corenetvertex.spr.ddf.DDFTableData"/>
+	<mapping class="com.elitecore.corenetvertex.spr.ddf.DDFEntryData"/>
+	<mapping class="com.elitecore.corenetvertex.spr.data.DatabaseDSData"/>
+	<mapping class="com.elitecore.corenetvertex.spr.data.DBFieldMappingData"/>
+	<mapping class="com.elitecore.corenetvertex.spr.data.DBSPInterfaceData"/>
+	<mapping class="com.elitecore.corenetvertex.spr.data.LDAPBaseDnDetailData"/>
+	<mapping class="com.elitecore.corenetvertex.spr.data.LDAPDSData"/>
+	<mapping class="com.elitecore.corenetvertex.spr.data.LDAPFieldMappingData"/>
+	<mapping class="com.elitecore.corenetvertex.spr.data.LDAPSPInterfaceData"/>
+	<mapping class="com.elitecore.corenetvertex.spr.data.SPInterfaceData"/>
+	<mapping class="com.elitecore.corenetvertex.spr.data.SubscriberRepositoryData"/>
+		
+	<mapping class="com.elitecore.netvertexsm.datamanager.servermgr.spr.data.SPRData"/>
+	<mapping class="com.elitecore.corenetvertex.sm.acl.StaffProfilePictureData"/>
+	<mapping class="com.elitecore.netvertexsm.datamanager.servergroup.data.ServerInstanceGroupData"/>
+	<mapping class="com.elitecore.netvertexsm.datamanager.servergroup.data.ServerInstanceGroupRelationData"/>
+	 
+	</session-factory>
+
+</hibernate-configuration>
+
+

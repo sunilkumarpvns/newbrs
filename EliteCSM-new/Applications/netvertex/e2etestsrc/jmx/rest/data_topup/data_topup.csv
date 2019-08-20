@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_datatopup,POST : Create Data Topup :201,pd/datatopup/data-topup.json,POST,create_data_topup.json,,91745,201,datatopup
+2,get_created_datatopup,GET: Get Created Data Topup :200,pd/datatopup/data-topup/rest_datatopup_11111111.json,GET,,,91746,200,datatopup
+3,update_datatopup,PUT : Update Data Topup : 200,pd/datatopup/data-topup/rest_datatopup_11111111.json,PUT,update_data_topup.json,,91747,200,datatopup
+4,get_updated_datatopup,GET: Get updated Data Topup :200,pd/datatopup/data-topup/rest_datatopup_11111111.json,GET,,,91748,200,datatopup
+5,delete_datatopup,DELETE: Delete Data Topup :200,pd/datatopup/data-topup/rest_datatopup_11111111.json,DELETE,,,91749,200,datatopup
+6,get_deleted_datatopup,GET: Get Delete Data Topup : 404,pd/datatopup/data-topup/rest_datatopup_11111111.json,GET,,"{""actionErrors"":[""Data Top-Up Not Found with id: rest_datatopup_11111111""]}",91750,404,datatopup

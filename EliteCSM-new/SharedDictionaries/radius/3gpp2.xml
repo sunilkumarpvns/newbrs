@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!--                                                                     
+	http://www.3gpp2.org/Public_html/specs/index.cfm           zip
+        X.S0011-005-C v1.0
+        
+	http://www.3gpp2.org/public_html/X/VSA-VSE.cfm        
+-->  
+<attribute-list vendorid="5535" vendor-name="3GPP2">
+       
+    <attribute id="1" name="IKE-Preshared-Secret-Request" type="integer">
+	    <supported-values>
+			<value id="1" name="Requested"/>
+		</supported-values>
+    </attribute>
+	<attribute id="2" name="Security-Level" type="integer">
+		<supported-values>
+			<value id="1" name="IPSec for registration msgs"/>
+			<value id="2" name="IPsec for tunnels"/>
+			<value id="3" name="IPSec for registration and tunnel msgs"/>
+			<value id="4" name="No IPSec support"/>
+		</supported-values>
+	</attribute>
+	<attribute id="3" name="Pre-Shared-Secret" type="octets"/>
+	<attribute id="4" name="Reverse-Tunnel-Spec" type="integer">
+		<supported-values>
+			<value id="0" name="Not required"/>
+			<value id="1" name="Required"/>
+		</supported-values>
+	</attribute>
+	
+	<!-- Deprecated
+	<attribute id="5" name="3GPP2-Diffserv-Class-Option" type="integer">
+		<supported-values>
+			<value id="0" name="Best effort"/>
+			<value id="10" name="AF11"/>
+			<value id="12" name="AF12"/>
+			<value id="14" name="AF13"/>
+			<value id="18" name="AF21"/>
+			<value id="20" name="AF22"/>
+			<value id="22" name="AF23"/>
+			<value id="26" name="AF31"/>
+			<value id="28" name="AF32"/>
+			<value id="30" name="AF33"/>
+			<value id="34" name="AF41"/>
+			<value id="36" name="AF42"/>
+			<value id="38" name="AF43"/>
+			<value id="46" name="EF"/>
+		</supported-values>	
+	</attribute>
+	 -->
+	 
+<!-- Contains embedded 3GPP2 accounting attributes.
+	 Grouped format of this attribute not supported yet. --> 
+	<attribute id="6" name="Accounting-Container" type="octets"/>
+	
+	<attribute id="7" name="Home-Agent-IP-Address" type="ipaddr"/>    
+	
+<!--	A number formed from the concatenation of the home RADIUS IP address, 	
+	the FA IP address, and a 32-bit Unix timestamp, all encoded as 8 ASCII	
+	 hex characters.                                                      	
+-->	
+	<attribute id="8"  name="KeyID" type="octets"/>
+	<attribute id="9"  name="PCF-IP-Address" type="ipaddr"/>
+	<attribute id="10" name="BSID" type="string"/>
+	<attribute id="11" name="User-Id" type="integer"/>
+	<attribute id="12" name="Forward-FCH-Mux-Option" type="integer"/>
+	<attribute id="13" name="Reverse-FCH-Mux-Option" type="integer"/>
+	
+<!-- Deprecated
+	<attribute id="14"  name="Forward-Fundamental-Rate" type="integer"/>
+	<attribute id="15"  name="Reverse-Fundamental-Rate" type="integer"/>
+	-->
+
+	<attribute id="16" name="Service-Option" type="integer"/> 
+	<attribute id="17" name="Forward-Traffic-Type" type="integer"/> 
+	<attribute id="18" name="Reverse-Traffic-Type" type="integer"/> 
+    <attribute id="19" name="FCH-Frame-Size" type="integer"/> 
+    <attribute id="20" name="Forward-FCH-RC" type="integer"/> 
+    <attribute id="21" name="Reverse-FCH-RC" type="integer"/> 
+    <attribute id="22" name="IP-Technology" type="integer"/>
+    <attribute id="23" name="Compulsory-Tunnel-Indicator" type="integer"/>
+    <attribute id="24" name="Release-Indicator" type="integer"/>
+    <attribute id="25" name="Bad-PPP-Frame-Count" type="integer"/>
+        
+<!--26-29 ?  -->  
+        
+    <attribute id="30" name="Number-Active-Transitions" type="integer"/>
+    <attribute id="31" name="Terminating-SDB-Octet-Count" type="integer"/>
+    <attribute id="32" name="Originating-SDB-OCtet-Count" type="integer"/>
+    <attribute id="33" name="Terminating-Number-SDBs" type="integer"/>
+    <attribute id="34" name="Originating-Number-SDBs" type="integer"/>
+
+<!-- Deprecated
+	<attribute id="35"  name="Alternate-Billing-Identifier" type="integer"/>
+	-->
+        
+    <attribute id="36" name="IP-QoS" type="integer"/>
+        
+<!--37? -->
+
+<!-- Deprecated
+	<attribute id="38"  name="Interconnection-IP-Network-Service-QoS" type="integer"/>
+ -->
+ 
+    <attribute id="39" name="Airlink-Priority" type="integer"/>
+    <attribute id="40" name="Airlink-Record-Type" type="integer"/>
+    <attribute id="41" name="R-P-Session-ID" type="string"/>
+    <attribute id="42" name="Airlink-Sequence-Number" type="integer"/>
+    <attribute id="43" name="Received-HDLC-Octets" type="integer"/>
+    <attribute id="44" name="Correlation-Id" type="string"/>
+    <attribute id="45" name="Module-Orig-Term-Indicator" type="octets"/>
+    <attribute id="46" name="Inbound-Mobile-IP-Sig-Octets" type="integer"/>
+    <attribute id="47" name="Outbound-Mobile-IP-Sig-Octets" type="integer"/>
+    <attribute id="48" name="Session-Continue" type="integer"/>
+    <attribute id="49" name="Active-Time" type="integer"/>
+    <attribute id="50" name="DCCH-Frame-Size" type="integer"/>
+    <attribute id="51" name="Begin-Session" type="integer"/>
+    <attribute id="52" name="ESN" type="string"/>
+        
+<!--53 ? -->
+    <attribute id="54" name="S-Key" type="octets"/>
+    <attribute id="55" name="S-Request" type="integer">
+		<supported-values>
+			<value id="1" name="Requested"/>
+		</supported-values>
+    </attribute>
+    <attribute id="56" name="S-Lifetime" type="integer"/>
+    <attribute id="57" name="MN-HA-SPI" type="integer"/>
+    <attribute id="58" name="MN-HA-Shared-Key" type="octets" encrypt-standard="1"/>
+        
+<!--    The next set of attributes contain sub-types      -->           
+    <attribute id="59" name="Remote-IPv4-Address" type="grouped">
+    	<attribute id="1" name="IPv4-Address" type="ipaddr"/>
+    	<attribute id="2" name="IPv4-Address-Mask" type="ipaddr"/>
+    	<attribute id="3" name="Qualifier" type="short"/>
+    </attribute>
+        
+<!--60 - 69 are marked "reserved" -->
+	
+	<attribute id ="70" name="Remote-IPv6-Address" type="grouped">
+    	<attribute id="1" name="IPv6-Address" type="ipaddr"/>
+    	<attribute id="2" name="Prefix-Length" type="integer"/>
+    	<attribute id="3" name="Qualifier" type="short"/>
+    </attribute> 
+	<attribute id ="71" name="Remote-Address-Table-Index" type="grouped">
+    	<attribute id="1" name="Table-Index" type="short"/>
+    	<attribute id="2" name="Qualifier" type="short"/>
+    </attribute>
+	<attribute id ="72" name="Remote-IPv4-Addr-Octet-Count" type="grouped">
+    	<attribute id="1" name="IPv4-Address" type="ipaddr"/>
+    	<attribute id="2" name="IPv4-Address-Mask" type="ipaddr"/>
+    	<attribute id="3" name="Forward-Octet-Count" type="integer"/>
+    	<attribute id="4" name="Reverse-Octet-Count" type="integer"/>
+    	<attribute id="5" name="Table-Index" type="short"/>
+    	<attribute id="6" name="Forward-Octet-Count-Overflow" type="short"/>
+    	<attribute id="7" name="Reverse-Octet-Count-Overflow" type="short"/>
+    </attribute> 
+	
+	<!-- Supported values not added yet -->
+	<attribute id ="73" name="Allowed-Diffserv-Marking" type="grouped">
+    	<attribute id="1" name="Allowed-Diffserv-Class-Flag" type="short"/>
+    	<attribute id="2" name="Mas-Class-Selection-Marking" type="short"/>
+    	<attribute id="3" name="Reverse-Tunnel-Marking" type="short"/>
+    </attribute>
+    
+	<attribute id ="74" name="Service-Option-Profile" type="octets"/>
+
+<!-- the following don't contain subtypes  -->                        
+	<attribute id ="75" name="DNS-Update-Required" type="integer">
+		<supported-values>
+			<value id="1" name="Required"/>
+		</supported-values>
+	</attribute>
+                                                                
+<!-- 76, 77 ?  -->                                                        
+	
+	<attribute id ="78" name="Always-On" type="integer"> 
+		<supported-values>
+			<value id="0" name="Inactive"/>
+			<value id="1" name="Active"/>
+		</supported-values>
+	</attribute>
+	<attribute id ="79" name="Foreign-Agent-Address" type="ipaddr"/> 
+	<attribute id ="80" name="Last-User-Activity-Time" type="integer"/> 
+	<attribute id ="81" name="MN-AAA-Removal-Indication" type="integer"> 
+		<supported-values>
+			<value id="1" name="Remove"/>
+		</supported-values>
+	</attribute>
+	<attribute id ="82" name="RN-Packet-Data-Inactivity-Timer" type="integer"/>
+	<attribute id ="83" name="Forward-PDCH-RC" type="integer"/> 
+	<attribute id ="84" name="Forward-DCCH-Mux-Option" type="integer"/> 
+	<attribute id ="85" name="Reverse-DCCH-Mux-Option" type="integer"/> 
+	<attribute id ="86" name="Forward-DCCH-RC" type="integer"/> 
+	<attribute id ="87" name="Reverse-DHHC-RC" type="integer"/> 
+	<attribute id ="88" name="Session-Termination-Capability" type="integer"> 
+		<supported-values>
+			<value id="1" name="Dynamic Auth Ext to RADIUS"/>
+			<value id="2" name="Registration Revocation in MIP4"/>
+			<value id="3" name="Dynamic Auth Ext to RADIUS and Registration Revocation in MIP4"/>
+		</supported-values>
+	</attribute>
+	<attribute id ="89" name="Allowed-Pesistent-TFTs" type="integer"/> 
+	
+	
+<!--    The next set of attributes contain sub-types  -->                 
+	<attribute id ="90" name="Prepaid-Acct-Quota" type="grouped">
+    	<attribute id="1" name="Quota-Identifier" type="integer"/>
+    	<attribute id="2" name="Volume-Quota" type="integer"/>
+    	<attribute id="3" name="Volume-Quota-Overflow" type="short"/>
+    	<attribute id="4" name="Volume-Threshold" type="integer"/>
+    	<attribute id="5" name="Volume-Threshold-Overflow" type="short"/>
+    	<attribute id="6" name="Duration-Quota" type="integer"/>
+    	<attribute id="7" name="Duration-Threshold" type="integer"/>
+    	<attribute id="8" name="Update-Reason" type="short">
+    		<supported-values>
+    			<value id="1" name="Pre-initialization"/>
+    			<value id="2" name="Initial request"/>
+    			<value id="3" name="Threshold reached"/>
+    			<value id="4" name="Quota reached"/>
+    			<value id="5" name="Remote forced disconnect"/>
+    			<value id="6" name="Client service termination"/>
+    			<value id="7" name="Main SC released"/>
+    			<value id="8" name="Service connection not established"/>
+    			<value id="9" name="Tariff switch update"/>
+    			<value id="10" name="Incorrect quota type received"/>
+    			<value id="11" name="Poorly formed quota attribute"/>    			    			    			    			    			    			
+    		</supported-values>
+    	</attribute>
+    	<attribute id="9" name="PrePaid-Server" type="ipaddr"/>
+    </attribute> 
+	<attribute id ="91" name="Prepaid-acct-Capability" type="grouped">
+    	<attribute id="1" name="Available-In-Client" type="integer"/>
+    	<attribute id="2" name="Selected-For-Session" type="integer"/>
+    </attribute>  
+	<attribute id ="92" name="MIP-Lifetime" type="grouped">
+    	<attribute id="1" name="RRQ-Lifetime" type="integer"/>
+    	<attribute id="2" name="Used-Lifetime-From-Existing-Session" type="integer"/>
+    </attribute>  
+	<attribute id ="93" name="Acct-Stop-Trigger" type="integer"> 
+		<supported-values>
+			<value id="1" name="Accounting report at active/dormant transitions"/>
+		</supported-values>
+	</attribute>
+	                                                                
+<!--    contains subtypes  -->                                            
+	<attribute id ="94" name="Service-Reference-Id" type="grouped">
+    	<attribute id="1" name="SR-ID" type="short"/>
+    	<attribute id="2" name="Main-SC-Indicator" type="short"/>
+    </attribute>  
+	<attribute id ="95" name="DNS-Update-Capability" type="integer">
+		<supported-values>
+			<value id="1" name="HA is capable of synamic DNS update"/>
+		</supported-values>
+	</attribute>
+	<attribute id ="96" name="Disconnect-Reason" type="integer">
+		<supported-values>
+			<value id="1" name="MS mobility detection"/>
+		</supported-values>
+	</attribute>
+	                                                                
+<!--    The next set of attributes contain sub-types -->                  
+	<attribute id ="97" name="Remote-IPv6-Octet-Count" type="grouped">
+    	<attribute id="1" name="Remote-IPv6-Address" type="ipaddr"/>
+    	<attribute id="2" name="Prefix-Length" type="short"/>
+    	<attribute id="3" name="Forward-Octet-Count" type="integer"/>
+    	<attribute id="4" name="Reverse-Octet-Count" type="integer"/>
+    	<attribute id="5" name="Table-Index" type="short"/>
+    	<attribute id="6" name="Forward-Octet-Count-Overflow" type="short"/>
+    	<attribute id="7" name="Reverse-Octet-Count-Overflow" type="short"/>
+    </attribute>
+      
+	<attribute id ="98" name="PrePaid-Tariff-Switching" type="grouped">
+    	<attribute id="1" name="Quota-Identifier" type="integer"/>
+    	<attribute id="2" name="VolumeUsedAfterTariffSwitch" type="integer"/>
+    	<attribute id="3" name="VolumeUsedAfterTariffSwitchOverflow" type="short"/>
+    	<attribute id="4" name="TariffSwitchInterval" type="integer"/>
+    	<attribute id="5" name="TimeIntervalAfterTariffSwitchUpdate" type="integer"/>
+    </attribute>  
+	
+	<attribute id ="99" name="Authorization-Parameters" type="octets"/>
+	<attribute id ="100" name="BCMCS_FLOW_ID" type="octets"/>
+	<attribute id ="101" name="BCMCS_Capability" type="octets"/>
+	<attribute id ="102" name="Common-Session-Info" type="octets"/>
+	<attribute id ="103" name="BSN-Session-Info" type="octets"/>	
+	<attribute id ="104" name="RN-Session-Info" type="octets"/>
+	<attribute id ="105" name="Reason-Code" type="octets"/>	
+	<attribute id ="107" name="BCMCS_Flow-Transmission-Time" type="octets"/>	
+	<!-- <attribute id ="108" name="3GPP2-Subnet" type="3gpp2subnet"/> -->
+	
+	<attribute id ="109" name="Multicast-IP-Address" type="octets"/>
+	<attribute id ="110" name="Port" type="octets"/>
+	<attribute id ="111" name="Auth-Key" type="octets"/>	
+	<attribute id ="112" name="TK-Info" type="octets"/>
+	<attribute id ="113" name="BAK-ID" type="octets"/>
+	<attribute id ="114" name="Reverse-PDCH-RC" type="octets"/>
+	<attribute id ="115" name="Acq-Info-Timestamp" type="octets"/>	
+	<attribute id ="116" name="MEID" type="octets"/>
+	
+	<attribute id ="117" name="DNS-Server-IP-Address" type="grouped">
+    	<attribute id="1" name="Primary-DNS-IPv4-Address" type="ipaddr"/>
+    	<attribute id="2" name="Secondary-DNS-IPv4-Address" type="ipaddr"/>
+    	<attribute id="3" name="Override-DNS" type="byte"/>
+    	<attribute id="4" name="Entity-Type" type="byte"/>
+    </attribute>
+    
+	<attribute id ="118" name="MIP6-Home-Agent" type="ipaddr"/>
+	<attribute id ="119" name="MIP6-CoA" type="ipaddr"/>
+	<attribute id ="120" name="MIP6-HoA-Not-Authorized" type="integer">
+		<supported-values>
+			<value id="1" name="Not authorized"/>
+		</supported-values>
+	</attribute>
+	<attribute id ="121" name="MIP6-Session-Key" type="octets" encrypt-standard="1"/>
+	<attribute id ="122" name="Hot-Line-Accounting-Indication" type="string"/>
+	<attribute id ="123" name="MIP6-Mesg-ID" type="octets"/>	
+	<attribute id ="124" name="Filter-Rule" type="string"/>
+	<attribute id ="125" name="HTTP-Redirection-Rule" type="string"/>
+	<attribute id ="126" name="IP-Redirection-Rule" type="string"/>
+	
+	<!-- Supported values not specified yet -->
+	<attribute id ="127" name="Hot-Line-Capability" type="integer"/>
+	
+	<attribute id ="128" name="MIP6-Home-Link-Prefix" type="octets"/>
+	
+	<!-- Deprecated
+	<attribute id="129"  name="MIP6-Home-Address(Attribute-C)" type="integer"/>
+	 -->
+	 
+	<attribute id ="130" name="Max-Authorized-Aggregate-B/W-for-BE-Traffic" type="integer"/>
+	<attribute id ="131" name="Authorized-Flow-Profile-IDs" type="grouped">
+    	<attribute id="1" name="Profile-ID-Forward" type="short"/>
+    	<attribute id="2" name="Profile-ID-Reverse" type="short"/>
+    	<attribute id="3" name="Profile-ID-BiDirectional" type="short"/>
+    </attribute>
+    
+	<attribute id ="132" name="Granted-QoS-Parameters" type="grouped">
+    	<attribute id="1" name="Direction" type="short"/>
+    	<attribute id="2" name="Flow-ID" type="short"/>
+    	<attribute id="3" name="QoS-Attribute-Set-ID" type="short"/>
+    	<attribute id="4" name="Flow-Profile-ID" type="short"/>
+    	<attribute id="5" name="Traffic-Class" type="short"/>
+    	<attribute id="6" name="Peak-Rate" type="short"/>
+    	<attribute id="7" name="Bucket-Size" type="short"/>
+    	<attribute id="8" name="Token-Rate" type="short"/>
+    	<attribute id="9" name="Max-Latency" type="short"/>
+    	<attribute id="10" name="Max-IP-Packet-Loss-Rate" type="short"/>
+    	<attribute id="11" name="Packet-Size" type="short"/>
+    	<attribute id="12" name="Delay-Var-Sensitive" type="short"/>
+    </attribute>
+    
+	<attribute id ="133" name="Maximum-Per-Flow-Priority" type="integer"/>
+	<attribute id ="134" name="MIP6-Authenticator" type="octets"/>
+	<attribute id ="135" name="Source-IPv6-Address" type="octets"/>	
+	<attribute id ="136" name="Program-Id" type="octets"/>	
+	<attribute id ="137" name="Program-Name" type="octets"/>	
+	<attribute id ="138" name="MIP6-MAC-Mobility-Data" type="octets"/>
+	<attribute id ="139" name="Inter-User-Priority" type="integer"/>
+	<attribute id ="140" name="MIP6-Home-Agent" type="octets"/>
+	<attribute id ="141" name="MIP6-HoA" type="ipaddr"/>
+	<attribute id ="142" name="Carrier-ID" type="octets"/>
+	<attribute id ="143" name="GMT-Time-Zone-Offset" type="integer"/>
+	<attribute id ="144" name="FLOW-ID-Parameter" type="grouped">
+    	<attribute id="1" name="Direction" type="short"/>
+    	<attribute id="2" name="Flow-ID" type="short"/>
+    </attribute>
+	<attribute id ="145" name="Flow-Status" type="integer">
+		<supported-values>
+			<value id="0" name="Active"/>
+			<value id="1" name="Inactive"/>
+		</supported-values>
+	</attribute>
+	<attribute id ="146" name="Filtered-Octet-Count-Terminating" type="integer"/>
+	<attribute id ="147" name="Filtered-Octet-Count-Originating" type="integer"/>
+	<attribute id ="148" name="Servre-User-Identity" type="octets"/>	
+	<attribute id ="149" name="MSISDN" type="octets"/>	
+	<attribute id ="150" name="Trigger-Event" type="octets"/>	
+	<attribute id ="151" name="Server-User-IMSI" type="octets"/>
+	<attribute id ="152" name="Sender-Address" type="octets"/>	
+	<attribute id ="153" name="Initial-Recipient-Address" type="octets"/>	
+	<attribute id ="154" name="Result-Recipient-Address" type="octets"/>		
+	<attribute id ="155" name="Originating-Interface" type="octets"/>		
+	<attribute id ="156" name="Delivery-Report" type="octets"/>		
+	<attribute id ="157" name="Read-Reply" type="octets"/>		
+	<attribute id ="158" name="Sender-Visibility" type="octets"/>		
+	<attribute id ="159" name="Service-Key" type="octets"/>		
+	<attribute id ="160" name="Billing-Information" type="octets"/>		
+	<attribute id ="161" name="Status" type="octets"/>		
+	<attribute id ="162" name="RSVP-Inbound-Octet-Count" type="integer"/>
+	<attribute id ="163" name="RSVP-Outbound-Octet-Count" type="integer"/>
+	<attribute id ="164" name="RSVP-Inbound-Packet-Count" type="integer"/>
+	<attribute id ="165" name="RSVP-Outbound-Packet-Count" type="integer"/>
+	<attribute id ="166" name="Content-Provider-ID" type="octets"/>
+	
+	<!-- Deprecated
+	<attribute id ="167" name="IP-Service-ID" type="octets"/>
+	 -->
+	 		
+	<attribute id ="168" name="HA-Request" type="octets"/>		
+	<attribute id ="169" name="HA-Authorized" type="octets"/>
+	
+	<!-- Deprecated
+	<attribute id ="170" name="MN-HA-Nonce-Request" type="octets"/>
+	<attribute id ="171" name="MN-HA-Nonce" type="octets"/>
+	 -->
+	 
+	<attribute id ="172" name="IP-Version-Authorized" type="octets"/>		
+	<attribute id ="173" name="MIP4-Mesg-ID" type="octets"/>
+	<attribute id ="174" name="VAAA-Assigned-MIP6-HA" type="octets"/>
+	<attribute id ="175" name="MIP-HA-Local-Assignment-Capability" type="octets"/>			
+	<attribute id ="176" name="HA-Realm" type="octets"/>
+	<attribute id ="177" name="FA-HA-MSA-Request" type="octets"/>
+	<attribute id ="178" name="FA-HA-MSA" type="octets"/>
+	<attribute id ="179" name="MIP6-HA-Local-Assignment-Capability" type="integer">
+		<supported-values>
+			<value id="1" name="Local HA assignment supported"/>
+		</supported-values>
+	</attribute>
+	
+	<attribute id ="180" name="AAA-Session-ID" type="octets"/>
+	<attribute id ="181" name="PMN-AN-RK1" type="octets"/>
+	<attribute id ="182" name="AGW-Redirect" type="octets"/>
+	<attribute id ="183" name="Link-ID" type="octets"/>
+	<attribute id ="184" name="User-Session-Tracking" type="octets"/>
+	<attribute id ="185" name="IP-Services-Authorized" type="octets"/>
+	<attribute id ="186" name="ERP-Support" type="octets"/>
+	<attribute id ="187" name="PMN-AN-SPI" type="octets"/>
+	<attribute id ="188" name="PMN-AN-HA2" type="octets"/>
+	<attribute id ="189" name="VAAA-Assigned-MIP-HA" type="octets"/>
+	<attribute id ="190" name="Max-Authorized-Aggregate-Bandwidth" type="octets"/>
+	<attribute id ="191" name="Inter-User-Priority" type="octets"/>
+	<attribute id ="192" name="Network-PMIP-NAI" type="octets"/>
+	<attribute id ="193" name="PMIP-Based-Mobility-Capability" type="octets"/>
+	<attribute id ="194" name="PMIP-HA-Info-IPv4-Service" type="octets"/>
+	<attribute id ="195" name="PMIP-HA-Info-IPv6-Service" type="octets"/>
+	<attribute id ="196" name="Multiple-Auth-Support" type="octets"/>
+	<attribute id ="197" name="Multiple-Auth-Profile" type="octets"/>
+	<attribute id ="198" name="Acct-Mode" type="octets"/>
+	<attribute id ="199" name="Connection-Time" type="octets"/>
+	<attribute id ="200" name="Reservation-Based-Usage" type="octets"/>
+	<attribute id ="201" name="ANID" type="octets"/>
+	<attribute id ="202" name="AGW-RAN-PMIP-Binding-Capability" type="octets"/>
+	<attribute id ="203" name="HAAA-MIP6-HA-Protocol-Capability-Indication" type="integer"/>
+	<attribute id ="204" name="AGW-IP-Address" type="octets"/>
+	<attribute id ="205" name="VAAA-Assigned-MIP6-HA" type="ipaddr"/>
+	<attribute id ="206" name="VAAA-Assigned-MIP6-HL" type="octets"/>
+	<attribute id ="207" name="VAAA-MIP6-HA-Protocol-Capability-Indication" type="integer"/>
+	<attribute id ="208" name="Local-IP-Address-Authorized" type="octets"/>
+	<attribute id ="209" name="SFF-Key" type="octets"/>
+	<attribute id ="210" name="SFF-Key-Life" type="octets"/>
+	<attribute id ="211" name="SFF-IKEv2-NI" type="octets"/>
+	<attribute id ="212" name="Session-Key-Nonces" type="octets"/>
+	<attribute id ="213" name="Session-Key-Method" type="octets"/>
+</attribute-list>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.servermgr.sessionmgr.data">
+
+  <class name="SessionFieldMapData" table="TBLMSESSIONFIELDMAPPING">
+  
+  	 <id name="coreSessionID" column="CORESESSFIELDMAPID" type="java.lang.Integer" >
+     	  <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+	 	  </generator>
+     </id>     
+    
+     <property name="sessionConfID" type="java.lang.Integer">
+     	  <column name="SESSIONCONFID" sql-type="NUMBER(20)" not-null="true"/>
+     </property>
+     
+     <property name="fieldName" type="string">
+     	  <column name="FIELDNAME" sql-type="VARCHAR2(20)" not-null="false"/>
+     </property>
+     
+     <property name="referringAttr" type="string">
+     	  <column name="REFERRINGATTR" sql-type="VARCHAR2(40)" not-null="false"/>
+     </property>
+     
+     <property name="datatype" type="java.lang.Integer">
+     	  <column name="DATATYPE" sql-type="NUMBER(1)" not-null="false"/>
+     </property> 
+     
+      <property name="type" type="java.lang.String">
+     	  <column name="TYPe" sql-type="VARCHAR2(15)" not-null="false"/>
+     </property> 
+
+  </class>
+</hibernate-mapping>

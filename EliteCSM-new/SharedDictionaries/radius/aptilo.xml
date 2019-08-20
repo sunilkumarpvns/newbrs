@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="13209" vendor-name="Aptilo">
+        <attribute id="1" name="Aptilo-Subnet-Name" type="string"/>
+        <attribute id="2" name="Aptilo-Octets-Limit" type="integer"/>
+        <attribute id="3" name="Aptilo-Gigawords-Limit" type="integer"/>
+        <attribute id="4" name="Aptilo-Input-Octets-Limit" type="integer"/>
+        <attribute id="5" name="Aptilo-Input-Gigawords-Limit" type="integer"/>
+        <attribute id="6" name="Aptilo-Output-Octets-Limit" type="integer"/>
+        <attribute id="7" name="Aptilo-Output-Gigawords-Limit" type="integer"/>
+        <attribute id="8" name="Aptilo-Limit-Mode" type="integer">
+                 <supported-values>
+                          <value id="0" name="Relative"/>
+                          <value id="1" name="Absolute"/>
+                 </supported-values>
+        </attribute>
+        <attribute id="9" name="Aptilo-Apc-ID" type="string"/>
+        <attribute id="10" name="Aptilo-Opaque-Key" type="string"/>
+        <attribute id="11" name="Aptilo-Denied-Cause" type="integer">
+                 <supported-values>
+                          <value id="1" name="User-Not-Found"/>
+                          <value id="2" name="Wrong-Password"/>
+                          <value id="3" name="No-Zone-Access"/>
+                          <value id="4" name="Inactive-Access-Node"/>
+                          <value id="5" name="Inconsistent-Access-Node"/>
+                          <value id="6" name="Disabled-Account"/>
+                          <value id="7" name="No-Accessprofile"/>
+                          <value id="8" name="Internal-Error"/>
+                          <value id="9" name="Realm-Error"/>
+                          <value id="10" name="No-Credits"/>
+                          <value id="11" name="Max-Session"/>
+                          <value id="12" name="Remote-Server-Reject"/>
+                          <value id="14" name="Realm-Inactive"/>
+                          <value id="15" name="Opaque-Failed"/>
+                          <value id="16" name="Service-Closed"/>
+                          <value id="17" name="LDAP-Failed"/>
+                          <value id="18" name="Inactive-Account"/>
+                          <value id="19" name="Expired-Account"/>
+                          <value id="20" name="Incomplete-Account"/>
+                          <value id="21" name="License-Limit-Reached"/>
+                 </supported-values>
+        </attribute>
+        <attribute id="12" name="Aptilo-Realm-ID" type="integer"/>
+        <attribute id="13" name="Aptilo-Ap-ID" type="integer"/>
+        <attribute id="14" name="Aptilo-User-ID" type="integer"/>
+        <attribute id="15" name="Aptilo-Zone" type="string"/>
+        <attribute id="16" name="Aptilo-First-Name" type="string"/>
+        <attribute id="17" name="Aptilo-Last-Name" type="string"/>
+        <attribute id="18" name="Aptilo-Phone" type="string"/>
+        <attribute id="19" name="Aptilo-Email" type="string"/>
+        <attribute id="20" name="Aptilo-Organization" type="string"/>
+        <attribute id="21" name="Aptilo-Access-Profile" type="string"/>
+        <attribute id="22" name="Aptilo-Realm-Concurrent-Login" type="integer"/>
+        <attribute id="23" name="Aptilo-Auth-Result" type="integer"/>
+        <attribute id="25" name="Aptilo-User-Type" type="integer"/>
+        <attribute id="26" name="Aptilo-Exclusive-Count" type="integer"/>
+        <attribute id="27" name="Aptilo-Duration-Quota" type="integer"/>
+        <attribute id="28" name="Aptilo-Volume-Quota" type="string"/>
+        <attribute id="29" name="Aptilo-RX-Volume-Quota" type="string"/>
+        <attribute id="30" name="Aptilo-TX-Volume-Quota" type="string"/>
+        <attribute id="31" name="Aptilo-Resource-Quota" type="integer"/>
+        <attribute id="32" name="Aptilo-Quota-ID" type="string"/>
+        <attribute id="33" name="Aptilo-RX-Limit" type="integer"/>
+        <attribute id="34" name="Aptilo-TX-Limit" type="integer"/>
+        <attribute id="35" name="Aptilo-TRX-Limit" type="integer"/>
+        <attribute id="36" name="Aptilo-Bw-Min-Up" type="integer"/>
+        <attribute id="37" name="Aptilo-Bw-Max-Up" type="integer"/>
+        <attribute id="38" name="Aptilo-Bw-Min-Down" type="integer"/>
+        <attribute id="39" name="Aptilo-Bw-Max-Down" type="integer"/>
+        <attribute id="40" name="Aptilo-Service-Profile" type="string"/>
+        <attribute id="41" name="Aptilo-Automatic-Service" type="string"/>
+        <attribute id="42" name="Aptilo-Auth-Type" type="integer">
+                 <supported-values>
+                          <value id="0" name="User"/>
+                          <value id="1" name="Auto"/>
+                 </supported-values>
+        </attribute>
+        <attribute id="44" name="Aptilo-Service" type="string"/>
+        <attribute id="45" name="Aptilo-Service-Profile-ID" type="integer"/>
+        <attribute id="50" name="Aptilo-Auth-Param" type="integer"/>
+        <attribute id="53" name="Aptilo-Access-Profile-ID" type="integer"/>
+        <attribute id="56" name="Aptilo-NAS-Model" type="string"/>
+        <attribute id="57" name="Aptilo-Debug-Option" type="integer">
+                 <supported-values>
+                          <value id="1" name="Simulate-EAP-TLS"/>
+                 </supported-values>
+        </attribute>
+</attribute-list>

@@ -1,0 +1,285 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    <field name="pcrfServiceMinThreads" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+                <param name="min">1</param>
+                <param name="max">300</param>
+                <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="pcrfServiceMaxThreads" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">2000</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression">pcrfServiceMaxThreads>=pcrfServiceMinThreads</param>
+            <message>${getText("maxThreads.must.greater.than.minThreads")}</message>
+        </field-validator>
+    </field>
+
+    <field name="pcrfServiceQueueSize" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">10000</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="pcrfServiceWorkerThreadPriority" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">10</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+
+    <field name="logLevel" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="stringlength" short-circuit="true">
+            <param name="minLength">3</param>
+            <param name="maxLength">5</param>
+            <message>${getText("invalid.field.value")}</message>
+        </field-validator>
+
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(logLevel=='NONE' || logLevel=='ERROR' || logLevel=='WARN' || logLevel=='INFO' || logLevel=='DEBUG' || logLevel=='TRACE' || logLevel=='ALL')]]></param>
+            <message>${getText("invalid.field.value")}</message>
+        </field-validator>
+    </field>
+
+    <field name="maxRolledUnits" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">500</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="rollingUnits" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[((rollingType==1) && (rollingUnits!='' && rollingUnits!=null && rollingUnits>=3 && rollingUnits<=5)) || ((rollingType==2 && rollingUnits!='' && rollingUnits!=null))]]></param>
+            <message>${getText("invalid.field.value")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <message>Must be greater than Zero</message>
+        </field-validator>
+    </field>
+
+    <field name="batchSize" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">2000</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="notificationServiceExecutionPeriod" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">60000</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="maxParallelExecution" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">500</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="diameterDuplicateReqPurgeInterval">
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(diameterDuplicateReqCheckEnabled==true  && diameterDuplicateReqPurgeInterval!=null) || (diameterDuplicateReqCheckEnabled==false)]]></param>
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">60000</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="diameterMinThreads" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">300</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="diameterMaxThreads" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">300</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression">diameterMaxThreads>=diameterMinThreads</param>
+            <message>${getText("maxThreads.must.greater.than.minThreads")}</message>
+        </field-validator>
+
+    </field>
+
+    <field name="diameterSessionTimeout" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">86400</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="diameterSessionCleanupInterval" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">86400</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="diameterQueueSize" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">10000</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="diameterDwInterval" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(diameterDwInterval >= 1 && diameterDwInterval <= 60000) || (diameterDwInterval == -1)]]></param>
+            <message>${getText("serverprofile.invalid.dwInterval")}</message>
+        </field-validator>
+    </field>
+
+    <field name="radiusDuplicateReqPurgeInterval">
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression"><![CDATA[(radiusDuplicateReqCheckEnabled==true  && radiusDuplicateReqPurgeInterval!=null) || (radiusDuplicateReqCheckEnabled==false)]]></param>
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">60000</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+
+    <field name="radiusMinThreads" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">300</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+    <field name="radiusMaxThreads" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">300</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+
+        <field-validator type="fieldexpression" short-circuit="true">
+            <param name="expression">radiusMaxThreads>=radiusMinThreads</param>
+            <message>${getText("maxThreads.must.greater.than.minThreads")}</message>
+        </field-validator>
+    </field>
+
+    <field name="radiusQueueSize" >
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">10000</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+    </field>
+
+</validators>

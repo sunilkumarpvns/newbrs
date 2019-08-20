@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ======================================================= -->
+<!-- RM server configuration.                         -->
+<!-- ======================================================= -->
+
+<elite-rm-server>
+    
+    <server-name>eliterm</server-name>
+    <domain-name>elitecore.com</domain-name>
+    
+    <service-list>
+		<service>
+			<service-id>RM_CONCURRENT_LOGIN</service-id>
+			<enabled>true</enabled>
+		</service>
+		
+		<service>
+			<service-id>GTP_PRIME_SER</service-id>
+			<enabled>true</enabled>
+		</service>
+		
+		<service>
+			<service-id>RM_PREPAID_CHARGING</service-id>
+			<enabled>true</enabled>
+		</service>
+		
+		<service>
+			<service-id>RM_IPPOOL</service-id>
+			<enabled>true</enabled>
+		</service>
+		<service>
+			<service-id>RM_CHARGING</service-id>
+			<enabled>false</enabled>
+		</service>
+	</service-list>
+	
+	<aaa-db-datasource>
+		<connection-url>jdbc:oracle:thin:@192.168.8.70:1521:eliteaaa</connection-url>
+        <user-name>ELITEAAADEV60</user-name>
+        <password>ELITEAAADEV60</password>
+	</aaa-db-datasource>
+
+    <logging>
+        <!-- ALL/INFO/DEBUG/WARN/ERROR/OFF -->
+        <log-level>ALL</log-level>
+
+        <!-- 1:Time-Based Rolling -->
+        <!-- 2:Size-Based Rolling -->
+        <rolling-type>1</rolling-type> 
+        
+        <!-- 3:Every-Minute-Rolling, 4:Every-Hour-Rolling and 5:Daily-Rolling [Time-Based Rolling] -->
+        <!-- Number of MBs [Volume-Based Rolling] -->
+        <rolling-unit>5</rolling-unit> 
+        
+        <!-- Maximum Number of rolled files -->
+        <max-rolled-unit>10</max-rolled-unit>
+        
+        <!-- Want to compress the rolled files or not -->
+        <compress-rolled-unit>false</compress-rolled-unit>
+        
+         <syslog>
+        	<address></address>
+        	<facility></facility>
+        </syslog>
+        
+    </logging>
+
+   	<snmp-address>127.0.0.1:1161</snmp-address>
+
+	<snmp-community>public</snmp-community>
+    
+    <graph-generation>false</graph-generation>
+
+    <username-triming>true</username-triming>
+    
+	<alert-listeners>
+		<alert-listener></alert-listener>
+	</alert-listeners>
+
+    
+    <web-service-config>
+
+		<web-service-enabled>false</web-service-enabled>
+			    
+	    <service-address>0.0.0.0:8080</service-address>
+	    	
+	    <max-session>5</max-session>
+	    	
+	    <thread-pool-size>10</thread-pool-size>
+    
+  </web-service-config>
+    
+</elite-rm-server>

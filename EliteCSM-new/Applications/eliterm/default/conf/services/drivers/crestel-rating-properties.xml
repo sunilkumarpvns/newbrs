@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-policy-mapping>
+	 <prepaid-system>
+         <api-detail>
+      		<jndi-properties>
+	       		<property name="java.naming.factory.initial" value="org.jnp.interfaces.NamingContextFactory" /> 
+	       		<property name="java.naming.factory.url.pkgs" value="org.jboss.naming:org.jnp.interfaces" /> 
+				<property name="java.naming.provider.url" value="192.168.14.103:4099" /> 
+      		</jndi-properties>
+        </api-detail>
+     </prepaid-system> 
+     	<rating-field-mapping>
+		<auth-mapping>
+			<config-group>
+				<check-item-re>0:1=jr</check-item-re>
+				<mapping>mapping_policy2</mapping>
+				<call-method>method1</call-method>
+			</config-group>
+			<config-group>
+				<check-item-re>0:1=rj</check-item-re>
+				<mapping>mapping_policy1</mapping>
+				<call-method>method1</call-method>
+			</config-group>
+			
+		</auth-mapping>
+
+		<acct-mapping>
+			<config-group>
+				<check-item-re>0:1=jr</check-item-re>
+				<mapping>mapping_policy1</mapping>
+				<call-method>method1</call-method>
+			</config-group>
+		</acct-mapping>
+
+		<!--acct-stop-mapping>
+			<config-group>
+				<policy>CC_policy</policy>
+				<mapping>mapping_policy1</mapping>
+				<call-method>method1</call-method>
+			</config-group>
+		</acct-stop-mapping>
+
+		<acct-interim-mapping>
+			<config-group>
+				<policy>CC_policy</policy>
+				<mapping>mapping_policy1</mapping>
+				<call-method>method1</call-method>
+			</config-group>
+		</acct-interim-mapping-->
+
+	</rating-field-mapping>
+	
+     <rating-response dummy="true">
+		<parameter>
+			<rating-field>TEMP1</rating-field>
+			<rating-value>1000</rating-value>
+		</parameter>
+		
+		<!-- For Price enquiry event  -->
+		
+		<parameter>
+			<rating-field>TEMP2</rating-field>
+			<rating-value>2</rating-value>
+		</parameter>
+		 <!--  -->
+		<parameter>
+			<rating-field>TEMP3</rating-field>
+			<rating-value>3</rating-value>
+		</parameter>		
+		 
+		<parameter>
+			<rating-field>USERNAME</rating-field>
+			<rating-value>rudradutt</rating-value>
+		</parameter> 		
+		 
+		 
+		 <!-- For check balance event  
+		<parameter>
+			<rating-field>COST-UNITS</rating-field>
+			<rating-value>MINUTES</rating-value>
+		</parameter>
+	 	
+		
+		 
+	 	<parameter>
+			<rating-field>CHECK-BALANCE-RESULT</rating-field>
+			<rating-value>0</rating-value>
+		</parameter>
+		 -->
+	</rating-response>
+	<dummy-driver>true</dummy-driver>
+     
+     
+            
+         
+</attribute-policy-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ldapparameter>
+	<host_ip>192.168.14.102</host_ip>
+	<port>389</port>
+	<timeout>4000</timeout>
+	<size_limit>4000</size_limit>
+	<administrator>cn=root,dc=elitecore,dc=in</administrator>
+	<password>secret</password>
+	<min_con>5</min_con>
+	<max_con>30</max_con>
+	<search_base_dn>ou=EliteAAA, o=app, dc=elitecore,dc=in</search_base_dn>
+	<!-- for password the field name should be "password" -->
+	<user_base_dn>uid=</user_base_dn>
+	<user_password>password</user_password>
+</ldapparameter>

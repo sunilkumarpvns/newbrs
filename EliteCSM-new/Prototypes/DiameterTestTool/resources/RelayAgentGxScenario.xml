@@ -1,0 +1,75 @@
+<scenario>
+
+	<tcp action="connect" ip="10.106.1.21" port="3868" />
+
+
+		<send>
+			<packet cc="257" app-id="0" request="true" h2h="1" e2e="3">
+				<attribute id="0:264" alias="Origin-Host" value="gx.csm.com" />
+				<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+				<attribute id="0:269" alias="Product-name" value="test" />
+				<attribute id="0:266" alias="Vendor" value="21067" />
+				<attribute id="0:257" alias="Host-IP" value="10.106.1.72" />
+				<attribute id="0:260" alias="Vendor-Specific-Application-Id" >
+					<attribute id="0:266" alias="Vendor-Id" value="10415"/>
+					<attribute id="0:258" alias="Auth-Application-Id" value="16777238" />
+				</attribute>
+				<attribute id="0:260" alias="Vendor-Specific-Application-Id" >
+					<attribute id="0:266" alias="Vendor-Id" value="10415"/>
+					<attribute id="0:258" alias="Auth-Application-Id" value="16777238" />
+				</attribute>
+			</packet>
+			
+			<receive-response time-out="500000" >
+			</receive-response>
+		</send>
+
+
+	<parallel>
+		<loop count="50000">
+			<receive-request time-out="-1" cc="280" app-id="0">
+				<send>
+					<packet cc="280" app-id="0" request="false">
+						<attribute id="0:264" alias="Origin-Host" value="gx.csm.com" />
+						<attribute id="0:296" alias="Orizgin-Realm" value="csm.com" />
+						<attribute id="0:268" alias="Result-Code" value="2001" />
+					</packet>
+				</send>
+			</receive-request>
+		</loop>
+		<!-- </loop> -->
+	</parallel>
+
+	<loop count="1">
+		
+		<wait duration="2" time-unit="SECONDS" />
+		<send>
+			<packet cc="272" app-id="16777238" request="true" h2h="1" e2e="3">
+				<attribute id="0:263" alias="Session-Id" value="1234" />
+				<attribute id="0:264" alias="Origin-Host" value="gx.csm.com" />
+				<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+				<attribute id="0:283" alias="Destination-Realm" value="csm.com" />
+				<attribute id="0:416" alias="CC-Request-Type" value="1" />
+				<attribute id="0:443" alias="Subscripition-ID">
+					<attribute id="0:450" alias="Subscripition-ID-Type" value="1" />
+					<attribute id="0:444" alias="Subscripition-ID-Data" value="40540" />
+				</attribute>
+			</packet>
+
+			<receive-response time-out="5000">
+			</receive-response>
+
+		</send>
+		
+		<receive-request time-out="-1" cc="258" app-id="16777238">
+			<send>	
+				<packet cc="258" app-id="16777238" request="false">
+					<attribute id="0:264" alias="Origin-Host" value="gx.csm.com" />
+					<attribute id="0:296" alias="Origin-Realm" value="csm.com" />
+					<attribute id="0:268" alias="Result-Code" value="2001" />
+				</packet>
+			</send>
+
+		</receive-request>
+	</loop>
+</scenario>

@@ -1,0 +1,74 @@
+ .is-handler-enabled {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+  }
+  .is-handler-enabled + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+  }
+  input.is-handler-enabled-round + label {
+    padding: 2px;
+    width: 22px;
+    height: 10px;
+    border-radius: 60px;
+    background:  transparent;
+  }
+  input.is-handler-enabled-round + label:before,
+  input.is-handler-enabled-round + label:after {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    content: "";
+    border: 1px solid #525252;
+  }
+  input.is-handler-enabled-round + label:before {
+    right: 1px;
+    background-color: red;
+    border-radius: 20px;
+    content: "\f00d";
+    font-size: 9px;
+    font-weight:lighter;
+    font-family: elitefont;
+    color: #f1f1f1;
+    transition: background 0.4s;
+    vertical-align: middle;
+	text-align: right;
+	padding-right:3.5px;
+	padding-top:1px;
+	float:right;
+  }
+  input.is-handler-enabled-round + label:after {
+    width: 10px;
+    background-color: #fff;
+    border-radius: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: margin 0.3s;
+    border: 1px solid #5C5C5C;
+  }
+  input.is-handler-enabled-round:checked + label:before {
+    background-color: #21610B;
+    content: "\f00c";
+    font-family: elitefont;
+    font-size: 9px;
+    padding-left:3px;
+    padding-top: 1px;
+    vertical-align: middle;
+	text-align: left;
+  }
+  input.is-handler-enabled-round:checked + label:after {
+    margin-left:14px;
+  }
+  
+  .disable-toggle-class{
+  	background-color: #F1F1F1;
+  }
+  
+  .disable-class{
+  background-color: #ECEAEA;
+  }

@@ -1,0 +1,303 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver?name=CSMServer&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver.xml?name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver/CSMServer?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver/CSMServer.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver?operation=search&name=CSMServer&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver.xml?operation=search&name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver/CSMServer?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver/CSMServer.xml?operation=search
+
+Response     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tgpp-application>
+    <application-id>0:5</application-id>
+    <service-policies>
+        <service-policy>ALL</service-policy>
+    </service-policies>
+    <logging>
+        <application-logger-enabled>false</application-logger-enabled>
+        <log-level>ALL</log-level>
+        <rolling-type>Time-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <location></location>
+        <syslog>
+            <address></address>
+            <facility>-NONE-</facility>
+        </syslog>
+    </logging>
+    <plugin-list>
+        <in-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </in-plugins>
+        <out-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </out-plugins>
+    </plugin-list>
+</tgpp-application>
+
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver?name=CSMServer&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver.json?name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver/CSMServer?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver/CSMServer.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver?operation=search&name=CSMServer&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver.json?operation=search&name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver/CSMServer?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver/CSMServer.json?operation=search
+
+Response     :
+
+{
+  "application-id": "0:5",
+  "service-policies": [
+    "ALL"
+  ],
+  "logging": {
+    "application-logger-enabled": "false",
+    "log-level": "ALL",
+    "rolling-type": "Time-Based",
+    "rolling-unit": "5",
+    "max-rolled-unit": "10",
+    "compress-rolled-unit": "false",
+    "location": "",
+    "syslog": {
+      "address": "",
+      "facility": "-NONE-"
+    }
+  },
+  "plugin-list": {
+    "in-plugins": {
+      "plugin-entry": [
+        {
+          "plugin-name": "-NONE-",
+          "argument": ""
+        }
+      ]
+    },
+    "out-plugins": {
+      "plugin-entry": [
+        {
+          "plugin-name": "-NONE-",
+          "argument": ""
+        }
+      ]
+    }
+  }
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver?name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver/CSMServer
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver?operation=update&name=CSMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/elitecsmserver/services/diametertgppserver/CSMServer?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<tgpp-application>
+    <application-id>0:5</application-id>
+    <service-policies>
+        <service-policy>ALL</service-policy>
+    </service-policies>
+    <logging>
+        <application-logger-enabled>false</application-logger-enabled>
+        <log-level>ALL</log-level>
+        <rolling-type>Time-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <location></location>
+        <syslog>
+            <address></address>
+            <facility>-NONE-</facility>
+        </syslog>
+    </logging>
+    <plugin-list>
+        <in-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </in-plugins>
+        <out-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </out-plugins>
+    </plugin-list>
+</tgpp-application>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter TGPP Server updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "application-id": "0:5",
+  "service-policies": [
+    "ALL"
+  ],
+  "logging": {
+    "application-logger-enabled": "false",
+    "log-level": "ALL",
+    "rolling-type": "Time-Based",
+    "rolling-unit": "5",
+    "max-rolled-unit": "10",
+    "compress-rolled-unit": "false",
+    "location": "",
+    "syslog": {
+      "address": "",
+      "facility": "-NONE-"
+    }
+  },
+  "plugin-list": {
+    "in-plugins": {
+      "plugin-entry": [
+        {
+          "plugin-name": "-NONE-",
+          "argument": ""
+        }
+      ]
+    },
+    "out-plugins": {
+      "plugin-entry": [
+        {
+          "plugin-name": "-NONE-",
+          "argument": ""
+        }
+      ]
+    }
+  }
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter TGPP Server updated successfully</response-message>
+    </response>
+</response-detail>
+
+#Notes :
+
+1) To enable debug, add debug=true in query parameter
+
+***********************************************************************
+						Additional Details(Properties as per SM)
+***********************************************************************
+ 	
+# List of Possible value for Duplicate Request Check Enabled (anyone) :
+	1) true
+	2) false
+	
+# List of possible value of Service Policy: 
+	It must be list of name of TGPP service policy or 'ALL' to select all TGPP service policy.
+	
+# List of possible value of Service Logger Enabled :
+	1) true
+	2) false
+
+# List of possible value of Log Level (anyone) :
+	1) OFF
+ 	2) WARN
+ 	3) ERROR
+ 	4) INFO
+ 	5) FATAL
+ 	6) DEBUG
+ 	7) TRACE
+ 	8) ALL
+
+# List of Possible value for rolling-type (anyone):
+ 	1) Time-Based
+ 	2) Size-Based
+
+# List of Possible value for compress-rolled-unit (anyone):
+	1) true
+	2) false
+
+# List of Possible value Facility (Sys log Configuration) (anyone):
+	
+	1) -None- 
+	2) AUTH
+	3) KERN
+	4) USER
+	5) MAIL
+	6) DAEMON
+	7) SYSLOG
+	8) LPR
+	9) NEWS
+	10) UUCP
+	11) CRON
+	12) AUTHPRIV
+	13) FTP
+	14) LOCAL0
+	15) LOCAL1
+	16) LOCAL2
+	17) LOCAL3
+	18) LOCAL4
+	19) LOCAL5 
+	20) LOCAL6
+    21) LOCAL7
+    
+# Plugin Name in In plugins and Out plugins:
+	It can be name of Diameter plugin or -None-

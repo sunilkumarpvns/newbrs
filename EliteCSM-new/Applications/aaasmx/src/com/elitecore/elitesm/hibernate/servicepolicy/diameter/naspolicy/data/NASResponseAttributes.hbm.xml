@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+                                                                                                                     
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.diameter.naspolicy.data.NASResponseAttributes" table="TBLMNASPOLICYRESPATTRREL">
+		<id name="respAttrId" column="RESPATTRID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+		<property name="nasPolicyId" type="StringType" column="NASPOLICYID" not-null="false"/> 
+		<property name="commandCodes" type="StringType" column="COMMANDCODES" not-null="false"/> 
+		<property name="responseAttributes" type="StringType" column="RESPONSEATTRIBUTES" not-null="false"/> 
+		<property name="orderNumber" column="ORDERNUMBER"  type="java.lang.Integer" not-null="true" />
+	
+	</class>            
+ 
+</hibernate-mapping>

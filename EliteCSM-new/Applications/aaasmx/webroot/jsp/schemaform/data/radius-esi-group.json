@@ -1,0 +1,49 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"Radius ESI Group",
+  "properties":{
+      "name":{
+          "title":"ESI Group Name",
+          "type":"string"
+      },
+      "description":{
+          "title":"Description",
+          "type":"string"
+      },
+      "primary-esi":{
+          "title":"Primary ESI",
+          "type":"string"
+      },
+      "secondary-esi":{
+          "title":"Secondary ESI",
+          "type":"string"
+      }
+  }
+  
+},
+   "form":[
+  {
+      "key":"name"
+  },
+  {
+      "key":"description"
+  },
+  {
+      "key":"primary-esi"
+  },
+  {
+      "key":"secondary-esi"
+  }
+  
+],
+"model":{
+	
+			"name": "radius_esi_group",
+			"description": "Created by admin on 12/13/2016 12:41:22 PM",
+			"primary-esi": "rad_auth",
+			"secondary-esi": "rad_auth"
+				
+  	
+}
+}

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.alert.data.AlertListenerData" table="TBLMALERTLISTENERINSTANCE" >          
+
+		<id name="listenerId" type="long" column="INSTANCEID">
+		    <generator
+				class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">				
+			</generator>		
+		</id>
+		<property name="name" type="string" column="NAME" not-null="false"/>
+		<property name="typeId" type="string" column="TYPEID" not-null="false"/>
+		<property name="createdDate" type="java.sql.Timestamp">
+     	  <column name="CREATEDDATE" sql-type="TIMESTAMP(6)" not-null="false"/>
+     	</property>     
+	    <property name="modifiedDate" type="java.sql.Timestamp">
+	      <column name="MODIFIEDDATE" sql-type="TIMESTAMP(6)" not-null="false"/>
+	    </property>     
+     	<property name="createdByStaffId" type="java.lang.Long">
+     	  <column name="CREATEDBYSTAFFID" sql-type="NUMBER" not-null="false"/>
+     	</property>     
+     	<property name="modifiedByStaffId" type="java.lang.Long">
+     	  <column name="MODIFIEDBYSTAFFID" sql-type="NUMBER" not-null="false"/>
+     	</property>
+     	<property name="clientIp" type="string">
+    		<column name="CLIENTIP" sql-type="VARCHAR2(64)" not-null="false"/>
+		</property> 	
+		<many-to-one name="alertListenerTypeData" class="com.elitecore.netvertexsm.datamanager.servermgr.alert.data.AlertListenerTypeData" column="TYPEID" insert="false" update="false" not-null="true" lazy="false"/>
+	</class>
+	
+</hibernate-mapping>

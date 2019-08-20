@@ -1,0 +1,9 @@
+<package-name-mapping>
+	<!-- one or more repetitions -->
+	<mapping>
+		<!-- give 648 column name in old tag -->
+		<old></old>
+		<!-- give 680 column name in old tag -->
+		<new></new>
+	</mapping>
+</package-name-mapping>

@@ -1,0 +1,10 @@
+{
+  "id": "rest_prefix_1111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "prefix": "322",
+  "countryId": "103",
+  "operatorId": "102",
+  "networkId": "128",
+  "groupNames": "DefaultGroup"
+}

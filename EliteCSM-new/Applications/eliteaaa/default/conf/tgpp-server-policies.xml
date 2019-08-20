@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tgpp-server-policies>
+	<tgpp-server-policy>
+		<name>Test</name>
+		<ruleset>0:1="*"</ruleset>
+		<command-code-flows>
+			<command-code-flow>
+				<command-code>265</command-code>
+
+<!-- 				<authentication-handler> -->
+<!-- 					<enabled>true</enabled> -->
+<!-- 					<supported-methods> -->
+<!-- 						<method>1</method> -->
+<!-- 						<method>2</method> -->
+<!-- 					</supported-methods> -->
+<!-- 					<eap-config>100</eap-config> -->
+<!-- 				</authentication-handler> -->
+<!-- 				<user-profile-repository> -->
+<!-- 					<enabled>true</enabled> -->
+<!-- 					<update-identity> -->
+<!-- 						<case>1</case> -->
+<!-- 						<trim-identity>false</trim-identity> -->
+<!-- 						<trim-password>false</trim-password> -->
+<!-- 						<separator /> -->
+<!-- 						<strip-identity>0</strip-identity> -->
+<!-- 					</update-identity> -->
+<!-- 					<user-identities> -->
+<!-- 						<user-identity>0:1</user-identity> -->
+<!-- 					</user-identities> -->
+<!-- 					<profile-drivers> -->
+<!-- 						<additional-group /> -->
+<!-- 						<driver-script></driver-script> -->
+<!-- 						<primary-group> -->
+<!-- 							<primary-driver> -->
+<!-- 								<driver-instace-id>216</driver-instace-id> -->
+<!-- 								<weightage>1</weightage> -->
+<!-- 							</primary-driver> -->
+<!-- 						</primary-group> -->
+<!-- 						<secondary-group /> -->
+<!-- 					</profile-drivers> -->
+<!-- 				</user-profile-repository> -->
+<!-- 				<authorization-handler> -->
+<!-- 					<enabled>true</enabled> -->
+<!-- 					<reject-on-reject-item-not-found>true -->
+<!-- 					</reject-on-reject-item-not-found> -->
+<!-- 					<reject-on-check-item-not-found>true -->
+<!-- 					</reject-on-check-item-not-found> -->
+<!-- 					<continue-on-policy-not-found>true</continue-on-policy-not-found> -->
+<!-- 					<wimax>false</wimax> -->
+<!-- 					<grace-policy></grace-policy> -->
+<!-- 					<default-session-timeout-in-secs>600 -->
+<!-- 					</default-session-timeout-in-secs> -->
+<!-- 				</authorization-handler> -->
+
+				
+				<broadcast-handler>
+					<enabled>true</enabled>
+					<broadcast-communication-entry wait="false">
+						<ruleset>0:1="*"</ruleset>
+						<peer-group>1</peer-group>
+						<translation-mapping>Diameter_Gx_Gy</translation-mapping>
+					</broadcast-communication-entry>
+<!-- 					<broadcast-communication-entry wait="false"> -->
+<!-- 						<ruleset>0:1="*"</ruleset> -->
+<!-- 						<peer-group>2</peer-group> -->
+<!-- 						<translation-mapping>Diameter_Gx_Gy</translation-mapping> -->
+<!-- 					</broadcast-communication-entry> -->
+				</broadcast-handler>
+				
+				<proxy-handler>
+					<enabled>true</enabled>
+<!-- 					<proxy-communication-entry> -->
+<!-- 						<ruleset>0:1="*"</ruleset> -->
+<!-- 						<peer-group>1</peer-group> -->
+<!-- 						<translation-mapping>Diameter_Gx_Gy</translation-mapping> -->
+<!-- 					</proxy-communication-entry> -->
+					<proxy-communication-entry>
+						<ruleset>0:1="*"</ruleset>
+						<peer-group>2</peer-group>
+						<translation-mapping>Diameter_Gx_Gy</translation-mapping>
+					</proxy-communication-entry>
+				</proxy-handler>
+
+				<plugin-handler>
+					<enabled>true</enabled>
+					<plugin-entry onResponse="false">
+						<ruleset>0:1="*"</ruleset>
+						<plugin-name>UNIVERSAL_DIAMETER_PLUGIN</plugin-name>
+					</plugin-entry>
+				</plugin-handler>
+
+			</command-code-flow>
+
+			<command-code-flow>
+				<command-code>258</command-code>
+				<proxy-handler>
+					<enabled>true</enabled>
+					<proxy-communication-entry>
+						<ruleset>0:1="*"</ruleset>
+						<peer-group>3</peer-group>
+						<translation-mapping>Diameter_Gx_Gy</translation-mapping>
+					</proxy-communication-entry>
+				</proxy-handler>
+			</command-code-flow>
+		</command-code-flows>
+	</tgpp-server-policy>
+</tgpp-server-policies>

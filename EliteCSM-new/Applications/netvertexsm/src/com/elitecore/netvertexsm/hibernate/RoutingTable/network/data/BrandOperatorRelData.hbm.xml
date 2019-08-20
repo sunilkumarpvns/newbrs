@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.BrandOperatorRelData" table="TBLSBRANDOPERATORREL">
+		<composite-id>
+			<key-property name="brandID" column="BRANDID" type="long"></key-property>
+			<key-property name="operatorID" column="OPERATORID" type="long"></key-property>
+		</composite-id>
+		
+		<many-to-one name="brandData" class="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.BrandData" column="BRANDID" insert="false" update="false" not-null="true" lazy="false"/>
+		<many-to-one name="operatorData" class="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.OperatorData" column="OPERATORID" insert="false" update="false" not-null="true" lazy="false"/>  
+	</class>		
+</hibernate-mapping>          

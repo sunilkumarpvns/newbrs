@@ -1,0 +1,154 @@
+
+<list>
+<!-- 	<case  expectedMapping="Intrim_mapping" 
+		behaviour="test-in-expression-ruleset-should-apply-as-per-request-avps">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:480" value="3" />
+		</diameter-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-mapping-selection</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>0:480 = &quot;4&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>Stop_mapping</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:40=&quot;2&quot;</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+					<mapping>
+						<in-request-type>0:480 = &quot;2&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>Start_mapping</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:40=&quot;1&quot;</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+					<mapping>
+						<in-request-type>0:480 = &quot;3&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>Intrim_mapping</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:40=&quot;3&quot;</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+
+	<case expectedMapping="mapping2"
+		behaviour="test-in-expression-must-be-applied-in-configuration-order">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:480" value="2" />
+			<attribute id="0:263" value="sessionID" />
+		</diameter-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-mapping-selection</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>0:480 = &quot;2&quot; AND 0:263 =
+							&quot;otherSession&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>mapping1</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:40=&quot;2&quot;</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+					<mapping>
+						<in-request-type>0:480 = &quot;2&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>mapping2</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:40=&quot;2&quot;</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case> -->
+
+	<case 
+		behaviour="should-not-select-mapping-if-ruleset-does-not-apply">
+		<diameter-packet cc="271" app-id="3" request="true">
+			<attribute id="0:480" value="2" />
+		</diameter-packet>
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id>null</basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0001</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>test-mapping-selection</name>
+				<to-interpreter-id>TTI0004</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>0:480 = &quot;2&quot; AND 0:263 =
+							&quot;anySession&quot;</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>mapping</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:40=&quot;2&quot;</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+	</case>
+</list>

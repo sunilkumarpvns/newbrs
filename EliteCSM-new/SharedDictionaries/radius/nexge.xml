@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+
+<attribute-list vendorid="16273" vendor-name="Nexge">
+
+<!--  Voice over IP attributes. -->     
+        <attribute id="1" name="call-id" type="string"/>
+        <attribute id="2" name="parent-call-id" type="string"/>  
+        <attribute id="3" name="child-call-id" type="string"/>
+        <attribute id="4" name="source-id" type="string"/>
+        <attribute id="5" name="original-source-alias" type="string"/>
+        <attribute id="6" name="source-ip-address" type="string"/>
+        <attribute id="7" name="destination-id" type="string"/>
+        <attribute id="8" name="original-destination-alias" type="string"/>
+        <attribute id="9" name="destination-ip-address" type="string"/>
+        <attribute id="10" name="ingress-gateway-id" type="string"/>
+        <attribute id="11" name="egress-gateway-id" type="string"/>
+        <attribute id="12" name="product-value" type="string"/>
+        <attribute id="31" name="supplementary-service" type="string"/>
+</attribute-list>

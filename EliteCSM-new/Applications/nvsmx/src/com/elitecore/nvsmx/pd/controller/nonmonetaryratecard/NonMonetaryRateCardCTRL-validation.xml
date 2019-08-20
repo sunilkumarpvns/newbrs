@@ -1,0 +1,51 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("nonmonetary.ratecard.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("nonmonetary.ratecard.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("nonmonetary.ratecard.name")})}</message>
+        </field-validator>		
+	</field>
+
+	<field name="nonMonetaryRateCardData.pulseUom">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("nonmonetary.ratecard.pulseUom")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^SECOND|MINUTE|HOUR|EVENT$]]></param>
+			<message>${getText("invalid.required.field", {getText("nonmonetary.ratecard.pulseUom")})}</message>
+		</field-validator>
+	</field>
+	<field name="description">
+		<field-validator type="stringlength">
+			<param name="minLength">0</param>
+			<param name="maxLength">2000</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("ratecard.description")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="nonMonetaryRateCardData.renewalIntervalUnit">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("nonmonetary.ratecard.renewal.interval.unit")})}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^MONTH|MONTH_END|TILL_BILL_DATE|DAY|HOUR|MID_NIGHT$]]></param>
+			<message>${getText("invalid.required.field", {getText("nonmonetary.ratecard.renewal.interval.unit")})}</message>
+		</field-validator>
+	</field>
+	
+</validators>

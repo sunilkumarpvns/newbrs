@@ -1,0 +1,135 @@
+<list>
+	<test-case
+		behaviour="multiple post policies can be configured and execute in order of configuration, 
+				where both policy is selected based on the check-item evaluation when configured action item is : NONE">
+				
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAcctPlugin</name>
+			<universal-pre-policies/>
+			<universal-post-policies>
+				<post-policy-detail name="postPolicyOne">
+				<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"itemFound"</attribute-value>
+							<packet-type>5</packet-type>
+							<parameter-usage>C</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:89</attr-id>
+							<attribute-value>strip(0:1, "T", "@")</attribute-value>
+							<packet-type>5</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+			</post-policy-detail>
+			<post-policy-detail name="postPolicyTwo">
+				<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:4</attr-id>
+							<attribute-value>"10.121.21.2"</attribute-value>
+							<packet-type>5</packet-type>
+							<parameter-usage>R</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+			</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="4">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+		</request-packet>
+
+		<response-packet type="5">
+		<attribute id="0:1" value="eliteaaa@elitecore.com" />
+		<attribute id="0:30" value="12345" />
+		<attribute id="0:31" value="itemFound" />
+		</response-packet>
+
+		<assert>
+			<response>
+				<contains-attribute id="0:89" value="eliteaaa" />
+				<contains-attribute id="0:4" value="10.121.21.2" />
+			</response>
+		</assert>
+		
+	</test-case>
+	
+	
+	<test-case behaviour="Multiple post policy execution is not done when action item are any of this : 'ACCEPT,REJECT,DROP'
+					so when first policy is selected and applied successfully, it will not go for another policy execution">
+		<universal-plugin-detail>
+			<description></description>
+			<name>RadiusAcctPlugin</name>
+			<universal-pre-policies/>
+			<universal-post-policies>
+				<post-policy-detail name="postPolicyOne">
+				<action>5</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"elitecore"</attribute-value>
+							<packet-type>5</packet-type>
+							<parameter-usage>J</parameter-usage>
+						</parameter>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:31</attr-id>
+							<attribute-value>"ADDEDFROM1"</attribute-value>
+							<packet-type>5</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+			</post-policy-detail>
+			<post-policy-detail name="postPolicyTwo">
+				<action>4</action>
+					<enabled>true</enabled>
+					<parameter-list>
+						<parameter>
+							<active>YES</active>
+							<attr-id>0:30</attr-id>
+							<attribute-value>"ADDEDFROM2"</attribute-value>
+							<packet-type>5</packet-type>
+							<parameter-usage>A</parameter-usage>
+						</parameter>
+					</parameter-list>
+					<reject-on-check-item-not-found>true</reject-on-check-item-not-found>
+			</post-policy-detail>
+			</universal-post-policies>
+		</universal-plugin-detail>
+
+		<request-packet type="4">
+			<attribute id="0:1" value="eliteaaa@elitecore.com" />
+			<attribute id="0:2" value="ELITEAAA" />
+		</request-packet>
+
+		<response-packet type="5">
+			<attribute id="0:30" value="elite" />
+		</response-packet>
+
+		<assert>
+			<response>
+				<contains-attribute id="0:31" value="ADDEDFROM1" />
+				<not>
+					<contains-attribute id="0:30" value="ADDEDFROM2" />
+				</not>
+			</response>
+		</assert>
+		
+	</test-case> 
+
+</list>

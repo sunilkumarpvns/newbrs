@@ -1,0 +1,268 @@
+IP-POOL-SERVICE-CLIENT-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+       MODULE-IDENTITY, OBJECT-TYPE, OBJECT-IDENTITY,
+       Counter32, Integer32,
+       IpAddress, TimeTicks, mib-2      FROM SNMPv2-SMI
+       SnmpAdminString                  FROM SNMP-FRAMEWORK-MIB
+       MODULE-COMPLIANCE, OBJECT-GROUP  FROM SNMPv2-CONF;
+       
+
+        internet      OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 }
+
+        directory     OBJECT IDENTIFIER ::= { internet 1 }
+
+        mgmt          OBJECT IDENTIFIER ::= { internet 2 }
+ 
+        experimental  OBJECT IDENTIFIER ::= { internet 3 }
+
+        private       OBJECT IDENTIFIER ::= { internet 4 }
+
+        enterprises   OBJECT IDENTIFIER ::= { private 1 }
+
+        elitecore     OBJECT IDENTIFIER ::= { enterprises 21067 }
+                    
+        eliteAAA      OBJECT IDENTIFIER ::= { elitecore 1 }
+        
+        ipPoolMIB OBJECT IDENTIFIER ::= { eliteAAA 7 }
+		
+ipPoolClientMIBObjects OBJECT IDENTIFIER ::= { ipPoolMIB 2 }
+
+ipPoolTotalRequest OBJECT-TYPE
+       SYNTAX      Counter32
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Total no. of Request send by AAA client to IP-Pool Service"
+       ::= { ipPoolClientMIBObjects 1 }
+ 
+ipPoolTotalResponses OBJECT-TYPE
+       SYNTAX      Counter32
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Total no. of Response received by AAA client from IP-Pool Service"
+       ::= { ipPoolClientMIBObjects 2 }
+		
+ipPoolTotalRequestTimeOut OBJECT-TYPE
+       SYNTAX      Counter32
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Total no. of Request Time-Out Event Occured"
+       ::= { ipPoolClientMIBObjects 3 }
+
+ipPoolTotalRequestRetransmission OBJECT-TYPE
+       SYNTAX      Counter32
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Total no. of Request Retry-Count Event Occured"
+       ::= { ipPoolClientMIBObjects 4 }
+
+ipPoolTotalDiscoverRequest OBJECT-TYPE
+       SYNTAX      Counter32
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Total no. of Access Request send by AAA client to IP-Pool Service"
+       ::= { ipPoolClientMIBObjects 5 }
+       
+ipPoolTotalOfferResponse OBJECT-TYPE
+       SYNTAX      Counter32
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Total no. of Access Accept received by AAA client from IP-Pool Service"
+       ::= { ipPoolClientMIBObjects  6 }
+       
+ipPoolTotalDeclineResponse OBJECT-TYPE
+       SYNTAX      Counter32
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Total no. of Access Reject received by AAA client from IP-Pool Service"
+       ::= { ipPoolClientMIBObjects 7 }
+       
+ipPoolTotalAllocationRequest OBJECT-TYPE
+       SYNTAX      Counter32
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Total no. of Acconting Start send by AAA client to IP-Pool Service"
+       ::= { ipPoolClientMIBObjects 8 }
+       
+ipPoolTotalAllocationResponse OBJECT-TYPE
+       SYNTAX      Counter32
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Total no. of Acconting Response received by AAA client from IP-Pool Service"
+       ::= { ipPoolClientMIBObjects 9 }
+
+ipPoolTotalReleaseRequest OBJECT-TYPE
+       SYNTAX      Counter32
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Total no. of Acconting Stop send by AAA client to IP-Pool Service"
+       ::= { ipPoolClientMIBObjects 10 }
+       
+ipPoolTotalUpdateRequest OBJECT-TYPE
+       SYNTAX      Counter32
+       MAX-ACCESS  read-only
+       STATUS      current
+       DESCRIPTION
+             "Total no. of Acconting Update send by AAA client to IP-Pool Service"
+       ::= { ipPoolClientMIBObjects 11 }
+
+--- End of Client Level Statistics
+
+ipPoolServerStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF IPPoolServerEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Table defines number of NAS Client Communicate with RM server"
+       ::= { ipPoolClientMIBObjects 101 }
+
+ipPoolServerEntry OBJECT-TYPE
+       SYNTAX     IPPoolServerEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Entry represents the AAA Server"
+       INDEX      { ipPoolServerIndex }
+       ::= { ipPoolServerStatisticsTable 1 }
+
+IPPoolServerEntry ::= SEQUENCE {
+	ipPoolServerIndex				Integer32,
+	ipPoolServerName 		SnmpAdminString,
+	ipPoolServerAddress		IpAddress,
+	ipPoolServRequest		Counter32,
+	iPPoolServResponses			Counter32,
+	iPPoolServRequestTimeOut		Counter32,
+	iPPoolServRequestRetransmission	Counter32,
+	iPPoolServDiscoverRequest		Counter32,
+	iPPoolServOfferResponse		Counter32,
+	iPPoolServDeclineResponse		Counter32,
+	iPPoolServAllocationRequest		Counter32,
+	iPPoolServAllocationResponse		Counter32,
+	iPPoolServReleaseRequest		Counter32,
+	iPPoolServUpdateRequest		Counter32
+}
+
+ipPoolServerIndex OBJECT-TYPE
+    SYNTAX     Integer32
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+          "A number uniquely identifying each AAA Server"
+    ::= { ipPoolServerEntry 1 }
+
+ipPoolServerName OBJECT-TYPE
+    SYNTAX     SnmpAdminString
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "A number uniquely identifying each AAA Server"
+    ::= { ipPoolServerEntry 3 }
+    
+ipPoolServerAddress OBJECT-TYPE
+    SYNTAX     IpAddress
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "A number uniquely identifying each AAA Server"
+    ::= { ipPoolServerEntry 4 }
+
+ipPoolServRequest OBJECT-TYPE
+    SYNTAX     Counter32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "total number of Request Received by IP-Pool Service"
+    ::= { ipPoolServerEntry 5 }
+
+ipPoolServResponses OBJECT-TYPE
+    SYNTAX     Counter32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "total number of Response send by IP-Pool Service"
+    ::= { ipPoolServerEntry 6 }
+
+ipPoolServRequestTimeOut OBJECT-TYPE
+    SYNTAX     Counter32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "total number of Request timeout event occured by IP-Pool Service"
+    ::= { ipPoolServerEntry 7 }
+
+ipPoolServRequestRetransmission OBJECT-TYPE
+    SYNTAX     Counter32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "total number of Request Retransmission done by IP-Pool Service"
+    ::= { ipPoolServerEntry 8 }
+
+ipPoolServDiscoverRequest OBJECT-TYPE
+    SYNTAX     Counter32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "total number of Access Request Received by IP-Pool Service"
+    ::= { ipPoolServerEntry 9 }
+
+ipPoolServOfferResponse OBJECT-TYPE
+    SYNTAX     Counter32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "total number of Access Accept send by IP-Pool Service"
+    ::= { ipPoolServerEntry 10 }
+
+ipPoolServDeclineResponse OBJECT-TYPE
+    SYNTAX     Counter32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "total number of Access Reject send by IP-Pool Service"
+    ::= { ipPoolServerEntry 11 }
+
+ipPoolServAllocationRequest OBJECT-TYPE
+    SYNTAX     Counter32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "total number of Accountig Start received by IP-Pool Service"
+    ::= { ipPoolServerEntry 12 }
+
+ipPoolServAllocationResponse OBJECT-TYPE
+    SYNTAX     Counter32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "total number of Accountig Response send by IP-Pool Service"
+    ::= { ipPoolServerEntry 13 }
+
+ipPoolServReleaseRequest OBJECT-TYPE
+    SYNTAX     Counter32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "total number of Accountig Stop send by IP-Pool Service"
+    ::= { ipPoolServerEntry 14 }
+
+ipPoolServUpdateRequest OBJECT-TYPE
+    SYNTAX     Counter32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+          "total number of Accountig update send by IP-Pool Service"
+    ::= { ipPoolServerEntry 15 }
+
+--- end of server statistics table
+END

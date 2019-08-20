@@ -1,0 +1,48 @@
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+LIBRARY		= ../../../library
+LDFLAGS		= -Xlinker -rpath -Xlinker $(LD_RUN_PATH)  -L$(LIBRARY)
+
+
+PROC_TYPE=$(shell uname -m)
+ifeq ($(PROC_TYPE),x86_64)
+ARCHFLAGS = -DAMD64_ARCH
+LD_RUN_PATH	= /usr/lib64/omni
+LDFLAGS   = -Xlinker -rpath -Xlinker $(LD_RUN_PATH) -L$(LIBRARY)
+endif
+DEBIAN=$(shell ls /etc/debian_version 2>/dev/null)
+ifeq ($(DEBIAN),/etc/debian_version)
+ARCHFLAGS += -DDEBIAN
+DEBIAN = true
+endif
+
+CC 		= gcc
+LD 		= /usr/bin/ld
+DEFINES		= -DOMNI_UNIX -DLINUX -D_GNU_SOURCE -D_REENTRANT -fpic
+CFLAGS		= $(INCLUDE) $(DEFINES) $(DEBUG)
+DEBUG 		= -g -Wall -O -std=gnu99
+CP	=	cp
+
+LD_SHARED_LIB	= -G -shared
+
+PROT_FLAGS       = $(PROTOCOL_C7)
+INCLUDE       = -I. 
+
+WLAN_LIBRARY_SO		= libulcmmg.so
+WLAN_SRCS	 		= ulcm_hash.c clientMod.c tcp_message.c wlan_custom.c
+WLAN_OBJECTS 		= $(WLAN_SRCS:%.c=%.o)
+
+all:: $(WLAN_LIBRARY_SO)
+
+$(WLAN_LIBRARY_SO) :: $(WLAN_OBJECTS)
+	$(LD) $(LD_SHARED_LIB) -o $(WLAN_LIBRARY_SO) $(WLAN_OBJECTS);						\
+	echo Replacing $(WLAN_LIBRARY_SO) to $(LIBRARY) ; 					\
+	$(RM) $(LIBRARY)/$(WLAN_LIBRARY_SO) ; 								\
+	$(CP) $(WLAN_LIBRARY_SO) $(LIBRARY)
+
+
+clean::
+	$(RM) $(WLAN_LIBRARY_SO)
+	$(RM) $(WLAN_OBJECTS)

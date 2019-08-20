@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+                 
+	<class name="com.elitecore.elitesm.datamanager.sessionmanager.data.SessionManagerTypeData" table="TBLSSESSIONMANAGERTYPE" >  
+	
+	<id name="smtypeid" column="SMTYPEID" type="StringType">
+		<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"> 
+		</generator>
+	</id>
+	<!-- 
+	<property name="smtypeid" type="long">
+		  <column name="SMTYPEID" sql-type="NUMBER(10)" not-null="false" />
+	</property>
+	 -->  
+	<property name="name" type="StringType">
+		  <column name="NAME" sql-type="VARCHAR(30)" not-null="true"/>
+	</property>
+	
+	<property name="serialno" type="long">
+		  <column name="SERIALNO" sql-type="NUMBER(10)" not-null="false"/>
+	</property>
+	
+	<property name="alias" type="StringType">
+		  <column name="ALIAS" sql-type="VARCHAR(30)" not-null="true" />
+	</property>
+		
+	<property name="description" type="StringType">
+		<column name="DESCRIPTION" sql-type="VARCHAR(100)" not-null="true" />
+	</property>
+		
+	<property name="status" type="CharType">
+		<column name="STATUS" sql-type="CHAR(1)" not-null="true"/>
+	</property>
+	
+	<set name="sessionManagerInstanceSet" lazy="false" inverse="false" >
+			<key column="SMTYPEID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.sessionmanager.data.SessionManagerInstanceData" />
+	</set>
+		
+		
+	</class>
+	
+</hibernate-mapping>
+
+          

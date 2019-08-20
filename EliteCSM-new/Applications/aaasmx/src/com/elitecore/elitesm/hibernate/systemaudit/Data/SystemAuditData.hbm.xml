@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.systemaudit.Data.SystemAuditData" table="TBLTSYSTEMAUDIT" >          
+		
+		<id name="systemAuditId" column="SYSTEMAUDITID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		
+		<property name="transactionId" type="StringType">
+          <column name="TRANSACTIONID" sql-type="VARCHAR(36)" not-null="false"/>
+    	</property>
+	     <property name="remarks" type="StringType">
+	          <column name="REMARK" sql-type="VARCHAR(2000)" not-null="false"/>
+	     </property>
+	     <property name="systemUserName" type="StringType">
+	          <column name="SYSTEMUSERNAME" sql-type="VARCHAR(60)" not-null="true"/>
+	     </property>
+	     <property name="auditDate" type="java.util.Date">
+	          <column name="AUDITDATE" sql-type="DATE" not-null="true"/>
+	     </property>
+	       <property name="clientIP" type="StringType">
+	          <column name="CLIENTIP" sql-type="VARCHAR(60)" not-null="true"/>
+	     </property>
+	     <property name="actionId" type="CharType">
+	          <column name="ACTIONID" sql-type="CHAR(8)" not-null="true"/>
+	     </property>
+	     <property name="systemUserId" type="StringType">
+	          <column name="SYSTEMUSERID" sql-type="VARCHAR(36)" not-null="true"/>
+	     </property>
+	     
+	      <property name="auditId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	  </property>
+	  
+	   <property name="auditName" type="StringType" >
+	          <column name="AUDITNAME" sql-type="VARCHAR(64)" />
+	  </property>
+	     
+	   <many-to-one name="actionData" class="com.elitecore.elitesm.datamanager.core.system.profilemanagement.data.ActionData" column="ACTIONID" insert="false" update="false" lazy="false"/>			
+		
+	 <one-to-one name="systemAuditDetails" class="com.elitecore.elitesm.datamanager.systemaudit.Data.SystemAuditDetails"  cascade="save-update"></one-to-one>
+	</class>
+</hibernate-mapping>

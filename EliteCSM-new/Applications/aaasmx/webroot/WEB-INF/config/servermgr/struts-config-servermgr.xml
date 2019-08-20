@@ -1,0 +1,1909 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <data-sources />
+    <form-beans>
+            
+      <!-- form-beans for session manager -->
+      	<form-bean name="initcreateSessionManagerForm" type="com.elitecore.elitesm.web.sessionmanager.forms.CreateSessionManagerForm"/>
+      	<form-bean name="createSessionManagerForm" type="com.elitecore.elitesm.web.sessionmanager.forms.CreateSessionManagerForm"/>
+      	<form-bean name="createSessionManagerDetailForm" type="com.elitecore.elitesm.web.sessionmanager.forms.CreateSessionManagerDetailForm"/>
+      	<form-bean name="searchSessionManagerForm" type="com.elitecore.elitesm.web.sessionmanager.forms.SearchSessionManagerForm"/>
+      	<form-bean name="miscSessionManagerForm" type="com.elitecore.elitesm.web.sessionmanager.forms.MiscSessionManagerForm"/>
+      	<form-bean name="viewSessionManagerForm" type="com.elitecore.elitesm.web.sessionmanager.forms.ViewSessionManagerForm"/>
+      
+	    <form-bean name="updateSessionManagerBasicDetailForm" type="com.elitecore.elitesm.web.sessionmanager.forms.UpdateSessionManagerBasicDetailForm"/>
+    	<form-bean name="searchASMForm" type="com.elitecore.elitesm.web.sessionmanager.forms.SearchASMForm"/>
+      	<form-bean name="updateSessionManagerDetailForm" type="com.elitecore.elitesm.web.sessionmanager.forms.UpdateSessionManagerDetailForm"/>
+      
+      <!--  form- bean for digest config -->
+      	<form-bean name="createDigestConfForm" type="com.elitecore.elitesm.web.digestconf.forms.CreateDigestConfForm"/>
+      	<form-bean name="createServerForm" type="com.elitecore.elitesm.web.servermgr.server.forms.CreateServerForm"/>
+      	<form-bean name="searchDigestConfForm" type="com.elitecore.elitesm.web.digestconf.forms.SearchDigestConfForm" />
+      	<form-bean name="miscDigestConfForm" type="com.elitecore.elitesm.web.digestconf.forms.MiscDigestConfForm" />
+      	<form-bean name="updateDigestConfForm" type="com.elitecore.elitesm.web.digestconf.forms.UpdateDigestConfForm" />
+      	<form-bean name="viewDigestConfForm" type="com.elitecore.elitesm.web.digestconf.forms.ViewDigestConfForm" />
+      
+      	<form-bean name="listNetServerInstanceForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ListNetServerInstanceForm"/>
+      	<form-bean name="viewNetServerInstanceForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewNetServerInstanceForm"/> 
+      	<form-bean name="updateNetServerInstanceBasicDetailForm" type="com.elitecore.elitesm.web.servermgr.server.forms.UpdateNetServerInstanceBasicDetailForm"/>
+	  	<form-bean name="updateNetServerAdminInterfaceDetailForm" type="com.elitecore.elitesm.web.servermgr.server.forms.UpdateNetServerAdminInterfaceDetailForm"/>
+		<form-bean name="updateNetServerSynchronizeConfigDetailForm" type="com.elitecore.elitesm.web.servermgr.server.forms.UpdateNetServerSynchronizeConfigDetailForm"/>
+    	<form-bean name="updateNetServerSynchronizeBackConfigDetailForm" type="com.elitecore.elitesm.web.servermgr.server.forms.UpdateNetServerSynchronizeBackConfigDetailForm"/>        
+		<form-bean name="updateNetServiceSynchronizeConfigDetailForm" type="com.elitecore.elitesm.web.servermgr.service.forms.UpdateNetServiceSynchronizeConfigDetailForm"/>
+        <form-bean name="updateNetServiceSynchronizeBackConfigDetailForm" type="com.elitecore.elitesm.web.servermgr.service.forms.UpdateNetServiceSynchronizeBackConfigDetailForm"/>        
+		<form-bean name="updateNetDriverSynchronizeConfigDetailForm" type="com.elitecore.elitesm.web.servermgr.driver.forms.UpdateNetDriverSynchronizeConfigDetailForm"/>
+		
+		<form-bean name="addNetServerServiceInstanceForm" type="com.elitecore.elitesm.web.servermgr.service.forms.AddNetServerServiceInstanceForm"/>
+		<form-bean name="viewNetServerServiesForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewNetServerServicesForm"/>
+ 		<form-bean name="removeNetServerServiceInstanceForm" type="com.elitecore.elitesm.web.servermgr.server.forms.RemoveNetServerServiceInstanceForm"/> 
+ 		<form-bean name="viewNetServiceInstanceForm" type="com.elitecore.elitesm.web.servermgr.service.forms.ViewNetServiceInstanceForm"/>
+ 		<form-bean name="viewGraphParaForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewGraphParaForm"/>
+ 		<form-bean name="viewNetServiceDriversInstanceForm" type="com.elitecore.elitesm.web.servermgr.service.forms.ViewNetServiceDriversInstanceForm"/>
+ 		<form-bean name="viewNetServiceDriverDetailForm" type="com.elitecore.elitesm.web.servermgr.service.forms.ViewNetServiceDriverDetailForm"/>
+		<form-bean name="updateServiceForm"   type="com.elitecore.elitesm.web.servermgr.service.forms.UpdateServiceConfigurationForm"/>
+		<form-bean name="updateNetServerForm" type="com.elitecore.elitesm.web.servermgr.server.forms.UpdateNetServerConfigurationForm"/>	
+			
+						
+		<form-bean name="listNetServiceConfigurationForm" type="com.elitecore.elitesm.web.servermgr.service.forms.ListNetServiceConfigurationForm"/>
+		<form-bean name="listnetServerConfigurationForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ListNetServerConfigurationForm"/>
+        <form-bean name="synchronizeNetServerConfigForm" type="com.elitecore.elitesm.web.servermgr.server.forms.SynchronizeNetServerConfigForm"/>        
+        <form-bean name="synchronizeBackNetServerConfigForm" type="com.elitecore.elitesm.web.servermgr.server.forms.SynchronizeBackNetServerConfigForm"/>                
+        <form-bean name="synchronizeNetServiceConfigForm" type="com.elitecore.elitesm.web.servermgr.service.forms.SynchronizeNetServiceConfigForm"/>                
+        <form-bean name="synchronizeBackNetServiceConfigForm" type="com.elitecore.elitesm.web.servermgr.service.forms.SynchronizeBackNetServiceConfigForm"/>                        
+        <form-bean name="importNetServerConfigurationForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ImportNetServerConfigurationForm"/>
+        <form-bean name="exportNetServerConfigurationForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ExportNetServerConfigurationForm"/>
+        <form-bean name="importNetServiceConfigurationForm" type="com.elitecore.elitesm.web.servermgr.service.forms.ImportNetServiceConfigurationForm"/>
+        <form-bean name="exportNetServiceConfigurationForm" type="com.elitecore.elitesm.web.servermgr.service.forms.ExportNetServiceConfigurationForm"/>
+  		<form-bean name="listNetServerGlobalConfigurationForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ListNetServerGlobalConfigurationForm"/>
+  		<form-bean name="listNetServicePlugInConfigurationForm" type="com.elitecore.elitesm.web.servermgr.service.forms.ListNetServicePlugInConfigurationForm"/>
+        <form-bean name="viewNetServerLiveDetailsForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewNetServerLiveDetailsForm"/>        
+        <form-bean name="viewNetServiceLiveDetailsForm" type="com.elitecore.elitesm.web.servermgr.service.forms.ViewNetServiceLiveDetailsForm"/>
+        <form-bean name="viewDatasourceSummaryForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewDatasourceSummaryForm"/>
+        <form-bean name="viewPacketReceivedSummaryForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewPacketReceivedSummaryForm"/>
+        <form-bean name="addAttributeDetailForm" type="com.elitecore.elitesm.web.servermgr.server.forms.AddAttributeDetailForm"/>
+        <form-bean name="createUserfileDatasourceForm" type="com.elitecore.elitesm.web.servermgr.server.forms.CreateUserfileDatasourceForm"></form-bean>
+        <form-bean name="searchUserfileDatasourceForm" type="com.elitecore.elitesm.web.servermgr.server.forms.SearchUserfileDatasourceForm"></form-bean>
+        <form-bean name="listUserfileDatasourceForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ListUserfileDatasourceForm"></form-bean>
+        <form-bean name="updateUserfileDatasourceForm" type="com.elitecore.elitesm.web.servermgr.server.forms.UpdateUserfileDatasourceForm"></form-bean>
+        <form-bean name="listUserfileAccountInformationForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ListUserfileAccountInformationForm"></form-bean>
+        <form-bean name="viewUserfileDatasourceUserAccountForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewUserfileDatasourceUserAccountForm"></form-bean>
+        <form-bean name="miscUserfileDatasourceForm" type="com.elitecore.elitesm.web.servermgr.server.forms.MiscUserfileDatasourceForm"/>
+        <form-bean name="viewLDAPSummaryForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewLDAPSummaryForm"/>
+        <form-bean name="downloadLicensePublickeyForm" type="com.elitecore.elitesm.web.servermgr.server.forms.DownloadLicensePublickeyForm"/>
+        <form-bean name="downloadLicenseForm" type="com.elitecore.elitesm.web.servermgr.server.forms.DownloadLicenseForm"/>
+        <form-bean name="uploadLicenseForm" type="com.elitecore.elitesm.web.servermgr.server.forms.UploadLicenseForm"/>
+        <form-bean name="UpdateNetServerStartupConfigForm" type="com.elitecore.elitesm.web.servermgr.server.forms.UpdateNetServerStartupConfigForm"/>
+        <form-bean name="viewGraphForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewGraphForm"/>
+        <form-bean name="viewPopupGraphForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewPopupGraphForm"/>
+        <form-bean name="uploadNetServerDictionaryForm" type="com.elitecore.elitesm.web.servermgr.server.forms.UploadNetServerDictionaryForm"/>
+  		<form-bean name="netServerStopForm" type="com.elitecore.elitesm.web.servermgr.server.forms.NetServerStopForm"/>
+        <form-bean name="netServerSoftRestartForm" type="com.elitecore.elitesm.web.servermgr.server.forms.NetServerSoftRestartForm"/>
+        <form-bean name="netServerReloadConfigurationForm" type="com.elitecore.elitesm.web.servermgr.server.forms.NetServerReloadConfigurationForm"/>
+        <form-bean name="netServerReloadCacheForm" type="com.elitecore.elitesm.web.servermgr.server.forms.NetServerReloadCacheForm"/>
+        <form-bean name="netServerStartForm" type="com.elitecore.elitesm.web.servermgr.server.forms.NetServerStartForm"/>
+        <form-bean name="netServerStartStopForm" type="com.elitecore.elitesm.web.servermgr.server.forms.NetServerStartStopForm"/>
+        <form-bean name="netServerRestartForm" type="com.elitecore.elitesm.web.servermgr.server.forms.NetServerRestartForm"/>
+        <form-bean name="updateNetServiceInstanceBasicDetailForm" type="com.elitecore.elitesm.web.servermgr.service.forms.UpdateNetServiceInstanceBasicDetailForm"/>
+    	<form-bean name="manageNetServerDictionaryForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ManageNetServerDictionaryForm"/>
+  	    <form-bean name="showNetServerDictionaryForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ShowNetServerDictionaryForm"/>
+		<form-bean name="searchDictionaryPopUpForm" type="com.elitecore.elitesm.web.servermgr.server.forms.SearchDictionaryPopUpForm"/>
+		<form-bean name="viewNetServerLiveClientsDetailsForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewNetServerLiveClientsDetailsForm"/>		
+		<form-bean name="initNetServerLicenseForm" type="com.elitecore.elitesm.web.servermgr.server.forms.InitNetServerLicenseForm"/>
+		<form-bean name="initNetServerCLIForm" type="com.elitecore.elitesm.web.servermgr.server.forms.InitNetServerCLIForm"/>		
+		<form-bean name="viewSupportedRFCForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewSupportedRFCForm"/>		
+		<form-bean name="viewLogReportForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewNetServerLogReportForm"/>		
+		<form-bean name="synchronizeNetServerVersionForm" type="com.elitecore.elitesm.web.servermgr.server.forms.SynchronizeNetServerInstanceVersionForm"/>
+
+		<form-bean name="viewLiveServiceRequiredDetailForm" type="com.elitecore.elitesm.web.servermgr.service.forms.ViewLiveServiceRequiredDetailForm"/>		
+		<form-bean name="viewReloadCacheDetailForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewReloadCacheDetailsForm"/>
+		
+		<form-bean name="updateNetDictionarySynchronizeForm" type="com.elitecore.elitesm.web.servermgr.server.forms.UpdateNetDictionarySynchronizeForm"/>
+		<form-bean name="synchronizeNetDictionaryForm" type="com.elitecore.elitesm.web.servermgr.server.forms.SynchronizeNetDictionaryForm"/>
+		
+		<!-- form bean for EAP Configuration -->
+		
+		<form-bean name="initcreateEAPConfigForm" type="com.elitecore.elitesm.web.servermgr.eap.forms.CreateEAPConfigForm"/>
+		<form-bean name="createEAPConfigForm" type="com.elitecore.elitesm.web.servermgr.eap.forms.CreateEAPConfigForm"/>
+		<form-bean name="createEAPConfigDetailForm" type="com.elitecore.elitesm.web.servermgr.eap.forms.CreateEAPConfigDetailForm"/>
+		<form-bean name="searchEAPConfigForm" type="com.elitecore.elitesm.web.servermgr.eap.forms.SearchEAPConfigForm"/>
+		<form-bean name="miscEAPConfigForm" type="com.elitecore.elitesm.web.servermgr.eap.forms.MiscEAPConfigForm"/>
+		<form-bean name="viewEAPConfigForm" type="com.elitecore.elitesm.web.servermgr.eap.forms.ViewEAPConfigForm"/>
+		<form-bean name="viewEAPTLSConfigForm" type="com.elitecore.elitesm.web.servermgr.eap.forms.ViewEAPTLSConfigForm"/>
+		<form-bean name="updateEAPBasicDetailsForm" type="com.elitecore.elitesm.web.servermgr.eap.forms.UpdateEAPBasicDetailsForm"/>
+		<form-bean name="updateEAPTLSDetailsForm" type="com.elitecore.elitesm.web.servermgr.eap.forms.UpdateEAPTLSDetailsForm"/>
+		<form-bean name="updateSupportedMethodsForm" type="com.elitecore.elitesm.web.servermgr.eap.forms.UpdateSupportedMethodsForm"/>
+		<form-bean name="eapGSMConfigForm" type="com.elitecore.elitesm.web.servermgr.eap.forms.EAPGsmConfigForm"></form-bean>
+		
+		<!--  form- bean for Alert config -->
+		<form-bean name="createAlertListenerForm" type="com.elitecore.elitesm.web.servermgr.alert.forms.CreateAlertListenerForm"/>
+		<form-bean name="searchAlertListenerForm" type="com.elitecore.elitesm.web.servermgr.alert.forms.SearchAlertListenerForm"/>
+		<form-bean name="miscAlertListenerForm" type="com.elitecore.elitesm.web.servermgr.alert.forms.MiscAlertListenerForm"/>
+		<form-bean name="viewAlertListenerForm" type="com.elitecore.elitesm.web.servermgr.alert.forms.ViewAlertListenerForm"/>
+		<form-bean name="updateAlertListenerForm" type="com.elitecore.elitesm.web.servermgr.alert.forms.UpdateAlertListenerForm"/>
+		
+		<!-- form - bean for Grace Policy  -->
+	   
+      	<form-bean name="initGracepolicyForm" type="com.elitecore.elitesm.web.servermgr.gracepolicy.forms.InitGracepolicyForm" /> 
+        <form-bean name="gracePolicyForm" type="com.elitecore.elitesm.web.servermgr.gracepolicy.forms.GracepolicyForm" /> 
+     
+     	
+		
+		<form-bean name="viewServiceGraphForm" type="com.elitecore.elitesm.web.servermgr.service.forms.ViewServiceGraphForm"/>
+		<form-bean name="viewServerGraphForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewServerGraphForm"/>
+		<form-bean name="viewNetServerGraphForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ViewNetServerGraphForm"/>
+	
+		<form-bean name="listNetServerLogsForm" type="com.elitecore.elitesm.web.servermgr.server.forms.ListNetServerLogsForm"/>
+		
+	  <!-- form - bean for Translation Mapping Config  -->
+	  <form-bean name="createTranslationMappingConfigForm" type="com.elitecore.elitesm.web.servermgr.transmapconf.forms.CreateTranslationMappingConfigForm"/>
+      <form-bean name="createCrestelRatingTransMapConfigForm" type="com.elitecore.elitesm.web.servermgr.transmapconf.forms.CreateCrestelRatingTransMapConfigForm"/>
+      <form-bean name="updateTranslationMappingConfigForm" type="com.elitecore.elitesm.web.servermgr.transmapconf.forms.UpdateTranslationMappingConfigForm"/>
+      <form-bean name="updateCrestelRatingTransMapConfigForm" type="com.elitecore.elitesm.web.servermgr.transmapconf.forms.UpdateCrestelRatingTransMapConfigForm"/>
+      <form-bean name="viewTranslationMappingConfigForm" type="com.elitecore.elitesm.web.servermgr.transmapconf.forms.ViewTranslationMappingConfigForm"/>
+      <form-bean name="viewCrestelRatingTransMapConfigForm" type="com.elitecore.elitesm.web.servermgr.transmapconf.forms.ViewCrestelRatingTransMapConfigForm"/>
+      <form-bean name="searchTranslationMappingConfigForm" type="com.elitecore.elitesm.web.servermgr.transmapconf.forms.SearchTranslationMappingConfigForm"/>
+      
+      <!-- form - bean for CopyPacket Mapping Config  -->
+	  <form-bean name="searchCopyPacketConfigForm" type="com.elitecore.elitesm.web.servermgr.copypacket.forms.SearchCopyPacketConfigForm"/>
+	  <form-bean name="viewCopyPacketConfigForm" type="com.elitecore.elitesm.web.servermgr.copypacket.forms.ViewCopyPacketConfigForm"/>
+	  <form-bean name="viewCopyPacketMappingConfigForm" type="com.elitecore.elitesm.web.servermgr.copypacket.forms.ViewCopyPacketMappingConfigForm"/> 
+	  
+	
+	
+	  <!--  Certificate -->
+	  <form-bean name="serverCertificateForm" type="com.elitecore.elitesm.web.servermgr.certificate.forms.ServerCertificateForm"/>
+	  <form-bean name="trustedCertificateForm" type="com.elitecore.elitesm.web.servermgr.certificate.forms.TrustedCertificateForm"/>
+	  <form-bean name="crlCertificateForm" type="com.elitecore.elitesm.web.servermgr.certificate.forms.CrlCertificateForm"/>		
+	
+	
+	<!-- from-bean for Copy Packet Translation Mapping -->	
+	<form-bean name="createCopyPacketTransMappingForm" type="com.elitecore.elitesm.web.servermgr.copypacket.forms.CreateCopyPacketTransMappingForm"/>
+	<form-bean name="createCopyPacketMappingConfDetailForm" type="com.elitecore.elitesm.web.servermgr.copypacket.forms.CreateCopyPacketMappingConfDetailForm"/>
+    <form-bean name="searchCopyPacketMappingConfigForm" type="com.elitecore.elitesm.web.servermgr.copypacket.forms.SearchCopyPacketMappingConfigForm"/>
+   	<form-bean name="updateCopyPacketMappingConfigForm" type="com.elitecore.elitesm.web.servermgr.copypacket.forms.UpdateCopyPacketMappingConfigForm"/>
+   	<form-bean name="updateCopyPacketMappingConfigDetailForm" type="com.elitecore.elitesm.web.servermgr.copypacket.forms.UpdateCopyPacketMappingConfigDetailForm"/>
+    
+    <!-- Plugin Form Data -->
+	<form-bean name="createPluginForm" 						type="com.elitecore.elitesm.web.plugins.forms.CreatePluginForm" />
+	<form-bean name="searchPluginInstanceForm" 				type="com.elitecore.elitesm.web.plugins.forms.SearchPluginInstanceForm"/>
+	<form-bean name="updatePluginInstanceForm" 				type="com.elitecore.elitesm.web.plugins.forms.UpdatePluginInstanceForm" />
+	<form-bean name="createUniversalAuthPluginForm"	 		type="com.elitecore.elitesm.web.plugins.forms.CreateUniversalAuthPluginForm" />
+	<form-bean name="updatePluginInstanceForm"				type="com.elitecore.elitesm.web.plugins.forms.UpdatePluginInstanceForm" />
+  	<form-bean name="updateUniversalAuthPluginForm" 		type="com.elitecore.elitesm.web.plugins.forms.UpdateUniversalAuthPluginForm" />
+ 	<form-bean name="createUniversalAcctPluginForm" 		type="com.elitecore.elitesm.web.plugins.forms.CreateUniversalAcctPluginForm" />
+	<form-bean name="updateUniversalAcctPluginForm" 		type="com.elitecore.elitesm.web.plugins.forms.UpdateUniversalAcctPluginForm" />
+	<form-bean name="createUniversalDiameterPluginForm" 	type="com.elitecore.elitesm.web.plugins.forms.CreateUniversalDiameterPluginForm" />
+	<form-bean name="updateUniversalDiameterPluginForm" 	type="com.elitecore.elitesm.web.plugins.forms.UpdateUniversalDiameterPluginForm" />
+	<form-bean name="createRadiusGroovyPluginForm" 			type="com.elitecore.elitesm.web.plugins.forms.CreateRadiusGroovyPluginForm" />
+	<form-bean name="updateRadiusGroovyPluginForm"      	type="com.elitecore.elitesm.web.plugins.forms.UpdateRadiusGroovyPluginForm" />
+	<form-bean name="createDiameterGroovyPluginForm" 		type="com.elitecore.elitesm.web.plugins.forms.CreateDiameterGroovyPluginForm" />
+	<form-bean name="updateDiameterGroovyPluginForm"    	type="com.elitecore.elitesm.web.plugins.forms.UpdateDiameterGroovyPluginForm" />
+	<form-bean name="transactionLoggerForm" 				type="com.elitecore.elitesm.web.plugins.forms.TransactionLoggerForm" />
+    <form-bean name="quotaManagementPluginForm" 			type="com.elitecore.elitesm.web.plugins.forms.QuotaManagementPluginForm" />
+    <form-bean name="userStatisticPostAuthPluginForm"		type="com.elitecore.elitesm.web.plugins.forms.UserStatisticPostAuthPluginForm"/>
+   
+	<!--    Script Form Data -->
+	<form-bean name="scriptInstanceForm" 				type="com.elitecore.elitesm.web.script.form.ScriptInstanceForm"/>
+    
+    </form-beans>
+  
+    <global-exceptions />
+  
+    <action-mappings>
+
+    <!-- Action mapping for Session Manager Configuration  -->
+    
+     <!-- Create Session Manager -->
+    <action path="/initCreateSessionManager"
+      type="com.elitecore.elitesm.web.sessionmanager.InitCreateSessionManagerAction"
+      name="initcreateSessionManagerForm"
+      scope="request"
+      validate="false">
+      <forward name="createSessionManager" path="/jsp/sessionmanager/CreateSessionManager.jsp"></forward>
+    </action>
+    
+    <action path="/createSessionManager"
+      type="com.elitecore.elitesm.web.sessionmanager.CreateSessionManagerAction"
+      name="createSessionManagerForm"
+      scope="session"
+      validate="false">
+      <forward name="createSessionManagerDetail" path="/jsp/sessionmanager/CreateSessionManagerDetail.jsp"></forward>
+    </action>
+    
+    <action path="/createSessionManagerDetail"
+    		type="com.elitecore.elitesm.web.sessionmanager.CreateSessionManagerDetailAction"
+    		scope="session"
+    		name="createSessionManagerDetailForm"
+    		validate="false">
+    		<forward name="viewSessionManagerDetail" path="/jsp/sessionmanager/CreateSessionManagerDetail.jsp"></forward>
+    		
+   </action>
+   
+    <action path="/initSearchSessionManager"
+      type="com.elitecore.elitesm.web.sessionmanager.InitSearchSessionManagerAction"
+      name="searchSessionManagerForm"
+      scope="request"
+      validate="false">
+      <forward name="searchSessionManager" path="/jsp/sessionmanager/SearchSessionManager.jsp"></forward>
+    </action>
+    
+     
+     <action path="/searchSessionManager"
+      type="com.elitecore.elitesm.web.sessionmanager.SearchSessionManagerAction"
+      name="searchSessionManagerForm"
+      scope="request"
+      validate="false">
+      <forward name="searchSessionManager" path="/jsp/sessionmanager/SearchSessionManager.jsp"></forward>
+    </action>
+    
+    <action path="/miscSessionManager"
+    type="com.elitecore.elitesm.web.sessionmanager.MiscSessionManagerAction"
+    name="miscSessionManagerForm"
+    scope="request"
+    validate="false">
+    <forward name="sessionManagerSearchList" path="/searchSessionManager.do"></forward>
+    
+    </action>
+    
+    <action path="/viewSessionManager"
+   	 	type="com.elitecore.elitesm.web.sessionmanager.ViewSessionManagerAction"
+  		name="viewSessionManagerForm"
+    	scope="request"
+    	validate="false">
+    	<forward name="viewSessionManagerInstance" path="/jsp/sessionmanager/ViewSessionManagerContainer.jsp"></forward>
+    </action>
+    
+     <action path="/viewSessionManagerHistory"
+   		 type="com.elitecore.elitesm.web.sessionmanager.ViewSessionManagerHistoryAction"
+   		 name="viewSessionManagerForm"
+    	 scope="request"
+    	 validate="false">
+  		  <forward name="viewSessionManagerHistory" path="/jsp/sessionmanager/ViewSessionManagerHistoryContainer.jsp"></forward>
+    </action>
+    
+    <action path="/viewSessionManagerDetail"
+    type="com.elitecore.elitesm.web.sessionmanager.ViewSessionManagerDetailAction"
+    name="viewSessionManagerForm"
+    scope="request"
+    validate="false">
+    <forward name="viewRemoteSessionManagerInstance" path="/jsp/sessionmanager/ViewRemoteSessionManagerContainer.jsp"></forward>
+    <forward name="viewLocalSessionManagerInstance" path="/jsp/sessionmanager/ViewLocalSessionManagerContainer.jsp"></forward>
+    </action>
+    
+    
+  <action path="/updateSessionManagerBasicDetail"
+    type="com.elitecore.elitesm.web.sessionmanager.UpdateSessionManagerBasicDetailAction"
+    name="updateSessionManagerBasicDetailForm"
+    scope="request"
+    validate="false">
+    <forward name="updateSessionManagerInstance" path="/jsp/sessionmanager/UpdateSessionManagerBasicDetailContainer.jsp"></forward>
+    
+    </action>
+    
+    <action path="/updateSessionManagerDetail"
+    type="com.elitecore.elitesm.web.sessionmanager.UpdateSessionManagerDetailAction"
+    name="updateSessionManagerDetailForm"
+    scope="request"
+    validate="false">
+    <forward name="remotesessionmanagerdata" path="/jsp/sessionmanager/UpdateRemoteSessionManagerDetailContainer.jsp"></forward>
+    <forward name="localsessionmanagerdata" path="/jsp/sessionmanager/UpdateLocalSessionManagerDetailContainer.jsp"></forward>
+    </action>
+    
+    <action path="/initSearchASM"
+	type="com.elitecore.elitesm.web.sessionmanager.InitSearchASMAction"
+    name="searchASMForm"
+    scope="request"
+    validate="false">
+    <forward name="searchASM" path="/jsp/sessionmanager/SearchASMContainer.jsp"></forward>
+    </action>
+    
+    <action path="/searchASM"
+          type="com.elitecore.elitesm.web.sessionmanager.SearchASMAction"
+          name="searchASMForm"
+          scope="request"
+          validate="false">
+        <forward name="searchASM" path="/jsp/sessionmanager/SearchASMContainer.jsp"/>
+        
+      </action>
+      
+      <action path="/closeSession"
+          type="com.elitecore.elitesm.web.sessionmanager.CloseSessionAction"
+          name="searchASMForm"
+          scope="request"
+          validate="false">
+         <forward name="searchASM" path="/jsp/sessionmanager/SearchASMContainer.jsp"/> 
+      </action>
+      
+      <action path="/purgeClosedSession"
+          type="com.elitecore.elitesm.web.sessionmanager.PurgeClosedSessionAction"
+          name="searchASMForm"
+          scope="request"
+          validate="false">
+         <forward name="searchASM" path="/jsp/sessionmanager/SearchASMContainer.jsp"/> 
+      </action>
+      
+      <action path="/purgeAllSession"
+          type="com.elitecore.elitesm.web.sessionmanager.PurgeAllSessionAction"
+          name="searchASMForm"
+          scope="request"
+          validate="false">
+         <forward name="searchASM" path="/jsp/sessionmanager/SearchASMContainer.jsp"/> 
+      </action>
+      
+     
+    <!--  ACL Applied [CREATE_SERVER_INSTANCE_ACTION]  -->
+		<action path="/initCreateServer"
+				type="com.elitecore.elitesm.web.servermgr.server.InitCreateServerAction"
+				scope="request"
+				name="createServerForm"
+				validate="false">
+			<forward name="initCreateServer"
+				path="/jsp/servermgr/server/CreateServerBasicDetails.jsp">
+			</forward>
+		</action>
+
+		<!--  ACL Applied [CREATE_SERVER_INSTANCE_ACTION]  -->
+		<action path="/createServer"
+				type="com.elitecore.elitesm.web.servermgr.server.CreateServerAction"
+				scope="request"
+				name="createServerForm"
+				validate="false">
+				<forward name="createServerNext" path="/jsp/servermgr/server/CreateServerServices.jsp"></forward>
+				<forward name="netServerConformation" path="/jsp/servermgr/server/NetServerConformation.jsp"></forward>
+		</action>
+		
+		<!--  ACL Applied [UPDATE_SERVICE_CONFIGURATION_ACTION]  -->
+		<action path = "/updateServiceConfiguration"
+				type = "com.elitecore.elitesm.web.servermgr.service.UpdateServiceConfigurationAction"
+				scope ="request"
+				name="updateServiceForm"
+				validate = "false">
+				<forward name="updateService" path="/jsp/servermgr/service/UpdateServiceConfigurationContainer.jsp"></forward>
+		</action>
+		
+		
+		<!--  ACL Applied [UPDATE_SERVER_CONFIGURATION_ACTION]  -->
+		<action path = "/updateNetServerConfiguration"
+				type = "com.elitecore.elitesm.web.servermgr.server.UpdateNetServerConfigurationAction"
+				scope ="request"
+				name="updateNetServerForm"
+				validate = "false">
+				<forward name="updateServer" path="/jsp/servermgr/server/UpdateNetServerConfigurationContainer.jsp"></forward>
+		</action>	
+		
+		
+		<!--  ACL Applied [LIST_NET_SERVER_INSTANCE_ACTION]  -->
+		<action path="/listNetServerInstance"
+				type="com.elitecore.elitesm.web.servermgr.server.ListNetServerInstanceAction"
+				scope="request"
+				name="listNetServerInstanceForm"
+				validate="false">
+				<forward name="listNetServerInstance" path="/jsp/servermgr/server/ListNetServerInstance.jsp"></forward>
+		</action>
+				
+		<!--  ACL Applied [CHANGE_SERVER_INSTANCE_ACTION]  -->
+		<!--  ACL Applied [DELETE_SERVER_INSTANCE_ACTION]  -->
+       <action path="/miscServer"
+      	        type="com.elitecore.elitesm.web.servermgr.server.MiscServerAction"
+      	    	scope="request"
+      	    	name="listNetServerInstanceForm"
+                validate="false">
+	            <forward name="netServerList" path="/listNetServerInstance.do"></forward>
+       </action>
+       
+       <!--  ACL Applied [ No Acl is Required. ]  -->
+       <action path="/viewNetServerInstance"
+       		   type="com.elitecore.elitesm.web.servermgr.server.ViewNetServerInstanceAction"
+       		   scope="request"
+       		   name="viewNetServerInstanceForm"
+       		   validate="false">
+       		   <forward name="viewNetServerInstance" path="/jsp/servermgr/server/NetServerInstanceContainer.jsp"/>
+       </action>
+       
+       <!--  ACL Applied [ UPDATE_NET_SERVER_INSTANCE_BASIC_DETAIL_ACTION ]  -->
+	   <action path="/updateNetServerInstanceBasicDetail"
+	           type="com.elitecore.elitesm.web.servermgr.server.UpdateNetServerInstanceBasicDetailAction"
+       		   scope="request"
+       		   name="updateNetServerInstanceBasicDetailForm"
+       		   validate="false">
+       		   <forward name="updateNetSeverInstanceBasicDetail" path="/jsp/servermgr/server/UpdateNetServerInstanceBasicDetailsContainer.jsp"></forward>
+       		   <forward name="viewNetServerInstance" path="/viewNetServerInstance.do?"></forward>
+	   </action>
+	   
+	    <!--  ACL Applied [ UPDATE_NET_SERVER_ADMIN_INTERFACE_DETAIL_ACTION ]  -->
+	   <action path="/updateNetServerAdminInterfaceDetail"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.UpdateNetServerAdminInterfaceDetailAction"
+	   		   scope="request"
+	   		   name="updateNetServerAdminInterfaceDetailForm"
+	   		   validate="false">
+	   		   <forward name="updateNetServerAdminInterfaceDetail" path="/jsp/servermgr/server/UpdateNetServerAdminInterfaceDetailsContainer.jsp"></forward>
+	   		   <forward name="viewNetServerInstance" path="/viewNetServerInstance.do?"></forward>
+	   </action>
+	   
+	     <!--  ACL Applied [ No Acl is Required. ]  -->
+       <action path="/updateNetServerSynchronizeConfigDetail"
+               type="com.elitecore.elitesm.web.servermgr.server.UpdateNetServerSynchronizeConfigDetailAction"
+               scope="request"
+               name="updateNetServerSynchronizeConfigDetailForm"
+               validate="false">
+               <forward name="updateNetServerSynchronizeConfigDetail" path="/jsp/servermgr/server/UpdateNetServerSynchronizeConfigDetailsContainer.jsp"></forward>
+       </action>
+       
+       <action path="/updateNetDictionarySynchronize"
+               type="com.elitecore.elitesm.web.servermgr.server.UpdateNetDictionarySynchronizeAction"
+               scope="request"
+               name="updateNetDictionarySynchronizeForm"
+               validate="false">
+               <forward name="updateNetDictionarySynchronizeAction" path="/jsp/servermgr/server/UpdateNetDictionarySynchronizeContainer.jsp"></forward>
+       </action>
+   
+   
+	 <!--  ACL Applied [ Unidentified ]  -->
+   	  <action path="/updateNetServerSynchronizeBackConfigDetail"
+               type="com.elitecore.elitesm.web.servermgr.server.UpdateNetServerSynchronizeBackConfigDetailAction"
+               scope="request"
+               name="updateNetServerSynchronizeBackConfigDetailForm"
+               validate="false">
+               <forward name="updateNetServerSynchronizeBackConfigDetail" path="/jsp/servermgr/server/UpdateNetServerSynchronizeBackConfigDetailsContainer.jsp"></forward>
+       </action>    
+
+      <!--  ACL Applied [ Unidentified ]  -->
+       <action path="/updateNetServiceSynchronizeConfigDetail"
+               type="com.elitecore.elitesm.web.servermgr.service.UpdateNetServiceSynchronizeConfigDetailAction"
+               scope="request"
+               name="updateNetServiceSynchronizeConfigDetailForm"
+               validate="false">
+               <forward name="updateNetServiceSynchronizeConfigDetail" path="/jsp/servermgr/service/UpdateNetServiceSynchronizeConfigDetailsContainer.jsp"></forward>
+       </action>
+       
+       <!--  ACL Applied [ Unidentified ]  -->
+       <action path="/updateNetServiceSynchronizeBackConfigDetail"
+               type="com.elitecore.elitesm.web.servermgr.service.UpdateNetServiceSynchronizeBackConfigDetailAction"
+               scope="request"
+               name="updateNetServiceSynchronizeBackConfigDetailForm"
+               validate="false">
+               <forward name="updateNetServiceSynchronizeBackConfigDetail" path="/jsp/servermgr/service/UpdateNetServiceSynchronizeBackConfigDetailsContainer.jsp"></forward>
+       </action>
+
+	   
+	   <!--  ACL Applied [ ADD_NET_SERVER_SERVICE_INSTANCE_ACTION ]  -->
+	   <action path="/addNetServerServiceInstance"
+	   		   type="com.elitecore.elitesm.web.servermgr.service.AddNetServerServiceInstanceAction"
+	   		   scope="request"
+	   		   name="addNetServerServiceInstanceForm"
+	   		   validate="false">
+	   		   <forward name="addNetServerServiceInstance" path="/jsp/servermgr/server/AddNetServerServiceContainer.jsp"></forward>  		  
+			   <forward name="viewNetServerInstance" path="/jsp/servermgr/server/NetServerInstanceContainer.jsp"/>
+
+	   </action>
+	   
+	   <!--  ACL Applied [ IMPORT_SERVER_ACTION ]  -->
+	   <action path="/importNetServerConfigurationDetail"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.ImportNetServerConfigurationAction"
+	   		   scope="request"
+	   		   name="importNetServerConfigurationForm"
+	   		   validate="false">
+	   		   <forward name="importNetServerConfigurationDetail" path="/jsp/servermgr/server/ImportNetServerDetailContainer.jsp"></forward>
+	   </action>
+	   
+       <!--  ACL Applied [ No Acl is Required. ]  -->
+  	   <action path="/importNetServerDetail"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.ImportNetServerDetailAction"
+	   		   scope="request"
+	   		   name="importNetServerConfigurationForm"
+	   		   validate="false">
+	   		   <forward name="importNetServerDetail" path="/jsp/servermgr/server/ImportNetServerDetailContainer.jsp"></forward>
+	   </action>
+	   
+	   <!--  ACL Applied [ IMPORT_SERVICE_ACTION ]  -->
+	   <action path="/importNetServiceConfigurationDetail"	
+	   		   type="com.elitecore.elitesm.web.servermgr.service.ImportNetServiceConfigurationAction"
+	   		   scope="request"
+	   		   name="importNetServiceConfigurationForm"
+	   		   validate="false">
+	   		   <forward name="importNetServiceConfigurationDetail" path="/jsp/servermgr/service/ImportNetServiceDetailContainer.jsp"></forward>
+	   </action>
+	   
+	   <!--  ACL Applied [ No Acl is Required. ]  -->
+	   <action path="/importNetServiceDetail"
+	   		   type="com.elitecore.elitesm.web.servermgr.service.ImportNetServiceDetailAction"
+	   		   scope="request"
+	   		   name="importNetServiceConfigurationForm"
+	   		   validate="false">
+	   		   <forward name="importNetServiceDetail" path="/jsp/servermgr/service/ImportNetServiceDetailContainer.jsp"></forward>
+       </action>
+       
+       
+       
+       <!--  ACL Applied [ EXPORT_SERVER_ACTION ]  -->
+	   <action path="/exportNetServerDetail"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.ExportNetServerConfigurationAction"
+	   		   scope="request"
+	   		   name="exportNetServerConfigurationForm"
+	   		   validate="false">
+	   		   <forward name="exportNetServerDetail" path="/jsp/servermgr/server/ExportNetServerDetailContiner.jsp"></forward>
+	  </action>	   	
+	  	   
+	  <!--  ACL Applied [ EXPORT_SERVER_ACTION ]  -->	  	   
+	  <action path="/exportNetServiceDetail"
+	  		  type="com.elitecore.elitesm.web.servermgr.service.ExportNetServiceConfigurationAction"
+	  		  scope="request"
+	  		  name="exportNetServiceConfigurationForm"
+	  		  validate="false">
+	  		  <forward name="exportNetServiceDetail" path="/jsp/servermgr/service/ExportNetServiceDetailContainer.jsp"></forward>
+	  </action>
+	  
+	  
+	  <!--  ACL Applied [ No Acl is Required. ]  -->
+	  <action path="/viewNetServerServices"
+	  		  type="com.elitecore.elitesm.web.servermgr.server.ViewNetServerServicesAction"
+	  		  scope="request"
+	  		  name="viewNetServerServiesForm"
+	  		  validate="false">
+	  		  <forward name="viewNetServerServices" path="/jsp/servermgr/server/ViewNetServerServicesContainer.jsp"></forward>
+	  </action>
+	  
+	  
+	  <!--  ACL Applied [ No Acl is Required. ]  -->
+	  <action path="/viewNetServiceInstance"           
+	  		  type="com.elitecore.elitesm.web.servermgr.service.ViewNetServiceInstanceAction"
+	  		  scope="request"
+	  		  name="viewNetServiceInstanceForm"
+	  		  validate="false">
+	  		  <forward name="viewNetServiceInstance" path="/jsp/servermgr/service/NetServiceInstanceContainer.jsp"></forward>
+	  </action>
+	  
+	  
+	  
+       <!--  ACL Applied [ LIST_SERVICE_CONFIGURATION_ACTION ]  -->
+	  <action path="/listNetServiceConfiguration"
+	  		  type="com.elitecore.elitesm.web.servermgr.service.ListNetServiceConfigurationAction"
+	  		  scope="request"
+	  		  name="listNetServiceConfigurationForm"
+	  		  validate="false">
+	  		  <forward name="listNetServiceConfiguration" path="/jsp/servermgr/service/ListNetServiceConfigContainer.jsp"></forward>
+	  </action>	
+	  
+	  
+	   <!--  ACL Applied [ REMOVE_NET_SERVER_SERVICE_INSTANCE_ACTION ]   -->
+	  <action path="/removeNetServerServiceInstance"
+	  		  type="com.elitecore.elitesm.web.servermgr.server.RemoveNetServerServiceInstanceAction"
+	  		  scope="request"
+	  		  name="removeNetServerServiceInstanceForm"
+	  		  validate="false">
+	  		  <forward name="removeNetServerServiceInstance" path="/jsp/servermgr/server/RemoveNetServerServiceContainer.jsp"></forward>
+	  </action>
+	  
+	   <!--  ACL Applied [ LIST_NET_SERVER_CONFIGURATION_ACTION ]   -->
+	   <action path="/listNetServerConfiguration"
+	  		  type="com.elitecore.elitesm.web.servermgr.server.ListNetServerConfigurationAction"
+	  		  scope="request"
+	  		  name="listnetServerConfigurationForm"
+	  		  validate="false">
+	  		  <forward name="listNetServerConfiguration" path="/jsp/servermgr/server/ListNetServerConfigContainer.jsp"></forward>
+	  </action>	  
+	   
+	   <!--  ACL Applied [ Unidentified ]  -->  
+	  <action path="/listNetServerGlobalConfiguration"
+	  		  type="com.elitecore.elitesm.web.servermgr.server.ListNetServerGlobalConfigurationAction"
+	  		  scope="request"
+	  		  name="listNetServerGlobalConfigurationForm"
+	  		  validate="false">
+			  <forward name="listNetServerGlobalConfiguration" path="/jsp/servermgr/server/ListNetServerGlogalConfigContainer.jsp"></forward>
+	  </action>
+	  
+	  
+	  <!--  ACL Applied [ SYNCHRONIZE_NET_SERVER_CONFIGURATION_ACTION ]  -->
+      <action path="/synchronizeNetServerConfig"
+             type="com.elitecore.elitesm.web.servermgr.server.SynchronizeNetServerConfigAction"
+             name="synchronizeNetServerConfigForm"           
+             scope="request"
+             validate="false">
+             <forward name="viewNetServerInstance" path="/viewNetServerInstance.do?"></forward>
+      </action>  
+      
+      <!--  ACL Applied [ SYNCHRONIZE_BACK_NET_SERVER_CONFIGURATION_ACTION ]  -->
+      <action path="/synchronizeBackNetServerConfig"
+             type="com.elitecore.elitesm.web.servermgr.server.SynchronizeBackNetServerConfigAction"
+             name="synchronizeBackNetServerConfigForm"           
+             scope="request"
+             validate="false">
+             <forward name="viewNetServerInstance" path="/viewNetServerInstance.do?"></forward>
+      </action>  
+      
+       <!--  ACL Applied [ SYNCHRONIZE_SERVICE_CONFIGURATION_ACTION ]  -->
+       <action path="/synchronizeNetServiceConfig"
+             type="com.elitecore.elitesm.web.servermgr.service.SynchronizeNetServiceConfigAction"
+             name="synchronizeNetServiceConfigForm"           
+             scope="request"
+             validate="false">
+             <forward name="viewNetServiceInstance" path="/viewNetServiceInstance.do?"></forward>
+      </action>  
+      
+      <!--  ACL Applied [ SYNCHRONIZE_BACK_SERVICE_CONFIGURATION_ACTION ]  -->
+      <action path="/synchronizeBackNetServiceConfig"
+             type="com.elitecore.elitesm.web.servermgr.service.SynchronizeBackNetServiceConfigAction"
+             name="synchronizeBackNetServiceConfigForm"           
+             scope="request"
+             validate="false">
+             <forward name="viewNetServiceInstance" path="/viewNetServiceInstance.do?"></forward>
+      </action>  
+      
+ 
+      
+      <!--  ACL Applied [ VIEW_SERVER_DETAIL_ACTION ]  -->
+      <action path="/viewNetServerLiveDetails"
+             type="com.elitecore.elitesm.web.servermgr.server.ViewNetServerLiveDetailsAction"
+             name="viewNetServerLiveDetailsForm"           
+             scope="request"
+             validate="false">
+             <forward name="viewNetServerDetail" path="/jsp/servermgr/server/ViewNetServerLiveDetailsContainer.jsp"></forward>
+      </action>  
+      
+      <!--  ACL Applied [ Unidentified ]  -->
+      <action path="/viewNetServiceLiveDetails"
+      		 type="com.elitecore.elitesm.web.servermgr.service.ViewNetServiceLiveDetailsAction"
+      		 name="viewNetServiceLiveDetailsForm"
+      		 scope="request"
+      		 validate="false">
+      		 <forward name="viewNetServiceDetail" path="/jsp/servermgr/service/ViewNetServiceLiveDetailsContainer.jsp"></forward>
+      </action>
+      
+      <!--  ACL Applied [ SIGNAL_SERVER_SHUTDOWN_ACTION ]  -->
+       <action path="/signalServerShutDown"
+             type="com.elitecore.elitesm.web.servermgr.server.SignalServerShutDownAction"
+             name="viewNetServerLiveDetailsForm"           
+             scope="request"
+             validate="false">
+      </action>
+      
+      <!--  ACL Applied [ SIGNAL_SOFT_RESTART_ACTION ]  -->
+      <action path="/signalSoftRestart"
+      		 type="com.elitecore.elitesm.web.servermgr.server.SignalSoftRestartAction"
+      		 name="viewNetServerLiveDetailsForm"
+      		 scope="request"
+      		 validate="false">
+      </action>      
+       
+      <!--  ACL Applied [ SIGNAL_SERVER_RELOAD_CONFIGURATION_ACTION ]  --> 
+      <action path="/signalServerReloadConfiguration"
+             type="com.elitecore.elitesm.web.servermgr.server.SignalServerReloadConfigurationAction"
+             name="viewNetServerLiveDetailsForm"           
+             scope="request"
+             validate="false">
+      </action>     
+        
+        
+      <!--  ACL Applied [ SIGNAL_SERVER_RELOAD_CACHE_ACTION ]  -->    
+      <action path="/signalServerReloadCache"
+             type="com.elitecore.elitesm.web.servermgr.server.SignalServerReloadCacheAction"
+             name="viewNetServerLiveDetailsForm"           
+             scope="request"
+             validate="false">
+      </action>      
+      
+       <!--  ACL Applied [ Unidentified ]  -->  
+      <action path="/signalServiceStartUp"
+             type="com.elitecore.elitesm.web.servermgr.server.SignalServiceStartUpAction"
+             name="viewNetServerLiveDetailsForm"           
+             scope="request"
+             validate="false">
+      </action>     
+      
+       <!--  ACL Applied [ Unidentified ]  -->   
+      <action path="/signalServiceShutDown"
+             type="com.elitecore.elitesm.web.servermgr.server.SignalServiceShutDownAction"
+             name="viewNetServerLiveDetailsForm"           
+             scope="request"
+             validate="false">
+      </action>
+      
+       <!--  ACL Applied [ Unidentified ]  -->
+      <action path="/signalServiceReloadConfiguration"
+             type="com.elitecore.elitesm.web.servermgr.service.SignalServiceReloadConfigurationAction"
+             name="viewNetServerLiveDetailsForm"
+             scope="request"
+             validate="false">
+     </action> 
+     
+      <!--  ACL Applied [ Unidentified ]  -->
+     <action path="/signalServiceReloadCache"
+     		 type="com.elitecore.elitesm.web.servermgr.service.SignalServiceReloadCacheAction"
+     		 name="viewNetServerLiveDetailsForm"
+     		 scope="request"
+     		 validate="false">
+     </action>
+     
+     <!--  ACL Applied [ Unidentified ]  -->
+     <action path="/viewDatasourceSummary"
+     		 type="com.elitecore.elitesm.web.servermgr.server.ViewDatasourceSummaryAction"
+     		 name="viewDatasourceSummaryForm"
+     		 scope="request"
+     		 validate="false">
+			 <forward name="viewDatasourceSummary" path="/jsp/servermgr/server/ViewDatasourceSummaryContainer.jsp"></forward>
+     </action>
+     
+     <!--  ACL Applied [ Unidentified ]  -->
+     <action path="/viewPacketReceivedSummary"
+     		 type="com.elitecore.elitesm.web.servermgr.server.ViewPacketReceivedSummaryAction"
+     		 name="viewPacketReceivedSummaryForm"
+     		 scope="request"
+     		 validate="false">
+			 <forward name="viewPacketReceivedSummary" path="/jsp/servermgr/server/ViewPacketReceivedSummaryContainer.jsp"></forward>
+     </action>
+     
+      <!--  ACL Applied [ CREATE_USERFILE_DATASOURCE_ACTION ]  -->
+      <action path="/createUserfileDatasource"
+     		 type="com.elitecore.elitesm.web.servermgr.server.CreateUserfileDatasourceAction"
+     		 name="createUserfileDatasourceForm"
+     		 scope="request"
+     		 validate="false">
+			 <forward name="createUserfileDatasource" path="/jsp/servermgr/server/CreateUserfileDatasourceContainer.jsp"></forward>
+     </action>
+     
+     <!--  ACL Applied [ Unidentified ]  -->
+     <action path="/searchUserfileDatasource"
+     		 type="com.elitecore.elitesm.web.servermgr.server.SearchUserfileDatasourceAction"
+     		 name="searchUserfileDatasourceForm"
+     		 scope="request"
+     		 validate="false">
+			 <forward name="searchUserfileDatasource" path="/jsp/servermgr/server/SearchUserfileDatasourceContainer.jsp"></forward>
+     </action>
+     
+      <!--  ACL Applied [ LIST_USERFILE_DATASOURCE_ACTION ]  -->
+     <action path="/listUserfileDatasource"
+     		 type="com.elitecore.elitesm.web.servermgr.server.ListUserfileDatasourceAction"
+     		 name="listUserfileDatasourceForm"
+     		 scope="request"
+     		 validate="false">
+			 <forward name="listUserfileDatasource" path="/jsp/servermgr/server/ListUserfileDatasourceContainer.jsp"></forward>
+     </action>
+     
+      <!--  ACL Applied [ Unidentified ]  -->
+     <action path="/updateUserfileDatasource"
+     		 type="com.elitecore.elitesm.web.servermgr.server.UpdateUserfileDatasourceAction"
+     		 name="updateUserfileDatasourceForm"
+     		 scope="request"
+     		 validate="false">
+			 <forward name="updateUserfileDatasource" path="/jsp/servermgr/server/UpdateUserfileDatasourceContainer.jsp"></forward>
+     </action> 
+     
+     <!--  ACL Applied [ ADD_ATTRIBUTE_DETAIL_ACTION ]  -->
+     <action path="/addAttributeDetail"
+          scope="request"
+          type="com.elitecore.elitesm.web.servermgr.server.AddAttributeDetailAction"
+          name="addAttributeDetailForm"
+          validate="false">
+         <forward name="listAttributeDetail" path="/jsp/servermgr/server/AddAttributeDetail.jsp"/>
+     </action>
+     
+     <!--  ACL Applied [ LIST_USERFILE_DATASOURCE_ACTION ]  -->
+     <action path="/listUserfileAccountInformation"
+          scope="request"
+          type="com.elitecore.elitesm.web.servermgr.server.ListUserfileAccountInformationAction"
+          name="listUserfileAccountInformationForm"
+          validate="false">
+         <forward name="listUserfileDatasourceAccountInformation" path="/jsp/servermgr/server/ListUserfileAccountInformationContainer.jsp"/>
+     </action>
+     
+     <!--  ACL Applied [ No Acl is Required. ]  -->
+	 <action path="/viewUserfileDatasourceUserAccount"
+          scope="request"
+          type="com.elitecore.elitesm.web.servermgr.server.ViewUserfileDatasourceUserAccountAction"
+          name="viewUserfileDatasourceUserAccountForm"
+          validate="false">
+         <forward name="viewUserfileDatasourceUserAccount" path="/jsp/servermgr/server/ViewUserfileDatasourceUserAccountContainer.jsp"/>
+     </action>
+     
+     <!--  ACL Applied [ Unidentified ]  -->
+     <action path="/miscUserfileDatasource"
+		      type="com.elitecore.elitesm.web.servermgr.server.MiscUserfileDatasourceAction"
+		      name="miscUserfileDatasourceForm"
+		      scope="request"
+		      validate="false">
+		<forward name="listUserfileAccountInformation" path="/listUserfileAccountInformation.do?"/>
+ 	</action>
+ 	
+   <!--  ACL Applied [ Unidentified ]  -->
+ 	<action path="/viewLDAPSummary"
+ 			type="com.elitecore.elitesm.web.servermgr.server.ViewLDAPSummaryAction"
+ 			name="viewLDAPSummaryForm"
+ 			scope="request"
+ 			validate="false">
+ 		<forward name="viewLDAPSummary" path="/jsp/servermgr/server/ViewLDAPSumaryContainer.jsp"/>
+ 	</action>
+ 	
+ 	 <!--  ACL Applied [ DOWNLOAD_LICENSE_PUBLIC_KEY_ACTION ]  -->
+ 	 <action path="/downloadLicensePublickey"
+ 			type="com.elitecore.elitesm.web.servermgr.server.DownloadLicensePublickeyAction"
+ 			name="downloadLicensePublickeyForm"
+ 			scope="request"
+ 			validate="false">
+ 	</action>
+
+ 	 <action path="/downloadLicense"
+ 			type="com.elitecore.elitesm.web.servermgr.server.DownloadLicenseAction"
+ 			name="downloadLicenseForm"
+ 			scope="request"
+ 			validate="false">
+ 	</action>
+
+	 <!--  ACL Applied [ UPLOAD_LICENSE_ACTION ]  -->
+ 	<action path="/uploadLicenseAction"
+ 			type="com.elitecore.elitesm.web.servermgr.server.UploadLicenseAction"
+ 			name="uploadLicenseForm"
+ 			scope="request"
+ 			validate="false">
+ 		   <forward name="uploadLicenseFile" path="/jsp/servermgr/server/UploadLicenseFileContainer.jsp"/>
+	</action>
+
+ 	<action path="/initManageNetServer"
+ 			type="com.elitecore.elitesm.web.servermgr.server.InitManageNetServerAction"
+ 			scope="request"
+ 			validate="false">
+ 		<forward name="viewManageNetServer" path="/jsp/servermgr/server/ManageNetServerLiveDetailsContainer.jsp"/>
+ 	</action>
+ 	
+ 	<!-- Applying ACL [ START_NET_SERVER_ACTION ]  -->
+ 	<action path="/startNetServerInstance"
+ 			type="com.elitecore.elitesm.web.servermgr.server.StartNetServerInstanceAction"
+ 			scope="request"
+ 			validate="false">
+ 		<forward name="viewUpdateNetServerStartupConfig" path="/jsp/servermgr/server/UpdateNetServerStartupConfContainer.jsp"/>	
+ 	</action>
+ 	
+ 	<action path="/initUpdateNetserverStartupConfig"
+ 			type="com.elitecore.elitesm.web.servermgr.server.InitUpdateNetServerStartupConfigAction"
+ 			name="UpdateNetServerStartupConfigForm"
+ 			scope="request"
+ 			validate="false">
+ 			<forward name="viewUpdateNetServerStartupConfig" path="/jsp/servermgr/server/UpdateNetServerStartupConfContainer.jsp"/>
+ 	</action>
+
+	<action path="/updateNetserverStartupConfig"
+ 			type="com.elitecore.elitesm.web.servermgr.server.UpdateNetServerStartupConfigAction"
+ 			name="UpdateNetServerStartupConfigForm"
+ 			scope="request"
+ 			validate="false">
+ 	</action>
+ 	
+  	
+    <!-- Applying ACL [ UPLOAD_RADIUS_DICTIONARY_ACTION ]  -->    
+ 	<action path="/uploadRadiusDictionary"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.UploadNetServerDictionaryAction"
+	   		   scope="request"
+	   		   name="uploadNetServerDictionaryForm"
+	   		   validate="false">
+	   		   <forward name="uploadRadiusDictionary" path="/jsp/servermgr/server/UploadNetServerDictionaryContainer.jsp"></forward>
+	</action>
+	
+	<action path="/netServerStop"
+               type="com.elitecore.elitesm.web.servermgr.server.NetServerStopAction"
+               scope="request"
+               name="netServerStopForm"
+               validate="false">
+               <forward name="netServerStop" path="/jsp/servermgr/server/NetServerStopContainer.jsp" />
+       </action>  
+       
+     <!-- NA -->  
+   	   <action path="/netServerSoftRestart"
+               type="com.elitecore.elitesm.web.servermgr.server.NetServerSoftRestartAction"
+               scope="request"
+               name="netServerSoftRestartForm"
+               validate="false">
+               <forward name="netServerSoftRestart" path="/jsp/servermgr/server/NetServerSoftRestartContainer.jsp"></forward>
+       </action>
+       
+       <!-- NA -->
+       <action path="/netServerReloadConfiguration"
+               type="com.elitecore.elitesm.web.servermgr.server.NetServerReloadConfigurationAction"
+               scope="request"
+               name="netServerReloadConfigurationForm"
+               validate="false">
+               <forward name="netServerReloadConfiguration" path="/jsp/servermgr/server/NetServerReloadConfigurationContainer.jsp"></forward>
+       </action> 
+       
+       <!-- NA -->  
+       <action path="/netServerReloadCache"
+               type="com.elitecore.elitesm.web.servermgr.server.NetServerReloadCacheAction"
+               scope="request"
+               name="netServerReloadCacheForm"
+               validate="false">
+               <forward name="netServerReloadCache" path="/jsp/servermgr/server/NetServerReloadCacheContainer.jsp"></forward>
+       </action>  
+       
+       <action path="/netServerStart"
+               type="com.elitecore.elitesm.web.servermgr.server.NetServerStartAction"
+               scope="request"
+               name="netServerStartForm"
+               validate="false">
+               <forward name="netServerStart" path="/jsp/servermgr/server/NetServerStartContainer.jsp" />
+       </action> 
+       
+       <!-- NA -->
+       <action path="/initNetServerStartStop"
+               type="com.elitecore.elitesm.web.servermgr.server.InitNetServerStartStopAction"
+               scope="request"
+               name="netServerStartStopForm"
+               validate="false">
+               <forward name="netServerStartStop" path="/jsp/servermgr/server/NetServerStartStopContainer.jsp" />
+       </action>
+       
+       <!-- NA -->
+        <action path="/restartNetServerInstance"
+               type="com.elitecore.elitesm.web.servermgr.server.NetServerRestartAction"
+               scope="request"
+               name="netServerRestartForm"
+               validate="false">
+               <forward name="netServerStartStop" path="/jsp/servermgr/server/NetServerStartStopContainer.jsp" />
+       </action> 
+       
+       <!-- Applying ACL [ NET_SERVER_RESTART_ACTION ]  -->
+       <action path="/ajaxRestartNetServerInstance"
+               type="com.elitecore.elitesm.web.servermgr.server.AjaxNetServerRestartAction"
+               scope="request"
+               name="netServerRestartForm"
+               validate="false">
+       </action>
+       
+        <action path="/ajaxMonitorRestartNetServerInstance"
+               type="com.elitecore.elitesm.web.servermgr.server.AjaxMonitorRestartNetServerInstance"
+               scope="request"
+               name="netServerRestartForm"
+               validate="false">
+       </action>       
+       
+       <!-- Applying ACL [ UPDATE_NET_SERVER_INSTANCE_BASIC_DETAIL_ACTION ]  -->
+        <action path="/updateNetServiceInstanceBasicDetail"
+	           type="com.elitecore.elitesm.web.servermgr.service.UpdateNetServiceInstanceBasicDetailAction"
+       		   scope="request"
+       		   name="updateNetServiceInstanceBasicDetailForm"
+       		   validate="false">
+       		   <forward name="updateNetServiceInstanceBasicDetail" path="/jsp/servermgr/service/UpdateNetServiceInstanceBasicDetailsContainer.jsp"></forward>
+       		   <forward name="viewNetServiceInstance" path="/viewNetServiceInstance.do?"></forward>
+	   </action>
+	   
+	   <!-- Applying ACL [ MANAGE_LIVE_SERVER_DICTIONARIES_ACTION ]  -->
+	   <action path="/manageRadiusDictionary"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.ManageNetServerDictionaryAction"
+	   		   scope="request"
+	   		   name="manageNetServerDictionaryForm"
+	   		   validate="false">
+	   		   <forward name="manageRadiusDictionary" path="/jsp/servermgr/server/ManageNetServerDictionaryContainer.jsp"></forward>
+	  </action> 
+	  
+	  <!-- Applying ACL [ SHOW_RADIUS_DICTIONARY_ACTION ]  -->
+	  <action path="/showNetServerDictionary"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.ShowNetServerDictionaryAction"
+	   		   scope="request"
+	   		   name="showNetServerDictionaryForm"
+	   		   validate="false">
+	   		   <forward name="showNetServerDictionary" path="/jsp/servermgr/server/ShowNetServerDictionary.jsp"></forward>
+	  </action>
+	  
+	   <!-- NA  -->
+	  <action path="/initShowNetServerDictionary"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.ShowNetServerDictionaryAction"
+	   		   scope="request"
+	   		   name="showNetServerDictionaryForm"
+	   		   validate="false">
+	   		   <forward name="showNetServerDictionary" path="/jsp/servermgr/server/ShowNetServerDictionary.jsp"></forward>
+	  </action>
+	  
+	  <!-- NA  -->
+	  <action path="/searchDictionaryPopUp"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.SearchDictionaryPopUpAction"
+	   		   scope="request"
+	   		   name="searchDictionaryPopUpForm"
+	   		   validate="false">
+	   		   <forward name="searchDictionaryPopUp" path="/jsp/servermgr/server/SearchDictionaryPopUp.jsp"></forward>
+	  </action>
+	  
+	  <!-- Applying ACL [ SEARCH_DICTIONARY_ACTION ]  -->
+	  <action path="/searchDictionaryByCriteria"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.SearchDictionaryByCriteriaAction"
+	   		   scope="request"
+	   		   name="searchDictionaryPopUpForm"
+	   		   validate="false">
+	   		   <forward name="searchDictionaryPopUp" path="/jsp/servermgr/server/SearchDictionaryPopUp.jsp"></forward>
+	  </action>       
+
+	  <!-- Applying ACL [ VIEW_SERVER_CLIENTS_DETAIL_ACTION ]  -->	
+	  <action path="/viewNetServerLiveClientsDetails"
+	type="com.elitecore.elitesm.web.servermgr.server.ViewNetServerLiveClientsDetailsAction"
+	scope="request" name="viewNetServerLiveClientsDetailsForm" validate="false">
+	   		   <forward name="viewNetServerLiveClientsDetails" path="/jsp/servermgr/server/ViewNetServerLiveClientsDetailsContainer.jsp"></forward>
+	  </action>  
+	  
+	   <!-- NA  -->
+	    <action path="/initNetServerLicense"
+               type="com.elitecore.elitesm.web.servermgr.server.InitNetServerLicenseAction"
+               scope="request"
+               name="initNetServerLicenseForm"
+               validate="false">
+               <forward name="viewNetserverLicense" path="/jsp/servermgr/server/NetServerLicenseContainer.jsp" />
+       </action>
+       
+       <action path="/initNetServerCLI"
+               type="com.elitecore.elitesm.web.servermgr.server.InitNetServerCLIAction"
+               scope="request"
+               name="initNetServerCLIForm"
+               validate="false">
+               <forward name="viewNetserverCLI" path="/jsp/servermgr/server/NetServerCLI.jsp" />
+       </action>  
+       
+       <!-- Applying ACL [ VIEW_SUPPORTED_RFC_ACTION ]  -->	
+       <action path="/viewSupportedRFC"
+               type="com.elitecore.elitesm.web.servermgr.server.ViewSupportedRFCAction"
+               scope="request"
+               name="viewSupportedRFCForm"
+               validate="false">
+               <forward name="viewSupportedRFC" path="/jsp/servermgr/server/ViewSupportedRFCContainer.jsp" />
+       </action> 
+       
+	 	
+	 <!-- NA  -->	  
+	   <action path="/viewLogReport"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.ViewNetServerLogReportAction"
+	   		   scope="request"
+	   		   name="viewLogReportForm"
+	   		   validate="false">
+	   		   <forward name="viewLogReport" path="/jsp/servermgr/server/ViewNetServerLogRecordContainer.jsp"></forward>
+	  </action>
+	  
+	  <!-- Applying ACL [ VIEW_LOG_REPORT_ACTION ]  -->	
+	    <action path="/viewLogReportDetail"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.ViewNetServerLogReportDetailAction"
+	   		   scope="request"
+	   		   name="viewLogReportForm"
+	   		   validate="false">
+	   		   <forward name="viewLogReportDetail" path="/jsp/servermgr/server/ViewNetServerLogReportDetail.jsp"></forward>
+	  </action>
+	 
+	 <!-- Applying ACL [ VIEW_LOG_REPORT_ACTION ]  -->	
+	   <action path="/viewLogReportSummary"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.ViewNetServerLogReportSummaryAction"
+	   		   scope="request"
+	   		   name="viewLogReportForm"
+	   		   validate="false">
+	   		   <forward name="viewLogReportSummary" path="/jsp/servermgr/server/ViewNetServerLogReportSummary.jsp"></forward>
+	  </action>
+	 
+	  
+	  <!-- Applying ACL [ SYNCHRONIZE_SERVER_VERSION_ACTION ]  --> 
+	   <action path="/synchronizeServerInstanceVersion"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.SynchronizeNetServerInstanceVersionAction"
+	   		   scope="request"
+	   		   name="synchronizeNetServerVersionForm"
+	   		   validate="false">
+	   		   <forward name="synchronizeServerInstanceVersion" path="/jsp/servermgr/server/SynchronizeNetServerInstanceVersionContainer.jsp"></forward>
+	  </action>
+	  
+	  
+	  <action path="/synchronizeNetDictionary"
+	   		   type="com.elitecore.elitesm.web.servermgr.server.SynchronizeNetDictionaryAction"
+	   		   scope="request"
+	   		   name="synchronizeNetDictionaryForm"
+	   		   validate="false">
+	   		   <forward name="synchronizeServerInstanceDictionary" path="/jsp/servermgr/server/SynchronizeNetDictionaryContainer.jsp"></forward>
+	  </action>
+	  
+	  
+	
+ 	 <action path="/viewLiveServiceRequiredDetail"
+               type="com.elitecore.elitesm.web.servermgr.service.ViewLiveServiceRequiredDetailAction"
+               scope="request"
+               name="viewLiveServiceRequiredDetailForm"
+               validate="false">
+               <forward name="viewLiveServiceRequiredDetail" path="/jsp/servermgr/service/ViewLiveServiceRequiredDetailContainer.jsp" />
+    </action> 
+ 	 <!-- Not applied ACL [ VIEW_RELOAD_CACHE_DETAIL_ACTION ]  --> 
+ 	<action path="/viewReloadCacheDetails"
+               type="com.elitecore.elitesm.web.servermgr.server.ViewReloadCacheDetailsAction"
+               scope="request"
+               name="viewReloadCacheDetailForm"
+               validate="false">
+               <forward name="viewReloadCacheDetail" path="/jsp/servermgr/server/ViewReloadCacheDetailsContainer.jsp" />
+    </action> 
+   
+   <!-- Actions For EAP-Configuration -->
+   <action path="/initCreateEAPConfig"
+               type="com.elitecore.elitesm.web.servermgr.eap.InitCreateEAPConfigAction"
+               scope="request"
+               name="createEAPConfigForm" 
+               validate="false">
+               <forward name="createEAPConfig" path="/jsp/servermgr/eap/CreateEAPConfig.jsp" />
+   </action>
+   <action path="/createEAPConfig"
+               type="com.elitecore.elitesm.web.servermgr.eap.CreateEAPConfigAction"
+               scope="request"
+               name="createEAPConfigForm"
+               validate="false">
+               <forward name="createEAPConfigDetail" path="/jsp/servermgr/eap/CreateEAPConfigDetail.jsp" />
+               <forward name="createEAPGsmConfig" path="/createEAPGSMConfig.do" />
+   </action>
+   <action path="/createEAPConfigDetail"
+               type="com.elitecore.elitesm.web.servermgr.eap.CreateEAPConfigDetailAction"
+               scope="session"
+               name="createEAPConfigDetailForm"
+               validate="false">
+               <forward name="createEAPGsmConfig" path="/createEAPGSMConfig.do" />
+   </action>
+   
+	<action path="/createEAPGSMConfig"
+			type="com.elitecore.elitesm.web.servermgr.eap.CreateEAPGsmConfigAction"
+			scope="request"
+			name="eapGSMConfigForm"
+			validate="false"
+	>
+		<forward name="createEAPGsmConfig" path="/jsp/servermgr/eap/CreateEAPGSMConfig.jsp"></forward>
+	</action>
+   
+   
+   <action path="/initSearchEAPConfig"
+               type="com.elitecore.elitesm.web.servermgr.eap.InitSearchEAPConfigAction"
+               scope="request"
+               name="searchEAPConfigForm"
+               validate="false">
+               <forward name="initSearchEapConfig" path="/jsp/servermgr/eap/SearchEAPConfig.jsp" />
+              
+   </action>
+ 
+   <action path="/searchEAPConfig"
+               type="com.elitecore.elitesm.web.servermgr.eap.SearchEAPConfigAction"
+               scope="request"
+               name="searchEAPConfigForm"
+               validate="false">
+               <forward name="searchEapConfigList" path="/jsp/servermgr/eap/SearchEAPConfig.jsp" />
+   </action>
+   <action path="/miscEAPConfig"
+	    type="com.elitecore.elitesm.web.servermgr.eap.MiscEAPConfigAction"
+	    name="miscEAPConfigForm"
+	    scope="request"
+	    validate="false">
+	    <forward name="list" path="/searchEAPConfig.do"></forward>
+    </action>
+    <action path="/viewEAPConfig"
+               type="com.elitecore.elitesm.web.servermgr.eap.ViewEAPConfigAction"
+               scope="request"
+               name="viewEAPConfigForm"
+               validate="false">
+               <forward name="vieweapbasicdetails" path="/jsp/servermgr/eap/ViewEAPContainer.jsp" />
+               <forward name="viewsummarydetails" path="/jsp/servermgr/eap/ViewEAPSummaryContainer.jsp" />
+   </action>   
+   <action path="/viewEAPTLSConfig"
+               type="com.elitecore.elitesm.web.servermgr.eap.ViewEAPTLSConfigAction"
+               scope="request"
+               name="viewEAPTLSConfigForm"
+               validate="false">
+               <forward name="vieweaptlsdetails" path="/jsp/servermgr/eap/ViewEAPTLSContainer.jsp" />
+               <forward name="tlsconfignotexist" path="/jsp/servermgr/eap/ViewEAPTLSConfigNotExistContainer.jsp" />
+   </action>
+
+	<action path="/viewEAPGsmConfig"
+			type="com.elitecore.elitesm.web.servermgr.eap.ViewEAPGsmConfigAction"
+			name="eapGSMConfigForm"
+			scope="request">
+			<forward name="vieweapgsmdetails" path="/jsp/servermgr/eap/ViewEAPGsmDetailsContainer.jsp"></forward>
+	</action>
+	
+	<action path="/updateEAPGsmConfig"
+			type="com.elitecore.elitesm.web.servermgr.eap.UpdateEAPGsmConfigAction"
+			name="eapGSMConfigForm"
+			scope="request">
+			<forward name="updateEapGsmConfigData" path="/jsp/servermgr/eap/UpdateEAPGsmDetailsContainer.jsp"></forward>
+	</action>
+   
+   <action path="/updateEAPBasicDetails"
+               type="com.elitecore.elitesm.web.servermgr.eap.UpdateEAPBasicDetailsAction"
+               scope="request"
+               name="updateEAPBasicDetailsForm"
+               validate="false">
+               <forward name="updateEapConfigData" path="/jsp/servermgr/eap/UpdateEAPBasicDetailsContainer.jsp" />
+               
+   </action>
+   <action path="/updateEAPTLSDetails"
+               type="com.elitecore.elitesm.web.servermgr.eap.UpdateEAPTLSDetailsAction"
+               scope="request"
+               name="updateEAPTLSDetailsForm"
+               validate="false">
+               <forward name="updateEapTlsConfigData" path="/jsp/servermgr/eap/UpdateEAPTLSDetailsContainer.jsp" />
+               
+   </action>
+   
+     
+   <action path="/updateSupportedMethods"
+               type="com.elitecore.elitesm.web.servermgr.eap.UpdateSupportedMethodsAction"
+               scope="request"
+               name="updateSupportedMethodsForm"
+               validate="false">
+               <forward name="updatesupportedmethoddata" path="/jsp/servermgr/eap/UpdateSupportedMethodsContainer.jsp" />
+               
+   </action>
+   
+   
+   
+   
+     <!-- Create Alert Listener -->
+    <action path="/initCreateAlertListener"
+      type="com.elitecore.elitesm.web.servermgr.alert.InitCreateAlertListenerAction"
+      name="createAlertListenerForm"
+      scope="request"
+      validate="false">
+      <forward name="createFileAlertListener" path="/jsp/servermgr/alert/CreateFileAlertListener.jsp"></forward>
+      <forward name="createTrapAlertListener" path="/jsp/servermgr/alert/CreateTrapAlertListener.jsp"></forward>
+      <forward name="createAlertListener" path="/jsp/servermgr/alert/CreateAlertListener.jsp"></forward>
+      
+    </action>
+    
+    <action path="/createAlertListener"
+      type="com.elitecore.elitesm.web.servermgr.alert.CreateAlertListenerAction"
+      name="createAlertListenerForm"
+      scope="session"
+      validate="false">      
+      <forward name="createFileAlertListener" path="/jsp/servermgr/alert/CreateFileAlertListener.jsp"></forward>
+      <forward name="createTrapAlertListener" path="/jsp/servermgr/alert/CreateTrapAlertListener.jsp"></forward>
+      <forward name="createSYSAlertListener" path="/jsp/servermgr/alert/CreateSYSAlertListener.jsp"></forward>
+    </action>
+   
+    <action path="/initSearchAlertListener"
+      type="com.elitecore.elitesm.web.servermgr.alert.InitSearchAlertListenerAction"
+      name="searchAlertListenerForm"
+      scope="request"
+      validate="false">
+      <forward name="searchAlertListener" path="/jsp/servermgr/alert/SearchAlertListener.jsp"></forward>
+    </action>
+     
+     <action path="/searchAlertListener"
+      type="com.elitecore.elitesm.web.servermgr.alert.SearchAlertListenerAction"
+      name="searchAlertListenerForm"
+      scope="request"
+      validate="false">
+      <forward name="searchResult" path="/jsp/servermgr/alert/SearchAlertListener.jsp"></forward>
+    </action>
+    
+    <action path="/miscAlertListener"
+    type="com.elitecore.elitesm.web.servermgr.alert.MiscAlertListenerAction"
+    name="miscAlertListenerForm"
+    scope="request"
+    validate="false">
+    <forward name="list" path="/searchAlertListener.do"></forward>
+    </action>
+    
+    <action path="/viewAlertListener"
+    type="com.elitecore.elitesm.web.servermgr.alert.ViewAlertListenerAction"
+    name="viewAlertListenerForm"
+    scope="request"
+    validate="false">
+    <forward name="viewalertlitenerdetail" path="/jsp/servermgr/alert/ViewAlertListenerContainer.jsp"></forward>
+    </action>
+
+	<action path="/viewAlertListenerHistory" type="com.elitecore.elitesm.web.servermgr.alert.ViewAlertListenerHistoryAction" name="viewAlertListenerForm" scope="request" validate="false">
+		<forward name="viewalertlitenerHistory" path="/jsp/servermgr/alert/ViewAlertListenerHistoryContainer.jsp"></forward>
+	</action>
+    
+    <action path="/updateAlertListener"
+    type="com.elitecore.elitesm.web.servermgr.alert.UpdateAlertListenerAction"
+    name="updateAlertListenerForm"
+    scope="request"
+    validate="false">
+    <forward name="updatealertlistenerdetail" path="/jsp/servermgr/alert/UpdateAlertListenerContainer.jsp"></forward>
+    
+    </action>
+    
+    	  
+	<action path="/initViewServiceGraph"
+	 type="com.elitecore.elitesm.web.servermgr.service.InitViewServiceGraphAction"
+	 name="viewServiceGraphForm"
+	 scope="request"
+	 validate="true">
+	<forward name="viewServiceGraph" path="/jsp/servermgr/service/ViewServiceGraphContainer.jsp"/>
+	</action>
+	
+	<action path="/initViewServerGraph"
+	 type="com.elitecore.elitesm.web.servermgr.server.InitViewServerGraphAction"
+	 name="viewServerGraphForm"
+	 scope="request"
+	 validate="true">
+	<forward name="viewServerGraph" path="/jsp/servermgr/server/ViewServerGraphContainer.jsp"/>
+	</action>
+	
+	
+	<!-- Action mapping for Grace Policy -->
+
+      <action path="/initGracepolicy"  
+          type="com.elitecore.elitesm.web.servermgr.gracepolicy.InitGracepolicyAction"   
+          name="initGracePolicyForm"     
+          validate="false">  
+        <forward name="listgracepolicy" path="/jsp/servermgr/gracepolicy/GracePolicyContainer.jsp" />
+     </action>                               
+ 
+
+      <action path="/gracePolicy"  
+          type="com.elitecore.elitesm.web.servermgr.gracepolicy.GracepolicyAction"   
+          name="gracePolicyForm"     
+          validate="false">  
+        <forward name="listgracepolicy" path="/initGracepolicy.do" />
+     </action>
+     
+     <action path="/viewGracePolicyhistory"  
+          type="com.elitecore.elitesm.web.servermgr.gracepolicy.ViewGracePolicyHistoryAction"   
+          name="gracePolicyForm"     
+          validate="false">  
+        <forward name="viewGracePolicyHistory" path="/jsp/servermgr/gracepolicy/ViewGracePolicyHistoryContainer.jsp" />
+     </action>
+     
+     
+     <!-- action mapping for digest config  -->
+    
+    <action path="/initCreateDigestConf"
+      type="com.elitecore.elitesm.web.digestconf.InitCreateDigestConfAction"
+      name="createDigestConfForm"
+      scope="request"
+      validate="false">
+      <forward name="createDigestConf" path="/jsp/digestconf/CreateDigestConf.jsp"></forward>
+    </action>
+    
+    <action path="/createDigestConf"
+      type="com.elitecore.elitesm.web.digestconf.CreateDigestConfAction"
+      name="createDigestConfForm"
+      scope="request"
+      validate="false">
+     
+    </action>
+    
+     <action path="/initSearchDigestConf"  
+          type="com.elitecore.elitesm.web.digestconf.InitSearchDigestConfAction"   
+          name="searchDigestConfForm"  
+          scope="request"   
+          validate="false">  
+        <forward name="initSearchDigestconf" path="/jsp/digestconf/SearchDigestConfig.jsp" />
+    </action> 
+     
+    <action path="/searchDigestConf"  
+          type="com.elitecore.elitesm.web.digestconf.SearchDigestConfAction"   
+          name="searchDigestConfForm"
+          scope="request"     
+          validate="false">  
+        <forward name="searchDigestConfigList" path="/jsp/digestconf/SearchDigestConfig.jsp" />
+    </action>
+    
+    <action path="/miscDigestConf"  
+          type="com.elitecore.elitesm.web.digestconf.MiscDigestConfAction"   
+          name="miscDigestConfForm"
+          scope="request"     
+          validate="false">  
+        <forward name="list" path="/searchDigestConf.do"></forward>
+    </action>
+    
+    <action path="/updateDigestConf"  
+          type="com.elitecore.elitesm.web.digestconf.UpdateDigestConfAction"   
+          name="updateDigestConfForm"
+          scope="request"     
+          validate="false">  
+        <forward name="updatedigestconf" path="/jsp/digestconf/UpdateDigestConfigContainer.jsp"></forward>
+    </action>
+    
+    <action path="/viewDigestConf"  
+          type="com.elitecore.elitesm.web.digestconf.ViewDigestConfAction"   
+          name="viewDigestConfForm"
+          scope="request"     
+          validate="false">  
+        <forward name="viewDigestconf" path="/jsp/digestconf/ViewDigestConfigContainer.jsp"></forward>
+    </action>
+      
+	<action path="/initListNetServerLogs"  
+          type="com.elitecore.elitesm.web.servermgr.server.InitListNetServerLogsAction"   
+          name="listNetServerLogsForm"
+          scope="request"     
+          validate="false">  
+        <forward name="listNetServerLogs" path="/jsp/servermgr/server/ListNetServerLogsContainer.jsp"></forward>
+    </action>
+	
+	<action path="/licenseExpireAlert"
+		type="com.elitecore.elitesm.web.servermgr.server.LicenseExpireAlertAction"
+		scope="request"
+		name="listNetServerInstanceForm"
+		validate="false">
+		<forward name="licenseExpireAlert" path="/jsp/servermgr/server/LicenseExpireAlert.jsp"></forward>
+	</action>  
+	<!--  Translation Mapping Configuration -->
+    <action path="/initCreateTranslationMappingConfig"
+		scope="request"
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.InitCreateTranslationMappingConfigAction"
+		name="createTranslationMappingConfigForm"
+		validate="false">
+			<forward name="createTranslationMapConf" path="/jsp/servermgr/transmapconf/CreateTranslationMappingConfig.jsp" />
+	</action>
+	
+	<action path="/createTranslationMappingConfig"
+		scope="request"
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.CreateTranslationMappingConfigAction"
+		name="createTranslationMappingConfigForm"
+		validate="false">
+			<forward name="createCrestelRatingTransMapAction" path="/createCrestelRatingTransMapConfig.do" />
+	</action>
+	
+	<action path="/createCrestelRatingTransMapConfig"
+		scope="request"
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.CreateCrestelRatingTransMapConfigAction"
+		name="createCrestelRatingTransMapConfigForm"
+		validate="false">
+			<forward name="createCrestelRatingTransMapConf" path="/jsp/servermgr/transmapconf/CreateCrestelRatingTransMapConf.jsp" />
+	</action>
+	
+	   
+	<action path="/initSearchTranslationMappingConfig" 
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.InitSearchTranslationMappingConfigAction"
+		name="searchTranslationMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="searchtranslationmappingconf" path="/jsp/servermgr/transmapconf/SearchTranslationMappingConfig.jsp" />
+	</action>  
+	
+	<action path="/searchTranslationMappingConfig" 
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.SearchTranslationMappingConfigAction"
+		name="searchTranslationMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="listconfig" path="/jsp/servermgr/transmapconf/SearchTranslationMappingConfig.jsp" />
+	</action>     
+     			 
+     			 
+	<action path="/viewTranslationMappingConfigBasicDetail" 
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.ViewTranslationMappingConfigAction"
+		name="viewTranslationMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="viewTransMappingConfig" path="/jsp/servermgr/transmapconf/ViewTranslationMappingConfigContainer.jsp" />
+	</action>
+	
+	<action path="/viewCrestelRatingTransMapConfig" 
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.ViewCrestelRatingTransMapConfAction"
+		name="viewCrestelRatingTransMapConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="viewCrestelRatingTransMapConf" path="/jsp/servermgr/transmapconf/ViewCrestelRatingTransMapConfContainer.jsp" />
+	</action>
+	
+	<action path="/viewTranslationMappingConfigBasicDetail" 
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.ViewTranslationMappingConfigBasicDetailAction"
+		name="viewTranslationMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="viewTransMappingConfigBasicDetail" path="/jsp/servermgr/transmapconf/ViewTranslationMappingConfigBasicDetailContainer.jsp" />
+	</action>          			     			
+	          
+	<action path="/initUpdateTranslationMappingConfig" 
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.InitUpdateTranslationMappingConfigAction"
+		name="updateTranslationMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="initUpdateCrestelRatingTransMapConf" path="/updateCrestelRatingTransMapConfig.do" />
+	</action>
+	
+	<action path="/updateCrestelRatingTransMapConfig" 
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.UpdateCrestelRatingTransMapConfAction"
+		name="updateCrestelRatingTransMapConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="openUpdateCrestelRatingTransMapConf" path="/jsp/servermgr/transmapconf/UpdateCrestelRatingTransMapConfContainer.jsp" />
+	</action>    	          			     			
+	
+	<action path="/updateTranslationMappingConfigBasicDetail" 
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.UpdateTranslationMappingConfigBasicDetailAction"
+		name="updateTranslationMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="updateTransMappingConfigBasicDetail" path="/jsp/servermgr/transmapconf/UpdateTranslationMappingConfigBasicDetailContainer.jsp" />
+	</action>	
+	
+	<action path="/viewTranslationMappingHistory" 
+		type="com.elitecore.elitesm.web.servermgr.transmapconf.ViewTranslationMappingConfigHistoryAction"
+		name="updateTranslationMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="viewTransMappingConfigHistoryDetail" path="/jsp/servermgr/transmapconf/ViewTranslationMappingConfigHistoryContainer.jsp" />
+	</action>	
+	
+	<action path="/serverAllCertificates" parameter="method" type="com.elitecore.elitesm.web.servermgr.certificate.ServerAllCertificateAction" name="serverCertificateForm" scope="request" validate="false">
+		<forward name="searchAllServerCertificate" path="/jsp/servermgr/certificate/ServerAllCertificateContainer.jsp" />
+		<forward name="createServerCertificate" path="/jsp/servermgr/certificate/CreateServerCertificate.jsp" />
+		<forward name="viewServerCertificate" path="/jsp/servermgr/certificate/ViewServerCertificateContainer.jsp" />
+		<forward name="showAllServerCertificate" path="/jsp/servermgr/certificate/ListAllServerCertificate.jsp" />	
+		<forward name="createTrustedCertificate" path="/jsp/servermgr/certificate/CreateTrustedCertificate.jsp"/>
+		<forward name="viewTrustedCertificate" path="/jsp/servermgr/certificate/ViewTrustedCertificateContainer.jsp"/>
+		<forward name="showAllTrustedCertificate" path="/jsp/servermgr/certificate/ListAllTrustedCertificate.jsp"/>	
+		<forward name="createCrlCertificate" path="/jsp/servermgr/certificate/CreateCrlCertificate.jsp"/>
+		<forward name="viewCrlCertificate" path="/jsp/servermgr/certificate/ViewCrlCertificateContainer.jsp"/>
+		<forward name="showAllCrlCertificate" path="/jsp/servermgr/certificate/ListAllCrlCertificate.jsp"/> 
+	</action>
+	
+	<action path="/initViewNetServerGraph" parameter="method"  type="com.elitecore.elitesm.web.servermgr.server.InitViewNetServerGraphAction"
+		 name="viewNetServerGraphForm"
+		 scope="request"
+		 validate="true">
+		<forward name="viewNetServerGraph" path="/jsp/servermgr/server/ViewNetServerGraphContainer.jsp"/>
+	</action>
+	
+	<action path="/viewDigestConfHistory"  
+          type="com.elitecore.elitesm.web.digestconf.ViewDigestConfHistoryAction"   
+          name="updateDigestConfForm"
+          scope="request"     
+          validate="false">  
+        <forward name="viewDigestConfHistory" path="/jsp/digestconf/ViewDigestConfigHistoryContainer.jsp"></forward>
+    </action>
+    
+    <action path="/viewEAPConfigHistory"
+          type="com.elitecore.elitesm.web.servermgr.eap.ViewEAPConfigHistoryAction"
+          scope="request"
+          name="viewEAPConfigForm"
+          validate="false">
+       <forward name="viewEAPConfigHistory" path="/jsp/servermgr/eap/ViewEAPHistoryContainer.jsp" />
+       
+   </action> 
+   
+    
+	<action path="/viewCopyPacketConfigBasicDetail" 
+		type="com.elitecore.elitesm.web.servermgr.copypacket.ViewCopyPacketConfigBasicDetailAction"
+		name="viewCopyPacketConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="viewCopyPacketConfigBasicDetail" path="/jsp/servermgr/copypacket/ViewCopypacketBasicDetailContainer.jsp" />
+	</action>
+	
+	<action path="/viewCopyPacketMappingConfig" 
+		type="com.elitecore.elitesm.web.servermgr.copypacket.ViewCopyPacketMappingConfigAction"
+		name="viewCopyPacketMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="viewCopyPacketMappingConfigforward" path="/jsp/servermgr/copypacket/ViewCopypacketMappingContainer.jsp" />
+	</action>
+    
+
+    <!-- Actions for CopyPacketMapping -->
+	<action path="/initSearchCopyPacketMappingConfig" 
+		type="com.elitecore.elitesm.web.servermgr.copypacket.InitSearchCopyPacketMappingConfigAction"
+		name="searchCopyPacketMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="searchCopyPacketMappingconfig" path="/jsp/servermgr/copypacket/SearchCopyPacketMappingConfig.jsp" />
+	</action>
+	
+	
+	<action path="/searchCopyPacketMappingconf" 
+		type="com.elitecore.elitesm.web.servermgr.copypacket.SearchCopyPacketMappingConfigAction"
+		name="searchCopyPacketMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="listconfig" path="/jsp/servermgr/copypacket/SearchCopyPacketMappingConfig.jsp" />
+	</action> 
+     <action path="/initCreateCopyPacketMappingConfig"
+		scope="request"
+		type="com.elitecore.elitesm.web.servermgr.copypacket.InitCreateCopyPacketMappingConfigAction"
+		name="createCopyPacketTransMappingForm"
+		validate="false">
+			<forward name="createCopyPacketMappingConf" path="/jsp/servermgr/copypacket/CreateCopyPacketMappingConfig.jsp" />
+	</action>
+	<action path="/createCopyPacketMappingConfig"
+		scope="request"
+		type="com.elitecore.elitesm.web.servermgr.copypacket.CreateCopyPacketMappingConfigAction"
+		name="createCopyPacketTransMappingForm"
+		validate="false">
+			<forward name="createCopyPacketTransMapAction" path="/createCopyPacketMappingConfDetail.do" />
+	</action>
+		<action path="/createCopyPacketMappingConfDetail"
+		scope="request"
+		type="com.elitecore.elitesm.web.servermgr.copypacket.CreateCopyPacketMappingConfDetailAction"
+		name="createCopyPacketMappingConfDetailForm"
+		validate="false">
+			<forward name="createCopyPacketTransMapConfig" path="/jsp/servermgr/copypacket/CreateCopyPacketMappingConfDetail.jsp" />
+	</action>
+	
+	<action path="/initUpdateCopyPacketMappingConfig" 
+		type="com.elitecore.elitesm.web.servermgr.copypacket.InitUpdateCopyPacketMappingConfigAction"
+		name="updateCopyPacketMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="initUpdateCopyPacketMappingConfigDetail" path="/updateCopyPacketMappingConfigDetail.do" />
+	</action>
+	<action path="/updateCopyPacketMappingConfigDetail" 
+		type="com.elitecore.elitesm.web.servermgr.copypacket.UpdateCopyPacketMappingConfigDetailAction"
+		name="updateCopyPacketMappingConfigDetailForm"
+		scope="request"
+		validate="false">
+		<forward name="updateCopyPacketMappingConfDetail" path="/jsp/servermgr/copypacket/UpdateCopyPacketMappingInstanceDetailContainer.jsp" />
+	</action>    	          			     			
+	
+	<action path="/updateCopyPacketMappingConfig" 
+		type="com.elitecore.elitesm.web.servermgr.copypacket.UpdateCopyPacketMappingConfigAction"
+		name="updateCopyPacketMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="updateCopyPacketMappingConf" path="/jsp/servermgr/copypacket/UpdateCopyPacketMappingConfigContainer.jsp" />
+	</action>	
+	
+	<action path="/viewCopyPacketMappingHistory" 
+		type="com.elitecore.elitesm.web.servermgr.copypacket.ViewCopyPacketMappingHistoryAction"
+		name="updateCopyPacketMappingConfigForm"
+		scope="request"
+		validate="false">
+		<forward name="viewCopyPacketMappingHistory" path="/jsp/servermgr/copypacket/ViewCopyPacketMappingHistoryContainer.jsp" />
+	</action>	
+	
+	<!-- Plugin Action -->
+
+	<action path="/initSearchPlugin" type="com.elitecore.elitesm.web.plugins.InitSearchPluginInstanceAction"	name="searchPluginInstanceForm" scope="request" validate="false">
+      	<forward name="searchPluginInstance" path="/jsp/servermgr/plugins/SearchPluginInstance.jsp" /> 				
+	</action>
+	
+	<action path="/searchPlugin" type="com.elitecore.elitesm.web.plugins.SearchPluginInstanceAction" name="searchPluginInstanceForm" scope="request" validate="false">
+      	<forward name="pluginInstance" path="/jsp/servermgr/plugins/SearchPluginInstance.jsp" /> 				
+	</action>
+	
+	 <action  parameter="method" path="/script" type="com.elitecore.elitesm.web.script.ScriptAction" scope="request" name="scriptInstanceForm">
+  		<forward name="searchScript" path="/jsp/servermgr/script/SearchScriptInstance.jsp" />
+  		<forward name="initCreateScript" path="/jsp/servermgr/script/CreateScript.jsp" />
+  		<forward name="initUpdate" path="/jsp/servermgr/script/UpdateScriptContainer.jsp" />
+  		<forward name="viewScriptFile" path="/jsp/servermgr/script/ViewScriptFileContainer.jsp" />
+  		<forward name="updateScriptFile" path="/jsp/servermgr/script/UpdateScriptFileContainer.jsp" />
+  		<forward name="viewscipt" path="/jsp/servermgr/script/ViewScriptContainer.jsp" />
+  		<forward name="viewScriptHistory" path="/jsp/servermgr/script/ViewScriptHistoryContainer.jsp" />
+	 </action>
+	
+	<action path="/initCreatePlugin" type="com.elitecore.elitesm.web.plugins.InitCreatePluginAction" name="createPluginForm" scope="request" validate="false">
+      	<forward name="initCreatePlugin" path="/jsp/servermgr/plugins/CreatePlugin.jsp" /> 				
+	</action>
+	
+	<action path="/nextCreatePlugin" type="com.elitecore.elitesm.web.plugins.CreatePluginAction" name="createPluginForm" scope="request" validate="false">
+		<forward name="createUniversalAuthPlugin"      			path="/createUniversalAuthPlugin.do" />
+		<forward name="createUniversalAcctPlugin"      			path="/createUniversalAcctPlugin.do" />
+		<forward name="createUniversalDiameterPlugin"  			path="/createUniversalDiameterPlugin.do" />
+		<forward name="createRadiusGroovyPlugin"  				path="/createRadiusGroovyPlugin.do" />
+		<forward name="createDiameterGroovyPlugin"				path="/createDiameterGroovyPlugin.do" />
+		<forward name="createRadiusTransactionLoggerPlugin" 	path="/createRadiusTransactionLoggerPlugin.do" />
+		<forward name="createDiameterTransactionLoggerPlugin" 	path="/createDiameterTransactionLoggerPlugin.do" />
+		<forward name="createQuotaManagementPlugin" 			path="/createQuotaManagementPlugin.do" />
+		<forward name="createUserStatisticPostAuthPlugin"		path="/createUserStatisticPostAuthPlugin.do"/>
+	</action>
+	
+	<action path="/viewPluginInstance" type="com.elitecore.elitesm.web.plugins.InitUpdatePluginInstanceAction" name="updatePluginInstanceForm" scope="request" validate="false">
+       <forward name="universalAuthPlugin"     		 			path="/initViewUniversalAuthPlugin.do" />
+       <forward name="universalAcctPlugin"      	   			path="/initViewUniversalAcctPlugin.do" />
+       <forward name="universalDiameterPlugin"  	   			path="/initViewUniversalDiameterPlugin.do" />
+       <forward name="radiusGroovyPlugin"  		       			path="/initViewRadiusGroovyPlugin.do" />
+       <forward name="diameterGroovyPlugin"						path="/initViewDiameterGroovyPlugin.do" />
+       <forward name="radiusTransactionLogger"  		     	path="/initViewRadiusTransactionLogger.do" />
+       <forward name="diameterTransactionLogger"  		     	path="/initViewDiameterTransactionLogger.do" />
+       <forward name="quotaManagementPlugin"					path="/initViewQuotaManagementPlugin.do" />
+       <forward name="userStatisticPostAuthPlugin"				path="/initViewUserStatisticPostAuthPlugin.do"/>
+    </action>
+  
+  	<action path="/initUpdatePluginInstance" type="com.elitecore.elitesm.web.plugins.InitUpdatePluginInstanceAction" name="updatePluginInstanceForm" scope="request" validate="false">
+      	<forward name="universalAuthPlugin" 		  			path="/initUpdateUniversalAuthPlugin.do" />
+      	<forward name="universalAcctPlugin" 	     		 	path="/initUpdateUniversalAcctPlugin.do" />
+      	<forward name="universalDiameterPlugin"   		    	path="/initUpdateUniversalDiameterPlugin.do" />
+      	<forward name="radiusGroovyPlugin"  				    path="/initUpdateRadiusGroovyPlugin.do" />
+      	<forward name="diameterGroovyPlugin"					path="/initUpdateDiameterGroovyPlugin.do" />
+      	<forward name="radiusTransactionLogger"  		     	path="/initUpdateRadiusTransactionLogger.do" />
+        <forward name="diameterTransactionLogger"  		     	path="/initUpdateDiameterTransactionLogger.do" />
+        <forward name="quotaManagementPlugin"					path="/initUpdateQuotaManagementPlugin.do" />
+        <forward name="userStatisticPostAuthPlugin"				path="/initUpdateUserStatisticPostAuthPlugin.do"/>
+	</action>	
+  
+  	<!-- Universal Auth Plugin  -->
+  	
+  	<action path="/createUniversalAuthPlugin" type="com.elitecore.elitesm.web.plugins.CreateUniversalAuthPluginAction" name="createUniversalAuthPluginForm" scope="request" validate="false">
+		<forward name="cUniversalAuthPlugin" path="/jsp/servermgr/plugins/universalplugin/CreateUniversalAuthPlugin.jsp" />
+	</action> 
+  	
+  	<action path="/initViewUniversalAuthPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUniversalAuthPluginAction" name="updateUniversalAuthPluginForm" scope="request" validate="false">
+     	<forward name="universalAuthPlugin" path="/jsp/servermgr/plugins/universalplugin/ViewUniversalAuthPluginContainer.jsp" />
+	</action>
+	
+    <action path="/initUpdateUniversalAuthPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUniversalAuthPluginAction" name="updateUniversalAuthPluginForm" scope="request" validate="false">
+      	<forward name="universalAuthPlugin" path="/jsp/servermgr/plugins/universalplugin/UpdateUniversalAuthPluginContainer.jsp" />
+	</action>
+	
+	 <action path="/updateUniversalAuthPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUniversalAuthPluginAction" name="updateUniversalAuthPluginForm" scope="request" validate="false">
+      	<forward name="universalAuthPlugin" path="/jsp/servermgr/plugins/universalplugin/UpdateUniversalAuthPluginContainer.jsp" />
+	 </action>
+    
+     <action path="/viewUniversalAuthPluginHistory" type="com.elitecore.elitesm.web.plugins.ViewUniversalAuthPluginHistoryAction" name="updateUniversalAuthPluginForm" scope="request" validate="false">
+      	<forward name="viewUniversalAuthPluginHistory" path="/jsp/servermgr/plugins/universalplugin/ViewUniversalAuthPluginHistoryContainer.jsp" />
+	 </action>
+	 
+    <!-- Universal Acct Plugin  -->
+    
+    <action path="/createUniversalAcctPlugin" type="com.elitecore.elitesm.web.plugins.CreateUniversalAcctPluginAction" name="createUniversalAcctPluginForm" scope="request" validate="false">
+		<forward name="cUniversalAcctPlugin" path="/jsp/servermgr/plugins/universalplugin/CreateUniversalAcctPlugin.jsp" />
+	</action> 
+    
+    <action path="/initViewUniversalAcctPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUniversalAcctPluginAction" name="updateUniversalAcctPluginForm" scope="request" validate="false">
+     	<forward name="universalAcctPlugin" path="/jsp/servermgr/plugins/universalplugin/ViewUniversalAcctPluginContainer.jsp" />
+	</action>
+	
+	 <action path="/initUpdateUniversalAcctPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUniversalAcctPluginAction" name="updateUniversalAcctPluginForm" scope="request" validate="false">
+      	<forward name="universalAcctPlugin" path="/jsp/servermgr/plugins/universalplugin/UpdateUniversalAcctPluginContainer.jsp" />
+	 </action>
+	
+	 <action path="/updateUniversalAcctPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUniversalAcctPluginAction" name="updateUniversalAcctPluginForm" scope="request" validate="false">
+      	<forward name="universalAcctPlugin" path="/jsp/servermgr/plugins/universalplugin/UpdateUniversalAcctPluginContainer.jsp" />
+	 </action>
+	 
+	 <action path="/viewUniversalAcctPluginHistory" type="com.elitecore.elitesm.web.plugins.ViewUniversalAcctPluginHistoryAction" name="updateUniversalAcctPluginForm" scope="request" validate="false">
+      	<forward name="viewUniversalAcctPluginHistory" path="/jsp/servermgr/plugins/universalplugin/ViewUniversalAcctPluginHistoryContainer.jsp" />
+	 </action>
+	 
+	 <!-- Universal Diameter Plugin -->
+	 
+     <action path="/createUniversalDiameterPlugin" type="com.elitecore.elitesm.web.plugins.CreateUniversalDiameterPluginAction" name="createUniversalDiameterPluginForm" scope="request" validate="false">
+		<forward name="cUniversalDiameterPlugin" path="/jsp/servermgr/plugins/universalplugin/CreateUniversalDiameterPlugin.jsp" />
+	 </action> 
+    
+     <action path="/initViewUniversalDiameterPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUniversalDiameterPluginAction" name="updateUniversalDiameterPluginForm" scope="request" validate="false">
+     	<forward name="universalDiameterPlugin" path="/jsp/servermgr/plugins/universalplugin/ViewUniversalDiameterPluginContainer.jsp" />
+	 </action>
+	 
+	 <action path="/initUpdateUniversalDiameterPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUniversalDiameterPluginAction" name="updateUniversalDiameterPluginForm" scope="request" validate="false">
+      	<forward name="universalDiameterPlugin" path="/jsp/servermgr/plugins/universalplugin/UpdateUniversalDiameterPluginContainer.jsp" />
+	 </action>
+	 
+	 <action path="/updateUniversalDiameterPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUniversalDiameterPluginAction" name="updateUniversalDiameterPluginForm" scope="request" validate="false">
+      	<forward name="universalDiameterPlugin" path="/jsp/servermgr/plugins/universalplugin/UpdateUniversalDiameterPluginContainer.jsp" />
+	 </action>
+	 
+	  <action path="/viewUniversalDiameterPluginHistory" type="com.elitecore.elitesm.web.plugins.ViewUniversalDiameterPluginHistoryAction" name="updateUniversalDiameterPluginForm" scope="request" validate="false">
+      	<forward name="viewUniversalDiameterPluginHistory" path="/jsp/servermgr/plugins/universalplugin/ViewUniversalDiameterPluginHistoryContainer.jsp" />
+	  </action>
+	  
+	  <!-- Radius Groovy Plugin -->
+	  
+	  <action path="/createRadiusGroovyPlugin" type="com.elitecore.elitesm.web.plugins.CreateRadiusGroovyPluginAction" name="createRadiusGroovyPluginForm" scope="request" validate="false">
+		<forward name="radiusGroovyPlugin" path="/jsp/servermgr/plugins/radiusgroovy/CreateRadiusGroovyPlugin.jsp" />
+	  </action> 
+	 
+	 <action path="/initViewRadiusGroovyPlugin" type="com.elitecore.elitesm.web.plugins.UpdateRadiusGroovyPluginAction" name="updateRadiusGroovyPluginForm" scope="request" validate="false">
+     	<forward name="radiusGroovyPlugin" 	path="/jsp/servermgr/plugins/radiusgroovy/ViewRadiusGroovyPluginContainer.jsp" />
+	 </action>
+    
+     <action path="/initUpdateRadiusGroovyPlugin" type="com.elitecore.elitesm.web.plugins.UpdateRadiusGroovyPluginAction" name="updateRadiusGroovyPluginForm" scope="request" validate="false">
+      	<forward name="radiusGroovyPlugin" path="/jsp/servermgr/plugins/radiusgroovy/UpdateRadiusGroovyPluginContainer.jsp" />
+	 </action>
+	 
+	  <action path="/updateRadiusGroovyPlugin" type="com.elitecore.elitesm.web.plugins.UpdateRadiusGroovyPluginAction" name="updateRadiusGroovyPluginForm" scope="request" validate="false">
+      	<forward name="radiusGroovyPlugin" path="/jsp/servermgr/plugins/radiusgroovy/UpdateRadiusGroovyPluginContainer.jsp" />
+	 	<forward name="updateGroovyFile" path="/jsp/servermgr/plugins/radiusgroovy/UpdateRadiusGroovyFilePluginContainer.jsp" />
+	 	<forward name="viewGroovyFile" path="/jsp/servermgr/plugins/radiusgroovy/ViewRadiusGroovyFilePluginContainer.jsp" />
+	 </action>
+    
+      <action path="/viewRadiusGroovyPluginHistory" type="com.elitecore.elitesm.web.plugins.ViewRadiusGroovyPluginHistoryAction" name="updateRadiusGroovyPluginForm" scope="request" validate="false">
+      	<forward name="viewRadiusGroovyPluginHistory" path="/jsp/servermgr/plugins/radiusgroovy/ViewRadiusGroovyPluginHistoryContainer.jsp" />
+	  </action>	
+    
+      <action path="/verifyGroovy" type="com.elitecore.elitesm.web.plugins.VerifyGroovyAction" name="updateRadiusGroovyPluginForm" scope="request" validate="false">
+	  </action>
+	  
+	  <!-- Diameter Groovy Plugin -->
+	  <action path="/createDiameterGroovyPlugin" type="com.elitecore.elitesm.web.plugins.CreateDiameterGroovyPluginAction" name="createDiameterGroovyPluginForm" scope="request" validate="false">
+		<forward name="diameterGroovyPlugin" path="/jsp/servermgr/plugins/diametergroovy/CreateDiameterGroovyPlugin.jsp" />
+	  </action> 
+	  
+	  <action path="/initViewDiameterGroovyPlugin" type="com.elitecore.elitesm.web.plugins.UpdateDiameterGroovyPluginAction" name="updateDiameterGroovyPluginForm" scope="request" validate="false">
+     	<forward name="diameterGroovyPlugin" 	path="/jsp/servermgr/plugins/diametergroovy/ViewDiameterGroovyPluginContainer.jsp" />
+	  </action>
+	  
+	  <action path="/initUpdateDiameterGroovyPlugin" type="com.elitecore.elitesm.web.plugins.UpdateDiameterGroovyPluginAction" name="updateDiameterGroovyPluginForm" scope="request" validate="false">
+      	<forward name="diameterGroovyPlugin" path="/jsp/servermgr/plugins/diametergroovy/UpdateDiameterGroovyPluginContainer.jsp" />
+	 </action>
+	 
+	  <action path="/updateDiameterGroovyPlugin" type="com.elitecore.elitesm.web.plugins.UpdateDiameterGroovyPluginAction" name="updateDiameterGroovyPluginForm" scope="request" validate="false">
+      	<forward name="diameterGroovyPlugin" path="/jsp/servermgr/plugins/diametergroovy/UpdateDiameterGroovyPluginContainer.jsp" />
+	 	<forward name="updateGroovyFile" path="/jsp/servermgr/plugins/diametergroovy/UpdateDiameterGroovyFilePluginContainer.jsp" />
+	 	<forward name="viewGroovyFile" path="/jsp/servermgr/plugins/diametergroovy/ViewDiameterGroovyFilePluginContainer.jsp" />
+	 </action>
+    
+      <action path="/viewDiameterGroovyPluginHistory" type="com.elitecore.elitesm.web.plugins.ViewDiameterGroovyPluginHistoryAction" name="updateDiameterGroovyPluginForm" scope="request" validate="false">
+      	<forward name="viewDiameterGroovyPluginHistory" path="/jsp/servermgr/plugins/diametergroovy/ViewDiameterGroovyPluginHistoryContainer.jsp" />
+	  </action>	
+	  
+	  <!-- Radius Transaction Logger -->
+	  <action path="/createRadiusTransactionLoggerPlugin" type="com.elitecore.elitesm.web.plugins.CreateRadiusTransactionLoggerAction" name="transactionLoggerForm" scope="request" validate="false">
+		<forward name="radiusTransactionLogger" path="/jsp/servermgr/plugins/radiustransactionlogger/CreateRadiusTransactionLogger.jsp" />
+	  </action> 
+	  
+	   <action path="/initViewRadiusTransactionLogger" type="com.elitecore.elitesm.web.plugins.UpdateRadiusTransactionLoggerAction" name="transactionLoggerForm" scope="request" validate="false">
+     	<forward name="radiusTransactionLogger" 	path="/jsp/servermgr/plugins/radiustransactionlogger/ViewRadiusTransactionLoggerContainer.jsp" />
+	   </action>
+	  
+	   <action path="/initUpdateRadiusTransactionLogger" type="com.elitecore.elitesm.web.plugins.UpdateRadiusTransactionLoggerAction" name="transactionLoggerForm" scope="request" validate="false">
+      	<forward name="radiusTransactionLogger" path="/jsp/servermgr/plugins/radiustransactionlogger/UpdateRadiusTransactionLoggerContainer.jsp" />
+	   </action>
+	  
+	  <action path="/updateRadiusTransactionLogger" type="com.elitecore.elitesm.web.plugins.UpdateRadiusTransactionLoggerAction" name="transactionLoggerForm" scope="request" validate="false">
+      	<forward name="radiusTransactionLogger" path="/jsp/servermgr/plugins/radiustransactionlogger/UpdateRadiusTransactionLoggerContainer.jsp" />
+	  </action>
+	 
+	  <action path="/viewRadiusTransactionLoggerHistory" type="com.elitecore.elitesm.web.plugins.ViewRadiusTransactionLoggerHistoryAction" name="transactionLoggerForm" scope="request" validate="false">
+      	<forward name="viewRadiusTransactionLoggerHistory" path="/jsp/servermgr/plugins/radiustransactionlogger/ViewRadiusTransactionHistoryContainer.jsp" />
+	  </action>	
+    
+      <!-- Diameter Transaction Logger -->
+    
+      <action path="/createDiameterTransactionLoggerPlugin" type="com.elitecore.elitesm.web.plugins.CreateDiameterTransactionLoggerAction" name="transactionLoggerForm" scope="request" validate="false">
+		<forward name="diameterTransactionLogger" path="/jsp/servermgr/plugins/diametertransactionlogger/CreateDiameterTransactionLogger.jsp" />
+	  </action> 
+	  
+	  <action path="/initViewDiameterTransactionLogger" type="com.elitecore.elitesm.web.plugins.UpdateDiameterTransactionLoggerAction" name="transactionLoggerForm" scope="request" validate="false">
+     	<forward name="diameterTransactionLogger" 	path="/jsp/servermgr/plugins/diametertransactionlogger/ViewDiameterTransactionLoggerContainer.jsp" />
+	  </action>
+	  
+	  <action path="/initUpdateDiameterTransactionLogger" type="com.elitecore.elitesm.web.plugins.UpdateDiameterTransactionLoggerAction" name="transactionLoggerForm" scope="request" validate="false">
+      	<forward name="diameterTransactionLogger" path="/jsp/servermgr/plugins/diametertransactionlogger/UpdateDiameterTransactionLoggerContainer.jsp" />
+	  </action>
+    
+      <action path="/updateDiameterTransactionLogger" type="com.elitecore.elitesm.web.plugins.UpdateDiameterTransactionLoggerAction" name="transactionLoggerForm" scope="request" validate="false">
+      	<forward name="diameterTransactionLogger" path="/jsp/servermgr/plugins/diametertransactionlogger/UpdateDiameterTransactionLoggerContainer.jsp" />
+	  </action>
+	  
+	  <action path="/viewDiameterTransactionLoggerHistory" type="com.elitecore.elitesm.web.plugins.ViewDiameterTransactionLoggerHistoryAction" name="transactionLoggerForm" scope="request" validate="false">
+      	<forward name="viewDiameterTransactionLoggerHistory" path="/jsp/servermgr/plugins/diametertransactionlogger/ViewDiameterTransactionHistoryContainer.jsp" />
+	  </action>	
+	
+	  <!-- Quota Management Plugin -->
+	  <action path="/createQuotaManagementPlugin" type="com.elitecore.elitesm.web.plugins.CreateQuotaManagementPluginAction" name="quotaManagementPluginForm" scope="request" validate="false">
+		<forward name="quotaManagementPlugin" path="/jsp/servermgr/plugins/quotamanagement/CreateQuotaManagementPlugin.jsp" />
+	  </action> 
+	  
+	  <action path="/initViewQuotaManagementPlugin" type="com.elitecore.elitesm.web.plugins.UpdateQuotaManagementPluginAction" name="quotaManagementPluginForm" scope="request" validate="false">
+     	<forward name="quotaManagementPlugin" 	path="/jsp/servermgr/plugins/quotamanagement/ViewQuotaManagementPluginContainer.jsp" />
+	  </action>
+	  
+	  <action path="/initUpdateQuotaManagementPlugin" type="com.elitecore.elitesm.web.plugins.UpdateQuotaManagementPluginAction" name="quotaManagementPluginForm" scope="request" validate="false">
+      	<forward name="quotaManagementPlugin" path="/jsp/servermgr/plugins/quotamanagement/UpdateQuotaManagementPluginContainer.jsp" />
+	  </action>
+	  
+	  <action path="/updateQuotaManagementPlugin" type="com.elitecore.elitesm.web.plugins.UpdateQuotaManagementPluginAction" name="quotaManagementPluginForm" scope="request" validate="false">
+      	<forward name="diameterTransactionLogger" path="/jsp/servermgr/plugins/quotamanagement/UpdateQuotaManagementPluginContainer.jsp" />
+	  </action>
+	  
+	   <action path="/viewQuotaMgtPluginHistory" type="com.elitecore.elitesm.web.plugins.ViewQuotaMgtPluginHistoryAction" name="quotaManagementPluginForm" scope="request" validate="false">
+      	<forward name="viewQuotaMgtPluginHistory" path="/jsp/servermgr/plugins/quotamanagement/ViewQuotaMgtPluginHistoryContainer.jsp" />
+	  </action>	
+
+		  <!-- User Statistics Auth Plugin -->
+	  <action path="/createUserStatisticPostAuthPlugin" type="com.elitecore.elitesm.web.plugins.CreateUserStatisticPostAuthPluginAction" name="userStatisticPostAuthPluginForm" scope="request" validate="false">
+		<forward name="userStatisticPostAuthPlugin" path="/jsp/servermgr/plugins/userstatisticpostauth/CreateUserStatisticPostAuthPlugin.jsp" />
+	  </action> 
+	  
+	  <action path="/initViewUserStatisticPostAuthPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUserStatisticPostAuthPluginAction" name="userStatisticPostAuthPluginForm" scope="request" validate="false">
+     	<forward name="userStatisticPostAuthPlugin" 	path="/jsp/servermgr/plugins/userstatisticpostauth/ViewUserStatisticPostAuthPluginContainer.jsp" />
+	  </action>
+	  
+	  
+	  <action path="/initUpdateUserStatisticPostAuthPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUserStatisticPostAuthPluginAction" name="userStatisticPostAuthPluginForm" scope="request" validate="false">
+      	<forward name="userStatisticPostAuthPlugin" path="/jsp/servermgr/plugins/userstatisticpostauth/UpdateUserStatisticPostAuthPluginContainer.jsp" />
+	  </action>
+	 
+	 <action path="/updateUserStatisticPostAuthPlugin" type="com.elitecore.elitesm.web.plugins.UpdateUserStatisticPostAuthPluginAction" name="userStatisticPostAuthPluginForm" scope="request" validate="false">
+      	<forward name="diameterTransactionLogger" path="/jsp/servermgr/plugins/userstatisticpostauth/UpdateUserStatisticPostAuthPluginContainer.jsp" />
+	  </action>
+	  
+	  <action path="/viewUserStatPostAuthPluginHistory" type="com.elitecore.elitesm.web.plugins.ViewUserStatPostAuthPluginHistoryAction" name="userStatisticPostAuthPluginForm" scope="request" validate="false">
+      	<forward name="viewUserStatPostAuthPluginHistory" path="/jsp/servermgr/plugins/userstatisticpostauth/ViewUserStatPostAuthPluginHistoryContainer.jsp" />
+	  </action>	
+	  
+		  
+    </action-mappings>        
+    
+	<message-resources key="sessionmanagerResources" parameter="com.elitecore.elitesm.web.sessionmanager.SessionManagerResources" null="false"/>
+	<message-resources key="resultMessageResources" parameter="com.elitecore.elitesm.web.ResultMessageResources" /> 
+	<message-resources key="digestconfResources" parameter="com.elitecore.elitesm.web.digestconf.DigestConfResources" null="false"/>
+	<message-resources key="servermgrResources" parameter="com.elitecore.elitesm.web.servermgr.ServermgrResources" null="false"/>
+	<message-resources key="pluginResources" parameter="com.elitecore.elitesm.web.plugins.pluginResources" null="false" /> 
+  <message-resources key="scriptResources" parameter="com.elitecore.elitesm.web.script.scriptResources" null="false" />
+</struts-config>
+
+

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.datasource.esiradius.data.EsiRadiusData" table="TBLMESIINSTANCE" >          
+		
+		 <id name="esiInstanceId" column="ESIINSTANCEID" type="long">
+		 	 <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"> 
+		 	 </generator>
+		 </id>
+		
+		 <property name="name" type="string">
+           <column name="NAME" sql-type="VARCHAR2(200)" not-null="true"/>
+    	 </property>
+	     <property name="description" type="string">
+	          <column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="false"/>
+	     </property>
+	     <property name="address" type="string">
+	          <column name="ADDRESS" sql-type="VARCHAR2(255)" not-null="false"/>
+	     </property>
+	     <property name="sharedSecret" type="string">
+	          <column name="SHAREDSECRET" sql-type="VARCHAR2(255)" not-null="false"/>
+	     </property>	     
+	     <property name="timeout" type="java.lang.Long">
+	          <column name="TIMEOUT" sql-type="NUMBER(10)" not-null="true"/>
+	     </property>
+	     <property name="expiredReqLimitCnt" type="java.lang.Long">
+	          <column name="EXPIREDREQLIMITCOUNT" sql-type="NUMBER(10)" not-null="false"/>
+	     </property>	     
+	     <property name="minLocalPort" type="java.lang.Long">
+	          <column name="MINLOCALPORT" sql-type="NUMBER(10)" not-null="false" />
+	     </property>
+	     <property name="status" type="string"> 
+			<column name="STATUS" sql-type="CHAR(5)" not-null="true" /> 
+		 </property>
+		 <property name="createdByStaffId" type="java.lang.Long"> 
+			<column name="CREATEDBYSTAFFID" sql-type="NUMBER(20)" not-null="false"/> 
+		 </property>
+	     <property name="lastModifiedByStaffId" type="java.lang.Long">
+	          <column name="LASTMODIFIEDBYSTAFFID" sql-type="NUMBER(20)" not-null="false"/>
+	     </property>
+	     <property name="lastModifiedDate" type="java.sql.Timestamp">
+	          <column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP(6)" not-null="false"/>
+	     </property>
+	     <property name="createDate" type="java.sql.Timestamp">
+	          <column name="CREATEDATE" sql-type="TIMESTAMP(6)" not-null="false"/>
+	     </property>	     
+	     <property name="retryLimit" type="java.lang.Long">
+	          <column name="RETRYLIMIT" sql-type="NUMBER(20)" not-null="true"/>
+	     </property>
+	     <property name="statusCheckDuration" type="java.lang.Long">
+	          <column name="STATUSCHECKDURATION" sql-type="NUMBER(20)" not-null="true"/>
+	     </property>
+	     
+	</class>
+</hibernate-mapping>

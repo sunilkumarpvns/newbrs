@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.servicepolicy.pcrfservicepolicy.data">
+
+  <class name="com.elitecore.netvertexsm.datamanager.servicepolicy.pcrfservicepolicy.data.PCRFServicePolicyData" table="TBLMPCRFSERVICEPOLICY">
+
+  	 <id name="pcrfPolicyId" column="PCRFPOLICYID" type="java.lang.Long" >
+     	  <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+	 	  </generator>
+     </id>
+
+     <property name="name" type="string">
+     	  <column name="NAME" sql-type="VARCHAR2(200)" not-null="true"/>
+     </property>
+
+     <property name="description" type="string">
+     	  <column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="false"/>
+     </property>
+
+     <property name="ruleset" type="string">
+     	  <column name="RULESET" sql-type="VARCHAR2" not-null="false"/>
+     </property>
+
+     <property name="status" type="string">
+     	  <column name="STATUS" sql-type="CHAR(5)" not-null="true"/>
+     </property>
+     
+     <property name="identityAttribute" type="string">
+     	  <column name="IDENTITYATTRIBUTE" sql-type="VARCHAR2(300)" not-null="false"/>
+     </property>
+
+     <property name="orderNumber" type="java.lang.Integer">
+     	  <column name="ORDERNUMBER" sql-type="NUMBER(10)" not-null="false"/>
+     </property>
+
+     <property name="unknownUserAction" type="java.lang.Long">
+     	  <column name="UNKNOWNUSERACTION" sql-type="NUMBER(1)" not-null="false"/>
+     </property>
+    
+     <property name="action" type="java.lang.Long">
+     	  <column name="Action" sql-type="NUMBER(1)" not-null="false"/>
+     </property> 
+     
+     <property name="pkgId" type="string">
+     	  <column name="PKGID" sql-type="VARCHAR(36)" not-null="false"/>
+     </property>
+	
+	 <property name="createdDate" type="java.sql.Timestamp">
+     	 <column name="CREATEDDATE" sql-type="TIMESTAMP(6)" not-null="false"/>
+     </property>
+          
+	 <property name="modifiedDate" type="java.sql.Timestamp">
+	     <column name="MODIFIEDDATE" sql-type="TIMESTAMP(6)" not-null="false"/>
+	 </property>
+	      
+     <property name="createdByStaffId" type="java.lang.Long">
+     	 <column name="CREATEDBYSTAFFID" sql-type="NUMBER" not-null="false"/>
+     </property>
+          
+     <property name="modifiedByStaffId" type="java.lang.Long">
+     	 <column name="MODIFIEDBYSTAFFID" sql-type="NUMBER" not-null="false"/>
+     </property>
+     
+     <property name="syMode" type="string">
+     	  <column name="SYMODE" sql-type="VARCHAR2(8)" not-null="false" default="PUSH" />
+     </property>
+     
+     <property name="sessionMgrEnabled" type="string">
+     	  <column name="ISSESSIONMGRENABLED" sql-type="VARCHAR2(5)" not-null="false"/>
+     </property>
+	
+	 <property name="clientIp" type="string">
+    	<column name="CLIENTIP" sql-type="VARCHAR2(64)" not-null="false"/>
+	 </property>
+
+  </class>
+</hibernate-mapping>

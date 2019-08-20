@@ -1,0 +1,227 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "WebService Auth Driver",
+		"properties": {
+			"name": {
+				"title": "Instance Name",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"web-service-auth-driver": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"service-address": {
+							"title": "Service Address",
+							"type": "string"
+						},
+						"imsi-attribute": {
+							"title": "IMSI Attribute",
+							"type": "string",
+							"default": "0:1"
+						},
+						"maximum-query-timeout-count": {
+							"title": "Maximum Query Timeout Count(Sec.)",
+							"type": "integer",
+							"default": 50
+						},
+						"status-check-duration": {
+							"title": "Status Check Duration(Sec.)",
+							"type": "integer",
+							"default": 120
+						},
+						"user-identity-attributes": {
+							"title": "User Identity Attributes",
+							"type": "string"
+						},
+						"web-method-key-mappings": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"logical-name": {
+										"title": "Logical Name",
+										"type": "string"
+									},
+									"webservice-method-key": {
+										"title": "WebService Method Key",
+										"type": "string"
+									},
+									"default-value": {
+										"title": "Default Value",
+										"type": "string"
+									},
+									"value-mapping": {
+										"title": "Value Mapping",
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "description"
+		},
+		{
+			"key": "web-service-auth-driver",
+			"items": [
+				{
+					"key": "web-service-auth-driver[].service-address"
+				},
+				{
+					"key": "web-service-auth-driver[].imsi-attribute"
+				},
+				{
+					"key": "web-service-auth-driver[].maximum-query-timeout-count"
+				},
+				{
+					"key": "web-service-auth-driver[].status-check-duration"
+				},
+				{
+					"key": "web-service-auth-driver[].user-identity-attributes"
+				},
+				{
+					"key": "web-service-auth-driver[].web-method-key-mappings",
+					"add": "Add Mapping",
+					"items": [
+						{
+							"key": "web-service-auth-driver[].web-method-key-mappings[].logical-name",
+							"title": "Logical Name",
+							"type": "select",
+							"titleMap": {
+								"CUI": "CUI",
+								"Callback ID": "Callback ID",
+								"Called Station ID": "Called Station ID",
+								"Calling Station ID": "Calling Station ID",
+								"Concurrent Login Policy": "Concurrent Login Policy",
+								"Credit Limit": "Credit Limit",
+								"Customer Check Items": "Customer Check Items",
+								"Customer Reject Items": "Customer Reject Items",
+								"Customer Reply Items": "Customer Reply Items",
+								"Customer Status": "Customer Status",
+								"Customer Type": "Customer Type",
+								"Encryption Type": "Encryption Type",
+								"Expiry Date": "Expiry Date",
+								"Grace Period": "Grace Period",
+								"Group Name": "Group Name",
+								"Hotline Policy": "Hotline Policy",
+								"IP Pool Name": "IP Pool Name",
+								"Param1": "Param1",
+								"Param2": "Param2",
+								"Param3": "Param3",
+								"Password Check": "Password Check",
+								"Authorization Policy": "Authorization Policy",
+								"Service Type": "Service Type",
+								"User Name": "User Name",
+								"User Password": "User Password",
+								"MAC Validation": "MAC Validation",
+								"Access Policy": "Access Policy",
+								"Group Bandwidth": "Group Bandwidth",
+								"Dynamic Check Items": "Dynamic Check Items",
+								"IMSI": "IMSI",
+								"MEID": "MEID",
+								"MSISDN": "MSISDN",
+								"MDN": "MDN",
+								"IMEI": "IMEI",
+								"Customer Services": "Customer Services",
+								"Additional Policy": "Additional Policy",
+								"Param4": "Param4",
+								"Param5": "Param5",
+								"Device Vendor": "Device Vendor",
+								"Device Name": "Device Name",
+								"Device Port": "Device Port",
+								"GEO Location": "GEO Location",
+								"Device VLAN": "Device VLAN",
+								"Reply Framed IPV4 Address": "Reply Framed IPV4 Address",
+								"Reply Framed IPV6 Prefix": "Reply Framed IPV6 Prefix",
+								"Reply Framed Pool": "Reply Framed Pool",
+								"Policy Group": "Policy Group"
+							}
+						},
+						{
+							"key": "web-service-auth-driver[].web-method-key-mappings[].webservice-method-key",
+							"title": "WebService Method Key "
+						},
+						{
+							"key": "web-service-auth-driver[].web-method-key-mappings[].default-value",
+							"title": "Default Value "
+						},
+						{
+							"key": "web-service-auth-driver[].web-method-key-mappings[].value-mapping",
+							"title": "Value Mapping "
+						}
+					]
+				}
+			]
+		}
+	],
+	"model": {
+		"name": "RadiusWebServiceAuthDriver",
+		"description": "Created by admin on 01/30/2017 11:29:26 AM",
+		"web-service-auth-driver": [
+			{
+				"service-address": "www.aircel.com",
+				"maximum-query-timeout-count": 50,
+				"status-check-duration": 120,
+				"imsi-attribute": "0:1",
+				"user-identity-attributes": "0:1",
+				"web-method-key-mappings": [
+					{
+						"logical-name": "MSISDN",
+						"webservice-method-key": "MSISDN"
+					},
+					{
+						"logical-name": "IMSI",
+						"webservice-method-key": "IMSI"
+					},
+					{
+						"logical-name": "IMEI",
+						"webservice-method-key": "IMEI"
+					},
+					{
+						"logical-name": "Credit Limit",
+						"webservice-method-key": "CreditLimit",
+						"default-value": "1"
+					},
+					{
+						"logical-name": "Password Check",
+						"webservice-method-key": "PasswordCheck",
+						"default-value": "no"
+					},
+					{
+						"logical-name": "User Password",
+						"webservice-method-key": "User-Password",
+						"default-value": "test"
+					},
+					{
+						"logical-name": "param1",
+						"webservice-method-key": "CustomerServices"
+					},
+					{
+						"logical-name": "Customer Status",
+						"webservice-method-key": "CustomerStatus"
+					},
+					{
+						"logical-name": "Customer Type",
+						"webservice-method-key": "CustomerType",
+						"default-value": "prepaid",
+						"value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Plugin Id : UNIVERSAL_DIAMETER_OPERATION_PLUGIN
+
+	
+	
+	Supported policy Action :
+  		i)  1 (NONE)   : After this policy is applied Successfully ,other Policy configured will also be applied if present.
+  		ii) 2 (STOP)   : After this policy is applied Successfully , no other policy configured will be applied.
+  	Support Command-Code or Application-id
+		i) multiple Command-Code or Application-id check. policy apply those packet who have given Command-Code or Application-id, if not specify then policy valid for all packet  
+	Support flag
+		i) future use
+	Supported Packet Type Value.
+		i)   1 (Request)
+		ii)  2 (Answer)
+  	Supported Parameter Usage :
+  		i)   C : Check item 
+  		ii)  F : Filter item , Attribute will be removed from the packet , if the value is * , no value checked will be done and the attribute will be removed.
+  				 prefix/suffix operation is also supported for the value check operation.
+  		iii) U : Update item , Attribute value will be either concatenated for String attribute or summation will be done for Integer attribute.
+  				 Prefix operation (value*) can be done only for String attribute .
+  		iv)  V : Value Replace item , Attribute value will be replaced with the configured value.
+  		v) 	 A : Dynamically Assigning a value from Attribute in the packet to the Attribute defined in the attribute-value field.if the attribute is already present 
+  				 the value will be replaced else a new attribute will be added with the value from the attribute in the packet  
+  		 
+  	Note: Depending on the packet type specified , action will be performed on that packet specified by the packet type.
+-->
+
+
+       <universal-plugin-policies>
+
+		<universal-in-diameter-policy-list>
+			<universal-policy name="">
+				<action></action>
+				<reject-on-check-item-not-found></reject-on-check-item-not-found>
+				<parameter-list>
+					<parameter>
+						<active></active>
+						<packet-type></packet-type>
+						<attr-id></attr-id>
+						<attribute-value></attribute-value>
+						<parameter-usage></parameter-usage>
+					</parameter>
+				</parameter-list>
+			</universal-policy>
+		</universal-in-diameter-policy-list>
+		<universal-out-diameter-policy-list>
+			<universal-policy name="">
+				<action></action>
+				<reject-on-check-item-not-found></reject-on-check-item-not-found>			
+				<parameter-list>
+					<parameter>
+						<active></active>
+						<packet-type></packet-type>
+						<attr-id></attr-id>
+						<attribute-value></attribute-value>
+						<parameter-usage></parameter-usage>
+					</parameter>
+				</parameter-list>
+			</universal-policy>
+		</universal-out-diameter-policy-list> 
+	</universal-plugin-policies>

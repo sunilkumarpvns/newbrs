@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class  name="com.elitecore.elitesm.datamanager.diameter.diameterpeer.data.DiameterPeerData" table="TBLMPEER">
+
+		<id name="peerUUID" column="PEERUUID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id> 
+		
+		<property name="peerId" column="PEERID" type="java.lang.Long"></property>
+		
+		<property name="name" type="StringType"> 
+			<column name="PEERNAME" sql-type="VARCHAR(60)" not-null="false" /> 
+		</property>
+		
+		<property name="diameterURIFormat" type="StringType"> 
+			<column name="URIFORMAT" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+
+		<property name="hostIdentity" type="StringType"> 
+			<column name="HOSTIDENTITY" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property>
+
+		<property name="realmName" type="StringType"> 
+			<column name="REALMNAME" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property>
+
+        <property name="remoteAddress" type="StringType"> 
+			<column name="REMOTEADDRESS" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+
+		<property name="peerProfileId" type="StringType"> 
+			<column name="PEERPROFILEID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="createdByStaffId" type="StringType"> 
+			<column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="createDate" type="java.sql.Timestamp"> 
+			<column name="CREATEDATE" sql-type="TIMESTAMP" not-null="false" /> 
+		</property>
+
+        <property name="lastModifiedByStaffId" type="StringType"> 
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp"> 
+			<column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP" not-null="false" /> 
+		</property>
+		
+		<property name="localAddress" type="StringType"> 
+			<column name="LOCALADDRESS" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+		
+		<property name="requestTimeout" type="java.lang.Long"> 
+			<column name="REQUESTTIMEOUT" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="retransmissionCount" type="java.lang.Long"> 
+			<column name="RETRANSMISSIONCOUNT" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		 <property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false" />
+	     </property>
+	     
+	     <property name="secondaryPeerName" type="StringType"> 
+			<column name="SECONDARYPEER" sql-type="VARCHAR(60)" not-null="false" /> 
+		</property>
+		
+		<many-to-one name="diameterPeerProfileData" fetch="join" insert="false" update="false" class="com.elitecore.elitesm.datamanager.diameter.diameterpeerprofile.data.DiameterPeerProfileData" column="PEERPROFILEID" />
+		
+  </class>            
+	            
+</hibernate-mapping>

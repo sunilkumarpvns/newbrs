@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.spinterface.ldapinterface.data.LDAPSPInterfaceData" table="TBLMLDAPSPINTERFACE">
+
+		<id name="ldapSPInterfaceId" column="LDAPSPINTERFACEID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">				
+			</generator>
+		</id>    
+
+		<property name="expiryDatePattern" type="string"> 
+			<column name="EXPIRYDATE_PATTERN" sql-type="VARCHAR2(50)" not-null="false" /> 
+		</property>
+
+
+		<property name="passwordDecryptType" type="java.lang.Integer"> 
+			<column name="PASSWORD_DECRYPT_TYPE" sql-type="NUMBER(3)" not-null="false" /> 
+		</property>
+
+
+		<property name="queryMaxExecTime" type="java.lang.Long"> 
+			<column name="QUERY_MAX_EXEC_TIME" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+
+
+		<property name="driverInstanceId" type="java.lang.Long"> 
+			<column name="DRIVERINSTANCEID" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+
+		<property name="ldapDsId" type="java.lang.Long"> 
+			<column name="LDAPDSID" sql-type="NUMBER(20)" not-null="false" /> 
+		</property>
+		
+		<set inverse="true" name="fieldMapSet" lazy="false" cascade="delete-orphan" >
+			<key column="LDAPSPINTERFACEID" />
+			<one-to-many class="com.elitecore.netvertexsm.datamanager.servermgr.spinterface.ldapinterface.data.LDAPFieldMapData" not-found="ignore" />
+		</set>					
+		
+		<many-to-one name="ldapDs" column="LDAPDSID" lazy="false" insert="false" update="false" 
+     	  	class="com.elitecore.netvertexsm.datamanager.datasource.ldap.data.LDAPDatasourceData" not-null="false" cascade="save-update">
+     	</many-to-one>	
+	</class>
+
+</hibernate-mapping>          

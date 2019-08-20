@@ -1,0 +1,6 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_slice_configuration,POST : Create Slice Configuration : 405,pd/sliceconfig/slice-config.json,POST,create_slice_configuration.json,"{""actionErrors"":[""Method Not Allowed""]}",81777,405,sliceconfig
+2,get_created_slice_configuration,GET : Default Slice Configuration should be displayed : 200,pd/sliceconfig/slice-config/SLICE_CONFIG_1.json,GET,,,81778,200,sliceconfig
+3,update_slice_configuration,PUT : Update Slice Configuration : 200,pd/sliceconfig/slice-config/SLICE_CONFIG_1.json,PUT,update_slice_configuration.json,,81779,200,sliceconfig
+4,get_updated_slice_configuration,GET : Updated Slice Configuration should be displayed : 200,pd/sliceconfig/slice-config/SLICE_CONFIG_1.json,GET,,,81780,200,sliceconfig
+5,delete_slice_configuration,DELETE : Delete Slice Configuration : 405,pd/sliceconfig/slice-config/SLICE_CONFIG_1.json,DELETE,,"{""actionErrors"":[""Method Not Allowed""]}",81781,405,sliceconfig

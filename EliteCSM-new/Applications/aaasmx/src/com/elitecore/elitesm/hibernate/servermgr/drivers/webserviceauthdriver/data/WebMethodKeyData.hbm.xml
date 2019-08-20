@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class  name="com.elitecore.elitesm.datamanager.servermgr.drivers.webserviceauthdriver.data.WebMethodKeyData" table="TBLSWEBMETHODKEYS">
+			
+			<id name="id" column="ID" type="CharType">
+			</id>    
+			
+			<property name="name" type="StringType"> 
+				<column name="NAME" sql-type="VARCHAR(64)" not-null="false" /> 
+			</property>     
+			
+			<property name="value" type="StringType"> 
+				<column name="VALUE" sql-type="VARCHAR(64)" not-null="false" /> 
+			</property>
+			
+			<property name="serialNumber" type="java.lang.Integer"> 
+				<column name="SERIALNUMBER" sql-type="NUMERIC" not-null="false" /> 
+			</property>
+			
+			<property name="status" type="CharType"> 
+				<column name="STATUS" sql-type="CHAR(1)" not-null="false" /> 
+			</property>
+		
+		</class>
+
+</hibernate-mapping> 
+
+

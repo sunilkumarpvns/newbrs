@@ -1,0 +1,19 @@
+{
+  "bodQosMultiplierDatas": [
+    {
+      "id": "",
+      "status": "ACTIVE",
+      "groups": null,
+      "fupLevel": 0,
+      "multiplier": 2,
+      "bodServiceMultiplierDatas": [
+        {
+          "id": "",
+          "multiplier": 2,
+          "serviceTypeDataId": "DATA_SERVICE_TYPE_1"
+        }],
+      "bodPackageId": "BOD1",
+      "groupNames": null
+    }
+  ]
+}

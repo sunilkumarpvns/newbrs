@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+		<class name="com.elitecore.elitesm.datamanager.servermgr.copypacket.data.CopyPacketTranslationMapData" table="TBLMCOPYPACKETINSTANCEDATA">
+	
+		<id name="copyPacketMappingId" column="INSTANCEID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id> 
+
+		<property name="mappingName" type="StringType"> 
+			<column name="MAPPINGNAME" sql-type="VARCHAR(64)" /> 
+		</property>
+		<property name="inExpression" type="StringType"> 
+			<column name="INEXPRESSION" sql-type="VARCHAR(200)" not-null="false"  /> 
+		</property>
+		<property name="dummyResponse" type="StringType">
+			<column name="DUMMYRESPONSE" sql-type="VARCHAR(8)"></column>
+		</property>
+		<property name="isDefaultMapping" type="StringType"> 
+			<column name="ISDEFAULT" sql-type="VARCHAR(6)" not-null="false" /> 
+		</property>
+		<property name="copyPacketTransConfId" type="StringType"> 
+			<column name="COPYPACKETMAPCONFID" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false" /> 
+		<bag name="copyPacketTransMapDetail" lazy="false" inverse="false" cascade="delete">
+  			<key column="INSTANCEID"></key>
+  			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.copypacket.data.CopyPacketTranslationMapDetailData" />
+		</bag>
+		
+	</class>
+</hibernate-mapping> 

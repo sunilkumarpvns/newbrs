@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.data.NetConfigurationValuesData" table="TBLMNETCONFIGURATIONVALUES">
+		<id name="parameterValueId" column="PARAMETERVALUEID" type="long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+			</generator>
+		</id>
+		<property name="parameterId" type="string" >
+			<column name="PARAMETERID" sql-type="CHAR(9)" not-null="false"></column>
+		</property>
+		<property name="configInstanceId" type="long">
+			<column name="CONFIGINSTANCEID" sql-type="NUBMER(20)" not-null="true"></column>
+		</property>
+		<property name="instanceId" type="string">
+			<column name="INSTANCEID" sql-type="VARCHAR2(50)" not-null="true"></column>
+		</property>
+		<property name="value" type="string">
+			<column name="VALUE" sql-type="VARCHAR2(255)" not-null="false"></column>
+		</property>
+		<property name="configId" type="string" >
+			<column name="NETCONFIGID" sql-type="CHAR(7)" not-null="false"></column>
+		</property>
+	</class>
+</hibernate-mapping>          

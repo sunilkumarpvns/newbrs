@@ -1,0 +1,706 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager?name=DiameterSessionManager&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager.xml?name=DiameterSessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager?operation=search&name=DiameterSessionManager&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager.xml?operation=search&name=DiameterSessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager.xml?operation=search
+
+Response :
+
+<diameter-session-manager>
+    <name>DiameterSessionManager</name>
+    <description>Created by admin on 01/30/2017 10:06:49 PM</description>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>TBLMDIAMETERSESSIONDATA</table-name>
+    <sequence-name>SEQ_MDIAMETERSESSIONDATA</sequence-name>
+    <start-time-field>START_TIME</start-time-field>
+    <last-updated-time-field>LAST_UPDATED_TIME</last-updated-time-field>
+    <db-query-timeout>1</db-query-timeout>
+    <multivalue-delimeter>,</multivalue-delimeter>
+    <db-failure-action>IGNORE</db-failure-action>
+    <batch-mode>true</batch-mode>
+    <batch-size>10</batch-size>
+    <update-interval>1</update-interval>
+    <batch-query-timeout>10</batch-query-timeout>
+    <batch-operations-insert>false</batch-operations-insert>
+    <batch-operations-update>false</batch-operations-update>
+    <batch-operations-delete>true</batch-operations-delete>
+    <table-field-mappings>
+        <table-field-mapping-data>
+            <mapping-name>mappingOne</mapping-name>
+            <field-mapping-data>
+                <db-field-name>SUBSCRIBER_ID</db-field-name>
+                <referring-attribute>0:10</referring-attribute>
+                <data-type>String</data-type>
+            </field-mapping-data>
+            <field-mapping-data>
+                <db-field-name>CONCURRENCY_ID</db-field-name>
+                <referring-attribute>0:11</referring-attribute>
+                <data-type>String</data-type>
+            </field-mapping-data>
+        </table-field-mapping-data>
+    </table-field-mappings>
+    <scenario-mappings>
+        <scenario-mapping-data>
+            <name>scenarioTwo</name>
+            <ruleset>0:2="elitecore"</ruleset>
+            <criteria>SUBSCRIBER_ID</criteria>
+            <mapping-name>mappingOne</mapping-name>
+        </scenario-mapping-data>
+        <scenario-mapping-data>
+            <name>scenarioOne</name>
+            <ruleset>0:1="test"</ruleset>
+            <criteria>SUBSCRIBER_ID,CONCURRENCY_ID</criteria>
+            <mapping-name>mappingOne</mapping-name>
+        </scenario-mapping-data>
+    </scenario-mappings>
+    <session-overide-action-mappings>
+        <session-overide-action-mapping-data>
+            <name>actionTwo</name>
+            <ruleset>0:31="AA:BB:CC:DD:EE:FF"</ruleset>
+            <actions>UPDATE</actions>
+        </session-overide-action-mapping-data>
+        <session-overide-action-mapping-data>
+            <name>actionOne</name>
+            <ruleset>0:1="*"</ruleset>
+            <actions>INSERT</actions>
+        </session-overide-action-mapping-data>
+    </session-overide-action-mappings>
+</diameter-session-manager>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager?name=DiameterSessionManager&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager.json?name=DiameterSessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager?operation=search&name=DiameterSessionManager&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager.json?operation=search&name=DiameterSessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager.json?operation=search
+
+Response :
+
+{
+  "name": "DiameterSessionManager",
+  "description": "Created by admin on 01/30/2017 10:06:49 PM",
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "TBLMDIAMETERSESSIONDATA",
+  "sequence-name": "SEQ_MDIAMETERSESSIONDATA",
+  "start-time-field": "START_TIME",
+  "last-updated-time-field": "LAST_UPDATED_TIME",
+  "db-query-timeout": 1,
+  "multivalue-delimeter": ",",
+  "db-failure-action": "IGNORE",
+  "batch-mode": "true",
+  "batch-size": 10,
+  "update-interval": 1,
+  "batch-query-timeout": 10,
+  "batch-operations-insert": "false",
+  "batch-operations-update": "false",
+  "batch-operations-delete": "true",
+  "table-field-mappings": [
+    {
+      "mapping-name": "mappingOne",
+      "field-mapping-data": [
+        {
+          "db-field-name": "SUBSCRIBER_ID",
+          "referring-attribute": "0:10",
+          "data-type": "String"
+        },
+        {
+          "db-field-name": "CONCURRENCY_ID",
+          "referring-attribute": "0:11",
+          "data-type": "String"
+        }
+      ]
+    }
+  ],
+  "scenario-mappings": [
+    {
+      "name": "scenarioTwo",
+      "ruleset": "0:2=\"elitecore\"",
+      "criteria": "SUBSCRIBER_ID",
+      "mapping-name": "mappingOne"
+    },
+    {
+      "name": "scenarioOne",
+      "ruleset": "0:1=\"test\"",
+      "criteria": "SUBSCRIBER_ID,CONCURRENCY_ID",
+      "mapping-name": "mappingOne"
+    }
+  ],
+  "session-overide-action-mappings": [
+    {
+      "name": "actionTwo",
+      "ruleset": "0:31=\"AA:BB:CC:DD:EE:FF\"",
+      "actions": "UPDATE"
+    },
+    {
+      "name": "actionOne",
+      "ruleset": "0:1=\"*\"",
+      "actions": "INSERT"
+    }
+  ]
+}
+
+***********************************************************************
+				CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<diameter-session-manager>
+    <name>DiameterSessionManager</name>
+    <description>Created by admin on 01/30/2017 10:06:49 PM</description>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>TBLMDIAMETERSESSIONDATA</table-name>
+    <sequence-name>SEQ_MDIAMETERSESSIONDATA</sequence-name>
+    <start-time-field>START_TIME</start-time-field>
+    <last-updated-time-field>LAST_UPDATED_TIME</last-updated-time-field>
+    <db-query-timeout>1</db-query-timeout>
+    <multivalue-delimeter>,</multivalue-delimeter>
+    <db-failure-action>IGNORE</db-failure-action>
+    <batch-mode>true</batch-mode>
+    <batch-size>10</batch-size>
+    <update-interval>1</update-interval>
+    <batch-query-timeout>10</batch-query-timeout>
+    <batch-operations-insert>false</batch-operations-insert>
+    <batch-operations-update>false</batch-operations-update>
+    <batch-operations-delete>true</batch-operations-delete>
+    <table-field-mappings>
+        <table-field-mapping-data>
+            <mapping-name>mappingOne</mapping-name>
+            <field-mapping-data>
+                <db-field-name>SUBSCRIBER_ID</db-field-name>
+                <referring-attribute>0:10</referring-attribute>
+                <data-type>String</data-type>
+            </field-mapping-data>
+            <field-mapping-data>
+                <db-field-name>CONCURRENCY_ID</db-field-name>
+                <referring-attribute>0:11</referring-attribute>
+                <data-type>String</data-type>
+            </field-mapping-data>
+        </table-field-mapping-data>
+    </table-field-mappings>
+    <scenario-mappings>
+        <scenario-mapping-data>
+            <name>scenarioTwo</name>
+            <ruleset>0:2="elitecore"</ruleset>
+            <criteria>SUBSCRIBER_ID</criteria>
+            <mapping-name>mappingOne</mapping-name>
+        </scenario-mapping-data>
+        <scenario-mapping-data>
+            <name>scenarioOne</name>
+            <ruleset>0:1="test"</ruleset>
+            <criteria>SUBSCRIBER_ID,CONCURRENCY_ID</criteria>
+            <mapping-name>mappingOne</mapping-name>
+        </scenario-mapping-data>
+    </scenario-mappings>
+    <session-overide-action-mappings>
+        <session-overide-action-mapping-data>
+            <name>actionTwo</name>
+            <ruleset>0:31="AA:BB:CC:DD:EE:FF"</ruleset>
+            <actions>UPDATE</actions>
+        </session-overide-action-mapping-data>
+        <session-overide-action-mapping-data>
+            <name>actionOne</name>
+            <ruleset>0:1="*"</ruleset>
+            <actions>INSERT</actions>
+        </session-overide-action-mapping-data>
+    </session-overide-action-mappings>
+</diameter-session-manager>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Session Manager created successfully</response-message>
+    </response>
+</response-detail>
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "name": "DiameterSessionManager",
+  "description": "Created by admin on 01/30/2017 10:06:49 PM",
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "TBLMDIAMETERSESSIONDATA",
+  "sequence-name": "SEQ_MDIAMETERSESSIONDATA",
+  "start-time-field": "START_TIME",
+  "last-updated-time-field": "LAST_UPDATED_TIME",
+  "db-query-timeout": 1,
+  "multivalue-delimeter": ",",
+  "db-failure-action": "IGNORE",
+  "batch-mode": "true",
+  "batch-size": 10,
+  "update-interval": 1,
+  "batch-query-timeout": 10,
+  "batch-operations-insert": "false",
+  "batch-operations-update": "false",
+  "batch-operations-delete": "true",
+  "table-field-mappings": [
+    {
+      "mapping-name": "mappingOne",
+      "field-mapping-data": [
+        {
+          "db-field-name": "SUBSCRIBER_ID",
+          "referring-attribute": "0:10",
+          "data-type": "String"
+        },
+        {
+          "db-field-name": "CONCURRENCY_ID",
+          "referring-attribute": "0:11",
+          "data-type": "String"
+        }
+      ]
+    }
+  ],
+  "scenario-mappings": [
+    {
+      "name": "scenarioTwo",
+      "ruleset": "0:2=\"elitecore\"",
+      "criteria": "SUBSCRIBER_ID",
+      "mapping-name": "mappingOne"
+    },
+    {
+      "name": "scenarioOne",
+      "ruleset": "0:1=\"test\"",
+      "criteria": "SUBSCRIBER_ID,CONCURRENCY_ID",
+      "mapping-name": "mappingOne"
+    }
+  ],
+  "session-overide-action-mappings": [
+    {
+      "name": "actionTwo",
+      "ruleset": "0:31=\"AA:BB:CC:DD:EE:FF\"",
+      "actions": "UPDATE"
+    },
+    {
+      "name": "actionOne",
+      "ruleset": "0:1=\"*\"",
+      "actions": "INSERT"
+    }
+  ]
+}      
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Session Manager created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+   <diameter-session-manager>
+      <name>DiameterSessionManager</name>
+      <description>Created by admin on 01/30/2017 10:06:49 PM</description>
+      <database-datasource>DefaultDatabaseDatasource</database-datasource>
+      <table-name>TBLMDIAMETERSESSIONDATA</table-name>
+      <sequence-name>SEQ_MDIAMETERSESSIONDATA</sequence-name>
+      <start-time-field>START_TIME</start-time-field>
+      <last-updated-time-field>LAST_UPDATED_TIME</last-updated-time-field>
+      <db-query-timeout>1</db-query-timeout>
+      <multivalue-delimeter>,</multivalue-delimeter>
+      <db-failure-action>IGNORE</db-failure-action>
+      <batch-mode>true</batch-mode>
+      <batch-size>10</batch-size>
+      <update-interval>1</update-interval>
+      <batch-query-timeout>10</batch-query-timeout>
+      <batch-operations-insert>false</batch-operations-insert>
+      <batch-operations-update>false</batch-operations-update>
+      <batch-operations-delete>true</batch-operations-delete>
+      <table-field-mappings>
+         <table-field-mapping-data>
+            <mapping-name>mappingOne</mapping-name>
+            <field-mapping-data>
+               <db-field-name>SUBSCRIBER_ID</db-field-name>
+               <referring-attribute>0:10</referring-attribute>
+               <data-type>String</data-type>
+            </field-mapping-data>
+            <field-mapping-data>
+               <db-field-name>CONCURRENCY_ID</db-field-name>
+               <referring-attribute>0:11</referring-attribute>
+               <data-type>String</data-type>
+            </field-mapping-data>
+         </table-field-mapping-data>
+      </table-field-mappings>
+      <scenario-mappings>
+         <scenario-mapping-data>
+            <name>scenarioTwo</name>
+            <ruleset>0:2="elitecore"</ruleset>
+            <criteria>SUBSCRIBER_ID</criteria>
+            <mapping-name>mappingOne</mapping-name>
+         </scenario-mapping-data>
+         <scenario-mapping-data>
+            <name>scenarioOne</name>
+            <ruleset>0:1="test"</ruleset>
+            <criteria>SUBSCRIBER_ID,CONCURRENCY_ID</criteria>
+            <mapping-name>mappingOne</mapping-name>
+         </scenario-mapping-data>
+      </scenario-mappings>
+      <session-overide-action-mappings>
+         <session-overide-action-mapping-data>
+            <name>actionTwo</name>
+            <ruleset>0:31="AA:BB:CC:DD:EE:FF"</ruleset>
+            <actions>UPDATE</actions>
+         </session-overide-action-mapping-data>
+         <session-overide-action-mapping-data>
+            <name>actionOne</name>
+            <ruleset>0:1="*"</ruleset>
+            <actions>INSERT</actions>
+         </session-overide-action-mapping-data>
+      </session-overide-action-mappings>
+   </diameter-session-manager>
+</list>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Session Managers created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "name":"DiameterSessionManager",
+         "description":"Created by admin on 01/30/2017 10:06:49 PM",
+         "database-datasource":"DefaultDatabaseDatasource",
+         "table-name":"TBLMDIAMETERSESSIONDATA",
+         "sequence-name":"SEQ_MDIAMETERSESSIONDATA",
+         "start-time-field":"START_TIME",
+         "last-updated-time-field":"LAST_UPDATED_TIME",
+         "db-query-timeout":1,
+         "multivalue-delimeter":",",
+         "db-failure-action":"IGNORE",
+         "batch-mode":"true",
+         "batch-size":10,
+         "update-interval":1,
+         "batch-query-timeout":10,
+         "batch-operations-insert":"false",
+         "batch-operations-update":"false",
+         "batch-operations-delete":"true",
+         "table-field-mappings":[
+            {
+               "mapping-name":"mappingOne",
+               "field-mapping-data":[
+                  {
+                     "db-field-name":"SUBSCRIBER_ID",
+                     "referring-attribute":"0:10",
+                     "data-type":"String"
+                  },
+                  {
+                     "db-field-name":"CONCURRENCY_ID",
+                     "referring-attribute":"0:11",
+                     "data-type":"String"
+                  }
+               ]
+            }
+         ],
+         "scenario-mappings":[
+            {
+               "name":"scenarioTwo",
+               "ruleset":"0:2=\"elitecore\"",
+               "criteria":"SUBSCRIBER_ID",
+               "mapping-name":"mappingOne"
+            },
+            {
+               "name":"scenarioOne",
+               "ruleset":"0:1=\"test\"",
+               "criteria":"SUBSCRIBER_ID,CONCURRENCY_ID",
+               "mapping-name":"mappingOne"
+            }
+         ],
+         "session-overide-action-mappings":[
+            {
+               "name":"actionTwo",
+               "ruleset":"0:31=\"AA:BB:CC:DD:EE:FF\"",
+               "actions":"UPDATE"
+            },
+            {
+               "name":"actionOne",
+               "ruleset":"0:1=\"*\"",
+               "actions":"INSERT"
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter Session Managers created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager?name=DiameterSessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager?operation=update&name=DiameterSessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<diameter-session-manager>
+    <name>DiameterSessionManager</name>
+    <description>Created by admin on 01/30/2017 10:06:49 PM</description>
+    <database-datasource>DefaultDatabaseDatasource</database-datasource>
+    <table-name>TBLMDIAMETERSESSIONDATA</table-name>
+    <sequence-name>SEQ_MDIAMETERSESSIONDATA</sequence-name>
+    <start-time-field>START_TIME</start-time-field>
+    <last-updated-time-field>LAST_UPDATED_TIME</last-updated-time-field>
+    <db-query-timeout>1</db-query-timeout>
+    <multivalue-delimeter>,</multivalue-delimeter>
+    <db-failure-action>IGNORE</db-failure-action>
+    <batch-mode>true</batch-mode>
+    <batch-size>10</batch-size>
+    <update-interval>1</update-interval>
+    <batch-query-timeout>10</batch-query-timeout>
+    <batch-operations-insert>false</batch-operations-insert>
+    <batch-operations-update>false</batch-operations-update>
+    <batch-operations-delete>true</batch-operations-delete>
+    <table-field-mappings>
+        <table-field-mapping-data>
+            <mapping-name>mappingOne</mapping-name>
+            <field-mapping-data>
+                <db-field-name>SUBSCRIBER_ID</db-field-name>
+                <referring-attribute>0:10</referring-attribute>
+                <data-type>String</data-type>
+            </field-mapping-data>
+            <field-mapping-data>
+                <db-field-name>CONCURRENCY_ID</db-field-name>
+                <referring-attribute>0:11</referring-attribute>
+                <data-type>String</data-type>
+            </field-mapping-data>
+        </table-field-mapping-data>
+    </table-field-mappings>
+    <scenario-mappings>
+        <scenario-mapping-data>
+            <name>scenarioTwo</name>
+            <ruleset>0:2="elitecore"</ruleset>
+            <criteria>SUBSCRIBER_ID</criteria>
+            <mapping-name>mappingOne</mapping-name>
+        </scenario-mapping-data>
+        <scenario-mapping-data>
+            <name>scenarioOne</name>
+            <ruleset>0:1="test"</ruleset>
+            <criteria>SUBSCRIBER_ID,CONCURRENCY_ID</criteria>
+            <mapping-name>mappingOne</mapping-name>
+        </scenario-mapping-data>
+    </scenario-mappings>
+    <session-overide-action-mappings>
+        <session-overide-action-mapping-data>
+            <name>actionTwo</name>
+            <ruleset>0:31="AA:BB:CC:DD:EE:FF"</ruleset>
+            <actions>INSERT</actions>
+        </session-overide-action-mapping-data>
+        <session-overide-action-mapping-data>
+            <name>actionOne</name>
+            <ruleset>0:1="*"</ruleset>
+            <actions>UPDATE</actions>
+        </session-overide-action-mapping-data>
+    </session-overide-action-mappings>
+</diameter-session-manager>
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Session Manager updated successfully"
+    }
+  ]
+}
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     	 :
+
+{
+  "name": "DiameterSessionManager",
+  "description": "Created by admin on 01/30/2017 10:06:49 PM",
+  "database-datasource": "DefaultDatabaseDatasource",
+  "table-name": "TBLMDIAMETERSESSIONDATA",
+  "sequence-name": "SEQ_MDIAMETERSESSIONDATA",
+  "start-time-field": "START_TIME",
+  "last-updated-time-field": "LAST_UPDATED_TIME",
+  "db-query-timeout": 1,
+  "multivalue-delimeter": ",",
+  "db-failure-action": "IGNORE",
+  "batch-mode": "true",
+  "batch-size": 10,
+  "update-interval": 1,
+  "batch-query-timeout": 10,
+  "batch-operations-insert": "false",
+  "batch-operations-update": "false",
+  "batch-operations-delete": "true",
+  "table-field-mappings": [
+    {
+      "mapping-name": "mappingOne",
+      "field-mapping-data": [
+        {
+          "db-field-name": "SUBSCRIBER_ID",
+          "referring-attribute": "0:10",
+          "data-type": "String"
+        },
+        {
+          "db-field-name": "CONCURRENCY_ID",
+          "referring-attribute": "0:11",
+          "data-type": "String"
+        }
+      ]
+    }
+  ],
+  "scenario-mappings": [
+    {
+      "name": "scenarioTwo",
+      "ruleset": "0:2=\"elitecore\"",
+      "criteria": "SUBSCRIBER_ID",
+      "mapping-name": "mappingOne"
+    },
+    {
+      "name": "scenarioOne",
+      "ruleset": "0:1=\"test\"",
+      "criteria": "SUBSCRIBER_ID,CONCURRENCY_ID",
+      "mapping-name": "mappingOne"
+    }
+  ],
+  "session-overide-action-mappings": [
+    {
+      "name": "actionTwo",
+      "ruleset": "0:31=\"AA:BB:CC:DD:EE:FF\"",
+      "actions": "INSERT"
+    },
+    {
+      "name": "actionOne",
+      "ruleset": "0:1=\"*\"",
+      "actions": "UPDATE"
+    }
+  ]
+}
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Session Manager updated successfully"
+    }
+  ]
+}
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager?name=DiameterSessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager?operation=delete&name=DiameterSessionManager
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/diametersessionmanager/DiameterSessionManager?operation=delete
+
+Response :
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Session Managers deleted successfully"
+    }
+  ]
+}
+
+Note : For multiple delete use comma separated values
+***********************************************************************

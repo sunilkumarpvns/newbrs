@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <form-beans>
+      <form-bean name="loginForm" type="com.elitecore.ssp.web.login.forms.LoginForm" />
+      <form-bean name="homeForm" type="com.elitecore.ssp.web.home.forms.HomeForm" />
+      <form-bean name="bodForm" type="com.elitecore.ssp.web.bod.forms.BodForm" />
+      <form-bean name="upgradeQuotaForm" type="com.elitecore.ssp.web.quota.forms.UpgradeQuotaForm" />
+      <form-bean name="subscriptionHistoryForm" type="com.elitecore.ssp.web.history.forms.SubscriptionHistoryForm" />
+      <form-bean name="promotionalForm" type="com.elitecore.ssp.web.promotional.forms.PromotionalForm" />
+      <form-bean name="subscribePromotionForm" type="com.elitecore.ssp.web.promotional.forms.SubscribePromotionForm" />
+      <form-bean name="unsubscribePromotionForm" type="com.elitecore.ssp.web.promotional.forms.UnsubscribePromotionForm" />
+      <form-bean name="subscribeBodForm" type="com.elitecore.ssp.web.bod.forms.SubscribeBodForm" />
+      <form-bean name="unsubscribeBoDForm" type="com.elitecore.ssp.web.bod.forms.UnsubscribeBoDForm" />
+      <form-bean name="parentalControlForm" type="com.elitecore.ssp.web.parentalcontrol.forms.ParentalControlForm" />
+      <form-bean name="childAccountManageForm" type="com.elitecore.ssp.web.parentalcontrol.forms.ChildAccountManageForm" />
+      <form-bean name="childAccountUsageInfoForm" type="com.elitecore.ssp.web.parentalcontrol.forms.ChildAccountUsageInfoForm" />
+      <form-bean name="childAccountInfoForm" type="com.elitecore.ssp.web.parentalcontrol.forms.ChildAccountInfoForm" />            
+    </form-beans>
+  
+     <global-exceptions>
+    </global-exceptions>
+    <global-forwards>
+    	<forward name="success" path="SUCCESS.LAYOUT" />
+        <forward name="failure" path="FAILURE.LAYOUT" />
+    </global-forwards>
+
+    <action-mappings>
+     
+       <!-- Login Action Struts Mapping -->
+            
+      <action path="/login" 
+         name="loginForm" 
+         type="com.elitecore.ssp.web.login.LoginAction"
+         scope="request"
+         validate="false">
+         <forward name="loginHome" path="/home.do" />
+         <forward name="loginFailed" path="/jsp/Login.jsp" />        
+      </action>
+      
+      <!-- Login Action Struts Dispatch Action -->
+    
+	  <!-- action path="/logindispatch"
+	     parameter="operation" 
+         name="loginForm"
+         type="com.elitecore.ssp.web.login.LoginDispatchAction"
+         scope="request"
+         validate="false">
+         <forward name="loginHome" path="/home.do" />
+         <forward name="loginFailed" path="/jsp/Login.jsp" />        
+      </action-->
+      
+       <!-- Home Action Struts Mapping -->
+            
+      <action path="/home" 
+         name="homeForm" 
+         type="com.elitecore.ssp.web.home.HomeAction"
+         scope="request"
+         validate="false">
+         <forward name="welcome" path="MAIN.LAYOUT" />
+      </action>
+      
+      
+      
+      <!-- Logout Action Struts Mapping -->
+      <action path="/logout" 
+         type="com.elitecore.ssp.web.logout.LogoutAction"
+         validate="false">
+         <forward name="logout" path="/jsp/Login.jsp" />        
+      </action>
+      
+       <!-- BOD Action Struts Mapping -->
+      
+        <action path="/bod" 
+         name="bodForm" 
+         type="com.elitecore.ssp.web.bod.BodAction"
+         scope="request"
+         validate="false">
+         <forward name="bod" path="BOD.LAYOUT" />
+         </action>
+          
+        <action path="/parentalControl" 
+         name="parentalControlForm" 
+         type="com.elitecore.ssp.web.parentalcontrol.ParentalControlAction"
+         scope="request"
+         validate="false">
+         <forward name="parentalcontrol" path="PARENTALCONTROL.LAYOUT" />         
+         </action>        
+     
+        <action path="/childAccountManage" 
+         name="childAccountManageForm" 
+         type="com.elitecore.ssp.web.parentalcontrol.ChildAccountManageAction"
+         scope="request"
+         validate="false">
+         <forward name="childaccountManageSuccess" path="CHILDACCOUNT_MANAGE.LAYOUT" />             
+         </action>       
+      
+         <action path="/childAccountUsageInfo" 
+         name="childAccountUsageInfoForm" 
+         type="com.elitecore.ssp.web.parentalcontrol.ChildAccountUsageInfoAction"
+         scope="request"
+         validate="false">
+         <forward name="childAccountUsageInfoSuccess" path="CHILDACCOUNT_USAGE_INFO.LAYOUT" />              
+         </action>  
+
+         <action path="/childAccountInfo" 
+         name="childAccountInfoForm" 
+         type="com.elitecore.ssp.web.parentalcontrol.ChildAccountInfoAction"
+         scope="request"
+         validate="false">
+         <forward name="childAccountInfoSuccess" path="CHILDACCOUNT_INFO.LAYOUT" />              
+         </action> 
+      
+      <!-- BOD Action Struts Dispatch Action -->
+      <action path="/boddispatch"
+	     parameter="operation" 
+         name="bodForm"
+         type="com.elitecore.ssp.web.bod.BodDispatchAction"
+         scope="request"
+         validate="false">
+         <forward name="bod" path="BOD.LAYOUT" />
+         <forward name="subscriptionHistory" path="HISTORY.LAYOUT"/>
+         <forward name="logout" path="/logout.do" />        
+      </action>
+      
+      <!-- Upgrade Quota Action Struts Mapping -->
+      
+      <action path="/upgradeQuota" 
+         name="upgradeQuotaForm" 
+         type="com.elitecore.ssp.web.quota.UpgradeQuotaAction"
+         scope="request"
+         validate="false">
+         <forward name="upgrade_quota" path="UPGRADEQUOTA.LAYOUT"/>
+                 
+      </action>
+      
+       <action path="/history" 
+         name="subscriptionHistoryForm" 
+         type="com.elitecore.ssp.web.history.SubscriptionHistoryAction"
+         scope="request"
+         validate="false">
+         <forward name="subscriptionHistory" path="HISTORY.LAYOUT"/>
+      </action>
+      
+           
+       <action path="/promotional" 
+         name="promotionalForm" 
+         type="com.elitecore.ssp.web.promotional.PromotionalAction"
+         scope="request"
+         validate="false">
+         <forward name="viewPromotional" path="PROMOTIONAL.LAYOUT"/>
+      </action>
+      
+       <action path="/subscribePromotion" 
+         name="subscribePromotionForm" 
+         type="com.elitecore.ssp.web.promotional.SubscribePromotionAction"
+         scope="request"
+         validate="false">
+      </action>
+      
+      <action path="/unsubscribePromotion" 
+         name="unsubscribePromotionForm" 
+         type="com.elitecore.ssp.web.promotional.UnsubscribePromotionAction"
+         scope="request"
+         validate="false">
+      </action>
+      
+       <action path="/subscribeBod" 
+         name="subscribeBodForm" 
+         type="com.elitecore.ssp.web.bod.SubscribeBodAction"
+         scope="request"
+         validate="false">
+      </action>
+      
+       <action path="/unsubscribeBoD" 
+         name="unsubscribeBoDForm" 
+         type="com.elitecore.ssp.web.bod.UnsubscribeBoDAction"
+         scope="request"
+         validate="false">
+      </action>
+      
+      </action-mappings>
+      
+      <message-resources parameter="com.elitecore.ssp.web.ApplicationResources"></message-resources>
+      <message-resources key="resultMessageResources" parameter="com.elitecore.ssp.web.ResultMessageResources" />    
+      
+      <plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="moduleAware" value="true" />
+		<set-property property="definitions-config" value="/WEB-INF/config/tiles-defs.xml" />
+	 </plug-in>
+  
+</struts-config>
+

@@ -1,0 +1,80 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    <field name="volumeSlicePercentage">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.required.field", {getText("slice.percent")})}</message>
+        </field-validator>
+        <field-validator type="int">
+            <param name="min">1</param>
+            <param name="max">100</param>
+            <message>${getText("error.numeric.range", {getText("slice.percent")})}</message>
+        </field-validator>
+    </field>
+    <field name="timeSlicePercentage">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.required.field", {getText("slice.percent")})}</message>
+        </field-validator>
+        <field-validator type="int">
+            <param name="min">1</param>
+            <param name="max">100</param>
+            <message>${getText("error.numeric.range", {getText("slice.percent")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="volumeSliceThreshold">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.required.field", {getText("slice.threshold")})}</message>
+        </field-validator>
+        <field-validator type="int">
+            <param name="min">1</param>
+            <param name="max">100</param>
+            <message>${getText("error.numeric.range", {getText("slice.threshold")})}</message>
+        </field-validator>
+    </field>
+    <field name="timeSliceThreshold">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.required.field", {getText("slice.threshold")})}</message>
+        </field-validator>
+        <field-validator type="int">
+            <param name="min">1</param>
+            <param name="max">100</param>
+            <message>${getText("error.numeric.range", {getText("slice.threshold")})}</message>
+        </field-validator>
+    </field>
+    <field name="monetaryReservation">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.required.field", {getText("slice.monetary.reservation")})}</message>
+        </field-validator>
+        <field-validator type="long">
+            <param name="min">1</param>
+            <param name="max">999999999999999999</param>
+            <message>${getText("error.numeric.range", {getText("slice.monetary.reservation")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="volumeMinimumSlice">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.required.field", {getText("slice.minvalue")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="timeMinimumSlice">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.required.field", {getText("slice.minvalue")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="volumeMaximumSlice">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.required.field", {getText("slice.maxvalue")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="timeMaximumSlice">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.required.field", {getText("slice.maxvalue")})}</message>
+        </field-validator>
+    </field>
+</validators>

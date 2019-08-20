@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.data.NetConfigParamValuePoolData" table="TBLMNETCONFIGPARAMVALUEPOOL">
+		<id name="paramPoolId" column="PARAMPOOLID" type="string">
+		</id>
+		<property name="parameterId" type="string">
+			<column name="PARAMETERID" sql-type="CHAR(9)" not-null="true"></column>
+		</property >
+		<property name="name" type="string">
+			<column name="NAME" sql-type="VARCHAR2(100)" not-null="true"></column>
+		</property>
+		<property name="value" type="string">
+			<column name="VALUE" sql-type="VARCHAR2(100)" not-null="true"></column>
+		</property>
+		<property name="configId" type="string">
+			<column name="NETCONFIGID" sql-type="CHAR(7)"></column>
+		</property>
+	</class>
+</hibernate-mapping>          

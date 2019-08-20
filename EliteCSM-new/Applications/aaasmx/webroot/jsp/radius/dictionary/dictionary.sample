@@ -1,0 +1,45 @@
+#
+# Any line that starts with '#' would be considered as comment.
+#
+
+# If the dictionary to be uploaded is Vendor Specific, then following line must be present.
+VENDOR	vendor_name		vendor_id
+# If the dictionary to be uploaded is Standard, then no such lines required.
+
+# All the dictionary attributes and values must be present between BEGIN and END tag.
+
+# All the dictionary must have BEGIN tag.
+
+# For a Vendor Specific dictionary, format of the BEGIN tag would be,
+BEGIN vendor_name
+
+# If the dictionary to be uploaded is Standard, format of the BEGIN tag would be,
+BEGIN STANDARD
+
+# All the attributes of the dictionary should be enlisted first.
+
+# Format of the ATTRIBUTE tag,
+ATTRIBUTE	attribute_name		vendor_parameter_id	attribute_data_type	vendor_name
+ATTRIBUTE	attribute_name		vendor_parameter_id	attribute_data_type	vendor_name
+...
+...
+
+# If the attribute is AVPair, then format of the ATTRIBUTE tag would be,
+ATTRIBUTE	attribute_name		vendor_parameter_id	attribute_data_type	vendor_name	 AVPair
+ATTRIBUTE	attribute_name		vendor_parameter_id	attribute_data_type	vendor_name	 AVPair
+ATTRIBUTE	attribute_name		vendor_parameter_id	attribute_data_type	vendor_name	 AVPair
+...
+...
+
+
+# Once an the attributes is specified, its possible values can be given.
+
+# Format of the VALUE tag,
+VALUE		attribute_name        string_value                 int_value
+VALUE		attribute_name        string_value                 int_value
+...
+...
+
+# All the dictionary must have END tag.
+# Format of the BEGIN tag,
+END vendor_name

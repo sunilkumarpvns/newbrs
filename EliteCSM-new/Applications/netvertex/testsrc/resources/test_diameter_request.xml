@@ -1,0 +1,27 @@
+<packet cc="272" app-id="16777238" request="true">
+		<attribute id="0:264" value="jay" />
+		<attribute id="0:296" value="jay" />
+		<attribute id="0:263" value="123" />
+		<attribute id="21067:65540" value="1" />
+		<attribute id="21067:65541" value="2" />
+		<attribute id="0:283" alias = "Destination-Realm" value="elitecore.com" />
+		<attribute id="0:293" alias = "Destination-Host" value="netvertex.elitecore.com" />
+		<attribute id="0:416" alias = "CC-Request-Type" value="1" />
+		<attribute id="0:443" alias = "Subscripition-ID">
+			<attribute id="0:450" alias = "Subscripition-ID-Type" value="1" />
+			<attribute id="0:444" alias = "Subscripition-ID-Data" value="40540" />
+		</attribute>
+		<attribute id="10415:1032" alias= "RAT-Type" value="1000" />
+		<attribute id="10415:1027" alias= "IP-CAN-Type" value="0" />
+		<!-- <attribute id="10415:1030" alias="QoS-Upgrade" value="0" /> -->
+		<attribute id="10415:1016" alias="QoS-Infomation">
+			<attribute id="10415:1028" alias="QoS-Class-Identifier" value="1"/>
+			<attribute id="10415:1041" alias="APN-Aggregated-Max-Bitrate-UL" value="5000"/>
+			<attribute id="10415:1040" alias="APN-Aggregated-Max-Bitrate-DL" value="1100"/>
+			<attribute id="10415:1034" alias="Allocation-Retention-Priority">
+				<attribute id="10415:1046" alias="Priority-Level" value="1"/>
+				<attribute id="10415:1047" alias="Pre-emption-Capability" value="100"/>
+				<attribute id="10415:1048" alias="Pre-emption-Vulnerability" value="100"/>
+			</attribute>
+		</attribute>
+</packet>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servermgr.drivers.subscriberprofile.database.data.DBSubscriberProfileParamPoolValueData" table="TBLMDBDSPARAMPOOLVALUE" >          
+	 
+		<id name="paramPoolId" column="PARAMPOOLID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+     
+		<property name="name" type="StringType">
+		  <column name="NAME" sql-type="VARCHAR(250)" not-null="true"/>
+		</property>
+		
+		<property name="value" type="StringType">
+		  <column name="VALUE" sql-type="VARCHAR(255)" not-null="true"/>
+		</property>
+		
+		<property name="appOrder" type="long">
+		  <column name="APPORDER" sql-type="NUMERIC(5)" not-null="true" />
+		</property>
+		
+		<property name="fieldId" type="StringType">
+		  <column name="FIELDID" sql-type="VARCHAR(36)" not-null="true"/>
+		</property>
+		
+	</class>
+	
+</hibernate-mapping>
+
+          
+

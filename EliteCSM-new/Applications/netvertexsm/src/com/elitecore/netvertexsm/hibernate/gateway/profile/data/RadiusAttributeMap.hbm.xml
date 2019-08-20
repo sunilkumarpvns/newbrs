@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.profile.data">
+
+  <class name="com.elitecore.netvertexsm.datamanager.gateway.profile.data.RadiusAttributeMapData" table="TBLMRADIUSATTRIBUTEMAPPING">
+  
+  	 <id name="radiusAttributeId" column="RADIUSATTRIBUTEID" type="java.lang.Long" >
+     	  <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+	 	  </generator>
+     </id>     
+    
+     <property name="radiusAttribute" type="string">
+     	  <column name="RADIUSATTRIBUTE" sql-type="VARCHAR2(15)" not-null="false"/>
+     </property>
+     
+     <property name="policyKey" type="string">
+     	  <column name="POLICYKEY" sql-type="VARCHAR2(50)" not-null="false"/>
+     </property>
+     
+     <property name="type" type="string">
+     	  <column name="TYPE" sql-type="CHAR(8)" not-null="false"/>
+     </property>
+     
+     <property name="gatewayProfileId" type="java.lang.Long">
+     	  <column name="GATEWAYPROFILEID" sql-type="NUMBER(12)" not-null="false"/>
+     </property>
+     
+     <set name="radiusValueMapSet" lazy="false" cascade="all,delete-orphan">
+     	<key column="RADIUSATTRIBUTEID"></key>
+     	<one-to-many class="com.elitecore.netvertexsm.datamanager.gateway.profile.data.RadiusValueMapData" />
+     </set>
+  
+  </class>
+</hibernate-mapping>

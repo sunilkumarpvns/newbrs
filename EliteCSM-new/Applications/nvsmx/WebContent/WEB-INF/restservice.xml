@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:bean="http://www.springframework.org/schema/util"
+       xmlns:security="http://www.springframework.org/schema/security" xmlns:cxf="http://cxf.apache.org/core"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://cxf.apache.org/jaxrs
+        http://cxf.apache.org/schemas/jaxrs.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+    <bean id="loggingFeature" class="org.apache.cxf.feature.LoggingFeature">
+        <property name="prettyLogging" value="true" />
+    </bean>
+    <bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider"/>
+    <bean id="jaxbProvider" class="org.apache.cxf.jaxrs.provider.JAXBElementProvider" />
+    <bean id="jsonResolver" class="com.elitecore.nvsmx.ws.util.JSONResolver" />
+
+    <bean id="DiagnosticContextIN" class="com.elitecore.nvsmx.ws.interceptor.DiagnosticContextINInterceptor" />
+    <bean id="DiagnosticContextOUT" class="com.elitecore.nvsmx.ws.interceptor.DiagnosticContextOUTInterceptor" />
+
+    <bean id="swagger2FeatureForPackageManagementWS" class="org.apache.cxf.jaxrs.swagger.Swagger2Feature">
+        <!-- customize some of the properties -->
+        <property name="title" value="Package Import Web-Service"/>
+        <property name="usePathBasedConfig" value="true"/>
+        <property name="scan" value="false"/>
+    </bean>
+
+    <cxf:bus>
+        <cxf:inInterceptors>
+            <ref bean="DiagnosticContextIN"/>
+        </cxf:inInterceptors>
+
+        <cxf:outInterceptors>
+            <ref bean="DiagnosticContextOUT"/>
+        </cxf:outInterceptors>
+    </cxf:bus>
+
+    <bean  class="com.elitecore.nvsmx.ws.packagemanagement.restws.RestPackageManagementWS" id="PackageManagement" />
+    <jaxrs:server address="/restful/import/import" id="Package">
+        <jaxrs:serviceBeans>
+            <ref bean="PackageManagement" />
+        </jaxrs:serviceBeans>
+        <jaxrs:extensionMappings>
+            <entry key="xml" value="application/xml" />
+            <entry key="json" value="application/json" />
+        </jaxrs:extensionMappings>
+        <jaxrs:providers>
+            <ref bean="jsonProvider"/>
+            <ref bean="jsonResolver"/>
+        </jaxrs:providers>
+        <jaxrs:features>
+            <ref bean="swagger2FeatureForPackageManagementWS" />
+        </jaxrs:features>
+ </jaxrs:server>
+
+    <bean  class="com.elitecore.nvsmx.ws.packagemanagement.restws.RestExportPackageManagementWS" id="ExportPackageManagement" />
+    <jaxrs:server address="/restful/export/export" id="ExportPackage">
+        <jaxrs:serviceBeans>
+            <ref bean="ExportPackageManagement" />
+        </jaxrs:serviceBeans>
+        <jaxrs:extensionMappings>
+            <entry key="xml" value="application/xml" />
+            <entry key="json" value="application/json" />
+        </jaxrs:extensionMappings>
+        <jaxrs:providers>
+            <ref bean="jsonProvider"/>
+            <ref bean="jsonResolver"/>
+        </jaxrs:providers>
+        <jaxrs:features>
+            <ref bean="swagger2FeatureForPackageManagementWS" />
+        </jaxrs:features>
+    </jaxrs:server>
+
+    <bean class="com.elitecore.nvsmx.ws.sessionmanagement.restws.RESTSessionManagementWS" id="SessionManagement" />
+    <jaxrs:server address="/restful/session" id="Session">
+        <jaxrs:serviceBeans>
+            <ref bean="SessionManagement" />
+        </jaxrs:serviceBeans>
+        <jaxrs:extensionMappings>
+            <entry key="json" value="application/json" />
+            <entry key="xml" value="application/xml" />
+        </jaxrs:extensionMappings>
+        <jaxrs:providers>
+            <ref bean="jsonProvider"/>
+        </jaxrs:providers>
+
+    </jaxrs:server>
+
+    <bean id="ReloadPolicy" class="com.elitecore.nvsmx.ws.reload.RestReloadPolicyWS" factory-method="create"/>
+   <jaxrs:server address="/restful/policy" id="Policy" >
+        <jaxrs:serviceBeans>
+            <ref bean="ReloadPolicy" />
+        </jaxrs:serviceBeans>
+       <jaxrs:extensionMappings>
+            <entry key="xml" value="application/xml" />
+        </jaxrs:extensionMappings>
+
+    </jaxrs:server>
+
+    <bean class="com.elitecore.nvsmx.ws.subscriberprovisioning.rest.RESTSubscriberProvisioningWS" id="SubscriberProvisioningWS" />
+    <jaxrs:server address="/restful/subscriberProvisioning" id="SubscriberProvisioningService">
+        <jaxrs:serviceBeans>
+            <ref bean="SubscriberProvisioningWS" />
+        </jaxrs:serviceBeans>
+        <jaxrs:extensionMappings>
+            <entry key="json" value="application/json" />
+            <entry key="xml" value="application/xml" />
+        </jaxrs:extensionMappings>
+        <jaxrs:providers>
+            <ref bean="jsonProvider"/>
+            <ref bean="jsonResolver"/>
+        </jaxrs:providers>
+        <jaxrs:features>
+            <ref bean="swagger2FeatureForSubscriberProvisioningWS" />
+        </jaxrs:features>
+
+    </jaxrs:server>
+
+    <bean id="swagger2FeatureForSubscriberProvisioningWS" class="org.apache.cxf.jaxrs.swagger.Swagger2Feature">
+        <!-- customize some of the properties -->
+        <property name="title" value="Subscriber Provisioning Web-Service"/>
+        <property name="usePathBasedConfig" value="true"/>
+        <property name="scan" value="false"/>
+    </bean>
+
+    <bean id="swagger2FeatureForSubscriptionWS" class="org.apache.cxf.jaxrs.swagger.Swagger2Feature">
+        <!-- customize some of the properties -->
+        <property name="title" value="Subscription Web-Service"/>
+        <property name="usePathBasedConfig" value="true"/>
+        <property name="scan" value="false"/>
+    </bean>
+    <bean class="com.elitecore.nvsmx.ws.subscription.rest.RESTSubscriptionWS" id="SubscriptionWS" />
+    <jaxrs:server address="/restful/subscription" id="SubscriptionService">
+        <jaxrs:serviceBeans>
+            <ref bean="SubscriptionWS" />
+        </jaxrs:serviceBeans>
+        <jaxrs:extensionMappings>
+            <entry key="json" value="application/json" />
+            <entry key="xml" value="application/xml" />
+        </jaxrs:extensionMappings>
+        <jaxrs:providers>
+            <ref bean="jsonProvider"/>
+            <ref bean="jsonResolver"/>
+        </jaxrs:providers>
+        <jaxrs:features>
+            <ref bean="swagger2FeatureForSubscriptionWS" />
+        </jaxrs:features>
+
+
+    </jaxrs:server>
+
+
+    <!-- CXF Swagger2Feature -->
+    <bean id="swagger2FeatureForResetUsageWS" class="org.apache.cxf.jaxrs.swagger.Swagger2Feature">
+        <!-- customize some of the properties -->
+        <property name="title" value="Reset Billing-Cycle Web-Service"/>
+        <property name="usePathBasedConfig" value="true"/>
+        <property name="scan" value="false"/>
+    </bean>
+    <bean class="com.elitecore.nvsmx.ws.resetusage.ResetUsageWS" id="ResetUsageWS" />
+    <jaxrs:server address="/restful/resetUsage" id="ResetUsageService">
+        <jaxrs:serviceBeans>
+            <ref bean="ResetUsageWS" />
+        </jaxrs:serviceBeans>
+        <jaxrs:extensionMappings>
+            <entry key="json" value="application/json" />
+            <entry key="xml" value="application/xml" />
+        </jaxrs:extensionMappings>
+        <jaxrs:providers>
+            <ref bean="jsonProvider"/>
+        </jaxrs:providers>
+        <jaxrs:features>
+            <ref bean="swagger2FeatureForResetUsageWS" />
+        </jaxrs:features>
+    </jaxrs:server>
+
+    <!--class resides in internal package will be use only for internal purposes only this will not be available
+       in WADL file for end user -->
+
+    <bean id="ReloadPolicyInternal" class="com.elitecore.nvsmx.ws.internal.ReloadPolicyWS" factory-method="create"/>
+    <jaxrs:server address="/restful/policy/internal" id="PolicyWS" >
+        <jaxrs:serviceBeans>
+            <ref bean="ReloadPolicyInternal" />
+        </jaxrs:serviceBeans>
+        <jaxrs:extensionMappings>
+            <entry key="xml" value="application/xml" />
+        </jaxrs:extensionMappings>
+        <jaxrs:properties>
+            <entry key="org.apache.cxf.endpoint.private" value="true"/>
+        </jaxrs:properties>
+    </jaxrs:server>
+
+    <bean id="ServerStatus" class="com.elitecore.nvsmx.ws.internal.ServerStatusWS" factory-method="create" />
+    <jaxrs:server address="/restful/status" id="Status" >
+        <jaxrs:serviceBeans>
+            <ref bean="ServerStatus" />
+        </jaxrs:serviceBeans>
+        <jaxrs:extensionMappings>
+            <entry key="xml" value="application/xml" />
+        </jaxrs:extensionMappings>
+        <jaxrs:properties>
+            <entry key="org.apache.cxf.endpoint.private" value="true"/>
+        </jaxrs:properties>
+
+    </jaxrs:server>
+
+    <!--<jaxrs:server id="sampleServer" address="/swaggerSample">
+        <jaxrs:serviceBeans>
+            <ref bean="ServerStatus" />
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref bean="jsonProvider" />
+            <ref bean="jsonResolver" />
+            <ref bean="jaxbProvider" />
+        </jaxrs:providers>
+        <jaxrs:features>
+            <ref bean="swagger2Feature" />
+        </jaxrs:features>
+    </jaxrs:server>-->
+
+
+</beans>

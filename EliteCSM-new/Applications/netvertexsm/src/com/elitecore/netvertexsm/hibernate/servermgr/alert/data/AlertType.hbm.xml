@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.alert.data.AlertTypeData" table="TBLSALERTTYPE" >          
+		<id name="alertTypeId" type="string" column="ALERTTYPEID"></id>
+		<property name="parentId" type="string" column="PARENTID" not-null="false"/>
+		<property name="name" type="string" column="NAME" not-null="true"/>
+		<property name="alias" type="string" column="ALIAS" not-null="true"/>
+		<property name="enabled" type="string" column="ENABLED" not-null="true"/>
+		<property name="type" type="string" column="TYPE" not-null="true"/>
+		<property name="floodControl" type="string" column="FLOODCONTROL" not-null="true"/>
+		
+		<set name="nestedChildDetailList" cascade="all" table="AlertTypeData" lazy="false" inverse="true" order-by="ORDERNO">
+      	<key column="PARENTID"></key>
+      	<one-to-many class="com.elitecore.netvertexsm.datamanager.servermgr.alert.data.AlertTypeData"/>
+      	</set>
+	</class>
+
+</hibernate-mapping>

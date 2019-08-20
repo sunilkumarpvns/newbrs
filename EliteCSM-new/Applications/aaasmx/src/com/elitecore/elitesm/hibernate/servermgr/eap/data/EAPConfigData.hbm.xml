@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.servermgr.eap.data.EAPConfigData" table="TBLMEAPCONFIG">
+
+		<id name="eapId" column="EAP_ID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="name" type="StringType"> 
+			<column name="NAME" sql-type="VARCHAR(64)" not-null="true" /> 
+		</property>
+		
+		<property name="description" type="StringType"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+
+		<property name="defaultNegiotationMethod" type="java.lang.Long"> 
+			<column name="DEFAULT_NEGIOTATION_METHOD" sql-type="NUMERIC(3)" not-null="false" /> 
+		</property>
+
+		<property name="treatInvalidPacketAsFatal" type="StringType"> 
+			<column name="TREAT_INVALID_PACKET_AS_FATAL" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+		
+		<property name="notificationSuccess" type="StringType"> 
+			<column name="NOTIFICATION_SUCCESS" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+		
+		<property name="notificationFailure" type="StringType"> 
+			<column name="NOTIFICATION_FAILURE" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+		
+		<property name="maxEapPacketSize" type="java.lang.Long"> 
+			<column name="MAX_EAP_PACKET_SIZE " sql-type="NUMERIC(5)" not-null="false" /> 
+		</property>
+		
+		<property name="sessionCleanupInterval" type="java.lang.Long"> 
+			<column name="SESSION_CLEANUP_INTERVAL" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="sessionDurationForCleanup" type="java.lang.Long"> 
+			<column name="SESSION_DURATION_FOR_CLEANUP" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="sessionTimeout" type="java.lang.Long"> 
+			<column name="SESSION_TIMEOUT" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="mskRevalidationTime" type="java.lang.Long"> 
+			<column name="MSK_REVALIDATION_TIME" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<property name="eapTtlsCertificateRequest" type="StringType"> 
+			<column name="EAP_TTLS_CERTIFICATE_REQUEST" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+		
+		<property name="ttlsNegotiationMethod" type="java.lang.Integer"> 
+			<column name="TTLSNEGOTIATIONMETHOD" sql-type="NUMERIC" not-null="false" /> 
+		</property>
+		
+		<property name="eapPeapCertificateRequest" type="StringType"> 
+			<column name="EAP_PEAP_CERTIFICATE_REQUEST" sql-type="VARCHAR(5)" not-null="false" /> 
+		</property>
+		
+		<property name="peapNegotiationMethod" type="java.lang.Integer"> 
+			<column name="PEAPNEGOTIATIONMETHOD" sql-type="NUMERIC" not-null="false" /> 
+		</property>
+		
+		<property name="peapVersion" type="StringType"> 
+			<column name="PEAPVERSION" sql-type="VARCHAR(10)" not-null="false" /> 
+		</property>
+		
+		<property name="enabledAuthMethods" type="StringType"> 
+			<column name="ENABLEDAUTHMETHODS" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+		
+		<property name="createdByStaffId" type="StringType"> 
+			<column name="CREATEBYSTAFFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="createDate" type="java.sql.Timestamp"> 
+			<column name="CREATEDDATE" sql-type="TIMESTAMP(6)" not-null="false" /> 
+		</property>
+			
+		<property name="lastModifiedByStaffId" type="StringType"> 
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp"> 
+			<column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP(6)" not-null="false" /> 
+		</property>
+
+        <set name="eapTlsConfigSet" lazy="false"  inverse="true">
+			<key column="EAP_ID"></key>
+			<one-to-many  class="com.elitecore.elitesm.datamanager.servermgr.eap.data.EAPTLSConfigData"/>
+	  	</set>
+    	
+    	<property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	     </property>
+    
+	</class>
+
+</hibernate-mapping> 
+
+	
+
+
+	

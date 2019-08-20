@@ -1,0 +1,20 @@
+{
+  "id": "rest_staff_11111111",
+  "status": "ACTIVE",
+  "groups": null,
+  "name": "rest_staff",
+  "userName": "rest_staff",
+  "password": "rest_staff.123",
+  "emailAddress": "rest_staff@sterlite.com",
+  "phone": null,
+  "mobile": null,
+  "passwordExpiryDate": null,
+  "authenticationMode": "LOCAL",
+  "staffGroupRoleRelDataList": [
+    {
+      "groupId": "GROUP_1",
+      "staffId": "rest_staff_11111111",
+      "roleId": "ROLE_1"
+    }
+  ]
+}

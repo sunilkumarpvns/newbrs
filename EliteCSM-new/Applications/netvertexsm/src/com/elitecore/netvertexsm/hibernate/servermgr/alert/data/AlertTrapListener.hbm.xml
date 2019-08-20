@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.alert.data.AlertTrapListenerData" table="TBLMTRAPLISTENER" >          
+		<id name="trapListenerId" type="long" column="TRAPLISTNERID">
+		    <generator
+				class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">				
+			</generator>			
+		</id>
+		<property name="trapServer" type="string" column="TRAPSERVER" not-null="false"/>                
+		<property name="trapVersion" type="string" column="TRAPVERSION" not-null="false"/>
+		<property name="community" type="string" column="COMMUNITY" not-null="false"/>
+		<property name="listenerId" type="long" column="INSTANCEID" not-null="false"/>
+		<property name="advanceTrap" type="string" column="ADVANCETRAP" not-null="false"/>
+		<property name="snmpRequestType" type="byte" column="SNMPREQUESTTYPE" not-null="false"/>
+		<property name="timeout" type="int" column="TIMEOUT" not-null="false"/>
+		<property name="retryCount" type="byte" column="RETRYCOUNT" not-null="false"/>		
+	</class>
+	
+</hibernate-mapping>
+
+          

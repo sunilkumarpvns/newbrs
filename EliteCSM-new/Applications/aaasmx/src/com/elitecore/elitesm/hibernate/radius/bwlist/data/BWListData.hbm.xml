@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="com.elitecore.elitesm.datamanager.radius.bwlist.data.BWListData" table="TBLBWLIST">
+	<id name="bwId" column="BWID" type="StringType" >
+		<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+	</id>
+	
+	<property name="attributeId"  column="ATTRID" type="StringType" not-null="true"></property>
+	<property name="attributeValue"  column="ATTRVALUE" type="StringType" not-null="true"></property>
+	<property name="typeId"  column="TYPEID" type="StringType"></property>
+	<property name="validity" type="java.sql.Timestamp"  column="VALIDITY" not-null="false"></property>  
+	<property name="commonStatusId" column="COMMONSTATUSID" type="CharType"></property>
+	<property name="typeName" column="TYPENAME" type="StringType"></property>
+	<property name="orderNumber" column="ORDERNUMBER"  type="java.lang.Integer" not-null="true" />
+	<property name="auditUid" type="StringType" column="AUDIT_UID" not-null="false"/>
+</class>
+
+</hibernate-mapping>          

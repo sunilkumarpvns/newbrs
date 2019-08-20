@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	
+<hibernate-mapping>
+
+ <class name="com.elitecore.netvertexsm.datamanager.RoutingTable.mccmncgroup.data.MCCMNCCodeGroupRelData" table="TBLMMCCMNCCODEGROUPREL">
+
+  	 	<composite-id>
+			<key-property name="mccmncGroupId" column="MCCMNCGROUPID" type="java.lang.Long"/>
+			<key-property name="mccMNCID" column="NETWORKID" type="java.lang.Long"/>
+		</composite-id>
+		
+		<many-to-one name="mccmncCodeData" column="NETWORKID" lazy="false" insert="false" update="false" 
+     	  	class="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.NetworkData" not-null="true">
+     	</many-to-one>  
+		
+  </class>
+</hibernate-mapping>
+

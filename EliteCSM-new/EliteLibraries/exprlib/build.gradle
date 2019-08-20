@@ -1,0 +1,9 @@
+description = 'CSM Expression library'
+
+def depPojects = ["elitecommons"]
+dependencies {
+    depPojects.each {
+        compile project(":" + it)
+        testCompile files(project(":" + it).sourceSets.test.output)
+    }
+}

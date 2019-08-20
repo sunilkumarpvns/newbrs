@@ -1,0 +1,18 @@
+package com.elitecore.aaa.core.plugins.conf;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ * Refer {@link CustomReader}.
+ * 
+ * @author narendra.pathai
+ *
+ */
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface CustomRead {
+	
+}

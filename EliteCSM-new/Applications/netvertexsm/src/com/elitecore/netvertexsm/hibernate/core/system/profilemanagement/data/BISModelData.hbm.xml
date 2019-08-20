@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+          
+<hibernate-mapping>
+<class name="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.BISModelData" table="TBLMBISMODEL" >  
+	<id name="businessModelId" type="string" column="BUSINESSMODELID">
+	</id>
+	
+	<property name="alias" type="string">
+		<column name="ALIAS" sql-type="VARCHAR(50)" not-null="true"></column>
+	</property>
+	
+	<property name="name" type="string">
+		<column name="NAME" sql-type="VARCHAR(50)" not-null="true"></column>
+	</property>
+	
+	<property name="systemGenerated" type="string">
+		<column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"></column>
+	</property>
+	
+	<property name="status" type="string">
+		<column name="STATUS" sql-type="CHAR(1)" not-null="true"></column>
+	</property>
+	
+	<property name="description" type="string">
+		<column name="DESCRIPTION" sql-type="VARCHAR(100)" not-null="true"></column>
+	</property>
+	
+	<property name="freezeProfile" type="string">
+		<column name="FREEZEPROFILE" sql-type="CHAR(1)" not-null="true"></column>
+	</property>
+	
+	<set name="businessModelModuleRel" cascade="all,delete-orphan" lazy="false" inverse="true" >
+		<key column="businessModelId" ></key>
+		<one-to-many class="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.BISModelModuleRelData" />
+    </set>
+</class>        
+</hibernate-mapping>          

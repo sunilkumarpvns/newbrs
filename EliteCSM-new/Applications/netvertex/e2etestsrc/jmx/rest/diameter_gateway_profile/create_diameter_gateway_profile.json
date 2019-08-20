@@ -1,0 +1,96 @@
+{
+  "id": "rest_d_gateway_profile_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Rest_Diameter_Gateway_Profile",
+  "description": "Created by REST Automation",
+  "gatewayType": "ACCESS_GATEWAY",
+  "vendorId": "9",
+  "firmware": "firmware",
+  "usageReportingType": "NON_CUMULATIVE",
+  "revalidationMode": "ClientInitiated",
+  "timeout": 3000,
+  "gxApplicationId": "10415:16777238",
+  "gyApplicationId": "10415:4",
+  "rxApplicationId": "10415:16777236",
+  "s9ApplicationId": "10415:16777267",
+  "syApplicationId": "10415:16777302",
+  "dwInterval": 60,
+  "supportedVendorList": "Cisco - 9",
+  "supportedStandard": "RELEASE_7",
+  "chargingRuleInstallMode": "GROUPED",
+  "sessionCleanUpCER": true,
+  "sessionCleanUpDPR": true,
+  "cerAvps": null,
+  "dprAvps": null,
+  "dwrAvps": null,
+  "socketReceiveBufferSize": -1,
+  "sendDPRCloseEvent": false,
+  "socketSendBufferSize": -1,
+  "tcpNagleAlgorithm": true,
+  "initConnectionDuration": 60,
+  "groovyScriptDatas": [],
+  "umStandard": "MSCC",
+  "sessionLookUpKey": "CS.SessionIPv4,CS.SessionIPv6",
+  "diameterGwProfilePCCRuleMappings": [
+    {
+      "orderNumber": 1,
+      "pccRuleMappingId": "rest_pcc_rule_mapping_11111111",
+      "condition": "0:1=*"
+    }
+  ],
+  "vendorData": {
+    "id": "9",
+    "name": "CISCO",
+    "description": "CISCO"
+  },
+  "pccToGWGxPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_ptog_packet_mapping_11111111",
+      "applicationType": "GX",
+      "condition": "0:1=*"
+    }
+  ],
+  "gwToPccGxPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_gtop_packet_mapping_11111111",
+      "applicationType": "GX",
+      "condition": "0:1=*"
+    }
+  ],
+  "pccToGWGyPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_ptog_packet_mapping_11111111",
+      "applicationType": "GY",
+      "condition": "0:1=*"
+    }
+  ],
+  "gwToPccGyPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_gtop_packet_mapping_11111111",
+      "applicationType": "GY",
+      "condition": "0:1=*"
+    }
+  ],
+  "pccToGWRxPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_ptog_rx_packet_mapping_11111111",
+      "applicationType": "RX",
+      "condition": "0:1=*"
+    }
+  ],
+  "gwToPccRxPacketMappings": [
+    {
+      "orderNumber": 1,
+      "packetMappingId": "rest_gtop_rx_packet_mapping_11111111",
+      "applicationType": "RX",
+      "condition": "0:1=*"
+    }
+  ],
+  "groupNames": "DefaultGroup"
+}

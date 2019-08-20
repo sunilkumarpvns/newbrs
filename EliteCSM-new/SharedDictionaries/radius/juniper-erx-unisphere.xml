@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="4874" vendor-name="Juniper-ERX-Unisphere">
+<attribute id="1" name="ERX-Virtual-Router-Name" type="string"/>
+<attribute id="2" name="ERX-Address-Pool-Name" type="string"/>
+<attribute id="3" name="ERX-Local-Loopback-Interface" type="string"/>
+<attribute id="4" name="ERX-Primary-Dns" type="ipaddr"/>
+<attribute id="5" name="ERX-Secondary-Dns" type="ipaddr"/>
+<attribute id="6" name="ERX-Primary-Wins" type="ipaddr"/>
+<attribute id="7" name="ERX-Secondary-Wins" type="ipaddr"/>
+<attribute id="8" name="ERX-Tunnel-Virtual-Router" type="string"/>
+<attribute id="9" name="ERX-Tunnel-Password" type="string"/>
+<attribute id="10" name="ERX-Ingress-Policy-Name" type="string"/>
+<attribute id="11" name="ERX-Egress-Policy-Name" type="string"/>
+<attribute id="12" name="ERX-Ingress-Statistics" type="integer">
+	<supported-values>
+		<value id="0" name="disable"/>
+		<value id="1" name="enable"/>
+	</supported-values>
+</attribute>
+<attribute id="13" name="ERX-Egress-Statistics" type="integer">
+	<supported-values>
+		<value id="0" name="disable"/>
+		<value id="1" name="enable"/>
+	</supported-values>
+</attribute>
+<attribute id="14" name="ERX-Atm-Service-Category" type="integer">
+	<supported-values>
+		<value id="1" name="UBR"/>
+		<value id="2" name="UBRPCR"/>
+		<value id="3" name="nrtVBR"/>
+		<value id="4" name="CBR"/>
+	</supported-values>
+</attribute>
+<attribute id="15" name="ERX-Atm-PCR" type="integer"/>
+<attribute id="16" name="ERX-Atm-SCR" type="integer"/>
+<attribute id="17" name="ERX-Atm-MBS" type="integer"/>
+<attribute id="18" name="ERX-Cli-Initial-Access-Level" type="string"/>
+<attribute id="19" name="ERX-Cli-Allow-All-VR-Access" type="integer">
+	<supported-values>
+		<value id="0" name="disable"/>
+		<value id="1" name="enable"/>
+	</supported-values>
+</attribute>
+<attribute id="20" name="ERX-Alternate-Cli-Access-Level" type="string"/>
+<attribute id="21" name="ERX-Alternate-Cli-Vrouter-Name" type="string"/>
+<attribute id="22" name="ERX-Sa-Validate" type="integer">
+	<supported-values>
+		<value id="0" name="disable"/>
+		<value id="1" name="enable"/>
+	</supported-values>
+</attribute>
+<attribute id="23" name="ERX-Igmp-Enable" type="integer">
+	<supported-values>
+		<value id="0" name="disable"/>
+		<value id="1" name="enable"/>
+	</supported-values>
+</attribute>
+<attribute id="24" name="ERX-Pppoe-Description" type="string"/>
+<attribute id="25" name="ERX-Redirect-VR-Name" type="string"/>
+<attribute id="26" name="ERX-Qos-Profile-Name" type="string"/>
+<attribute id="27" name="ERX-Pppoe-Max-Sessions" type="integer"/>
+<attribute id="28" name="ERX-Pppoe-Url" type="string"/>
+<attribute id="29" name="ERX-Qos-Profile-Interface-Type" type="integer">
+	<supported-values>
+		<value id="1" name="IP"/>
+		<value id="2" name="ATM"/>
+		<value id="3" name="HDLC"/>
+		<value id="4" name="ETHERNET"/>
+		<value id="5" name="SERVER-PORT"/>
+		<value id="6" name="ATM-1483"/>
+		<value id="7" name="FRAME-RELAY"/>
+		<value id="8" name="MPLS-MINOR"/>
+		<value id="9" name="CBF"/>
+		<value id="10" name="IP-TUNNEL"/>
+		<value id="11" name="VLAN-SUB"/>
+		<value id="12" name="PPPOE-SUB"/>
+	</supported-values>
+</attribute>
+<attribute id="30" name="ERX-Tunnel-Nas-Port-Method" type="integer">
+	<supported-values>
+		<value id="0" name="None"/>
+		<value id="1" name="CISCO-CLid"/>
+	</supported-values>
+</attribute>
+<attribute id="31" name="ERX-Service-Bundle" type="string"/>
+<attribute id="32" name="ERX-Tunnel-Tos" type="integer"/>
+<attribute id="33" name="ERX-Tunnel-Maximum-Sessions" type="integer"/>
+<attribute id="34" name="ERX-Framed-Ip-Route-Tag" type="string"/>
+<attribute id="35" name="ERX-Dial-Out-Number" type="string"/>
+<attribute id="36" name="ERX-PPP-Username" type="string"/>
+<attribute id="37" name="ERX-PPP-Password" type="string"/>
+<attribute id="38" name="ERX-PPP-Auth-Protocol" type="integer">
+	<supported-values>
+		<value id="0" name="None"/>
+		<value id="1" name="PAP"/>
+		<value id="2" name="CHAP"/>
+		<value id="3" name="PAP-CHAP"/>
+		<value id="4" name="CHAP-PAP"/>
+	</supported-values>
+</attribute>
+<attribute id="39" name="ERX-Minimum-BPS" type="integer"/>
+<attribute id="40" name="ERX-Maximum-BPS" type="integer"/>
+<attribute id="41" name="ERX-Bearer-Type" type="integer">
+	<supported-values>
+		<value id="0" name="None"/>
+		<value id="1" name="Analog"/>
+		<value id="2" name="Digital"/>
+	</supported-values>
+</attribute>
+<attribute id="42" name="ERX-Input-Gigapkts" type="integer"/>
+<attribute id="43" name="ERX-Output-Gigapkts" type="integer"/>
+<attribute id="44" name="ERX-Tunnel-Interface-id" type="string"/>
+<attribute id="45" name="ERX-IpV6-Virtual-Router" type="string"/>
+<attribute id="46" name="ERX-IpV6-Local-Interface" type="string"/>
+<attribute id="47" name="ERX-Ipv6-Primary-Dns" type="ipv6addr"/>
+<attribute id="48" name="ERX-Ipv6-Secondary-Dns" type="ipv6addr"/>
+<attribute id="49" name="Sdx-Service-Name" type="string"/>
+<attribute id="50" name="Sdx-Session-Volume-Quota" type="string"/>
+<attribute id="51" name="Sdx-Tunnel-Disconnect-Cause-Info" type="string"/>
+<attribute id="52" name="ERX-Radius-Client-Address" type="ipaddr"/>
+<attribute id="53" name="ERX-Service-Description" type="string"/>
+<attribute id="54" name="ERX-L2tp-Recv-Window-Size" type="integer"/>
+
+<attribute id="55" name="ERX-Dhcp-Options" type="grouped" padding-type="dhcp" >
+	<attribute id="53" name="DHCP-Message-Type" type="byte" length-format="value" >
+	<supported-values>
+		<value id="1" name="DHCP-DISCOVER"/>
+		<value id="2" name="DHC-POFFER"/>
+		<value id="3" name="DHC-PREQUEST"/>
+		<value id="4" name="DHCP-DECLINE"/>
+		<value id="5" name="DHCP-ACK"/>
+		<value id="6" name="DHCP-NAK"/>
+		<value id="7" name="DHCP-RELEASE"/>
+		<value id="8" name="DHCP-INFORM"/>
+	</supported-values>
+	</attribute>
+	<attribute id="12" name="Host-Name" type="string" length-format="value" />
+	<attribute id="60" name="Vendor-class-identifier" type="string" length-format="value" />
+	<attribute id="50" name="Requested-IP-Address" type="ipaddr" length-format="value" />
+	<attribute id="54" name="Server-Identifier" type="ipaddr" length-format="value" />
+	<attribute id="55" name="Parameter-Request-List" type="octets" length-format="value" />
+		
+	<attribute id="82" name="Relay-Agent-Information" type="grouped"  length-format="value" >
+		<attribute id="1" name="Agent-Circuit-ID" type="string"  length-format="value" />
+		<attribute id="2" name="Agent-Remote-ID" type="string" length-format="value" />
+	</attribute>
+</attribute>
+
+<attribute id="56" name="ERX-Dhcp-Mac-Addr" type="string"/>
+<attribute id="57" name="ERX-Dhcp-Gi-Address" type="ipaddr"/>
+<attribute id="58" name="ERX-LI-Action" type="integer">
+	<supported-values>
+		<value id="0" name="off"/>
+		<value id="1" name="on"/>
+		<value id="2" name="noop"/>
+	</supported-values>
+</attribute>
+<!--Original Line : ATTRIBUTE	ERX-Med-Dev-Handle			59	octets	encrypt=2-->
+<attribute id="59" name="ERX-Med-Dev-Handle" type="octets" encrypt-standard="1"/>
+<!--Original Line : ATTRIBUTE	ERX-Med-Ip-Address			60	ipaddr	encrypt=2-->
+<attribute id="60" name="ERX-Med-Ip-Address" type="ipaddr" encrypt-standard="1"/>
+<!--Original Line : ATTRIBUTE	ERX-Med-Port-Number			61	integer	encrypt=2-->
+<attribute id="61" name="ERX-Med-Port-Number" type="integer" encrypt-standard="1"/>
+<attribute id="62" name="ERX-MLPPP-Bundle-Name" type="string"/>
+<attribute id="63" name="ERX-Interface-Desc" type="string"/>
+<attribute id="64" name="ERX-Tunnel-Group" type="string"/>
+<!--Original Line : ATTRIBUTE	ERX-Service-Activate			65	string	has_tag-->
+<attribute id="65" name="ERX-Service-Activate" type="string" has-tag="yes"/>
+<attribute id="66" name="ERX-Service-Deactivate" type="string"/>
+<!--Original Line : ATTRIBUTE	ERX-Service-Volume			67	integer	has_tag-->
+<attribute id="67" name="ERX-Service-Volume" type="integer" has-tag="yes"/>
+<!--Original Line : ATTRIBUTE	ERX-Service-Timeout			68	integer	has_tag-->
+<attribute id="68" name="ERX-Service-Timeout" type="integer" has-tag="yes"/>
+<attribute id="69" name="ERX-Service-Statistics" type="integer">
+	<supported-values>
+		<value id="0" name="disabled"/>
+		<value id="1" name="time"/>
+		<value id="2" name="time-volume"/>
+	</supported-values>
+</attribute>
+<attribute id="70" name="ERX-DF-Bit" type="integer">
+	<supported-values>
+		<value id="0" name="dont-ignore-df-bit"/>
+		<value id="1" name="ignore-df-bit"/>
+	</supported-values>
+</attribute>
+<attribute id="71" name="ERX-IGMP-Access-Name" type="string"/>
+<attribute id="72" name="ERX-IGMP-Access-Src-Name" type="string"/>
+<attribute id="73" name="ERX-IGMP-OIF-Map-Name" type="string"/>
+<attribute id="74" name="ERX-MLD-Access-Name" type="string"/>
+<attribute id="75" name="ERX-MLD-Access-Src-Name" type="string"/>
+<attribute id="76" name="ERX-MLD-OIF-Map-Name" type="string"/>
+<attribute id="77" name="ERX-MLD-Version" type="integer">
+	<supported-values>
+		<value id="1" name="v1"/>
+		<value id="2" name="v2"/>
+	</supported-values>
+</attribute>
+<attribute id="78" name="ERX-IGMP-Version" type="integer">
+	<supported-values>
+		<value id="1" name="v1"/>
+		<value id="2" name="v2"/>
+		<value id="3" name="v3"/>
+	</supported-values>
+</attribute>
+<attribute id="79" name="ERX-IP-Mcast-Adm-Bw-Limit" type="integer"/>
+<attribute id="80" name="ERX-IPv6-Mcast-Adm-Bw-Limit" type="integer"/>
+<attribute id="82" name="ERX-Qos-Parameters" type="string"/>
+<attribute id="83" name="ERX-Service-Session" type="string"/>
+<attribute id="84" name="ERX-Mobile-IP-Algorithm" type="integer"/>
+<attribute id="85" name="ERX-Mobile-IP-SPI" type="integer"/>
+<attribute id="86" name="ERX-Mobile-IP-Key" type="string"/>
+<attribute id="87" name="ERX-Mobile-IP-Replay" type="integer"/>
+<attribute id="88" name="ERX-Mobile-IP-Access-Control" type="string"/>
+<attribute id="89" name="ERX-Mobile-IP-Lifetime" type="integer"/>
+<attribute id="90" name="ERX-L2TP-Resynch-Method" type="integer">
+	<supported-values>
+		<value id="0" name="disable"/>
+		<value id="1" name="failover"/>
+		<value id="2" name="silent-failover"/>
+		<value id="3" name="failover-with-silent-backup"/>
+	</supported-values>
+</attribute>
+<attribute id="91" name="ERX-Tunnel-Switch-Profile" type="string"/>
+<attribute id="92" name="ERX-L2c-Up-Stream-Data" type="string"/>
+<attribute id="93" name="ERX-L2c-Down-Stream-Data" type="string"/>
+<attribute id="94" name="ERX-Tunnel-Tx-Speed-Method" type="integer">
+	<supported-values>
+		<value id="1" name="static-layer2"/>
+		<value id="2" name="dynamic-layer2"/>
+		<value id="3" name="qos"/>
+		<value id="4" name="actual"/>
+	</supported-values>
+</attribute>
+<attribute id="95" name="ERX-IGMP-Query-Interval" type="integer"/>
+<attribute id="96" name="ERX-IGMP-Max-Resp-Time" type="integer"/>
+<attribute id="97" name="ERX-IGMP-Immediate-Leave" type="integer">
+	<supported-values>
+		<value id="0" name="disabled"/>
+		<value id="1" name="enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="98" name="ERX-MLD-Query-Interval" type="integer"/>
+<attribute id="99" name="ERX-MLD-Max-Resp-Time" type="integer"/>
+<attribute id="100" name="ERX-MLD-Immediate-Leave" type="integer">
+	<supported-values>
+		<value id="0" name="disabled"/>
+		<value id="1" name="enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="101" name="ERX-IP-Block-Multicast" type="integer">
+	<supported-values>
+		<value id="0" name="disabled"/>
+		<value id="1" name="enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="102" name="ERX-IGMP-Explicit-Tracking" type="integer">
+	<supported-values>
+		<value id="0" name="disabled"/>
+		<value id="1" name="enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="103" name="ERX-IGMP-No-Tracking-V2-Grps" type="integer">
+	<supported-values>
+		<value id="0" name="disabled"/>
+		<value id="1" name="enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="104" name="ERX-MLD-Explicit-Tracking" type="integer">
+	<supported-values>
+		<value id="0" name="disabled"/>
+		<value id="1" name="enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="105" name="ERX-MLD-No-Tracking-V1-Grps" type="integer">
+	<supported-values>
+		<value id="0" name="disabled"/>
+		<value id="1" name="enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="110" name="ERX-Acc-Loop-Cir-id" type="string"/>
+<attribute id="111" name="ERX-Acc-Aggr-Cir-id-Bin" type="octets"/>
+<attribute id="112" name="ERX-Acc-Aggr-Cir-id-Asc" type="string"/>
+<attribute id="113" name="ERX-Act-Data-Rate-Up" type="integer"/>
+<attribute id="114" name="ERX-Act-Data-Rate-Dn" type="integer"/>
+<attribute id="115" name="ERX-Min-Data-Rate-Up" type="integer"/>
+<attribute id="116" name="ERX-Min-Data-Rate-Dn" type="integer"/>
+<attribute id="117" name="ERX-Att-Data-Rate-Up" type="integer"/>
+<attribute id="118" name="ERX-Att-Data-Rate-Dn" type="integer"/>
+<attribute id="119" name="ERX-Max-Data-Rate-Up" type="integer"/>
+<attribute id="120" name="ERX-Max-Data-Rate-Dn" type="integer"/>
+<attribute id="121" name="ERX-Min-LP-Data-Rate-Up" type="integer"/>
+<attribute id="122" name="ERX-Min-LP-Data-Rate-Dn" type="integer"/>
+<attribute id="123" name="ERX-Max-Interlv-Delay-Up" type="integer"/>
+<attribute id="124" name="ERX-Act-Interlv-Delay-Up" type="integer"/>
+<attribute id="125" name="ERX-Max-Interlv-Delay-Dn" type="integer"/>
+<attribute id="126" name="ERX-Act-Interlv-Delay-Dn" type="integer"/>
+<attribute id="127" name="ERX-DSL-Line-State" type="integer">
+	<supported-values>
+		<value id="1" name="SHOWTIME"/>
+		<value id="2" name="idLE"/>
+		<value id="3" name="SILENT"/>
+	</supported-values>
+</attribute>
+<attribute id="128" name="ERX-DSL-Type" type="integer">
+	<supported-values>
+		<value id="1" name="ADSL1"/>
+		<value id="2" name="ADSL2"/>
+		<value id="3" name="ADSL2PLUS"/>
+		<value id="4" name="VDSL1"/>
+		<value id="5" name="VDSL2"/>
+		<value id="6" name="SDSL"/>
+		<value id="7" name="UNKNOWN"/>
+	</supported-values>
+</attribute>
+<attribute id="129" name="ERX-IPv6-NdRa-Prefix" type="ipv6prefix"/>
+<attribute id="130" name="ERX-Qos-Set-Name" type="string"/>
+<!--Original Line : ATTRIBUTE	ERX-Service-Acct-Interval		140	integer has_tag-->
+<attribute id="140" name="ERX-Service-Acct-Interval" type="integer" has-tag="yes"/>
+<attribute id="141" name="ERX-DownStream-Calc-Rate" type="integer"/>
+<attribute id="142" name="ERX-UpStream-Calc-Rate" type="integer"/>
+<attribute id="143" name="ERX-Max-Clients-Per-Interface" type="integer"/>
+<attribute id="144" name="ERX-PPP-Monitor-Ingress-Only" type="integer">
+	<supported-values>
+		<value id="0" name="disabled"/>
+		<value id="1" name="enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="146" name="Jnpr-Cos-Scheduler-Pmt-Type" type="string"/>
+<attribute id="147" name="Unisphere-Backup-Address-Pool" type="string"/>
+<attribute id="150" name="Unisphere-ICR-Partition-Id" type="string"/>
+<attribute id="151" name="Unisphere-Ipv6-Acct-Input-Octets" type="integer"/>
+<attribute id="152" name="Unisphere-Ipv6-Acct-Output-Octets" type="integer"/>
+<attribute id="153" name="Unisphere-Ipv6-Acct-Input-Packets" type="integer"/>
+<attribute id="154" name="Unisphere-Ipv6-Acct-Output-Packets" type="integer"/>
+<attribute id="155" name="Unisphere-Ipv6-Acct-Input-Gigawords" type="integer"/>
+<attribute id="156" name="Unisphere-Ipv6-Acct-Output-Gigawords" type="integer"/>
+<attribute id="157" name="Jnpr-IPv6-Ndra-Pool-Name" type="string"/>
+<attribute id="158" name="Jnpr-PppoE-Padn" type="string"/>
+<attribute id="159" name="Unisphere-Dhcp-Option-82" type="string"/>
+<attribute id="160" name="Jnpr-Vlan-Map-Id" type="integer"/>
+</attribute-list>

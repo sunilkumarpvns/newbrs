@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class  name="com.elitecore.elitesm.datamanager.servermgr.drivers.dbdriver.data.DBAuthDriverData" table="TBLMOPENDBAUTHDRIVER">
+
+		<id name="dbAuthId" column="OPENDBAUTHID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+        <!-- 
+		<property name="dbScanTime" type="long"> 
+			<column name="dbscantime" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+		 -->
+		<property name="tableName" type="StringType"> 
+			<column name="tablename" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<property name="dbQueryTimeout" type="long"> 
+			<column name="dbquerytimeout" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+
+		<property name="maxQueryTimeoutCount" type="long"> 
+			<column name="maxquerytimeoutcount" sql-type="NUMBER(10)" not-null="false" /> 
+		</property>
+
+		<property name="driverInstanceId" type="StringType"> 
+			<column name="driverinstanceid" sql-type="VARCHAR(36)" not-null="true" /> 
+		</property>		
+		
+		<property name="databaseId" type="StringType"> 
+			<column name="DATABASEDSID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="profileLookupColumn" type="StringType"> 
+			<column name="PROFILELOOKUPCOLUMN" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="primaryKeyColumn" type="StringType"> 
+			<column name="PRIMARYKEYCOLUMN" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="sequenceName" type="StringType"> 
+			<column name="SEQUENCENAME" sql-type="VARCHAR(30)" not-null="false" /> 
+		</property>
+		
+		<property name="userIdentityAttributes" type="StringType"> 
+			<column name="USERIDENTITYATTRIBUTES" sql-type="VARCHAR(256)" not-null="false" /> 
+		</property>
+		
+		<bag name="dbFieldMapList" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+			<key column="opendbauthid"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.dbdriver.data.DBAuthFieldMapData" />
+	  	</bag>	
+	  	
+	  	<set name="datasourceSchemaSet" lazy="false" inverse="true" cascade="all-delete-orphan" order-by="appOrder">
+			<key column="OPENDBAUTHID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.subscriberprofile.database.data.DatasourceSchemaData" />
+	  	</set>	
+	  	
+	</class>
+
+</hibernate-mapping> 

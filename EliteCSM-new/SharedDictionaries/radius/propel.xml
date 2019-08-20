@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="14895" vendor-name="Propel">
+<attribute id="1" name="Propel-Accelerate" type="integer"/>
+<attribute id="2" name="Propel-Dialed-Digits" type="string"/>
+<attribute id="3" name="Propel-Client-IP-Address" type="ipaddr"/>
+<attribute id="4" name="Propel-Client-NAS-IP-Address" type="ipaddr"/>
+<attribute id="5" name="Propel-Client-Source-id" type="integer"/>
+<attribute id="6" name="Propel-Content-Filter-id" type="integer"/>
+</attribute-list>

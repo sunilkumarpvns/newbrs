@@ -1,0 +1,28 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="notificationTemplateData.name">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {"Name"})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {"Name"})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {"Name"})}</message>
+        </field-validator>		
+	</field>
+		
+	<field name="notificationTemplateData.templateData">
+		<field-validator type="required" short-circuit="true" >
+			<message>${getText("error.required.field", {"Template Body"})}</message>
+		</field-validator>
+	</field>
+	
+</validators>

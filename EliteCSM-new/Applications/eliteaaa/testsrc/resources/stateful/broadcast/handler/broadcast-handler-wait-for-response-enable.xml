@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<stateful-broadcast-handler>
+	<enabled>true</enabled>
+	<async-communication-entries>
+		<async-communication-entry wait="true"
+			accept-on-timeout="false">
+			<ruleset>0:1="test"</ruleset>
+			<esi-group-name>esigroup1</esi-group-name>
+		</async-communication-entry>
+		<async-communication-entry wait="true"
+			accept-on-timeout="false">
+			<ruleset>0:1="*"</ruleset>
+			<esi-group-name>esigroup2</esi-group-name>
+		</async-communication-entry>
+	</async-communication-entries>
+</stateful-broadcast-handler>

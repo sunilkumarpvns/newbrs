@@ -1,0 +1,125 @@
+*****************************************************************************************
+						GET OPERATION
+*****************************************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+
+http://ip:port/aaasmx/cxfservices/restful/v1/databaseproperties?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/databaseproperties.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/databaseproperties?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/databaseproperties.xml?operation=search
+
+Response     :
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<database-properties>
+    <connection-url>jdbc:postgresql://192.168.2.125:5432/postgres</connection-url>
+    <username>nayana_postgres</username>
+    <password>nayana_postgres</password>
+    <show-sql>false</show-sql>
+    <format-sql>false</format-sql>
+    <dialect>org.hibernate.dialect.PostgreSQLDialect</dialect>
+    <driver-class>org.postgresql.Driver</driver-class>
+</database-properties>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By Default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/databaseproperties
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/databaseproperties?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/databaseproperties.json
+
+#URL using POST Method
+
+http://ip:port/aaasmx/cxfservices/restful/v1/databaseproperties.json?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/databaseproperties.json?operation=search
+
+Response     :
+
+{
+    "connection-url": "jdbc:postgresql://192.168.2.125:5432/postgres",
+    "username": "nayana_postgres",
+    "password": "nayana_postgres",
+    "show-sql": "false",
+    "format-sql": "false",
+    "dialect": "org.hibernate.dialect.PostgreSQLDialect",
+    "driver-class": "org.postgresql.Driver"
+}
+
+*****************************************************************************************
+						UPDATE OPERATION
+*****************************************************************************************
+
+#URL (By Default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource?name=DefaultDatabaseDatasource
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource?operation=update&name=DefaultDatabaseDatasource
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/datasource/DefaultDatabaseDatasource?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<database-datasource>
+	<name>DefaultDatabaseDatasource</name>
+    <connection-url>jdbc:oracle:thin:@//192.168.2.124:1521/csmdb</connection-url>
+    <username>admin</username>
+	<password>admin</password>
+    <timeout>1000</timeout>
+	<status-check-duration>120</status-check-duration>
+    <minimum-pool-size>2</minimum-pool-size>
+    <maximum-pool-size>10</maximum-pool-size>
+</database-datasource>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Database Datasource updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+	"name": "DefaultDatabaseDatasource",
+	"connection-url": "jdbc:oracle:thin:@//192.168.2.124:1521/csmdb",
+	"username": "admin",
+	"password": "admin",
+	"timeout": 1000,
+	"status-check-duration": 120,
+	"minimum-pool-size": 2,
+	"maximum-pool-size": 10
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Database Datasource updated successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************

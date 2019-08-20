@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rad-client-profiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:////opt/work3/Trunk/Applications/eliteaaa/system/schema/rad-clients-profiles.xsd">
+    <radius-client-profile>
+        <dhcp-addresses>254.255.255.254</dhcp-addresses>
+        <dynauth-port>4799</dynauth-port>
+        <ha-ip-address>254.255.255.254</ha-ip-address>
+        <filter-unsupported-vsa>false</filter-unsupported-vsa>
+        <multiple-class-attribute-support>false</multiple-class-attribute-support>
+        <profile-id>1</profile-id>
+        <profile-name>test_profile</profile-name>
+        <supported-vendors>
+            <supported-vendor>
+                <id>0</id>
+                <name>standard</name>
+            </supported-vendor>
+            <supported-vendor>
+                <id>21067</id>
+                <name>elitecore</name>
+            </supported-vendor>
+        </supported-vendors>
+        <user-identities>0:1</user-identities>
+        <vendor-id>0</vendor-id>
+        <vendor-name>standard</vendor-name>
+        <vendor-type>1</vendor-type>
+    </radius-client-profile>
+</rad-client-profiles>

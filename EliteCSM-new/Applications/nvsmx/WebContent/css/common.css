@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+
+
+/* $LOGIN */
+
+
+.panel-nv-invert {
+  border-color: #F0F0F0;
+}
+.panel-nv-invert > .panel-heading {
+  color: #fff;
+  background-color: #F0F0F0;
+  border-color: #F0F0F0;
+}
+.panel-nv-invert > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #F0F0F0;
+}
+.panel-nv-invert > .panel-heading .badge {
+  color: #428bca;
+  background-color: #fff;
+}
+.panel-nv-invert > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #428bca;
+}
+
+.form-horizontal .control-label{
+	padding-right: 10px;
+}
+.form-vertical .form-control{
+	text-align: left;
+	width: 100%;
+}
+.form-vertical .btn{
+	text-align: center;
+	font-weight: 700;
+}
+.form-vertical .has-feeback .form-control-feedback{
+	top: auto;
+	bottom: 25px;
+}
+.alert{
+	margin-top: 20px;
+}
+
+.panel-heading > h1{
+    text-align: center;
+    vertical-align: middle;
+    margin: 0px 0px;
+    color: #222;
+    font: 2em Tahoma, Helvetica, Arial, Sans-Serif; 
+	
+}
+
+.container{
+	height:100%;
+}
+
+ 

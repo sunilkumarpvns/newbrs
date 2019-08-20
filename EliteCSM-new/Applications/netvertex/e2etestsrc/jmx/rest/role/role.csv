@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_role,POST : Create Role  rest_role : 201,sm/role/role.json,POST,create_role.json,,28153,201,role
+2,get_created_role,GET : rest_role should be displayed : 200,sm/role/role/rest_role_11111111.json,GET,,,28154,200,role
+3,update_role,PUT : Update rest_role and change name to updated_rest_role : 200,sm/role/role/rest_role_11111111.json,PUT,update_role.json,,28155,200,role
+4,get_updated_role,GET : updated_rest_role should be displayed : 200,sm/role/role/rest_role_11111111.json,GET,,,28156,200,role
+5,delete_role,DELETE : Delete updated_rest_role : 200,sm/role/role/rest_role_11111111.json,DELETE,,,28157,200,role
+6,get_deleted_role,GET : updated_rest_role should not be displayed : 404,sm/role/role/rest_role_11111111.json,GET,,"{""actionErrors"":[""Role Not Found with id: rest_role_11111111""]}",28158,404,role

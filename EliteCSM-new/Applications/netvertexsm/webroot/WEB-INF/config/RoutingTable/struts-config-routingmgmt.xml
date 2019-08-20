@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <form-beans>
+      <form-bean name="networkManagementForm" type="com.elitecore.netvertexsm.web.RoutingTable.network.form.NetworkManagementForm"/>
+      <form-bean name="mccmncGroupManagementForm" type="com.elitecore.netvertexsm.web.RoutingTable.mccmncgroup.form.MCCMNCGroupManagementForm"/>
+      <form-bean name="routingTableManagementForm" type="com.elitecore.netvertexsm.web.RoutingTable.mccmncroutingtable.form.RoutingTableManagementForm"/>
+    </form-beans>
+  
+    <action-mappings>
+      
+     <action parameter="method" name="networkManagementForm"
+			path="/networkManagement" scope="request" type="com.elitecore.netvertexsm.web.RoutingTable.network.NetworkManagementAction">
+			<forward name="searchNetworkPage" path="/jsp/RoutingTable/network/SearchNetwork.jsp" />
+			<forward name="createNetworkPage" path="/jsp/RoutingTable/network/CreateNetwork.jsp" />
+			<forward name="viewNetworkPage" path="/jsp/RoutingTable/network/ViewNetworkContainer.jsp" />
+			<forward name="editNetworkPage" path="/jsp/RoutingTable/network/EditNetworkContainer.jsp" />
+	 </action>
+	 
+	 <action parameter="method" name="mccmncGroupManagementForm" 
+	 			path="/mccmncGroupManagement" scope="request" type="com.elitecore.netvertexsm.web.RoutingTable.mccmncgroup.MCCMNCGroupManagementAction">
+		<forward name="searchmccmncGroup" path="/jsp/RoutingTable/mccmncgroup/SearchMCCMNCGroup.jsp"/>
+		<forward name="createmccmncGroup" path="/jsp/RoutingTable/mccmncgroup/CreateMCCMNCGroup.jsp"/>
+		<forward name="viewmccmncGroup" path="/jsp/RoutingTable/mccmncgroup/ViewMCCMNCGroupContainer.jsp" />
+		<forward name="editmccmncGroup" path="/jsp/RoutingTable/mccmncgroup/EditMCCMNCGroupContainer.jsp" />
+	 </action>
+	
+	<action parameter="method" name="routingTableManagementForm" 
+	 			path="/routingTableManagement" scope="request" type="com.elitecore.netvertexsm.web.RoutingTable.mccmncroutingtable.RoutingTableManagementAction">
+		<forward name="searchRoutingTable" path="/jsp/RoutingTable/mccmncroutingtable/SearchRoutingTable.jsp"/>
+		<forward name="createRoutingTable" path="/jsp/RoutingTable/mccmncroutingtable/CreateRoutingTable.jsp"/>
+		<forward name="viewRoutingTable" path="/jsp/RoutingTable/mccmncroutingtable/ViewRoutingTableContainer.jsp" />
+		<forward name="editRoutingTable" path="/jsp/RoutingTable/mccmncroutingtable/EditRoutingTableContainer.jsp" />
+		<forward name="manageRoutingEntryOrder" path="/jsp/RoutingTable/mccmncroutingtable/ManageRoutingEntryOrder.jsp" />
+	 </action>
+    
+    
+    </action-mappings>
+  
+    <message-resources key="routingMgmtResources" parameter="com.elitecore.netvertexsm.web.RoutingTable.RoutingMgmtResources" />
+  
+</struts-config>

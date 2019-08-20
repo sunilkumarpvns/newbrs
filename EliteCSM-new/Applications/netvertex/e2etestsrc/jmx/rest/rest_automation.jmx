@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.1" jmeter="3.1 r1770033">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="REST" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="jmeter.test.home" elementType="Argument">
+            <stringProp name="Argument.name">jmeter.test.home</stringProp>
+            <stringProp name="Argument.value">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <kg.apc.jmeter.config.VariablesFromCSV guiclass="kg.apc.jmeter.config.VariablesFromCSVGui" testclass="kg.apc.jmeter.config.VariablesFromCSV" testname="Global Variable" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+        <stringProp name="filename">global.variables</stringProp>
+        <stringProp name="variablesPrefix"></stringProp>
+        <stringProp name="delimiter">::</stringProp>
+        <intProp name="skipLines">0</intProp>
+        <boolProp name="storeSysProp">false</boolProp>
+      </kg.apc.jmeter.config.VariablesFromCSV>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="REST Default Parameters" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">${__P(serverip,)}</stringProp>
+        <stringProp name="HTTPSampler.port">${__P(serverport,)}</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        <stringProp name="HTTPSampler.protocol"></stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Authorization</stringProp>
+            <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">Header Manager for REST API</stringProp>
+      </HeaderManager>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration-192.168.11.199" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1 from dual</stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">DB</stringProp>
+        <stringProp name="dbUrl">jdbc:oracle:thin:@//192.168.11.199:1521/orcl12c</stringProp>
+        <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">trunk</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">trunk</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="CRUD for SM" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1489675226000</longProp>
+        <longProp name="ThreadGroup.end_time">1489675226000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">${__P(test.module,)}</stringProp>
+          <boolProp name="quotedData">true</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="variableNames"></stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Capture rest log" enabled="true">
+          <collectionProp name="ModuleController.node_path">
+            <stringProp name="-1227702913">WorkBench</stringProp>
+            <stringProp name="2511828">REST</stringProp>
+            <stringProp name="18059174">Common Functions</stringProp>
+            <stringProp name="1819813022">Capture Tomcat log </stringProp>
+          </collectionProp>
+        </ModuleController>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${test.description}" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${__P(serverip,)}</stringProp>
+          <stringProp name="HTTPSampler.port">${__P(serverport,)}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">netvertexsm/${http.path}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="cacheKey">d7fc748e-22b1-43b5-9f67-56334eaace08</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import org.apache.jmeter.engine.util.CompoundVariable;
+import org.apache.jmeter.protocol.http.util.HTTPArgument;
+
+//tets input parameters
+def httpMethod = vars.get(&quot;http.method&quot;);
+
+//change the http method as per the data sheet
+sampler.setMethod(httpMethod);
+
+//set the HTTP request body
+if(!vars.get(&quot;input.json&quot;).equals(&quot;&quot;)){
+	def dataToBePosted = new CompoundVariable(new File(vars.get(&quot;jmeter.test.home&quot;) + vars.get(&quot;input.json&quot;)).text).execute();
+	def arg= new HTTPArgument(&quot;&quot;, dataToBePosted, null, true);
+	arg.setAlwaysEncoded(false);
+	sampler.getArguments().addArgument(arg);
+
+	//HTTP Body is set to
+	log.info(&quot;------------------------&quot;);
+	log.info(&quot;Json File to be Parsed is : &quot; + vars.get(&quot;input.json&quot;));
+	log.info(dataToBePosted);
+	log.info(&quot;------------------------&quot;);
+}
+
+// If you need to modify anything else, check HTTPSamplerBase API
+// https://jmeter.apache.org/api/org/apache/jmeter/protocol/http/sampler/HTTPSamplerBase.html
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1432199974">${response.code}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">300</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+          <collectionProp name="Asserion.test_strings">
+            <stringProp name="461893074">${assertion}</stringProp>
+          </collectionProp>
+          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+          <boolProp name="Assertion.assume_success">false</boolProp>
+          <intProp name="Assertion.test_type">16</intProp>
+        </ResponseAssertion>
+        <hashTree/>
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Stop rest log" enabled="true">
+          <collectionProp name="ModuleController.node_path">
+            <stringProp name="-1227702913">WorkBench</stringProp>
+            <stringProp name="2511828">REST</stringProp>
+            <stringProp name="18059174">Common Functions</stringProp>
+            <stringProp name="1819813022">Capture Tomcat log </stringProp>
+          </collectionProp>
+        </ModuleController>
+        <hashTree/>
+      </hashTree>
+      <JSR223Listener guiclass="TestBeanGUI" testclass="JSR223Listener" testname="Test-Rail Push Result JSR223 Listener" enabled="false">
+        <stringProp name="TestPlan.comments">This Listener will Push Pass/Fail Result to Test Rail</stringProp>
+        <stringProp name="cacheKey"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="parameters">${__P(test_run_id,)} ${test_case_id}</stringProp>
+        <stringProp name="script">import java.util.HashMap;
+import java.util.Map;
+import org.json.simple.JSONObject;
+import org.apache.jorphan.logging.LoggingManager;
+import com.gurock.testrail.APIClient;
+import org.apache.jmeter.samplers.*;
+import org.apache.jmeter.assertions.*;
+
+APIClient client = new APIClient(&quot;http://192.168.2.138/csmqa/&quot;);
+client.setUser(&quot;nirav.modhiya@elitecore.com&quot;);
+client.setPassword(&quot;elitecore&quot;);	
+
+LoggingManager.getLoggerForClass().info(&quot;JSON Object To Be Sent Is : &quot;+ args);
+// Here STATUS 1 is for &apos;Passed&apos; and &apos;5&apos; is for &apos;Failed&apos;
+String STATUS_ID = &quot;status_id&quot;;
+//Validations on results
+
+Map data = new HashMap();
+LoggingManager.getLoggerForClass().info(&quot;SampleResult.isStopThread : &quot;+ sampleResult.isStopThread()); 
+LoggingManager.getLoggerForClass().info(&quot;SampleResult.isSuccessful : &quot;+ sampleResult.isSuccessful()); 
+
+int status = 1;
+// 1) This will be executed when all the samplers are executed succesffully.
+String commit = &quot;All the Steps are executed Successfully&quot;
+// 1) End
+
+// 2) Exectuion failed on Sampler. i.e. Sampler ERROR &amp; Test Thread is stopped.
+if(sampleResult.isStopThread()) {
+	status = 5;
+	Sampler sampler = ctx.getCurrentSampler();
+	commit = &quot;\n&quot; + sampler.getName() + &quot; execution failed&quot;;
+// 2) End
+	
+} else {
+// 3) Execution failed on Assertion. i.e. Assertion failed / multiple Assertion failed.
+	Sampler sampler = ctx.getCurrentSampler();
+	String name = sampler.getName();
+
+	if(name.equals(&quot;end sampler&quot;)){
+		status = 1;
+	} else if (sampleResult.isSuccessful() == false) {
+		status = 5;
+
+		if(sampleResult.getAssertionResults() == null || sampleResult.getAssertionResults().size() == 0) {
+			commit = &quot;Execution failed of: &quot; + &quot;\n Thread Name: &quot; + sampler.getThreadName() + &quot;\n Sampler Name: &quot; + sampler.getName();
+			LoggingManager.getLoggerForClass().info(&quot;SampleResult.isSuccessful : &quot;+ sampleResult.isSuccessful());
+		} else {
+			commit = &quot;Execution failed of: &quot; + &quot;\n Thread Name: &quot; + sampler.getThreadName() + &quot;\n Sampler Name: &quot; + sampler.getName() + &quot; on following Assertion:&quot;;
+			for (AssertionResult assertionResult : sampleResult.getAssertionResults()) {
+	
+				if(assertionResult.isFailure() || assertionResult.isError()) {
+commit = commit + &quot;\n Assertion Name: &quot; + assertionResult.getName() + &quot;\n Assertion Failure Message: &quot; + assertionResult.getFailureMessage();
+				}
+			}
+		}
+	} else {
+		return;
+	}
+}
+// 3) End
+
+// Null Check for Elapsed Time.
+String elapsedTime = vars.get(&quot;elapsed_time&quot;);
+if (elapsedTime == null) {
+	LoggingManager.getLoggerForClass().error(&quot;&lt;&lt; Elapsed Time is not defined in Global Variable Definition &gt;&gt;&quot;);
+	return;
+} else {
+LoggingManager.getLoggerForClass().info(&quot;elapsed time is: &quot; + elapsedTime);
+}
+
+// Null Check for Checked Version.
+//String checkedVersion = vars.get(&quot;checked_version&quot;);
+String checkedVersion = ${__P(checked_version,)}
+if (checkedVersion == null) {
+	LoggingManager.getLoggerForClass().error(&quot;&lt;&lt; Checked Version is not defined in Global Variable Definition &gt;&gt;&quot;);
+	return;
+} else {
+LoggingManager.getLoggerForClass().info(&quot;Checked Version is: &quot; + checkedVersion);
+}
+
+// Null Check for Checked Revision.
+//String checkedRevision = vars.get(&quot;checked_revision&quot;);
+String checkedRevision = ${__P(checked_revision,)}
+if (checkedRevision == null) {
+	LoggingManager.getLoggerForClass().error(&quot;&lt;&lt; Checked Revision is not defined in Global Variable Definition &gt;&gt;&quot;);
+	return;
+} else {
+LoggingManager.getLoggerForClass().info(&quot;Checked Revision is: &quot; + checkedRevision);
+}
+
+// Null Check for Test Run ID.
+//String testRunId = vars.get(&quot;test_run_id&quot;);
+String testRunId = ${__P(test_run_id,)}
+if (testRunId == null) {
+	LoggingManager.getLoggerForClass().error(&quot;&lt;&lt; Test Run ID is not defined in Global Variable Definition &gt;&gt;&quot;);
+	return;
+} else {
+LoggingManager.getLoggerForClass().info(&quot;Test Run ID is: &quot; + testRunId);
+}
+
+// Null Check for Test Case ID.
+//String testCaseId = vars.get(&quot;test_case_id&quot;);
+String testCaseId = vars.get(&quot;test_case_id&quot;);
+if (testCaseId == null) {
+	LoggingManager.getLoggerForClass().error(&quot;&lt;&lt; Test Case ID is not defined in TTS Parameterized Configuration &gt;&gt;&quot;);
+	return;
+} else {
+LoggingManager.getLoggerForClass().info(&quot;Test Case ID is: &quot; + testCaseId);
+}
+
+LoggingManager.getLoggerForClass().info(&quot;Status is: &quot; + STATUS_ID);
+
+data.put(STATUS_ID, status);
+data.put(&quot;comment&quot;, commit);
+// Elapsed time is in Minutes
+data.put(&quot;elapsed&quot;, new Integer(elapsedTime));
+data.put(&quot;custom_version&quot;, new Integer(checkedVersion));
+data.put(&quot;custom_revision&quot;, new Integer(checkedRevision));
+LoggingManager.getLoggerForClass().info(&quot;Add_result_for_case&quot;);
+LoggingManager.getLoggerForClass().info(&quot;Add_result_for_case/&quot;+args[0]+&quot;/&quot;+args[1]);
+JSONObject r = (JSONObject) client.sendPost(&quot;Add_result_for_case/&quot;+args[0]+&quot;/&quot;+args[1], data);
+LoggingManager.getLoggerForClass().info(&quot;JSON Result received: &quot;+ r);</stringProp>
+        <stringProp name="scriptLanguage">groovy</stringProp>
+      </JSR223Listener>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>false</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>false</subresults>
+            <responseData>true</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
+        <stringProp name="FileSaver.filename">response_data/${test.summary}</stringProp>
+        <boolProp name="FileSaver.errorsonly">false</boolProp>
+        <boolProp name="FileSaver.skipautonumber">true</boolProp>
+        <boolProp name="FileSaver.skipsuffix">false</boolProp>
+        <boolProp name="FileSaver.successonly">false</boolProp>
+        <stringProp name="FileSaver.variablename">FILE_NAME</stringProp>
+      </ResultSaver>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Common Functions" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1454995107000</longProp>
+        <longProp name="ThreadGroup.end_time">1454995107000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Capture Tomcat log " enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Start Tomcat logs" enabled="false">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>nohup tail -f ${nvhome}/logs/netvertex-server-${serverinstancename}.log&gt;/opt/${logpath}/${pcapdir}/${logfilename}.log &amp; echo $!</__commandText>
+                  <__timeout>2000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>/bin/mkdir -p ${logpath}/${pcapdir}</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>nohup tail -f ${tomcat_home}/logs/catalina.out&gt;${logpath}/${pcapdir}/${tomcatlogs}.log &amp; echo $!</__commandText>
+                  <__timeout>300</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>true</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <com.computaris.jmeter.extractor.DiameterStore guiclass="com.computaris.jmeter.extractor.gui.DiameterStoreGui" testclass="com.computaris.jmeter.extractor.DiameterStore" testname="Store PID of log Command" enabled="true">
+              <stringProp name="DiameterStoredefault"></stringProp>
+              <stringProp name="DiameterStorerefname">TomcatLogPID</stringProp>
+              <stringProp name="DiameterStorevalue">${__telnetSSHGetResultLineByRegex(2,^\d+$)}</stringProp>
+              <boolProp name="DiameterStoretolerant">true</boolProp>
+            </com.computaris.jmeter.extractor.DiameterStore>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="com.computaris.jmeter.functions.FunctionHelperHook" testclass="GenericController" testname="Stop Tomcat log" enabled="true"/>
+        <hashTree>
+          <com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler guiclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSamplerGui" testclass="com.computaris.jmeter_plugins.telnet_ssh.sampler.TelnetSSHSampler" testname="Stop Tomcat logs" enabled="false">
+            <stringProp name="TelnetSSHSampler.SERVER_ADDRESS">${serverip}</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PORT_NUMBER">22</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_USERNAME">root</stringProp>
+            <stringProp name="TelnetSSHSampler.SSH_PASSWORD">${rootpassword}</stringProp>
+            <boolProp name="TelnetSSHSampler.TELNET_BUTTON_STATUS">false</boolProp>
+            <boolProp name="TelnetSSHSampler.SSH_BUTTON_STATUS">true</boolProp>
+            <boolProp name="TelnetSSHSampler.LOGIN_REQUIRED">true</boolProp>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>kill ${LogPID}</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+            <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+              <name>TelnetSSHSampler.SSH_COMMANDS_TO_SENDS</name>
+              <value>
+                <com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+                  <__commandText>kill ${TomcatLogPID}</__commandText>
+                  <__timeout>1000</__timeout>
+                  <__waitFor></__waitFor>
+                  <__checkResult>false</__checkResult>
+                  <__executionStatus>0</__executionStatus>
+                  <__results/>
+                  <__expectedResults/>
+                </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommand>
+              </value>
+            </com.computaris.jmeter__plugins.telnet__ssh.common.TelnetSSHCommandsArrayListProperty>
+          </com.computaris.jmeter__plugins.telnet__ssh.sampler.TelnetSSHSampler>
+          <hashTree>
+            <com.computaris.jmeter.modifiers.DiameterLoad guiclass="com.computaris.jmeter.modifiers.gui.DiameterLoadGui" testclass="com.computaris.jmeter.modifiers.DiameterLoad" testname="TTS Load Variable" enabled="true">
+              <stringProp name="DiameterLoaddefault"></stringProp>
+              <stringProp name="DiameterLoadrefname">TomcatLogPID</stringProp>
+              <stringProp name="DiameterLoadvalue">TomcatLogPID</stringProp>
+              <boolProp name="DiameterLoadtolerant">false</boolProp>
+            </com.computaris.jmeter.modifiers.DiameterLoad>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+                 
+	<class name="com.elitecore.elitesm.datamanager.rm.ippool.data.IPPoolData" table="TBLMIPPOOL" >          
+	 
+		<id name="ipPoolId" column="IPPOOLID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+	 
+		<property name="name" type="StringType">
+		  <column name="NAME" sql-type="VARCHAR(50)" not-null="true"/>
+		</property>
+		
+		<property name="description" type="StringType">
+		  <column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"/>
+		</property>
+	
+		<property name="commonStatusId" type="CharType">
+		  <column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="true"/>
+		</property>
+
+		<property name="statusChangedDate" type="java.sql.Timestamp" column="STATUSCHANGEDATE" not-null="false" >
+		</property>
+
+		<property name="createdByStaffId" type="StringType">
+			<column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"/>
+		</property>
+		
+		<property name="lastModifiedByStaffId" type="StringType">
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"/>
+		</property>
+
+		<property name="createDate" type="java.sql.Timestamp" column="CREATEDATE" not-null="true" >
+		</property>
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp"  column="LASTMODIFIEDDATE" not-null="false" >
+		</property>
+
+		<property name="nasIPAddress" type="StringType">
+		  <column name="NASIPADDRESS" sql-type="VARCHAR(50)" not-null="false"/>
+		</property>
+		
+		<property name="ruleSet" type="StringType">
+			<column name="RULESET" sql-type="VARCHAR(2000)"></column>
+		</property>
+
+		<property name="systemGenerated" type="CharType">
+		  <column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"/>
+		</property>
+
+		<property name="editable" type="CharType">
+			<column name="EDITABLE" sql-type="CHAR(1)" not-null="true"/>
+		</property>	
+		
+     	<property name="additionalAttributes" type="StringType">
+			<column name="ADDITIONALATTRIBUTES" sql-type="VARCHAR(256)" not-null="false"/>
+		</property>
+			
+		<many-to-one name="lastModifiedByStaff" class="com.elitecore.elitesm.datamanager.core.system.staff.data.StaffData" column="LASTMODIFIEDBYSTAFFID" insert="false" update="false" not-null="true" lazy="false"/>			
+		<many-to-one name="createdByStaff" class="com.elitecore.elitesm.datamanager.core.system.staff.data.StaffData" column="CREATEDBYSTAFFID" insert="false" update="false" not-null="true" lazy="false"/>				  
+			      
+ 		<set name="ipPoolDetail" lazy="false" inverse="true">
+			<key column="ipPoolId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.rm.ippool.data.IPPoolDetailData" />
+		</set>  
+		
+		<property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	  	</property>
+	  	
+	  	<set name="ipPoolDetailSet" lazy="false" inverse="true">
+			<key column="ipPoolId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.rm.ippool.data.IPPoolDetailData" />
+		</set>  
+		
+	</class>
+	
+</hibernate-mapping>
+
+          

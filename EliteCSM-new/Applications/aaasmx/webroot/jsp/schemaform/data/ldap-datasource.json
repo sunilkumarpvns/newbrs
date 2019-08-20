@@ -1,0 +1,153 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "LDAP",
+		"properties": {
+			"name": {
+				"title": "Name",
+				"type": "string"
+			},
+			"address": {
+				"title": "Address",
+				"type": "string"
+			},
+			"administrator": {
+				"title": "Administrator",
+				"type": "string"
+			},
+			"password": {
+				"title": "Password",
+				"type": "string"
+			},
+			"timeout": {
+				"title": "Timeout(ms)",
+				"type": "integer"
+			},
+			"status-check-duration": {
+				"title": "Status-Check-Duration(Sec.)",
+				"type": "integer"
+			},
+			"minimum-pool-size": {
+				"title": "Minimum Connection",
+				"type": "integer"
+			},
+			"maximum-pool-size": {
+				"title": "Maximum Connection",
+				"type": "integer"
+			},
+			"user-dn-prefix": {
+				"title": "User DN Prefix",
+				"type": "string"
+			},
+			"ldap-size-limit": {
+				"title": "LDAP Size Limit",
+				"type": "integer"
+			},
+			"ldap-version": {
+				"title": "ldap-version",
+				"type": "number",
+				"enum": [
+					2,
+					3
+				]
+			},
+			"ldap-base-dn-details": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"ldap-search-base-dn": {
+							"type": "string",
+							"title": "BaseDn Name"
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name",
+			"type": "textbox"
+		},
+		{
+			"key": "address",
+			"type": "textbox"
+		},
+		{
+			"key": "administrator",
+			"type": "textbox"
+		},
+		{
+			"key": "status-check-duration"
+		},
+		{
+			"key": "password",
+			"type": "textbox"
+		},
+		{
+			"key": "timeout"
+		},
+		{
+			"key": "minimum-pool-size"
+		},
+		{
+			"key": "maximum-pool-size"
+		},
+		{
+			"key": "user-dn-prefix"
+		},
+		{
+			"key": "ldap-size-limit"
+		},
+		{
+			"key": "ldap-version",
+			"type": "select",
+			"titleMap": [
+				{
+					"value": 2,
+					"name": "2"
+				},
+				{
+					"value": 3,
+					"name": "3"
+				}
+			]
+		},
+		{
+			"key": "ldap-base-dn-details",
+			"add": "New",
+			"style": {
+				"add": "btn-success"
+			},
+			"items": [
+				{
+					"key": "ldap-base-dn-details[].ldap-search-base-dn"
+				}
+			]
+		},
+		{
+			"type": "submit",
+			"style": "btn-info",
+			"title": "OK"
+		}
+	],
+	"model": {
+		"name": "LDAP_DS",
+		"address": "10.121.21.62:1812",
+		"administrator": "admin",
+		"password": "admin",
+		"timeout": 1000,
+		"status-check-duration": 120,
+		"minimum-pool-size": 2,
+		"maximum-pool-size": 5,
+		"user-dn-prefix": "uid=",
+		"ldap-size-limit": 1,
+		"ldap-version": 3,
+		"ldap-base-dn-details": [
+			{
+				"ldap-search-base-dn": "elitecore"
+			}
+		]
+	}
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="subscriber.subscriberIdentity">
+		<field-validator type="required" short-circuit="true">
+		    <param name="trim">true</param>
+			<message>${getText("error.required.field", {getText("subscriber.id")})}</message>
+		</field-validator>	
+	</field>
+	
+	<field name="subscriber.productOffer">
+		<field-validator type="required" short-circuit="true">
+		    <param name="trim">true</param>
+			<message>${getText("error.required.field", {getText("subscriber.productoffer")})}</message>
+		</field-validator>
+	</field>
+	
+	<field name="subscriber.customerType">
+		<field-validator type="required" short-circuit="true">
+		    <param name="trim">true</param>
+			<message>${getText("error.required.field", {getText("subscriber.customertype")})}</message>
+		</field-validator>
+	</field>
+	
+	<field name="subscriber.email">
+		<field-validator type="email" short-circuit="true">
+   			<message>${getText("error.email")}</message>
+		</field-validator>
+	</field>
+	
+	<field name="subscriber.phone">
+		<field-validator type="regex"  short-circuit="true">
+        	<param name="regex"><![CDATA[^[0-9]*$]]></param>
+    		<message>${getText("error.required.numeric", {getText("subscriber.phone")})}</message>
+        </field-validator>
+	</field>
+	
+	<field name="subscriber.billingDate">
+		<field-validator type="int"  short-circuit="true">
+   			<param name="min">1</param>
+   			<param name="max">28</param>
+   		<message>${getText("error.numeric.range",{getText("subscriber.billingdate")})}  </message>
+		</field-validator>
+	</field>
+
+	<field name="subscriber.msisdn">
+		<field-validator type="regex"  short-circuit="true">
+        	<param name="regex"><![CDATA[^[0-9]*$]]></param>
+    		<message>${getText("error.required.numeric", {getText("subscriber.msisdn")})}</message>
+        </field-validator>
+	</field>
+	
+	
+	
+</validators>

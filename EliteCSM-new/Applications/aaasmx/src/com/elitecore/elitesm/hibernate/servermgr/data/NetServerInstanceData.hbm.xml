@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.servermgr.data.NetServerInstanceData" table="TBLMNETSERVERINSTANCE">
+		
+		<id name="netServerId" column="NETSERVERID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		<property name="netServerCode" type="string">
+			<column name="NETSERVERCODE" sql-type="VARCHAR(36)" not-null="true"></column>
+		</property>
+		<property name="name" type="StringType">
+			<column name="NAME" sql-type="VARCHAR(60)" not-null="true"></column>
+		</property>
+		<property name="description" type="StringType">
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"></column>
+		</property>
+		<property name="version" type="StringType">
+			<column name="VERSION" sql-type="VARCHAR(25)" not-null="true"></column>
+		</property>
+		<property name="netServerTypeId" type="CharType">
+			<column name="NETSERVERTYPEID" sql-type="CHAR(7)" not-null="true"></column>
+		</property>
+		<property name="adminHost" type="StringType">
+			<column name="ADMINHOST" sql-type="VARCHAR(255)" not-null="true"></column>
+		</property>
+		<property name="adminPort" type="int">
+			<column name="ADMINPORT" sql-type="NUMBER(5)" not-null="true"></column>
+		</property>
+		<property name="createDate" type="java.sql.Timestamp" column="CREATEDATE" not-null="true">
+        </property>
+		<property name="createdByStaffId" type="StringType">
+			<column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="true"></column>
+		</property>
+		<property name="lastModifiedDate" type="java.sql.Timestamp" column="LASTMODIFIEDDATE" not-null="false"> 
+        </property>
+		<property name="lastModifiedByStaffId" type="StringType">
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="false"></column>
+		</property>
+		<property name="commonStatusId" type="CharType">
+			<column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="false"></column>
+		</property>
+		<property name="statusChangeDate" type="java.sql.Timestamp" column="STATUSCHANGEDATE" not-null="false" >
+        </property>
+		<property name="systemGenerated" type="CharType">
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)" not-null="true"></column>
+		</property>
+		<property name="lastSyncDate" type="java.sql.Timestamp" column="LASTSYNCDATE" not-null="false">
+		</property>
+		<property name="lastSuccessSynDate" type="java.sql.Timestamp" column="LASTSUCCESSSYNCDATE" not-null="false">
+		</property>
+		<property name="javaHome" type="StringType" column="JAVAHOME" not-null="true">
+		</property>
+		<property name="serverHome" type="StringType" column="SERVERHOME" not-null="true">
+		</property>
+		<property name="lastSyncStatus" type="CharType">
+			<column name="LASTSYNCSTATUS" sql-type="CHAR(5)" not-null="false"></column>
+		</property>
+		<property name="isInSync" type="CharType">
+			<column name="ISCONFIGINSYNC" sql-type="CHAR(5)" not-null="false"></column>
+		</property>
+		<property name="licenseExpiryDays" type="int">
+			<column name="LICENSEEXPIRYDAYS" sql-type="NUMBER(5)" not-null="false"></column>
+		</property>
+		<property name="licenseCheckDate" type="java.sql.Timestamp">
+			<column name="LICENSECHECKDATE" sql-type="TIMESTAMP" not-null="false"></column>
+		</property>
+  		 <many-to-one name="netServerType" class="com.elitecore.elitesm.datamanager.servermgr.data.NetServerTypeData" column="NETSERVERTYPEID" insert="false" update="false" not-null="true" lazy="false"/>  
+   	 	<one-to-one name="startupConfig" class="com.elitecore.elitesm.datamanager.servermgr.data.NetServerStartupConfigData" lazy="false" cascade="all" ></one-to-one> 
+
+	</class>
+</hibernate-mapping>          

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.data">
+
+  <class name="com.elitecore.netvertexsm.datamanager.gateway.gateway.data.DiameterGatewayData" table="TBLMDIAMETERGATEWAY">
+  
+  	 <id name="gatewayId" type="long" >
+  	   <column name="GATEWAYID" sql-type="NUMBER(12)"></column>
+  	 </id>     
+  	 
+     <property name="hostId" type="string">
+          <column name="HOSTIDENTITY" sql-type="VARCHAR2(40)" not-null="false"/>
+     </property>          
+     <property name="realm" type="string">
+          <column name="REALM" sql-type="VARCHAR2(40)" not-null="false"/>
+     </property>
+     <property name="localAddress" type="string">
+          <column name="LOCALADDRESS" sql-type="VARCHAR2(64)" not-null="false"/>
+     </property>
+     <property name="requestTimeout" type="long">
+          <column name="REQUESTTIMEOUT" sql-type="NUMBER" default="3000" not-null="false"/>
+     </property>
+     <property name="retransmissionCount" type="java.lang.Integer">
+          <column name="RETRANSMISSIONCOUNT" sql-type="NUMBER" default="0"  not-null="false"/>
+     </property>
+     <property name="alternateHostId" type="java.lang.Long">
+     	  <column name="ALTERNATEHOSTID" sql-type="NUMBER(12)"/>
+     </property>    
+     
+  </class>
+</hibernate-mapping>

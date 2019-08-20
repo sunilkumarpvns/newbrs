@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	
+	<class  name="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.MessageTypeData" table="TBLSMESSAGETYPE">
+        
+		<id name="messageTypeId" column="MESSAGETYPEID" type="CharType"></id> 
+
+		<property name="name" type="StringType"> 
+			<column name="NAME" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+
+		<property name="alias" type="StringType"> 
+			<column name="ALIAS" sql-type="VARCHAR(50)" not-null="false" /> 
+		</property>
+		
+		<property name="inType" type="CharType"> 
+			<column name="INTYPE" sql-type="CHAR(1)" not-null="false" /> 
+		</property>
+		
+		<property name="outType" type="CharType"> 
+			<column name="OUTTYPE" sql-type="CHAR(1)" not-null="false" /> 
+		</property>
+		
+		<property name="translatorTypeId" type="CharType"> 
+			<column name="TRANSLATORTYPEID" sql-type="CHAR(7)" not-null="false" /> 
+		</property>
+	</class>
+
+</hibernate-mapping> 
+
+	
+

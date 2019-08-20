@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping> 																								
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.diameter.naspolicy.data.NASPolicyAuthMethodRelData" table="TBLMNASPOLICYAMREL">
+		<composite-id>
+			<key-property name="nasPolicyId" column="NASPOLICYID" type="StringType"></key-property>
+			<key-property name="authMethodTypeId" column="AUTHMETHODTYPEID" type="java.lang.Long"></key-property>
+		</composite-id>
+	</class>		
+</hibernate-mapping>   

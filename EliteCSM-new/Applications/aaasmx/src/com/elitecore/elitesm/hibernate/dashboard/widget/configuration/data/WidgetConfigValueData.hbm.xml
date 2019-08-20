@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.web.dashboard.widget.configuration.WidgetConfigValueData" table="TBLMWIDGETCONFIGVALUES">
+		<id name="valueId" column="VALUEID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>
+		<property name="parameterId" type="java.lang.Long">
+			<column name="PARAMETERID" sql-type="NUMERIC(20)" not-null="false" />
+		</property>
+		<property name="parameterValue" type="StringType">
+			<column name="PARAMETERVALUE" sql-type="VARCHAR(255)" not-null="false" />
+		</property>
+	</class>
+
+</hibernate-mapping>

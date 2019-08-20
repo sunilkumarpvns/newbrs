@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="sendPacketForm"
+			type="com.elitecore.netvertexsm.web.sendpacket.form.SendPacketForm"></form-bean>
+			<form-bean name="sendRadiusPacketForm"
+			type="com.elitecore.netvertexsm.web.sendpacket.form.SendRadiusPacketForm"></form-bean>
+
+	</form-beans>
+	<action-mappings>
+		<action path="/initCreateSendPacket" scope="request"
+			type="com.elitecore.netvertexsm.web.sendpacket.InitCreateSendPacketAction"
+			name="sendPacketForm" validate="false">
+			<forward name="initCreateSendPacket" path="/jsp/sendpacket/CreateSendPacketDetail.jsp"></forward>
+		</action>
+
+		<action path="/createSendPacket" scope="request"
+			type="com.elitecore.netvertexsm.web.sendpacket.CreateSendPacketAction"
+			name="sendPacketForm" validate="false">
+			<forward name="initCreateSendPacket" path="/jsp/sendpacket/CreateSendPacketDetail.jsp"></forward>
+		</action>
+		 <action path="/searchSendPacket"
+		  		scope="request"
+		  		type="com.elitecore.netvertexsm.web.sendpacket.SearchSendPacketAction"
+		  		name="sendPacketForm"
+		  		validate="false">
+		  		<forward name="searchSendPacket" path="/jsp/servermgr/server/SearchDiameterSendPacketContainer.jsp"/>
+	  	 </action>
+	  	  <action path="/initEditSendPacket"
+		  		scope="request"
+		  		type="com.elitecore.netvertexsm.web.sendpacket.InitEditSendPacketAction"
+		  		name="sendPacketForm"
+		  		validate="false">
+		  		<forward name="initEditSendPacket" path="/jsp/sendpacket/EditSendPacketDetail.jsp"/>
+	  	 </action>
+	  	 
+	  	 <action path="/editSendPacket"
+		  		scope="request"
+		  		type="com.elitecore.netvertexsm.web.sendpacket.EditSendPacketAction"
+		  		name="sendPacketForm"
+		  		validate="false">
+		  		<forward name="initEditSendPacket" path="/jsp/sendpacket/EditSendPacketDetail.jsp"/>
+	  	 </action>
+	  	 
+	  	 
+	  	 <!--  Radius Packet mapping -->
+		<action path="/initCreateRadiusSendPacket" scope="request"
+			type="com.elitecore.netvertexsm.web.sendpacket.radius.InitCreateRadiusSendPacketAction"
+			name="sendRadiusPacketForm" validate="false">
+			<forward name="initCreateRadiusSendPacket" path="/jsp/sendpacket/radius/CreateRadiusSendPacketDetail.jsp"></forward>
+		</action>
+
+		<action path="/createRadiusSendPacket" scope="request"
+			type="com.elitecore.netvertexsm.web.sendpacket.radius.CreateRadiusSendPacketAction"
+			name="sendRadiusPacketForm" validate="false">
+			<forward name="initCreateRadiusSendPacket" path="/jsp/sendpacket/radius/CreateRadiusSendPacketDetail.jsp"></forward>
+		</action>
+		 <action path="/searchRadiusSendPacket"
+		  		scope="request"
+		  		type="com.elitecore.netvertexsm.web.sendpacket.radius.SearchRadiusSendPacketAction"
+		  		name="sendRadiusPacketForm"
+		  		validate="false">
+		  		<forward name="searchRadiusSendPacket" path="/jsp/servermgr/server/SearchRadiusSendPacketContainer.jsp"/>
+	  	 </action>
+	  	  <action path="/initEditRadiusSendPacket"
+		  		scope="request"
+		  		type="com.elitecore.netvertexsm.web.sendpacket.radius.InitEditRadiusSendPacketAction"
+		  		name="sendRadiusPacketForm"
+		  		validate="false">
+		  		<forward name="initEditRadiusSendPacket" path="/jsp/sendpacket/radius/EditRadiusSendPacketDetail.jsp"/>
+	  	 </action>
+	  	 
+	  	 <action path="/editRadiusSendPacket"
+		  		scope="request"
+		  		type="com.elitecore.netvertexsm.web.sendpacket.radius.EditRadiusSendPacketAction"
+		  		name="sendRadiusPacketForm"
+		  		validate="false">
+		  		<forward name="initEditRadiusSendPacket" path="/jsp/sendpacket/radius/EditRadiusSendPacketDetail.jsp"/>
+	  	 </action>
+			  	 
+	</action-mappings>
+
+</struts-config>

@@ -1,0 +1,53 @@
+.history-hover{
+	border-bottom-color: #DDD;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	padding-bottom: 7px;
+}
+.history-hover:hover {
+	background-color: #F2F2F2;
+}
+.userclass{
+	color:#3C78B5;
+}
+.placeholder-css{
+	vertical-align: top;
+	padding-left: 4px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+.made-changes{
+	vertical-align: top;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+.header-style{
+	font-weight: bold;
+	font-size: 12px;
+}
+.no-history-container{
+	background-color: #F2F2F2;
+}
+.no-history-details{
+	line-height: 30px;
+	color: #424242;
+}
+
+#historyContent tr td:last-child { 
+   padding-bottom: 2px;
+}
+.fieldValueClass{
+	color:#666;
+	vertical-align: top;
+	padding: 0.166em 0.5em 0.166em 0px;
+	min-width: 150px;
+	font-size: 12px;
+	font-family: arial,FreeSans,Helvetica,sans-serif;
+	font-weight: 400;
+	line-height: 20px;
+	padding-bottom:2.31667px;
+	padding-top: 2.31667px;
+	vertical-align:top;
+	word-wrap: break-word;
+	padding-left: 3px;
+}

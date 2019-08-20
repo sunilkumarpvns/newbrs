@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.bitemplate.data">
+
+  <class name="BITemplateData" table="TBLMBICEATEMPLATE">
+
+  	 <id name="id" column="BICEAID" type="java.lang.Long" >
+     	  <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator">
+	 	  </generator>
+     </id>
+
+     <property name="name" type="string">
+     	  <column name="NAME" sql-type="VARCHAR2(60)" not-null="false"/>
+     </property>
+     
+     <property name="description" type="string">
+     	  <column name="DESCRIPTION" sql-type="VARCHAR2(255)" not-null="false"/>
+     </property>
+
+     <property name="key" type="string">
+     	  <column name="KEY" sql-type="VARCHAR2(100)" not-null="false"/>
+     </property>
+	 <property name="createdDate" type="java.sql.Timestamp">
+     	  <column name="CREATEDDATE" sql-type="TIMESTAMP(6)" not-null="false"/>
+     </property>     
+	 <property name="modifiedDate" type="java.sql.Timestamp">
+	      <column name="MODIFIEDDATE" sql-type="TIMESTAMP(6)" not-null="false"/>
+	 </property>     
+     <property name="createdByStaffId" type="java.lang.Long">
+     	  <column name="CREATEDBYSTAFFID" sql-type="NUMBER" not-null="false"/>
+     </property>     
+     <property name="modifiedByStaffId" type="java.lang.Long">
+     	 <column name="MODIFIEDBYSTAFFID" sql-type="NUMBER" not-null="false"/>
+     </property>
+     <property name="clientIp" type="string">
+    	<column name="CLIENTIP" sql-type="VARCHAR2(64)" not-null="false"/>
+	 </property>
+  </class>
+</hibernate-mapping>

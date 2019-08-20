@@ -1,0 +1,13 @@
+description = 'eliterm'
+
+
+def depPojects = ["core", "elitecommons", "diameterapi", "coreradius", "passwordutil", "exprlib", "license", "eliteaaa"]
+dependencies {
+
+    depPojects.each {
+        compile project(":" + it)
+        testCompile files(project(":" + it).sourceSets.test.output)
+    }
+compile fileTree(dir: 'lib', include: '**/*.jar')
+
+}

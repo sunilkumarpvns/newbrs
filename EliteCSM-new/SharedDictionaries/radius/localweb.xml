@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="19220" vendor-name="Local-Web">
+<attribute id="192" name="Local-Web-Client-Ip" type="string"/>
+<attribute id="193" name="Local-Web-Border-Router" type="string"/>
+<attribute id="200" name="Local-Web-Tx-Limit" type="integer"/>
+<attribute id="201" name="Local-Web-Rx-Limit" type="integer"/>
+<attribute id="210" name="Local-Web-Acct-Time" type="integer"/>
+<attribute id="211" name="Local-Web-Acct-Duration" type="integer"/>
+<attribute id="212" name="Local-Web-Acct-Interim-Tx-Bytes" type="integer"/>
+<attribute id="213" name="Local-Web-Acct-Interim-Rx-Bytes" type="integer"/>
+<attribute id="214" name="Local-Web-Acct-Interim-Tx-Gigawords" type="integer"/>
+<attribute id="215" name="Local-Web-Acct-Interim-Rx-Gigawords" type="integer"/>
+<attribute id="216" name="Local-Web-Acct-Interim-Tx-Mgmt" type="integer"/>
+<attribute id="217" name="Local-Web-Acct-Interim-Rx-Mgmt" type="integer"/>
+<attribute id="230" name="Local-Web-Acct-Tx-Mgmt" type="integer"/>
+<attribute id="231" name="Local-Web-Acct-Rx-Mgmt" type="integer"/>
+<attribute id="240" name="Local-Web-Reauth-Counter" type="integer"/>
+</attribute-list>

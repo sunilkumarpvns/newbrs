@@ -1,0 +1,33 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+    
+<validators>
+    
+	<field name="login.username">
+		<field-validator type="requiredstring">
+			<message>Username Missing</message> 			
+		</field-validator>
+		
+		<!-- <field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">16</param>
+			<param name="trim">true</param>
+			<message key="error.length.field" />			
+		</field-validator> -->
+	</field>
+	
+	<field name="login.password">
+		<field-validator type="requiredstring">
+			<!-- <message key="error.login.pwd.required"></message> -->
+			<message>Password Missing</message> 			
+		</field-validator>
+		
+		<!-- <field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">16</param>
+			<param name="trim">true</param>
+			<message key="error.length.field" />			
+		</field-validator> -->
+	</field>
+	
+	
+</validators> 

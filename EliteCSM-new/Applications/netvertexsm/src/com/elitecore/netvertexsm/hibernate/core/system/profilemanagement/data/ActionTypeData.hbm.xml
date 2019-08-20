@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.core.system.profilemanagement.data.ActionTypeData" table="TBLSACTIONTYPE">
+		<id name="actionTypeId" type="string">
+			<column name="ACTIONTYPEID" sql-type="CHAR(5)"></column>
+		</id>
+		
+		<property name="alias" type="string">
+			<column name="ALIAS" sql-type="VARCHAR(25)"></column>
+		</property>
+		
+		<property name="name" type="string">
+			<column name="NAME" sql-type="VARCHAR(50)"></column>
+		</property>
+		
+		<property name="description" type="string">
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)"></column>
+		</property>
+		
+		<property name="systemGenerated" type="string">
+			<column name="SYSTEMGENERATED" sql-type="CHAR(1)"></column>
+		</property>
+	</class>
+</hibernate-mapping>          

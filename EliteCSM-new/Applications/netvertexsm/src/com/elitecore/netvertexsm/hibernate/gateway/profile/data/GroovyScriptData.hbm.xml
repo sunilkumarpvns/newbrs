@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.profile.data">
+
+  <class name="GroovyScriptData" table="TBLMGATEWAYGROOVYSCRIPT">
+
+  	 <id name="groovySctiptId" column="GWGROOVYSCRIPTID" type="java.lang.Long">
+  		  <generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"></generator>
+  	 </id>     
+  	 
+     <property name="orderNumber" type="java.lang.Integer">
+          <column name="ORDERNO" sql-type="NUMBER(4)" not-null="false"/>
+     </property>          
+     <property name="scriptName" type="string">
+          <column name="SCRIPTNAME" sql-type="VARCHAR2(2048)" not-null="false"/>
+     </property>          
+     <property name="argument" type="string">
+          <column name="ARGUMENT" sql-type="VARCHAR2(2048)" not-null="false"/>
+     </property>              
+     <property name="profileId" type="java.lang.Long">
+          <column name="PROFILEID" sql-type="NUMBER(12)" not-null="false"/>
+     </property>
+     
+  </class>
+  
+</hibernate-mapping>

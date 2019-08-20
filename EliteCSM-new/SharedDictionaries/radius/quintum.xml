@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>	
+<attribute-list vendorid="6618" vendor-name="Quintum">
+	<attribute id="1" name="Quintum-AVPair" type="string"/>
+	<attribute id="2" name="Quintum-NAS-Port" type="string"/>
+	<attribute id="23" name="Quintum-h323-remote-address" type="string"/>
+	<attribute id="24" name="Quintum-h323-conf-id" type="string"/>
+	<attribute id="25" name="Quintum-h323-setup-time" type="string"/>
+	<attribute id="26" name="Quintum-h323-call-origin" type="string"/>
+	<attribute id="27" name="Quintum-h323-call-type" type="string"/>
+	<attribute id="28" name="Quintum-h323-connect-time" type="string"/>
+	<attribute id="29" name="Quintum-h323-disconnect-time" type="string"/>
+	<attribute id="30" name="Quintum-h323-disconnect-cause" type="string"/>
+	<attribute id="31" name="Quintum-h323-voice-quality" type="string"/>
+	<attribute id="33" name="Quintum-h323-gw-id" type="string"/>
+	<attribute id="35" name="Quintum-h323-incoming-conf-id" type="string"/>
+	<attribute id="101" name="Quintum-h323-credit-amount" type="string"/>
+	<attribute id="102" name="Quintum-h323-credit-time" type="string"/>
+	<attribute id="103" name="Quintum-h323-return-code" type="string"/>
+	<attribute id="104" name="Quintum-h323-prompt-id" type="string"/>
+	<attribute id="105" name="Quintum-h323-time-and-day" type="string"/>
+	<attribute id="106" name="Quintum-h323-redirect-number" type="string"/>
+	<attribute id="107" name="Quintum-h323-preferred-lang" type="string"/>
+	<attribute id="108" name="Quintum-h323-redirect-ip-address" type="string"/>
+	<attribute id="109" name="Quintum-h323-billing-model" type="string"/>
+	<attribute id="110" name="Quintum-h323-currency-type" type="string"/>
+</attribute-list>

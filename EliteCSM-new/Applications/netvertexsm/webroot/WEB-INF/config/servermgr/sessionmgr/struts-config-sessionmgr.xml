@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <form-beans>
+	    <form-bean name="searchSessionForm" type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.form.SearchSessionInstanceForm"/>
+	    <form-bean name="createSessionForm" type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.form.CreateSessionInstanceForm"/>
+	    <form-bean name="editSessionForm" type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.form.EditSessionInstanceForm"/>
+	    <form-bean name="miscSessionInstanceForm" type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.form.MiscSessionInstanceForm"/>
+	    <form-bean name="viewSessionForm" type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.form.ViewSesssionInstanceForm"/>
+	    <form-bean name="createSessionConfForm" type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.form.CreateSessionConfForm"/>
+    </form-beans>
+    
+    <global-forwards >
+	    <forward name="success" path="/jsp/core/response/SuccessResponsePage.jsp" />
+	    <forward name="failure" path="/jsp/core/response/FailureResponsePage.jsp" />
+	    <forward name="popupfailure" path="/jsp/core/response/PopupFailureResponsePage.jsp" /> 
+	    <forward name="popupsuccess" path="/jsp/core/response/PopupSuccessResponsePage.jsp" />
+    </global-forwards>
+          
+    <action-mappings>
+    	
+	  	<action path="/initEditSessionInstance"
+	   		type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.InitEditSessionInstanceAction"
+	   	 	name="editSessionForm"
+	   	 	scope="request"
+	   	 	validate="false">
+	   	 	<forward name="initEditSession" path="/jsp/servermgr/sessionmgr/EditSessionInstance.jsp"/>
+	  	</action>
+	  	 
+	  	 <action path="/editSessionInstance"
+	   		type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.EditSessionInstanceAction"
+	   	 	name="editSessionForm"
+	   	 	scope="request"
+	   	 	validate="false">
+	   	 	
+	  	</action>
+	  	 
+	  	 <action path="/viewSessionInstance"
+	   		type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.ViewSessionInstanceAction"
+	   	 	name="viewSessionForm"
+	   	 	scope="request"
+	   	 	validate="false">
+	   	 	<forward name="viewSession" path="/jsp/servermgr/sessionmgr/ViewSessionInstanceContainer.jsp"/>
+	  	</action>
+	  	
+	  	<action path="/viewSessionConf"
+	   		type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.ViewSessionConfAction"
+	   	 	name="createSessionConfForm"
+	   	 	scope="request"
+	   	 	validate="false">
+	   	 	<forward name="viewSessionConf" path="/jsp/servermgr/sessionmgr/ViewSessionConfContainer.jsp"/>
+	  	</action>
+	  	
+	  	<action path="/initEditSessionConf"
+	   		type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.InitEditSessionConfAction"
+	   	 	name="createSessionConfForm"
+	   	 	scope="request"
+	   	 	validate="false">
+	   	 	<forward name="initEditSessionConf" path="/jsp/servermgr/sessionmgr/EditSessionConf.jsp"/>
+	  	</action>
+	  	 <action path="/editSessionConf"
+	   		type="com.elitecore.netvertexsm.web.servermgr.sessionmgr.EditSessionConfAction"
+	   	 	name="createSessionConfForm"
+	   	 	scope="request"
+	   	 	validate="false">
+	  	</action>
+	  	
+	  	 
+	  	 
+    </action-mappings>
+    
+	<message-resources key="sessionMgrResources" parameter="com.elitecore.netvertexsm.web.servermgr.sessionMgr" />	
+	 
+</struts-config>
+
+

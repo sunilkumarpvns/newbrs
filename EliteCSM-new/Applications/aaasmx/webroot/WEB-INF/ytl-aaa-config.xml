@@ -1,0 +1,171 @@
+<cal-subscriber-operations>
+
+	<instance-details>
+	<!-- Multiple aaa configuration can be possible -->
+		<aaa>
+			<id></id>
+			<name></name>
+			<dm-url></dm-url>
+			<asr-url></asr-url>
+		</aaa>
+	</instance-details>
+	
+	<logical-mappings>
+	<!-- do not change the logical name, user can change the column for respective logical name -->
+		<logical-mapping>
+			<logical-name>Username</logical-name>
+			<column-name>USERNAME</column-name>
+		</logical-mapping>
+		<logical-mapping>
+			<logical-name>UserIdentity</logical-name>
+			<column-name>USER_IDENTITY</column-name>
+		</logical-mapping>
+		<logical-mapping>
+			<logical-name>CUI</logical-name>
+			<column-name>CUI</column-name>
+		</logical-mapping>
+		<logical-mapping>
+			<logical-name>PlaintextPassword</logical-name>
+			<column-name>GEOLOCATION</column-name>
+		</logical-mapping>
+		<logical-mapping>
+			<logical-name>Password</logical-name>
+			<column-name>PASSWORD</column-name>
+		</logical-mapping>
+		<logical-mapping>
+			<logical-name>EncryptionType</logical-name>
+			<column-name>ENCRYPTIONTYPE</column-name>
+		</logical-mapping>
+		<logical-mapping>
+			<logical-name>FramedAddress</logical-name>
+			<column-name>FRAMEDIPV4ADDRESS</column-name>
+		</logical-mapping>
+		<logical-mapping>
+			<logical-name>ExpiryDate</logical-name>
+			<column-name>EXPIRYDATE</column-name>
+		</logical-mapping>
+		<logical-mapping>
+			<logical-name>CreditLimit</logical-name>
+			<column-name>CREDITLIMIT</column-name>
+		</logical-mapping>
+		<logical-mapping>
+			<logical-name>CustomerStatus</logical-name>
+			<column-name>CUSTOMERSTATUS</column-name>
+		</logical-mapping>
+		<logical-mapping>
+			<logical-name>RadiusPolicy</logical-name>
+			<column-name>RADIUSPOLICY</column-name>
+		</logical-mapping>
+		<logical-mapping>
+			<logical-name>DiameterPolicy</logical-name>
+			<column-name>DIAMETERPOLICY</column-name>
+		</logical-mapping>
+		
+		<!--   <logical-mapping>
+			<logical-name>CustomerReplyItem</logical-name>
+			<column-name>CUSTOMERREPLYITEM</column-name>
+		</logical-mapping> -->
+		
+		<logical-mapping>
+			<logical-name>ConcurrentLoginPolicy</logical-name>
+			<column-name>CONCURRENTLOGINPOLICY</column-name>
+		</logical-mapping>
+		
+		<!-- Column used to Store the name of the HAProfile -->
+		<logical-mapping>
+			<logical-name>HAProfile</logical-name>
+			<column-name>PARAM4</column-name>
+		</logical-mapping>
+		
+		<!-- Column used to store the value of tag <login-name> </login-name> -->
+		<logical-mapping>
+			<logical-name>LoginName</logical-name>
+			<column-name></column-name>
+		</logical-mapping>
+		
+		<!-- Column used to store the value of tag <domain> </domain> -->
+		<logical-mapping>
+			<logical-name>Realm</logical-name>
+			<column-name></column-name>
+		</logical-mapping>
+		
+		<!-- Following are the session managements related columns mappings -->
+		
+		<!-- Column used to look up the session -->
+		<logical-mapping>
+			<logical-name>SessionLookUpColumn</logical-name>
+			<column-name>USER_IDENTITY</column-name>
+		</logical-mapping>
+		
+		<!-- column refered for AAA Instance ID -->
+		<logical-mapping>
+			<logical-name>AAA_Identity</logical-name>
+			<column-name>AAA_ID</column-name>
+		</logical-mapping>
+		
+		<!-- column refered for session type whether it is Radius or Diameter -->
+		<logical-mapping>
+			<logical-name>SessionType</logical-name>
+			<column-name>PARAM_STR5</column-name>
+		</logical-mapping>
+		
+		<!-- column refered for pseudo Identity -->
+		<logical-mapping>
+			<logical-name>PseudoIdentity</logical-name>
+			<column-name>PARAM_STR6</column-name>
+		</logical-mapping>
+		
+		
+		<!-- column refered for attribute 0:1 -->
+		<logical-mapping>
+			<logical-name>SessionUsername</logical-name>
+			<column-name>USER_NAME</column-name>
+		</logical-mapping>
+		
+		<!-- column for Session ID in case of ASR for attribute 0:263 -->
+		<logical-mapping>
+			<logical-name>AcctSessionID</logical-name>
+			<column-name>ACCT_SESSION_ID</column-name>
+		</logical-mapping>
+		
+		<!-- column refered for attribute 0:4 -->
+		<logical-mapping>
+			<logical-name>NasIPAddress</logical-name>
+			<column-name>NAS_IP_ADDRESS</column-name>
+		</logical-mapping>
+		
+		
+		<!-- column refered for attribute 0:31 -->
+		<logical-mapping>
+			<logical-name>CallingStationID</logical-name>
+			<column-name>CALLING_STATION_ID</column-name>
+		</logical-mapping>
+		
+		
+		<!-- column refered for attribute 0:32 -->
+		<logical-mapping>
+			<logical-name>NasIdentifier</logical-name>
+			<column-name>NAS_IDENTIFIER</column-name>
+		</logical-mapping>
+		
+		<!-- column refered for attribute 0:5 -->
+		<logical-mapping>
+			<logical-name>NasPort</logical-name>
+			<column-name>NAS_PORT</column-name>
+		</logical-mapping>
+		
+		<!-- column refered for attribute 24757:4 (wimax-session-id) -->
+		<logical-mapping>
+			<logical-name>AAASessionID</logical-name>
+			<column-name>PARAM_STR7</column-name>
+		</logical-mapping>
+		
+		<!-- column refered for attribute 0:8 -->
+		<logical-mapping>
+			<logical-name>FramedIPAddress</logical-name>
+			<column-name>FRAMED_IP_ADDRESS</column-name>
+		</logical-mapping>
+		
+	</logical-mappings>
+	
+</cal-subscriber-operations>

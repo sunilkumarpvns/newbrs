@@ -1,0 +1,3 @@
+ = "\\ne\\\"xt\"" > $ AND abc readData float OR getUserName( subhash < d,6,6,4,7,8)=getProfile(test,"test1")
+sum(a,mul(c,d)) sub(b,avg(c,d,f))
+"n\\ex\"t" AND getUserName( a,b) = getProfile(test,"test1")

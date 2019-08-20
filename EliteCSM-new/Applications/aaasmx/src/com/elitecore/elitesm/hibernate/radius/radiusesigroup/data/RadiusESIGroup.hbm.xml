@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class  name="com.elitecore.elitesm.datamanager.radius.radiusesigroup.data.RadiusESIGroupData" table="TBLMRADIUSESIPROXYGRP">
+		
+		<id name="id" column="ID" type="com.elitecore.elitesm.hibernate.customtypes.StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="name" type="com.elitecore.elitesm.hibernate.customtypes.StringType">
+			<column name="NAME" sql-type="VARCHAR(200)" not-null="true" />
+		</property>
+		
+		<property name="description" type="com.elitecore.elitesm.hibernate.customtypes.StringType">
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+
+	  	<property name="esiGroupDataXml" type="byte[]" column="GRPXML" not-null="false" />
+
+	  	<property name="auditUId" type="com.elitecore.elitesm.hibernate.customtypes.StringType" >
+		  	<column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false" />
+	  	</property>
+
+  </class>            
+	            
+</hibernate-mapping>

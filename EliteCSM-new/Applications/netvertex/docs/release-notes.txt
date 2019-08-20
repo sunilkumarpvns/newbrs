@@ -1,0 +1,18 @@
+Release Notes - NetVertex Platform 6.4.6.21
+=====================================================================
+** Enhancement
+    * [NETVERTEX-1007] - Need to streamline policy caching functionality
+    * [NETVERTEX-1034] - Reload Diameter and Radius dictionary
+    * [NETVERTEX-1077] - Sy Interface Support for RADIUS Based Flow
+    * [NETVERTEX-1084] - Validation utility java script  for numeric fields 
+    * [NETVERTEX-1090] - Support of Intermidiate Node Failuer
+
+** Requirement
+    * [NETVERTEX-996] - CLI command for Peer Stat and DB Status
+    * [NETVERTEX-1092] - Support of DB Connection URL length upto 2000 characters
+	
+** Defect
+    * [NETVERTEX-995] - Validation for Batch Size Parameter should be same in every module
+    * [NETVERTEX-1073] - Missing validation in Timeperiod
+    * [NETVERTEX-1074] - Expression library syntax Validation issue
+    * [NETVERTEX-1082] - Unusual Behavior of Configured PCC Rule Mapping

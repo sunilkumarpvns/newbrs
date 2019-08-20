@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struts-config>
+<form-beans>
+<form-bean name="sprForm" type="com.elitecore.netvertexsm.web.servermgr.spr.form.SPRForm" />
+</form-beans>
+
+ <global-forwards >
+      <forward name="success" path="/jsp/core/response/SuccessResponsePage.jsp" />
+      <forward name="failure" path="/jsp/core/response/FailureResponsePage.jsp" />
+    </global-forwards>
+<action-mappings>
+	<action parameter="method" name="sprForm" 
+	 			path="/sprData" scope="request" type="com.elitecore.netvertexsm.web.servermgr.spr.SPRDataAction">
+		<forward name="searchSPR" path="/jsp/servermgr/spr/SearchSPR.jsp" />
+		<forward name="createSPR" path="/jsp/servermgr/spr/CreateSPR.jsp" />
+		<forward name="viewSPR" path="/jsp/servermgr/spr/ViewSPRContainer.jsp" />
+		<forward name="editSPR" path="/jsp/servermgr/spr/EditSPRContainer.jsp" />
+	 </action>
+
+</action-mappings>
+ <message-resources key="sprResources" parameter="com.elitecore.netvertexsm.web.servermgr.spr.sprResources" />
+</struts-config>

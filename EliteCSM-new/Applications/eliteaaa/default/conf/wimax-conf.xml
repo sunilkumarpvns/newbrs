@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wimax>
+	<!-- 
+		Accounting capabilities can have the following values:
+			1: IP-session-based accounting
+			2: Flow-based accounting
+	 -->
+	<accounting-capabilities>1</accounting-capabilities>
+	
+	<!-- 
+		0: Idle mode notification is not supported/required
+		1: Idle mode notification is supported/required
+	 -->
+	<idle-mode-notification-capabilities>0</idle-mode-notification-capabilities>
+	
+	<ha-rk-lifetime>86400</ha-rk-lifetime>
+	<dhcp-rk-lifetime>86400</dhcp-rk-lifetime>
+</wimax>

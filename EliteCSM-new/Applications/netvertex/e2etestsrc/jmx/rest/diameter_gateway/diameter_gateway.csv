@@ -1,0 +1,9 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_diameter_profile_gateway,POST : Create Diameter Gateway Profile : 201,sm/gatewayprofile/diameter-gateway-profile.json,POST,create_diameter_profile.json,,,201,diameter-gateway-profile
+2,create_diameter_gateway,POST : Create Diameter Gateway rest_diameter_gateway : 201,sm/gateway/diameter-gateway.json,POST,create_diameter_gateway.json,,28840,201,diameter-gateway
+3,get_created_diameter_gateway,GET : rest_diameter_gateway  should be displayed : 200,sm/gateway/diameter-gateway/rest_diameter_gateway_11111111.json,GET,,,28841,200,diameter-gateway
+4,update_diameter_gateway,PUT: Update rest_diiameter_gateway to updated_rest_diameter_gateway : 200,sm/gateway/diameter-gateway/rest_diameter_gateway_11111111.json,PUT,update_diameter_gateway.json,,28842,200,diameter-gateway
+5,get_updated_diameter_gateway,GET : updated_rest_diameter_gateway  should be displayed : 200,sm/gateway/diameter-gateway/rest_diameter_gateway_11111111.json,GET,,,28843,200,diameter-gateway
+6,delete_diameter_gateway,DELETE: Delete updated_rest_diameter_gateway : 200,sm/gateway/diameter-gateway/rest_diameter_gateway_11111111.json,DELETE,,,28844,200,diameter-gateway
+7,get_deleted_diameter_gateway,GET : updated_rest_diameter_gateway  should not be displayed : 404,sm/gateway/diameter-gateway/rest_diameter_gateway_11111111.json,GET,,"{""actionErrors"":[""Gateway Not Found with id: rest_diameter_gateway_11111111""]}",28845,404,diameter-gateway
+8,delete_diameter_profile_gateway,DELETE: Delete Diameter Gateway Profile : 200,sm/gatewayprofile/diameter-gateway-profile/rest_diameter_profile_11111111.json,DELETE,,,,200,diameter-gateway-profile

@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_ldap_datasource,POST  : Create  LDAP Datasource rest_ldap : 201,sm/ldap/ldap.json,POST,create_ldap_datasource.json,,28782,201,ldap
+2,get_created_ldap_datasource,GET : rest_ldap should be displayed : 200,sm/ldap/ldap/rest_ldap_11111111.json,GET,,,28783,200,ldap
+3,update_ldap_datasource,PUT : Update rest_ldap and change to updated_rest_ldap :200,sm/ldap/ldap/rest_ldap_11111111.json,PUT,update_ldap_datasource.json,,28784,200,ldap
+4,get_updated_ldap_datasource,GET : updated_rest_ldap should be displayed : 200 ,sm/ldap/ldap/rest_ldap_11111111.json,GET,,,28785,200,ldap
+5,delete_ldap_datasource,DELETE : Delete updated_rest_ldap  : 200,sm/ldap/ldap/rest_ldap_11111111.json,DELETE,,,28786,200,ldap
+6,get_deleted_ldap_datasource,GET : updated_rest_ldap should not be displayed : 404,sm/ldap/ldap/rest_ldap_11111111.json,GET,,"{""actionErrors"":[""LDAP Datasource Not Found with id: rest_ldap_11111111""]}",28787,404,ldap

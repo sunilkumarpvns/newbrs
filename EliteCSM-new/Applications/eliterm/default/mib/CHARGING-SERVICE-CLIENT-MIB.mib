@@ -1,0 +1,210 @@
+CHARGING-SERVICE-CLIENT-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+       MODULE-IDENTITY, OBJECT-TYPE, OBJECT-IDENTITY,
+       Counter32, Integer32,
+       IpAddress, TimeTicks, mib-2      FROM SNMPv2-SMI
+       SnmpAdminString                  FROM SNMP-FRAMEWORK-MIB
+       MODULE-COMPLIANCE, OBJECT-GROUP  FROM SNMPv2-CONF;
+       
+
+        internet      OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 }
+
+        directory     OBJECT IDENTIFIER ::= { internet 1 }
+
+        mgmt          OBJECT IDENTIFIER ::= { internet 2 }
+ 
+        experimental  OBJECT IDENTIFIER ::= { internet 3 }
+
+        private       OBJECT IDENTIFIER ::= { internet 4 }
+
+        enterprises   OBJECT IDENTIFIER ::= { private 1 }
+
+        elitecore     OBJECT IDENTIFIER ::= { enterprises 21067 }
+                    
+        eliteAAA      OBJECT IDENTIFIER ::= { elitecore 1 }
+        
+		chargingMIB OBJECT IDENTIFIER ::= { eliteAAA 8 }
+        
+chargingClientMIBObjects OBJECT IDENTIFIER ::= { chargingMIB 2 }
+
+chargingServerTable OBJECT IDENTIFIER ::= { chargingClientMIBObjects 2 }
+
+chargingServerStatisticsTable OBJECT-TYPE
+       SYNTAX     SEQUENCE OF ChargingServersEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Table defines number of configured Client for the RM server"
+       ::= { chargingServerTable 1 }
+       
+chargingServerEntry OBJECT-TYPE
+       SYNTAX     ChargingServersEntry
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "Entry represents the configured Client for RM Server"
+       INDEX      { chargingServerIndex }
+       ::= { chargingServerStatisticsTable 1 }
+
+ChargingServersEntry ::= SEQUENCE {
+
+	chargingServerIndex			Integer32,    
+	chargingServerName			SnmpAdminString,
+	chargingServerAddress			IpAddress, 
+	
+	chargingServRequests				Counter32,
+	chargingServResponses               	Counter32,
+	chargingServPacketsDropped          	Counter32,
+	chargingServUnknownTypes             Counter32,
+	chargingServRequestTimeout 		Counter32,
+	chargingServRequestRetransmission	Counter32,
+	chargingServAccessRequest			Counter32,
+	chargingServAccessAccept			Counter32,
+	chargingServAccessReject			Counter32,
+	chargingServAcctRequest			Counter32,
+	chargingServAcctResponse			Counter32,
+	chargingServAcctStartRequest		Counter32,
+	chargingServAcctStopRequest		Counter32,
+	chargingServAcctUpdateRequest		Counter32
+}
+
+chargingServerIndex OBJECT-TYPE
+       SYNTAX     Integer32
+       MAX-ACCESS not-accessible
+       STATUS     current
+       DESCRIPTION
+             "A number uniquely identifying each Charging server"
+       ::= { chargingServerEntry 1 } 
+          
+chargingServerName OBJECT-TYPE
+       SYNTAX     SnmpAdminString
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Represent identifier of charging server Identity"
+       ::= { chargingServerEntry 2 }
+       
+chargingServerAddress OBJECT-TYPE
+       SYNTAX     IpAddress
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Represent identifier of charging server address"
+       ::= { chargingServerEntry 3 }
+
+chargingRequests OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Request received by charging server"
+       ::= { chargingServerEntry 4 }
+       
+chargingResponses OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Response given by charging server"
+       ::= { chargingServerEntry 5 }
+       
+chargingPacketsDropped OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of packet Dropped by charging server"
+       ::= { chargingServerEntry 6 }
+       
+chargingUnknownTypes OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of unknown Request received by charging server"
+       ::= { chargingServerEntry 7 }
+       
+chargingRequestTimeout OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Request Timeout by charging server"
+       ::= { chargingServerEntry 8 }
+       
+chargingRequestRetransmission OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Request Timeout by charging server"
+       ::= { chargingServerEntry 9 }
+       
+chargingAccessRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Request received by charging server"
+       ::= { chargingServerEntry 10 }
+       
+chargingAccessAccept OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access Accept given by charging service to Client"
+       ::= { chargingServerEntry 11 }
+       
+chargingAccessReject OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Access reject given by charging service to Client"
+       ::= { chargingServerEntry 12 }
+       
+chargingAcctRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Accouting Request received by charging server"
+       ::= { chargingServerEntry 13 }
+       
+chargingAcctResponse OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Accouting Response given by charging server"
+       ::= { chargingServerEntry 14 }
+
+chargingAcctStartRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Accouting start Request received by charging server"
+       ::= { chargingServerEntry 15 }
+       
+chargingAcctStopRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Accouting stop Request received by charging server"
+       ::= { chargingServerEntry 16 }
+
+chargingAcctUpdateRequest OBJECT-TYPE
+       SYNTAX     Counter32
+       MAX-ACCESS read-only
+       STATUS     current
+       DESCRIPTION
+             "Total No. of Accouting update Request received by charging server"
+       ::= { chargingServerEntry 17 }
+       
+--- End of Client Table
+
+END

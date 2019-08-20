@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="10415" applicationid="16777236" application-name="3gpp-gx" vendor-name="3gpp">
+	<attribute id="500"  name="Abort-Cause" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+			<supported-values>
+				<value id="0" name="BEARER_RELEASED" />
+				<value id="1" name="INSUFFICIENT_SERVER_RESOURCES" />
+				<value id="2" name="INSUFFICIENT_BEARER_RESOURCES" />
+			</supported-values>
+	</attribute> 
+	<attribute id="501"  name="Access-Network-Charging-Address" mandatory="yes" protected="yes"  encryption="yes" type="IPAddress"/>	
+	<attribute id="502"  name="Access-Network-Charging-Identifier" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+    	<grouped>
+			<required>
+				<attributerule vendor-id="10415" id="503" name="Access-Network-Charging-Identifier-Value" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+            </optional>
+		</grouped>
+   </attribute>
+	<attribute id="503"  name="Access-Network-Charging-Identifier-Value" mandatory="yes" protected="yes"  encryption="yes" type="UTF8String"/>   
+	<attribute id="504"  name="AF-Application-identifier" mandatory="yes" protected="yes"  encryption="yes" type="OctetString"/>   
+	<attribute id="505"  name="AF-Charging-Identifier" mandatory="yes" protected="yes"  encryption="yes" type="OctetString"/>   
+	<attribute id="524"  name="Codec-Data" mandatory="yes" protected="yes"  encryption="yes" type="OctetString"/>   
+	<attribute id="507"  name="Flow-Description" mandatory="yes" protected="yes"  encryption="yes" type="UTF8String"/>
+	<attribute id="509"  name="Flow-Number" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/>
+	<attribute id="510"  name="Flows" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+            <grouped>
+				<required>
+					<attributerule vendor-id="10415" id="518" name="Media-Component-Number" maximum="1" minimum="0"/>
+				</required>
+			<optional>
+				<attributerule vendor-id="10415" id="509" name="Flow-Number" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="449" name="Final-Unit-Action" maximum="1" minimum="0"/>
+            </optional>
+		</grouped>
+   </attribute>
+   <attribute id="511"  name="Flow-Status" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="ENABLED-UPLINK" />
+			<value id="1" name="ENABLED-DOWNLINK" />
+			<value id="2" name="ENABLED" />
+			<value id="3" name="DISABLED" />
+			<value id="4" name="REMOVED" />
+		</supported-values>
+	</attribute>    
+	<attribute id="512"  name="Flow-Usage" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="NO_INFORMATION" />
+			<value id="1" name="RTCP" />
+			<value id="2" name="AF_SIGNALLING" />
+		</supported-values>
+	</attribute>    
+	<attribute id="513"  name="Specific-Action" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="Void" />
+			<value id="1" name="CHARGING_CORRELATION_EXCHANGE" />
+			<value id="2" name="INDICATION_OF_LOSS_OF_BEARER" />
+			<value id="3" name="INDICATION_OF_RECOVERY_OF_BEARER" />
+			<value id="4" name="INDICATION_OF_RELEASE_OF_BEARER" />
+			<value id="5" name="Void" />
+			<value id="6" name="IP-CAN_CHANGE" />
+			<value id="7" name="INDICATION_OF_OUT_OF_CREDIT" />
+			<value id="8" name="INDICATION_OF_SUCCESSFUL_RESOURCES_ALLOCATION" />
+			<value id="9" name="INDICATION_OF_FAILED_RESOURCES_ALLOCATION" />
+			<value id="10" name="INDICATION_OF_LIMITED_PCC_DEPLOYMENT" />
+			<value id="11" name="USAGE_REPORT" />
+		</supported-values>
+	</attribute>    		
+	<attribute id="515"  name="Max-Requested-Bandwidth-DL" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/>
+	<attribute id="516"  name="Max-Requested-Bandwidth-UL" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/>	
+	<attribute id="517"  name="Media-Component-Description" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+    	<grouped>
+			<required>
+				<attributerule vendor-id="10415" id="518" name="Media-Component-Number" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+				<attributerule vendor-id="10415" id="519" name="Media-Sub-Component" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="449" name="Final-Unit-Action" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="504" name="AF-Application-Identifier" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="520" name="Media-Type" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="516" name="Max-Requested-Bandwidth-UL" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="515" name="Max-Requested-Bandwidth-DL" maximum="1" minimum="0"/>				
+				<attributerule vendor-id="10415" id="511" name="Flow-Status" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="1000" name="Reservation-priority" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="522" name="RS-Bandwidth" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="521" name="RR-Bandwidth" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="524" name="Codec-Data" maximum="1" minimum="0"/>
+          </optional>
+		</grouped>
+   </attribute>
+   <attribute id="518"  name="Media-Component-Number" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/>   
+   <attribute id="519"  name="Media-Sub-Component" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+   		<grouped>
+			<required>
+				<attributerule vendor-id="10415" id="509" name="Flow-Number" maximum="1" minimum="1"/>
+			</required>
+			<optional>
+				<attributerule vendor-id="10415" id="507" name="Flow-Description" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="511" name="Flow-Status" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="512" name="Flow-Usage" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="516" name="Max-Requested-Bandwidth-UL" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="515" name="Max-Requested-Bandwidth-DL" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="529" name="AF-Signalling-Protocol" maximum="1" minimum="0"/>
+            </optional>
+		</grouped>
+   </attribute>
+   <attribute id="520"  name="Media-Type" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="AUDIO" />
+			<value id="1" name="VIDEO" />
+			<value id="2" name="DATA" />
+			<value id="3" name="APPLICATION" />
+			<value id="4" name="CONTROL" />
+			<value id="5" name="TEXT" />
+			<value id="6" name="MESSAGE" />
+			<value id="7" name="OTHER" />
+		</supported-values>
+	</attribute>    		   
+	<attribute id="521"  name="RR-Bandwidth" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/> 
+	<attribute id="522"  name="RS-Bandwidth" mandatory="yes" protected="yes"  encryption="yes" type="Unsigned32"/> 
+	<attribute id="523"  name="SIP-Forking-Indication" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="SINGLE_DIALOGUE" />
+			<value id="1" name="SEVERAL_DIALOGUES" />
+		</supported-values>
+	</attribute>    		   
+	<attribute id="525"  name="Service-URN" mandatory="yes" protected="yes"  encryption="yes" type="OctetString"/>   	
+	<attribute id="526"  name="Acceptable-Service-Info" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+    	<grouped>
+			<required>
+			</required>
+			<optional>
+				<attributerule vendor-id="10415" id="517" name="Media-Component-Description" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="516" name="Max-Requested-Bandwidth-UL" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="515" name="Max-Requested-Bandwidth-DL" maximum="1" minimum="0"/>
+            </optional>
+		</grouped>
+   </attribute>
+   <attribute id="527"  name="Service-Info-Status" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="FINAL SERVICE INFORMATION" />
+			<value id="1" name="PRELIMINARY SERVICE INFORMATION" />
+		</supported-values>
+	</attribute>    		      
+	<attribute id="529"  name="AF-Signalling-Protocol" mandatory="yes" protected="yes"  encryption="yes" type="Enumerated">
+		<supported-values>
+			<value id="0" name="NO_INFORMATION" />
+			<value id="1" name="SIP" />
+		</supported-values>
+	</attribute>    		      	
+	<attribute id="530"  name="Sponsored-Connectivity-Data" mandatory="yes" protected="yes"  encryption="yes" type="Grouped">
+    	<grouped>
+			<required>
+			</required>
+			<optional>
+				<attributerule vendor-id="10415" id="531" name="Sponsor-Identity" maximum="1" minimum="0"/>
+				<attributerule vendor-id="10415" id="532" name="Application-Service-Provider-Identity" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="431" name="Granted-Service-Unit" maximum="1" minimum="0"/>
+				<attributerule vendor-id="0" id="446" name="Used-Service-Unit" maximum="1" minimum="0"/>
+            </optional>
+		</grouped>
+   </attribute>	
+   <attribute id="531"  name="Sponsor-Identity" mandatory="yes" protected="yes"  encryption="yes" type="UTF8String"/>   	
+   <attribute id="532"  name="Application-Service-Provider-Identity" mandatory="yes" protected="yes"  encryption="yes" type="UTF8String"/>   	
+   <attribute id="528"  name="MPS-Identifier" mandatory="yes" protected="yes"  encryption="yes" type="OctetString"/>   	  
+</attribute-list> 

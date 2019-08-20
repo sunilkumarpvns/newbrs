@@ -1,0 +1,7 @@
+{  
+   "id":"SMS_REST",
+   "status":"ACTIVE",
+   "groups":"GROUP_1",
+   "name":"SMS_REST",
+   "description":"Service Created from rest"
+}

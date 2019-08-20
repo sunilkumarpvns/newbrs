@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+   "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+   "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="ServerManagerWelcome" template="/view/sm/BaseSidebarSM.jsp">
+        <put-attribute name="title"  value="Server Manager"/>
+        <put-attribute name="header" value="/view/commons/general/ServerManagerHeader.jsp"/>
+        <put-attribute name="leftSide"   value="/view/commons/general/SideMenu.jsp"/>
+        <put-attribute name="rightSide"   value="/view/commons/general/ServerManagerWelcome.jsp"/>
+        <put-attribute name="footer" value="/view/commons/general/Footer.jsp" />
+    </definition>
+
+    <definition name="ServerManagerGroupConfig" template="/view/sm/BaseSidebarSM.jsp">
+        <put-attribute name="title"  value="Server Manager"/>
+        <put-attribute name="header" value="/view/commons/general/ServerManagerHeader.jsp"/>
+        <put-attribute name="leftSide"   value="/view/commons/general/SideMenu.jsp"/>
+       <!-- <put-attribute name="rightSide"   value="/WEB-INF/content/sm/group/group-index.jsp"/>-->
+        <put-attribute name="footer" value="/view/commons/general/Footer.jsp" />
+    </definition>
+
+    <definition name="REGEXP:sm/(.*)/(.*)/(.*)" extends="ServerManagerWelcome">
+        <put-attribute name="rightSide"   value="/WEB-INF/content/sm/{1}/{2}-{3}.jsp"/>
+    </definition>
+
+    <definition name="Welcome" template="/view/policydesigner/Base.jsp">
+      <put-attribute name="title"  value="NetVertex"/>
+      <put-attribute name="header" value="/view/commons/general/Header.jsp"/>
+      <put-attribute name="body"   value="/view/commons/general/Welcome.jsp"/>
+      <put-attribute name="footer" value="/view/commons/general/Footer.jsp" />
+   </definition>
+
+    <definition name="REGEXP:(.*)/(.*)/(.*)_Deleted_Search" template="/view/policydesigner/BaseSidebar.jsp">
+        <put-attribute name="title"  value="NetVertex"/>
+        <put-attribute name="header" value="/view/commons/general/Header.jsp"/>
+        <put-attribute name="leftSide"   value="/view/{1}/{2}/Deleted{3}Search.jsp"/>
+        <put-attribute name="rightSide"   value="/view/{1}/{2}/Deleted{3}SearchResult.jsp"/>
+        <put-attribute name="footer" value="/view/commons/general/Footer.jsp" />
+    </definition>
+
+    <definition name="REGEXP:(.*)/(.*)/(.*)_Search" template="/view/policydesigner/BaseSidebar.jsp">
+      <put-attribute name="title"  value="NetVertex"/>
+      <put-attribute name="header" value="/view/commons/general/Header.jsp"/>
+      <put-attribute name="leftSide"   value="/view/{1}/{2}/{3}Search.jsp"/>
+      <put-attribute name="rightSide"   value="/view/{1}/{2}/{3}SearchResult.jsp"/>
+      <put-attribute name="footer" value="/view/commons/general/Footer.jsp" />
+   </definition>
+
+ 	<!-- <definition name="REGEXP:_/pd/(.*)/(.*)" extends="ServerManagerGroupConfig">
+       <put-attribute name="leftSide"   value="/WEB-INF/content/pd/genericpartnerrnc/generic-partner-rnc-genericSearch.jsp"/>
+      <put-attribute  name="rightSide"   value="/WEB-INF/content/pd/{1}/{2}-index.jsp"/>
+    </definition>  -->
+  
+   <definition name="REGEXP:(.*)/(.*)/(.*)_(.*)" extends="Welcome">
+      <put-attribute name="body"   value="/view/{1}/{2}/{3}{4}.jsp"/>      
+   </definition>
+
+
+   <definition name="REGEXP:commons/general/(.*)" extends="Welcome">
+      <put-attribute name="body"   value="/view/commons/general/{1}.jsp"/>      
+   </definition> 
+   
+   <definition name="loginLayout" template="/view/commons/login/LoginBase.jsp" >
+       <put-attribute name="body" value="/view/commons/login/Login.jsp"/>
+       <put-attribute name="footer" value="/view/commons/general/Footer.jsp" />
+
+   </definition>
+  
+   <definition name="REGEXP:commons/(.*)/(.*)" extends="loginLayout">
+	 <put-attribute name="body" value="/view/commons/{1}/{2}.jsp" />      
+   </definition>
+   
+    <definition name="REGEXP:pd/(.*)/(.*)/(.*)" extends="Welcome">
+        <put-attribute name="body"   value="/WEB-INF/content/pd/{1}/{2}-{3}.jsp"/>
+    </definition>
+    
+    <definition name="REGEXP:_/pd/(.*)/(.*)" extends="REGEXP:(.*)/(.*)/(.*)_Search">
+      <put-attribute  name="leftSide"   value="/WEB-INF/content/pd/genericpartnerrnc/partner-rnc-genericSearch.jsp"/>
+      <put-attribute  name="rightSide"   value="/WEB-INF/content/pd/{1}/{2}-index.jsp"/>
+    </definition> 
+
+    <definition name="REGEXP:_(.*)"  extends="REGEXP:(.*)/(.*)/(.*)_Search" >
+      <put-attribute name="leftSide"   value="/view/generic/GenericSearch.jsp"/>
+      <put-attribute name="rightSide"   value="{1}SearchResult.jsp"/>
+   </definition>
+
+    <definition name="REGEXP:common/(.*)" extends="Welcome">
+        <put-attribute name="body"   value="/WEB-INF/content/common/{1}.jsp"/>
+    </definition>
+
+</tiles-definitions>

@@ -1,0 +1,3 @@
+moduleName = number-extension
+moduleVersion = 1.0
+extensionClasses = com.elitecore.corenetvertex.extension.NumberExtension, com.elitecore.netvertex.pm.quota.RnCQuotaProfileExtension, com.elitecore.netvertex.extension.QoSInformationExtension, groovy.time.TimeCategory

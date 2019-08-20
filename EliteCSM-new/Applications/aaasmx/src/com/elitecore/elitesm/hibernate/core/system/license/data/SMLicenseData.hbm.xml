@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.core.system.license.data.SMLicenseData" table="TBLMSMLICENSE" >          
+     
+     <id name="id" column="ID" type="StringType">  
+     	<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+     </id>  
+     
+     <property name="license" type="byte[]" column="LICENSE" not-null="true" />
+        
+     <property name="instanceName" type="StringType">
+          <column name="INSTANCENAME" sql-type="VARCHAR2(255)" not-null="true"/>
+     </property>
+     
+     
+     <property name="digest" type="StringType">
+          <column name="DIGEST" sql-type="VARCHAR2(512)" not-null="true"/>
+     </property>
+     
+     <property name="status" type="StringType">
+          <column name="STATUS" sql-type="VARCHAR2(64)" not-null="true"/>
+     </property> 
+
+</class>
+	
+</hibernate-mapping>
+
+          

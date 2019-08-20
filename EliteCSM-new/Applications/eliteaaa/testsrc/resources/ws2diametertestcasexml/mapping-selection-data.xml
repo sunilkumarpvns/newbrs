@@ -1,0 +1,92 @@
+<list>
+	
+	<case behaviour="mapping-is-applied-if-ruleset-is-satisfied." >
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>Test</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<mapping-name>mapping1</mapping-name>
+						<in-request-type>0:1="*"</in-request-type>
+						<out-request-type></out-request-type>
+						<dummy-response-enabled></dummy-response-enabled>
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:31=0:1</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+		
+		<web-service-request-map>
+			<item>
+				<key>0:1</key>
+				<value>test</value>
+			</item>
+    	</web-service-request-map>
+    	
+    	<assert>
+			<request>
+					<contains-attribute id="0:31" value="test" />
+			</request>
+		</assert>
+	</case>
+	
+
+	<case behaviour="Does not-apply-mapping-if-ruleset-is not satisfied" >
+
+		<trasnaltion-mapping>
+			<translation-id>1</translation-id>
+			<translation-mapping-policy>
+				<basetranslation-mapping-id></basetranslation-mapping-id>
+				<dummy-responses />
+				<from-interpreter-id>TTI0003</from-interpreter-id>
+				<dummy-response-enable>false</dummy-response-enable>
+				<name>Test</name>
+				<to-interpreter-id>TTI0001</to-interpreter-id>
+				<translation-mapping-id>1</translation-mapping-id>
+				<mappings>
+					<mapping>
+						<in-request-type>0:25 = "elitecore"</in-request-type>
+						<dummy-response-enabled>false</dummy-response-enabled>
+						<mapping-name>mapping</mapping-name>
+						<out-request-type />
+						<request-mappings>
+							<request-mapping>
+								<checked-expression>*</checked-expression>
+								<mapping-expression>0:31=0:1</mapping-expression>
+							</request-mapping>
+						</request-mappings>
+						<response-mappings />
+					</mapping>
+				</mappings>
+			</translation-mapping-policy>
+		</trasnaltion-mapping>
+		
+		<web-service-request-map>
+			<item>
+				<key>0:1</key>
+				<value>test</value>
+			</item>
+    	</web-service-request-map>
+    	
+    	<assert>
+			<request>
+				<not>
+					<contains-attribute id="0:31" value="test" />
+				</not>
+			</request>
+		</assert>
+	</case>
+</list>

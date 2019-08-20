@@ -1,0 +1,146 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<LINK REL ="stylesheet" TYPE="text/css" HREF="<%=request.getContextPath()%>/css/mllnstyles.css" >
+<LINK REL ="stylesheet" TYPE="text/css" HREF="<%=request.getContextPath()%>/css/popcalendar.css" >
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-nested" prefix="nested" %>
+<%@ taglib uri="/elitecore" prefix="elitecore" %>
+<%@taglib prefix="ec" uri="/elitetags" %>
+<html>
+<head>
+	<%
+	   String widgetId=request.getParameter("widgetId");
+	   String isAdditional=request.getParameter("isAdditional");
+	   String orderNumber=request.getParameter("orderNumber");
+	   
+	   if(isAdditional.equalsIgnoreCase("true")){
+		   widgetId=widgetId+"_additional";
+	   }else{
+		   widgetId=widgetId+"_authentication";
+	   }
+	%>
+	<script type="text/javascript">
+	
+	$(".waitForCDRDump").each(function(){
+		$(this).val("false");
+	});
+	
+	function changeValuesForCdrDump(checkbox){
+		if($(checkbox).attr('checked')){
+			$(checkbox).val('true');
+		}else{
+			$(checkbox).val('false');
+		}
+	}
+
+</script>
+</head>
+<body>
+<form id="form_cdrgen_<%=widgetId%>" name="form_cdrgen_<%=widgetId%>" class="form_cdrGeneretaion">
+<input type="hidden" value="<%=orderNumber%>" name="orderNumber" id="orderNumber"/>
+<input type="hidden" value="<%=isAdditional%>" name="isAdditional" id="isAdditional"/>
+<table name="tblmAdditionalCDRGeneration" width="100%" border="0" style="background-color: white;" class="handler-class" cellspacing="0" cellpadding="0">
+	<tr style="cursor: pointer;">
+		<td align="left" class="tbl-header-bold sortableAdditionalClass" valign="top" colspan="3">
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr>
+					<td width="96%" align="left" class="tbl-header-bold" valign="top">
+						<input type="text" id="handlerName_<%=widgetId%>" name="handlerName" class="handler-name-txt" size="17" value="<bean:message bundle="servicePolicyProperties" key="servicepolicy.proxypolicy.cdrgeneration" />" onkeyup="expand(this);" onkeypress="keyPressedForHandler(event,this);" onload="expand(this);" disabled="disabled"/>
+						<input type="hidden" id="cdrGenHiddenHandlerName_<%=widgetId%>" name="hiddenHandlerName" class="hidden-handler-name" value="<bean:message bundle="servicePolicyProperties" key="servicepolicy.proxypolicy.cdrgeneration" />" />
+						<input type="hidden" id="cdrGenHandlerType_<%=widgetId%>" name="handlerType" class="handlerType" value="CDRGeneration" />
+					</td>
+					<td class="editable_icon_bg">
+						<span class="edit_handler_icon" onclick="changeHandlerName(this);" title="Edit Handler Name"></span>
+						<span class="save_handler_icon" onclick="saveHandlerName(this);"  title="Save Handler Name" style="display: none;"></span>
+					</td>
+					<td width="1%" align="left" class="tbl-header-bold" valign="middle" style="padding-right: 2px;line-height: 9px;">
+						<div class="switch">
+						  <input id="toggle-cdrhandler_<%=widgetId%>" name="isHandlerEnabled" class="is-handler-enabled is-handler-enabled-round" type="checkbox" value="true" checked="checked" onclick="changeValueOfFlow(this);"/>
+						  <label for="toggle-cdrhandler_<%=widgetId%>"></label>
+						</div>
+					</td>
+					<td width="1%" valign="middle"  class="tbl-header-bold" style="padding-right: 5px;">
+						<img alt="Delete" class="delele_proxy" title="Delete"  src="<%=request.getContextPath()%>/images/delete_proxy.png" onclick="deleteHandler(this);" height="14" width="14" style="cursor: pointer;"/>
+					</td>
+					<td width="2%" valign="middle"  class="tbl-header-bold" style="padding-right: 10px;" onclick="expandCollapse(this);">
+						<img alt="Expand" class="expand_class" title="Expand" id="cdrAdditionalGenerationImg"   src="<%=request.getContextPath()%>/images/bottom.ico"  style="cursor: pointer;"/>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="cdrDiv" class="toggleDivs">
+				<table name="tblmCDRTbl" width="100%" border="0" style="background-color: white;" class="" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" class="captiontext left-border right-border" valign="top" id="button" style="padding-top: 10px;">
+							<input type="button" onclick='addNewCDRRow("cdrTemplate_<%=widgetId%>","mappingtblcdr_<%=widgetId%>",false);' value=" Add Driver " class="light-btn" style="size: 140px" tabindex="3"> 
+						</td>
+					</tr>
+					<tr>
+						<td align="left" class="captiontext left-border right-border bottom-border" valign="top" id="button" style="padding-right: 25px;">
+							<table cellSpacing="0" cellPadding="0" width="100%" border="0" id="mappingtblcdr_<%=widgetId%>" class="mappingtblcdr">
+								<tr>
+									<td align="left" class="tblheader-policy" valign="top" width="19%" id="tbl_attrid">
+										<bean:message bundle="servicePolicyProperties" key="radiusservicepolicy.cdrgen.ruleset" /> 
+										<ec:elitehelp header="radiusservicepolicy.cdrgen.ruleset" headerBundle="servicePolicyProperties" text="radiusservicepolicy.cdrgen.ruleset" ></ec:elitehelp>
+									</td>
+									<td align="left" class="tblheader-policy" valign="top" width="19%">
+										<bean:message bundle="servicePolicyProperties" key="radiusservicepolicy.cdrgen.primarydriver" /> 
+									    <ec:elitehelp header="radiusservicepolicy.cdrgen.primarydriver" headerBundle="servicePolicyProperties" text="radiusservicepolicy.cdrgen.primarydriver" ></ec:elitehelp>
+										<span style="float: right;" title="Refresh driver list" class="refresh-driver" onclick="reloadDriverList();">
+										</span> 
+									</td>
+									<td align="left" class="tblheader-policy" valign="top" width="19%">
+										<bean:message bundle="servicePolicyProperties" key="radiusservicepolicy.cdrgen.secondarydriver" /> 
+									    <ec:elitehelp header="radiusservicepolicy.cdrgen.secondarydriver" headerBundle="servicePolicyProperties" text="radiusservicepolicy.cdrgen.secondarydriver" ></ec:elitehelp>
+										 <span style="float: right;" title="Refresh driver list" class="refresh-driver" onclick="reloadDriverList();">
+										</span> 
+									</td>
+									<td align="left" class="tblheader-policy" valign="top" width="19%">
+										<bean:message bundle="servicePolicyProperties" key="radiusservicepolicy.cdrgen.driverscript" /> 
+									    <ec:elitehelp header="radiusservicepolicy.cdrgen.driverscript" headerBundle="servicePolicyProperties" text="radiusservicepolicy.cdrgen.driverscript" ></ec:elitehelp>
+									</td>
+									<td align="left" class="tblheader-policy" valign="top" width="19%">
+										<bean:message bundle="servicePolicyProperties" key="radiusservicepolicy.cdrgen.waitforcdrdump" /> 
+									    <ec:elitehelp header="radiusservicepolicy.cdrgen.waitforcdrdump" headerBundle="servicePolicyProperties" text="radiusservicepolicy.cdrgen.waitforcdrdump" ></ec:elitehelp>
+									</td>
+										<td align="left" class="tblheader-policy" valign="top" width="5%">Remove</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+</table>
+</form>
+<table id="cdrTemplate_<%=widgetId%>" style="display: none">
+	<tr>
+		<td class='tblfirstcol' width="19%">
+			<input class="noborder ruleset" id="ruleset_<%=widgetId%>" type="text" style="width: 100%;" name="ruleset" maxlength="2000"/>
+		</td>
+		<td class="tblrows" width="19%">
+			<select name="primaryDriverId" id="primaryDriverId_<%=widgetId%>" class="noborder primaryDriverId" style="width:210px"  onclick="if (typeof(this.selectedIndex) != 'undefined') openDriverWizard(this.selectedIndex,this,mappingtblcdr_<%=widgetId%>);">
+			</select>
+		</td>
+		<td class="tblrows" width="19%">
+			<select name="secondaryDriverId" id="secondaryDriverId_<%=widgetId%>" class="noborder secondaryDriverId" style="width:210px" onclick="if (typeof(this.selectedIndex) != 'undefined') openDriverWizard(this.selectedIndex,this,mappingtblcdr_<%=widgetId%>);">
+			</select>
+		</td>
+		<td class="tblrows" width="19%">
+			<input class="noborder script scriptInstAutocomplete" id="script_<%=widgetId%>" type="text" name="script" maxlength="2000" style="width: 100%;" />
+		</td>
+		<td class="tblrows" width="19%" >
+			<input type="checkbox" id="waitForCDRDump_<%=widgetId%>" value="false" name="waitForCDRDump" class="noborder waitForCDRDump" onclick="changeValuesForCdrDump(this);"/> 
+		</td>
+		<td class='tblrows' align="center" width="5%">
+			<img src='<%=request.getContextPath()%>/images/minus.jpg' class='delete' height='15' />&nbsp;
+		</td>
+	</tr>
+</table>
+</body>
+</html>

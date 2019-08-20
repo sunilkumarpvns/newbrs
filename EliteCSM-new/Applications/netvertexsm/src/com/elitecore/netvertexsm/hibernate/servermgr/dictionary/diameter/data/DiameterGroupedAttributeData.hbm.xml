@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.servermgr.dictionary.diameter.data.DiameterGroupedAttributeData" table="TBLMDIAMETERGROUPEDATTRIBUTE" >
+		
+					
+		<id name="groupedAttrId" column="GROUPEDATTRID" type="java.lang.Long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"> 
+			</generator>
+		</id>
+		
+		<property name="attributeRuleId" type="java.lang.Long">
+		        <column name="ATTRIBUTERULEID" sql-type="NUMBER(12)" not-null="false"/>
+		</property>
+		
+		<property name="parameterDetailId" type="java.lang.Long">
+		        <column name="PARAMETERDETAILID" sql-type="NUMBER(12)" not-null="true"/>
+		</property>
+		
+		
+		<property name="name" type="string">
+		        <column name="NAME" sql-type="VARCHAR2(50)" not-null="true"/>
+		</property>
+		
+		<property name="maximum" type="string">
+		        <column name="MAXIMUM" sql-type="CHAR(2)" not-null="true"/>
+		</property>
+		
+		<property name="minimum" type="string">
+		        <column name="MINIMUM" sql-type="CHAR(2)" not-null="true"/>
+		</property>
+		
+		<property name="groupedAttributeType" type="string">
+		        <column name="GROUPEDATTRIBUTETYPE" sql-type="CHAR(2)" not-null="true"/>
+		</property>
+		<property name="diameterdicId" type="java.lang.Long">
+		        <column name="DIAMETERDICID" sql-type="NUMBER(10)" not-null="true"/>
+		</property>
+		
+		<property name="vendorId" type="java.lang.Integer">
+		        <column name="VENDORID" sql-type="NUMBER(20)" not-null="true"/>
+		</property>
+		
+		<property name="attributeId" type="java.lang.Integer">
+		        <column name="ATTRIBUTEID" sql-type="NUMBER(20)" not-null="true"/>
+		</property>
+		
+	</class>	
+
+</hibernate-mapping>

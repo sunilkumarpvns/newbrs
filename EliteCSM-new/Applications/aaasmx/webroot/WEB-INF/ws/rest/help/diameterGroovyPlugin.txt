@@ -1,0 +1,294 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter?name=groovyPlugin&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter.xml?name=groovyPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter?operation=search&name=groovyPlugin&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter.xml?operation=search&name=groovyPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin.xml?operation=search
+
+Response     :
+
+<groovy-plugin>
+    <plugin-name>RGP</plugin-name>
+    <plugin-description>Created by admin on 02/28/2017 11:17:50 AM</plugin-description>
+    <status>ACTIVE</status>
+</groovy-plugin>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter?name=groovyPlugin&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter.json?name=groovyPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter?operation=search&name=groovyPlugin&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter.json?operation=search&name=groovyPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin.json?operation=search
+
+Response     :
+
+{
+  "plugin-name": "RGP",
+  "plugin-description": "Created by admin on 02/28/2017 11:17:50 AM",
+  "status": "ACTIVE"
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<groovy-plugin>
+    <plugin-name>RGP</plugin-name>
+    <plugin-description>Created by admin on 02/28/2017 11:17:50 AM</plugin-description>
+    <status>ACTIVE</status>
+</groovy-plugin>
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Groovy Plugin Created successfully"
+    }
+  ]
+}
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+  "plugin-name": "RGP",
+  "plugin-description": "Created by admin on 02/28/2017 11:17:50 AM",
+  "status": "ACTIVE"
+}
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Groovy Plugin Created successfully"
+    }
+  ]
+}
+
+***********************************************************************
+					CREATE OPERATION (BULK CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<list>
+  	<groovy-plugin>
+    	<plugin-name>RGP</plugin-name>
+    	<plugin-description>Created by admin on 02/28/2017 11:17:50 AM</plugin-description>
+    	<status>ACTIVE</status>
+	</groovy-plugin>
+</list>
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Groovy Plugins Created successfully"
+    }
+  ]
+}
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "list":[
+      {
+         "plugin-name":"RGP",
+         "plugin-description":"Created by admin on 02/28/2017 11:17:50 AM",
+         "status":"ACTIVE"
+      }
+   ]
+}
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Groovy Plugins Created successfully"
+    }
+  ]
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter?name=groovyPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter?operation=update&name=groovyPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<groovy-plugin>
+    <plugin-name>RGP</plugin-name>
+    <plugin-description>Created by admin on 02/28/2017 11:17:50 AM</plugin-description>
+    <status>ACTIVE</status>
+</groovy-plugin>
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Groovy Plugin updated successfully"
+    }
+  ]
+}
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "plugin-name": "RGP",
+  "plugin-description": "Created by admin on 02/28/2017 11:17:50 AM",
+  "status": "ACTIVE"
+}
+
+Response : 
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Groovy Plugin updated successfully"
+    }
+  ]
+}
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter?name=groovyPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter?operation=delete&name=groovyPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/groovyPlugin?operation=delete
+
+Response :
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Groovy Plugins deleted successfully"
+    }
+  ]
+}
+
+Note : For multiple delete use comma separated values
+***********************************************************************
+					FILE DOWNLOAD
+***********************************************************************
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/download?name=groovyPlugin&filename=example.txt
+
+***********************************************************************
+					FILE UPLOAD
+***********************************************************************
+#URL (By using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/groovyplugin/diameter/upload?name=groovyPlugin
+
+Attched File In attchement.
+
+Response :
+
+{
+  "response": [
+    {
+      "response-code": "200",
+      "response-message": "Diameter Groovy Plugin Files uploaded successfully"
+    }
+  ]
+}
+
+***********************************************************************

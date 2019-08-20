@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+		<class  name="com.elitecore.elitesm.datamanager.servermgr.drivers.ratingdriver.data.CrestelRatingDriverData" table="TBLMCRESTELRATINGDRIVER">
+
+		<id name="crestelRatingDriverId" column="CRESTELRATINGDRIVERID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">				
+			</generator>
+		</id> 
+		
+		<property name="driverInstanceId" type="StringType"> 
+			<column name="DRIVERINSTANCEID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="transMapConfId" type="StringType"> 
+			<column name="TRANSMAPCONFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="instanceNumber" type="java.lang.Integer"> 
+			<column name="INSTANCENUMBER" sql-type="NUMERIC(10)" not-null="false" /> 
+		</property>
+		
+		<bag name="jndiPropValMapList" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+			<key column="CRESTELRATINGDRIVERID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servermgr.drivers.ratingdriver.data.RatingDriverPropsData" />
+		</bag>
+		
+		<many-to-one name="translationMappingConfData" fetch="join"  insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.TranslationMappingConfData" column="TRANSMAPCONFID" ></many-to-one>	
+		
+	</class>
+
+</hibernate-mapping> 
+
+	
+

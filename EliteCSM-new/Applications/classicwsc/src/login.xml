@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+    <package name="login" namespace="/jsp/login" extends="default">
+      <action name="Login" class="com.elite.action.LoginAction">
+      		<result type="redirect-action">
+	            <param name="actionName">Main</param>
+	            <param name="namespace">/jsp/authresource</param>
+        	</result>
+			<result name="input">Login.jsp</result>
+   	  </action>
+   	</package>
+   	 <package name="default" namespace="" extends="struts-default">
+   	 	<global-results>
+            <result name="Exception" type="dispatcher">
+            	<param name="location">/jsp/exception/Exception.jsp</param>  
+            </result>
+            <result name="SessionExpire" type="dispatcher">
+            	<param name="location">/jsp/exception/SessionExpireException.jsp</param>  
+            </result>
+        </global-results>
+    	<global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="Exception"/>
+        </global-exception-mappings>
+		<action name="Login">
+	        <result type="redirect-action">
+		            <param name="actionName">Login</param>
+		            <param name="namespace">/jsp/login</param>
+	        </result>
+        </action>
+    </package>
+   
+	
+</struts>

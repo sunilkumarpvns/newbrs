@@ -1,0 +1,55 @@
+<project name="Elite License Framework" default="build-jar" basedir=".">
+
+    <property name="src" location="src"/>
+    <property name="test.src" location="testsrc"/>
+    <property name="build.classes" location="classes"/>
+    <property name="build.jar" location="lib"/>	
+	
+    
+    <target name="clean">
+    	 <echo message="cleaning......."/>
+        <delete includeEmptyDirs="true" quiet="true">
+          <fileset dir="${build.classes}"/>
+        </delete>
+    </target>
+	
+	
+	 <target name="compile-src" depends="clean" >
+	       <echo message="Compiling source..."/>
+	 		<mkdir dir="${build.classes}"/>
+	        <javac sourcepath=""
+	            srcdir="${src}"
+	            debug="on"
+	            debuglevel="lines,vars,source"
+	            destdir="${build.classes}"
+	            includes="**/*.java">
+	          <classpath>
+	            <pathelement path="${build.classes}"/>
+	            <fileset dir="${build.jar}">
+	            	<include name="*.jar"/>
+	            </fileset>
+	          </classpath>
+	        </javac>
+	    </target>
+
+	<target name="build-jar" depends="compile-src">
+		<echo message="Building jar source...  ${build.jar}/license-gen.jar"/>
+        <jar destfile="${build.jar}/license-gen.jar" >
+            <fileset  dir="${build.classes}">
+                 <include name="com/elitecore/license/util/**/*.*"/>
+            	 <include name="com/elitecore/license/base/**/*.*"/>
+                 <include name="com/elitecore/license/core/**/*.*"/>            	
+            </fileset>
+        </jar>
+		<echo message="Building jar source...  ${build.jar}/elitecore-license.jar"/>
+        <jar destfile="${build.jar}/elitecore-license.jar" >
+            <fileset  dir="${build.classes}">
+                <include name="com/elitecore/license/util/**/*.*"/>
+            	 <include name="com/elitecore/license/base/**/*.*"/>
+            	<include name="com/elitecore/license/publickey/**/*.*"/>     
+                <include name="com/elitecore/license/validator/**/*.*"/>            	
+            </fileset>
+        </jar>
+   </target>
+ 
+</project>

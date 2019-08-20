@@ -1,0 +1,65 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    <field name="name">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">100</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("bod.package.name")})}</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+            <message>${getText("invalid.name")}</message>
+        </field-validator>
+    </field>
+    <field name="description">
+        <field-validator type="stringlength">
+            <param name="minLength">0</param>
+            <param name="maxLength">255</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("bod.package.description")})}</message>
+        </field-validator>
+    </field>
+    <field name="validityPeriod">
+        <field-validator type="required" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+        <field-validator type="int" short-circuit="true">
+            <param name="min">1</param>
+            <param name="max">99999999</param>
+            <message>Must be between ${min} and ${max}</message>
+        </field-validator>
+        <field-validator type="regex" short-circuit="true">
+            <param name="regex"><![CDATA[^\d*$]]></param>
+            <message>${getText("error.required.numeric", {getText("bod.package.validity.period")})}</message>
+        </field-validator>
+        <field-validator type="greaterThanZero" short-circuit="true">
+            <message>${getText("error.greaterthanzero", {getText("bod.package.validity.period")})}</message>
+        </field-validator>
+    </field>
+
+    <field name="price">
+        <field-validator type="double">
+            <param name="minInclusive">0.0</param>
+            <param name="maxInclusive">999999.99</param>
+            <param name="trim">true</param>
+            <message>${getText("error.double.range", {getText("bod.package.price")})}</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^\d*(\.*\d)*?$]]></param>
+            <message>${getText("error.required.numeric", {getText("bod.package.price")})}</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^\d*(\.*\d{1,2})?$]]></param>
+            <message>${getText("error.price.only.two.decimal.places", {getText("bod.package.price")})}</message>
+        </field-validator>
+    </field>
+
+</validators>

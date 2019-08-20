@@ -1,0 +1,48 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    <field name="name">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("revenue.detail.name")})}</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="minLength">3</param>
+            <param name="maxLength">50</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("revenue.detail.name")})}</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+            <message>${getText("invalid.name", {getText("revenue.detail.name")})}</message>
+        </field-validator>
+    </field>
+    <field name="revenueDetailId">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.required.field", {getText("revenue.detail.id")})}</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="minLength">3</param>
+            <param name="maxLength">15</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("revenue.detail.id")})}</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^[A-Z0-9]+(_*[A-Z0-9]+)*$]]></param>
+            <message>${getText("invalid.revenueDetailId", {getText("revenue.detail.id")})}</message>
+        </field-validator>
+    </field>
+    <field name="description">
+        <field-validator type="stringlength">
+            <param name="minLength">0</param>
+            <param name="maxLength">2000</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("revenue.detail.description")})}</message>
+        </field-validator>
+    </field>
+
+</validators>

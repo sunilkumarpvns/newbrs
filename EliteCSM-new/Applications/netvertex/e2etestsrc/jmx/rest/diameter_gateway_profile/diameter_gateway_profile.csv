@@ -1,0 +1,17 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_ptog_packet_mapping,POST : Create PCC to Gateway Packet Mapping  : 201,sm/packetmapping/diameter-packet-mapping.json,POST,create_packet_ptog_mapping.json,,,201,diameter-packet-mapping
+2,create_gtop_packet_mapping,POST : Create Gateway to PCC Packet Mapping : 201,sm/packetmapping/diameter-packet-mapping.json,POST,create_packet_gtop_mapping.json,,,201,diameter-packet-mapping
+3,create_rx_ptog_packet_mapping,POST : Create  PCC to Gateway Packet Mapping for Rx  : 201,sm/packetmapping/diameter-packet-mapping.json,POST,create_packet_rx_ptog_mapping.json,,,201,diameter-packet-mapping
+4,create_rx_gtop_packet_mapping,POST : Create Gateway to PCC Packet Mapping for Rx : 201,sm/packetmapping/diameter-packet-mapping.json,POST,create_packet_rx_gtop_mapping.json,,,201,diameter-packet-mapping
+5,create_pcc_rule_mapping,POST : Create PCC Rule Mapping : 201,sm/pccrulemapping/diameter-pcc-rule-mapping.json,POST,create_pcc_rule_mapping.json,,,201,diameter-pcc-rule-mapping
+6,create_diameter_gateway_profile,POST : Create Diameter Gateway Profile rest_diameter_gateway_profile : 201,sm/gatewayprofile/diameter-gateway-profile.json,POST,create_diameter_gateway_profile.json,,28820,201,diameter-gateway-profile
+7,get_create_diameter_gateway_profile,GET : rest_diameter_gateway_profile should be displayed : 200,sm/gatewayprofile/diameter-gateway-profile/rest_d_gateway_profile_11111111.json,GET,,,28821,200,diameter-gateway-profile
+8,update_diameter_gateway_profile,PUT : Update  rest_diameter_gateway_profile to  updated_rest_diameter_gateway_profile : 200,sm/gatewayprofile/diameter-gateway-profile/rest_d_gateway_profile_11111111.json,PUT,update_diameter_gateway_profile.json,,28822,200,diameter-gateway-profile
+9,get_updated_diameter_gateway_profile,GET : updated_rest_diameter_gateway_profile should  be displayed : 200,sm/gatewayprofile/diameter-gateway-profile/rest_d_gateway_profile_11111111.json,GET,,,28823,200,diameter-gateway-profile
+10,delete_diameter_gateway_profile,DELETE : Delete updated_rest_diameter_gateway_profile  : 200,sm/gatewayprofile/diameter-gateway-profile/rest_d_gateway_profile_11111111.json,DELETE,,,28824,200,diameter-gateway-profile
+11,get_deleted_diameter_gateway_profile,GET : updated_rest_diameter_gateway_profile should not be displayed : 404,sm/gatewayprofile/diameter-gateway-profile/rest_d_gateway_profile_11111111.json,GET,,,28825,404,diameter-gateway-profile
+12,delete_ptog_packet_mapping,DELETE  : Delete PCC to Gateway Packet Mapping : 200,sm/packetmapping/diameter-packet-mapping/rest_ptog_packet_mapping_11111111.json,DELETE,,,,200,diameter-packet-mapping
+13,delete_gtop_packet_mapping,DELETE  : Delete Gateway to PCC Packet Mapping : 200,sm/packetmapping/diameter-packet-mapping/rest_gtop_packet_mapping_11111111.json,DELETE,,,,200,diameter-packet-mapping
+14,delete_rx_ptog_packet_mapping,DELETE  : Delete PCC to Gateway Packet Mapping (Rx) : 200,sm/packetmapping/diameter-packet-mapping/rest_ptog_rx_packet_mapping_11111111.json,DELETE,,,,200,diameter-packet-mapping
+15,delete_rx_gtop_packet_mapping,DELETE  : Delete Gateway to PCC Packet Mapping (Rx) : 200,sm/packetmapping/diameter-packet-mapping/rest_gtop_rx_packet_mapping_11111111.json,DELETE,,,,200,diameter-packet-mapping
+16,delete_pcc_rule_mapping,DELETE  : Delete PCC Rule Mapping Packet Mapping  : 200,sm/pccrulemapping/diameter-pcc-rule-mapping/rest_pcc_rule_mapping_11111111.json,DELETE,,,,200,diameter-pcc-rule-mapping

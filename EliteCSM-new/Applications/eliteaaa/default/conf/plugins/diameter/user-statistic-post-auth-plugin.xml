@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE driver-mapping SYSTEM "http://www.elitecore.com">-->
+<!-- PACKET-TYPE   0) Reqeust Packet   1) Response Packet-->
+<user-statistic-post-auth-plugin>
+	<datasource-name></datasource-name>
+	<datasource-type>oracle</datasource-type>
+	<tablename></tablename>
+	<datasource-scantime></datasource-scantime>
+	<db-query-timeout></db-query-timeout>
+	<max-query-timeout-count></max-query-timeout-count>
+	<batch-update-interval></batch-update-interval>
+	<db-field-mapping>
+		<attribute>
+			<attribute-ids>0:1</attribute-ids>
+			<packet-type>0</packet-type>
+			<db-field>user_name</db-field>
+			<data-type>String</data-type>
+			<default-value></default-value>
+			<use-dictionary-value>True</use-dictionary-value>
+		</attribute>
+		<attribute>
+			<attribute-ids>0:18</attribute-ids>
+			<packet-type>1</packet-type>
+			<db-field>REPLY_MESSAGE</db-field>
+			<data-type>String</data-type>
+			<default-value></default-value>
+			<use-dictionary-value>True</use-dictionary-value>
+		</attribute>
+	</db-field-mapping>
+</user-statistic-post-auth-plugin>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="imsPkgData.name">
+		<field-validator type="required" short-circuit="true">
+			<message>${getText("error.required.field", {getText("ims.pkg.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("ims.pkg.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("ims.pkg.name")})}</message>
+        </field-validator>		
+	</field>
+	
+	<field name="imsPkgData.price" >
+		<field-validator type="double">
+			<param name="minInclusive">0.0</param>
+			<param name="maxInclusive">999999.00</param>
+			<param name="trim">true</param>
+			<message>${getText("error.double.range", {getText("ims.pkg.price")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^\d*(\.*\d)*?$]]></param>
+    		<message>${getText("error.required.numeric", {getText("ims.pkg.price")})}</message>
+        </field-validator>
+	</field>
+	
+	
+</validators>

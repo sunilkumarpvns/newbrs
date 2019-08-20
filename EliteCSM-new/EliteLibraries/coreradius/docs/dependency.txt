@@ -1,0 +1,15 @@
+## -----------------------------------------
+#  This FILE can contain dependent file names from Common Libraries
+#  and MODULE should give the name of the module with version no. 
+#  For files it should be FILEXX=<File name>
+#  For modules it should be MODILEXX=<Module name with version>
+#  e.g. FILE01=junit3.8.1.jar
+#      MODULE01=coreserver-1.0.0
+## --------------------------------------------------
+
+#Modules on which coreradius depends
+MODULE01=coreserver-1.0.0
+
+#Third party files required by coreradius
+FILE01=third-party/junit3.8.1.jar
+FILE02=third-party/log4j-1.3alpha-3.jar

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="com.elitecore.elitesm.datamanager.dashboard.data.chartdata.MemoryUsageData" table="TBLINSTANCEMEMORYUSAGE">
+   
+      <id name="id" column="ID" type="java.lang.Integer">
+         <generator class="increment"></generator>
+      </id>
+      
+      <property name="timestamp" type="java.sql.Timestamp">
+         <column name="TIMESTAMP" sql-type="DATE" not-null="false"/>
+      </property>
+      
+      <property name="instanceId" type="StringType">
+         <column name="INSTANCE_ID" sql-type="VARCHAR(50)" not-null="false"/>
+      </property>
+      
+      <property name="memoryUsage" type="java.lang.Integer">
+         <column name="MEMORY_USAGE" sql-type="NUMBER" not-null="false"/>
+      </property>
+      
+   </class>
+  
+</hibernate-mapping>

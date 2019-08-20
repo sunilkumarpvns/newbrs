@@ -1,0 +1,15 @@
+{
+    	"id" : "rest_event_rcg_11111111",
+        "status": "ACTIVE",
+        "groups": "GROUP_1",
+        "name": "rest_event_rate_card_group",
+        "description": "Created by rest automation",
+        "orderNo": 1,
+        "fixedCharge1": null,
+        "fixedCharge2": null,
+        "peakRateRateCardId": "rest_event_rate_card_11111111",
+        "rncPkgId": "rest_event_rnc_package_11111111",
+        "timeSlotRelationData": [],
+        "advanceCondition": "IMSEmergencySession = \"1\"",
+        "groupNames": null
+}

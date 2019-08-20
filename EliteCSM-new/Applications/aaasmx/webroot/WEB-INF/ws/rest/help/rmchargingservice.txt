@@ -1,0 +1,338 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging?name=RMServer&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging.xml?name=RMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging/RMServer?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging/RMServer.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging?operation=search&name=RMServer&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging.xml?operation=search&name=RMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging/RMServer?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging/RMServer.xml?operation=search
+
+Response     :
+
+<rm-charging-service>
+    <service-address>127.0.0.1:1923</service-address>
+    <socket-receive-buffer-size>32767</socket-receive-buffer-size>
+    <socket-send-buffer-size>32767</socket-send-buffer-size>
+    <queue-size>15000</queue-size>
+    <minimum-thread>5</minimum-thread>
+    <maximum-thread>5</maximum-thread>
+    <main-thread-priority>7</main-thread-priority>
+    <worker-thread-priority>7</worker-thread-priority>
+    <duplicate-request-check-enabled>false</duplicate-request-check-enabled>
+    <duplicate-request-purge-interval>15</duplicate-request-purge-interval>
+    <service-policies>
+        <service-policy>ALL</service-policy>
+    </service-policies>
+    <logging>
+        <service-logger-enabled>false</service-logger-enabled>
+        <log-level>DEBUG</log-level>
+        <rolling-type>Time-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <location></location>
+        <syslog>
+            <address></address>
+            <facility>-NONE-</facility>
+        </syslog>
+    </logging>
+    <plugin-list>
+        <pre-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins>
+        <post-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins>
+    </plugin-list>
+</rm-charging-service>
+
+
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging?name=RMServer&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging.json?name=RMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging/RMServer?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging/RMServer.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging?operation=search&name=RMServer&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging.json?operation=search&name=RMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging/RMServer?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging/RMServer.json?operation=search
+
+Response     :
+
+{
+  "service-address": "127.0.0.1:1923",
+  "socket-receive-buffer-size": "32767",
+  "socket-send-buffer-size": "32767",
+  "queue-size": "15000",
+  "minimum-thread": "5",
+  "maximum-thread": "5",
+  "main-thread-priority": "7",
+  "worker-thread-priority": "7",
+  "duplicate-request-check-enabled": "false",
+  "duplicate-request-purge-interval": "15",
+  "service-policies": [
+    "ALL"
+  ],
+  "logging": {
+    "service-logger-enabled": "false",
+    "log-level": "DEBUG",
+    "rolling-type": "Time-Based",
+    "rolling-unit": "5",
+    "max-rolled-unit": "10",
+    "compress-rolled-unit": "false",
+    "location": "",
+    "syslog": {
+      "address": "",
+      "facility": "-NONE-"
+    }
+  },
+  "plugin-list": {
+    "pre-plugins": {
+      "plugin-entry": [
+        {
+          "plugin-name": "-NONE-",
+          "argument": ""
+        }
+      ]
+    },
+    "post-plugins": {
+      "plugin-entry": [
+        {
+          "plugin-name": "-NONE-",
+          "argument": ""
+        }
+      ]
+    }
+  }
+}
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging?name=RMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging/RMServer
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging?operation=update&name=RMServer
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/server/resourcemanager/services/rmcharging/RMServer?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<rm-charging-service>
+    <service-address>127.0.0.1:1923</service-address>
+    <socket-receive-buffer-size>32767</socket-receive-buffer-size>
+    <socket-send-buffer-size>32767</socket-send-buffer-size>
+    <queue-size>15000</queue-size>
+    <minimum-thread>5</minimum-thread>
+    <maximum-thread>5</maximum-thread>
+    <main-thread-priority>7</main-thread-priority>
+    <worker-thread-priority>7</worker-thread-priority>
+    <duplicate-request-check-enabled>false</duplicate-request-check-enabled>
+    <duplicate-request-purge-interval>15</duplicate-request-purge-interval>
+    <service-policies>
+        <service-policy>ALL</service-policy>
+    </service-policies>
+    <logging>
+        <service-logger-enabled>false</service-logger-enabled>
+        <log-level>DEBUG</log-level>
+        <rolling-type>Time-Based</rolling-type>
+        <rolling-unit>5</rolling-unit>
+        <max-rolled-unit>10</max-rolled-unit>
+        <compress-rolled-unit>false</compress-rolled-unit>
+        <location></location>
+        <syslog>
+            <address></address>
+            <facility>-NONE-</facility>
+        </syslog>
+    </logging>
+    <plugin-list>
+        <pre-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </pre-plugins>
+        <post-plugins>
+            <plugin-entry>
+                <plugin-name>-NONE-</plugin-name>
+                <argument></argument>
+            </plugin-entry>
+        </post-plugins>
+    </plugin-list>
+</rm-charging-service>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Resource Manager Charging Service updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "service-address": "127.0.0.1:1923",
+  "socket-receive-buffer-size": "32767",
+  "socket-send-buffer-size": "32767",
+  "queue-size": "15000",
+  "minimum-thread": "5",
+  "maximum-thread": "5",
+  "main-thread-priority": "7",
+  "worker-thread-priority": "7",
+  "duplicate-request-check-enabled": "false",
+  "duplicate-request-purge-interval": "15",
+  "service-policies": [
+    "ALL"
+  ],
+  "logging": {
+    "service-logger-enabled": "false",
+    "log-level": "DEBUG",
+    "rolling-type": "Time-Based",
+    "rolling-unit": "5",
+    "max-rolled-unit": "10",
+    "compress-rolled-unit": "false",
+    "location": "",
+    "syslog": {
+      "address": "",
+      "facility": "-NONE-"
+    }
+  },
+  "plugin-list": {
+    "pre-plugins": {
+      "plugin-entry": [
+        {
+          "plugin-name": "-NONE-",
+          "argument": ""
+        }
+      ]
+    },
+    "post-plugins": {
+      "plugin-entry": [
+        {
+          "plugin-name": "-NONE-",
+          "argument": ""
+        }
+      ]
+    }
+  }
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Resource Manager Charging Service updated successfully</response-message>
+    </response>
+</response-detail>
+
+#Notes :
+
+1) To enable debug, add debug=true in query parameter
+
+***********************************************************************
+						Additional Details(Properties as per SM)
+***********************************************************************
+ 	
+# List of Possible value for Duplicate Request Check Enabled (anyone) :
+	1) true
+	2) false
+	
+# List of possible value of Service Policy: 
+	It must be list of name of Charging service policy or 'ALL' to select all Charging service policy.
+	
+# List of possible value of Service Logger Enabled :
+	1) true
+	2) false
+
+# List of possible value of Log Level (anyone) :
+	1) OFF
+ 	2) WARN
+ 	3) ERROR
+ 	4) INFO
+ 	5) FATAL
+ 	6) DEBUG
+ 	7) TRACE
+ 	8) ALL
+
+# List of Possible value for rolling-type (anyone):
+ 	1) Time-Based
+ 	2) Size-Based
+
+# List of Possible value for compress-rolled-unit (anyone):
+	1) true
+	2) false
+
+# List of Possible value Facility (Sys log Configuration) (anyone):
+	
+	1) -None- 
+	2) AUTH
+	3) KERN
+	4) USER
+	5) MAIL
+	6) DAEMON
+	7) SYSLOG
+	8) LPR
+	9) NEWS
+	10) UUCP
+	11) CRON
+	12) AUTHPRIV
+	13) FTP
+	14) LOCAL0
+	15) LOCAL1
+	16) LOCAL2
+	17) LOCAL3
+	18) LOCAL4
+	19) LOCAL5 
+	20) LOCAL6
+    21) LOCAL7
+    
+# Plugin Name in Pre plugins and Post plugins:
+	It can be name of Radius plugin or -None-

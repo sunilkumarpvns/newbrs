@@ -1,0 +1,2 @@
+./authGateway  -port 2906 -host aaa-ulticom -node C71 -prot C7  -conf $OMNI_HOME/examples/authGateway/gw/gw.conf -lpc 9000 -lssn 8 -ldigits 919588411008  -lri 0 -lnp 1 -invkretry 0 -debug 0xff -name AUTH -appctx 3 -phase 1000 -msisdnlength 14
+

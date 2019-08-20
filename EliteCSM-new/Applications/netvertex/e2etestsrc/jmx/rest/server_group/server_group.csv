@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_server_group,POST : Create Server Group rest_server_group : 201,sm/servergroup/server-group.json,POST,create_server_group.json,,26326,201,server group
+2,get_created_server_group,GET : rest_server_group should be displayed : 200,sm/servergroup/server-group/rest_server_group_11111111.json,GET,,,26327,200,server group
+3,update_server_group,PUT : Update rest_server_group and set name to updated_rest_server_group : 200,sm/servergroup/server-group/rest_server_group_11111111.json,PUT,update_server_group.json,,26328,200,server group
+4,get_updated_server_group,GET :  updated_rest_server_group should be displayed : 200,sm/servergroup/server-group/rest_server_group_11111111.json,GET,,,26329,200,server group
+5,delete_server_group,DELETE : Delete updated_rest_server_group : 200,sm/servergroup/server-group/rest_server_group_11111111.json,DELETE,,,26330,200,server group
+6,get_deleted_server_group,GET :  updated_rest_server_group not should be displayed : 404,sm/servergroup/server-group/rest_server_group_11111111.json,GET,,"{""actionErrors"":[""No Server Group found for Id :rest_server_group_11111111""]}",28791,404,server group

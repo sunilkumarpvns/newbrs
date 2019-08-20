@@ -1,0 +1,767 @@
+***********************************************************************
+						GET OPERATION  
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth?name=diameterDBAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth.xml?name=diameterDBAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth?operation=search&name=diameterDBAuthDriver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth.xml?operation=search&name=diameterDBAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+
+<driver-instance>
+    <name>diameterDBAuthDriver</name>
+    <description>Created by admin on 04/05/2017 12:26:48 PM</description>
+    <db-auth-driver>
+        <database-datasource>DefaultDatabaseDatasource</database-datasource>
+        <table-name>TBLRADIUSCUSTOMER</table-name>
+        <db-query-timeout>2</db-query-timeout>
+        <maximum-query-timeout-count>200</maximum-query-timeout-count>
+        <profile-lookup-column>USER_IDENTITY</profile-lookup-column>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <db-field-mappings>
+            <db-field-mapping>
+                <logical-name>User Name</logical-name>
+                <db-field>USERNAME</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>CUI</logical-name>
+                <db-field>CUI</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>User Password</logical-name>
+                <db-field>PASSWORD</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Password Check</logical-name>
+                <db-field>PASSWORDCHECK</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Encryption Type</logical-name>
+                <db-field>ENCRYPTIONTYPE</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Customer Status</logical-name>
+                <db-field>CUSTOMERSTATUS</db-field>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <db-field>CALLINGSTATIONID</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <db-field>DIAMETERPOLICY</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <db-field>CUSTOMERCHECKITEM</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <db-field>CUSTOMERREPLYITEM</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <db-field>EXPIRYDATE</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <db-field>CREDITLIMIT</db-field>
+            </db-field-mapping>
+        </db-field-mappings>
+    </db-auth-driver>
+</driver-instance>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth?name=diameterDBAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth.json?name=diameterDBAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth?operation=search&name=diameterDBAuthDriver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth.json?operation=search&name=diameterDBAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver.json?operation=search
+
+Content Type : application/json
+
+Response     :
+
+{
+    "name": "diameterDBAuthDriver",
+    "description": "Created by admin on 04/05/2017 12:26:48 PM",
+    "db-auth-driver": [
+        {
+            "database-datasource": "DefaultDatabaseDatasource",
+            "table-name": "TBLRADIUSCUSTOMER",
+            "db-query-timeout": "2",
+            "maximum-query-timeout-count": "200",
+            "profile-lookup-column": "USER_IDENTITY",
+            "user-identity-attributes": "0:1",
+            "db-field-mappings": [
+                {
+                    "logical-name": "User Name",
+                    "db-field": "USERNAME"
+                },
+                {
+                    "logical-name": "CUI",
+                    "db-field": "CUI"
+                },
+                {
+                    "logical-name": "User Password",
+                    "db-field": "PASSWORD"
+                },
+                {
+                    "logical-name": "Password Check",
+                    "db-field": "PASSWORDCHECK"
+                },
+                {
+                    "logical-name": "Encryption Type",
+                    "db-field": "ENCRYPTIONTYPE"
+                },
+                {
+                    "logical-name": "Customer Status",
+                    "db-field": "CUSTOMERSTATUS",
+                    "default-value":"Active",
+               		"value-mapping":"1=Active,0=inActive"
+                },
+                {
+                    "logical-name": "Calling Station ID",
+                    "db-field": "CALLINGSTATIONID"
+                },
+                {
+                    "logical-name": "Authorization Policy",
+                    "db-field": "DIAMETERPOLICY"
+                },
+                {
+                    "logical-name": "Customer Check Items",
+                    "db-field": "CUSTOMERCHECKITEM"
+                },
+                {
+                    "logical-name": "Customer Reply Items",
+                    "db-field": "CUSTOMERREPLYITEM"
+                },
+                {
+                    "logical-name": "Expiry Date",
+                    "db-field": "EXPIRYDATE"
+                },
+                {
+                    "logical-name": "Credit Limit",
+                    "db-field": "CREDITLIMIT"
+                }
+            ]
+        }
+    ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth?operation=create
+
+Note : - for inserting Default Value and Value Mapping in DB Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+        
++-+-+-+-+-+ XML Response +-+-+-+-+-+ 
+
+Content Type : application/xml
+
+Body : 
+
+<driver-instance>
+    <name>diameterDBAuthDriver</name>
+    <description>Created by admin on 04/05/2017 12:26:48 PM</description>
+    <db-auth-driver>
+        <database-datasource>DefaultDatabaseDatasource</database-datasource>
+        <table-name>TBLRADIUSCUSTOMER</table-name>
+        <db-query-timeout>2</db-query-timeout>
+        <maximum-query-timeout-count>200</maximum-query-timeout-count>
+        <profile-lookup-column>USER_IDENTITY</profile-lookup-column>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <db-field-mappings>
+            <db-field-mapping>
+                <logical-name>User Name</logical-name>
+                <db-field>USERNAME</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>CUI</logical-name>
+                <db-field>CUI</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>User Password</logical-name>
+                <db-field>PASSWORD</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Password Check</logical-name>
+                <db-field>PASSWORDCHECK</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Encryption Type</logical-name>
+                <db-field>ENCRYPTIONTYPE</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Customer Status</logical-name>
+                <db-field>CUSTOMERSTATUS</db-field>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <db-field>CALLINGSTATIONID</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <db-field>DIAMETERPOLICY</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <db-field>CUSTOMERCHECKITEM</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <db-field>CUSTOMERREPLYITEM</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <db-field>EXPIRYDATE</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <db-field>CREDITLIMIT</db-field>
+            </db-field-mapping>
+        </db-field-mappings>
+    </db-auth-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter DB Auth Driver created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Note : - for inserting Default Value and Value Mapping in DB Field Mapping use below format.
+
+	"default-value":"Active",
+    "value-mapping":"1=Active,0=inActive"
+	
+Content Type : application/json
+
+Body :
+
+{
+    "name": "diameterDBAuthDriver",
+    "description": "Created by admin on 04/05/2017 12:26:48 PM",
+    "db-auth-driver": [
+        {
+            "database-datasource": "DefaultDatabaseDatasource",
+            "table-name": "TBLRADIUSCUSTOMER",
+            "db-query-timeout": "2",
+            "maximum-query-timeout-count": "200",
+            "profile-lookup-column": "USER_IDENTITY",
+            "user-identity-attributes": "0:1",
+            "db-field-mappings": [
+                {
+                    "logical-name": "User Name",
+                    "db-field": "USERNAME"
+                },
+                {
+                    "logical-name": "CUI",
+                    "db-field": "CUI"
+                },
+                {
+                    "logical-name": "User Password",
+                    "db-field": "PASSWORD"
+                },
+                {
+                    "logical-name": "Password Check",
+                    "db-field": "PASSWORDCHECK"
+                },
+                {
+                    "logical-name": "Encryption Type",
+                    "db-field": "ENCRYPTIONTYPE"
+                },
+                {
+                    "logical-name": "Customer Status",
+                    "db-field": "CUSTOMERSTATUS",
+                    "default-value":"Active",
+               		"value-mapping":"1=Active,0=inActive"
+                },
+                {
+                    "logical-name": "Calling Station ID",
+                    "db-field": "CALLINGSTATIONID"
+                },
+                {
+                    "logical-name": "Authorization Policy",
+                    "db-field": "DIAMETERPOLICY"
+                },
+                {
+                    "logical-name": "Customer Check Items",
+                    "db-field": "CUSTOMERCHECKITEM"
+                },
+                {
+                    "logical-name": "Customer Reply Items",
+                    "db-field": "CUSTOMERREPLYITEM"
+                },
+                {
+                    "logical-name": "Expiry Date",
+                    "db-field": "EXPIRYDATE"
+                },
+                {
+                    "logical-name": "Credit Limit",
+                    "db-field": "CREDITLIMIT"
+                }
+            ]
+        }
+    ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter DB Auth Driver created successfully</response-message>
+    </response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/bulk?operation=create
+
+Note : - for inserting Default Value and Value Mapping in DB Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+        
++-+-+-+-+-+ XML Response +-+-+-+-+-+ 
+
+Content Type : application/xml
+
+Body :
+<list>
+    <driver-instance>
+	    <name>diameterDBAuthDriver</name>
+	    <description>Created by admin on 04/05/2017 12:26:48 PM</description>
+	    <db-auth-driver>
+	        <database-datasource>DefaultDatabaseDatasource</database-datasource>
+	        <table-name>TBLRADIUSCUSTOMER</table-name>
+	        <db-query-timeout>2</db-query-timeout>
+	        <maximum-query-timeout-count>200</maximum-query-timeout-count>
+	        <profile-lookup-column>USER_IDENTITY</profile-lookup-column>
+	        <user-identity-attributes>0:1</user-identity-attributes>
+	        <db-field-mappings>
+	            <db-field-mapping>
+	                <logical-name>User Name</logical-name>
+	                <db-field>USERNAME</db-field>
+	            </db-field-mapping>
+	            <db-field-mapping>
+	                <logical-name>CUI</logical-name>
+	                <db-field>CUI</db-field>
+	            </db-field-mapping>
+	            <db-field-mapping>
+	                <logical-name>User Password</logical-name>
+	                <db-field>PASSWORD</db-field>
+	            </db-field-mapping>
+	            <db-field-mapping>
+	                <logical-name>Password Check</logical-name>
+	                <db-field>PASSWORDCHECK</db-field>
+	            </db-field-mapping>
+	            <db-field-mapping>
+	                <logical-name>Encryption Type</logical-name>
+	                <db-field>ENCRYPTIONTYPE</db-field>
+	            </db-field-mapping>
+	            <db-field-mapping>
+	                <logical-name>Customer Status</logical-name>
+	                <db-field>CUSTOMERSTATUS</db-field>
+	                <default-value>Active</default-value>
+	                <value-mapping>1=Active,0=inActive</value-mapping>
+	            </db-field-mapping>
+	            <db-field-mapping>
+	                <logical-name>Calling Station ID</logical-name>
+	                <db-field>CALLINGSTATIONID</db-field>
+	            </db-field-mapping>
+	            <db-field-mapping>
+	                <logical-name>Authorization Policy</logical-name>
+	                <db-field>DIAMETERPOLICY</db-field>
+	            </db-field-mapping>
+	            <db-field-mapping>
+	                <logical-name>Customer Check Items</logical-name>
+	                <db-field>CUSTOMERCHECKITEM</db-field>
+	            </db-field-mapping>
+	            <db-field-mapping>
+	                <logical-name>Customer Reply Items</logical-name>
+	                <db-field>CUSTOMERREPLYITEM</db-field>
+	            </db-field-mapping>
+	            <db-field-mapping>
+	                <logical-name>Expiry Date</logical-name>
+	                <db-field>EXPIRYDATE</db-field>
+	            </db-field-mapping>
+	            <db-field-mapping>
+	                <logical-name>Credit Limit</logical-name>
+	                <db-field>CREDITLIMIT</db-field>
+	            </db-field-mapping>
+	        </db-field-mappings>
+	    </db-auth-driver>
+	</driver-instance>
+</list>
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter DB Auth Driver(s) created successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Note : - for inserting Default Value and Value Mapping in DB Field Mapping use below format.
+
+	"default-value":"Active",
+    "value-mapping":"1=Active,0=inActive"
+	
+Content Type : application/json
+
+Body :
+{
+   "list":[
+      {
+         "name":"diameterDBAuthDriver",
+         "description":"Created by admin on 04/05/2017 12:26:48 PM",
+         "db-auth-driver":[
+            {
+               "database-datasource":"DefaultDatabaseDatasource",
+               "table-name":"TBLRADIUSCUSTOMER",
+               "db-query-timeout":"2",
+               "maximum-query-timeout-count":"200",
+               "profile-lookup-column":"USER_IDENTITY",
+               "user-identity-attributes":"0:1",
+               "db-field-mappings":[
+                  {
+                     "logical-name":"User Name",
+                     "db-field":"USERNAME"
+                  },
+                  {
+                     "logical-name":"CUI",
+                     "db-field":"CUI"
+                  },
+                  {
+                     "logical-name":"User Password",
+                     "db-field":"PASSWORD"
+                  },
+                  {
+                     "logical-name":"Password Check",
+                     "db-field":"PASSWORDCHECK"
+                  },
+                  {
+                     "logical-name":"Encryption Type",
+                     "db-field":"ENCRYPTIONTYPE"
+                  },
+                  {
+                     "logical-name":"Customer Status",
+                     "db-field":"CUSTOMERSTATUS",
+                     "default-value":"Active",
+              		 "value-mapping":"1=Active,0=inActive"
+                  },
+                  {
+                     "logical-name":"Calling Station ID",
+                     "db-field":"CALLINGSTATIONID"
+                  },
+                  {
+                     "logical-name":"Authorization Policy",
+                     "db-field":"DIAMETERPOLICY"
+                  },
+                  {
+                     "logical-name":"Customer Check Items",
+                     "db-field":"CUSTOMERCHECKITEM"
+                  },
+                  {
+                     "logical-name":"Customer Reply Items",
+                     "db-field":"CUSTOMERREPLYITEM"
+                  },
+                  {
+                     "logical-name":"Expiry Date",
+                     "db-field":"EXPIRYDATE"
+                  },
+                  {
+                     "logical-name":"Credit Limit",
+                     "db-field":"CREDITLIMIT"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter DB Auth Driver(s) created successfully</response-message>
+    </response>
+</response-detail>
+
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth?name=diameterDBAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth?operation=update&name=diameterDBAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Note : - for updating Default Value and Value Mapping in DB Field Mapping use below format.
+
+		<default-value>Active</default-value>
+        <value-mapping>1=Active,0=inActive</value-mapping>
+
+Content Type : application/xml
+
+Body     :
+
+<driver-instance>
+    <name>diameterDBAuthDriver</name>
+    <description>Created by admin on 04/05/2017 12:26:48 PM</description>
+    <db-auth-driver>
+        <database-datasource>DefaultDatabaseDatasource</database-datasource>
+        <table-name>TBLRADIUSCUSTOMER</table-name>
+        <db-query-timeout>2</db-query-timeout>
+        <maximum-query-timeout-count>200</maximum-query-timeout-count>
+        <profile-lookup-column>USER_IDENTITY</profile-lookup-column>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <db-field-mappings>
+            <db-field-mapping>
+                <logical-name>User Name</logical-name>
+                <db-field>USERNAME</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>CUI</logical-name>
+                <db-field>CUI</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>User Password</logical-name>
+                <db-field>PASSWORD</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Password Check</logical-name>
+                <db-field>PASSWORDCHECK</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Encryption Type</logical-name>
+                <db-field>ENCRYPTIONTYPE</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Customer Status</logical-name>
+                <db-field>CUSTOMERSTATUS</db-field>
+                <default-value>Active</default-value>
+                <value-mapping>1=Active,0=inActive</value-mapping>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Calling Station ID</logical-name>
+                <db-field>CALLINGSTATIONID</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Authorization Policy</logical-name>
+                <db-field>DIAMETERPOLICY</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Customer Check Items</logical-name>
+                <db-field>CUSTOMERCHECKITEM</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Customer Reply Items</logical-name>
+                <db-field>CUSTOMERREPLYITEM</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Expiry Date</logical-name>
+                <db-field>EXPIRYDATE</db-field>
+            </db-field-mapping>
+            <db-field-mapping>
+                <logical-name>Credit Limit</logical-name>
+                <db-field>CREDITLIMIT</db-field>
+            </db-field-mapping>
+        </db-field-mappings>
+    </db-auth-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter DB Auth Driver updated successfully</response-message>
+    </response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Note : - for updating Default Value and Value Mapping in DB Field Mapping use below format.
+
+	"default-value":"Active",
+    "value-mapping":"1=Active,0=inActive"
+
+
+Content Type : application/json
+
+Body     :
+
+{
+    "name": "diameterDBAuthDriver",
+    "description": "Created by admin on 04/05/2017 12:26:48 PM",
+    "db-auth-driver": [
+        {
+            "database-datasource": "DefaultDatabaseDatasource",
+            "table-name": "TBLRADIUSCUSTOMER",
+            "db-query-timeout": "2",
+            "maximum-query-timeout-count": "200",
+            "profile-lookup-column": "USER_IDENTITY",
+            "user-identity-attributes": "0:1",
+            "db-field-mappings": [
+                {
+                    "logical-name": "User Name",
+                    "db-field": "USERNAME"
+                },
+                {
+                    "logical-name": "CUI",
+                    "db-field": "CUI"
+                },
+                {
+                    "logical-name": "User Password",
+                    "db-field": "PASSWORD"
+                },
+                {
+                    "logical-name": "Password Check",
+                    "db-field": "PASSWORDCHECK"
+                },
+                {
+                    "logical-name": "Encryption Type",
+                    "db-field": "ENCRYPTIONTYPE"
+                },
+                {
+                    "logical-name": "Customer Status",
+                    "db-field": "CUSTOMERSTATUS",
+                    "default-value":"Active",
+               		"value-mapping":"1=Active,0=inActive"
+                },
+                {
+                    "logical-name": "Calling Station ID",
+                    "db-field": "CALLINGSTATIONID"
+                },
+                {
+                    "logical-name": "Authorization Policy",
+                    "db-field": "DIAMETERPOLICY"
+                },
+                {
+                    "logical-name": "Customer Check Items",
+                    "db-field": "CUSTOMERCHECKITEM"
+                },
+                {
+                    "logical-name": "Customer Reply Items",
+                    "db-field": "CUSTOMERREPLYITEM"
+                },
+                {
+                    "logical-name": "Expiry Date",
+                    "db-field": "EXPIRYDATE"
+                },
+                {
+                    "logical-name": "Credit Limit",
+                    "db-field": "CREDITLIMIT"
+                }
+            ]
+        }
+    ]
+}
+
+Response : 
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter DB Auth Driver updated successfully</response-message>
+    </response>
+</response-detail>
+
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth?name=diameterDBAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth?operation=delete&name=diameterDBAuthDriver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/dbauth/diameterDBAuthDriver?operation=delete
+
+Response :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>Diameter DB Auth Driver(s) deleted successfully</response-message>
+    </response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

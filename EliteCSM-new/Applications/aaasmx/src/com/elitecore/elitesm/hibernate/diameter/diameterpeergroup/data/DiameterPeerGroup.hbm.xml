@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class  name="com.elitecore.elitesm.datamanager.diameter.diameterpeergroup.data.DiameterPeerGroup" table="TBLMDIAMETERPEERGROUP">
+
+
+		<id name="peerGroupId" column="PEERGROUPID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+
+		<property name="peerGroupName" type="StringType"> 
+			<column name="PEERGROUPNAME" sql-type="VARCHAR(200)" not-null="true" /> 
+		</property>
+		
+		<property name="description" type="StringType"> 
+			<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false" /> 
+		</property>
+		
+		<property name="stateful" type="StringType" column="STATEFUL" not-null="false" /> 
+		
+		<property name="transactionTimeout" type="java.lang.Long" column="TRANSACTIONTIMEOUT" not-null="false" /> 
+		
+		<property name="auditUId" type="StringType" >
+	        <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false" />
+	    </property>
+	    
+	    <property name="geoRedunduntGroup" type="StringType">
+	    	<column name="GRGROUPID" sql-type="VARCHAR(36)" not-null="false" />
+	    </property>
+	    
+	    <bag name="peerList"  cascade="delete" lazy="false" inverse="false" fetch="select" order-by="orderNumber">
+	         <key column="peerGroupId" />
+	    	 <one-to-many class="com.elitecore.elitesm.datamanager.diameter.diameterpeergroup.data.DiameterPeerRelationWithPeerGroup" />
+      	</bag>
+		
+  </class>            
+	            
+</hibernate-mapping>

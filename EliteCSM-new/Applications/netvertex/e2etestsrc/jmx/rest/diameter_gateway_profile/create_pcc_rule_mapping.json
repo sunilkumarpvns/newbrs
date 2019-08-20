@@ -1,0 +1,22 @@
+{
+  "id": "rest_pcc_rule_mapping_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "Rest_PCC_Rule_Mapping",
+  "description": "PCC Rule Mapping for Diameter Gateway Profile",
+  "commProtocol": "DIAMETER",
+  "staticAttributeMappings": {
+    "mappings": [
+      "{\"pid\":\"0\",\"attribute\":\"10415:1005\",\"policykey\":\"PCCRule.Name\",\"defaultvalue\":\"\",\"valuemapping\":\"\"}"
+    ],
+    "orderNumber": null
+  },
+  "dynamicAttributeMappings": {
+    "mappings": [
+      "{\"id\":\"parent_mapping_1111\",\"pid\":\"0\",\"attribute\":\"10415:1058\",\"policykey\":\"\",\"defaultvalue\":\"\",\"valuemapping\":\"\"}",
+      "{\"id\":\"child_mapping_1111\",\"pid\":\"parent_mapping_1111\",\"attribute\":\"10415:507\",\"policykey\":\"PCCRule.ServiceDataFlow\",\"defaultvalue\":\"\",\"valuemapping\":\"\"}"
+    ],
+    "orderNumber": null
+  },
+  "groupNames": "DefaultGroup"
+}

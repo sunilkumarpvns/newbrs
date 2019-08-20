@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.systemaudit.Data.SystemAuditRelationData" table="TBLMSYSTEMAUDITRELATION" >          
+		<composite-id>
+				<key-property name="moduleName" column="MODULENAME" type="StringType"/>
+				<key-property name="auditId" column="AUDITID" type="StringType"/>
+		</composite-id>	
+	</class>
+</hibernate-mapping>

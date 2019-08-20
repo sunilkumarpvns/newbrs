@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_prefix,POST : create prefix 313 : 201,sm/prefix/prefix.json,POST,create_prefix.json,,33907,201,prefix
+2,get_created_prefix,GET :  prefix 313 should be displayed : 200,sm/prefix/prefix/rest_prefix_1111111.json,GET,,,33908,200,prefix
+3,update_prefix,PUT : Update prefix 313  to 322 : 200,sm/prefix/prefix/rest_prefix_1111111.json,PUT,update_prefix.json,,33909,200,prefix
+4,get_updated_prefix,GET : prefix 322 should be displayed : 200,sm/prefix/prefix/rest_prefix_1111111.json,GET,,,33910,200,prefix
+5,delete_prefix,DELETE : Delete prefix 322 : 200,sm/prefix/prefix/rest_prefix_1111111.json,DELETE,,,33911,200,prefix
+6,get_deleted_prefix,GET : prefix 322 should not be displayed : 404,sm/prefix/prefix/rest_prefix_1111111.json,GET,,"{""actionErrors"":[""Prefix Not Found with id: rest_prefix_1111111""]}",33912,404,prefix

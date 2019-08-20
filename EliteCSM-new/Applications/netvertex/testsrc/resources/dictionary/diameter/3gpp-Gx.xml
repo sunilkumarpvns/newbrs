@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="10415" applicationid="16777238" application-name="3gpp-gx" vendor-name="3gpp">
+  <!-- ***************** Base Protocol Definition ******************* -->
+  	<!--
+  	     +============+==========+=============+====================+
+         | Attribute  | Presence | Constraints |       Values       |
+         +============+==========+=============+====================+
+         |   name     | Required |  UniqueKey  |       String       |
+         +============+==========+=============+====================+
+         |description | Optional |    None     |       String       |
+         +============+==========+=============+====================+
+         |   code     | Required |  UniqueKey  |      Integer       |
+         +============+==========+=============+====================+
+         | encryption | Optional |    None     |     yes or no      |
+         |            |          |             |  (default is yes)  |
+         +============+==========+=============+====================+
+         | mandatory  | Optional |    None     |     yes or no      |
+         |            |          |             |  (default is yes)  |
+         +============+==========+=============+====================+
+         | protected  | Optional |    None     |     yes or no      |
+         |            |          |             |  (default is yes)  |
+         +============+==========+=============+====================+
+         | vendor-id  | Optional |  Reference  |      Integer       |
+         +============+==========+=============+====================+
+  	-->
+  	
+ <attribute id="1000"  name="Bearer-Usage" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="GENERAL" />
+			<value id="1" name="IMS_SIGNALLING" />
+		</supported-values>
+	</attribute> 	
+<attribute id="1001"  name="Charging-Rule-Install" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1003" name="Charging-Rule-Definition" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1005" name="Charging-Rule-Name" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1004" name="Charging-Rule-Base-Name" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1020" name="Bearer-Identifier" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1043" name="Rule-Activation-Time" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1044" name="Rule-Deactivation-Time" maximum="1" minimum="0"/>
+			<!--<attributerule vendor-id="10415" name="Resource-Allocation-Notification" maximum="1" minimum="0"/>-->
+			<attributerule vendor-id="10415" id="1073" name="Charging-Correlation-Indicator" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>	
+</attribute>
+<attribute id="1002"  name="Charging-Rule-Remove" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1005" name="Charging-Rule-Name" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1004" name="Charging-Rule-Base-Name" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>		
+<attribute id="1003"  name="Charging-Rule-Definition" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+			<attributerule vendor-id="10415" id="1005" name="Charging-Rule-Name" maximum="1" minimum="1"/>
+		</required>
+		<optional>
+			<attributerule vendor-id="0" id="439" name="Service-Identifier" maximum="1" minimum="0"/>
+			<attributerule vendor-id="0" id="432" name="Rating-Group" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1058" name="Flow-Information" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="511" name="Flow-Status" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1016" name="QoS-Information" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1011" name="Reporting-Level" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1009" name="Online" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1008" name="Offline" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1007" name="Metering-Method" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1010" name="Precedence" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="505" name="AF-Charging-Identifier" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="510" name="Flows" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1066" name="Monitoring-Key" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="529" name="AF-Signalling-Protocol" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="531" name="Sponsor-Identity" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="532" name="Application-Service-Provider-Identity" maximum="1" minimum="0"/>
+	</optional>
+	</grouped>
+</attribute>
+<attribute id="1004"  name="Charging-Rule-Base-Name" mandatory="yes" protected="no"  encryption="no" type="UTF8String"/>		
+<attribute id="1005"  name="Charging-Rule-Name" mandatory="yes" protected="no"  encryption="no" type="UTF8String"/>
+<attribute id="1006"  name="Event-Trigger" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="SGSN_CHANGE" />
+			<value id="1" name="QOS_CHANGE " />
+			<value id="2" name="RAT_CHANGE " />
+			<value id="3" name="TFT_CHANGE" />
+			<value id="4" name="PLMN_CHANGE" />
+			<value id="5" name="LOSS_OF_BEARER" />
+			<value id="6" name="RECOVERY_OF_BEARER" />
+			<value id="7" name="IP-CAN_CHANGE " />
+			<value id="11" name="QOS_CHANGE_EXCEEDING_AUTHORIZATION " />
+			<value id="12" name="RAI_CHANGE" />
+			<value id="13" name="USER_LOCATION_CHANGE" />
+			<value id="14" name="NO_EVENT_TRIGGERS" />
+			<value id="15" name="OUT_OF_CREDIT" />
+			<value id="16" name="REALLOCATION_OF_CREDIT" />
+			<value id="17" name="REVALIDATION_TIMEOUT" />
+			<value id="18" name="UE_IP_ADDRESS_ALLOCATE" />
+			<value id="19" name="UE_IP_ADDRESS_RELEASE" />
+			<value id="20" name="DEFAULT_EPS_BEARER_QOS_CHANGE" />
+			<value id="21" name="AN_GW_CHANGE" />
+			<value id="22" name="SUCCESSFUL_RESOURCE_ALLOCATION" />
+			<value id="23" name="RESOURCE_MODIFICATION_REQUEST" />
+			<value id="24" name="PGW_TRACE_CONTROL" />
+			<value id="25" name="UE_TIME_ZONE_CHANGE" />
+			<value id="26" name="TAI_CHANGE" />
+			<value id="27" name="ECGI_CHANGE" />
+			<value id="28" name="CHARGING_CORRELATION_EXCHANGE" />
+			<value id="29" name="APN-AMBR_MODIFICATION_FAILURE" />
+			<value id="30" name="USER_CSG_INFORMATION_CHANGE" />
+			<value id="33" name="USAGE_REPORT" />
+			<value id="34" name="DEFAULT-EPS-BEARER-QOS_MODIFICATION_FAILURE" />
+			<value id="35" name="USER_CSG_HYBRID_SUBSCRIBED_INFORMATION_CHANGE" />
+			<value id="36" name="USER_CSG_ HYBRID_UNSUBSCRIBED_INFORMATION_CHANGE" />
+			<value id="37" name="ROUTING_RULE_CHANGE" />
+		</supported-values>
+	</attribute> 
+<attribute id="1007"  name="Metering-Method" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="DURATION" />
+			<value id="1" name="VOLUME" />
+			<value id="2" name="DURATION_VOLUME" />	
+		</supported-values>
+	</attribute> 	
+<attribute id="1008"  name="Offline" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="DISABLE_OFFLINE" />
+			<value id="1" name="ENABLE_OFFLINE " />
+		</supported-values>
+	</attribute> 		
+<attribute id="1009"  name="Online" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="DISABLE_ONLINE" />
+			<value id="1" name="ENABLE_ONLINE " />
+		</supported-values>
+	</attribute> 			
+<attribute id="1010"  name="Precedence" mandatory="yes" protected="no"  encryption="no" type="Unsigned32"/>
+<attribute id="1011"  name="Reporting-Level" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="SERVICE_IDENTIFIER_LEVEL" />
+			<value id="1" name="RATING_GROUP_LEVEL" />
+			<value id="2" name="SPONSORED_CONNECTIVITY_LEVEL" />
+		</supported-values>
+	</attribute> 		
+<attribute id="1012"  name="TFT-Filter" mandatory="yes" protected="no"  encryption="no" type="IPFilterRule"/>	
+<attribute id="1013"  name="TFT-Packet-Filter-Information" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1010" name="Precedence" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1012" name="TFT-Filter" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1014" name="ToS-Traffic-Class" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1056" name="Security-Parameter-Index" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1057" name="Flow-Label" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>
+<attribute id="1014"  name="ToS-Traffic-Class" mandatory="yes" protected="no"  encryption="no" type="OctetString"/>	
+<attribute id="1016"  name="QoS-Information" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1028" name="QoS-Class-Identifier" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="516" name="Max-Requested-Bandwidth-UL" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="515" name="Max-Requested-Bandwidth-DL" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1026" name="Guaranteed-Bitrate-UL" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1025" name="Guaranteed-Bitrate-DL" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1020" name="Bearer-Identifier" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1034" name="Allocation-Retention-Priority" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1040" name="APN-Aggregated-Max-Bitrate-DL" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1041" name="APN-Aggregated-Max-Bitrate-UL" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>
+<attribute id="1028"  name="QoS-Class-Identifier" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+	<supported-values>
+		<value id="1" name="QCI_1" />  
+		<value id="2" name="QCI_2" />  
+		<value id="3" name="QCI_3" />  
+		<value id="4" name="QCI_4" />  
+		<value id="5" name="QCI_5" />  
+		<value id="6" name="QCI_6" />  
+		<value id="7" name="QCI_7" />  
+		<value id="8" name="QCI_8" />  
+		<value id="9" name="QCI_9" />  
+	</supported-values>
+</attribute>   
+<attribute id="1018"  name="Charging-Rule-Report" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1005" name="Charging-Rule-Name" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1004" name="Charging-Rule-Base-Name" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1020" name="Bearer-Identifier" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1019" name="PCC-Rule-Status" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1025" name="Guaranteed-Bitrate-DL" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1031" name="Rule-Failure-Code" maximum="1" minimum="0"/>
+			<attributerule vendor-id="0" id="430" name="Final-Unit-Indication" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>	
+   <attribute id="1019"  name="PCC-Rule-Status" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="ACTIVE" />  
+			<value id="1" name="INACTIVE" />  
+			<value id="2" name="TEMPORARILY INACTIVE" />  
+		</supported-values>
+	</attribute>
+<attribute id="1020"  name="Bearer-Identifier" mandatory="yes" protected="no"  encryption="no" type="OctetString"/>		
+<attribute id="1021"  name="Bearer-Operation" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="TERMINATION" />  
+			<value id="1" name="ESTABLISHMENT" />  
+			<value id="2" name="MODIFICATION" />  
+		</supported-values>
+	</attribute>
+
+<attribute id="1022"  name="Access-Network-Charging-Identifier-Gx" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+			<attributerule vendor-id="10415" id="503" name="Access-Network-Charging-Identifier-Value" maximum="1" minimum="1"/>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1004" name="Charging-Rule-Base-Name" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1005" name="Charging-Rule-Name" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>	
+<attribute id="1023"  name="Bearer-Operation" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="UE_ONLY" />  
+			<value id="1" name="RESERVED" />  
+			<value id="2" name="UE_NW" />  
+		</supported-values>
+	</attribute>-->   
+<attribute id="1024"  name="Network-Request-Support" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="NETWORK_REQUEST NOT SUPPORTED" />  
+			<value id="1" name="NETWORK_REQUEST SUPPORTED" />  
+		</supported-values>
+	</attribute>   
+<attribute id="515" name="Max-Requested-Bandwidth-DL" mandatory="yes" protected="no"  encryption="no" type="Unsigned32"/>
+<attribute id="516" name="Max-Requested-Bandwidth-UL" mandatory="yes" protected="no"  encryption="no" type="Unsigned32"/>
+<attribute id="1025"  name="Guaranteed-Bitrate-DL" mandatory="yes" protected="no"  encryption="no" type="Unsigned32"/>
+<attribute id="1026"  name="Guaranteed-Bitrate-UL" mandatory="yes" protected="no"  encryption="no" type="Unsigned32"/>
+<attribute id="1027"  name="IP-CAN-Type" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="3GPP-GPRS" />  
+			<value id="1" name="DOCSIS" />  
+			<value id="2" name="xDSL" />  
+			<value id="3" name="WiMAX" />
+			<value id="4" name="3GPP2" />
+			<value id="5" name="3GPP-EPS" />
+			<value id="6" name="Non-3GPP-EPS" />
+		</supported-values>
+	</attribute>
+<attribute id="1029"  name="QoS-Negotiation" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="NO_QoS_NEGOTIATION" />  
+			<value id="1" name="QoS_NEGOTIATION_SUPPORTED" />  
+		</supported-values>
+	</attribute>   
+<attribute id="1030"  name="QoS-Upgrade" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="QoS_UPGRADE_NOT_SUPPORTED " />  
+			<value id="1" name="QoS_UPGRADE_SUPPORTED " />  
+		</supported-values>
+	</attribute>	   	
+<attribute id="1033"  name="Event-Report-Indication" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1006" name="Event-Trigger" maximum="1" minimum="0"/>
+			<!--<attributerule vendor-id="10415" name="User-CSG-Information" maximum="1" minimum="0"/>-->
+			<attributerule vendor-id="10415" id="1032" name="RAT-Type" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1016" name="QoS-Information" maximum="1" minimum="0"/>
+			<!--<attributerule vendor-id="10415" name="RAI" maximum="1" minimum="0"/>-->
+			<attributerule vendor-id="10415" id="22" name="3GPP-User-Location-Info" maximum="1" minimum="0"/>
+			<!--<attributerule vendor-id="10415" name="Trace-Data" maximum="1" minimum="0"/>-->
+			<!--<attributerule vendor-id="10415" name="Trace-Reference" maximum="1" minimum="0"/>-->
+			<!--<attributerule vendor-id="10415" name="3GPP2-BSID" maximum="1" minimum="0"/>-->
+			<attributerule vendor-id="10415" id="23" name="3GPP-MS-TimeZone" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="6" name="3GPP-SGSN-Address" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="15" name="3GPP-SGSN-IPv6-Address" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1079" name="Routing-IP-Address" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>	
+<attribute id="1032"  name="RAT-Type" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="WLAN" />  
+			<value id="1" name="VIRTUAL" /> 
+			<value id="1000" name="UTRAN" />
+			<value id="1001" name="GERAN" />
+			<value id="1002" name="GAN" />
+			<value id="1003" name="HSPA_EVOLUTION" /> 
+			<value id="1004" name="EUTRAN" />
+			<value id="2000" name="CDMA2000_1X" />
+			<value id="2001" name="HRPD" />
+			<value id="2002" name="UMB" />
+			<value id="2003" name="EHRPD" />
+		</supported-values>
+	</attribute>	
+<attribute id="1034"  name="Allocation-Retention-Priority" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+			<attributerule vendor-id="10415" id="1046" name="Priority-Level" maximum="1" minimum="1"/>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1047" name="Pre-emption-Capability" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1048" name="Pre-emption-Vulnerability" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>	
+<attribute id="1035"  name="CoA-IP-Address" mandatory="yes" protected="no"  encryption="no" type="Address"/>
+<attribute id="1036"  name="Tunnel-Header-Filter" mandatory="yes" protected="no"  encryption="no" type="IPFilterRule"/>	
+<attribute id="1037"  name="Tunnel-Header-Length" mandatory="yes" protected="no"  encryption="no" type="Unsigned32"/>
+<attribute id="1038"  name="Tunnel-Information" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1037" name="Tunnel-Header-Length" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1036" name="Tunnel-Header-Filter" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>
+<attribute id="1039"  name="CoA-Information" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+			<attributerule vendor-id="10415" id="1038" name="Tunnel-Information" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1035" name="CoA-IP-Address" maximum="1" minimum="0"/>
+		</required>
+		<optional>
+		</optional>
+	</grouped>
+</attribute>
+   <attribute id="1031"  name="Rule-Failure-Code" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="1" name="UNKNOWN_RULE_NAME" />
+			<value id="2" name="RATING_GROUP_ERROR" />
+			<value id="3" name="SERVICE_IDENTIFIER_ERROR" />
+			<value id="4" name="GW/PCEF_MALFUNCTION" />
+			<value id="5" name="RESOURCES_LIMITATION" />
+			<value id="6" name="MAX_NR_BEARERS_REACHED" />
+			<value id="7" name="UNKNOWN_BEARER_ID" />
+			<value id="8" name="MISSING_BEARER_ID" />
+			<value id="9" name="MISSING_FLOW_INFORMATION" />
+			<value id="10" name="RESOURCE_ALLOCATION_FAILURE" />
+			<value id="11" name="UNSUCCESSFUL_QOS_VALIDATION" />
+			<value id="12" name="INCORRECT_FLOW_INFORMATION" />
+			<value id="13" name="PS_TO_CS_HANDOVER" />
+		</supported-values>
+	</attribute>
+<attribute id="1040"  name="APN-Aggregated-Max-Bitrate-DL" mandatory="yes" protected="no"  encryption="no" type="Unsigned32"/>	
+<attribute id="1041"  name="APN-Aggregated-Max-Bitrate-UL" mandatory="yes" protected="no"  encryption="no" type="Unsigned32"/>
+<attribute id="1042"  name="Revalidation-Time" mandatory="yes" protected="no"  encryption="no" type="Time"/>
+<attribute id="1043"  name="Rule-Activation-Time" mandatory="yes" protected="no"  encryption="no" type="Time"/>
+<attribute id="1044"  name="Rule-Deactivation-Time" mandatory="yes" protected="no"  encryption="no" type="Time"/>
+<attribute id="1045"  name="Session-Release-Cause" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="UNSPECIFIED_REASON" />
+			<value id="1" name="UE_SUBSCRIPTION_REASON" />
+			<value id="2" name="INSUFFICIENT_SERVER_RESOURCES" />
+		</supported-values>
+	</attribute>
+<attribute id="1046"  name="Priority-Level" mandatory="yes" protected="no"  encryption="no" type="Unsigned32"/>		
+<attribute id="1047"  name="Pre-emption-Capability" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="PRE-EMPTION_CAPABILITY_ENABLED" />
+			<value id="1" name="PRE-EMPTION_CAPABILITY_DISABLED" />
+		</supported-values>
+	</attribute>
+	
+<attribute id="1048"  name="Pre-emption-Vulnerability" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="PRE-EMPTION_VULNERABILITY_ENABLED" />
+			<value id="1" name="PRE-EMPTION_VULNERABILITY_DISABLED" />
+		</supported-values>
+	</attribute>	
+	
+<attribute id="1049"  name="Default-EPS-Bearer-QoS" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1028" name="QoS-Class-Identifier" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1034" name="Allocation-Retention-Priority" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>	
+<attribute id="1050"  name="AN-GW-Address" mandatory="yes" protected="no"  encryption="no" type="Address"/>   
+	
+<attribute id="1063"  name="Pre-emption-Capability" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="ENABLE_NOTIFICATION" />
+		</supported-values>
+	</attribute>
+<attribute id="1056"  name="Security-Parameter-Index" mandatory="yes" protected="no"  encryption="no" type="OctetString"/>
+<attribute id="1057"  name="Flow-Label" mandatory="yes" protected="no"  encryption="no" type="OctetString"/>	
+<attribute id="1058"  name="Flow-Information" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="507" name="Flow-Description" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1060" name="Packet-Filter-Identifier" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1072" name="Packet-Filter-Usage" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1014" name="ToS-Traffic-Class" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1056" name="Security-Parameter-Index" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1057" name="Flow-Label" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1080" name="Flow-Direction" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>	
+<attribute id="1059"  name="Packet-Filter-Content" mandatory="yes" protected="no"  encryption="no" type="IPFilterRule"/>
+<attribute id="1060"  name="Packet-Filter-Identifier" mandatory="yes" protected="no"  encryption="no" type="OctetString"/>
+<attribute id="1061"  name="Packet-Filter-Information " mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1060" name="Packet-Filter-Identifier" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1010" name="Precedence" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1059" name="Packet-Filter-Content" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1014" name="ToS-Traffic-Class" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1056" name="Security-Parameter-Index" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1057" name="Flow-Label" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1080" name="Flow-Direction" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>	 
+<attribute id="1062"  name="Packet-Filter-Operation" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="DELETION" />
+			<value id="1" name="ADDITION" />
+			<value id="2" name="MODIFICATION" />
+		</supported-values>
+</attribute>  
+<attribute id="1065"  name="PDN-Connection-ID" mandatory="yes" protected="no"  encryption="no" type="OctetString"/>
+<attribute id="1066"  name="Monitoring-Key" mandatory="yes" protected="no"  encryption="no" type="OctetString"/>
+<attribute id="1067"  name="Usage-Monitoring-Information" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+       	</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1066" name="Monitoring-Key" maximum="1" minimum="0"/>
+            <attributerule vendor-id="0" id="431" name="Granted-Service-Unit" maximum="1" minimum="0"/>
+            <attributerule vendor-id="0" id="446" name="Used-Service-Unit" maximum="1" minimum="0"/>
+            <attributerule vendor-id="10415" id="1069" name="Usage-Monitoring-Report" maximum="1" minimum="0"/>
+            <attributerule vendor-id="10415" id="1070" name="Usage-Monitoring-Support" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>
+<attribute id="1068"  name="Usage-Monitoring-Level" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="SESSION_LEVEL " />
+			<value id="1" name="PCC_RULE_LEVEL" />
+		</supported-values>
+</attribute>
+<attribute id="1069"  name="Usage-Monitoring-Report" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="USAGE_MONITORING_REPORT_REQUIRED" />
+		</supported-values>
+</attribute>
+<attribute id="1070"  name="Usage-Monitoring-Support" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="USAGE_MONITORING_DISABLED" />
+		</supported-values>
+</attribute>
+<attribute id="1071"  name="CSG-Information-Reporting" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="CHANGE_CSG_CELL " />
+			<value id="1" name="CHANGE_CSG_SUBSCRIBED_HYBRID_CELL " />
+			<value id="2" name="CHANGE_CSG_UNSUBSCRIBED_HYBRID_CELL " />
+		</supported-values>
+	</attribute>
+<attribute id="1080"  name="Flow-Direction" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="0" name="UNSPECIFIED" />
+			<value id="1" name="DOWNLINK" />
+			<value id="2" name="UPLINK" />
+		        <value id="2" name="BIDIRECTIONAL" />
+		</supported-values>
+	</attribute>
+<attribute id="1072"  name="Packet-Filter-Usage" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="1" name="SEND_TO_UE" />
+		</supported-values>
+	</attribute>	
+<attribute id="1073"  name="Charging-Correlation-Indicator " mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+		<supported-values>
+			<value id="1" name="CHARGING_IDENTIFIER_REQUIRED " />
+		</supported-values>
+	</attribute>	
+<attribute id="1081"  name="Routing-Rule-Install" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+                <grouped>
+			<required>
+       			</required>
+			<optional>
+			<attributerule vendor-id="10415" id="1076" name="Routing-Rule-Definition" maximum="1" minimum="0"/>
+              	        </optional>
+		</grouped>
+   </attribute>
+ <attribute id="1075"  name="Routing-Rule-Remove" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+                <grouped>
+			<required>
+       			</required>
+			<optional>
+			<attributerule vendor-id="10415" id="1077" name="Routing-Rule-Identifier" maximum="*" minimum="0"/>
+              	        </optional>
+		</grouped>
+   </attribute>  
+<attribute id="1076"  name="Routing-Rule-Definition " mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+			<attributerule vendor-id="10415" id="1077" name="Routing-Rule-Identifier" maximum="1" minimum="1"/>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1078" name="Routing-Filter" maximum="*" minimum="0"/>
+			<attributerule vendor-id="10415" id="1010" name="Precedence" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1079" name="Routing-IP-Address" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>   
+<attribute id="1077"  name="Routing-Rule-Identifier" mandatory="yes" protected="no"  encryption="no" type="OctetString"/>   
+<attribute id="1078"  name="Routing-Filter" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+			<attributerule vendor-id="10415" id="507" name="Flow-Description" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1080" name="Flow-Direction" maximum="1" minimum="1"/>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1014" name="ToS-Traffic-Class" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1056" name="Security-Parameter-Index" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1057" name="Flow-Label" maximum="1" minimum="0"/>
+		</optional>
+	</grouped>
+</attribute>
+<attribute id="1079"  name="Routing-IP-Address " mandatory="yes" protected="no"  encryption="no" type="Address"/>
+
+
+<!--  S9 Specific Attribute -->
+<attribute id="2200"  name="Subsession-Decision-Info" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+			<attributerule vendor-id="10415" id="2202" name="Subsession-Id" maximum="1" minimum="1"/>
+		</required>
+		<optional>
+			<attributerule vendor-id="10415" id="1016" name="QoS-Information" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1009" name="Online" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1008" name="Offline" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1067"  name="Usage-Monitoring-Information" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1006"  name="Event-Trigger" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1023" name="Bearer-Control-Mode" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1045"  name="Session-Release-Cause" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1050"  name="AN-GW-Address" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1001" name="Charging-Rule-Install" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1002" name="Charging-Rule-Remove" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1049" name="Default-EPS-Bearer-QoS" maximum="1" minimum="1"/>
+			<attributerule vendor-id="0" id="268"  name="Result-Code" maximum="1" minimum="1"/>
+			<attributerule vendor-id="0" id="298"  name="Experimental-Result-Code" maximum="1" minimum="1"/>
+		</optional>
+	</grouped>
+</attribute>
+
+<attribute id="2201"  name="Subsession-Enforcement-Info" mandatory="yes" protected="no"  encryption="no" type="Grouped">
+	<grouped>
+		<required>
+			<attributerule vendor-id="10415" id="2202" name="Subsession-Id" maximum="1" minimum="1"/>
+		</required>
+		<optional>
+			<attributerule vendor-id="0" id="97"  name="Framed-IPv6-Prefix" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1061"  name="Packet-Filter-Information" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1013"  name="TFT-Packet-Filter-Information" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1062"  name="Packet-Filter-Operation" maximum="1" minimum="0"/>
+			<attributerule vendor-id="0" id="30" name="Called-Station-Id" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1065"  name="PDN-Connection-ID" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1022"  name="Access-Network-Charging-Identifier-Gx" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="501"  name="Access-Network-Charging-Address" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1018"  name="Charging-Rule-Report" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1000"  name="Bearer-Usage" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="2203"  name="Subsession-Operation" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1021" name="Bearer-Operation" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1020" name="Bearer-Identifier" maximum="1" minimum="0"/>
+			<attributerule vendor-id="0" id="8" name="Framed-IP-Address" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1016" name="QoS-Information" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1009" name="Online" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1008" name="Offline" maximum="1" minimum="0"/>
+			<attributerule vendor-id="10415" id="1067"  name="Usage-Monitoring-Information" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1006"  name="Event-Trigger" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1023" name="Bearer-Control-Mode" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1045"  name="Session-Release-Cause" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1050"  name="AN-GW-Address" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1001" name="Charging-Rule-Install" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1002" name="Charging-Rule-Remove" maximum="1" minimum="1"/>
+			<attributerule vendor-id="10415" id="1049" name="Default-EPS-Bearer-QoS" maximum="1" minimum="1"/>
+			<attributerule vendor-id="0" id="268"  name="Result-Code" maximum="1" minimum="1"/>
+			<attributerule vendor-id="0" id="298"  name="Experimental-Result-Code" maximum="1" minimum="1"/>
+		</optional>
+	</grouped>
+</attribute>
+<attribute id="2202"  name="Subsession-Id" mandatory="yes" protected="no"  encryption="no" type="Unsigned32"/>
+<attribute id="2203"  name="Subsession-Operation" mandatory="yes" protected="no"  encryption="no" type="Enumerated">
+	<supported-values>
+		<value id="0" name="TERMINATION" />
+		<value id="1" name="ESTABLISHMENT" />
+		<value id="2" name="MODIFICATION" />
+	</supported-values>
+</attribute>
+</attribute-list>

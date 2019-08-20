@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="2180" vendor-name="Versanet">
+<attribute id="1" name="Versanet-Termination-Cause" type="integer">
+	<supported-values>
+		<value id="0" name="Normal-Hangup-No-Error-Occurred"/>
+		<value id="3" name="Call-Waiting-Caused-Disconnect"/>
+		<value id="4" name="Physical-Carrier-Loss"/>
+		<value id="5" name="No-err-correction-at-other-end"/>
+		<value id="6" name="No-resp-to-feature-negotiation"/>
+		<value id="7" name="1st-modem-async-only-2nd-sync"/>
+		<value id="8" name="No-framing-technique-in-common"/>
+		<value id="9" name="No-protocol-in-common"/>
+		<value id="10" name="Bad-resp-to-feature-negotiation"/>
+		<value id="11" name="No-sync-info-from-remote-modem"/>
+		<value id="12" name="Normal-Hangup-by-Remote-modem"/>
+		<value id="13" name="Retransmission-limit-reached"/>
+		<value id="14" name="Protocol-violation-occurred"/>
+		<value id="15" name="Lost-DTR"/>
+		<value id="16" name="Received-GSTN-cleardown"/>
+		<value id="17" name="Inactivity-timeout"/>
+		<value id="18" name="Speed-not-supported"/>
+		<value id="19" name="Long-space-disconnect"/>
+		<value id="20" name="Key-abort-disconnect"/>
+		<value id="21" name="Clears-previous-disc-reason"/>
+		<value id="22" name="No-connection-established"/>
+		<value id="23" name="Disconnect-after-three-retrains"/>
+	</supported-values>
+</attribute>
+</attribute-list>

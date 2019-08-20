@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.datasource.ldap.data.LDAPDatasourceData" table="TBLMLDAPDS">
+
+		<id name="ldapDsId" column="LDAPDSID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="name" type="StringType"> 
+			<column name="NAME" sql-type="VARCHAR(200)" not-null="true" /> 
+		</property>
+
+
+		<property name="address" type="StringType">
+	         <column name="ADDRESS" sql-type="VARCHAR(256)" not-null="false"/>
+	    </property>
+
+		<property name="timeout" type="java.lang.Long"> 
+			<column name="TIMEOUT" sql-type="NUMBER(20)" not-null="true" /> 
+		</property>
+
+
+		<property name="ldapSizeLimit" type="java.lang.Long"> 
+			<column name="LDAPSIZELIMIT" sql-type="NUMBER(20)" not-null="true" /> 
+		</property>
+
+		<property name="ldapVersion" type="java.lang.Integer"> 
+			<column name="LDAPVERSION" sql-type="NUMBER(3)" /> 
+		</property>
+
+		<property name="administrator" type="StringType"> 
+			<column name="ADMINISTRATOR" sql-type="VARCHAR(300)" not-null="true" /> 
+		</property>
+       
+
+		<property name="password" type="StringType"> 
+			<column name="PASSWORD" sql-type="VARCHAR(300)" not-null="true" /> 
+		</property>
+
+
+		<property name="userDNPrefix" type="StringType"> 
+			<column name="USERDNPREFIX" sql-type="VARCHAR(100)" not-null="true" /> 
+		</property>
+
+
+		<property name="maximumPool" type="java.lang.Long"> 
+			<column name="MAXIMUMPOOL" sql-type="NUMBER(20)" not-null="true" /> 
+		</property>
+
+
+		<property name="minimumPool" type="java.lang.Long"> 
+			<column name="MINIMUMPOOL" sql-type="NUMBER(10)" not-null="true" /> 
+		</property>
+
+
+		<property name="commonStatusId" type="CharType"> 
+			<column name="COMMONSTATUSID" sql-type="CHAR(5)" not-null="false" /> 
+		</property>
+
+
+		<property name="lastModifiedByStaffId" type="StringType"> 
+			<column name="LASTMODIFIEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+
+
+		<property name="createdByStaffId" type="StringType"> 
+			<column name="CREATEDBYSTAFFID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+        
+        <property name="statusCheckDuration" type="java.lang.Long"> 
+			<column name="STATUSCHECKDURATION" sql-type="NUMERIC(20)" not-null="true" /> 
+		</property>
+
+		<property name="lastModifiedDate" type="java.sql.Timestamp"> 
+			<column name="LASTMODIFIEDDATE" sql-type="TIMESTAMP(6)" not-null="false" /> 
+		</property>
+
+		<property name="createDate" type="java.sql.Timestamp"> 
+			<column name="CREATEDATE" sql-type="TIMESTAMP(6)" not-null="false" /> 
+		</property>
+		
+		<!-- property name="searchFilter" type="string"> 
+			<column name="SEARCHFILTER" sql-type="VARCHAR2(256)" not-null="true" /> 
+		</property-->
+		
+		<property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	     </property>
+		
+		<set name="ldapBaseDnDetail" lazy="false" inverse="false" order-by="orderNumber">
+			<key column="ldapDsId"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.datasource.ldap.data.LDAPBaseDnDetailData" />
+	  	</set>
+	
+	</class>
+
+</hibernate-mapping>          

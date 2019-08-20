@@ -1,0 +1,54 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    <field name="name">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message>${getText("error.valueRequired")}</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">100</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length")}</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+            <message>${getText("invalid.name")}</message>
+        </field-validator>
+    </field>
+    <field name="description">
+        <field-validator type="stringlength">
+            <param name="minLength">0</param>
+            <param name="maxLength">255</param>
+            <param name="trim">true</param>
+            <message>${getText("error.length", {getText("product.offer.description")})}</message>
+        </field-validator>
+    </field>
+    <field name="subscriptionPrice">
+        <field-validator type="double">
+            <param name="minInclusive">0.0</param>
+            <param name="maxInclusive">999999.00</param>
+            <message>${getText("error.double.range", {getText("product.offer.subscription.price")})}</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^\d*(\.*\d{1,2})?$]]></param>
+            <message>${getText("error.price.only.two.decimal.places", {getText("product.offer.subscription.price")})}</message>
+        </field-validator>
+    </field>
+    <!--<field name="creditBalance">
+        <field-validator type="double">
+            <param name="minInclusive">0.0</param>
+            <param name="maxInclusive">999999.00</param>
+            <message>${getText("error.double.range", {getText("product.offer.credit.balance")})}</message>
+        </field-validator>
+    </field>-->
+
+    <field name="type">
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[^BASE|ADDON]]></param>
+            <message>${getText("invalid.field.value")}</message>
+        </field-validator>
+    </field>
+</validators>

@@ -1,0 +1,38 @@
+***********************************************************************
+						SYNCHRONIZE TO OPERATION
+
+***********************************************************************
+
+# Using PUT Operation
+
+URL :
+
+http://IP:PORT/aaasmx/cxfservices/restful/v1/server/elitecsmserver/synchronizeto/AAA_Server
+
+OR
+
+http://IP:PORT/aaasmx/cxfservices/restful/v1/server/elitecsmserver/synchronizeto?name=AAA_Server
+
+***********************************************************************
+# Using POST Operation
+
+URL :
+ 
+http://IP:PORT/aaasmx/cxfservices/restful/v1/server/elitecsmserver/synchronizeto/AAA_Server?operation=update
+
+OR
+
+http://IP:PORT/aaasmx/cxfservices/restful/v1/server/elitecsmserver/synchronizeto?name=AAA_Server&operation=update
+
+Result :
+
+<response-detail>
+    <response>
+        <response-code>200</response-code>
+        <response-message>CSM Server Synchronization To successfully completed</response-message>
+    </response>
+</response-detail>
+
+
+### NOTE :
+	1) Which Server Instance's configuration you want to update using synchronize to operation that server must be running on that IP and Port.

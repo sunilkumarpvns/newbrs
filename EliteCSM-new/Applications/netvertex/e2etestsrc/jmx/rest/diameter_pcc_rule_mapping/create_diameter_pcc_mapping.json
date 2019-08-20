@@ -1,0 +1,21 @@
+{
+  "id": "rest_dia_pcc_mapping_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "rest_diameter_pcc_mapping",
+  "description": "Created by REST Automation",
+  "commProtocol": "DIAMETER",
+  "staticAttributeMappings": {
+    "mappings": [
+      "{\"pid\":\"0\",\"attribute\":\"10415:1005\",\"policykey\":\"PCCRule.Name\",\"defaultvalue\":\"test\",\"valuemapping\":\"test\"}"
+    ],
+    "orderNumber": null
+  },
+  "dynamicAttributeMappings": {
+    "mappings": [
+      "{\"pid\":\"0\",\"attribute\":\"10415:507\",\"policykey\":\"PCCRule.ServiceDataFlow\",\"defaultvalue\":\"test\",\"valuemapping\":\"test\"}"
+    ],
+    "orderNumber": null
+  },
+  "groupNames": "DefaultGroup"
+}

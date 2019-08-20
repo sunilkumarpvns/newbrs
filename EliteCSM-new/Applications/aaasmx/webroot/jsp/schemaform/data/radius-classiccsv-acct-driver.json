@@ -1,0 +1,516 @@
+{
+	"schema": {
+		"type": "object",
+		"title": "Classic CSV Driver ",
+		"properties": {
+			"name": {
+				"title": "Instance Name",
+				"type": "string"
+			},
+			"description": {
+				"title": "Description",
+				"type": "string"
+			},
+			"classic-csv-acct-driver": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"header": {
+							"title": "Header",
+							"type": "string"
+						},
+						"delimeter": {
+							"title": "Delimiter",
+							"type": "string",
+							"default": ","
+						},
+						"multivalue-delimeter": {
+							"title": "MultiValue Delimiter",
+							"type": "string",
+							"default": ";"
+						},
+						"cdr-timestamp-header": {
+							"title": "CDR TimeStamp Header",
+							"type": "string",
+							"default": "CDRTimeStamp"
+						},
+						"cdr-timestamp-format": {
+							"title": "CDR TimeStamp Format",
+							"type": "string",
+							"default": "EEE dd MMM yyyy hh:mm:ss aaa"
+						},
+						"cdr-timestamp-position": {
+							"title": "CDR TimeStamp Position",
+							"type": "string"
+						},
+						"enclosing-character": {
+							"title": "Enclosing Character",
+							"type": "string"
+						},
+						"file-name": {
+							"title": "File Name",
+							"type": "string",
+							"default": "CDRs.csv"
+						},
+						"location": {
+							"title": "Location",
+							"type": "string",
+							"default": "data/csvfiles"
+						},
+						"create-blank-file": {
+							"title": "Create Blank File",
+							"type": "string"
+						},
+						"prefix-file-name": {
+							"title": "Prefix File Name",
+							"type": "string"
+						},
+						"default-folder-name": {
+							"title": "Default Folder Name",
+							"type": "string",
+							"default": "no_nas_ip_address"
+						},
+						"folder-name": {
+							"title": "Folder Name",
+							"type": "string"
+						},
+						"time-boundry": {
+							"title": "Time-Boundary",
+							"type": "string"
+						},
+						"size-based-rolling-unit": {
+							"title": "Size Based Rolling Unit",
+							"type": "integer"
+						},
+						"time-based-rolling-unit": {
+							"title": "Time Based Rolling Unit",
+							"type": "integer"
+						},
+						"record-based-rolling-unit": {
+							"title": "Record Based Rolling Unit",
+							"type": "integer"
+						},
+						"sequence-range": {
+							"title": "Sequence Range",
+							"type": "string"
+						},
+						"sequence-position": {
+							"title": "Sequence Position",
+							"type": "string"
+						},
+						"sequence-globalization": {
+							"title": "Sequence Globalization",
+							"type": "string"
+						},
+						"allocating-protocol": {
+							"title": "Allocating Protocol",
+							"type": "string"
+						},
+						"address": {
+							"title": "Address",
+							"type": "string"
+						},
+						"destination-location": {
+							"title": "Destination Location",
+							"type": "string"
+						},
+						"username": {
+							"title": "Username",
+							"type": "string"
+						},
+						"password": {
+							"title": "Password",
+							"type": "string"
+						},
+						"post-operation": {
+							"title": "Post Operation",
+							"type": "string"
+						},
+						"archive-locations": {
+							"title": "Archive Locations",
+							"type": "string",
+							"default": "data/csvfiles/archive"
+						},
+						"failover-time": {
+							"title": "Fail Over Time",
+							"type": "integer",
+							"default": 3
+						},
+						"classic-csv-field-mappings": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"attribute-id": {
+										"title": "Attribute Ids",
+										"type": "string"
+									},
+									"header": {
+										"title": "Header",
+										"type": "string"
+									},
+									"default-value": {
+										"title": "Default Value",
+										"type": "string"
+									},
+									"use-dictionary-value": {
+										"title": "Use Dictionary Value",
+										"type": "string"
+									}
+								}
+							}
+						},
+						"classic-csv-strip-pattern-relation-mappings": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"attribute-id": {
+										"title": "Attribute Id",
+										"type": "string"
+									},
+									"pattern": {
+										"title": "Pattern",
+										"type": "string"
+									},
+									"separator": {
+										"title": "Separator",
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"key": "name"
+		},
+		{
+			"key": "description"
+		},
+		{
+			"key": "classic-csv-acct-driver",
+			"items": [
+				{
+					"key": "classic-csv-acct-driver[].header",
+					"type": "select",
+					"titleMap": {
+						"True": "True",
+						"False": "False"
+					}
+				},
+				{
+					"key": "classic-csv-acct-driver[].delimeter"
+				},
+				{
+					"key": "classic-csv-acct-driver[].multivalue-delimeter"
+				},
+				{
+					"key": "classic-csv-acct-driver[].cdr-timestamp-header"
+				},
+				{
+					"key": "classic-csv-acct-driver[].cdr-timestamp-format"
+				},
+				{
+					"key": "classic-csv-acct-driver[].cdr-timestamp-position",
+					"type": "select",
+					"titleMap": {
+						"Suffix": "Suffix",
+						"Prefix": "Prefix"
+					}
+				},
+				{
+					"key": "classic-csv-acct-driver[].enclosing-character"
+				},
+				{
+					"key": "classic-csv-acct-driver[].file-name"
+				},
+				{
+					"key": "classic-csv-acct-driver[].location"
+				},
+				{
+					"key": "classic-csv-acct-driver[].create-blank-file",
+					"type": "select",
+					"titleMap": {
+						"True": "True",
+						"False": "False"
+					}
+				},
+				{
+					"key": "classic-csv-acct-driver[].prefix-file-name"
+				},
+				{
+					"key": "classic-csv-acct-driver[].default-folder-name"
+				},
+				{
+					"key": "classic-csv-acct-driver[].folder-name"
+				},
+				{
+					"key": "classic-csv-acct-driver[].time-boundry",
+					"type": "select",
+					"titleMap": {
+						"NONE": "NONE",
+						"1min": "1min",
+						"2min": "2min",
+						"3min": "3min",
+						"5min": "5min",
+						"10min": "10min",
+						"15min": "15min",
+						"30min": "30min",
+						"Hourly": "Hourly",
+						"Dialy": "Dialy"
+					}
+				},
+				{
+					"key": "classic-csv-acct-driver[].size-based-rolling-unit"
+				},
+				{
+					"key": "classic-csv-acct-driver[].time-based-rolling-unit"
+				},
+				{
+					"key": "classic-csv-acct-driver[].record-based-rolling-unit"
+				},
+				{
+					"key": "classic-csv-acct-driver[].sequence-range"
+				},
+				{
+					"key": "classic-csv-acct-driver[].sequence-position",
+					"type": "select",
+					"titleMap": {
+						"Suffix": "Suffix",
+						"Prefix": "Prefix"
+					}
+				},
+				{
+					"key": "classic-csv-acct-driver[].sequence-globalization",
+					"type": "select",
+					"titleMap": {
+						"True": "True",
+						"False": "False"
+					}
+				},
+				{
+					"key": "classic-csv-acct-driver[].allocating-protocol",
+					"type": "select",
+					"titleMap": {
+						"None": "None",
+						"Local": "Local",
+						"FTP": "FTP",
+						"SMTP": "SMTP"
+					}
+				},
+				{
+					"key": "classic-csv-acct-driver[].address"
+				},
+				{
+					"key": "classic-csv-acct-driver[].destination-location"
+				},
+				{
+					"key": "classic-csv-acct-driver[].username"
+				},
+				{
+					"key": "classic-csv-acct-driver[].password"
+				},
+				{
+					"key": "classic-csv-acct-driver[].post-operation",
+					"type": "select",
+					"titleMap": {
+						"Archive": "Archive",
+						"Rename": "Rename",
+						"Delete": "Delete"
+					}
+				},
+				{
+					"key": "classic-csv-acct-driver[].archive-locations"
+				},
+				{
+					"key": "classic-csv-acct-driver[].failover-time"
+				},
+				{
+					"key": "classic-csv-acct-driver[].classic-csv-field-mappings",
+					"add": "Add Mapping",
+					"items": [
+						{
+							"key": "classic-csv-acct-driver[].classic-csv-field-mappings[].attribute-id"
+						},
+						{
+							"key": "classic-csv-acct-driver[].classic-csv-field-mappings[].header"
+						},
+						{
+							"key": "classic-csv-acct-driver[].classic-csv-field-mappings[].default-value"
+						},
+						{
+							"key": "classic-csv-acct-driver[].classic-csv-field-mappings[].use-dictionary-value",
+							"type": "select",
+							"titleMap": {
+								"True": "True",
+								"False": "False"
+							}
+						}
+					]
+				},
+				{
+					"key": "classic-csv-acct-driver[].classic-csv-strip-pattern-relation-mappings",
+					"add": "Add Strip Pattern Mapping",
+					"items": [
+						{
+							"key": "classic-csv-acct-driver[].classic-csv-strip-pattern-relation-mappings[].attribute-id"
+						},
+						{
+							"key": "classic-csv-acct-driver[].classic-csv-strip-pattern-relation-mappings[].pattern",
+							"type": "select",
+							"titleMap": {
+								"Suffix": "Suffix",
+								"Prefix": "Prefix"
+							}
+						},
+						{
+							"key": "classic-csv-acct-driver[].classic-csv-strip-pattern-relation-mappings[].separator"
+						}
+					]
+				}
+			]
+		}
+	],
+	"model": {
+		"name": "radiusClassicCSVAcctDriver",
+		"description": "Created by admin on 01/24/2017 11:00:55 AM",
+		"classic-csv-acct-driver": [
+			{
+				"header": "false",
+				"delimeter": ",",
+				"multivalue-delimeter": ";",
+				"enclosing-character": "-",
+				"cdr-timestamp-format": "EEE dd MMM yyyy hh:mm:ss aaa",
+				"file-name": "CDRs.csv",
+				"location": "data/csvfiles",
+				"create-blank-file": "false",
+				"prefix-file-name": "0:1",
+				"default-folder-name": "no_nas_ip_address",
+				"folder-name": "0:1",
+				"allocating-protocol": "NONE",
+				"address": "127.0.0.1:8080",
+				"destination-location": "255.255.255.0",
+				"username": "admin",
+				"post-operation": "archive",
+				"archive-locations": "data/csvfiles/archive",
+				"failover-time": 3,
+				"time-boundry": "Daily",
+				"size-based-rolling-unit": 1,
+				"time-based-rolling-unit": 1,
+				"record-based-rolling-unit": 1,
+				"use-dictionary-value": "false",
+				"sequence-range": "1-100",
+				"sequence-position": "suffix",
+				"sequence-globalization": "false",
+				"cdr-timestamp-header": "CDRTimeStamp",
+				"cdr-timestamp-position": "SUFFIX",
+				"classic-csv-field-mappings": [
+					{
+						"header": "UserName",
+						"attribute-id": "0:1",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Calling-Station-ID",
+						"attribute-id": "0:31",
+						"default-value": "AB:1C:DE:3F:32:6F",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "NAS-IP-Address",
+						"attribute-id": "0:4",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "NAS-Identifier",
+						"attribute-id": "0:32",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "NAS-Port",
+						"attribute-id": "0:5",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "NAS-Port-ID",
+						"attribute-id": "0:87",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Acct-Session-ID",
+						"attribute-id": "0:44",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Acct-Multi-Session-ID",
+						"attribute-id": "0:50",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Acct-Status-Type",
+						"attribute-id": "0:40",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Acct-Session-Time ",
+						"attribute-id": "0:46",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Acct-Input-Octets",
+						"attribute-id": "0:42",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Acct-Output-Octets",
+						"attribute-id": "0:43",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Acct-Input-Gigawards",
+						"attribute-id": "0:52",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Acct-Output-Gigawords",
+						"attribute-id": "0:53",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Acct-Input-Packets",
+						"attribute-id": "0:47",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Acct-Output-Packets",
+						"attribute-id": "0:48",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Acct-Delay-Time",
+						"attribute-id": "0:41",
+						"use-dictionary-value": "false"
+					},
+					{
+						"header": "Event-Timestamp",
+						"attribute-id": "0:55",
+						"use-dictionary-value": "false"
+					}
+				],
+				"classic-csv-strip-pattern-relation-mappings": [
+					{
+						"attribute-id": "0:1",
+						"pattern": "suffix",
+						"separator": "-"
+					}
+				]
+			}
+		]
+	}
+}

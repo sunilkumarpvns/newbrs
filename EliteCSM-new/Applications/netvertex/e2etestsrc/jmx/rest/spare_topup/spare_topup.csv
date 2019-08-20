@@ -1,0 +1,7 @@
+sr.no,test.summary,test.description,http.path,http.method,input.json,assertion,test_case_id,response.code,module
+1,create_sparetopup,POST : Create Spare Topup :201,pd/datatopup/data-topup.json,POST,create_spare_topup.json,,91751,201,datatopup
+2,get_created_sparetopup,GET: Get Created Spare Topup :200,pd/datatopup/data-topup/rest_spare_topup_111111111.json,GET,,,91752,200,datatopup
+3,update_sparetopup,PUT : Update Spare Topup : 200,pd/datatopup/data-topup/rest_spare_topup_111111111.json,PUT,update_spare_topup.json,,91753,200,datatopup
+4,get_updated_sparetopup,GET: Get updated Spare Topup :200,pd/datatopup/data-topup/rest_spare_topup_111111111.json,GET,,,91754,200,datatopup
+5,delete_sparetopup,DELETE: Delete Spare Topup :200,pd/datatopup/data-topup/rest_spare_topup_111111111.json,DELETE,,,91755,200,datatopup
+6,get_deleted_sparetopup,GET: Get Delete Spare Topup : 404,pd/datatopup/data-topup/rest_spare_topup_111111111.json,GET,,"{""actionErrors"":[""Data Top-Up Not Found with id: rest_spare_topup_111111111""]}",91756,404,datatopup

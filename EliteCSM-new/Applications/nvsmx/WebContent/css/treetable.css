@@ -1,0 +1,148 @@
+.treetable{}
+
+
+.treetable .fa{
+    cursor: pointer;
+    padding-right: 5px;
+}
+.treetable .rowhidden{
+
+}
+
+.treetable div .j-addChild{
+    color: #337ab7;
+    cursor: pointer;
+}
+.treetable  .selected .j-addChild{
+}
+
+
+.treetable div .j-remove{
+    cursor: pointer;
+    color:#337ab7;
+}
+.treetable   .btn-outline{
+    background-color: transparent;
+}
+.treetable  .textalign-center{
+    text-align: center;
+}
+
+.treetable   .class-level-2 .class-level-ul  .j-addNode{
+    position: relative;
+    left: 22px;
+}
+.treetable  .class-level-3 .class-level-ul  .j-addNode{
+    position: relative;
+    left: 44px;
+}
+.treetable   .class-level-4 .class-level-ul  .j-addNode{
+    position: relative;
+    left: 66px;
+}
+.treetable   .class-level-5 .class-level-ul .j-addNode{
+    position: relative;
+    left: 88px;
+}
+.treetable   .class-level-6 .class-level-ul .j-addNode{
+    position: relative;
+    left: 110px;
+}
+.treetable   .class-level-7 .class-level-ul .j-addNode{
+    position: relative;
+    left: 132px;
+}
+.treetable   .class-level-8 .class-level-ul .j-addNode{
+    position: relative;
+    left: 154px;
+}
+.treetable   .class-level-9 .class-level-ul .j-addNode{
+    position: relative;
+    left: 176px;
+}
+.treetable   .class-level-10 .class-level-ul .j-addNode{
+    position: relative;
+    left: 198px;
+}
+
+.treetable  .class-level-1  {
+    border-bottom: solid 1px #dae4f1;
+}
+.treetable .class-level-ul {
+    border:1px solid #dae4f1;
+}
+.treetable   .class-level-ul div {
+    text-align: center;
+    vertical-align: middle;
+    padding: 1px 10px;
+    list-style: none;
+
+}
+.treetable  .class-level-ul:after  {
+    display: block;
+    clear: both;
+    height: 0;
+    content: "\0020";
+}
+
+.treetable .j-addNode{
+    cursor: pointer;
+    width: 45%;
+    text-align: left !important;
+    float:left;
+}
+
+.treetable .tt-body{
+    background-color:#FFF;
+    width: 100%;
+    max-width: 100%;
+}
+
+
+.treetable .tt-header div {
+      width: auto;
+      display: inline-block;
+      vertical-align: bottom;
+      border-bottom: 1px solid #DDD;
+      padding : 1px 10px;
+      font-weight: bold;
+      text-align: center;
+      border-left:1px solid #dae4f1;
+     background-color: #ecf1f8;
+  }
+
+.treetable .tt-header div:first-child{
+    border-left:none;
+
+}
+.treetable .tt-header{
+    border-top: 1px solid #DDD;
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    display: table-header-group;
+    background-color: #ecf1f8;
+}
+.treetable .form-control[readonly] {
+    background-color: #fff;
+    color: #333;
+    cursor:default;
+}
+.treetable .form-control{
+    width: 100%;
+    display: inline-block;
+}
+.input-sm{
+    padding: 6px 12px;
+}
+.borderLeft{
+    border-left : 1px solid #dae4f1 !important;
+}
+.borderRight{
+    border-right : 1px solid #dae4f1 !important;
+}
+.disabledAddButton {
+    pointer-events: none;
+    opacity: 0.4;
+}
+

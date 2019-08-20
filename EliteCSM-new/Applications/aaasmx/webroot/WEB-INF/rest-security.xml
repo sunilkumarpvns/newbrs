@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+      
+    <beans:bean id="authenticationHandler"
+        class="com.elitecore.elitesm.ws.rest.security.AuthenticationHandler"/>
+        
+    <beans:bean id="restAuthenticationDetailsSource"
+        class="com.elitecore.elitesm.ws.rest.security.RESTAuthenticationDetailsSource"/>
+
+    <beans:bean id="restAuthFilterEntryPoint"
+            class="com.elitecore.elitesm.ws.rest.security.RESTBasicAuthenticationEntryPoint">  
+        <beans:property name="realmName" value="Spring Security Application" />
+    </beans:bean>
+    
+    <global-method-security pre-post-annotations="enabled"/>
+      
+    <http create-session="never" use-expressions="true" 
+    	  realm="Spring Security Application" entry-point-ref="restAuthFilterEntryPoint"
+    	  pattern="/cxfservices/restful/**" auto-config="true">
+    	<intercept-url pattern="/cxfservices/restful/**" access="hasRole('ROLE_WEBSERVICE')" />
+    	<http-basic authentication-details-source-ref="restAuthenticationDetailsSource"/>
+    	<csrf disabled="true" />
+    </http>
+    
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider ref="authenticationHandler" />
+    </authentication-manager>
+   
+</beans:beans>

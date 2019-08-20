@@ -1,0 +1,65 @@
+.mainDiv
+{
+background:white;
+width:95%;
+border-radius:5px;
+}
+
+#myinnerDiv > tbody > tr > td {
+    border-bottom: 1px solid rgb(238, 238, 238);
+    padding: 5px;
+    font-size: 12px;
+}
+.th_header{
+border-bottom: 1px solid rgb(187, 187, 187);
+background-color: transparent;
+color: rgb(153, 153, 153);
+padding-bottom: 0.213em;
+font-weight:200;
+padding-left:10px;
+font-size: 1em;
+vertical-align: top;
+text-align: left;
+font-size: 14px;
+}
+.manage_button{
+border: medium none;
+font-family: Arial;
+font-size: 12px;
+color: rgb(255, 255, 255);
+background-color:#015198;
+background-image: url('../images/light-btn-bkgd.jpg');
+font-weight: bold;
+text-decoration: none;
+}
+.labeltext { font-family: Arial; font-size: 12px; color: #000000;padding-top: 1px; padding-right: 0px; padding-bottom: 1px; padding-left: 3px;padding: 5px; }
+	
+.manageheader{
+	background: url("../images/ui-bg_inset-hard_100_f5f8f9_1x100.png") repeat-x scroll 50% 50% rgb(245, 248, 249);
+	position: relative;
+	list-style: none outside none;
+	float: left;
+	display: block;
+	color: black !important;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	font-family: Arial;
+	line-height: 19px;
+	font-weight: bold;
+	font-size: 12px;
+	padding :5px 5px 2px;
+	padding-bottom: 3px;
+	margin-bottom: -2px;
+	cursor: pointer;
+}
+
+.dashboardDiv
+{
+background:white;
+width:95%;
+border-radius:5px;
+}
+
+
+
+	

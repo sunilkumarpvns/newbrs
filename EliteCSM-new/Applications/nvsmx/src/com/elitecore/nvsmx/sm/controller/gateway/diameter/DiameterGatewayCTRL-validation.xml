@@ -1,0 +1,91 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+
+	<field name="name">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.gateway.name")})}</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.length", {getText("diameter.gateway.name")})}</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+        	<param name="regex"><![CDATA[^[a-zA-Z0-9]+.*[a-zA-Z0-9]+$]]></param>
+    		<message>${getText("invalid.name", {getText("diameter.gateway.name")})}</message>
+        </field-validator>		
+	</field>
+	<field name="diameterGatewayProfileId">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.gateway.diameterprofile")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="realm">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.gateway.realm")})}</message>
+		</field-validator>
+		<field-validator type="stringlength" short-circuit="true">
+			<param name="maxLength">40</param>
+			<message>${getText("error.max.length",{getText("diameter.gateway.realm")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="retransmissionCount">
+		<field-validator type="int" short-circuit="true">
+			<param name="min">0</param>
+			<param name="max">3</param>
+			<message>${getText("error.numeric.range",{getText("diameter.gateway.retransmissionCount")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="requestTimeout">
+		<field-validator type="int" short-circuit="true">
+			<param name="min">0</param>
+			<param name="max">10000</param>
+			<message>${getText("error.numeric.range",{getText("diameter.gateway.requestTimeout")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="connectionURL">
+		<field-validator type="stringlength" short-circuit="true">
+			<param name="maxLength">45</param>
+			<message>${getText("error.max.length",{getText("diameter.gateway.connectionURL")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="hostIdentity">
+		<field-validator type="fieldexpression" short-circuit="true">
+			<param name="expression"><![CDATA[((hostIdentity != null && hostIdentity != '') || (connectionURL != null && connectionURL != ''))]]></param>
+			<message>${getText("error.required.hostidandurl")}</message>
+		</field-validator>
+		<field-validator type="stringlength" short-circuit="true">
+			<param name="maxLength">100</param>
+			<param name="trim">true</param>
+			<message>${getText("error.max.length", {getText("diameter.gateway.hostIdentity")})}</message>
+		</field-validator>
+	</field>
+
+	<field name="policyEnforcementMethod">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>${getText("error.required.field", {getText("diameter.gateway.policyEnforcementMethod")})}</message>
+		</field-validator>
+		<field-validator type="fieldexpression" short-circuit="true">
+			<param name="expression"><![CDATA[((policyEnforcementMethod == 'STANDARD') || (policyEnforcementMethod == 'Cisco_SCE'))]]></param>
+			<message>${getText("invalid.input.policyenforcement")}</message>
+		</field-validator>
+	</field>
+
+	<field name="localAddress">
+		<field-validator type="stringlength" short-circuit="true">
+			<param name="maxLength">64</param>
+			<message>${getText("error.max.length",{getText("diameter.gateway.localAddress")})}</message>
+		</field-validator>
+	</field>
+
+</validators>

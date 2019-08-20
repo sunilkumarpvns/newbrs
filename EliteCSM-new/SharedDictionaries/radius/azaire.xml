@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="7751" vendor-name="Azaire">
+<attribute id="1" name="Azaire-Triplets" type="octets"/>
+<attribute id="2" name="Azaire-IMSI" type="octets"/>
+<attribute id="3" name="Azaire-MSISDN" type="octets"/>
+<attribute id="4" name="Azaire-APN" type="string">
+	<supported-values>
+		<value id="0" name="Not-Required"/>
+		<value id="1" name="Required"/>
+	</supported-values>
+</attribute>
+<attribute id="5" name="Azaire-QoS" type="octets"/>
+<attribute id="6" name="Azaire-Selection-Mode" type="integer">
+	<supported-values>
+		<value id="0" name="Subscribed"/>
+		<value id="1" name="Sent-By-MS"/>
+		<value id="2" name="Chosen-By-SGSN"/>
+	</supported-values>
+</attribute>
+<attribute id="7" name="Azaire-APN-Resolution-Req" type="integer">
+	<supported-values>
+		<value id="0" name="Not-Required"/>
+		<value id="1" name="Required"/>
+	</supported-values>
+</attribute>
+<attribute id="8" name="Azaire-Start-Time" type="octets"/>
+<attribute id="9" name="Azaire-NAS-Type" type="integer"/>
+<attribute id="10" name="Azaire-Status" type="integer">
+	<supported-values>
+		<value id="0" name="Success"/>
+		<value id="1" name="Failure"/>
+	</supported-values>
+</attribute>
+<attribute id="11" name="Azaire-APN-OI" type="string"/>
+<attribute id="12" name="Azaire-Auth-Type" type="integer">
+	<supported-values>
+		<value id="1" name="PPP-SIM"/>
+		<value id="2" name="Dummy-IMSI"/>
+		<value id="3" name="Soft-SIM"/>
+		<value id="4" name="Radius-SIM"/>
+		<value id="5" name="Post-paid"/>
+		<value id="6" name="Pre-paid"/>
+		<value id="7" name="Local-Radius"/>
+		<value id="8" name="Proxy-Radius"/>
+	</supported-values>
+</attribute>
+<attribute id="13" name="Azaire-Gn-User-Name" type="string"/>
+<attribute id="14" name="Azaire-Brand-Code" type="string"/>
+<attribute id="15" name="Azaire-Policy-Name" type="string"/>
+<attribute id="16" name="Azaire-Client-Local-IP" type="ipaddr"/>
+</attribute-list>

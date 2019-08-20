@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clients>		
+	<client>
+		<client-ip>127.0.0.1</client-ip>
+        <request-expiry-time>8000</request-expiry-time>
+        <profile-name>test_profile</profile-name>        
+	</client>
+</clients>

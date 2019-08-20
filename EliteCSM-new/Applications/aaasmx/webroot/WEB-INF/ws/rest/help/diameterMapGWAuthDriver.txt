@@ -1,0 +1,526 @@
+***********************************************************************
+						GET OPERATION  
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth?name=diameterMapGWAuth&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth.xml?name=diameterMapGWAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth?operation=search&name=diameterMapGWAuth&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth.xml?operation=search&name=diameterMapGWAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth.xml?operation=search
+
+Content Type : application/xml
+Response     :
+
+<driver-instance>
+    <name>diameterMapGWAuth</name>
+    <description>Created by admin on 01/24/2017 11:43:32 AM</description>
+    <map-gateway-auth-driver>
+        <local-host-id>AAA-ULTICOM</local-host-id>
+        <local-host-port>0</local-host-port>
+        <local-host-ip>127.0.0.1</local-host-ip>
+        <remote-host-id>AAA-ULTICOM</remote-host-id>
+        <remote-host-port>10090</remote-host-port>
+        <remote-host-ip>127.0.0.1</remote-host-ip>
+        <maximum-query-timeout-count>100</maximum-query-timeout-count>
+        <connection-pool-size>10</connection-pool-size>
+        <request-timeout>1000</request-timeout>
+        <status-check-duration>60</status-check-duration>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <send-auth-info>True</send-auth-info>
+        <number-of-triplets>3</number-of-triplets>
+        <map-profile-fields>
+            <map-profile-field>
+                <logical-name>IMSI</logical-name>
+                <profile-field>IMSI</profile-field>
+            </map-profile-field>
+            <map-profile-field>
+                <logical-name>MSISDN</logical-name>
+                <profile-field>MSISDN</profile-field>
+            </map-profile-field>
+            <map-profile-field>
+                <logical-name>Customer Status</logical-name>
+                <profile-field>CustomerStatus</profile-field>
+                <default-value>prepaid</default-value>
+                <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+            </map-profile-field>
+        </map-profile-fields>
+    </map-gateway-auth-driver>
+</driver-instance>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth?name=diameterMapGWAuth&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth.json?name=diameterMapGWAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth?operation=search&name=diameterMapGWAuth&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth.json?operation=search&name=diameterMapGWAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+  "name": "diameterMapGWAuth",
+  "description": "Created by admin on 01/24/2017 11:43:32 AM",
+  "map-gateway-auth-driver": [
+    {
+      "local-host-id": "AAA-ULTICOM",
+      "local-host-port": 0,
+      "local-host-ip": "127.0.0.1",
+      "remote-host-id": "AAA-ULTICOM",
+      "remote-host-port": 10090,
+      "remote-host-ip": "127.0.0.1",
+      "maximum-query-timeout-count": 100,
+      "connection-pool-size": 10,
+      "request-timeout": 1000,
+      "status-check-duration": 60,
+      "user-identity-attributes": "0:1",
+      "send-auth-info": "True",
+      "number-of-triplets": "3",
+      "map-profile-fields": [
+        {
+          "logical-name": "IMSI",
+          "profile-field": "IMSI"
+        },
+        {
+          "logical-name": "MSISDN",
+          "profile-field": "MSISDN"
+        },
+        {
+          "logical-name": "Customer Status",
+          "profile-field": "CustomerStatus",
+          "default-value": "prepaid",
+          "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+        }
+      ]
+    }
+  ]
+}
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+	
+Content Type : application/xml
+
+For Inserting Default Value in MAP Profile Field use below format.
+		
+		<default-value>prepaid</default-value>
+	    <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+
+Body :
+<driver-instance>
+    <name>diameterMapGWAuth</name>
+    <description>Created by admin on 01/24/2017 11:43:32 AM</description>
+    <map-gateway-auth-driver>
+        <local-host-id>AAA-ULTICOM</local-host-id>
+        <local-host-port>0</local-host-port>
+        <local-host-ip>127.0.0.1</local-host-ip>
+        <remote-host-id>AAA-ULTICOM</remote-host-id>
+        <remote-host-port>10090</remote-host-port>
+        <remote-host-ip>127.0.0.1</remote-host-ip>
+        <maximum-query-timeout-count>100</maximum-query-timeout-count>
+        <connection-pool-size>10</connection-pool-size>
+        <request-timeout>1000</request-timeout>
+        <status-check-duration>60</status-check-duration>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <send-auth-info>True</send-auth-info>
+        <number-of-triplets>3</number-of-triplets>
+        <map-profile-fields>
+            <map-profile-field>
+                <logical-name>IMSI</logical-name>
+                <profile-field>IMSI</profile-field>
+            </map-profile-field>
+            <map-profile-field>
+                <logical-name>MSISDN</logical-name>
+                <profile-field>MSISDN</profile-field>
+            </map-profile-field>
+            <map-profile-field>
+                <logical-name>Customer Status</logical-name>
+                <profile-field>CustomerStatus</profile-field>
+                <default-value>prepaid</default-value>
+                <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+            </map-profile-field>
+        </map-profile-fields>
+    </map-gateway-auth-driver>
+</driver-instance>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Map Gateway Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+For Inserting Default Value in MAP Profile Field use below format.
+		
+		"default-value": "prepaid",
+        "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+
+Body :
+{
+  "name": "diameterMapGWAuth",
+  "description": "Created by admin on 01/24/2017 11:43:32 AM",
+  "map-gateway-auth-driver": [
+    {
+      "local-host-id": "AAA-ULTICOM",
+      "local-host-port": 0,
+      "local-host-ip": "127.0.0.1",
+      "remote-host-id": "AAA-ULTICOM",
+      "remote-host-port": 10090,
+      "remote-host-ip": "127.0.0.1",
+      "maximum-query-timeout-count": 100,
+      "connection-pool-size": 10,
+      "request-timeout": 1000,
+      "status-check-duration": 60,
+      "user-identity-attributes": "0:1",
+      "send-auth-info": "True",
+      "number-of-triplets": "3",
+      "map-profile-fields": [
+        {
+          "logical-name": "IMSI",
+          "profile-field": "IMSI"
+        },
+        {
+          "logical-name": "MSISDN",
+          "profile-field": "MSISDN"
+        },
+        {
+          "logical-name": "Customer Status",
+          "profile-field": "CustomerStatus",
+          "default-value": "prepaid",
+          "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+        }
+      ]
+    }
+  ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Map Gateway Auth Driver created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+For Inserting Default Value in MAP Profile Field use below format.
+		
+		<default-value>prepaid</default-value>
+	    <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+
+Body :
+
+<list>
+   <driver-instance>
+      <name>diameterMapGWAuth</name>
+      <description>Created by admin on 01/24/2017 11:43:32 AM</description>
+      <map-gateway-auth-driver>
+         <local-host-id>AAA-ULTICOM</local-host-id>
+         <local-host-port>0</local-host-port>
+         <local-host-ip>127.0.0.1</local-host-ip>
+         <remote-host-id>AAA-ULTICOM</remote-host-id>
+         <remote-host-port>10090</remote-host-port>
+         <remote-host-ip>127.0.0.1</remote-host-ip>
+         <maximum-query-timeout-count>100</maximum-query-timeout-count>
+         <connection-pool-size>10</connection-pool-size>
+         <request-timeout>1000</request-timeout>
+         <status-check-duration>60</status-check-duration>
+         <user-identity-attributes>0:1</user-identity-attributes>
+         <send-auth-info>True</send-auth-info>
+         <number-of-triplets>3</number-of-triplets>
+         <map-profile-fields>
+            <map-profile-field>
+               <logical-name>IMSI</logical-name>
+               <profile-field>IMSI</profile-field>
+            </map-profile-field>
+            <map-profile-field>
+               <logical-name>MSISDN</logical-name>
+               <profile-field>MSISDN</profile-field>
+            </map-profile-field>
+            <map-profile-field>
+               <logical-name>Customer Status</logical-name>
+               <profile-field>CustomerStatus</profile-field>
+               <default-value>prepaid</default-value>
+               <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+            </map-profile-field>
+         </map-profile-fields>
+      </map-gateway-auth-driver>
+   </driver-instance>
+</list>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Map Gateway Auth Driver(s)  created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+For Inserting Default Value in MAP Profile Field use below format.
+		
+		"default-value": "prepaid",
+        "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+
+Body :
+{
+   "list":[
+      {
+         "name":"diameterMapGWAuth",
+         "description":"Created by admin on 01/24/2017 11:43:32 AM",
+         "map-gateway-auth-driver":[
+            {
+               "local-host-id":"AAA-ULTICOM",
+               "local-host-port":0,
+               "local-host-ip":"127.0.0.1",
+               "remote-host-id":"AAA-ULTICOM",
+               "remote-host-port":10090,
+               "remote-host-ip":"127.0.0.1",
+               "maximum-query-timeout-count":100,
+               "connection-pool-size":10,
+               "request-timeout":1000,
+               "status-check-duration":60,
+               "user-identity-attributes":"0:1",
+               "send-auth-info":"True",
+               "number-of-triplets":"3",
+               "map-profile-fields":[
+                  {
+                     "logical-name":"IMSI",
+                     "profile-field":"IMSI"
+                  },
+                  {
+                     "logical-name":"MSISDN",
+                     "profile-field":"MSISDN"
+                  },
+                  {
+                     "logical-name":"Customer Status",
+                     "profile-field":"CustomerStatus",
+                     "default-value":"prepaid",
+                     "value-mapping":"GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Map Gateway Auth Driver(s)  created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth?name=diameterMapGWAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth?operation=update&name=diameterMapGWAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+For Updating Default Value in MAP Profile Field use below format.
+		
+		<default-value>prepaid</default-value>
+	    <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+
+Body     :
+
+<driver-instance>
+    <name>diameterMapGWAuth</name>
+    <description>Created by admin on 01/24/2017 11:43:32 AM</description>
+    <map-gateway-auth-driver>
+        <local-host-id>AAA-ULTICOM</local-host-id>
+        <local-host-port>0</local-host-port>
+        <local-host-ip>127.0.0.1</local-host-ip>
+        <remote-host-id>AAA-ULTICOM</remote-host-id>
+        <remote-host-port>10090</remote-host-port>
+        <remote-host-ip>127.0.0.1</remote-host-ip>
+        <maximum-query-timeout-count>100</maximum-query-timeout-count>
+        <connection-pool-size>10</connection-pool-size>
+        <request-timeout>1000</request-timeout>
+        <status-check-duration>60</status-check-duration>
+        <user-identity-attributes>0:1</user-identity-attributes>
+        <send-auth-info>True</send-auth-info>
+        <number-of-triplets>3</number-of-triplets>
+        <map-profile-fields>
+            <map-profile-field>
+                <logical-name>IMSI</logical-name>
+                <profile-field>IMSI</profile-field>
+            </map-profile-field>
+            <map-profile-field>
+                <logical-name>MSISDN</logical-name>
+                <profile-field>MSISDN</profile-field>
+            </map-profile-field>
+            <map-profile-field>
+                <logical-name>Customer Status</logical-name>
+                <profile-field>CustomerStatus</profile-field>
+                <default-value>prepaid</default-value>
+                <value-mapping>GSM Prepaid=prepaid,GSM Postpaid=postpaid</value-mapping>
+            </map-profile-field>
+        </map-profile-fields>
+    </map-gateway-auth-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Map Gateway Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+For Updating Default Value in MAP Profile Field use below format.
+		
+		"default-value": "prepaid",
+        "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+
+Body     :
+{
+  "name": "diameterMapGWAuth",
+  "description": "Created by admin on 01/24/2017 11:43:32 AM",
+  "map-gateway-auth-driver": [
+    {
+      "local-host-id": "AAA-ULTICOM",
+      "local-host-port": 0,
+      "local-host-ip": "127.0.0.1",
+      "remote-host-id": "AAA-ULTICOM",
+      "remote-host-port": 10090,
+      "remote-host-ip": "127.0.0.1",
+      "maximum-query-timeout-count": 100,
+      "connection-pool-size": 10,
+      "request-timeout": 1000,
+      "status-check-duration": 60,
+      "user-identity-attributes": "0:1",
+      "send-auth-info": "True",
+      "number-of-triplets": "3",
+      "map-profile-fields": [
+        {
+          "logical-name": "IMSI",
+          "profile-field": "IMSI"
+        },
+        {
+          "logical-name": "MSISDN",
+          "profile-field": "MSISDN"
+        },
+        {
+          "logical-name": "Customer Status",
+          "profile-field": "CustomerStatus",
+          "default-value": "prepaid",
+          "value-mapping": "GSM Prepaid=prepaid,GSM Postpaid=postpaid"
+        }
+      ]
+    }
+  ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Map Gateway Auth Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth?name=diameterMapGWAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth?operation=delete&name=diameterMapGWAuth
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/diameter/mapgwauth/diameterMapGWAuth?operation=delete
+
+Response :
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter Map Gateway Auth Driver(s)  deleted successfully</response-message>
+	</response>
+</response-detail>
+
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

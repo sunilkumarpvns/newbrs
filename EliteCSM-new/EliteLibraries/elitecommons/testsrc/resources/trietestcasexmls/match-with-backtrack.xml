@@ -1,0 +1,33 @@
+<cases>
+
+	<case name="should-return-last-matched-parent-value-if-futhur-branch-cant-be-explored" 
+		expected="B" query="abcdefghij">
+		<tree>
+			<node key="a">
+				<node key = "b" value="B">
+					<node key="e" value="E"/>
+					<node key = "c">
+						<node key="d">
+							<node key="f" value="F"/>
+						</node>
+					</node>
+				</node>
+			</node>
+		</tree>
+	</case>
+	
+	<case name="if-input-is-less-than-tree-branch-length" 
+		expected="B" query="abc">
+		<tree>
+			<node key="a">
+				<node key = "b" value="B">
+					<node key="e" value="E"/>
+					<node key = "c">
+						<node key="d" value="D"/>
+					</node>
+				</node>
+			</node>
+		</tree>
+	</case>
+	
+</cases>

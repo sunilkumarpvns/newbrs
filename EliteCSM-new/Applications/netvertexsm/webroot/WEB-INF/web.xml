@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>netvertexsm</display-name>
+	<welcome-file-list>
+		<welcome-file>Login.jsp</welcome-file>
+	</welcome-file-list>
+	<filter>
+		<description>
+		</description>
+		<display-name>LoginValidatorFilter</display-name>
+		<filter-name>LoginValidatorFilter</filter-name>
+		<filter-class>com.elitecore.netvertexsm.web.core.util.LoginValidatorFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginValidatorFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+ 	</filter-mapping>
+	
+	 <listener>
+        <listener-class>com.elitecore.netvertexsm.server.ServletContextListenerImpl</listener-class>
+  	 </listener>
+	
+	
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>com.elitecore.netvertexsm.web.core.system.servlet.EliteServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/config/struts-config.xml,
+			/WEB-INF/config/gateway/struts-config-gateway.xml,
+			/WEB-INF/config/datasource/struts-config-datasource.xml,
+			/WEB-INF/config/servermgr/struts-config-servermgr.xml,
+			/WEB-INF/config/servicepolicy/struts-config-servicepolicy.xml,
+			/WEB-INF/config/servermgr/driver/struts-config-driver.xml,
+			/WEB-INF/config/servermgr/sessionmgr/struts-config-sessionmgr.xml,
+			/WEB-INF/config/bitemplate/struts-config-bitemplate.xml,
+			/WEB-INF/config/devicemgmt/struts-config-devicemgmt.xml,
+			/WEB-INF/config/RoutingTable/struts-config-routingmgmt.xml,
+			/WEB-INF/config/customizedmenu/struts-config-customizedmenu.xml,
+			/WEB-INF/config/locationconfig/struts-config-locationmgmt.xml,
+			/WEB-INF/config/sendpacket/struts-config-sendpacket.xml,
+			/WEB-INF/config/servermgr/spr/struts-config-spr.xml,
+			/WEB-INF/config/servermgr/spr/struts-config-ddf.xml,
+			/WEB-INF/config/group/struts-config-groupmgmt.xml,
+			/WEB-INF/config/servergroup/struts-config-servergroupmgmt.xml
+			</param-value>
+		</init-param>		
+		<init-param>
+	      	<param-name>debug</param-name>
+    		<param-value>3</param-value>
+    	</init-param>
+    	<init-param>
+      		<param-name>detail</param-name>
+     		 <param-value>3</param-value>
+   		 </init-param>
+    	<load-on-startup>0</load-on-startup>
+	</servlet>
+
+ <servlet>
+  	<servlet-name>DownloadFileServlet</servlet-name>
+  	<servlet-class>com.elitecore.netvertexsm.web.core.system.servlet.DownloadFileServlet</servlet-class>
+  </servlet>  
+ <servlet>
+  	<description>
+  	</description>
+  	<display-name>FieldRetrievalServlet</display-name>
+  	<servlet-name>FieldRetrievalServlet</servlet-name>
+  	<servlet-class>com.elitecore.netvertexsm.web.core.util.FieldRetrievalServlet</servlet-class>
+ </servlet>
+ <servlet>
+  	<description>
+  	</description>
+  	<display-name>VerifyInstanceNameServlet</display-name>
+  	<servlet-name>VerifyInstanceNameServlet</servlet-name>
+  	<servlet-class>com.elitecore.netvertexsm.web.core.util.VerifyInstanceNameServlet</servlet-class>
+ </servlet>
+ <servlet>
+ 	<description>
+ 	</description>
+ 	<display-name>DeviceNameRetrivalServlet</display-name>
+ 	<servlet-name>DeviceNameRetrivalServlet</servlet-name>
+ 	<servlet-class>
+ 	com.elitecore.netvertexsm.web.core.util.DeviceNameRetrivalServlet</servlet-class>
+ </servlet>
+ <servlet>
+ 	<description>
+ 	</description>
+ 	<display-name>PCCNameRetrivalServlet</display-name>
+ 	<servlet-name>PCCNameRetrivalServlet</servlet-name>
+ 	<servlet-class>
+ 	com.elitecore.netvertexsm.web.core.util.PCCNameRetrivalServlet</servlet-class>
+ </servlet>
+ <servlet>
+ 	<description>
+ 	</description>
+ 	<display-name>ListRetrivalServlet</display-name>
+ 	<servlet-name>ListRetrivalServlet</servlet-name>
+ 	<servlet-class>
+ 	com.elitecore.netvertexsm.web.core.util.ListRetrivalServlet</servlet-class>
+ </servlet>
+
+   <servlet>
+   	<description>
+   	</description>
+   	<display-name>VerifyIdentifierServlet</display-name>
+   	<servlet-name>VerifyIdentifierServlet</servlet-name>
+   	<servlet-class>com.elitecore.netvertexsm.web.core.util.VerifyIdentifierServlet</servlet-class>
+   </servlet>
+   
+	
+	<servlet>
+    	<description>
+    	SSOLogin</description>
+    	<display-name>SSOLogin</display-name>
+    	<servlet-name>SSOLogin</servlet-name>
+    	<servlet-class>com.elitecore.netvertexsm.sso.SSOLoginServlet</servlet-class>
+    </servlet>
+	
+	<servlet>
+  		<description></description>
+  		<display-name>CheckPasswordValidity</display-name>
+  		<servlet-name>CheckPasswordValidity</servlet-name>
+  		<servlet-class>com.elitecore.netvertexsm.util.CheckPasswordValidity</servlet-class>
+  	</servlet>
+  	
+  	<servlet-mapping>
+ 		<servlet-name>CheckPasswordValidity</servlet-name>
+ 		<url-pattern>/CheckPasswordValidity</url-pattern>
+ 	</servlet-mapping>
+	
+	
+	<servlet-mapping>
+    	<servlet-name>SSOLogin</servlet-name>
+    	<url-pattern>/SSOLogin</url-pattern>
+    </servlet-mapping>   
+   
+   
+  <servlet-mapping>
+     <servlet-name>DownloadFileServlet</servlet-name>
+     <url-pattern>/servlet/DownloadFileServlet</url-pattern>
+  </servlet-mapping> 
+ 
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+ 	<servlet-name>FieldRetrievalServlet</servlet-name>
+ 	<url-pattern>/FieldRetrievalServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>VerifyInstanceNameServlet</servlet-name>
+ 	<url-pattern>/VerifyInstanceNameServlet</url-pattern>
+ </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeviceNameRetrivalServlet</servlet-name>
+  	<url-pattern>/DeviceNameRetrivalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PCCNameRetrivalServlet</servlet-name>
+  	<url-pattern>/PCCNameRetrivalServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>ListRetrivalServlet</servlet-name>
+  	<url-pattern>/ListRetrivalServlet</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+   	<servlet-name>VerifyIdentifierServlet</servlet-name>
+   	<url-pattern>/VerifyIdentifierServlet</url-pattern>
+   </servlet-mapping>
+  
+  <session-config>
+    <session-timeout>60</session-timeout>
+  </session-config>
+  
+ <error-page>
+   <error-code>404</error-code>
+   <location>/jsp/core/response/JspErrorPage.jsp</location>
+  </error-page>
+  
+  <error-page>
+   <error-code>500</error-code>
+   <location>/jsp/core/response/JspErrorPage.jsp</location>
+  </error-page>
+  
+  <servlet>
+		<description>Apache CXF Endpoint</description>
+		<display-name>cxf</display-name>
+		<servlet-name>cxf</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+  <servlet-mapping>
+		<servlet-name>cxf</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+
+	<filter>
+	  <filter-name>PortalSecurityFilter</filter-name>
+	  <filter-class>com.elitecore.netvertexsm.web.core.system.filter.PortalSecurityFilter</filter-class>
+		<!-- To prevent Click Jacking  -->
+		<init-param>
+			<param-name>X-Frame-Options</param-name>
+			<param-value>SAMEORIGIN</param-value>
+		</init-param>
+
+		<!--to prevent Cross-Site Scripting (XSS) attacks-->
+		<init-param>
+			<param-name>X-XSS-Protection</param-name>
+			<param-value>1; mode=block</param-value>
+		</init-param>
+
+		<!-- to prevent MIME-type sniffing -->
+		<init-param>
+			<param-name>X-Content-Type-Options</param-name>
+			<param-value>nosniff</param-value>
+		</init-param>
+
+		<!-- to protect websites against protocol downgrade attacks and cookie hijacking -->
+		<init-param>
+			<param-name>Strict-Transport-Security</param-name>
+			<param-value>max-age=63072000; includeSubDomains</param-value>
+		</init-param>
+  </filter>
+	<filter-mapping>
+		<filter-name>PortalSecurityFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+  
+</web-app>

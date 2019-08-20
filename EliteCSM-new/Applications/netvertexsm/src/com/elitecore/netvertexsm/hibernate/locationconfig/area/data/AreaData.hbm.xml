@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.locationconfig.area.data.AreaData" table="TBLMAREA" >
+		
+		<id name="areaId" column="AREAID" type="java.lang.Long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"> 
+			</generator>
+		</id>
+	    
+	    <property name="area" type="string">
+	          <column name="AREA" length="64" not-null="true"/>
+	    </property>
+	    
+	    <property name="cityId" type="java.lang.Long">
+	          <column name="CITYID" sql-type="NUMERIC(8)" not-null="true"/>
+	    </property>	    
+
+	    <property name="param1" type="string">
+	          <column name="PARAM1" length="256" not-null="false"/>
+	    </property>
+
+	    <property name="param2" type="string">
+	          <column name="PARAM2" length="256" not-null="false"/>
+	    </property>
+	    
+	    <property name="param3" type="string">
+	          <column name="PARAM3" length="256" not-null="false"/>
+	    </property>	    
+ 	     	    
+	    <set name="lacDataSet" table="TBLMLACAREAREL" inverse="false" lazy="false" fetch="select" cascade="all">
+            <key>
+                <column name="AREAID" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.elitecore.netvertexsm.datamanager.locationconfig.area.data.LacData">
+                <column name="LACINFOID" not-null="true" />
+            </many-to-many>
+        </set>
+	    
+		<property 	name="networkId"   type="java.lang.Long"  not-null="false">
+				<column name="NETWORKID" sql-type="NUMERIC(8)" />
+		</property>
+		
+		<many-to-one 	name="cityData" 	fetch="join"  insert="false" update="false" class="com.elitecore.netvertexsm.datamanager.locationconfig.city.data.CityData" column="CITYID" />
+		<many-to-one 	name="networkData" 	column="NETWORKID" lazy="false" not-found="ignore" insert="false" update="false" class="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.NetworkData" not-null="false" />	    
+	   	<one-to-one 	name="callingStationInfoData" 		property-ref="areaData"  	foreign-key="areaId" 	class="com.elitecore.netvertexsm.datamanager.locationconfig.area.data.CallingStationInfoData" 		cascade="all,save-update" />
+	   	<one-to-one 	name="wifiCallingStationInfoData" 	property-ref="areaData" 	foreign-key="areaId" 	class="com.elitecore.netvertexsm.datamanager.locationconfig.area.data.WiFiCallingStationInfoData" 	cascade="all,save-update" />
+	</class>
+</hibernate-mapping>

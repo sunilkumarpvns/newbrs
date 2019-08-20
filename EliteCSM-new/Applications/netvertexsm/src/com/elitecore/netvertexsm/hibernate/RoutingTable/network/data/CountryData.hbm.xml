@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.netvertexsm.datamanager.RoutingTable.network.data.CountryData" table="TBLSCOUNTRY" >          
+		
+		<id name="countryID" column="COUNTRYID" type="java.lang.Long">
+			<generator class="com.elitecore.netvertexsm.hibernate.core.system.util.EliteSequenceGenerator"> 
+			</generator>
+		</id>
+	    
+	   	<property name="name" type="string">
+    		<column name="NAME" sql-type="VARCHAR(64)" not-null="true"/>
+		</property>
+		
+		<property name="code" type="string">
+    		<column name="CODE" sql-type="VARCHAR(10)" not-null="true"/>
+		</property>
+
+	</class>
+</hibernate-mapping>

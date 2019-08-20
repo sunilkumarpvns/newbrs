@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+		<class name="com.elitecore.elitesm.datamanager.servermgr.drivers.pcdriver.data.ParleyChargingDriverData" table="TBLMPARLEYCHARGINGDRIVER">
+
+		<id name="pcDriverId" column="PCDRIVERID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id> 
+		
+		<property name="driverInstanceId" type="StringType"> 
+			<column name="DRIVERINSTANCEID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="transMapConfId" type="java.lang.Long"> 
+			<column name="TRANSMAPCONFID" sql-type="NUMERIC(20)" not-null="false" /> 
+		</property>
+		
+		<property name="wsAddress" type="StringType"> 
+			<column name="WSADDRESS" sql-type="VARCHAR(512)" not-null="false" /> 
+		</property>
+		
+		<property name="smServiceName" type="StringType"> 
+			<column name="SMSERVICENAME" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+		
+		<property name="parleyServiceName" type="StringType"> 
+			<column name="PARLEYSERVICENAME" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+		
+		<property name="userName" type="StringType"> 
+			<column name="USERNAME" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>
+		
+		<property name="password" type="StringType"> 
+			<column name="PASSWORD" sql-type="VARCHAR(100)" not-null="false" /> 
+		</property>	
+		
+		<many-to-one name="translationMappingConfData" fetch="join"  insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.transmapconf.data.TranslationMappingConfData" column="TRANSMAPCONFID" ></many-to-one>
+	</class>
+
+</hibernate-mapping> 

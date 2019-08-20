@@ -1,0 +1,57 @@
+.table-style {
+	FONT-SIZE: 11px; BORDER-LEFT-COLOR: #a0a0a0; BORDER-BOTTOM-COLOR: #a0a0a0; BORDER-TOP-STYLE: solid; BORDER-TOP-COLOR: #a0a0a0; FONT-FAMILY: arial; BORDER-RIGHT-STYLE: solid; BORDER-LEFT-STYLE: solid; BACKGROUND-COLOR: #ffffff; BORDER-RIGHT-COLOR: #a0a0a0; BORDER-BOTTOM-STYLE: solid
+}
+.div-style {
+	Z-INDEX: 999; VISIBILITY: hidden; POSITION: absolute
+}
+.title-style {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; COLOR: #ffffff; PADDING-TOP: 2px; FONT-FAMILY: arial
+}
+.title-background-style {
+	BACKGROUND-COLOR: #758cac
+}
+.title-control-normal-style {
+	BORDER-RIGHT: #3a6ea5 0px solid; BORDER-TOP: #3a6ea5 0px solid; BORDER-LEFT: #3a6ea5 0px solid; CURSOR: pointer; BORDER-BOTTOM: #3a6ea5 0px solid
+}
+.title-control-select-style {
+	BORDER-RIGHT: #3a6ea5 0px solid; BORDER-TOP: #3a6ea5 0px solid; BORDER-LEFT: #3a6ea5 0px solid; CURSOR: pointer; BORDER-BOTTOM: #3a6ea5 0px solid
+}
+.dropdown-style {
+	FONT-SIZE: 11px; BORDER-LEFT-COLOR: #a0a0a0; BORDER-BOTTOM-COLOR: #a0a0a0; CURSOR: pointer; BORDER-TOP-STYLE: solid; BORDER-TOP-COLOR: #a0a0a0; FONT-FAMILY: arial; BORDER-RIGHT-STYLE: solid; BORDER-LEFT-STYLE: solid; BACKGROUND-COLOR: #ffffff; BORDER-RIGHT-COLOR: #a0a0a0; BORDER-BOTTOM-STYLE: solid
+}
+.dropdown-select-style {
+	BACKGROUND-COLOR: #fff0ef
+}
+.dropdown-normal-style {
+	
+}
+.body-style {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 11px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; FONT-FAMILY: arial; BACKGROUND-COLOR: #ffffff
+}
+.current-day-style {
+	FONT-WEIGHT: bold; COLOR: red; TEXT-DECORATION: none
+}
+.end-of-weekday-style {
+	COLOR: #909090; TEXT-DECORATION: none
+}
+.normal-day-style {
+	COLOR: black; TEXT-DECORATION: none
+}
+.selected-day-style {
+	BORDER-RIGHT: #a0a0a0 0px solid; BORDER-TOP: #a0a0a0 0px solid; BORDER-LEFT: #a0a0a0 0px solid; BORDER-BOTTOM: #a0a0a0 0px solid
+}
+.holiday-style {
+	BACKGROUND-IMAGE: url(/images/holiday-bkgd.jpg); COLOR: #ffffff
+}
+.today-style {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; PADDING-BOTTOM: 0px; COLOR: white; PADDING-TOP: 0px; BACKGROUND-COLOR: #758cac; TEXT-DECORATION: none
+}
+.weeknumber-div-style {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BACKGROUND-COLOR: #d0d0d0
+}
+.today-style A {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.today-style A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}

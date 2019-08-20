@@ -1,0 +1,99 @@
+<spr-column-configuration>
+
+
+	<column-name-mapping>
+		<!-- one or more repetitions -->
+		<mapping>
+			<!-- give 648 column name in old tag -->
+			<old>SUBSCRIBERSTATUS</old>
+			<!-- give 680 column name in old tag -->
+			<new>STATUS</new>
+		</mapping>
+		<mapping>
+			<!-- give 648 column name in old tag -->
+			<old>SUBSCRIBERPACKAGE</old>
+			<!-- give 680 column name in old tag -->
+			<new>DATAPACKAGE</new>
+		</mapping>
+	</column-name-mapping>
+	<ignore-columns>
+	<!-- one or more repetitions -->
+	<!-- Provide only 648 column names -->
+		<column-name></column-name>
+	</ignore-columns>
+
+
+
+	<!--<date-format>dd-MMM-yyyy hh.mm.ss.SSS a</date-format>-->
+
+
+	<!--<csv-headers>
+		<column-name index="1">USERNAME</column-name>
+		<column-name index="2">PASSWORD</column-name>
+		<column-name index="3">SUBSCRIBERIDENTITY</column-name>
+		<column-name index="4">PARENTID</column-name>
+		<column-name index="5">GROUPNAME</column-name>
+		<column-name index="6">ENCRYPTIONTYPE</column-name>
+		<column-name index="7">CUSTOMERTYPE</column-name>
+		<column-name index="8">BILLINGDATE</column-name>
+		<column-name index="9">EXPIRYDATE</column-name>
+		<column-name index="10">DATAPACKAGE</column-name>
+		<column-name index="11">IMSPACKAGE</column-name>
+		<column-name index="12">EMAIL</column-name>
+		<column-name index="13">PHONE</column-name>
+		<column-name index="14">SIPURL</column-name>
+		<column-name index="15">AREA</column-name>
+		<column-name index="16">CITY</column-name>
+		<column-name index="17">ZONE</column-name>
+		<column-name index="18">COUNTRY</column-name>
+		<column-name index="19">BIRTHDATE</column-name>
+		<column-name index="20">ROLE</column-name>
+		<column-name index="21">COMPANY</column-name>
+		<column-name index="22">DEPARTMENT</column-name>
+		<column-name index="23">CADRE</column-name>
+		<column-name index="24">ARPU</column-name>
+		<column-name index="25">CUI</column-name>
+		<column-name index="26">IMSI</column-name>
+		<column-name index="27">MSISDN</column-name>
+		<column-name index="28">IMEI</column-name>
+		<column-name index="29">ESN</column-name>
+		<column-name index="30">MEID</column-name>
+		<column-name index="31">MAC</column-name>
+		<column-name index="32">EUI64</column-name>
+		<column-name index="33">MODIFIED_EUI64</column-name>
+		<column-name index="34">SUBSCRIBERLEVELMETERING</column-name>
+		<column-name index="35">STATUS</column-name>
+		<column-name index="36">PASSWORD_CHECK</column-name>
+		<column-name index="37">SY_INTERFACE</column-name>
+		<column-name index="38">PARAM1</column-name>
+		<column-name index="39">PARAM2</column-name>
+		<column-name index="40">PARAM3</column-name>
+		<column-name index="41">PARAM4</column-name>
+		<column-name index="42">PARAM5</column-name>
+		<column-name index="43">CREATED_DATE</column-name>
+		<column-name index="44">MODIFIED_DATE</column-name>
+		<column-name index="45">UPLOADOCTETS</column-name>
+		<column-name index="46">DOWNLOADOCTETS</column-name>
+		<column-name index="47">TOTALOCTETS</column-name>
+
+	</csv-headers>-->
+
+
+	<!--<subscription-csv-headers>
+		<column-name index="1">NAME</column-name>
+		<column-name index="2">SUBSCRIBERIDENTITY</column-name>
+		<column-name index="3">STARTTIME</column-name>
+		<column-name index="4">ENDTIME</column-name>
+		<column-name index="5">STATUS</column-name>
+		<column-name index="6">SUBSCRIPTION_TIME</column-name>
+		<column-name index="7">LAST_UPDATE_TIME</column-name>
+		<column-name index="8">USAGE_RESET_DATE</column-name>
+		<column-name index="9">PARAM1</column-name>
+		<column-name index="10">PARAM2</column-name>
+		<column-name index="11">SUBSCRIPTION_ID</column-name>
+		<column-name index="12">UPLOADOCTETS</column-name>
+		<column-name index="13">DOWNLOADOCTETS</column-name>
+		<column-name index="14">TOTALOCTETS</column-name>
+	</subscription-csv-headers>-->
+
+</spr-column-configuration>

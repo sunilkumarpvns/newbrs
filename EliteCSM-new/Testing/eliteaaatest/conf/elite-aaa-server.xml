@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ======================================================= -->
+<!-- Radius server configuration.                         -->
+<!-- ======================================================= -->
+
+<elite-aaa-server>
+    
+    <service-list>
+		<service>
+			<service-id>RAD_AUTH</service-id>
+			<enabled>true</enabled>
+		</service>
+		<service>
+			<service-id>RAD_ACCT</service-id>
+			<enabled>true</enabled>
+		</service>
+	</service-list>
+	
+	<aaa-db-datasource>
+		<connection-url>jdbc:oracle:thin:@192.168.8.70:1521:eliteaaa</connection-url>
+        <user-name>ngtbuild</user-name>
+        <password>ngtbuild</password>
+	</aaa-db-datasource>
+
+    <logging>
+        <!-- ALL/INFO/DEBUG/WARN/ERROR/OFF -->
+        <log-level>ALL</log-level>
+
+        <!-- 1:Time-Based Rolling -->
+        <!-- 2:Size-Based Rolling -->
+        <rolling-type>1</rolling-type> 
+        
+        <!-- 3:Every-Minute-Rolling, 4:Every-Hour-Rolling and 5:Daily-Rolling [Time-Based Rolling] -->
+        <!-- Number of MBs [Volume-Based Rolling] -->
+        <rolling-unit>5</rolling-unit> 
+        
+        <!-- Maximum Number of rolled files -->
+        <max-rolled-unit>10</max-rolled-unit>
+        
+        <!-- Want to compress the rolled files or not -->
+        <compress-rolled-unit>false</compress-rolled-unit>
+        
+    </logging>
+
+   	<snmp-address>127.0.0.1:161</snmp-address>
+
+	<snmp-community>public</snmp-community>
+    
+    <graph-generation>false</graph-generation>
+
+    <username-triming>true</username-triming>
+    
+    <alert-generation>true</alert-generation>
+    
+</elite-aaa-server>
+
+
+

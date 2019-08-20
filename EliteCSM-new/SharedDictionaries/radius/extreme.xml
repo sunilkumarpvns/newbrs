@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="1916" vendor-name="Extreme">
+<attribute id="201" name="Extreme-CLI-Authorization" type="integer">
+	<supported-values>
+		<value id="0" name="Disabled"/>
+		<value id="1" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="202" name="Extreme-Shell-Command" type="string"/>
+<attribute id="203" name="Extreme-Netlogin-Vlan" type="string"/>
+<attribute id="204" name="Extreme-Netlogin-Url" type="string"/>
+<attribute id="205" name="Extreme-Netlogin-Url-Desc" type="string"/>
+<attribute id="206" name="Extreme-Netlogin-Only" type="integer">
+	<supported-values>
+		<value id="0" name="Disabled"/>
+		<value id="1" name="Enabled"/>
+	</supported-values>
+</attribute>
+<attribute id="208" name="Extreme-User-Location" type="string"/>
+<attribute id="209" name="Extreme-Netlogin-Vlan-Tag" type="integer"/>
+</attribute-list>

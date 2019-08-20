@@ -1,0 +1,39 @@
+{
+  "id": "rest_db_cdr_driver_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "updated_rest_db_cdr_driver",
+  "description": "Updated by REST Automation",
+  "driverType": "DB_CDR_DRIVER",
+  "csvDriverData": null,
+  "dbCdrDriverData": {
+    "maxQueryTimeoutCount": 101,
+    "batchUpdate": "false",
+    "batchSize": 500,
+    "batchUpdateQueryTimeout": 10,
+    "tableName": "TBLM_CDRs",
+    "identityField": "CDRIDs",
+    "sequenceName": "SEQ_CDRs",
+    "storeAllCdr": "false",
+    "timeStampFieldName": "TIMESTAMP",
+    "reportingType": null,
+    "sessionIdFieldName": "SESSIONID",
+    "createDateFieldName": "CREATEDATE",
+    "lastModifiedDateFieldName": "LASTMODIFIEDDATE",
+    "inputOctetsFieldName": "INPUTOCTETS",
+    "outputOctetsFieldName": "OUTPUTOCTETS",
+    "totalOctetsFieldName": "TOTALOCTETS",
+    "usageTimeFieldName": "USAGETIME",
+    "usageKeyFieldName": "MONITORINGKEY",
+    "dbCdrDriverFieldMappingDataList": [
+      {
+        "pcrfKey": "CS.DeviceID",
+        "dbField": "DEVICE_ID",
+        "dataType": "0",
+        "defaultValue": "DEVICE_1"
+      }
+    ],
+    "databaseId": "rest_db_datasource_11111111"
+  },
+  "groupNames": "DefaultGroup"
+}

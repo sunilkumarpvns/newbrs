@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="11" vendor-name="HP">
+<attribute id="1" name="HP-Privilege-Level" type="integer"/>
+<attribute id="2" name="HP-Command-String" type="string"/>
+<attribute id="3" name="HP-Command-Exception" type="integer">
+	<supported-values>
+		<value id="0" name="Permit-List"/>
+		<value id="1" name="Deny-List"/>
+	</supported-values>
+</attribute>
+<attribute id="26" name="HP-Management-Protocol" type="integer">
+	<supported-values>
+		<value id="5" name="HTTP"/>
+		<value id="6" name="HTTPS"/>
+	</supported-values>
+</attribute>
+<attribute id="40" name="HP-port-priority-regeneration-table" type="string"/>
+<attribute id="47" name="HP-EI-Status" type="string"/>
+<attribute id="61" name="HP-nas-filter-rule" type="string"/>
+<attribute id="40" name="HP-Cos" type="string"/>
+<attribute id="46" name="HP-Bandwidth-Max-Ingress" type="integer"/>
+<attribute id="48" name="HP-Bandwidth-Max-Egress" type="integer"/>
+<attribute id="61" name="HP-Ip-Filter-Raw" type="string"/>
+</attribute-list>

@@ -1,0 +1,244 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter?name=TransactionLoggerPlugin&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter.xml?name=TransactionLoggerPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter?operation=search&name=TransactionLoggerPlugin&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter.xml?operation=search&name=TransactionLoggerPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin.xml?operation=search
+
+Response     :
+
+<transaction-logger>
+   <name>TransactionLoggerPlugin</name>
+   <description>Created by admin on 01/16/2017 03:37:07 PM</description>
+   <status>ACTIVE</status>
+   <time-boundry>30 Min</time-boundry>
+   <sequence-position>suffix</sequence-position>
+   <sequence-globalization>false</sequence-globalization>
+   <mappings>
+      <format>0:1={elitecore}</format>
+      <key>SUCCESS</key>
+   </mappings>
+</transaction-logger>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter?name=TransactionLoggerPlugin&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter.json?name=TransactionLoggerPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter?operation=search&name=TransactionLoggerPlugin&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter.json?operation=search&name=TransactionLoggerPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin.json?operation=search
+
+Response     :
+
+{
+   "name":"TransactionLoggerPlugin",
+   "description":"Created by admin on 01/16/2017 03:37:07 PM",
+   "status":"ACTIVE",
+   "time-boundry":"30 Min",
+   "sequence-position":"suffix",
+   "sequence-globalization":"false",
+   "mappings":[
+      {
+         "key":"SUCCESS",
+         "format":"0:1={elitecore}"
+      }
+   ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE CREATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+
+<transaction-logger>
+   <name>TransactionLoggerPlugin</name>
+   <description>Created by admin on 01/16/2017 03:37:07 PM</description>
+   <status>ACTIVE</status>
+   <time-boundry>30 Min</time-boundry>
+   <sequence-position>suffix</sequence-position>
+   <sequence-globalization>false</sequence-globalization>
+   <mappings>
+      <format>0:1={elitecore}</format>
+      <key>SUCCESS</key>
+   </mappings>
+</transaction-logger>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter TransactionLogger Plugin created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+
+{
+   "name":"TransactionLoggerPlugin",
+   "description":"Created by admin on 01/16/2017 03:37:07 PM",
+   "status":"ACTIVE",
+   "time-boundry":"30 Min",
+   "sequence-position":"suffix",
+   "sequence-globalization":"false",
+   "mappings":[
+      {
+         "key":"SUCCESS",
+         "format":"0:1={elitecore}"
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter TransactionLogger Plugin created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter?name=TransactionLoggerPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter?operation=update&name=TransactionLoggerPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+
+<transaction-logger>
+    <name>TransactionLoggerPlugin</name>
+    <description>Created by admin on 01/16/2017 03:37:07 PM</description>
+    <status>ACTIVE</status>
+    <time-boundry>30 Min</time-boundry>
+    <sequence-position>suffix</sequence-position>
+    <sequence-globalization>false</sequence-globalization>
+    <mappings>
+        <format>0:1={elitecore}</format>
+        <key>SUCCESS</key>
+    </mappings>
+</transaction-logger>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter TransactionLogger Plugin updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+
+{
+  "name": "TransactionLoggerPlugin",
+  "description": "Created by admin on 01/16/2017 03:37:07 PM",
+  "status": "ACTIVE",
+  "time-boundry":"15 Min",
+  "sequence-position": "suffix",
+  "sequence-globalization": "false",
+  "mappings": [
+    {
+      "key": "SUCCESS",
+      "format": "0:1={elitecore}"
+    }
+  ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter TransactionLogger Plugin updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter?name=TransactionLoggerPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter?operation=delete&name=TransactionLoggerPlugin
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/transactionloggerplugin/diameter/TransactionLoggerPlugin?operation=delete
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Diameter TransactionLogger Plugin(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+***********************************************************************

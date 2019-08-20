@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+
+		<class name="com.elitecore.elitesm.datamanager.servermgr.drivers.webserviceauthdriver.data.WebMethodKeyMapRelData" table="TBLMWEBMETHODKEYMAPREL">
+
+		<id name="keyMapId" column="KEYMAPID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"></generator>
+		</id>    
+
+		<property name="logicalName" type="StringType"> 
+			<column name="LOGICALNAME" sql-type="VARCHAR(64)" not-null="false" /> 
+		</property>     
+		
+		<property name="webMethodKey" type="StringType"> 
+			<column name="WEBMETHODKEY" sql-type="VARCHAR(64)" not-null="false" /> 
+		</property>     
+		
+		<property name="defaultValue" type="StringType"> 
+			<column name="DEFAULTVALUE" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+		
+		<property name="valueMapping" type="StringType"> 
+			<column name="VALUEMAPPING" sql-type="VARCHAR(2000)" not-null="false" /> 
+		</property>
+
+		<property name="wsAuthDriverId" type="StringType"> 
+			<column name="WSAUTHDRIVERID" sql-type="VARCHAR(36)" not-null="false" /> 
+		</property>
+		
+		<property name="orderNumber" type="java.lang.Integer" column="ORDERNUMBER" not-null="false" /> 
+		
+		<many-to-one name="nameValuePoolData" insert="false" update="false" class="com.elitecore.elitesm.datamanager.servermgr.drivers.data.LogicalNameValuePoolData" column="logicalname" property-ref="value" lazy="false"></many-to-one>
+	</class>
+
+</hibernate-mapping> 
+
+

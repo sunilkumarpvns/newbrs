@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="2011" vendor-name="Huawei">
+
+	<attribute id="1" name="HW-Input-Committed-Burst-Size" type="integer" />
+	<attribute id="2" name="HW-Input-Committed-Information-Rate" type="integer" />
+	<attribute id="3" name="HW-Input-Peak-Information-Rate" type="integer" />
+	<attribute id="4" name="HW-Output-Committed-Burst-Size" type="integer" />
+	<attribute id="5" name="HW-Output-Committed-Information-Rate" type="integer" />
+	<attribute id="6" name="HW-Output-Peak-Information-Rate" type="integer" />
+	<attribute id="7" name="HW-Input-Kilobytes-Before-Tariff-Switch" type="integer" />
+	<attribute id="8" name="HW-Output-Kilobytes-Before-Tariff-Switch" type="integer" />
+	<attribute id="9" name="HW-Input-Packets-Before-Tariff-Switch" type="integer" />
+	<attribute id="10" name="HW-Output-Packets-Before-Tariff-Switch" type="integer" />
+	<attribute id="11" name="HW-Input-Kilobytes-After-Tariff-Switch" type="integer" />
+	<attribute id="12" name="HW-Output-Kilobytes-After-Tariff-Switch" type="integer" />
+	<attribute id="13" name="HW-Input-Packets-After-Tariff-Switch" type="integer" />
+	<attribute id="14" name="HW-Output-Packets-After-Tariff-Switch" type="integer" />
+	<attribute id="15" name="HW-Remanent-Volume" type="integer" />
+	<attribute id="16" name="HW-Tariff-Switch-Interval" type="integer" />
+	<attribute id="20" name="HW-Command" type="integer">
+		<supported-values>
+			<value id="2" name="TERMINATE-REQUEST" />
+			<value id="3" name="SETPOLICY" />
+			<value id="4" name="RESULT" />
+		</supported-values>
+	</attribute>
+	<attribute id="22" name="HW-Priority" type="integer" />
+	<attribute id="24" name="HW-Control-Identifier" type="integer" />
+	<attribute id="25" name="HW-Result-Code" type="integer">
+		<supported-values>
+			<value id="0" name="SUCCEEDED" />
+			<value id="1" name="FAILED" />
+		</supported-values>
+	</attribute>
+	<attribute id="26" name="HW-Connect-ID" type="integer" />
+	<attribute id="27" name="HW-Portal-URL" type="string" />
+	<attribute id="28" name="HW-FTP-Directory" type="string" />
+	<attribute id="29" name="HW-Exec-Privilege" type="integer">
+		<supported-values>
+			<value id="16" name="ADMINISTRATOR_ACCESS_DENIED" />
+		</supported-values>
+	</attribute>
+	<attribute id="31" name="HW-QOS-Profile-Name"	type="string" />
+	<attribute id="32" name="HW-SIP-Server" type="string" />
+	<attribute id="33" name="HW-User-Password" type="string" />
+	<attribute id="34" name="HW-Command-Mode" type="string" />
+	<attribute id="35" name="HW-Renewal-Time" type="integer" />
+	<attribute id="36" name="HW-Rebinding-Time" type="integer" />
+	<attribute id="37" name="HW-Igmp-Enable" type="integer" />
+	<attribute id="59" name="HW-NAS-Startup-Time-Stamp"	type="integer" />
+	<attribute id="60" name="HW-IP-Host-Address" type="string" />
+	<attribute id="61" name="HW-Up-Priority" type="integer" />
+	<attribute id="62" name="HW-Down-Priority" type="integer" />
+	<attribute id="63" name="HW-Tunnel-VPN-Instance" type="string" />
+	<attribute id="65" name="HW-User-Date" type="string" />
+	<attribute id="66" name="HW-User-Class" type="string" />
+	<attribute id="72" name="HW-Subnet-Mask" type="ipaddr" />
+	<attribute id="73" name="HW-Gateway-Address" type="ipaddr"/>
+	<attribute id="74" name="HW-Lease-Time"	type="integer " />
+	<attribute id="75" name="HW-Ascend-Client-Primary-WINS"	type="ipaddr" />
+	<attribute id="76" name="HW-Ascend-Client-Second-WIN" type="ipaddr" />
+	<attribute id="77" name="HW-Input-Peak-Burst-Size"	type="integer"/>
+	<attribute id="78" name="HW-Output-Peak-Burst-Size"	type="integer"/>
+	<attribute id="79" name="HW-Reduced-CIR" type="integer"/>
+	<attribute id="80" name="HW-Tunnel-Session-Limit"	type="integer" />
+	<attribute id="81" name="HW-Zone-Name" type="string" />
+	<attribute id="82" name="HW-Data-Filter" type="string" />
+	<attribute id="83" name="HW-Access-Service" type="string"/>
+	<attribute id="84" name="HW-Accounting-Level" type="integer"/>
+	<attribute id="85" name="HW-Portal-Mode" type="integer">
+		<supported-values>
+			<value id="0" name="PADM" />
+			<value id="1" name="RE-DIRECTIONAL" />
+			<value id="2" name="NON-CAPTIVE" />
+		</supported-values>
+	</attribute>
+	<attribute id="86" name="HW-DPI-Policy-Name" type="string" />
+	<attribute id="87" name="HW-Policy-Route" type="ipaddr" />
+	<attribute id="88" name="HW-Framed-Pool" type="string" />
+	<attribute id="89" name="HW-L2TP-Terminate-Cause" type="string" />
+	<attribute id="90" name="HW-Multicast-Accounting-Flag" type="integer">
+		<supported-values>
+			<value id="0" name="NON-MULTICAST" />
+			<value id="1" name="MULTICAST" />
+		</supported-values>
+	</attribute>
+	<attribute id="91" name="HW-Queue-Profile" type="string" />
+	<attribute id="92" name="HW-Layer4-Session-Limit" type="integer"/>
+	<attribute id="93" name="HW-Multicast-Profile-Name" type="string"/>
+	<attribute id="94" name="HW-VPN-Instance" type="string" />
+	<attribute id="95" name="HW-Policy-Name" type="string"/>
+	<attribute id="96" name="HW-Tunnel-Group-Name" type="string" />
+	<attribute id="97" name="HW-Multicast-Source-Group" type="string" />
+	<attribute id="98" name="HW-Multicast-Receive-Group" type="ipaddr"/>
+	<attribute id="99" name="HW-Multicast-Type" type="integer">
+		<supported-values>
+			<value id="1" name="UNICAST" />
+			<value id="2" name="MULTICAST" />
+			<value id="3" name="UNICAST_AND_MULTICAST" />
+		</supported-values>
+	</attribute>
+	<attribute id="100" name="HW-Reduced-PIR"	type="integer"/>
+	<attribute id="101" name="LI-ID" type="string" />
+	<attribute id="102" name="LI-Md-Address" type="ipaddr" />
+	<attribute id="103" name="LI-Md-Port" type="integer"/>
+	<attribute id="104" name="LI-Md-VpnInstance" type="string" />
+	<attribute id="105" name="LI-Enable" type="integer"/>
+	<attribute id="135" name="HW-Client-Primary-DNS" type="ipaddr"/>
+	<attribute id="136" name="HW-Client-Secondary-DNS"	type="ipaddr"/>
+	<attribute id="138" name="HW-Domain-Name"	type="string"/>
+	<attribute id="139" name="HW-ANCP-Profile" type="string" />
+	<attribute id="140" name="HTTP-Redirect-URL" type="string" />
+	<attribute id="141" name="PPP-Local-IP-Address" type="string" />
+	<attribute id="142" name="Qos-Profile-Type" type="integer">
+		<supported-values>
+			<value id="0" name="USE_ORIGINAL_QOS-PROFILE" />
+			<value id="1" name="USE_QOS-PROFILE_OF_INBOUND_L2TP" />
+			<value id="2" name="USE_QOS-PROFILE_OF_OUTBOUND_L2TP" />
+			<value id="3" name="USE_QOS-PROFILE_OF_INBOUND_AND_OUTBOUND_L2TPs" />
+		</supported-values>
+	</attribute>
+	<attribute id="143" name="hw-Max-List-Num" type="integer" />
+	<attribute id="144" name="HW-Acct-IPv6-Input-Octets" type="integer" />
+	<attribute id="145" name="HW-Acct-IPv6-Output-Octets" type="integer" />
+	<attribute id="146" name="HW-Acct-IPv6-Input-Packets" type="integer" />
+	<attribute id="147" name="HW-Acct-IPv6-Input-Packets" type="integer" />
+	<attribute id="148" name="HW-Acct-IPv6-Input-Gigawords" type="integer" />
+	<attribute id="149" name="HW-Acct-IPv6-Output-Gigawords" type="integer" />
+	<attribute id="150" name="HW-DHCPv6-Option37" type="string" />
+	<attribute id="151" name="HW-DHCPv6-Option38" type="string" />
+	<attribute id="153" name="HW-User-Mac" type="string" />
+	<attribute id="154" name="HW-DNS-Server-IPv6-Address" type="ipaddr" />
+	<attribute id="155" name="HW-DHCPv4-Option121" type="string" />
+	<attribute id="156" name="HW-DHCPv4-Option43" type="string" />
+	<attribute id="157" name="HW-Framed-Pool-Group" type="string" />
+	<attribute id="158" name="HW-Framed-IPv6-Address" type="string" />
+	<attribute id="159" name="HW-Acc-Update-Address" type="integer" />
+	<attribute id="160" name="HW-User-type" type="octets" />
+	<attribute id="161" name="HW-MIPAgent-MN-Flags" type="octets" />
+	<attribute id="162" name="HW-NAT-Start-Port" type="string" />
+	<attribute id="163" name="HW-NAT-End-Port" type="string" />
+	<attribute id="164" name="HW-NAT-Port-Forwarding" type="string" />
+	<attribute id="166" name="HW-DS-Lite-Tunnel-Name" type="string" />
+	<attribute id="170" name="HW-LI-Enable-New" type="integer" />
+	<attribute id="171" name="HW-LI-Target-Id" type="integer" />
+	<attribute id="172" name="HW-LI-User-Type" type="integer" />
+	<attribute id="173" name="HW-LI-Cmd-Level" type="string" />
+	<attribute id="174" name="HW-LI-Profile-Name" type="string" />
+	<attribute id="180" name="HW-Auth-Type" type="integer" />
+	<attribute id="181" name="HW-Acct-Terminate-Subcause" type="string" />
+	<attribute id="182" name="HW-Down-QoS-Profile-Name" type="string" />
+	<attribute id="191" name="HW-Delegated-IPv6-Prefix-Pool" type="string" />
+
+	<attribute id="211" name="HW-Flow-Info" type="string" />
+	<attribute id="212" name="HW-Flow-Id" type="integer" />
+	<attribute id="215" name="HW-Application-Type" type="integer" />
+	<attribute id="218" name="User-Priority" type="integer">
+		<supported-values>
+			<value id="0" name="Common" />
+			<value id="1" name="Copper" />
+			<value id="2" name="Silver" />
+			<value id="3" name="Gold" />
+		</supported-values>
+	</attribute>
+
+	<attribute id="221" name="HW-Application-Scene" type="integer" />
+	<attribute id="222" name="Huawei-MS-Maximum-MAC-Study-Number" type="integer" />
+	<attribute id="253" name="HW-Web-Url" type="string" />
+	<attribute id="254" name="HW-Version" type="string" />
+	<attribute id="255" name="HW-Product-ID" type="string" />
+
+</attribute-list>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>                                 
+<!DOCTYPE hibernate-mapping                                            
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"                    
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.elitecore.elitesm.datamanager.servicepolicy.dynauth.data.DynAuthPolicyInstData" table="TBLMDYNAUTHSERVICEPOLICY">
+		<id name="dynAuthPolicyId" column="DYNAUTHPOLICYID" type="StringType">
+			<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator">
+			</generator>
+		</id>    
+		<property name="name" type="StringType" column="NAME" not-null="true"/> 
+		<property name="description" type="StringType" column="DESCRIPTION" not-null="false"/> 
+		<property name="status" type="CharType" column="STATUS" not-null="true"/>
+		<property name="orderNumber" type="java.lang.Long" column="ORDERNUMBER" not-null="false"/>
+		<property name="ruleSet" type="StringType" column="RULESET" not-null="true"/>
+		<property name="responseAttributes" type="StringType" column="RESPONSEATTRIBUTES" not-null="false"/>
+		<property name="eligibleSession" type="java.lang.Integer" column="ELIGIBLESESSION" not-null="false"/>
+		<property name="eventTimestamp" type="java.lang.Long" column="EVENTTIMESTAMP" not-null="false"/>
+		<property name="databaseDatasourceId" type="StringType" column="DATABASEDSID" not-null="false"/>
+		<property name="tableName" type="StringType" column="TABLENAME" not-null="false"/>
+		<property name="validatePacket" type="StringType" column="VALIDATEPACKET" not-null="true"/>
+		<property name="auditUId" type="StringType" column="AUDIT_UID" not-null="false"/>
+		<property name="dbFailureAction" type="StringType" column="DBFAILUREACTION" not-null="false"></property>	
+			
+		<set name="dynAuthFeildMapSet" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+			<key column="DYNAUTHPOLICYID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.dynauth.data.DynAuthFieldMapData" />
+	  	</set>
+	  	
+	  	<set name="dynAuthNasClientDataSet" lazy="false" inverse="false" cascade="delete"  order-by="orderNumber" >
+			<key column="DYNAUTHPOLICYID"></key>
+			<one-to-many class="com.elitecore.elitesm.datamanager.servicepolicy.dynauth.data.DynAuthNasClientsData" />
+	  	</set>
+	  	
+	</class>            
+</hibernate-mapping>

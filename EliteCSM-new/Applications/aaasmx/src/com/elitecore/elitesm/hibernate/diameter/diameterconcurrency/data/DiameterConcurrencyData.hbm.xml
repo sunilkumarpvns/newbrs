@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping>
+	<class name="com.elitecore.elitesm.datamanager.diameter.diameterconcurrency.data.DiameterConcurrencyData" table="TBLMDIACONCURRENCYCONFIG" >
+			
+			<id name="diaConConfigId" column="DIACONCONFIGID" type="StringType">
+				<generator class="com.elitecore.elitesm.hibernate.core.system.util.UUIDGenerator"> 
+				</generator>
+			</id>
+
+			<property name="name" type="StringType">
+				<column name="NAME" sql-type="VARCHAR(64)" not-null="true"/>
+			</property>
+			
+			<property name="description" type="StringType">
+				<column name="DESCRIPTION" sql-type="VARCHAR(255)" not-null="false"/>
+			</property>
+			
+			<property name="databaseDsId" type="StringType" >
+	          <column name="DATABASESID" sql-type="VARCHAR(36)" not-null="false"/>
+	  	    </property>
+	  	    
+	  	    <property name="tableName" type="StringType">
+				<column name="TABLENAME" sql-type="VARCHAR(30)" not-null="false"/>
+			</property>
+			
+			<property name="startTimeField" type="StringType">
+				<column name="STARTTIMEFIELD" sql-type="VARCHAR(30)" not-null="false"/>
+			</property>
+			
+			<property name="lastUpdateTimeField" type="StringType">
+				<column name="LASTUPDATETIMEFIELD" sql-type="VARCHAR(30)" not-null="false"/>
+			</property>
+			
+			<property name="concurrencyIdentityField" type="StringType">
+				<column name="CONCURRENCYIDENTITY" sql-type="VARCHAR(30)" not-null="false"/>
+			</property>
+			
+			<property name="dbFailureAction" type="StringType">
+				<column name="DBFAILUREACTION" sql-type="VARCHAR(30)" not-null="false"/>
+			</property>
+			
+			<property name="sessionOverrideAction" type="StringType">
+				<column name="SESSIONOVERRIDEACTION" sql-type="VARCHAR(30)" not-null="false"/>
+			</property>
+			
+			<property name="sessionOverrideFields" type="StringType">
+				<column name="SESSIONOVERRIDEFIELDS" sql-type="VARCHAR(300)" not-null="false"/>
+			</property>
+			
+			<property name="auditUId" type="StringType" >
+	          <column name="AUDIT_UID" sql-type="VARCHAR(36)" not-null="false"/>
+	  	  	</property>
+	  	   
+	  	    <bag name="diameterConcurrencyFieldMappingList" lazy="false" inverse="false" cascade="delete" order-by="orderNumber">
+        		<key column="diaConConfigId" />
+        		<one-to-many class="com.elitecore.elitesm.datamanager.diameter.diameterconcurrency.data.DiameterConcurrencyFieldMapping" />
+         	</bag>
+	  	   
+		</class>
+</hibernate-mapping>          

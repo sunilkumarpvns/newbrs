@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="2011" applicationid="0"
+	application-name="huawei" vendor-name="Huawei">
+	<attribute id="1" name="HW-Input-Committed-Burst-Size"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="2" name="HW-Input-Committed-Information-Rate"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="3" name="HW-Input-Peak-Information-Rate"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="4" name="HW-Output-Committed-Burst-Size"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="5" name="HW-Output-Committed-Information-Rate"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="6" name="HW-Output-Peak-Information-Rate"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="7" name="HW-Input-Kilobytes-Before-Tariff-Switch"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="8" name="HW-Output-Kilobytes-Before-Tariff-Switch"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="9" name="HW-Input-Packets-Before-Tariff-Switch"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="10" name="HW-Output-Packets-Before-Tariff-Switch"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="11" name="HW-Input-Kilobytes-After-Tariff-Switch"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="12" name="HW-Output-Kilobytes-After-Tariff-Switch"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="13" name="HW-Input-Packets-After-Tariff-Switch"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="14" name="HW-Output-Packets-After-Tariff-Switch"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="15" name="HW-Remanent-Volume" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="16" name="HW-Tariff-Switch-Interval" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="20" name="HW-Command" mandatory="yes" protected="yes"
+		encryption="no" type="Unsigned32">
+		<supported-values>
+			<value id="2" name="TERMINATE-REQUEST" />
+			<value id="3" name="SETPOLICY" />
+			<value id="4" name="RESULT" />
+		</supported-values>
+	</attribute>
+	<attribute id="22" name="HW-Priority" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="24" name="HW-Control-Identifier" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="25" name="HW-Result-Code" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32">
+		<supported-values>
+			<value id="0" name="SUCCEEDED" />
+			<value id="1" name="FAILED" />
+		</supported-values>
+	</attribute>
+	<attribute id="26" name="HW-Connect-ID" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="27" name="HW-Portal-URL" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="28" name="HW-FTP-Directory" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="29" name="HW-Exec-Privilege" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32">
+		<supported-values>
+			<value id="16" name="ADMINISTRATOR_ACCESS_DENIED" />
+		</supported-values>
+	</attribute>
+	<attribute id="31" name="HW-QOS-Profile-Name" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="32" name="SN1-Prepaid-Inbound-Octets" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="59" name="HW-NAS-Startup-Time-Stamp" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="60" name="HW-IP-Host-Address" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="72" name="HW-Subnet-Mask" mandatory="yes"
+		protected="yes" encryption="no" type="OctetString" />
+	<attribute id="73" name="HW-Gateway-Address" mandatory="yes"
+		protected="yes" encryption="no" type="OctetString" />
+	<attribute id="74" name="HW-Lease-Time" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32 " />
+	<attribute id="75" name="HW-Ascend-Client-Primary-WINS"
+		mandatory="yes" protected="yes" encryption="no" type="OctetString" />
+	<attribute id="76" name="HW-Ascend-Client-Second-WIN"
+		mandatory="yes" protected="yes" encryption="no" type="OctetString" />
+	<attribute id="77" name="HW-Input-Peak-Burst-Size" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="78" name="HW-Output-Peak-Burst-Size" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="79" name="HW-Reduced-CIR" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="80" name="HW-Tunnel-Session-Limit" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="81" name="HW-Zone-Name" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="82" name="HW-Data-Filter" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="83" name="HW-Access-Service" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="84" name="HW-Accounting-Level" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="85" name="HW-Portal-Mode" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32">
+		<supported-values>
+			<value id="0" name="PADM" />
+			<value id="1" name="RE-DIRECTIONAL" />
+			<value id="2" name="NON-CAPTIVE" />
+		</supported-values>
+	</attribute>
+	<attribute id="86" name="HW-DPI-Policy-Name" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="87" name="HW-Policy-Route" mandatory="yes"
+		protected="yes" encryption="no" type="OctetString" />
+	<attribute id="88" name="HW-Framed-Pool" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="89" name="HW-L2TP-Terminate-Cause" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="90" name="HW-Multicast-Accounting-Flag"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32">
+		<supported-values>
+			<value id="0" name="NON-MULTICAST" />
+			<value id="1" name="MULTICAST" />
+		</supported-values>
+	</attribute>
+	<attribute id="91" name="HW-Queue-Profile" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="92" name="HW-Layer4-Session-Limit" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="93" name="HW-Multicast-Profile-Name" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="94" name="HW-VPN-Instance" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="95" name="HW-Policy-Name" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="96" name="HW-Tunnel-Group-Name" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="97" name="HW-Multicast-Source-Group" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="98" name="HW-Multicast-Receive-Group" mandatory="yes"
+		protected="yes" encryption="no" type="OctetString" />
+	<attribute id="99" name="HW-Multicast-Type" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32">
+		<supported-values>
+			<value id="1" name="UNICAST" />
+			<value id="2" name="MULTICAST" />
+			<value id="3" name="UNICAST_AND_MULTICAST" />
+		</supported-values>
+	</attribute>
+	<attribute id="100" name="HW-Reduced-PIR" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="101" name="LI-ID" mandatory="yes" protected="yes"
+		encryption="no" type="UTF8String" />
+	<attribute id="102" name="LI-Md-Address" mandatory="yes"
+		protected="yes" encryption="no" type="OctetString" />
+	<attribute id="103" name="LI-Md-Port" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="104" name="LI-Md-VpnInstance" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="105" name="LI-Enable" mandatory="yes" protected="yes"
+		encryption="no" type="Unsigned32" />
+	<attribute id="135" name="HW-Client-Primary-DNS" mandatory="yes"
+		protected="yes" encryption="no" type="OctetString" />
+	<attribute id="136" name="HW-Client-Secondary-DNS" mandatory="yes"
+		protected="yes" encryption="no" type="OctetString" />
+	<attribute id="138" name="HW-Domain-Name" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="139" name="HW-ANCP-Profile" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="140" name="HTTP-Redirect-URL" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="141" name="PPP-Local-IP-Address" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="142" name="Qos-Profile-Type" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32">
+		<supported-values>
+			<value id="0" name="USE_ORIGINAL_QOS-PROFILE" />
+			<value id="1" name="USE_QOS-PROFILE_OF_INBOUND_L2TP" />
+			<value id="2" name="USE_QOS-PROFILE_OF_OUTBOUND_L2TP" />
+			<value id="3"
+				name="USE_QOS-PROFILE_OF_INBOUND_AND_OUTBOUND_L2TPs" />
+		</supported-values>
+	</attribute>
+	<attribute id="143" name="hw-Max-List-Num" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="160" name="HW-User-type" mandatory="yes" protected="yes"
+		encryption="no" type="OctetString" />
+	<attribute id="161" name="HW-MIPAgent-MN-Flags" mandatory="yes" protected="yes"
+		encryption="no" type="OctetString" />	
+	<attribute id="211" name="HW-Flow-Info" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="215" name="HW-Application-Type" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="221" name="HW-Application-Scene" mandatory="yes"
+		protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="222" name="Huawei-MS-Maximum-MAC-Study-Number"
+		mandatory="yes" protected="yes" encryption="no" type="Unsigned32" />
+	<attribute id="254" name="HW-Version" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+	<attribute id="255" name="HW-Product-ID" mandatory="yes"
+		protected="yes" encryption="no" type="UTF8String" />
+		
+	<attribute id="412" name="gx-cc-input-octets"
+		mandatory="no" protected="yes" encryption="yes" type="Unsigned64" />
+	<attribute id="414" name="gx-cc-output-octets"
+		mandatory="no" protected="yes" encryption="yes" type="Unsigned64" />
+		
+	<attribute id="2006" name="gx-x-hw-session-usage" mandatory="no"
+		protected="yes" encryption="no" type="Grouped" >
+		<grouped>
+			<required>
+            </required>
+			<optional>
+				<attributerule vendor-id="2011" id="412" name="gx-cc-input-octets" maximum="1" minimum="0"/>
+				<attributerule vendor-id="2011" id="414" name="gx-cc-output-octets" maximum="1" minimum="0"/>
+			</optional>
+		</grouped>
+	</attribute>
+		
+	<attribute id="2005" name="gx-x-hw-usage-report" mandatory="no"
+		protected="yes" encryption="no" type="Grouped" >
+		<grouped>
+			<required>
+            </required>
+			<optional>
+				<attributerule vendor-id="2011" id="2006" name="gx-x-hw-session-usage" maximum="1" minimum="0"/>
+			</optional>
+		</grouped>
+	</attribute>
+<!-- 	Below AVPs are For RFC 6159 -->
+
+	<attribute id="35001" name="Explicit-Path-Record" mandatory="no" protected="no" encryption="no" type="Grouped" >
+		<grouped>
+			<required>
+				<attributerule vendor-id="2011" id="35004" name="Proxy-Host" maximum="1" minimum="1"/>
+            </required>
+			<optional>
+				<attributerule vendor-id="2011" id="35002" name="Proxy-Realm" maximum="1" minimum="0"/>
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="35002" name="Proxy-Realm" mandatory="no" protected="no" encryption="no" type="DiameterIdentity" />
+	
+	<attribute id="35003" name="Explicit-Path" mandatory="no" protected="no" encryption="no" type="Grouped" >
+		<grouped>
+			<required>
+				<attributerule vendor-id="2011" id="35001" name="Explicit-Path-Record" minimum="1" maximum="*" />
+            </required>
+			<optional>
+				<attributerule vendor-id="*" id="*" name="attribute" maximum="*" minimum="1"/>
+			</optional>
+		</grouped>
+	</attribute>
+	<attribute id="35004" name="Hw-Proxy-Host" mandatory="yes" protected="no" encryption="no" type="DiameterIdentity" />
+</attribute-list>

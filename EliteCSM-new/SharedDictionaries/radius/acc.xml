@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   
+   <!--                                                                     
+	Dictionary for Acc/Newbridge, models Tigris, Amazon, etc.   
+        Written by Stephane Marzloff <smarzloff@carif-idf.org>     
+	based on specifications available through ftp and the web. p
+                                                                                 
+	Version:	@(#)dictionary.acc  1.00  smarzloff  21-Jun-1999           
+	
+-->      
+<attribute-list vendorid="5" vendor-name="Acc">
+       	<attribute id="1" name="Acc-Reason-Code" type="integer">
+		<supported-values>                                       
+			<value id="0" name="No-reason-No-Failure"/> 
+			<value id="1" name="Resource-shortage"/>
+			<value id="2" name="Session-already-open"/> 
+			<value id="3" name="Too-many-RADIUS-users"/> 
+			<value id="4" name="No-authentification-server"/>
+			<value id="5" name="No-authentification-response"/> 
+			<value id="6" name="No-accounting-server"/> 
+			<value id="7" name="No-accounting-response"/> 
+			<value id="8" name="Access-Denied"/> 
+			<value id="9" name="Temporary-buffer-shortage"/>
+			<value id="10" name="Protocol-error"/> 
+			<value id="11" name="Invalid-attribute"/>
+			<value id="12" name="Invalid-service-type"/> 
+			<value id="13" name="Invalid-framed-protocol"/> 
+			<value id="14" name="Invalid-attribute-value"/> 
+			<value id="15" name="Invalid-user-information"/>
+			<value id="16" name="Invalid-IP-address"/>
+			<value id="17" name="Invalid-integer-syntax"/> 
+			<value id="18" name="Invalid-NAS-port"/>
+			<value id="19" name="Requested-by-user"/>
+			<value id="20" name="Network-disconnect"/>
+			<value id="21" name="Service-interruption"/> 
+			<value id="22" name="Physical-port-error"/> 
+			<value id="23" name="Idle-timeout"/> 
+			<value id="24" name="Session-timeout"/> 
+			<value id="25" name="Administrative-reset"/> 
+			<value id="26" name="NAS-reload-or-reset"/> 
+			<value id="27" name="NAS-error"/>
+			<value id="28" name="NAS-request"/> 
+			<value id="29" name="Undefined-reason-given"/> 
+			<value id="30" name="Conflicting-attributes"/> 
+			<value id="31" name="Port-limit-exceeded"/> 
+			<value id="32" name="Facility-not-available"/> 
+			<value id="33" name="Internal-config-error"/> 
+			<value id="34" name="Bad-route-specification"/> 
+			<value id="35" name="Access-Partition-bind-failure"/> 
+		        <value id="36" name="Security-violation"/>
+ 		        <value id="37" name="Request-type-conflict"/> 
+		        <value id="38" name="Configuration-disallowed"/>
+		        <value id="39" name="Missing-attribute"/>
+		        <value id="40" name="Invalid-request"/> 
+		        <value id="41" name="Missing-parameter"/>
+		        <value id="42" name="Invalid-parameter"/>
+		        <value id="43" name="Call-cleared-with-cause"/> 
+		        <value id="44" name="Inopportune-config-request"/>
+		        <value id="45" name="Invalid-config-parameter"/>
+		        <value id="46" name="Missing-config-parameter"/>
+		        <value id="47" name="Incompatible-service-profile"/> 
+		        <value id="48" name="Administrative-reset-2"/> 
+		        <value id="49" name="Administrative-reload"/> 
+		        <value id="50" name="Port-unneeded"/> 
+		        <value id="51" name="Port-preempted"/> 
+		        <value id="52" name="Port-suspended"/> 
+		        <value id="53" name="Service-unavailable"/> 
+		        <value id="54" name="Callback"/>
+		        <value id="55" name="User-error"/>
+			<value id="56" name="Host-request"/> 
+		</supported-values>                                      
+	</attribute>    
+	<attribute id="2" name="Acc-Ccp-Option" type="integer">
+		<supported-values> 
+			<value id ="1" name="Disabled"/>		 
+			<value id ="2" name="Enabled"/>	
+		</supported-values> 			 
+	</attribute>
+	<attribute id="3" name="Acc-Input-Errors" type="integer"/>
+	<attribute id="4" name="Acc-Output-Errors" type="integer"/>
+	<attribute id="5" name="Acc-Access-Partition" type="string"/>
+	<attribute id="6" name="Acc-Customer-Id" type="string"/>
+	<attribute id="7" name="Acc-Ip-Gateway-Pri" type="ipaddr"/>
+	<attribute id="8" name="Acc-Ip-Gateway-Sec" type="ipaddr"/>
+	<attribute id="9" name="Acc-Route-Policy" type="integer">
+		<supported-values>                      
+			<value id ="1" name="Funnel"/>
+			<value id ="2" name="Direct"/>	
+		</supported-values> 			
+	</attribute>
+	<attribute id="10" name="Acc-ML-MLX-Admin-State" type="integer">
+		<supported-values>                      
+			<value id ="1" name="Enabled"/>  
+			<value id ="2" name="Disabled"/>	
+		</supported-values> 			
+	</attribute>		
+	<attribute id="11" name="Acc-ML-Call-Threshold" type="integer"/>
+	<attribute id="12" name="Acc-ML-Clear-Threshold" type="integer"/>
+	<attribute id="13" name="Acc-ML-Damping-Factor" type="integer"/>
+	<attribute id="14" name="Acc-Tunnel-Secret" type="string"/>
+	<attribute id="15" name="Acc-Clearing-Cause" type="integer">
+	       	<supported-values>
+			<value id ="0" name="Cause-unspecified"/>
+	                <value id ="1" name="Unassigned-number"/>
+	                <value id ="2" name="No-route-to-transit-network"/>
+	                <value id ="3" name="No-route-to-destination"/>
+	                <value id ="6" name="Channel-unacceptable"/>
+	                <value id ="7" name="Call-awarded-being-delivered"/>
+	                <value id ="16" name="Normal-clearing"/>
+	                <value id ="17" name="User-busy"/>
+	                <value id ="18" name="No-user-responding"/>
+	                <value id ="19" name="User-alerted-no-answer"/>
+	                <value id ="21" name="Call-rejected"/>
+	                <value id ="22" name="Number-changed"/>
+	                <value id ="26" name="Non-selected-user-clearing"/>
+	                <value id ="27" name="Destination-out-of-order"/>
+	                <value id ="28" name="Invalid-or-incomplete-number"/>
+	                <value id ="29" name="Facility-rejected"/>
+	                <value id ="30" name="Response-to-status-inquiry"/>
+	                <value id ="31" name="Normal-unspecified-cause"/>
+	                <value id ="34" name="No-circuit-or-channel-available"/>
+	                <value id ="38" name="Network-out-of-order"/>
+	                <value id ="41" name="Temporary-failure"/>
+	                <value id ="42" name="Switching-equipment-congestion"/>
+	                <value id ="43" name="Access-information-discarded"/>
+	                <value id ="44" name="Circuit-or-channel-unavailable"/>
+	                <value id ="45" name="Circuit-or-channed-preempted"/>
+	                <value id ="47" name="Resources-unavailable"/>
+	                <value id ="49" name="Quality-of-service-unavailable"/>
+	                <value id ="50" name="Facility-not-subscribed"/>
+	                <value id ="52" name="Outgoing-calls-barred"/>
+	                <value id ="54" name="Incoming-calls-barred"/>
+	                <value id ="57" name="Bearer-capability-unauthorized"/>
+	                <value id ="58" name="Bearer-capability-not-available"/>
+	                <value id ="63" name="Service-not-available"/>
+	                <value id ="65" name="Bearer-capablity-not-implmented"/>
+	                <value id ="66" name="Channel-type-not-implemented"/>
+	                <value id ="69" name="Facility-not-implemented"/>
+	                <value id ="70" name="Restrcted-digtal-infrmtion-only"/>
+	                <value id ="79" name="Service-not-implemented"/>
+	                <value id ="81" name="Invalid-call-reference"/>
+	                <value id ="82" name="Identified-channel-doesnt-exist"/>
+	                <value id ="84" name="Call-identify-in-use"/>
+	                <value id ="85" name="No-call-suspended"/>
+	                <value id ="86" name="Suspended-call-cleared"/>
+	                <value id ="88" name="Incompatible-destination"/>
+	                <value id ="91" name="Invalid-transit-network-selctin"/>
+	                <value id ="95" name="Invalid-message"/>
+	                <value id ="96" name="Mandtory-infrmtion-elment-miss"/>
+	                <value id ="97" name="Message-not-implemented"/>
+	                <value id ="98" name="Inopportune-message"/>
+	                <value id ="99" name="Infrmtion-elemnt-not-implmented"/>
+	                <value id ="100" name="Invlid-infrmtion-element-contnt"/>
+	                <value id ="101" name="Message-incompatible-with-state"/>
+	                <value id ="102" name="Recovery-on-timer-expiration"/>
+	                <value id ="103" name="Mndtry-infrmtion-elmnt-lngt-err"/>
+	                <value id ="111" name="Protocol-error"/>
+	                <value id ="127" name="Interworking"/>
+	        </supported-values>      
+	</attribute>                
+	<attribute id="16" name="Acc-Clearing-Location" type="integer">    
+		<supported-values>
+			<value id ="0" name="Local-or-remote-user"/>
+	                <value id ="1" name="Prvte-ntwork-serving-local-user"/>
+	                <value id ="2" name="Pblic-ntwork-serving-local-user"/>
+	                <value id ="3" name="Transit-network"/>
+	                <value id ="4" name="Prvte-ntwork-serv-remote-user"/>
+	                <value id ="5" name="Pblic-ntwork-serv-remote-user"/>
+	                <value id ="6" name="International-network"/>
+	                <value id ="10" name="Beyond-interworking-point"/>
+		</supported-values>
+	</attribute>
+	<attribute id="17" name="Acc-Service-Profile" type="string"/>
+	<attribute id="18" name="Acc-Request-Type" type="integer">
+	       	<supported-values>
+			<value id="1" name="Ring-Indication"/>	
+	                <value id="2" name="Dial-Request"/>	
+	                <value id="3" name="User-Authentification"/>	
+	                <value id="4" name="Tunnel-Authentification"/>	
+	        </supported-values>  
+	</attribute>       
+	<attribute id="19" name="Acc-Bridging-Support" type="integer"> 
+		<supported-values>                      
+			<value id="1" name="Disabled"/> 
+		        <value id="2" name="Enabled"/>	
+		</supported-values> 
+	</attribute>	                    
+	<attribute id="20" name="Acc-Apsm-Oversubscribed" type="integer">  
+		<supported-values>                      
+	                <value id="1" name="False"/>	
+	                <value id="2" name="True"/>	
+	        </supported-values>                     
+	</attribute>
+	<attribute id="21" name="Acc-Acct-On-Off-Reason" type="integer">
+		<supported-values>                                      
+	                <value id="0" name="NAS-Reset"/>                
+	                <value id="1" name="NAS-Reload"/>               
+	                <value id="2" name="Configuration-Reset"/>      
+	                <value id="3" name="Configuration-Reload"/>	
+	                <value id="4" name="Enabled"/>	                
+	                <value id="5" name="Disabled"/>                 
+	        </supported-values>                                     
+	</attribute>
+	<attribute id="22" name="Acc-Tunnel-Port" type="integer"/>
+	<attribute id="23" name="Acc-Dns-Server-Pri" type="ipaddr"/>
+	<attribute id="24" name="Acc-Dns-Server-Sec" type="ipaddr"/>
+	<attribute id="25" name="Acc-Nbns-Server-Pri" type="ipaddr"/>
+	<attribute id="26" name="Acc-Nbns-Server-Sec" type="ipaddr"/>
+	<attribute id="27" name="Acc-Dial-Port-Index" type="integer"/>
+	<attribute id="28" name="Acc-Ip-Compression" type="integer"> 
+		<supported-values>                       
+	                <value id="1" name="Disabled"/>  
+	                <value id="2" name="Enabled"/>	 
+	        </supported-values>   
+	 </attribute>       
+	<attribute id="29" name="Acc-Ipx-Compression" type="integer">
+		 <supported-values>                        
+	                 <value id="1" name="Disabled"/>   
+	                 <value id="2" name="Enabled"/>	   
+	         </supported-values>                       
+	</attribute>
+	<attribute id="30" name="Acc-Connect-Tx-Speed" type="integer"/>
+	<attribute id="31" name="Acc-Connect-Rx-Speed" type="integer"/>
+	<attribute id="32" name="Acc-Modem-Modulation-Type" type="string"/>
+	<attribute id="33" name="Acc-Modem-Error-Protocol" type="string"/>
+	<attribute id="34" name="Acc-Callback-Delay" type="integer"/>
+	<attribute id="35" name="Acc-Callback-Num-Valid" type="string"/>
+	<attribute id="36" name="Acc-Callback-Mode" type="integer">   
+		 <supported-values>                                 
+	                 <value id="0" name="User-Auth"/>           
+	                 <value id="3" name="User-Specified-E-164"/>
+	                 <value id="6" name="CBCP-Callback"/>	    
+	                 <value id="7" name="CLI-Callback"/>	    
+	         </supported-values>                                
+	</attribute>	
+	<attribute id="37" name="Acc-Callback-CBCP-Type" type="integer">
+		 <supported-values>                                  
+	                 <value id="1" name="CBCP-None"/>          
+	                 <value id="2" name="CBCP-User-Specified"/>  
+	                 <value id="3" name="CBCP-Pre-Specified"/>   
+	         </supported-values>                                
+	</attribute>
+	<attribute id="38" name="Acc-Dialout-Auth-Mode" type="integer">	
+		<supported-values>																															  																																																																																																									
+                        <value id="2" name="CHAP"/>																																			 																																																																																																									
+                        <value id="3" name="CHAP-PAP"/> 																																		  																																																																																																									
+                        <value id="4" name="NONE"/>																																			 																																																																																																									
+                </supported-values>                     																																		  																																																																																																									
+	</attribute>	        
+	<attribute id="39" name="Acc-Dialout-Auth-Password" type="string"/>	
+	<attribute id="40" name="Acc-Dialout-Auth-Username" type="string"/>	
+	<attribute id="42" name="Acc-Access-Community" type="integer">	        
+		<supported-values>
+           	         <value id="1" name="PUBLIC"/>	
+                         <value id="2" name="NETMAN"/>	
+                </supported-values>                     
+	</attribute>
+	<attribute id="43" name="Acc-Vpsm-Reject-Cause" type="integer">
+		<supported-values>
+			<value id="1" name="No-Access-Partition"/>
+	        	<value id="2" name="Access-Partition-Disabled"/>
+	        	<value id="3" name="Partition-Portlimit-Exceeded"/>
+	        	<value id="4" name="License-Portlimit-Exceeded"/>
+	        	<value id="5" name="Home-Server-Down"/>
+	        	<value id="6" name="Rejected-By-Home-Server"/>
+	        	<value id="7" name="NAS-Administratively-Disabled"/>
+		</supported-values>
+	</attribute>
+	<attribute id="44" name="Acc-Ace-Token" type="string"/>
+	<attribute id="45" name="Acc-Ace-Token-Ttl" type="integer"/>
+	<attribute id="46" name="Acc-Ip-Pool-Name" type="string"/>
+	<attribute id="47" name="Acc-Igmp-Admin-State" type="integer">
+		<supported-values>
+			<value id="1" name="Enabled"/>	
+	                <value id="2" name="Disabled"/>  
+	        </supported-values>                                         
+	</attribute>                
+	<attribute id="48" name="Acc-Igmp-Version" type="integer">
+		<supported-values>
+			<value id="1" name="V1"/>
+		        <value id="2" name="V2"/>
+		</supported-values>
+	</attribute>	
+</attribute-list>       
+        
+        
+        

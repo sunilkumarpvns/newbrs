@@ -1,0 +1,407 @@
+***********************************************************************
+						GET OPERATION
+***********************************************************************
+
++-+-+-+-+-+ XML Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2?name=crestelOCSV2Driver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2.xml?name=crestelOCSV2Driver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver?_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver.xml
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2?operation=search&name=crestelOCSV2Driver&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2.xml?operation=search&name=crestelOCSV2Driver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver?operation=search&_type=xml
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver.xml?operation=search
+
+Content Type : application/xml
+
+Response     :
+<driver-instance>
+    <name>crestelOCSV2Driver</name>
+    <description>Created by admin on 02/10/2017 11:18:51 AM</description>
+    <crestel-charging-driver>
+        <translation-mapping-configuration>crestelratingOCSv2TranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+        <jndi-properties>
+            <jndi-property>
+                <property>java.naming.factory.initial</property>
+                <value>org.jnp.interfaces.NamingContextFactory</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.factory.url.pkgs</property>
+                <value>org.jboss.naming:org.jnp.interfaces</value>
+            </jndi-property>
+            <jndi-property>
+                <property>response.time.calc.required</property>
+                <value>true</value>
+            </jndi-property>
+        </jndi-properties>
+    </crestel-charging-driver>
+</driver-instance>
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+#URL (By default using GET Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2?name=crestelOCSV2Driver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2.json?name=crestelOCSV2Driver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver?_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver.json
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2?operation=search&name=crestelOCSV2Driver&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2.json?operation=search&name=crestelOCSV2Driver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver?operation=search&_type=json
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver.json?operation=search
+
+Content Type : application/json
+
+Response     :
+{
+    "name": "crestelOCSV2Driver",
+    "description": "Created by admin on 02/10/2017 11:48:43 AM",
+    "crestel-charging-driver": [
+        {
+            "translation-mapping-configuration": "crestelratingOCSv2TranslationMapping",
+            "number-of-instance": 5,
+            "jndi-properties": [
+                {
+                    "property": "java.naming.factory.initial",
+                    "value": "org.jnp.interfaces.NamingContextFactory"
+                },
+                {
+                    "property": "java.naming.factory.url.pkgs",
+                    "value": "org.jboss.naming:org.jnp.interfaces"
+                },
+                {
+                    "property": "java.naming.provider.url",
+                    "value": "127.0.0.1:4099"
+                },
+                {
+                    "property": "response.time.calc.required",
+                    "value": "true"
+                }
+            ]
+        }
+    ]
+}
+
+***********************************************************************
+					CREATE OPERATION (SINGLE OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<driver-instance>
+    <name>crestelOCSV2Driver</name>
+    <description>Created by admin on 02/10/2017 11:18:51 AM</description>
+    <crestel-charging-driver>
+        <translation-mapping-configuration>crestelratingOCSv2TranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+        <jndi-properties>
+            <jndi-property>
+                <property>java.naming.factory.initial</property>
+                <value>org.jnp.interfaces.NamingContextFactory</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.factory.url.pkgs</property>
+                <value>org.jboss.naming:org.jnp.interfaces</value>
+            </jndi-property>
+            <jndi-property>
+                <property>response.time.calc.required</property>
+                <value>true</value>
+            </jndi-property>
+        </jndi-properties>
+    </crestel-charging-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel OCS-V2 Translation Driver created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+{
+    "name": "crestelOCSV2Driver",
+    "description": "Created by admin on 02/10/2017 11:48:43 AM",
+    "crestel-charging-driver": [
+        {
+            "translation-mapping-configuration": "crestelratingOCSv2TranslationMapping",
+            "number-of-instance": 5,
+            "jndi-properties": [
+                {
+                    "property": "java.naming.factory.initial",
+                    "value": "org.jnp.interfaces.NamingContextFactory"
+                },
+                {
+                    "property": "java.naming.factory.url.pkgs",
+                    "value": "org.jboss.naming:org.jnp.interfaces"
+                },
+                {
+                    "property": "java.naming.provider.url",
+                    "value": "127.0.0.1:4099"
+                },
+                {
+                    "property": "response.time.calc.required",
+                    "value": "true"
+                }
+            ]
+        }
+    ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel OCS-V2 Translation Driver created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+					CREATE OPERATION (BULK OPERATION)
+***********************************************************************
+
+#URL (By default using POST Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/bulk
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/bulk?operation=create
+
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body :
+<list>
+   <driver-instance>
+    <name>crestelOCSV2Driver</name>
+    <description>Created by admin on 02/10/2017 11:18:51 AM</description>
+    <crestel-charging-driver>
+        <translation-mapping-configuration>crestelratingOCSv2TranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+	        <jndi-properties>
+	            <jndi-property>
+	                <property>java.naming.factory.initial</property>
+	                <value>org.jnp.interfaces.NamingContextFactory</value>
+	            </jndi-property>
+	            <jndi-property>
+	                <property>java.naming.factory.url.pkgs</property>
+	                <value>org.jboss.naming:org.jnp.interfaces</value>
+	            </jndi-property>
+	            <jndi-property>
+	                <property>response.time.calc.required</property>
+	                <value>true</value>
+	            </jndi-property>
+	        </jndi-properties>
+	    </crestel-charging-driver>
+	</driver-instance>
+</list>
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel OCS-V2 Translation Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body :
+{
+   "list":[
+      {
+         "name":"crestelOCSV2Driver",
+         "description":"Created by admin on 02/10/2017 11:48:43 AM",
+         "crestel-charging-driver":[
+            {
+               "translation-mapping-configuration":"crestelratingOCSv2TranslationMapping",
+               "number-of-instance":5,
+               "jndi-properties":[
+                  {
+                     "property":"java.naming.factory.initial",
+                     "value":"org.jnp.interfaces.NamingContextFactory"
+                  },
+                  {
+                     "property":"java.naming.factory.url.pkgs",
+                     "value":"org.jboss.naming:org.jnp.interfaces"
+                  },
+                  {
+                     "property":"java.naming.provider.url",
+                     "value":"127.0.0.1:4099"
+                  },
+                  {
+                     "property":"response.time.calc.required",
+                     "value":"true"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel OCS-V2 Translation Driver(s) created successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						UPDATE OPERATION
+***********************************************************************
+
+#URL (By default using PUT Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2?name=crestelOCSV2Driver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver
+
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2?operation=update&name=crestelOCSV2Driver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver?operation=update
+
++-+-+-+-+-+ XML Response +-+-+-+-+-+
+
+Content Type : application/xml
+
+Body     :
+<driver-instance>
+    <name>crestelOCSV2Driver</name>
+    <description>Created by admin on 02/10/2017 11:18:51 AM</description>
+    <crestel-charging-driver>
+        <translation-mapping-configuration>crestelratingOCSv2TranslationMapping</translation-mapping-configuration>
+        <number-of-instance>5</number-of-instance>
+        <jndi-properties>
+            <jndi-property>
+                <property>java.naming.factory.initial</property>
+                <value>org.jnp.interfaces.NamingContextFactory</value>
+            </jndi-property>
+            <jndi-property>
+                <property>java.naming.factory.url.pkgs</property>
+                <value>org.jboss.naming:org.jnp.interfaces</value>
+            </jndi-property>
+            <jndi-property>
+                <property>response.time.calc.required</property>
+                <value>true</value>
+            </jndi-property>
+        </jndi-properties>
+    </crestel-charging-driver>
+</driver-instance>
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel OCS-V2 Translation Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
++-+-+-+-+-+ JSON Format +-+-+-+-+-+
+
+Content Type : application/json
+
+Body     :
+{
+    "name": "crestelOCSV2Driver",
+    "description": "Created by admin on 02/10/2017 11:48:43 AM",
+    "crestel-charging-driver": [
+        {
+            "translation-mapping-configuration": "crestelratingOCSv2TranslationMapping",
+            "number-of-instance": 5,
+            "jndi-properties": [
+                {
+                    "property": "java.naming.factory.initial",
+                    "value": "org.jnp.interfaces.NamingContextFactory"
+                },
+                {
+                    "property": "java.naming.factory.url.pkgs",
+                    "value": "org.jboss.naming:org.jnp.interfaces"
+                },
+                {
+                    "property": "java.naming.provider.url",
+                    "value": "127.0.0.1:4099"
+                },
+                {
+                    "property": "response.time.calc.required",
+                    "value": "true"
+                }
+            ]
+        }
+    ]
+}
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel OCS-V2 Translation Driver updated successfully</response-message>
+	</response>
+</response-detail>
+
+***********************************************************************
+						DELETE OPERATION
+***********************************************************************
+
+#URL (By default using DELETE Method)
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2?name=crestelOCSV2Driver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver
+
+#URL using POST Method
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2?operation=delete&name=crestelOCSV2Driver
+--OR--
+http://ip:port/aaasmx/cxfservices/restful/v1/driver/charginggateway/crestelocsv2/crestelOCSV2Driver?operation=delete
+
+Response : 
+
+<response-detail>
+	<response>
+		<response-code>200</response-code>
+		<response-message>Crestel OCS-V2 Translation Driver(s) deleted successfully</response-message>
+	</response>
+</response-detail>
+
+Note : For multiple delete use comma separated values
+
+***********************************************************************

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<attribute-list vendorid="24757" vendor-name="WiMAX">
+
+    <attribute id="1" name="WiMAX Capability Attribute" type="wimaxTLV">
+           <sub-attribute-list>
+            <sub-attribute id="1" name="WiMAX Release" type="octetstringTLV">
+                </sub-attribute>
+            <sub-attribute id="2" name="Accounting Capabilities" type="unsignedoctetTLV">
+            </sub-attribute>
+            <sub-attribute id="3" name="Hotlining Capabilities" type="unsignedoctetTLV">
+            </sub-attribute>
+            <sub-attribute id="4" name="Idle Mode Notification Capabilities" type="unsignedoctetTLV">
+            </sub-attribute>
+        </sub-attribute-list>
+    </attribute>
+
+    <attribute id="2" name="Device-Authentication-Indicator" type="unsignedoctet"/>
+    <attribute id="3" name="GMT-Timezone-offset" type="octetstring"/>
+    <attribute id="4" name="AAA-Session-ID" type="octetstring"/>
+    <attribute id="5" name="MSK" type="key2868"/>
+    <attribute id="6" name="HA-IP-MIP4" type="octetstring"/>
+    <attribute id="7" name="HA-IP-MIP6" type="octetstring"/>
+    <attribute id="8" name="DHCPv4-Server" type="octetstring"/>
+    <attribute id="9" name="DHCPv6-Server" type="octetstring"/>
+    <attribute id="10" name="MN-HA-MIP4-KEY" type="key2868"/>
+    <attribute id="11" name="MN-HA-MIP4-SPI" type="unsignedinteger"/>
+    <attribute id="12" name="MN-HA-MIP6-KEY" type="key2868"/>
+    <attribute id="13" name="MN-HA-MIP6-SPI" type="unsignedinteger"/>
+    <attribute id="14" name="FA-RK-KEY" type="key2868"/>
+    <attribute id="15" name="HA-RK-KEY" type="key2868"/>
+    <attribute id="16" name="HA-RK-SPI" type="unsignedinteger"/>
+    <attribute id="17" name="HA-RK-Lifetime" type="unsignedinteger"/>
+    <attribute id="18" name="RRQ-HA-IP" type="octetstring"/>
+    <attribute id="19" name="RRQ-MN-HA-KEY" type="key2868"/>
+    <attribute id="20" name="Time-Of-Day-Time" type="wimaxTLV">
+    	<sub-attribute-list>
+            <sub-attribute id="1" name="Hour" type="unsignedoctetTLV">
+                </sub-attribute>
+            <sub-attribute id="2" name="Minute" type="unsignedoctetTLV">
+            </sub-attribute>
+            <sub-attribute id="3" name="UTC Offset" type="unsignedintegerTLV">
+            </sub-attribute>
+        </sub-attribute-list>
+    </attribute>
+ <!--   <attribute id="20" name="RRQ-MN-HA-SPI" type="integer"/>	-->
+    <attribute id="21" name="Session-Continue" type="unsignedinteger"/>
+    <attribute id="22" name="Beginning of Session" type="unsignedinteger"/>
+    <attribute id="23" name="IP-Technology" type="unsignedinteger">
+         <supported-values>
+             <value id="2" name="PMIP4"/>
+             <value id="3" name="CMIP4"/>
+             <value id="4" name="CMIP6"/>
+             <value id="5" name="Ethernet-CS"/>
+         </supported-values>
+    </attribute>
+
+    <attribute id="24" name="Hotline Indicator" type="octetstring"/>
+    <attribute id="25" name="Prepaid Indicator" type="unsignedoctet"/>
+    <attribute id="26" name="PDFID" type="unsignedshort"/>
+    <attribute id="27" name="SDFID" type="unsignedshort"/>
+
+    <attribute id="28" name="Packet-Flow-Descriptor" type="wimaxTLV">
+           <sub-attribute-list>
+            <sub-attribute id="1" name="PacketDataFlow-ID" type="unsignedshortTLV">
+                </sub-attribute>
+            <sub-attribute id="2" name="ServiceDataFlow-ID" type="unsignedshortTLV">
+            </sub-attribute>
+            <sub-attribute id="3" name="ServiceProfileID" type="unsignedintegerTLV">
+            </sub-attribute>
+            <sub-attribute id="4" name="Direction" type="unsignedoctetTLV">
+             <supported-values>
+                 <value id="1" name="Uplink"/>
+                 <value id="2" name="Downlink"/>
+                 <value id="3" name="Bi-directional"/>
+             </supported-values>
+            </sub-attribute>
+            <sub-attribute id="5" name="ActivationTrigger" type="unsignedoctetTLV">
+                </sub-attribute>
+            <sub-attribute id="6" name="TransportType" type="unsignedoctetTLV">
+                 <supported-values>
+                 <value id="1" name="IPv4-CS"/>
+                 <value id="2" name="IPv6-CS"/>
+                 <value id="3" name="Ethernet"/>
+             </supported-values>
+            </sub-attribute>
+            <sub-attribute id="7" name="UplinkQosID" type="unsignedoctetTLV">
+            </sub-attribute>
+            <sub-attribute id="8" name="DownlinkQoSID" type="unsignedoctetTLV">
+            </sub-attribute>
+            <sub-attribute id="9" name="UplinkClassifier" type="octetstringTLV">
+            </sub-attribute>
+            <sub-attribute id="10" name="DownlinkClassifier" type="octetstringTLV">
+            </sub-attribute>
+        </sub-attribute-list>
+    </attribute>
+
+    <attribute id="29" name="QoS-Descriptor" type="wimaxTLV">
+        <sub-attribute-list>
+            <sub-attribute id="1" name="QoS ID" type="unsignedoctetTLV">
+                </sub-attribute>
+            <sub-attribute id="2" name="Global Service Class Name" type="octetstringTLV">
+            </sub-attribute>
+            <sub-attribute id="3" name="Service Class Name" type="octetstringTLV">
+            </sub-attribute>
+            <sub-attribute id="4" name="Schedule Type" type="unsignedoctetTLV">
+                 <supported-values>
+                 <value id="2" name="Best Effort"/>
+                 <value id="3" name="nrtPS"/>
+                 <value id="4" name="rtPS"/>
+                 <value id="5" name="Extended rtPS"/>
+                 <value id="6" name="UGS"/>
+             </supported-values>
+            </sub-attribute>
+            <sub-attribute id="5" name="Traffic Priority" type="unsignedoctetTLV">
+                </sub-attribute>
+            <sub-attribute id="6" name="Maximum Sustained Traffic Rate" type="unsignedintegerTLV">
+            </sub-attribute>
+            <sub-attribute id="7" name="Minimum Reserved Traffic Rate" type="unsignedintegerTLV">
+            </sub-attribute>
+            <sub-attribute id="8" name="Maximum Traffic Burst" type="unsignedintegerTLV">
+            </sub-attribute>
+            <sub-attribute id="9" name="Tolerated Jitter" type="unsignedintegerTLV">
+                </sub-attribute>
+            <sub-attribute id="10" name="Maximum Latency" type="unsignedintegerTLV">
+            </sub-attribute>
+            <sub-attribute id="11" name="Reduced Resource Code" type="unsignedoctetTLV">
+            </sub-attribute>
+            <sub-attribute id="12" name="Media Flow Type" type="unsignedoctetTLV">
+                 <supported-values>
+                 <value id="1" name="Voice over IP"/>
+                 <value id="2" name="Robust Browser"/>
+                 <value id="3" name="Secure Browser/ VPN"/>
+                 <value id="4" name="Streaming video on demand"/>
+                 <value id="5" name="Streaming live TV"/>
+                 <value id="6" name="Music and Photo Download"/>
+                 <value id="7" name="Multi-player gaming"/>
+                 <value id="8" name="Location-based services"/>
+                 <value id="9" name="Text and Audio Books with Graphics"/>
+                 <value id="10" name="Video Conversation"/>
+                 <value id="11" name="Message"/>
+                 <value id="12" name="Control"/>
+                 <value id="13" name="Data"/>
+                 <valude id="128" name="Leaseline"/>
+             </supported-values>
+            </sub-attribute>
+            <sub-attribute id="13" name="Unsolicited Grant Interval" type="unsignedshortTLV">
+            </sub-attribute>
+            <sub-attribute id="14" name="SDU Size" type="unsignedshortTLV">
+            </sub-attribute>
+            <sub-attribute id="15" name="Unsolicited Polling Intervale" type="unsignedshortTLV">
+            </sub-attribute>
+            <sub-attribute id="16" name="Media Flow Description in SDP format" type="octetstringTLV">
+            </sub-attribute>
+        </sub-attribute-list>
+    </attribute>
+
+    <attribute id="30" name="Uplink Granted QoS" type="octetstring"/>
+    <attribute id="31" name="Control-Packets-In" type="unsignedinteger"/>
+    <attribute id="32" name="Control-Octets-In" type="unsignedinteger"/>
+    <attribute id="33" name="Control-Packets-Out" type="unsignedinteger"/>
+    <attribute id="34" name="Control Octets Out" type="unsignedinteger"/>
+
+    <attribute id="35" name="PPAC" type="wimaxTLV">
+         <sub-attribute-list>
+            <sub-attribute id="1" name="AvailableInClient (AiC)" type="octetstringTLV"/>
+         </sub-attribute-list>
+    </attribute>
+
+    <attribute id="36" name="Session Termination Capability" type="unsignedinteger"/>
+
+    <attribute id="37" name="PPAQ Attribute" type="wimaxTLV">
+        <sub-attribute-list>
+            <sub-attribute id="1" name="Quota Identifier" type="octetstringTLV"/>
+            <sub-attribute id="2" name="VolumeQuota" type="unsignedintegerTLV">
+            	<!-- <nested-sub-attribute-list>
+            		<nested-sub-attribute id="1" name="Value-Digits" type="unsignedlongsubTLV"/>
+            		<nested-sub-attribute id="2" name="Exponent" type="unsignedintegersubTLV"/>
+            	</nested-sub-attribute-list> -->
+            </sub-attribute>
+            <sub-attribute id="3" name="VolumeThreshold" type="unsignedintegerTLV">
+	            <!-- <nested-sub-attribute-list>
+            		<nested-sub-attribute id="1" name="Value-Digits" type="unsignedlongsubTLV"/>
+            		<nested-sub-attribute id="2" name="Exponent" type="unsignedintegersubTLV"/>
+            	</nested-sub-attribute-list> -->
+            </sub-attribute>
+            <sub-attribute id="4" name="DurationQuota" type="unsignedintegerTLV"/>
+            <sub-attribute id="5" name="DurationThershold" type="unsignedintegerTLV"/>
+            <sub-attribute id="6" name="ResourceQuota" type="unsignedintegerTLV"/>
+            <sub-attribute id="7" name="ResourceThreshold" type="unsignedintegerTLV"/>
+            <sub-attribute id="8" name="Update-Reason" type="unsignedoctetTLV">
+                 <supported-values>
+                     <value id="1" name="Pre-initialization"/>
+                     <value id="2" name="Initial-Request"/>
+                     <value id="3" name="Threshold Reached"/>
+                     <value id="4" name="Quota Reached"/>
+                     <value id="5" name="TITSU Approaching"/>
+                     <value id="6" name="Remote Forced Disconnect"/>
+                     <value id="7" name="Client Service Termination"/>
+                     <value id="8" name="“Access Service” Terminated"/>
+                     <value id="9" name="Service not established"/>
+                     <value id="10" name="One-time Charging"/>
+                 </supported-values>
+            </sub-attribute>
+            <sub-attribute id="9" name="PrepaidServer" type="octetstringTLV"/>
+            <sub-attribute id="10" name="Service-ID" type="octetstringTLV"/>
+            <sub-attribute id="11" name="Rating-Group-ID" type="unsignedintegerTLV"/>
+            <sub-attribute id="12" name="Termination-Action" type="unsignedoctetTLV">
+                <supported-values>
+                    <value id="1" name="Terminate"/>
+                    <value id="2" name="Request more quota"/>
+                    <value id="3" name="Redirect/Filter"/>
+                </supported-values>
+            </sub-attribute>
+            <sub-attribute id="13" name="Pool-ID" type="unsignedintegerTLV"/>
+            <sub-attribute id="14" name="Pool-Multiplier" type="unsignedintegerTLV"/>
+            <sub-attribute id="15" name="Requested-Action" type="unsignedoctetTLV">
+                <supported-values>
+                    <value id="1" name="Balance Check"/>
+                    <value id="2" name="Price Enquiry"/>
+                </supported-values>
+            </sub-attribute>
+            <sub-attribute id="16" name="Check-Balance-Result" type="unsignedoctetTLV"/>
+            <sub-attribute id="17" name="Cost-Information AVP" type="octetstringTLV"/>
+        </sub-attribute-list>
+    </attribute>
+
+    <attribute id="38" name="Prepaid Tariff Switching (PTS)" type="wimaxTLV">
+        <sub-attribute-list>
+            <sub-attribute id="1" name="Quota Identifier" type="octetstringTLV"/>
+            <sub-attribute id="2" name="VolumeUsedAfterTariffSwitch" type="unsignedintegerTLV"/>
+            <sub-attribute id="3" name="TarrifSwitchInterval" type="unsignedintegerTLV"/>
+            <sub-attribute id="4" name="TimeIntervalAfterTarriffSwitchUpdate" type="unsignedintegerTLV"/>
+        </sub-attribute-list>
+    </attribute>
+
+    <attribute id="39" name="Active-Time" type="unsignedinteger"/>
+    <attribute id="40" name="DHCP-RK" type="key2868"/>
+    <attribute id="41" name="DHCP-RK-Key-ID" type="unsignedinteger"/>
+    <attribute id="42" name="DHCP-RK-Lifetime" type="unsignedinteger"/>
+    <attribute id="43" name="DHCPMSG-Server-IP" type="octetstring"/>
+    <attribute id="44" name="Idle-Mode-Transition" type="unsignedoctet"/>
+    <attribute id="45" name="NAP-ID" type="octetstring"/>
+    <attribute id="46" name="BS-ID" type="octetstring"/>
+    <attribute id="47" name="Location" type="octetstring"/>
+    <attribute id="48" name="Acct-Input-Packets-Gigaword" type="unsignedinteger"/>
+    <attribute id="49" name="Acct-Output-Packets Gigaword" type="unsignedinteger"/>
+    <attribute id="50" name="Uplink Flow Description" type="octetstring"/>
+    <attribute id="51" name="BU-CoA-Ipv6" type="octetstring"/>
+    <attribute id="52" name="DNS" type="octetstring"/>
+    <attribute id="53" name="Hotline-Profile-ID" type="octetstring"/>
+    <attribute id="54" name="HTTP-Redirection-Rule" type="octetstring"/>
+	<attribute id="55" name="IP-Redireciton-Rule" type="octetstring"/>
+    <attribute id="56" name="Hotline-Session-Timer" type="unsignedinteger"/>
+    <attribute id="57" name="NSP-ID" type="octetstring"/>
+    <attribute id="58" name="HA-RK-Key-Requested" type="unsignedinteger"/>
+    <attribute id="59" name="Count-Type" type="unsignedoctet"/>
+    <attribute id="60" name="WiMAX-DM-Action-Code" type="unsignedinteger"/>
+    <attribute id="61" name="FA-RK-SPI" type="unsignedinteger"/>
+    <attribute id="62" name="Downlink Flow Description" type="octetstring"/>
+    <attribute id="63" name="Downlink Granted-QoS" type="octetstring"/>
+    <attribute id="64" name="vHA-IP-MIP4" type="octetstring"/>
+    <attribute id="65" name="vHA-IP-MIP6" type="octetstring"/>
+    <attribute id="66" name="MN-vHA-MIP4-KEY" type="key2868"/>
+    <attribute id="67" name="vHA-RK-KEY" type="key2868"/>
+    <attribute id="68" name="vHA-RK-SPI" type="unsignedinteger"/>
+    <attribute id="69" name="vHA-RK-Lifetime" type="unsignedinteger"/>
+
+</attribute-list>

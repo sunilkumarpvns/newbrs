@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struts-config>
+<form-beans>
+<form-bean name="ddfTableDataForm" type="com.elitecore.netvertexsm.web.servermgr.spr.form.DDFTableDataForm" />
+</form-beans>
+
+ <global-forwards >
+      <forward name="success" path="/jsp/core/response/SuccessResponsePage.jsp" />
+      <forward name="failure" path="/jsp/core/response/FailureResponsePage.jsp" />
+    </global-forwards>
+<action-mappings>
+	<action parameter="method" name="ddfTableDataForm" 
+	 			path="/ddfTableData" scope="request" type="com.elitecore.netvertexsm.web.servermgr.spr.ddf.DDFTableDataAction">
+	 			
+		<forward name="viewDDF" path="/jsp/servermgr/ddf/ViewDDFContainer.jsp" />
+		<forward name="editDDF" path="/jsp/servermgr/ddf/EditDDFContainer.jsp" />
+	 </action>
+
+</action-mappings>
+ <message-resources key="ddfResources" parameter="com.elitecore.netvertexsm.web.servermgr.spr.ddfResources" />
+</struts-config>

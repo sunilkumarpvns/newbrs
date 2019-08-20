@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.elitecore.netvertexsm.datamanager.gateway.profile.data">
+
+  <class name="com.elitecore.netvertexsm.datamanager.gateway.profile.data.RadiusProfileData" table="TBLMRADIUSGATEWAYPROFILE">
+  
+  		<id name="profileId" column="PROFILEID" type="java.lang.Long" >
+  			<generator class="foreign">
+				<param name="property" >gatewayProfileData</param>
+			</generator>
+  		</id>
+  		
+  		<one-to-one name="gatewayProfileData" class="com.elitecore.netvertexsm.datamanager.gateway.profile.data.GatewayProfileData" >
+		</one-to-one>
+		
+  		<property name="timeout" type="java.lang.Long">
+          <column name="TIMEOUT" sql-type="NUMERIC(5)" not-null="false"/>
+     	</property>          
+     	
+     	<property name="maxRequestTimeout" type="java.lang.Long">
+          <column name="MAXREQUESTTIMEOUT" sql-type="NUMERIC(5)" not-null="false"/>
+     	</property>
+     	
+     	 <property name="statusCheckDuration" type="java.lang.Long">
+          <column name="STATUSCHECKDURATION" sql-type="NUMERIC(8)" not-null="false"/>
+     	 </property>
+     
+    	 <property name="icmpPingEnabled" type="java.lang.String">
+         	 <column name="ISICMPPINGENABLED" sql-type="VARCHAR2(5)" not-null="false"/>
+     	</property>
+     
+    	 <property name="retryCount" type="java.lang.Long">
+        	  <column name="RETRYCOUNT" sql-type="NUMERIC(8)" not-null="false"/>
+    	 </property>   
+  		
+  		<property name="supportedVendorList" type="string" >
+  			<column name="SUPPORTEDVENODRLIST" sql-type="VARCHAR2(255)" not-null="false"/>
+  		</property>
+  		
+  		<property name="sendAccountingResponse" type="string">
+          <column name="SENDACCOUNTINGRESPONSE" sql-type="VARCHAR2(5)" not-null="false"/>
+     	</property>
+
+	  <property name="interimInterval" type="java.lang.Integer">
+		  <column name="INTERIM_INTERVAL" sql-type="NUMERIC(5)" not-null="false"/>
+	  </property>
+
+  </class>
+</hibernate-mapping>

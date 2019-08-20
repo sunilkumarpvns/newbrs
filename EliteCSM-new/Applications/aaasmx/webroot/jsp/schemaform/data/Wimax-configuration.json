@@ -1,0 +1,58 @@
+{
+   "schema":{
+  "type":"object",
+  "title":"WiMAX",
+  "properties":{
+      "accounting-capabilities":{
+          "title":"Accounting Capabilities",
+          "type":"string"
+      },
+      "idle-mode-notification-capabilities":{
+          "title":"Idle Mode Notification Capabilities",
+          "type":"string"
+      },
+      "ha-rk-lifetime":{
+          "title":"HA RK Lifetime",
+          "type":"string",
+          "default":"172800"
+      },
+      "dhcp-rk-lifetime":{
+          "title":"DHCP RK Lifetime",
+          "type":"string",
+          "default":"172800"
+      }
+  }
+  
+},
+   "form":[
+  {
+      "key":"accounting-capabilities",
+      "type":"select",
+      "titleMap":{
+          "IP-session-based accounting":"IP-session-based accounting",
+          "Flow-based-accounting":"Flow-based-accounting"
+      }
+  },
+  {
+      "key":"idle-mode-notification-capabilities",
+      "type":"select",
+      "titleMap":{
+          "Not Required":"Not Required",
+          "Required":"Required"
+      }
+  },
+  {
+      "key":"ha-rk-lifetime"
+  },
+  {
+      "key":"dhcp-rk-lifetime"
+  }
+  
+],
+"model":{
+  "accounting-capabilities": "IP-session-based accounting",
+  "idle-mode-notification-capabilities": "Required",
+  "ha-rk-lifetime": "17280",
+  "dhcp-rk-lifetime": "17280"
+}
+}

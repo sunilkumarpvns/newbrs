@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute-list vendorid="19382" vendor-name="Manzara">
+<attribute id="1" name="Manzara-User-Uid" type="integer"/>
+<attribute id="2" name="Manzara-User-Gid" type="integer"/>
+<attribute id="3" name="Manzara-User-Home" type="string"/>
+<attribute id="4" name="Manzara-User-Shell" type="string"/>
+<attribute id="5" name="Manzara-PPP-Addr-String" type="string"/>
+<attribute id="6" name="Manzara-Full-Login-String" type="string"/>
+<attribute id="7" name="Manzara-Tariff-Units" type="integer"/>
+<attribute id="8" name="Manzara-Tariff-Type" type="integer">
+	<supported-values>
+		<value id="1" name="MMS-Picture"/>
+		<value id="2" name="Unused"/>
+		<value id="3" name="Internet"/>
+	</supported-values>
+</attribute>
+<attribute id="9" name="Manzara-ECP-Session-Key" type="octets"/>
+</attribute-list>

@@ -1,0 +1,14 @@
+{
+  "id": "rest_datasource_11111111",
+  "status": "ACTIVE",
+  "groups": "GROUP_1",
+  "name": "rest_datasource",
+  "connectionUrl": "jdbc:oracle:thin:@192.168.2.133:1521:nvtxdb",
+  "userName": "netvertex",
+  "password":"netvertex",
+  "minimumPool": 1,
+  "maximumPool": 10,
+  "queryTimeout": 1000,
+  "statusCheckDuration": 120,
+  "groupNames": "DefaultGroup"
+}

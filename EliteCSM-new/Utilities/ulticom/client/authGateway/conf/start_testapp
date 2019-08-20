@@ -1,0 +1,3 @@
+#!/bin/ksh
+
+./testApp ./authulcmmg.conf 310260700148618 5

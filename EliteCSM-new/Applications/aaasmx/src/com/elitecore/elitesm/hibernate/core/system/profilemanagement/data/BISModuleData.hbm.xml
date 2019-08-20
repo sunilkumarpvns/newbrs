@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+          
+<hibernate-mapping>
+<class name="com.elitecore.elitesm.datamanager.core.system.profilemanagement.data.BISModuleData" table="TBLMBISMODULE" >  
+	<id name="businessModuleId" type="CharType" column="BUSINESSMODULEID">
+	</id>
+	
+	<property name="alias" type="StringType">
+		<column name="ALIAS" sql-type="VARCHAR(50)"></column>
+	</property>
+	
+	<property name="name" type="StringType">
+		<column name="NAME" sql-type="VARCHAR(50)"></column>
+	</property>
+	
+	<property name="systemGenerated" type="CharType">
+		<column name="SYSTEMGENERATED" sql-type="CHAR(1)"></column>
+	</property>
+	
+	<property name="status" type="CharType">
+		<column name="STATUS" sql-type="CHAR(1)"></column>
+	</property>
+	
+	<property name="description" type="StringType">
+		<column name="DESCRIPTION" sql-type="VARCHAR(100)"></column>
+	</property>
+	
+	<property name="freezeProfile" type="CharType">
+		<column name="FREEZEPROFILE" sql-type="CHAR(1)"></column>
+	</property>
+	
+	<set name="bisModuleSubBisModuleRel" cascade="all,delete-orphan" lazy="false" inverse="true" >
+		<key column="businessModuleId" ></key>
+		<one-to-many class="com.elitecore.elitesm.datamanager.core.system.profilemanagement.data.BISModuleSubBISModuleRelData" />
+    </set>
+    
+	<many-to-one name="bisModuleType" class="com.elitecore.elitesm.datamanager.core.system.profilemanagement.data.BISModuleTypeData" column="BISMODULETYPEID" insert="false" update="false" not-null="true" lazy="false"/>  
+</class>
+</hibernate-mapping>          
