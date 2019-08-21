@@ -1,0 +1,17 @@
+<!-- ehcache.xml -->
+<ehcache>
+   <defaultCache
+                   maxElementsInMemory="50"
+                   eternal="false"
+				   timeToIdleSeconds="180"
+                   timeToLiveSeconds="300"  />
+                   
+   <cache    name="employee"
+                   maxElementsInMemory="10"
+                   eternal="false"
+				   timeToIdleSeconds="5"
+                   timeToLiveSeconds="300"  />
+</ehcache>        
+
+
+                                     

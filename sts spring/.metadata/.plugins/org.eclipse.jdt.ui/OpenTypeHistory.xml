@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=MVCMavenOrmIntegration/C:\/Program Files\/Apache Software Foundation\/Tomcat 8.5\/lib\/tomcat-dbcp.jar&lt;org.apache.tomcat.dbcp.dbcp2(BasicDataSourceMXBean.class[BasicDataSourceMXBean" modifiers="1537" timestamp="1524860696000"/>
+<typeInfo handle="=MVCMavenOrmIntegration/C:\/Users\/sunil\/.m2\/repository\/org\/apache\/commons\/commons-dbcp2\/2.1.1\/commons-dbcp2-2.1.1.jar&lt;org.apache.commons.dbcp2(BasicDataSource.class[BasicDataSource" modifiers="33" timestamp="1528048376772"/>
+<typeInfo handle="=MVCMavenOrmIntegration/C:\/Users\/sunil\/.m2\/repository\/org\/hibernate\/hibernate-core\/5.2.17.Final\/hibernate-core-5.2.17.Final.jar&lt;org.hibernate(SessionFactory.class[SessionFactory" modifiers="1537" timestamp="1528074330987"/>
+<typeInfo handle="=MVCMavenOrmIntegration/C:\/Users\/sunil\/.m2\/repository\/org\/hibernate\/hibernate-core\/5.2.17.Final\/hibernate-core-5.2.17.Final.jar&lt;org.hibernate.dialect(MySQLDialect.class[MySQLDialect" modifiers="33" timestamp="1528074330987"/>
+</typeInfoHistroy>

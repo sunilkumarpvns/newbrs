@@ -1,0 +1,29 @@
+package com.app.validator;
+
+import java.util.regex.Pattern;
+
+import org.springframework.stereotype.Component;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
+import com.app.model.Student;
+@Component
+public class StudentValidator implements Validator {
+
+	@Override
+	public boolean supports(Class<?> clazz) {
+		// TODO Auto-generated method stub
+		return Student.class.equals(clazz);
+	}
+
+	@Override
+	public void validate(Object target, Errors errors)
+	{
+          Student e=(Student)target;
+		
+		if(!Pattern.compile("[A-Za-z]{2,6}").matcher(e.getStdName()).matches()) {
+			errors.rejectValue("stdName", null, "Enter 2-6 only chars");
+		}
+	}
+
+}

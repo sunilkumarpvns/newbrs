@@ -1,0 +1,24 @@
+package com.app;
+
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+public class Test {
+
+	public static void main(String[] args) {
+		ApplicationContext ac=new AnnotationConfigApplicationContext(AppConfig.class);
+		JdbcTemplate jt=(JdbcTemplate)ac.getBean("jtObj");
+		String sql="select * from emptab";
+		EmpRowMapper rm=new EmpRowMapper();
+		List<Employee> emps=jt.query(sql, rm);
+		for(Employee emp:emps)
+		{
+			System.out.println(emp);
+		}
+		
+	
+	}
+	}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="SpringAopEx"/>
+<aop-project name="SpringSecurity"/>
+<aop-project name="SpringOrmEx"/>
+<aop-project name="MVCMavenOrmIntegration"/>
+</aop-reference-model>

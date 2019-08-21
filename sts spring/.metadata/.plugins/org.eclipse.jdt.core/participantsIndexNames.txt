@@ -1,0 +1,9 @@
+INDEX VERSION 1.130
+F:\sts spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4231795509.index
+\MVCMavenOrmIntegration\src\main\resources
+F:\sts spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1171919557.index
+\MVCMavenOrmIntegration\src\main\java
+F:\sts spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2188992783.index
+\SpringSecurity\src\main\resources
+F:\sts spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3792174128.index
+\SpringSecurity\src\main\java

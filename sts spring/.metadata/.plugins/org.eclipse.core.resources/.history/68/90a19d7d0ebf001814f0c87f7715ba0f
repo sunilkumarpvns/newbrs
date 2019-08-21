@@ -1,0 +1,28 @@
+package com.app;
+
+
+
+public class Test {
+
+	public static void main(String[] args) {
+	int n=1;
+		int c=0,a,temp;	
+		temp=n;
+	if(n>0)
+	{
+		a=n%10;
+		n=n/10;
+		c=c+(a*a*a);
+		
+	}
+	if(temp==c)
+	{
+		System.out.println("palindrome number");
+	}
+	else {
+		System.out.println("not a palindrome number");
+
+	}
+	
+	}
+	}

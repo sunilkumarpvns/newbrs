@@ -1,0 +1,9 @@
+<!DOCTYPE  hibernate-mapping  PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class   name="com.sathya.entity.Employee">
+      <id    name="empno"  type="int"/>
+      <property  name="image"   type="blob"/>
+  </class>
+</hibernate-mapping>

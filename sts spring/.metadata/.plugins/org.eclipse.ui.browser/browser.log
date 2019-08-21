@@ -1,0 +1,15 @@
+
+Jun 04, 2018 15:08:48.34 NEW SESSION
+Jun 04, 2018 15:08:48.34 [3868:4084:0604/150848.334:ERROR:in_progress_cache_impl.cc(93)] Could not read download entries from file because there was a read failure.
+Jun 04, 2018 15:29:15.32 Unable to read VR Path Registry from C:\Users\sunil\AppData\Local\openvr\openvrpaths.vrpath
+Jun 04, 2018 15:29:15.32 [3868:4080:0604/152915.327:ERROR:socket_stream.cc(210)] Closing stream with result -101
+
+Jun 05, 2018 14:32:38.14 NEW SESSION
+Jun 05, 2018 14:32:38.14 [3952:3880:0605/143238.141:ERROR:in_progress_cache_impl.cc(93)] Could not read download entries from file because there was a read failure.
+Jun 05, 2018 14:32:39.42 [3952:3804:0605/143239.427:ERROR:backend_impl.cc(1064)] Critical error found -8
+Jun 05, 2018 14:32:39.42 [3952:3804:0605/143239.427:ERROR:entry_impl.cc(1037)] No file for a0013053
+Jun 05, 2018 14:32:41.63 [3952:3804:0605/143241.631:ERROR:backend_impl.cc(1064)] Critical error found -8
+Jun 05, 2018 14:33:54.19 Unable to read VR Path Registry from C:\Users\sunil\AppData\Local\openvr\openvrpaths.vrpath
+Jun 05, 2018 14:33:54.19 [3952:3876:0605/143354.193:ERROR:connection_handler_impl.cc(476)] Timed out waiting for GCM Protocol buffer.
+Jun 05, 2018 14:39:43.99 [3952:1536:0605/143943.996:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jun 05, 2018 14:48:23.24 [3952:1536:0605/144823.243:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
